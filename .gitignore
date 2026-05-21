@@ -1,0 +1,12 @@
+.bybit-docs-upstream/
+
+# Python/runtime artifacts
+__pycache__/
+*.pyc
+.mypy_cache/
+.ruff_cache/
+.venv/
+.env
+
+# OS/editor files
+.DS_Store
