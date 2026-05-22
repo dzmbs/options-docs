@@ -1,0 +1,364 @@
+{
+  "files": {
+    "general-info.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/general-info",
+      "hash": "866e6c516b7274b13309baf52246b67e242d597f97db7b89ceb5cad96f1572e8",
+      "last_updated": "2026-03-22T10:20:55.069769"
+    },
+    "common-definition.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/common-definition",
+      "hash": "75b082846c54796190fcefc9db9f884bafb278d9842b84b33bf4a77d05374d1b",
+      "last_updated": "2026-03-22T10:20:56.747154"
+    },
+    "market-data.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data",
+      "hash": "0a42cc78162b51abbf25c616afc113ce89390a75b10a405a838f4d1f717193c8",
+      "last_updated": "2026-03-22T10:20:58.027741"
+    },
+    "market-data/Check-Server-Time.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data/Check-Server-Time",
+      "hash": "1a48e1ec1e58c574296d64735851260daf7f784134f984e4efcf04fbabe69341",
+      "last_updated": "2026-03-22T10:20:59.699668"
+    },
+    "market-data/Test-Connectivity.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data/Test-Connectivity",
+      "hash": "451fd2bfb2819e6f8a5c09f555568769dc9e225aae572e3a9e389d39174780cc",
+      "last_updated": "2026-03-22T10:21:01.384286"
+    },
+    "market-data/24hr-Ticker-Price-Change-Statistics.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data/24hr-Ticker-Price-Change-Statistics",
+      "hash": "64c1c4b1b01b7aeca7e601a43be5ffa98acad80e72dbe41cb188753b376c72dc",
+      "last_updated": "2026-03-22T10:21:03.062155"
+    },
+    "market-data/Exchange-Information.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data/Exchange-Information",
+      "hash": "42f6744b657e5f5abb65ea4862fa62e8d31b4b1d9a02d9e1a7e4987cb9f8f80f",
+      "last_updated": "2026-03-22T10:21:04.759310"
+    },
+    "market-data/Historical-Exercise-Records.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data/Historical-Exercise-Records",
+      "hash": "50225525127aecfb15d895ef12b0bbbd7d871aa58430b65b88fbe7d8d95ca0a9",
+      "last_updated": "2026-03-22T10:21:06.444395"
+    },
+    "market-data/Open-Interest.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data/Open-Interest",
+      "hash": "0f2d10e634251dbbeed0948b5a7478bdc0741bcb7aa833b5dc4d25e5a1b71030",
+      "last_updated": "2026-03-22T10:21:08.128737"
+    },
+    "market-data/Order-Book.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data/Order-Book",
+      "hash": "5575dfb676298afe81dae81ca32e745326419038688b813795619dd0c8d9f16a",
+      "last_updated": "2026-03-22T10:21:09.823557"
+    },
+    "market-data/Recent-Trades-List.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data/Recent-Trades-List",
+      "hash": "f26a716f8109e3305ca01300a4ddc9b188ea0c54930d1008687dfe411d7dda17",
+      "last_updated": "2026-03-22T10:21:11.492290"
+    },
+    "market-data/Recent-Block-Trade-List.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data/Recent-Block-Trade-List",
+      "hash": "18b0751ce1b0d27bfd8ba3e0d766dded9f1f92ccc9bfff4540ddcbd740674f7c",
+      "last_updated": "2026-03-22T10:21:13.175498"
+    },
+    "market-data/Symbol-Price-Ticker.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data/Symbol-Price-Ticker",
+      "hash": "f2644a55f7726bd262653f533234de13d91f6e2870a99adf4f79e54f42bfc0d1",
+      "last_updated": "2026-03-22T10:21:14.869841"
+    },
+    "market-data/Kline-Candlestick-Data.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data/Kline-Candlestick-Data",
+      "hash": "67590def499398fa6482e7a90888822cb12a36fdd93c1ddf7879f128c477f184",
+      "last_updated": "2026-03-22T10:21:16.552057"
+    },
+    "market-data/Option-Mark-Price.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data/Option-Mark-Price",
+      "hash": "184785a582797e50ee5bf6e4e4bad8dd162a402cb49ddfe6d90cf23a7c66b12e",
+      "last_updated": "2026-03-22T10:21:18.250328"
+    },
+    "account.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/account",
+      "hash": "b1fc676c6d0eb8af6fb2f7dc7e0323a2b6f294bae716781aee987c394648b942",
+      "last_updated": "2026-03-22T10:21:19.926188"
+    },
+    "account/Account-Funding-Flow.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/account/Account-Funding-Flow",
+      "hash": "36f19dd0dbe424f51d777408088a61927643eadceccaf9267c05c9e76b926061",
+      "last_updated": "2026-03-22T10:21:21.601508"
+    },
+    "account/Funds-Transfer.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/account/Funds-Transfer",
+      "hash": "5bbb48279b78023486a876c24e7e73e7ff1136a999737f122f04e4713685bec0",
+      "last_updated": "2026-03-22T10:21:23.291100"
+    },
+    "trade.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/trade",
+      "hash": "3c4b56dece23412fb7b32ee1ff4db9c42ecc257351c736b8e946c157d5599d81",
+      "last_updated": "2026-03-22T10:21:24.966197"
+    },
+    "trade/Place-Multiple-Orders.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/trade/Place-Multiple-Orders",
+      "hash": "5faeb693bcc9c4342da96977b5492e7095222dfec433b494f76312993ac289ac",
+      "last_updated": "2026-03-22T10:21:26.649436"
+    },
+    "trade/Cancel-Option-Order.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/trade/Cancel-Option-Order",
+      "hash": "200a55162ead5fe4e5222d0f4a2600e3682cd5ab0a93eebb9e6807751407ce2a",
+      "last_updated": "2026-03-22T10:21:28.334481"
+    },
+    "trade/Cancel-Multiple-Option-Orders.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/trade/Cancel-Multiple-Option-Orders",
+      "hash": "916007d005578d0beed7e39413e775e4457265cd1526b291218b569db34f1181",
+      "last_updated": "2026-03-22T10:21:30.098854"
+    },
+    "trade/Cancel-All-Option-Orders-By-Underlying.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/trade/Cancel-All-Option-Orders-By-Underlying",
+      "hash": "143867ff84ba6af6205ee24c6ed2cb6fbd1d11bcb6ee6bd1094aefce8831e762",
+      "last_updated": "2026-03-22T10:21:31.780199"
+    },
+    "trade/Cancel-all-Option-orders-on-specific-symbol.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/trade/Cancel-all-Option-orders-on-specific-symbol",
+      "hash": "2357451d456fd5348d2d8415b37c77f6538bf5b5074f399751d74793af9b01b0",
+      "last_updated": "2026-03-22T10:21:33.453904"
+    },
+    "trade/Query-Single-Order.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/trade/Query-Single-Order",
+      "hash": "61ea962a449c56ee006126c0e40950744fcc078c581566072b270ef29a3263b8",
+      "last_updated": "2026-03-22T10:21:35.128587"
+    },
+    "trade/Query-Option-Order-History.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/trade/Query-Option-Order-History",
+      "hash": "842678498bdaa810160eead9039e1b3e425d43e5a17236d49cf54e5cc86b23cf",
+      "last_updated": "2026-03-22T10:21:36.812680"
+    },
+    "trade/Query-Current-Open-Option-Orders.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/trade/Query-Current-Open-Option-Orders",
+      "hash": "15abdd484b82cf78b1d42dbb5a3b18d59fae1d856b1ae8c47bade3efdf2c4296",
+      "last_updated": "2026-03-22T10:21:38.499940"
+    },
+    "trade/Option-Position-Information.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/trade/Option-Position-Information",
+      "hash": "0601c570734c095b3bcb5d23f850cd631962ba9556426c7dfe2b1997dbf9a40a",
+      "last_updated": "2026-03-22T10:21:40.187031"
+    },
+    "trade/User-Exercise-Record.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/trade/User-Exercise-Record",
+      "hash": "b139a02c217ff517a061addc3ed690428d23ee5da8d3ef891d5f756848b7f8f3",
+      "last_updated": "2026-03-22T10:21:41.879991"
+    },
+    "trade/Account-Trade-List.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/trade/Account-Trade-List",
+      "hash": "73e3cf99e90c2110714782ecbdb82429a147295640af5bd853eda0b97621e1eb",
+      "last_updated": "2026-03-22T10:21:43.568447"
+    },
+    "trade/User-Commission.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/trade/User-Commission",
+      "hash": "c2613645258060560872d0e31c31ea2e76208b0f8155a22bc5c41121d3322ef6",
+      "last_updated": "2026-03-22T10:21:44.866168"
+    },
+    "websocket-market-streams.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/websocket-market-streams",
+      "hash": "de4dc379b821095d6f82a87030aeb43330a8fef79a98704635bd2dad424a4825",
+      "last_updated": "2026-03-22T10:21:46.142078"
+    },
+    "websocket-market-streams/Live-Subscribing-Unsubscribing-to-streams.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/websocket-market-streams/Live-Subscribing-Unsubscribing-to-streams",
+      "hash": "f4bcb3275f3267643aab2458dbb4d32dd17f5e9cb5abe584eab3afc52a37dc57",
+      "last_updated": "2026-03-22T10:21:47.826938"
+    },
+    "websocket-market-streams/New-Symbol-Info.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/websocket-market-streams/New-Symbol-Info",
+      "hash": "f96eb5553781e5108ccafe00126589458fec4e4402cf4dbdb2a7d4ba658a3b01",
+      "last_updated": "2026-03-22T10:21:49.503485"
+    },
+    "websocket-market-streams/Open-Interest.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/websocket-market-streams/Open-Interest",
+      "hash": "afea064205300c5a850916ae09b0dffe199d912bcf2ddfe92128bfb76ecebdc6",
+      "last_updated": "2026-03-22T10:21:51.187813"
+    },
+    "websocket-market-streams/Mark-Price.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/websocket-market-streams/Mark-Price",
+      "hash": "c2e2e0e23b7385951e0759e165fdbbc6b33a731ac39b474a66b4cbe63c2b64db",
+      "last_updated": "2026-03-22T10:21:52.865704"
+    },
+    "websocket-market-streams/Kline-Candlestick-Streams.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/websocket-market-streams/Kline-Candlestick-Streams",
+      "hash": "7df8bf9bc2e880e24b92d9850dddeb5a923c30b3bb9045cde87328c44d648767",
+      "last_updated": "2026-03-22T10:21:54.553283"
+    },
+    "websocket-market-streams/Index-Price-Streams.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/websocket-market-streams/Index-Price-Streams",
+      "hash": "2c09015163701f3bea807b8b4d733255956e6ca52737174df8074de9dba084f6",
+      "last_updated": "2026-03-22T10:21:56.229716"
+    },
+    "websocket-market-streams/Bookticker.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/websocket-market-streams/Bookticker",
+      "hash": "34cbfdd0a7f43868dd72e4fbc444176dd1746119d7bb252189fafdbaeb5de073",
+      "last_updated": "2026-03-22T10:21:58.128431"
+    },
+    "websocket-market-streams/24-hour-TICKER.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/websocket-market-streams/24-hour-TICKER",
+      "hash": "2a089e12d221df8908db79f3b09a67fd27e8463f1b3326e3ef40925fdef7eb2e",
+      "last_updated": "2026-03-22T10:21:59.825811"
+    },
+    "websocket-market-streams/Trade-Streams.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/websocket-market-streams/Trade-Streams",
+      "hash": "188a3323d11bf493d2b30a093914ebb214002df44f8c98babdb79d560be5c27a",
+      "last_updated": "2026-03-22T10:22:01.512559"
+    },
+    "websocket-market-streams/Partial-Book-Depth-Streams.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/websocket-market-streams/Partial-Book-Depth-Streams",
+      "hash": "99da87b959bc8318296262c7d2da1c9c1ba241dfa6613b400510a17fa2742878",
+      "last_updated": "2026-03-22T10:22:02.794657"
+    },
+    "websocket-market-streams/Diff-Book-Depth-Streams.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/websocket-market-streams/Diff-Book-Depth-Streams",
+      "hash": "fa7736dced8757411b2612e8766326f8a25686622ea55c3447e528d1f0b3f772",
+      "last_updated": "2026-03-22T10:22:04.463838"
+    },
+    "websocket-market-streams/How-to-manage-a-local-order-book-correctly.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/websocket-market-streams/How-to-manage-a-local-order-book-correctly",
+      "hash": "66240be64107d5be25997c2d117d79881b7f3fff8de88678a32442894cf9c8f4",
+      "last_updated": "2026-03-22T10:22:06.344804"
+    },
+    "user-data-streams.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/user-data-streams",
+      "hash": "e69f7d0b9b0b4b62cf521514eaac0dce772b71eb645964285d5ab90a0366ce0b",
+      "last_updated": "2026-03-22T10:22:08.022897"
+    },
+    "user-data-streams/Start-User-Data-Stream.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/user-data-streams/Start-User-Data-Stream",
+      "hash": "81d78aaeb79add6ba804c20ba4b6824b6e5d654eea236a7e3634d194c5eccc94",
+      "last_updated": "2026-03-22T10:22:09.303556"
+    },
+    "user-data-streams/Keepalive-User-Data-Stream.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/user-data-streams/Keepalive-User-Data-Stream",
+      "hash": "25b4b71dc82fbc356897a68e29b12df9a972fd21a146036785f1f79d0d4c8603",
+      "last_updated": "2026-03-22T10:22:10.972860"
+    },
+    "user-data-streams/Close-User-Data-Stream.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/user-data-streams/Close-User-Data-Stream",
+      "hash": "f297191d92b77aeb863d69c97c045c347ece8eef52092238959aa6baf280cc70",
+      "last_updated": "2026-03-22T10:22:12.654288"
+    },
+    "user-data-streams/Event-User-Data-Stream-Expired.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/user-data-streams/Event-User-Data-Stream-Expired",
+      "hash": "e5f5a0a1e36a7f4c73c8cadab8d7227e2af51de4c5ab35bdf3c8cc7d2786c688",
+      "last_updated": "2026-03-22T10:22:13.940847"
+    },
+    "user-data-streams/Event-Risk-level-change.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/user-data-streams/Event-Risk-level-change",
+      "hash": "9ed889b5466dd621f0718a3e12ab2037b617268fe09110870f690e86f82a3ec9",
+      "last_updated": "2026-03-22T10:24:52.736932"
+    },
+    "user-data-streams/Event-Order-update.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/user-data-streams/Event-Order-update",
+      "hash": "4163259e0e5e384120f002c3790e14cd668a976b20095ea6b7d9922ca59c4f53",
+      "last_updated": "2026-03-22T10:24:54.029067"
+    },
+    "user-data-streams/Event-Account-data.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/user-data-streams/Event-Account-data",
+      "hash": "283496f817364e49695fa61f1d031d857e1c5f777d470008a679cc5dd0ff51fe",
+      "last_updated": "2026-03-22T10:24:55.321892"
+    },
+    "user-data-streams/Event-Balance-and-Position-Update.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/user-data-streams/Event-Balance-and-Position-Update",
+      "hash": "2c7caae00570d111bc69bd332d37c93af5e033705968d90b1694942dbc0bc095",
+      "last_updated": "2026-03-22T10:22:17.364118"
+    },
+    "user-data-streams/Event-Greek-Update.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/user-data-streams/Event-Greek-Update",
+      "hash": "a271400625aadf7c54684f58bb689fbd9cd09b119dc66e5f60003801f277a195",
+      "last_updated": "2026-03-22T10:22:18.642086"
+    },
+    "market-maker-endpoints.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-maker-endpoints",
+      "hash": "5b07e000502da14c01320c29ea65f747e40c77f94f0e65da919eaabf8006a85b",
+      "last_updated": "2026-03-22T10:22:20.310833"
+    },
+    "market-maker-endpoints/Get-Auto-Cancel-All-Open-Orders-Config.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-maker-endpoints/Get-Auto-Cancel-All-Open-Orders-Config",
+      "hash": "87b59114e533c5cae29cafdffe0e573c817f00d6e4b7ef7ca4efb90b93f9495f",
+      "last_updated": "2026-03-22T10:22:21.587440"
+    },
+    "market-maker-endpoints/Set-Market-Maker-Protection-Config.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-maker-endpoints/Set-Market-Maker-Protection-Config",
+      "hash": "01e15e87f7549365f4e26b7e3265f2fd40405800db4483ec64a549babb8305d7",
+      "last_updated": "2026-03-22T10:22:23.267453"
+    },
+    "market-maker-endpoints/Auto-Cancel-All-Open-Orders-Heartbeat.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-maker-endpoints/Auto-Cancel-All-Open-Orders-Heartbeat",
+      "hash": "41c0f6ab016a17a526207663eb0c409fb85176492b9e3286cee2ee9233d865d9",
+      "last_updated": "2026-03-22T10:22:24.959653"
+    },
+    "market-maker-endpoints/Reset-Market-Maker-Protection-Config.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-maker-endpoints/Reset-Market-Maker-Protection-Config",
+      "hash": "caa55a08b0ca81e82b0453a32973f05fc317df0e0f7a8743b6454fb129731104",
+      "last_updated": "2026-03-22T10:22:26.681915"
+    },
+    "market-maker-endpoints/Set-Auto-Cancel-All-Open-Orders-Config.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-maker-endpoints/Set-Auto-Cancel-All-Open-Orders-Config",
+      "hash": "067e3b9c8530c4b26f6e084597c4d5b1e5cae5e0327dd976fa42a10e2e44e1ee",
+      "last_updated": "2026-03-22T10:22:28.365611"
+    },
+    "market-maker-block-trade.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-maker-block-trade",
+      "hash": "6b7c0fd9c484f370cf1abc32bd9b5e356200d960f459fa44e3acc4d9df95117f",
+      "last_updated": "2026-03-22T10:22:29.651246"
+    },
+    "market-maker-block-trade/New-Block-Trade-Order.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-maker-block-trade/New-Block-Trade-Order",
+      "hash": "194d2af84bccef2f212e4de98b1bc2319b527483ec1aeff37499602acace05a1",
+      "last_updated": "2026-03-22T10:22:31.347305"
+    },
+    "market-maker-block-trade/Cancel-Block-Trade-Order.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-maker-block-trade/Cancel-Block-Trade-Order",
+      "hash": "2533552d607f96216ad23915070143cc005f2b9486fac59983394f3866482d75",
+      "last_updated": "2026-03-22T10:22:33.035247"
+    },
+    "market-maker-block-trade/Extend-Block-Trade-Order.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-maker-block-trade/Extend-Block-Trade-Order",
+      "hash": "f81d5ffef06654d86c071b0c68730330f7cf95eaa80a5d9ada41052b25a78f54",
+      "last_updated": "2026-03-22T10:22:34.709401"
+    },
+    "market-maker-block-trade/Query-Block-Trade-Order.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-maker-block-trade/Query-Block-Trade-Order",
+      "hash": "4ec5dcb602ad24e0f1e4319cd02c0803ffcecd67e236ea8d1e09701b99d9701f",
+      "last_updated": "2026-03-22T10:22:36.414006"
+    },
+    "market-maker-block-trade/Accept-Block-Trade-Order.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-maker-block-trade/Accept-Block-Trade-Order",
+      "hash": "e9df1d364bd45d12841b725698e5ce935d1eacc2699e6425d21ef2eb78fc5b9a",
+      "last_updated": "2026-03-22T10:22:38.083310"
+    },
+    "market-maker-block-trade/Query-Block-Trade-Detail.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-maker-block-trade/Query-Block-Trade-Detail",
+      "hash": "cda76d51627f8504c9045af9927c2203eddc56683dcc78ed7c6c597cd039f521",
+      "last_updated": "2026-03-22T10:25:16.978711"
+    },
+    "market-maker-block-trade/Account-Block-Trade-List.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-maker-block-trade/Account-Block-Trade-List",
+      "hash": "bfb942d229fe95d5c03a3749d1aa3f7dd504f266148462b34f5542eba2217fd6",
+      "last_updated": "2026-03-22T10:22:40.454288"
+    },
+    "faq/stp-faq.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/faq/stp-faq",
+      "hash": "f21c3bf1359ea690c6ddd18e0af7e31de424d93ee4b86a7c2571c64318832d0e",
+      "last_updated": "2026-03-22T10:22:42.138238"
+    },
+    "error-code.md": {
+      "source_url": "https://developers.binance.com/docs/derivatives/options-trading/error-code",
+      "hash": "f253544b800da1a7d572d5fbfddd476a0007ea9e6f254bcaebc762167f4c63e2",
+      "last_updated": "2026-03-22T10:22:44.060348"
+    }
+  },
+  "fetch_metadata": {
+    "completed_at": "2026-03-28T11:08:25.924646",
+    "duration_seconds": 112.491185,
+    "pages_total": 70,
+    "pages_fetched": 70,
+    "pages_failed": 0,
+    "failed_pages": []
+  },
+  "last_updated": "2026-03-28T11:08:25.924662",
+  "source": "https://developers.binance.com/docs/derivatives/options-trading"
+}
