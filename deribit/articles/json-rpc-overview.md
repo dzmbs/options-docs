@@ -40,7 +40,7 @@ JSON-RPC is a stateless, light-weight remote procedure call (RPC) protocol that 
 
 All requests must conform to the JSON-RPC 2.0 request structure:
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "public/get_instruments",
@@ -94,13 +94,13 @@ All requests must conform to the JSON-RPC 2.0 request structure:
 
 <Tabs>
   <Tab title="GET (Query String)">
-    ```bash  theme={null}
+    ```bash theme={null}
     curl "https://www.deribit.com/api/v2/public/get_instruments?currency=BTC&kind=future"
     ```
   </Tab>
 
   <Tab title="GET (JSON-RPC Body)">
-    ```bash  theme={null}
+    ```bash theme={null}
     curl -X GET "https://www.deribit.com/api/v2/public/get_instruments" \
       -H "Content-Type: application/json" \
       -d '{
@@ -116,7 +116,7 @@ All requests must conform to the JSON-RPC 2.0 request structure:
   </Tab>
 
   <Tab title="POST">
-    ```bash  theme={null}
+    ```bash theme={null}
     curl -X POST "https://www.deribit.com/api/v2/public/get_instruments" \
       -H "Content-Type: application/json" \
       -d '{
@@ -150,7 +150,7 @@ For private methods, authentication is required. The mechanism differs by transp
 
 ### Success Response
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 42,
@@ -213,7 +213,7 @@ For private methods, authentication is required. The mechanism differs by transp
 
 ### Error Response
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 8163,
@@ -311,7 +311,7 @@ When `detailed=true`, the response aggregates execution reports from all sub-req
 
 **Example Usage**:
 
-```json  theme={null}
+```json theme={null}
 // Request with detailed=true
 {
   "jsonrpc": "2.0",
@@ -441,7 +441,7 @@ JSON-RPC 2.0 defines notification messages as requests without an `id` field. De
 
 ### Notification Format
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "subscription",

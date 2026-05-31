@@ -57,73 +57,40 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
   },
   "components": {
     "schemas": {
-      "AuctionHistoryResultSchema": {
+      "PaginationInfoSchema": {
+        "type": "object",
+        "required": [
+          "count",
+          "num_pages"
+        ],
         "properties": {
-          "auction_id": {
-            "title": "auction_id",
-            "type": "string",
-            "description": "Unique ID of the auction"
-          },
-          "auction_type": {
-            "title": "auction_type",
-            "type": "string",
-            "enum": [
-              "solvent",
-              "insolvent"
-            ],
-            "description": "Type of auction"
-          },
-          "bids": {
-            "title": "bids",
-            "type": "array",
-            "description": "List of auction bid events",
-            "items": {
-              "$ref": "#/components/schemas/AuctionBidEventSchema"
-            }
-          },
-          "end_timestamp": {
-            "title": "end_timestamp",
+          "count": {
+            "title": "count",
             "type": "integer",
-            "default": null,
-            "description": "Timestamp of the auction end (in ms since UNIX epoch), or `null` if not ended",
-            "nullable": true
+            "description": "Total number of items, across all pages"
           },
-          "fee": {
-            "title": "fee",
-            "type": "string",
-            "format": "decimal",
-            "description": "Fee paid by the subaccount"
-          },
-          "start_timestamp": {
-            "title": "start_timestamp",
+          "num_pages": {
+            "title": "num_pages",
             "type": "integer",
-            "description": "Timestamp of the auction start (in ms since UNIX epoch)"
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Liquidated subaccount ID"
-          },
-          "tx_hash": {
-            "title": "tx_hash",
-            "type": "string",
-            "description": "Hash of the transaction that started the auction"
+            "description": "Number of pages"
           }
         },
-        "required": [
-          "auction_id",
-          "auction_type",
-          "bids",
-          "end_timestamp",
-          "fee",
-          "start_timestamp",
-          "subaccount_id",
-          "tx_hash"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "AuctionBidEventSchema": {
+        "type": "object",
+        "required": [
+          "amounts_liquidated",
+          "cash_received",
+          "discount_pnl",
+          "percent_liquidated",
+          "positions_realized_pnl",
+          "positions_realized_pnl_excl_fees",
+          "realized_pnl",
+          "realized_pnl_excl_fees",
+          "timestamp",
+          "tx_hash"
+        ],
         "properties": {
           "amounts_liquidated": {
             "title": "amounts_liquidated",
@@ -196,28 +163,16 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
             "description": "Hash of the bid transaction"
           }
         },
-        "required": [
-          "amounts_liquidated",
-          "cash_received",
-          "discount_pnl",
-          "percent_liquidated",
-          "positions_realized_pnl",
-          "positions_realized_pnl_excl_fees",
-          "realized_pnl",
-          "realized_pnl_excl_fees",
-          "timestamp",
-          "tx_hash"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetLiquidationHistoryParamsSchema": {
+        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
             "type": "integer",
             "default": 9223372036854776000,
-            "description": "End timestamp of the event history (default current time)"
+            "description": "End timestamp of the event history in ms since Unix epoch (default current time)"
           },
           "page": {
             "title": "page",
@@ -235,7 +190,7 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
             "title": "start_timestamp",
             "type": "integer",
             "default": 0,
-            "description": "Start timestamp of the event history (default 0)"
+            "description": "Start timestamp of the event history in ms since Unix epoch (default 0)"
           },
           "subaccount_id": {
             "title": "subaccount_id",
@@ -245,10 +200,14 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetLiquidationHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -266,14 +225,14 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
             "$ref": "#/components/schemas/PublicGetLiquidationHistoryResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetLiquidationHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "auctions",
+          "pagination"
+        ],
         "properties": {
           "auctions": {
             "title": "auctions",
@@ -287,31 +246,72 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
             "$ref": "#/components/schemas/PaginationInfoSchema"
           }
         },
-        "required": [
-          "auctions",
-          "pagination"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
-      "PaginationInfoSchema": {
+      "AuctionHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "auction_id",
+          "auction_type",
+          "bids",
+          "end_timestamp",
+          "fee",
+          "start_timestamp",
+          "subaccount_id",
+          "tx_hash"
+        ],
         "properties": {
-          "count": {
-            "title": "count",
-            "type": "integer",
-            "description": "Total number of items, across all pages"
+          "auction_id": {
+            "title": "auction_id",
+            "type": "string",
+            "description": "Unique ID of the auction"
           },
-          "num_pages": {
-            "title": "num_pages",
+          "auction_type": {
+            "title": "auction_type",
+            "type": "string",
+            "enum": [
+              "solvent",
+              "insolvent"
+            ],
+            "description": "Type of auction"
+          },
+          "bids": {
+            "title": "bids",
+            "type": "array",
+            "description": "List of auction bid events",
+            "items": {
+              "$ref": "#/components/schemas/AuctionBidEventSchema"
+            }
+          },
+          "end_timestamp": {
+            "title": "end_timestamp",
             "type": "integer",
-            "description": "Number of pages"
+            "default": null,
+            "description": "Timestamp of the auction end (in ms since UNIX epoch), or `null` if not ended",
+            "nullable": true
+          },
+          "fee": {
+            "title": "fee",
+            "type": "string",
+            "format": "decimal",
+            "description": "Fee paid by the subaccount"
+          },
+          "start_timestamp": {
+            "title": "start_timestamp",
+            "type": "integer",
+            "description": "Timestamp of the auction start (in ms since UNIX epoch)"
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Liquidated subaccount ID"
+          },
+          "tx_hash": {
+            "title": "tx_hash",
+            "type": "string",
+            "description": "Hash of the transaction that started the auction"
           }
         },
-        "required": [
-          "count",
-          "num_pages"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

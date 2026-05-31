@@ -84,15 +84,15 @@ operations:
                   - name: interest
                     type: number
                     description: Current interest
-                    required: false
+                    required: true
                   - name: timestamp
                     type: integer
                     description: The timestamp (milliseconds since the Unix epoch)
-                    required: false
+                    required: true
                   - name: index_price
                     type: number
                     description: Current index price
-                    required: false
+                    required: true
         headers: []
         jsonPayloadSchema:
           type: object

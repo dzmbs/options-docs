@@ -236,8 +236,8 @@ components:
           example: 7
           description: Total number of successfully cancelled orders
       required:
-        - result
         - jsonrpc
+        - result
       type: object
   responses:
     PrivateCancelAllResponse:

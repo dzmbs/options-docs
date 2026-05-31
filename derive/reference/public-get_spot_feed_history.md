@@ -4,7 +4,7 @@
 
 #### `public/get_spot_feed_history`
 
-Get spot feed history by currency<br /><br />DB: read replica
+Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is deprecated in favor of get\_index\_chart\_data and get\_tradingview\_chart\_data
 
 ### Parameters
 

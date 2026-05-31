@@ -58,6 +58,14 @@ Build a signable transaction params dictionary.
   "components": {
     "schemas": {
       "PublicBuildRegisterSessionKeyTxParamsSchema": {
+        "type": "object",
+        "required": [
+          "expiry_sec",
+          "gas",
+          "nonce",
+          "public_session_key",
+          "wallet"
+        ],
         "properties": {
           "expiry_sec": {
             "title": "expiry_sec",
@@ -89,17 +97,14 @@ Build a signable transaction params dictionary.
             "description": "Ethereum wallet address of account"
           }
         },
-        "required": [
-          "expiry_sec",
-          "gas",
-          "nonce",
-          "public_session_key",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicBuildRegisterSessionKeyTxResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -117,14 +122,13 @@ Build a signable transaction params dictionary.
             "$ref": "#/components/schemas/PublicBuildRegisterSessionKeyTxResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicBuildRegisterSessionKeyTxResultSchema": {
+        "type": "object",
+        "required": [
+          "tx_params"
+        ],
         "properties": {
           "tx_params": {
             "title": "tx_params",
@@ -133,10 +137,6 @@ Build a signable transaction params dictionary.
             "additionalProperties": {}
           }
         },
-        "required": [
-          "tx_params"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

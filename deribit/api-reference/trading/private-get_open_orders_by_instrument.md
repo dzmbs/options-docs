@@ -145,8 +145,8 @@ components:
             $ref: '#/components/schemas/order'
           type: array
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     order:
       properties:

@@ -23,7 +23,7 @@ import okx.Status as Status
 
 flag = "0" # Production trading: 0, Demo trading: 1
 statusAPI = Status.StatusAPI(
- domain="https://www.okx.com",
+ domain="https://openapi.okx.com",
  flag=flag,
 )
 

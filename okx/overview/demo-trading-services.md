@@ -4,7 +4,7 @@ Currently, the API works for Demo Trading, but some functions are not supported,
 
 The Demo Trading URL:
 
-- REST: `https://www.okx.com`
+- REST: `https://openapi.okx.com`
 
 - Public WebSocket: `wss://wspap.okx.com:8443/ws/v5/public`
 

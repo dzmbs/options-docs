@@ -85,6 +85,29 @@ body
  "timeInterval": "10",
  "pxSpread": "10"
 }
+
+# Iceberg order
+POST /api/v5/trade/order-algo
+body
+{
+ "instId": "BTC-USDT",
+ "tdMode": "cash",
+ "side": "buy",
+ "ordType": "smart_iceberg",
+ "sz": "100",
+ "szLimit": "10",
+ "lmtOrderNumber": "5",
+ "aggressiveness": "conservative",
+ "pxLimit": "95000",
+ "triggerParams": [
+ {
+ "triggerAction": "start",
+ "triggerStrategy": "price",
+ "triggerPx": "90000",
+ "triggerCond": "cross_down"
+ }
+ ]
+}
 ```
 
 ```
@@ -121,7 +144,7 @@ print(result)
 | ccy | String | No | Margin currency Applicable to all `isolated` `MARGIN` orders and `cross` `MARGIN` orders in `Futures mode`. |
 | side | String | Yes | Order side, `buy` `sell` |
 | posSide | String | Conditional | Position side Required in `long/short` mode and only be `long` or `short` |
-| ordType | String | Yes | Order type `conditional`: One-way stop order`oco`: One-cancels-the-other order`chase`: chase order, only applicable to FUTURES and SWAP`trigger`: Trigger order`move_order_stop`: Trailing order`twap`: TWAP order |
+| ordType | String | Yes | Order type `conditional`: One-way stop order`oco`: One-cancels-the-other order`chase`: chase order, only applicable to FUTURES and SWAP`trigger`: Trigger order`move_order_stop`: Trailing order`twap`: TWAP order`smart_iceberg`: Iceberg order |
 | sz | String | Conditional | Quantity to buy or sellEither `sz` or `closeFraction` is required. |
 | tag | String | No | Order tag A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 16 characters. |
 | tgtCcy | String | No | Order quantity unit setting for `sz``base_ccy`: Base currency ,`quote_ccy`: Quote currency Only applicable to `SPOT` traded with Market buy `conditional` orderDefault is `quote_ccy` for buy, `base_ccy` for sell |
@@ -170,20 +193,23 @@ learn more about [Trigger Order](/help/11015447687437)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| triggerPx | String | Yes | Trigger price |
-| orderPx | String | Yes | Order Price If the price is `-1`, the order will be executed at the market price. |
+| triggerPx | String | Yes | The price level that activates this algo order. Unit: same as `px` for the instrument. Which price feed is compared depends on `triggerPxType` (default: last trade price). Direction: for a sell stop-loss, trigger must be below orderPx; for a buy stop, above orderPx. Error codes 51046–51049 are returned for direction violations. |
+| orderPx | String | Yes | Price of the order submitted when `triggerPx` is reached. This is separate from `triggerPx` (which determines when the algo activates). Set to `-1` to submit a market order when triggered; set to a specific price to submit a limit order. |
 | advanceOrdType | String | No | Trigger order type`fok`: Fill-or-kill order`ioc`: Immediate-or-cancel orderDefault is "", limit or market (controlled by orderPx) |
-| triggerPxType | String | No | Trigger price type `last`: last price`index`: index price`mark`: mark price The default is `last` |
+| triggerPxType | String | No | Trigger price type:`last`: triggers when any trade occurs at or beyond `triggerPx` — most responsive but vulnerable to brief price wicks in thin markets.`index`: triggers on the underlying multi-exchange composite index — stable, not affected by OKX-specific wicks.`mark`: triggers on OKX mark price — smoothed and wick-resistant; recommended for derivatives.`last` is the only option available for SPOT instruments. The default is `last`. |
 | attachAlgoOrds | Array of objects | No | Attached SL/TP orders infoApplicable to `Futures mode/Multi-currency margin/Portfolio margin` |
 | > attachAlgoClOrdId | String | No | Client-supplied Algo ID when placing order attaching TP/SL.A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters.It will be posted to algoClOrdId when placing TP/SL order once the general order is filled completely. |
 | > tpTriggerPx | String | No | Take-profit trigger priceIf you fill in this parameter, you should fill in the take-profit order price as well. |
-| > tpTriggerRatio | String | No | Take profit trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. Only one of `tpTriggerPx` and `tpTriggerRatio` can be passed If the main order is a buy order, it must be greater than 0, and if the main order is a sell order, it must be bewteen -1 and 0. |
+| > tpTriggerRatio | String | No | Take profit trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. Only one of `tpTriggerPx` and `tpTriggerRatio` can be passed If the main order is a buy order, it must be greater than 0, and if the main order is a sell order, it must be between -1 and 0. |
 | > tpTriggerPxType | String | No | Take-profit trigger price type`last`: last price`index`: index price`mark`: mark priceThe default is `last` |
 | > tpOrdPx | String | No | Take-profit order priceIf you fill in this parameter, you should fill in the take-profit trigger price as well. If the price is `-1`, take-profit will be executed at the market price. |
 | > slTriggerPx | String | No | Stop-loss trigger priceIf you fill in this parameter, you should fill in the stop-loss order price. |
-| > slTriggerRatio | String | No | Stop profit trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. Only one of `slTriggerPx` and `slTriggerRatio` can be passed If the main order is a buy order, it must be bewteen 0 and 1, and if the main order is a sell order, it must be greater than 0. |
+| > slTriggerRatio | String | No | Stop-loss trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. Only one of `slTriggerPx` and `slTriggerRatio` can be passed If the main order is a buy order, it must be between 0 and 1, and if the main order is a sell order, it must be greater than 0. |
 | > slTriggerPxType | String | No | Stop-loss trigger price type`last`: last price`index`: index price`mark`: mark price The default is `last` |
 | > slOrdPx | String | No | Stop-loss order price If you fill in this parameter, you should fill in the stop-loss trigger price. If the price is `-1`, stop-loss will be executed at the market price. |
+| > callbackRatio | String | Conditional | Callback ratio, e.g. `0.05` represents 5%.Either `callbackRatio` or `callbackSpread` is required. Only one can be passed.Only applicable when `ordType` = `move_order_stop` |
+| > callbackSpread | String | Conditional | Callback spread (price distance).Either `callbackRatio` or `callbackSpread` is required. Only one can be passed.Only applicable when `ordType` = `move_order_stop` |
+| > activePx | String | No | Activation price.The trailing stop is activated when the market price reaches the activation price. After activation, the system starts calculating the actual trigger price. If not provided, the trailing stop is activated immediately upon order placement.Only applicable when `ordType` = `move_order_stop` |
 
 Trailing Stop Order**
 
@@ -214,7 +240,24 @@ learn more about [TWAP Order](/help/xiii-time-weighted-average-price-twap)
 | pxLimit | String | Yes | Price Limit, should be no less then 0 (no upper limit)Take buy orders as an example. When the market price is lower than the limit price, small buy orders will be placed above the best bid price within a certain range. This parameter represents the limit price. |
 | timeInterval | String | Yes | Time interval in unit of `second`ake buy orders as an example. When the market price is lower than the limit price, small buy orders will be placed above the best bid price within a certain range based on the time cycle. This parameter represents the time cycle. |
 
-Response Example
+Iceberg Order**
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| szLimit | String | Yes | Minimum order size per execution. Only applicable to `smart_iceberg` |
+| lmtOrderNumber | String | Yes | Number of limit order splits. Only applicable to `smart_iceberg` |
+| aggressiveness | String | Yes | Aggressiveness level. Only applicable to `smart_iceberg``radical`: Faster fill`mid`: Faster fill with better price`conservative`: Queue at best bid/ask |
+| pxLimit | String | No | Price limit. Only applicable to `smart_iceberg` |
+| triggerParams | Array of objects | No | Trigger parameters. If the list is empty, the order is triggered immediately by default. Only applicable to `smart_iceberg` |
+| > triggerAction | String | Yes | Trigger action`start`: Start iceberg order |
+| > triggerStrategy | String | Yes | Trigger strategy`instant`: Trigger immediately`price`: Trigger by price`rsi`: Trigger by RSI indicatorDefault is `instant` |
+| > triggerPx | String | No | Trigger priceOnly valid when `triggerStrategy` is `price` |
+| > triggerCond | String | No | Trigger condition`cross_up` / `cross_down` / `above` / `below` / `cross`Only valid when `triggerStrategy` is `rsi` |
+| > timeframe | String | No | K-line type: 3m / 5m / 15m / 30m / 1H / 4H / 1DOnly valid when `triggerStrategy` is `rsi` |
+| > thold | String | No | Threshold, range [1, 100]Only valid when `triggerStrategy` is `rsi` |
+| > timePeriod | String | No | RSI calculation period. Default and fixed value is `14`. Only valid when `triggerStrategy` is `rsi` |
+
+**Response Example
 
 ```
 {
@@ -394,15 +437,18 @@ Take Profit / Stop Loss Order**
 | newTriggerPx | String | Yes | New trigger price after amendment |
 | newOrdPx | String | Yes | New order price after amendmentIf the price is `-1`, the order will be executed at the market price. |
 | newTriggerPxType | String | No | New trigger price type after amendment `last`: last price`index`: index price`mark`: mark price The default is `last` |
-| attachAlgoOrds | Array of objects | No | Attached SL/TP orders infoApplicable to `Futures mode/Multi-currency margin/Portfolio margin` |
+| attachAlgoOrds | Array of objects | No | Attached TP/SL or trailing stop order infoApplicable to `Futures mode/Multi-currency margin/Portfolio margin` |
 | > newTpTriggerPx | String | No | Take-profit trigger priceIf you fill in this parameter, you should fill in the take-profit order price as well. |
-| > newTpTriggerRatio | String | No | Take profit trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. Only one of `newTpTriggerPx` and `newTpTriggerRatio` can be passed If the main order is a buy order, it must be greater than 0, and if the main order is a sell order, it must be bewteen -1 and 0. 0 means to delete the take-profit. |
+| > newTpTriggerRatio | String | No | Take profit trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. Only one of `newTpTriggerPx` and `newTpTriggerRatio` can be passed If the main order is a buy order, it must be greater than 0, and if the main order is a sell order, it must be between -1 and 0. 0 means to delete the take-profit. |
 | > newTpTriggerPxType | String | No | Take-profit trigger price type`last`: last price`index`: index price`mark`: mark priceThe default is `last` |
 | > newTpOrdPx | String | No | Take-profit order priceIf you fill in this parameter, you should fill in the take-profit trigger price as well. If the price is `-1`, take-profit will be executed at the market price. |
 | > newSlTriggerPx | String | No | Stop-loss trigger priceIf you fill in this parameter, you should fill in the stop-loss order price. |
-| > newSlTriggerRatio | String | No | Stop profit trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. Only one of `newSlTriggerPx` and `newSlTriggerRatio` can be passed If the main order is a buy order, it must be bewteen 0 and 1, and if the main order is a sell order, it must be greater than 0. 0 means to delete the stop-loss. |
+| > newSlTriggerRatio | String | No | Stop-loss trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. Only one of `newSlTriggerPx` and `newSlTriggerRatio` can be passed If the main order is a buy order, it must be between 0 and 1, and if the main order is a sell order, it must be greater than 0. 0 means to delete the stop-loss. |
 | > newSlTriggerPxType | String | No | Stop-loss trigger price type`last`: last price`index`: index price`mark`: mark price The default is `last` |
 | > newSlOrdPx | String | No | Stop-loss order price If you fill in this parameter, you should fill in the stop-loss trigger price. If the price is `-1`, stop-loss will be executed at the market price. |
+| > newCallbackRatio | String | Conditional | New callback ratio, e.g. `0.05` represents 5%.Either `newCallbackRatio` or `newCallbackSpread` can be passed. Only one can be passed.Only applicable when `ordType` = `move_order_stop` |
+| > newCallbackSpread | String | Conditional | New callback spread (price distance).Either `newCallbackRatio` or `newCallbackSpread` can be passed. Only one can be passed.Only applicable when `ordType` = `move_order_stop` |
+| > newActivePx | String | No | New activation price.Only applicable when `ordType` = `move_order_stop` |
 
 Response Example
 
@@ -574,21 +620,24 @@ Response Example
 | activePx | String | Active priceOnly applicable to `move_order_stop` order |
 | moveTriggerPx | String | Trigger priceOnly applicable to `move_order_stop` order |
 | reduceOnly | String | Whether the order can only reduce the position size. Valid options: true or false. |
-| quickMgnType | String | Quick Margin type, Only applicable to Quick Margin Mode of isolated margin`manual`, `auto_borrow`, `auto_repay` |
+| quickMgnType | String | Quick Margin type, Only applicable to Quick Margin Mode of isolated margin`manual`, `auto_borrow`, `auto_repay` (Deprecated) |
 | last | String | Last filled price while placing |
 | failCode | String | It represents that the reason that algo order fails to trigger. It is "" when the state is `effective`/`canceled`. There will be value when the state is `order_failed`, e.g. 51008;Only applicable to Stop Order, Trailing Stop Order, Trigger order. |
 | algoClOrdId | String | Client-supplied Algo ID |
 | amendPxOnTriggerType | String | Whether to enable Cost-price SL. Only applicable to SL order of split TPs. `0`: disable, the default value `1`: Enable |
-| attachAlgoOrds | Array of objects | Attached SL/TP orders infoApplicable to `Futures mode/Multi-currency margin/Portfolio margin` |
-| > attachAlgoClOrdId | String | Client-supplied Algo ID when placing order attaching TP/SL.A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters.It will be posted to algoClOrdId when placing TP/SL order once the general order is filled completely. |
+| attachAlgoOrds | Array of objects | Attached TP/SL or trailing stop order infoApplicable to `Futures mode/Multi-currency margin/Portfolio margin` |
+| > attachAlgoClOrdId | String | Client-supplied Algo ID when placing order with attached TP/SL or trailing stop.A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters.It will be posted to algoClOrdId when placing the attached algo order once the general order is filled completely. |
 | > tpTriggerPx | String | Take-profit trigger priceIf you fill in this parameter, you should fill in the take-profit order price as well. |
 | > tpTriggerRatio | String | Take profit trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. |
 | > tpTriggerPxType | String | Take-profit trigger price type`last`: last price`index`: index price`mark`: mark price |
 | > tpOrdPx | String | Take-profit order priceIf you fill in this parameter, you should fill in the take-profit trigger price as well. If the price is `-1`, take-profit will be executed at the market price. |
 | > slTriggerPx | String | Stop-loss trigger priceIf you fill in this parameter, you should fill in the stop-loss order price. |
-| > slTriggerRatio | String | Stop profit trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. |
+| > slTriggerRatio | String | Stop-loss trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. |
 | > slTriggerPxType | String | Stop-loss trigger price type`last`: last price`index`: index price`mark`: mark price |
 | > slOrdPx | String | Stop-loss order price If you fill in this parameter, you should fill in the stop-loss trigger price. If the price is `-1`, stop-loss will be executed at the market price. |
+| > callbackRatio | String | Callback ratio, e.g. `0.05` represents 5% |
+| > callbackSpread | String | Callback spread (price distance) |
+| > activePx | String | Activation price |
 | linkedOrd | Object | Linked TP order detail, only applicable to SL order that comes from the one-cancels-the-other (OCO) order that contains the TP limit order. |
 | > ordId | String | Order ID |
 | cTime | String | Creation time Unix timestamp format in milliseconds, e.g. `1597026383085` |
@@ -643,7 +692,7 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| ordType | String | Yes | Order type`conditional`: One-way stop order `oco`: One-cancels-the-other order `chase`: chase order, only applicable to FUTURES and SWAP`trigger`: Trigger order `move_order_stop`: Trailing order `iceberg`: Iceberg order `twap`: TWAP orderFor every request, unlike other ordType which only can use one type, `conditional` and `oco` both can be used and separated with comma. |
+| ordType | String | Yes | Order type`conditional`: One-way stop order `oco`: One-cancels-the-other order `chase`: chase order, only applicable to FUTURES and SWAP`trigger`: Trigger order `move_order_stop`: Trailing order `iceberg`: Iceberg order `twap`: TWAP order`smart_iceberg`: Iceberg orderFor every request, unlike other ordType which only can use one type, `conditional` and `oco` both can be used and separated with comma. |
 | algoId | String | No | Algo ID |
 | instType | String | No | Instrument type`SPOT``SWAP``FUTURES``MARGIN` |
 | instId | String | No | Instrument ID, e.g. `BTC-USDT` |
@@ -761,27 +810,40 @@ Response Example
 | pxSpread | String | Price variance Only applicable to `iceberg` order or `twap` order |
 | szLimit | String | Average amount Only applicable to `iceberg` order or `twap` order |
 | pxLimit | String | Price Limit Only applicable to `iceberg` order or `twap` order |
+| lmtOrderNumber | String | Number of limit order splitsOnly applicable to `smart_iceberg` |
+| aggressiveness | String | Aggressiveness level`radical`: Faster fill`mid`: Faster fill with better price`conservative`: Queue at best bid/askOnly applicable to `smart_iceberg` |
+| triggerParams | Array of objects | Trigger parametersOnly applicable to `smart_iceberg` |
+| > triggerAction | String | Trigger action`start`: Start iceberg order |
+| > triggerStrategy | String | Trigger strategy`instant`: Trigger immediately`price`: Trigger by price`rsi`: Trigger by RSI indicator |
+| > triggerPx | String | Trigger priceOnly valid when `triggerStrategy` is `price` |
+| > triggerCond | String | Trigger condition`cross_up` / `cross_down` / `above` / `below` / `cross`Only valid when `triggerStrategy` is `rsi` |
+| > timeframe | String | K-line type: `3m` / `5m` / `15m` / `30m` (m = minute)`1H` / `4H` (H = hour)`1D` (D = day)Only valid when `triggerStrategy` is `rsi` |
+| > thold | String | Threshold, integer in range [1, 100]Only valid when `triggerStrategy` is `rsi` |
+| > timePeriod | String | RSI calculation period. Default and fixed value is `14`Only valid when `triggerStrategy` is `rsi` |
 | timeInterval | String | Time interval Only applicable to `twap` order |
 | callbackRatio | String | Callback price ratioOnly applicable to `move_order_stop` order |
 | callbackSpread | String | Callback price varianceOnly applicable to `move_order_stop` order |
 | activePx | String | Active priceOnly applicable to `move_order_stop` order |
 | moveTriggerPx | String | Trigger priceOnly applicable to `move_order_stop` order |
 | reduceOnly | String | Whether the order can only reduce the position size. Valid options: true or false. |
-| quickMgnType | String | Quick Margin type, Only applicable to Quick Margin Mode of isolated margin`manual`, `auto_borrow`, `auto_repay` |
+| quickMgnType | String | Quick Margin type, Only applicable to Quick Margin Mode of isolated margin`manual`, `auto_borrow`, `auto_repay` (Deprecated) |
 | last | String | Last filled price while placing |
 | failCode | String | It represents that the reason that algo order fails to trigger. There will be value when the state is `order_failed`, e.g. 51008;For this endpoint, it always is "". |
 | algoClOrdId | String | Client-supplied Algo ID |
 | amendPxOnTriggerType | String | Whether to enable Cost-price SL. Only applicable to SL order of split TPs. `0`: disable, the default value `1`: Enable |
-| attachAlgoOrds | Array of objects | Attached SL/TP orders infoApplicable to `Futures mode/Multi-currency margin/Portfolio margin` |
-| > attachAlgoClOrdId | String | Client-supplied Algo ID when placing order attaching TP/SL.A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters.It will be posted to algoClOrdId when placing TP/SL order once the general order is filled completely. |
+| attachAlgoOrds | Array of objects | Attached TP/SL or trailing stop order infoApplicable to `Futures mode/Multi-currency margin/Portfolio margin` |
+| > attachAlgoClOrdId | String | Client-supplied Algo ID when placing order with attached TP/SL or trailing stop.A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters.It will be posted to algoClOrdId when placing the attached algo order once the general order is filled completely. |
 | > tpTriggerPx | String | Take-profit trigger priceIf you fill in this parameter, you should fill in the take-profit order price as well. |
 | > tpTriggerRatio | String | Take profit trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. |
 | > tpTriggerPxType | String | Take-profit trigger price type`last`: last price`index`: index price`mark`: mark price |
 | > tpOrdPx | String | Take-profit order priceIf you fill in this parameter, you should fill in the take-profit trigger price as well. If the price is `-1`, take-profit will be executed at the market price. |
 | > slTriggerPx | String | Stop-loss trigger priceIf you fill in this parameter, you should fill in the stop-loss order price. |
-| > slTriggerRatio | String | Stop profit trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. |
+| > slTriggerRatio | String | Stop-loss trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. |
 | > slTriggerPxType | String | Stop-loss trigger price type`last`: last price`index`: index price`mark`: mark price |
 | > slOrdPx | String | Stop-loss order price If you fill in this parameter, you should fill in the stop-loss trigger price. If the price is `-1`, stop-loss will be executed at the market price. |
+| > callbackRatio | String | Callback ratio, e.g. `0.05` represents 5% |
+| > callbackSpread | String | Callback spread (price distance) |
+| > activePx | String | Activation price |
 | linkedOrd | Object | Linked TP order detail, only applicable to SL order that comes from the one-cancels-the-other (OCO) order that contains the TP limit order. |
 | > ordId | String | Order ID |
 | cTime | String | Creation time Unix timestamp format in milliseconds, e.g. `1597026383085` |
@@ -837,7 +899,7 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| ordType | String | Yes | Order type `conditional`: One-way stop order `oco`: One-cancels-the-other order `chase`: chase order, only applicable to FUTURES and SWAP`trigger`: Trigger order `move_order_stop`: Trailing order `iceberg`: Iceberg order `twap`: TWAP order For every request, unlike other ordType which only can use one type, `conditional` and `oco` both can be used and separated with comma. |
+| ordType | String | Yes | Order type `conditional`: One-way stop order `oco`: One-cancels-the-other order `chase`: chase order, only applicable to FUTURES and SWAP`trigger`: Trigger order `move_order_stop`: Trailing order `iceberg`: Iceberg order `twap`: TWAP order`smart_iceberg`: Iceberg order For every request, unlike other ordType which only can use one type, `conditional` and `oco` both can be used and separated with comma. |
 | state | String | Conditional | State`effective``canceled``order_failed`Either `state` or `algoId` is required |
 | algoId | String | Conditional | Algo ID Either `state` or `algoId` is required. |
 | instType | String | No | Instrument type`SPOT``SWAP``FUTURES``MARGIN` |
@@ -958,27 +1020,40 @@ Response Example
 | pxSpread | String | Price variance Only applicable to `iceberg` order or `twap` order |
 | szLimit | String | Average amount Only applicable to `iceberg` order or `twap` order |
 | pxLimit | String | Price Limit Only applicable to `iceberg` order or `twap` order |
+| lmtOrderNumber | String | Number of limit order splitsOnly applicable to `smart_iceberg` |
+| aggressiveness | String | Aggressiveness level`radical`: Faster fill`mid`: Faster fill with better price`conservative`: Queue at best bid/askOnly applicable to `smart_iceberg` |
+| triggerParams | Array of objects | Trigger parametersOnly applicable to `smart_iceberg` |
+| > triggerAction | String | Trigger action`start`: Start iceberg order |
+| > triggerStrategy | String | Trigger strategy`instant`: Trigger immediately`price`: Trigger by price`rsi`: Trigger by RSI indicator |
+| > triggerPx | String | Trigger priceOnly valid when `triggerStrategy` is `price` |
+| > triggerCond | String | Trigger condition`cross_up` / `cross_down` / `above` / `below` / `cross`Only valid when `triggerStrategy` is `rsi` |
+| > timeframe | String | K-line type: `3m` / `5m` / `15m` / `30m` (m = minute)`1H` / `4H` (H = hour)`1D` (D = day)Only valid when `triggerStrategy` is `rsi` |
+| > thold | String | Threshold, integer in range [1, 100]Only valid when `triggerStrategy` is `rsi` |
+| > timePeriod | String | RSI calculation period. Default and fixed value is `14`Only valid when `triggerStrategy` is `rsi` |
 | timeInterval | String | Time interval Only applicable to `twap` order |
 | callbackRatio | String | Callback price ratioOnly applicable to `move_order_stop` order |
 | callbackSpread | String | Callback price varianceOnly applicable to `move_order_stop` order |
 | activePx | String | Active priceOnly applicable to `move_order_stop` order |
 | moveTriggerPx | String | Trigger priceOnly applicable to `move_order_stop` order |
 | reduceOnly | String | Whether the order can only reduce the position size. Valid options: true or false. |
-| quickMgnType | String | Quick Margin type, Only applicable to Quick Margin Mode of isolated margin`manual`, `auto_borrow`, `auto_repay` |
+| quickMgnType | String | Quick Margin type, Only applicable to Quick Margin Mode of isolated margin`manual`, `auto_borrow`, `auto_repay` (Deprecated) |
 | last | String | Last filled price while placing |
 | failCode | String | It represents that the reason that algo order fails to trigger. It is "" when the state is `effective`/`canceled`. There will be value when the state is `order_failed`, e.g. 51008;Only applicable to Stop Order, Trailing Stop Order, Trigger order. |
 | algoClOrdId | String | Client Algo Order ID as assigned by the client. |
 | amendPxOnTriggerType | String | Whether to enable Cost-price SL. Only applicable to SL order of split TPs. `0`: disable, the default value `1`: Enable |
-| attachAlgoOrds | Array of objects | Attached SL/TP orders infoApplicable to `Futures mode/Multi-currency margin/Portfolio margin` |
-| > attachAlgoClOrdId | String | Client-supplied Algo ID when placing order attaching TP/SL.A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters.It will be posted to algoClOrdId when placing TP/SL order once the general order is filled completely. |
+| attachAlgoOrds | Array of objects | Attached TP/SL or trailing stop order infoApplicable to `Futures mode/Multi-currency margin/Portfolio margin` |
+| > attachAlgoClOrdId | String | Client-supplied Algo ID when placing order with attached TP/SL or trailing stop.A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters.It will be posted to algoClOrdId when placing the attached algo order once the general order is filled completely. |
 | > tpTriggerPx | String | Take-profit trigger priceIf you fill in this parameter, you should fill in the take-profit order price as well. |
 | > tpTriggerRatio | String | Take profit trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. |
 | > tpTriggerPxType | String | Take-profit trigger price type`last`: last price`index`: index price`mark`: mark price |
 | > tpOrdPx | String | Take-profit order priceIf you fill in this parameter, you should fill in the take-profit trigger price as well. If the price is `-1`, take-profit will be executed at the market price. |
 | > slTriggerPx | String | Stop-loss trigger priceIf you fill in this parameter, you should fill in the stop-loss order price. |
-| > slTriggerRatio | String | Stop profit trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. |
+| > slTriggerRatio | String | Stop-loss trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. |
 | > slTriggerPxType | String | Stop-loss trigger price type`last`: last price`index`: index price`mark`: mark price |
 | > slOrdPx | String | Stop-loss order price If you fill in this parameter, you should fill in the stop-loss trigger price. If the price is `-1`, stop-loss will be executed at the market price. |
+| > callbackRatio | String | Callback ratio, e.g. `0.05` represents 5% |
+| > callbackSpread | String | Callback spread (price distance) |
+| > activePx | String | Activation price |
 | linkedOrd | Object | Linked TP order detail, only applicable to SL order that comes from the one-cancels-the-other (OCO) order that contains the TP limit order. |
 | > ordId | String | Order ID |
 | cTime | String | Creation time Unix timestamp format in milliseconds, e.g. `1597026383085` |
@@ -1286,8 +1361,8 @@ Push Data Example: single
 | > reqId | String | Client Request ID as assigned by the client for order amendment. "" will be returned if there is no order amendment. |
 | > amendResult | String | The result of amending the order`-1`: failure `0`: success |
 | > amendPxOnTriggerType | String | Whether to enable Cost-price SL. Only applicable to SL order of split TPs. `0`: disable, the default value `1`: Enable |
-| > attachAlgoOrds | Array of objects | Attached SL/TP orders infoApplicable to `Futures mode/Multi-currency margin/Portfolio margin` |
-| >> attachAlgoClOrdId | String | Client-supplied Algo ID when placing order attaching TP/SL.A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters.It will be posted to algoClOrdId when placing TP/SL order once the general order is filled completely. |
+| > attachAlgoOrds | Array of objects | Attached TP/SL or trailing stop order infoApplicable to `Futures mode/Multi-currency margin/Portfolio margin` |
+| >> attachAlgoClOrdId | String | Client-supplied Algo ID when placing order with attached TP/SL or trailing stop.A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters.It will be posted to algoClOrdId when placing the attached algo order once the general order is filled completely. |
 | >> tpTriggerPx | String | Take-profit trigger priceIf you fill in this parameter, you should fill in the take-profit order price as well. |
 | >> tpTriggerRatio | String | Take-profit trigger ratio, 0.3 represents 30%. Only applicable to `FUTURES`/`SWAP` contracts. |
 | >> tpTriggerPxType | String | Take-profit trigger price type`last`: last price`index`: index price`mark`: mark price |
@@ -1296,6 +1371,9 @@ Push Data Example: single
 | >> slTriggerRatio | String | Stop-loss trigger ratio, 0.3 represents 30%. Only applicable to `FUTURES`/`SWAP` contracts. |
 | >> slTriggerPxType | String | Stop-loss trigger price type`last`: last price`index`: index price`mark`: mark price |
 | >> slOrdPx | String | Stop-loss order price If you fill in this parameter, you should fill in the stop-loss trigger price. If the price is `-1`, stop-loss will be executed at the market price. |
+| >> callbackRatio | String | Callback ratio, e.g. `0.05` represents 5% |
+| >> callbackSpread | String | Callback spread (price distance) |
+| >> activePx | String | Activation price |
 | > linkedOrd | Object | Linked TP order detail, only applicable to SL order that comes from the one-cancels-the-other (OCO) order that contains the TP limit order. |
 | >> ordId | String | Order ID |
 | > cTime | String | Creation time Unix timestamp format in milliseconds, e.g. `1597026383085` |
@@ -1563,7 +1641,6 @@ Push Data Example: single
 | > algoId | String | Algo ID |
 | > clOrdId | String | Client Order ID as assigned by the client |
 | > sz | String | Quantity to buy or sell. `SPOT`/`MARGIN`: in the unit of currency. `FUTURES`/`SWAP`/`OPTION`: in the unit of contract. |
-| > ordType | String | Order type `iceberg`: Iceberg order `twap`: TWAP order `move_order_stop`: Trailing order |
 | > side | String | Order side, `buy` `sell` |
 | > posSide | String | Position side `net` `long` or `short` Only applicable to `FUTURES`/`SWAP` |
 | > tdMode | String | Trade mode, `cross`: cross `isolated`: isolated `cash`: cash |

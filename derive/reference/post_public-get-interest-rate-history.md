@@ -58,6 +58,11 @@ Get latest USDC interest rate history
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
+        "type": "object",
+        "required": [
+          "count",
+          "num_pages"
+        ],
         "properties": {
           "count": {
             "title": "count",
@@ -70,14 +75,14 @@ Get latest USDC interest rate history
             "description": "Number of pages"
           }
         },
-        "required": [
-          "count",
-          "num_pages"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetInterestRateHistoryParamsSchema": {
+        "type": "object",
+        "required": [
+          "from_timestamp_sec",
+          "to_timestamp_sec"
+        ],
         "properties": {
           "from_timestamp_sec": {
             "title": "from_timestamp_sec",
@@ -102,14 +107,14 @@ Get latest USDC interest rate history
             "description": "To timestamp in seconds"
           }
         },
-        "required": [
-          "from_timestamp_sec",
-          "to_timestamp_sec"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetInterestRateHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -127,14 +132,14 @@ Get latest USDC interest rate history
             "$ref": "#/components/schemas/PublicGetInterestRateHistoryResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetInterestRateHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "interest_rates",
+          "pagination"
+        ],
         "properties": {
           "interest_rates": {
             "title": "interest_rates",
@@ -148,14 +153,18 @@ Get latest USDC interest rate history
             "$ref": "#/components/schemas/PaginationInfoSchema"
           }
         },
-        "required": [
-          "interest_rates",
-          "pagination"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "InterestRateHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "block",
+          "borrow_apy",
+          "supply_apy",
+          "timestamp_sec",
+          "total_borrow",
+          "total_supply"
+        ],
         "properties": {
           "block": {
             "title": "block",
@@ -192,15 +201,6 @@ Get latest USDC interest rate history
             "description": "Total USDC supplied"
           }
         },
-        "required": [
-          "block",
-          "borrow_apy",
-          "supply_apy",
-          "timestamp_sec",
-          "total_borrow",
-          "total_supply"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

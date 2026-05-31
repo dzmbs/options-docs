@@ -58,6 +58,12 @@ Authenticate a websocket connection. Unavailable via HTTP.
   "components": {
     "schemas": {
       "PublicLoginParamsSchema": {
+        "type": "object",
+        "required": [
+          "signature",
+          "timestamp",
+          "wallet"
+        ],
         "properties": {
           "signature": {
             "title": "signature",
@@ -75,15 +81,14 @@ Authenticate a websocket connection. Unavailable via HTTP.
             "description": "Public key (wallet) of the account"
           }
         },
-        "required": [
-          "signature",
-          "timestamp",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicLoginResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -107,11 +112,6 @@ Authenticate a websocket connection. Unavailable via HTTP.
             }
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

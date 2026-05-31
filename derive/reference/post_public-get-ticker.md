@@ -58,6 +58,11 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
   "components": {
     "schemas": {
       "OpenInterestStatsSchema": {
+        "type": "object",
+        "required": [
+          "current_open_interest",
+          "interest_cap"
+        ],
         "properties": {
           "current_open_interest": {
             "title": "current_open_interest",
@@ -79,14 +84,13 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "nullable": true
           }
         },
-        "required": [
-          "current_open_interest",
-          "interest_cap"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "ERC20PublicDetailsSchema": {
+        "type": "object",
+        "required": [
+          "decimals"
+        ],
         "properties": {
           "borrow_index": {
             "title": "borrow_index",
@@ -114,13 +118,16 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "description": "Address of underlying on-chain ERC20 (not V2 asset)"
           }
         },
-        "required": [
-          "decimals"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "OptionPublicDetailsSchema": {
+        "type": "object",
+        "required": [
+          "expiry",
+          "index",
+          "option_type",
+          "strike"
+        ],
         "properties": {
           "expiry": {
             "title": "expiry",
@@ -154,16 +161,18 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "format": "decimal"
           }
         },
-        "required": [
-          "expiry",
-          "index",
-          "option_type",
-          "strike"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PerpPublicDetailsSchema": {
+        "type": "object",
+        "required": [
+          "aggregate_funding",
+          "funding_rate",
+          "index",
+          "max_rate_per_hour",
+          "min_rate_per_hour",
+          "static_interest_rate"
+        ],
         "properties": {
           "aggregate_funding": {
             "title": "aggregate_funding",
@@ -201,18 +210,13 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "description": "Static interest rate as per `PerpAsset.sol`"
           }
         },
-        "required": [
-          "aggregate_funding",
-          "funding_rate",
-          "index",
-          "max_rate_per_hour",
-          "min_rate_per_hour",
-          "static_interest_rate"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTickerParamsSchema": {
+        "type": "object",
+        "required": [
+          "instrument_name"
+        ],
         "properties": {
           "instrument_name": {
             "title": "instrument_name",
@@ -220,13 +224,14 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "description": "Instrument name"
           }
         },
-        "required": [
-          "instrument_name"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTickerResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -244,14 +249,47 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "$ref": "#/components/schemas/PublicGetTickerResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTickerResultSchema": {
+        "type": "object",
+        "required": [
+          "amount_step",
+          "base_asset_address",
+          "base_asset_sub_id",
+          "base_currency",
+          "base_fee",
+          "best_ask_amount",
+          "best_ask_price",
+          "best_bid_amount",
+          "best_bid_price",
+          "erc20_details",
+          "fifo_min_allocation",
+          "five_percent_ask_depth",
+          "five_percent_bid_depth",
+          "index_price",
+          "instrument_name",
+          "instrument_type",
+          "is_active",
+          "maker_fee_rate",
+          "mark_price",
+          "max_price",
+          "maximum_amount",
+          "min_price",
+          "minimum_amount",
+          "open_interest",
+          "option_details",
+          "option_pricing",
+          "perp_details",
+          "pro_rata_amount_step",
+          "pro_rata_fraction",
+          "quote_currency",
+          "scheduled_activation",
+          "scheduled_deactivation",
+          "taker_fee_rate",
+          "tick_size",
+          "timestamp"
+        ],
         "properties": {
           "amount_step": {
             "title": "amount_step",
@@ -447,9 +485,6 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "type": "integer",
             "description": "Scheduled deactivation time for instrument (if applicable)"
           },
-          "stats": {
-            "$ref": "#/components/schemas/AggregateTradingStatsSchema"
-          },
           "taker_fee_rate": {
             "title": "taker_fee_rate",
             "type": "string",
@@ -468,48 +503,23 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "description": "Timestamp of the ticker feed snapshot"
           }
         },
-        "required": [
-          "amount_step",
-          "base_asset_address",
-          "base_asset_sub_id",
-          "base_currency",
-          "base_fee",
-          "best_ask_amount",
-          "best_ask_price",
-          "best_bid_amount",
-          "best_bid_price",
-          "erc20_details",
-          "fifo_min_allocation",
-          "five_percent_ask_depth",
-          "five_percent_bid_depth",
-          "index_price",
-          "instrument_name",
-          "instrument_type",
-          "is_active",
-          "maker_fee_rate",
-          "mark_price",
-          "max_price",
-          "maximum_amount",
-          "min_price",
-          "minimum_amount",
-          "open_interest",
-          "option_details",
-          "option_pricing",
-          "perp_details",
-          "pro_rata_amount_step",
-          "pro_rata_fraction",
-          "quote_currency",
-          "scheduled_activation",
-          "scheduled_deactivation",
-          "stats",
-          "taker_fee_rate",
-          "tick_size",
-          "timestamp"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "OptionPricingSchema": {
+        "type": "object",
+        "required": [
+          "ask_iv",
+          "bid_iv",
+          "delta",
+          "discount_factor",
+          "forward_price",
+          "gamma",
+          "iv",
+          "mark_price",
+          "rho",
+          "theta",
+          "vega"
+        ],
         "properties": {
           "ask_iv": {
             "title": "ask_iv",
@@ -578,77 +588,6 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "description": "Vega of the option"
           }
         },
-        "required": [
-          "ask_iv",
-          "bid_iv",
-          "delta",
-          "discount_factor",
-          "forward_price",
-          "gamma",
-          "iv",
-          "mark_price",
-          "rho",
-          "theta",
-          "vega"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "AggregateTradingStatsSchema": {
-        "properties": {
-          "contract_volume": {
-            "title": "contract_volume",
-            "type": "string",
-            "format": "decimal",
-            "description": "Number of contracts traded during last 24 hours"
-          },
-          "high": {
-            "title": "high",
-            "type": "string",
-            "format": "decimal",
-            "description": "Highest trade price during last 24h"
-          },
-          "low": {
-            "title": "low",
-            "type": "string",
-            "format": "decimal",
-            "description": "Lowest trade price during last 24h"
-          },
-          "num_trades": {
-            "title": "num_trades",
-            "type": "string",
-            "format": "decimal",
-            "description": "Number of trades during last 24h "
-          },
-          "open_interest": {
-            "title": "open_interest",
-            "type": "string",
-            "format": "decimal",
-            "description": "Current total open interest"
-          },
-          "percent_change": {
-            "title": "percent_change",
-            "type": "string",
-            "format": "decimal",
-            "description": "24-hour price change expressed as a percentage. Options: percent change in vol; Perps: percent change in mark price"
-          },
-          "usd_change": {
-            "title": "usd_change",
-            "type": "string",
-            "format": "decimal",
-            "description": "24-hour price change in USD."
-          }
-        },
-        "required": [
-          "contract_volume",
-          "high",
-          "low",
-          "num_trades",
-          "open_interest",
-          "percent_change",
-          "usd_change"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

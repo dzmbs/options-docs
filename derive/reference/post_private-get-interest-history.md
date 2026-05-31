@@ -1,6 +1,6 @@
 # Get Interest History
 
-Get subaccount interest payment history.
+Get interest payment history for a subaccount or wallet.
 Required minimum session key permission level is `read_only`
 
 # OpenAPI definition
@@ -29,7 +29,7 @@ Required minimum session key permission level is `read_only`
           "Private"
         ],
         "summary": "Get Interest History",
-        "description": "Get subaccount interest payment history.\nRequired minimum session key permission level is `read_only`",
+        "description": "Get interest payment history for a subaccount or wallet.\nRequired minimum session key permission level is `read_only`",
         "responses": {
           "200": {
             "description": "successful operation",
@@ -59,32 +59,43 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetInterestHistoryParamsSchema": {
+        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
             "type": "integer",
             "default": 9223372036854776000,
-            "description": "End timestamp of the event history (default current time)"
+            "description": "End timestamp of the event history in ms since Unix epoch (default current time)"
           },
           "start_timestamp": {
             "title": "start_timestamp",
             "type": "integer",
             "default": 0,
-            "description": "Start timestamp of the event history (default 0)"
+            "description": "Start timestamp of the event history in ms since Unix epoch (default 0)"
           },
           "subaccount_id": {
             "title": "subaccount_id",
             "type": "integer",
-            "description": "Subaccount id"
+            "default": null,
+            "description": "Subaccount id (must be set if wallet is blank)",
+            "nullable": true
+          },
+          "wallet": {
+            "title": "wallet",
+            "type": "string",
+            "default": null,
+            "description": "Wallet address (if set, subaccount_id ignored)",
+            "nullable": true
           }
         },
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetInterestHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -102,14 +113,13 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetInterestHistoryResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetInterestHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "events"
+        ],
         "properties": {
           "events": {
             "title": "events",
@@ -120,13 +130,15 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "required": [
-          "events"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "InterestPaymentSchema": {
+        "type": "object",
+        "required": [
+          "interest",
+          "subaccount_id",
+          "timestamp"
+        ],
         "properties": {
           "interest": {
             "title": "interest",
@@ -134,17 +146,17 @@ Required minimum session key permission level is `read_only`
             "format": "decimal",
             "description": "Dollar interest paid (if negative) or received (if positive) by the subaccount"
           },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount ID of the subaccount that received the interest payment"
+          },
           "timestamp": {
             "title": "timestamp",
             "type": "integer",
             "description": "Timestamp of the interest payment (in ms since UNIX epoch)"
           }
         },
-        "required": [
-          "interest",
-          "timestamp"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

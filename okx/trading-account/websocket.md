@@ -208,7 +208,7 @@ Push Data Example
  "crossLiab": "0",
  "colRes": "0",
  "collateralEnabled": false,
- "collateralRestrict": false,
+ "collateralRestrict": false, // Deprecated, use colRes instead
  "colBorrAutoConversion": "0",
  "disEq": "4889.379316336831",
  "eq": "4892.951170691435",
@@ -486,7 +486,7 @@ asyncio.run(main())
 | op | String | Yes | Operation`subscribe``unsubscribe` |
 | args | Array of objects | Yes | List of subscribed channels |
 | > channel | String | Yes | Channel name`positions` |
-| > instType | String | Yes | Instrument type`MARGIN``SWAP``FUTURES``OPTION` `ANY` |
+| > instType | String | Yes | Instrument type`MARGIN``SWAP``FUTURES``OPTION` `EVENTS``ANY` |
 | > instFamily | String | No | Instrument familyApplicable to `FUTURES`/`SWAP`/`OPTION` |
 | > instId | String | No | Instrument IDIf instId and instFamily are both passed, instId will be used |
 | > extraParams | String | No | Additional configuration |
@@ -544,7 +544,7 @@ Failure Response Example
 | event | String | Yes | Event`subscribe``unsubscribe``error` |
 | arg | Object | No | Subscribed channel |
 | > channel | String | Yes | Channel name |
-| > instType | String | Yes | Instrument type`MARGIN``FUTURES``SWAP``OPTION``ANY` |
+| > instType | String | Yes | Instrument type`MARGIN``FUTURES``SWAP``OPTION``EVENTS``ANY` |
 | > instFamily | String | No | Instrument family |
 | > instId | String | No | Instrument ID |
 | code | String | No | Error code |
@@ -837,14 +837,14 @@ Push Data Example
 | arg | Object | Successfully subscribed channel |
 | > channel | String | Channel name |
 | > uid | String | User Identifier |
-| > instType | String | Instrument type |
+| > instType | String | Instrument type`MARGIN``SWAP``FUTURES``OPTION``EVENTS` |
 | > instFamily | String | Instrument family |
 | > instId | String | Instrument ID |
 | eventType | String | Event type: `snapshot`: Initial and regular snapshot push `event_update`: Event-driven update push |
 | curPage | Integer | Current page number. Only applicable for `snapshot` events. Not included in `event_update` events. |
 | lastPage | Boolean | Whether this is the last page of pagination:`true``false`Only applicable for `snapshot` events. Not included in `event_update` events. |
 | data | Array of objects | Subscribed data |
-| > instType | String | Instrument type |
+| > instType | String | Instrument type`MARGIN``SWAP``FUTURES``OPTION``EVENTS` |
 | > mgnMode | String | Margin mode, `cross` `isolated` |
 | > posId | String | Position ID |
 | > posSide | String | Position side`long` `short` `net` (`FUTURES`/`SWAP`/`OPTION`: positive `pos` means long position and negative `pos` means short position. `MARGIN`: `posCcy` being base currency means long position, `posCcy` being quote currency means short position.) |

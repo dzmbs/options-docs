@@ -24,7 +24,7 @@ To add a new withdrawal address to your address book, use the [`private/add_to_a
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/add_to_address_book",
@@ -42,7 +42,7 @@ To add a new withdrawal address to your address book, use the [`private/add_to_a
 
 ### Response
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -76,7 +76,7 @@ To retrieve all withdrawal addresses in your address book, use the [`private/get
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/get_address_book",
@@ -96,7 +96,7 @@ Use the [`private/update_in_address_book`](/api-reference/wallet/private-update_
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/update_in_address_book",
@@ -118,7 +118,7 @@ To remove an address from your address book, use the [`private/remove_from_addre
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/remove_from_address_book",
@@ -153,7 +153,7 @@ You can also use the [`private/save_address_beneficiary`](/api-reference/wallet/
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/save_address_beneficiary",
@@ -173,7 +173,7 @@ To retrieve beneficiary information for an address, use the [`private/get_addres
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/get_address_beneficiary",
@@ -191,7 +191,7 @@ To create a withdrawal, use the [`private/withdraw`](/api-reference/wallet/priva
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/withdraw",
@@ -207,7 +207,7 @@ To create a withdrawal, use the [`private/withdraw`](/api-reference/wallet/priva
 
 ### Response
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 7,
@@ -253,7 +253,7 @@ To retrieve a list of withdrawals, use the [`private/get_withdrawals`](/api-refe
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/get_withdrawals",
@@ -285,7 +285,7 @@ Withdrawals can be cancelled if the status is "unconfirmed" or "pending". To can
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/cancel_withdrawal",
@@ -298,7 +298,7 @@ Withdrawals can be cancelled if the status is "unconfirmed" or "pending". To can
 
 ### Response
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 9,

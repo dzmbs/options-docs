@@ -135,8 +135,8 @@ components:
           items:
             $ref: '#/components/schemas/combo_id'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     combo_id:
       example: BTC-FS-31DEC21-PERP

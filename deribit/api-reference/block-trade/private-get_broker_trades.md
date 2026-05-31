@@ -216,8 +216,8 @@ components:
               type: integer
               description: The next start ID for pagination.
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     block_trade:
       properties:

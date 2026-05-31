@@ -119,8 +119,8 @@ components:
           example: en
           description: The abbreviation of the language
       required:
-        - result
         - jsonrpc
+        - result
       type: object
 
 ````

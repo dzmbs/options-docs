@@ -16,7 +16,7 @@ The SBE XML schema is now available for download:
 
 ### General Information
 
-- The `bbo-tbt` channel is **available to users of any trading fee tier** but requires login. The `trades` and `books-l2-tbt` channels are restricted to users with a trading fee tier of **VIP6** or above in the live trading environment, and **VIP1** or above in the demo trading environment.
+- The `bbo-tbt` channel is **available to users of any trading fee tier** but requires login. The `trades` and `books-l2-tbt` channels are restricted to users with a trading fee tier of **VIP4** or above in the live trading environment. Other users will receive error code 64003. In the demo trading environment, these channels require **VIP1** or above.
 
 - SBE channels will use a new WebSocket URL.
 Live trading: `wss://ws.okx.com:8443/ws/v5/public-sbe`
@@ -153,7 +153,7 @@ Open a SBE WebSocket connection and subscribe to `books-l2-tbt`.
 
 - Buffer the events received from the stream. Record the prevSeqId of the first event you received. Note: For template ID 1002, the event is an exponent update, containing only exponent update information without ask or bid data. For template ID 1001, the data includes both asks and bids.
 
-- Get a depth snapshot from `/books-sbe`, e.g. `https://www.okx.com/api/v5/market/books-sbe?instIdCode=12345&source=0`
+- Get a depth snapshot from `/books-sbe`, e.g. `https://openapi.okx.com/api/v5/market/books-sbe?instIdCode=12345&source=0`
 
 - If the `seqId` from the snapshot is strictly less than the `prevSeqId` from step 2, go back to step 3.
 

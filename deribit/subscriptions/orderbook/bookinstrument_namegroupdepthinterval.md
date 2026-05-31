@@ -172,17 +172,35 @@ operations:
                   - name: instrument_name
                     type: string
                     description: Unique instrument identifier
-                    required: false
+                    required: true
                   - name: change_id
                     type: integer
                     description: id of the notification
-                    required: false
+                    required: true
                   - name: bids
                     type: array
-                    required: false
+                    required: true
+                    properties:
+                      - name: item
+                        type: array
+                        description: List of bids (price-amount pairs)
+                        required: false
+                        properties:
+                          - name: item
+                            type: number
+                            required: false
                   - name: asks
                     type: array
-                    required: false
+                    required: true
+                    properties:
+                      - name: item
+                        type: array
+                        description: List of asks (price-amount pairs)
+                        required: false
+                        properties:
+                          - name: item
+                            type: number
+                            required: false
                   - name: timestamp
                     type: integer
                     description: >-

@@ -126,7 +126,7 @@ operations:
                     description: >-
                       Number of seconds remaining until the expiration of the
                       nearest expiring instrument
-                    required: false
+                    required: true
                   - name: price
                     type: number
                     description: >-
@@ -134,7 +134,7 @@ operations:
                       for the index. When `is_estimated` is `true`, this
                       represents the calculated estimated ending price;
                       otherwise, it is the current index price.
-                    required: false
+                    required: true
                   - name: is_estimated
                     type: boolean
                     description: >-
@@ -142,7 +142,7 @@ operations:
                       `true`, the price represents a calculated estimated ending
                       price for expiration. When `false`, the price is the
                       current index price.
-                    required: false
+                    required: true
                   - name: left_ticks
                     type: number
                     description: >-

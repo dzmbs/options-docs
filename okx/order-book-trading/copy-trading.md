@@ -900,7 +900,7 @@ body
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | instType | String | No | Instrument type`SWAP`, the default value |
-| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 characters, e.g. 213E8C92DC61EFAC |
+| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 or 18 characters, e.g. 213E8C92DC61EFAC (16 characters) or 381749205163847291 (18 characters) |
 | copyMgnMode | String | Yes | Copy margin mode`cross`: cross`isolated`: isolated`copy`: Use the same margin mode as lead trader when opening positions |
 | copyInstIdType | String | Yes | Copy contract type setted`custom`: custom by `instId` which is required；`copy`: Keep your contracts consistent with this trader by automatically adding or removing contracts when they do |
 | instId | String | Conditional | Instrument ID. If there are multiple instruments, separate them with commas. |
@@ -971,7 +971,7 @@ body
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | instType | String | No | Instrument type`SWAP` |
-| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 characters, e.g. 213E8C92DC61EFAC |
+| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 or 18 characters, e.g. 213E8C92DC61EFAC (16 characters) or 381749205163847291 (18 characters) |
 | copyMgnMode | String | Yes | Copy margin mode`cross`: cross`isolated`: isolated`copy`: Use the same margin mode as lead trader when opening positions |
 | copyInstIdType | String | Yes | Copy contract type setted`custom`: custom by `instId` which is required；`copy`: Keep your contracts consistent with this trader by automatically adding or removing contracts when they do |
 | instId | String | Conditional | Instrument ID. If there are multiple instruments, separate them with commas. |
@@ -1037,7 +1037,7 @@ body
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | instType | String | No | Instrument type`SWAP` |
-| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 characters, e.g. 213E8C92DC61EFAC |
+| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 or 18 characters, e.g. 213E8C92DC61EFAC (16 characters) or 381749205163847291 (18 characters) |
 | subPosCloseType | String | Yes | Action type for open positions, it is required if you have related copy position`market_close`: immediately close at market price`copy_close`：close when trader closes`manual_close`: close manually |
 
 Response example
@@ -1086,7 +1086,7 @@ GET /api/v5/copytrading/copy-settings?instType=SWAP&uniqueCode=25CD5A80241D6FE6
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | instType | String | No | Instrument type`SWAP` |
-| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 characters, e.g. 213E8C92DC61EFAC |
+| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 or 18 characters, e.g. 213E8C92DC61EFAC (16 characters) or 381749205163847291 (18 characters) |
 
 Response example
 
@@ -1408,7 +1408,7 @@ GET /api/v5/copytrading/public-weekly-pnl?instType=SWAP&uniqueCode=D9ADEAB33AE9E
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | instType | String | No | Instrument type`SWAP`, the default value |
-| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 characters, e.g. 213E8C92DC61EFAC |
+| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 or 18 characters, e.g. 213E8C92DC61EFAC (16 characters) or 381749205163847291 (18 characters) |
 
 Response example
 
@@ -1465,7 +1465,7 @@ GET /api/v5/copytrading/public-pnl?instType=SWAP&uniqueCode=D9ADEAB33AE9EABD&las
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | instType | String | No | Instrument type`SWAP`, the default value |
-| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 characters, e.g. 213E8C92DC61EFAC |
+| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 or 18 characters, e.g. 213E8C92DC61EFAC (16 characters) or 381749205163847291 (18 characters) |
 | lastDays | String | Yes | Last days`1`: last 7 days `2`: last 30 days`3`: last 90 days `4`: last 365 days |
 
 Response example
@@ -1523,7 +1523,7 @@ GET /api/v5/copytrading/public-stats?instType=SWAP&uniqueCode=D9ADEAB33AE9EABD&l
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | instType | String | No | Instrument type`SWAP`, the default value |
-| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 characters, e.g. 213E8C92DC61EFAC |
+| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 or 18 characters, e.g. 213E8C92DC61EFAC (16 characters) or 381749205163847291 (18 characters) |
 | lastDays | String | Yes | Last days`1`: last 7 days `2`: last 30 days`3`: last 90 days `4`: last 365 days |
 
 Response example
@@ -1584,7 +1584,7 @@ GET /api/v5/copytrading/public-preference-currency?instType=SWAP&uniqueCode=CB45
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | instType | String | No | Instrument type`SWAP`, the default value |
-| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 characters, e.g. 213E8C92DC61EFAC |
+| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 or 18 characters, e.g. 213E8C92DC61EFAC (16 characters) or 381749205163847291 (18 characters) |
 
 Response example
 
@@ -1642,7 +1642,7 @@ GET /api/v5/copytrading/public-current-subpositions?instType=SWAP&uniqueCode=D9A
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | instType | String | No | Instrument type`SWAP`, the default value. |
-| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 characters, e.g. 213E8C92DC61EFAC |
+| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 or 18 characters, e.g. 213E8C92DC61EFAC (16 characters) or 381749205163847291 (18 characters) |
 | after | String | No | Pagination of data to return records earlier than the requested `subPosId`. |
 | before | String | No | Pagination of data to return records newer than the requested `subPosId`. |
 | limit | String | No | Number of results per request. Maximum is 100. Default is 100. |
@@ -1723,7 +1723,7 @@ GET /api/v5/copytrading/public-subpositions-history?instType=SWAP&uniqueCode=9A8
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | instType | String | No | Instrument type`SWAP`, the default value. |
-| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 characters, e.g. 213E8C92DC61EFAC |
+| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 or 18 characters, e.g. 213E8C92DC61EFAC (16 characters) or 381749205163847291 (18 characters) |
 | after | String | No | Pagination of data to return records earlier than the requested `subPosId`. |
 | before | String | No | Pagination of data to return records newer than the requested `subPosId`. |
 | limit | String | No | Number of results per request. Maximum is 100. Default is 100. |
@@ -1804,7 +1804,7 @@ GET /api/v5/copytrading/public-copy-traders?instType=SWAP&uniqueCode=D9ADEAB33AE
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | instType | String | No | Instrument type`SWAP`, the default value |
-| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 characters, e.g. 213E8C92DC61EFAC |
+| uniqueCode | String | Yes | Lead trader unique codeA combination of case-sensitive alphanumerics, all numbers and the length is 16 or 18 characters, e.g. 213E8C92DC61EFAC (16 characters) or 381749205163847291 (18 characters) |
 | limit | String | No | Number of results per request. The maximum is `100`; The default is `100` |
 
 Response example

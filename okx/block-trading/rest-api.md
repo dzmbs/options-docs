@@ -252,7 +252,7 @@ Response Example
 | data | Array of objects | Array of objects containing the results of the RFQ creation. |
 | > cTime | String | The timestamp the RFQ was created. Unix timestamp format in milliseconds. |
 | > uTime | String | The timestamp the RFQ was last updated. Unix timestamp format in milliseconds. |
-| > state | String | The status of the RFQ. Valid values can be `active` `canceled` `pending_fill` `filled` `expired` `traded_away` `failed`. `traded_away` only applies to Maker |
+| > state | String | The status of the RFQ. Valid values can be `active` `canceled` `pending_fill` `filled` `expired` `traded_away` `failed`. `filled` indicates the RFQ was successfully executed against the maker's quote. `traded_away` only applies to Maker. The same RFQ can appear as `filled` to one maker and `traded_away` to another. Example: taker creates RFQ → makerA quotes pxA, makerB quotes pxB → pxA is better than pxB → taker executes quoteA → makerA sees `filled`, makerB sees `traded_away`. |
 | > counterparties | Array of strings | The list of counterparties traderCode the RFQ was broadcast to. |
 | > validUntil | String | The timestamp the RFQ expires. Unix timestamp format in milliseconds. If all legs are options, the RFQ will expire after 10 minutes; otherwise, the RFQ will expire after 2 minutes. |
 | > clRfqId | String | Client-supplied RFQ ID. This attribute is treated as client sensitive information. It will not be exposed to the Maker, only return empty string. |
@@ -1792,7 +1792,7 @@ print(result)
 | --- | --- | --- | --- |
 | rfqId | String | No | RFQ ID . |
 | clRfqId | String | No | Client-supplied RFQ ID. If both `clRfqId` and `rfqId` are passed, `rfqId` will be treated as primary identifier |
-| state | String | No | The status of the RFQ. Valid values can be `active` `canceled` `pending_fill` `filled` `expired` `failed` `traded_away`. `traded_away` only applies to Maker |
+| state | String | No | The status of the RFQ. Valid values can be `active` `canceled` `pending_fill` `filled` `expired` `failed` `traded_away`. `filled` indicates the RFQ was successfully executed against the maker's quote. `traded_away` only applies to Maker. The same RFQ can appear as `filled` to one maker and `traded_away` to another. Example: taker creates RFQ → makerA quotes pxA, makerB quotes pxB → pxA is better than pxB → taker executes quoteA → makerA sees `filled`, makerB sees `traded_away`. |
 | beginId | String | No | Start rfq id the request to begin with. Pagination of data to return records newer than the requested rfqId, not including beginId |
 | endId | String | No | End rfq id the request to end with. Pagination of data to return records earlier than the requested rfqId, not including endId |
 | limit | String | No | Number of results per request. The maximum is 100 which is also the default value. |
@@ -1871,7 +1871,7 @@ Response Example
 | data | Array of objects | Array of objects containing the results of the RFQ creation. |
 | > cTime | String | The timestamp the RFQ was created. Unix timestamp format in milliseconds. |
 | > uTime | String | The timestamp the RFQ was last updated. Unix timestamp format in milliseconds. |
-| > state | String | The status of the RFQ. Valid values can be `active` `canceled` `pending_fill` `filled` `expired` `failed` `traded_away`. `traded_away` only applies to Maker |
+| > state | String | The status of the RFQ. Valid values can be `active` `canceled` `pending_fill` `filled` `expired` `failed` `traded_away`. `filled` indicates the RFQ was successfully executed against the maker's quote. `traded_away` only applies to Maker. The same RFQ can appear as `filled` to one maker and `traded_away` to another. Example: taker creates RFQ → makerA quotes pxA, makerB quotes pxB → pxA is better than pxB → taker executes quoteA → makerA sees `filled`, makerB sees `traded_away`. |
 | > counterparties | Array of strings | The list of counterparties traderCode the RFQ was broadcasted to. |
 | > validUntil | String | The timestamp the RFQ expires. Unix timestamp format in milliseconds. |
 | > clRfqId | String | Client-supplied RFQ ID. This attribute is treated as client sensitive information. It will not be exposed to the Maker, only return empty string. |

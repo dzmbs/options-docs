@@ -51,7 +51,7 @@ To move positions from a source subaccount to a target subaccount, use the [`pri
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/move_positions",
@@ -87,7 +87,7 @@ To move positions from a source subaccount to a target subaccount, use the [`pri
 
 ### Response
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -143,7 +143,7 @@ The `amount` must not exceed the available position size in the source subaccoun
 
 If you exceed the rate limit (6 requests/minute), you will receive:
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -187,7 +187,7 @@ Wait for the number of seconds specified in the `wait` field before retrying.
 
 Here's an example of moving multiple positions across different instruments in the same currency:
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/move_positions",

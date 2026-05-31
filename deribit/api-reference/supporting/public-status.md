@@ -126,8 +126,8 @@ components:
           required:
             - locked
       required:
-        - result
         - jsonrpc
+        - result
       type: object
 
 ````

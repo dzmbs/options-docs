@@ -468,6 +468,10 @@ components:
               type: boolean
               example: false
               description: Whether the account receives notifications
+            is_direct_access_allowed:
+              type: boolean
+              example: false
+              description: Whether Direct Access trading is enabled for the account.
           required:
             - equity
             - currency
@@ -504,8 +508,8 @@ components:
             - id
           type: object
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     rpl:
       example: 0.1

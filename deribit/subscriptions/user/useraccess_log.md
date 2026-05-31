@@ -58,23 +58,23 @@ operations:
                   - name: id
                     type: integer
                     description: Unique identifier
-                    required: false
+                    required: true
                   - name: ip
                     type: string
                     description: IP address of source that generated action
-                    required: false
+                    required: true
                   - name: timestamp
                     type: integer
                     description: The timestamp (milliseconds since the Unix epoch)
-                    required: false
+                    required: true
                   - name: country
                     type: string
                     description: Country where the IP address is registered (estimated)
-                    required: false
+                    required: true
                   - name: city
                     type: string
                     description: City where the IP address is registered (estimated)
-                    required: false
+                    required: true
                   - name: log
                     type: string
                     description: >
@@ -119,21 +119,9 @@ operations:
 
                       - ``reset_api_key`` - API key was reset (in `data` key
                       client id)
-                    required: false
-                  - name: oneOf
+                    required: true
+                  - name: data
                     type: oneOf
-                    description: Must be one of these types
-                    properties:
-                      - name: type
-                        type: string
-                        description: object
-                        required: false
-                      - name: type
-                        type: string
-                        description: string
-                        required: false
-                  - name: description
-                    type: string
                     description: >-
                       Optional, additional information about action, type
                       depends on `log` value

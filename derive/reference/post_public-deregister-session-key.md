@@ -58,6 +58,12 @@ Used for de-registering admin scoped keys. For other scopes, use `/edit_session_
   "components": {
     "schemas": {
       "PublicDeregisterSessionKeyParamsSchema": {
+        "type": "object",
+        "required": [
+          "public_session_key",
+          "signed_raw_tx",
+          "wallet"
+        ],
         "properties": {
           "public_session_key": {
             "title": "public_session_key",
@@ -75,15 +81,14 @@ Used for de-registering admin scoped keys. For other scopes, use `/edit_session_
             "description": "Ethereum wallet address of account"
           }
         },
-        "required": [
-          "public_session_key",
-          "signed_raw_tx",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicDeregisterSessionKeyResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -101,14 +106,14 @@ Used for de-registering admin scoped keys. For other scopes, use `/edit_session_
             "$ref": "#/components/schemas/PublicDeregisterSessionKeyResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicDeregisterSessionKeyResultSchema": {
+        "type": "object",
+        "required": [
+          "public_session_key",
+          "transaction_id"
+        ],
         "properties": {
           "public_session_key": {
             "title": "public_session_key",
@@ -122,11 +127,6 @@ Used for de-registering admin scoped keys. For other scopes, use `/edit_session_
             "description": "ID to lookup status of transaction"
           }
         },
-        "required": [
-          "public_session_key",
-          "transaction_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

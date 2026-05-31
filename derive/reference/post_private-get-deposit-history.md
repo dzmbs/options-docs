@@ -59,18 +59,22 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetDepositHistoryParamsSchema": {
+        "type": "object",
+        "required": [
+          "subaccount_id"
+        ],
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
             "type": "integer",
             "default": 9223372036854776000,
-            "description": "End timestamp of the event history (default current time)"
+            "description": "End timestamp of the event history in ms since Unix epoch (default current time)"
           },
           "start_timestamp": {
             "title": "start_timestamp",
             "type": "integer",
             "default": 0,
-            "description": "Start timestamp of the event history (default 0)"
+            "description": "Start timestamp of the event history in ms since Unix epoch (default 0)"
           },
           "subaccount_id": {
             "title": "subaccount_id",
@@ -78,13 +82,14 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount id"
           }
         },
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetDepositHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -102,14 +107,13 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetDepositHistoryResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetDepositHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "events"
+        ],
         "properties": {
           "events": {
             "title": "events",
@@ -120,13 +124,19 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "required": [
-          "events"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "DepositSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "asset",
+          "error_log",
+          "timestamp",
+          "transaction_id",
+          "tx_hash",
+          "tx_status"
+        ],
         "properties": {
           "amount": {
             "title": "amount",
@@ -177,16 +187,6 @@ Required minimum session key permission level is `read_only`
             "description": "Status of the transaction that deposited the funds"
           }
         },
-        "required": [
-          "amount",
-          "asset",
-          "error_log",
-          "timestamp",
-          "transaction_id",
-          "tx_hash",
-          "tx_status"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

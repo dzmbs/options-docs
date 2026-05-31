@@ -35,6 +35,15 @@ Calculates MtM and maintenance margin for a given subaccount.
             <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>boolean</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Force the fetching of on-chain balances, default False.</span>
           </td>
         </tr>
+
+        <tr>
+          <td style={{textAlign: "left"}}>
+            <span className="ws-small-font" />
+
+            <strong>is\_delayed\_liquidation</strong> 
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>boolean</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>If True, maintenance margin requirement is lowered for a brief period.Requires subaccount to have delayed liquidation enabled.</span>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -155,6 +164,22 @@ Calculates MtM and maintenance margin for a given subaccount.
             <span className="ws-small-font">result.collaterals\[].</span>
             <strong>asset\_type</strong> 
             <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Type of asset collateral (currently always <code>erc20</code>)</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>erc20</code> <code>option</code> <code>perp</code>
+          </td>
+        </tr>
+
+        <tr>
+          <td style={{textAlign: "left"}}>
+            <span className="ws-small-font">result.collaterals\[].</span>
+            <strong>delta</strong> 
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Delta of the collateral relative to delta\_currency</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td style={{textAlign: "left"}}>
+            <span className="ws-small-font">result.collaterals\[].</span>
+            <strong>delta\_currency</strong> 
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Currency that this collateral's delta is correlated to</span>
           </td>
         </tr>
 

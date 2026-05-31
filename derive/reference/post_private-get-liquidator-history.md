@@ -58,7 +58,124 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
+      "PaginationInfoSchema": {
+        "type": "object",
+        "required": [
+          "count",
+          "num_pages"
+        ],
+        "properties": {
+          "count": {
+            "title": "count",
+            "type": "integer",
+            "description": "Total number of items, across all pages"
+          },
+          "num_pages": {
+            "title": "num_pages",
+            "type": "integer",
+            "description": "Number of pages"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetLiquidatorHistoryParamsSchema": {
+        "type": "object",
+        "required": [
+          "subaccount_id"
+        ],
+        "properties": {
+          "end_timestamp": {
+            "title": "end_timestamp",
+            "type": "integer",
+            "default": 9223372036854776000,
+            "description": "End timestamp of the event history in ms since Unix epoch (default current time)"
+          },
+          "page": {
+            "title": "page",
+            "type": "integer",
+            "default": 1,
+            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
+          },
+          "page_size": {
+            "title": "page_size",
+            "type": "integer",
+            "default": 100,
+            "description": "Number of results per page (default 100, max 1000)"
+          },
+          "start_timestamp": {
+            "title": "start_timestamp",
+            "type": "integer",
+            "default": 0,
+            "description": "Start timestamp of the event history in ms since Unix epoch (default 0)"
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount ID"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetLiquidatorHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivateGetLiquidatorHistoryResultSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetLiquidatorHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "bids",
+          "pagination"
+        ],
+        "properties": {
+          "bids": {
+            "title": "bids",
+            "type": "array",
+            "description": "List of auction bid events",
+            "items": {
+              "$ref": "#/components/schemas/AuctionBidEventSchema"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationInfoSchema"
+          }
+        },
+        "additionalProperties": false
+      },
       "AuctionBidEventSchema": {
+        "type": "object",
+        "required": [
+          "amounts_liquidated",
+          "cash_received",
+          "discount_pnl",
+          "percent_liquidated",
+          "positions_realized_pnl",
+          "positions_realized_pnl_excl_fees",
+          "realized_pnl",
+          "realized_pnl_excl_fees",
+          "timestamp",
+          "tx_hash"
+        ],
         "properties": {
           "amounts_liquidated": {
             "title": "amounts_liquidated",
@@ -131,123 +248,6 @@ Required minimum session key permission level is `read_only`
             "description": "Hash of the bid transaction"
           }
         },
-        "required": [
-          "amounts_liquidated",
-          "cash_received",
-          "discount_pnl",
-          "percent_liquidated",
-          "positions_realized_pnl",
-          "positions_realized_pnl_excl_fees",
-          "realized_pnl",
-          "realized_pnl_excl_fees",
-          "timestamp",
-          "tx_hash"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PaginationInfoSchema": {
-        "properties": {
-          "count": {
-            "title": "count",
-            "type": "integer",
-            "description": "Total number of items, across all pages"
-          },
-          "num_pages": {
-            "title": "num_pages",
-            "type": "integer",
-            "description": "Number of pages"
-          }
-        },
-        "required": [
-          "count",
-          "num_pages"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateGetLiquidatorHistoryParamsSchema": {
-        "properties": {
-          "end_timestamp": {
-            "title": "end_timestamp",
-            "type": "integer",
-            "default": 9223372036854776000,
-            "description": "End timestamp of the event history (default current time)"
-          },
-          "page": {
-            "title": "page",
-            "type": "integer",
-            "default": 1,
-            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
-          },
-          "page_size": {
-            "title": "page_size",
-            "type": "integer",
-            "default": 100,
-            "description": "Number of results per page (default 100, max 1000)"
-          },
-          "start_timestamp": {
-            "title": "start_timestamp",
-            "type": "integer",
-            "default": 0,
-            "description": "Start timestamp of the event history (default 0)"
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount ID"
-          }
-        },
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateGetLiquidatorHistoryResponseSchema": {
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivateGetLiquidatorHistoryResultSchema"
-          }
-        },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateGetLiquidatorHistoryResultSchema": {
-        "properties": {
-          "bids": {
-            "title": "bids",
-            "type": "array",
-            "description": "List of auction bid events",
-            "items": {
-              "$ref": "#/components/schemas/AuctionBidEventSchema"
-            }
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationInfoSchema"
-          }
-        },
-        "required": [
-          "bids",
-          "pagination"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

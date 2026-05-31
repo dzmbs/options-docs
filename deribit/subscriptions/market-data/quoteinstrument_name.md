@@ -67,21 +67,21 @@ operations:
                   - name: timestamp
                     type: integer
                     description: The timestamp (milliseconds since the Unix epoch)
-                    required: false
+                    required: true
                   - name: instrument_name
                     type: string
                     description: Unique instrument identifier
-                    required: false
+                    required: true
                   - name: best_bid_price
                     type: number
                     description: >-
                       The current best bid price, `null` if there aren't any
                       bids
-                    required: false
+                    required: true
                   - name: best_bid_amount
                     type: number
                     description: It represents the requested order size of all best bids
-                    required: false
+                    required: true
                   - name: best_ask_price
                     type: number
                     description: >-

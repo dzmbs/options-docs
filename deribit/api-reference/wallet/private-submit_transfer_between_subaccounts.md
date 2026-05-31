@@ -111,6 +111,17 @@ paths:
             the request. However, if a different "source" is specified, the user
             must possess the mainaccount scope, and only other subaccounts can
             be designated as the source.
+        - in: query
+          name: nonce
+          required: false
+          schema:
+            $ref: '#/components/schemas/nonce'
+          description: >-
+            Optional idempotency nonce. If provided, subsequent requests with
+            the same nonce will return the previously created transaction
+            instead of creating a new one. Must be 8-128 characters. The nonce
+            is persisted on the resulting transaction and returned in the
+            response.
       requestBody:
         content:
           application/json:
@@ -141,6 +152,10 @@ components:
         - EURR
       type: string
       description: Currency, i.e `"BTC"`, `"ETH"`, `"USDC"`
+    nonce:
+      example: bF1_gfgcsd
+      type: string
+      description: Nonce
     PrivateSubmitTransferResponse:
       properties:
         jsonrpc:
@@ -154,8 +169,8 @@ components:
         result:
           $ref: '#/components/schemas/transfer_item'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     transfer_item:
       properties:
@@ -177,6 +192,9 @@ components:
           $ref: '#/components/schemas/transfer_direction'
         updated_timestamp:
           $ref: '#/components/schemas/timestamp'
+        nonce:
+          type: string
+          description: Optional idempotency nonce if provided in the request
       required:
         - currency
         - id

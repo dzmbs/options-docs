@@ -60,13 +60,13 @@ operations:
                     description: >-
                       Currency on which account lock has changed, `ALL` if
                       changed for all currencies
-                    required: false
+                    required: true
                   - name: locked
                     type: boolean
                     description: >-
                       Value is set to 'true' when user account is locked in
                       currency
-                    required: false
+                    required: true
         headers: []
         jsonPayloadSchema:
           type: object

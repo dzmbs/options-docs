@@ -67,7 +67,7 @@ operations:
                   - name: order_id
                     type: string
                     description: Unique order identifier
-                    required: false
+                    required: true
                   - name: order_state
                     type: string
                     description: >-
@@ -80,7 +80,7 @@ operations:
                       - cancelled
                       - untriggered
                       - triggered
-                    required: false
+                    required: true
                   - name: order_type
                     type: string
                     description: >-
@@ -95,7 +95,7 @@ operations:
                       - take_market
                       - take_limit
                       - trailing_stop
-                    required: false
+                    required: true
                   - name: original_order_type
                     type: string
                     description: Original order type. Optional field
@@ -114,7 +114,7 @@ operations:
                       - good_til_day
                       - fill_or_kill
                       - immediate_or_cancel
-                    required: false
+                    required: true
                   - name: is_rebalance
                     type: boolean
                     description: >-
@@ -131,22 +131,22 @@ operations:
                   - name: instrument_name
                     type: string
                     description: Unique instrument identifier
-                    required: false
+                    required: true
                   - name: creation_timestamp
                     type: integer
                     description: The timestamp (milliseconds since the Unix epoch)
-                    required: false
+                    required: true
                   - name: last_update_timestamp
                     type: integer
                     description: The timestamp (milliseconds since the Unix epoch)
-                    required: false
+                    required: true
                   - name: direction
                     type: string
                     description: 'Direction: `buy`, or `sell`'
                     enumValues:
                       - buy
                       - sell
-                    required: false
+                    required: true
                   - name: description
                     type: string
                     description: >-
@@ -156,11 +156,11 @@ operations:
                   - name: label
                     type: string
                     description: User defined label (up to 64 characters)
-                    required: false
+                    required: true
                   - name: post_only
                     type: boolean
                     description: '`true` for post-only orders only'
-                    required: false
+                    required: true
                   - name: reject_post_only
                     type: boolean
                     description: >-
@@ -176,7 +176,7 @@ operations:
                   - name: api
                     type: boolean
                     description: '`true` if created with API'
-                    required: false
+                    required: true
                   - name: web
                     type: boolean
                     description: '`true` if created via Deribit frontend (optional)'

@@ -59,6 +59,19 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "PrivateLiquidateParamsSchema": {
+        "type": "object",
+        "required": [
+          "cash_transfer",
+          "last_seen_trade_id",
+          "liquidated_subaccount_id",
+          "nonce",
+          "percent_bid",
+          "price_limit",
+          "signature",
+          "signature_expiry_sec",
+          "signer",
+          "subaccount_id"
+        ],
         "properties": {
           "cash_transfer": {
             "title": "cash_transfer",
@@ -114,22 +127,14 @@ Required minimum session key permission level is `admin`
             "description": "Subaccount ID owned by wallet, that will be doing the bidding."
           }
         },
-        "required": [
-          "cash_transfer",
-          "last_seen_trade_id",
-          "liquidated_subaccount_id",
-          "nonce",
-          "percent_bid",
-          "price_limit",
-          "signature",
-          "signature_expiry_sec",
-          "signer",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateLiquidateResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -147,14 +152,16 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateLiquidateResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateLiquidateResultSchema": {
+        "type": "object",
+        "required": [
+          "estimated_bid_price",
+          "estimated_discount_pnl",
+          "estimated_percent_bid",
+          "transaction_id"
+        ],
         "properties": {
           "estimated_bid_price": {
             "title": "estimated_bid_price",
@@ -181,13 +188,6 @@ Required minimum session key permission level is `admin`
             "description": "The transaction id of the related settlement transaction"
           }
         },
-        "required": [
-          "estimated_bid_price",
-          "estimated_discount_pnl",
-          "estimated_percent_bid",
-          "transaction_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

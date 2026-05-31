@@ -135,8 +135,8 @@ components:
         result:
           $ref: '#/components/schemas/orders'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     ErrorMessageResponse:
       properties:
@@ -153,9 +153,9 @@ components:
         error:
           type: integer
       required:
+        - jsonrpc
         - message
         - error
-        - jsonrpc
       type: object
     orders:
       items:

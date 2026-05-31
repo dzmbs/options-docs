@@ -4,7 +4,7 @@
 
 #### `private/get_erc20_transfer_history`
 
-Get subaccount erc20 transfer history.<br /><br />Position transfers (e.g. options or perps) are treated as trades. Use `private/get_trade_history` for position transfer history.<br />Required minimum session key permission level is `read_only`
+Get erc20 transfer history for a subaccount or wallet.<br /><br />Position transfers (e.g. options or perps) are treated as trades. Use `private/get_trade_history` for position transfer history.<br />Required minimum session key permission level is `read_only`
 
 ### Parameters
 
@@ -22,17 +22,8 @@ Get subaccount erc20 transfer history.<br /><br />Position transfers (e.g. optio
           <td style={{textAlign: "left"}}>
             <span className="ws-small-font" />
 
-            <strong>subaccount\_id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subaccount id</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
             <strong>end\_timestamp</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>End timestamp of the event history (default current time)</span>
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>End timestamp of the event history in ms since Unix epoch (default current time)</span>
           </td>
         </tr>
 
@@ -41,7 +32,25 @@ Get subaccount erc20 transfer history.<br /><br />Position transfers (e.g. optio
             <span className="ws-small-font" />
 
             <strong>start\_timestamp</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Start timestamp of the event history (default 0)</span>
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Start timestamp of the event history in ms since Unix epoch (default 0)</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td style={{textAlign: "left"}}>
+            <span className="ws-small-font" />
+
+            <strong>subaccount\_id</strong> 
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subaccount id (must be set if wallet is blank)</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td style={{textAlign: "left"}}>
+            <span className="ws-small-font" />
+
+            <strong>wallet</strong> 
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Wallet address (if set, subaccount\_id ignored)</span>
           </td>
         </tr>
       </tbody>
@@ -116,6 +125,14 @@ Get subaccount erc20 transfer history.<br /><br />Position transfers (e.g. optio
             <span className="ws-small-font">result.events\[].</span>
             <strong>is\_outgoing</strong> 
             <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>boolean</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>True if the transfer was initiated by the subaccount, False otherwise</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td style={{textAlign: "left"}}>
+            <span className="ws-small-font">result.events\[].</span>
+            <strong>subaccount\_id</strong> 
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subaccount ID of the subaccount involved in the transfer</span>
           </td>
         </tr>
 

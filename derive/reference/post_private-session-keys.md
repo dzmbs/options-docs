@@ -59,6 +59,10 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateSessionKeysParamsSchema": {
+        "type": "object",
+        "required": [
+          "wallet"
+        ],
         "properties": {
           "wallet": {
             "title": "wallet",
@@ -66,13 +70,14 @@ Required minimum session key permission level is `read_only`
             "description": "Ethereum wallet address of account"
           }
         },
-        "required": [
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateSessionKeysResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -90,14 +95,13 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateSessionKeysResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateSessionKeysResultSchema": {
+        "type": "object",
+        "required": [
+          "public_session_keys"
+        ],
         "properties": {
           "public_session_keys": {
             "title": "public_session_keys",
@@ -108,13 +112,18 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "required": [
-          "public_session_keys"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "SessionKeyResponseSchema": {
+        "type": "object",
+        "required": [
+          "expiry_sec",
+          "ip_whitelist",
+          "label",
+          "public_session_key",
+          "registered_sec",
+          "scope"
+        ],
         "properties": {
           "expiry_sec": {
             "title": "expiry_sec",
@@ -151,15 +160,6 @@ Required minimum session key permission level is `read_only`
             "description": "Session key permission level scope"
           }
         },
-        "required": [
-          "expiry_sec",
-          "ip_whitelist",
-          "label",
-          "public_session_key",
-          "registered_sec",
-          "scope"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

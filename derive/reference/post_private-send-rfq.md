@@ -58,7 +58,43 @@ Required minimum session key permission level is `account`
   },
   "components": {
     "schemas": {
+      "LegUnpricedSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "direction",
+          "instrument_name"
+        ],
+        "properties": {
+          "amount": {
+            "title": "amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Amount in units of the base"
+          },
+          "direction": {
+            "title": "direction",
+            "type": "string",
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "Leg direction"
+          },
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "description": "Instrument name"
+          }
+        },
+        "additionalProperties": false
+      },
       "PrivateSendRfqParamsSchema": {
+        "type": "object",
+        "required": [
+          "legs",
+          "subaccount_id"
+        ],
         "properties": {
           "client": {
             "title": "client",
@@ -76,6 +112,13 @@ Required minimum session key permission level is `account`
               "type": "string"
             },
             "nullable": true
+          },
+          "extra_fee": {
+            "title": "extra_fee",
+            "type": "string",
+            "format": "decimal",
+            "default": "0",
+            "description": "Extra fee in USDC added to the total final fee paid by user and directly sent to client / builder (must be between 0.000001 and 1000 USDC). The `referral_code` field must also be filled out. See Builder Fee page in docs for more info."
           },
           "label": {
             "title": "label",
@@ -114,51 +157,37 @@ Required minimum session key permission level is `account`
             "default": "1",
             "description": "Optional step size for partial fills. If not supplied, the RFQ will not support partial fills."
           },
+          "preferred_direction": {
+            "title": "preferred_direction",
+            "type": "string",
+            "default": null,
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "If disclosed, the direction the user is aiming to execute as. Default None.",
+            "nullable": true
+          },
+          "referral_code": {
+            "title": "referral_code",
+            "type": "string",
+            "default": "",
+            "description": "Optional referral code for the RFQ"
+          },
           "subaccount_id": {
             "title": "subaccount_id",
             "type": "integer",
             "description": "Subaccount ID"
           }
         },
-        "required": [
-          "legs",
-          "subaccount_id"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "LegUnpricedSchema": {
-        "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Amount in units of the base"
-          },
-          "direction": {
-            "title": "direction",
-            "type": "string",
-            "enum": [
-              "buy",
-              "sell"
-            ],
-            "description": "Leg direction"
-          },
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "description": "Instrument name"
-          }
-        },
-        "required": [
-          "amount",
-          "direction",
-          "instrument_name"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateSendRfqResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -176,14 +205,34 @@ Required minimum session key permission level is `account`
             "$ref": "#/components/schemas/PrivateSendRfqResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateSendRfqResultSchema": {
+        "type": "object",
+        "required": [
+          "ask_total_cost",
+          "bid_total_cost",
+          "cancel_reason",
+          "counterparties",
+          "creation_timestamp",
+          "filled_direction",
+          "filled_pct",
+          "label",
+          "last_update_timestamp",
+          "legs",
+          "mark_total_cost",
+          "max_total_cost",
+          "min_total_cost",
+          "partial_fill_step",
+          "preferred_direction",
+          "reducing_direction",
+          "rfq_id",
+          "status",
+          "subaccount_id",
+          "total_cost",
+          "valid_until",
+          "wallet"
+        ],
         "properties": {
           "ask_total_cost": {
             "title": "ask_total_cost",
@@ -299,6 +348,28 @@ Required minimum session key permission level is `account`
             "format": "decimal",
             "description": "Step size for partial fills (default: 1)"
           },
+          "preferred_direction": {
+            "title": "preferred_direction",
+            "type": "string",
+            "default": null,
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "If disclosed, the direction the user is aiming to execute as.",
+            "nullable": true
+          },
+          "reducing_direction": {
+            "title": "reducing_direction",
+            "type": "string",
+            "default": null,
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "If applicable, the direction from user's perspective that would reduce their position in each leg.",
+            "nullable": true
+          },
           "rfq_id": {
             "title": "rfq_id",
             "type": "string",
@@ -340,29 +411,6 @@ Required minimum session key permission level is `account`
             "description": "Wallet address of the RFQ sender"
           }
         },
-        "required": [
-          "ask_total_cost",
-          "bid_total_cost",
-          "cancel_reason",
-          "counterparties",
-          "creation_timestamp",
-          "filled_direction",
-          "filled_pct",
-          "label",
-          "last_update_timestamp",
-          "legs",
-          "mark_total_cost",
-          "max_total_cost",
-          "min_total_cost",
-          "partial_fill_step",
-          "rfq_id",
-          "status",
-          "subaccount_id",
-          "total_cost",
-          "valid_until",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

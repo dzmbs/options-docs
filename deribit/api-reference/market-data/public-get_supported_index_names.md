@@ -139,8 +139,8 @@ components:
             required:
               - name
       required:
-        - result
         - jsonrpc
+        - result
       type: object
 
 ````

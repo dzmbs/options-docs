@@ -2,7 +2,7 @@
 
 The Production Trading URL:
 
-- REST: `https://www.okx.com`
+- REST: `https://openapi.okx.com`
 
 - Public WebSocket: `wss://ws.okx.com:8443/ws/v5/public`
 

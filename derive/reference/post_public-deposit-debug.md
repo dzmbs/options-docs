@@ -58,6 +58,15 @@ Used for debugging only, do not use in production. Will return the incremental e
   "components": {
     "schemas": {
       "PublicDepositDebugParamsSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "asset_name",
+          "nonce",
+          "signature_expiry_sec",
+          "signer",
+          "subaccount_id"
+        ],
         "properties": {
           "amount": {
             "title": "amount",
@@ -97,18 +106,14 @@ Used for debugging only, do not use in production. Will return the incremental e
             "description": "Subaccount_id"
           }
         },
-        "required": [
-          "amount",
-          "asset_name",
-          "nonce",
-          "signature_expiry_sec",
-          "signer",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicDepositDebugResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -126,14 +131,16 @@ Used for debugging only, do not use in production. Will return the incremental e
             "$ref": "#/components/schemas/PublicDepositDebugResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicDepositDebugResultSchema": {
+        "type": "object",
+        "required": [
+          "action_hash",
+          "encoded_data",
+          "encoded_data_hashed",
+          "typed_data_hash"
+        ],
         "properties": {
           "action_hash": {
             "title": "action_hash",
@@ -156,13 +163,6 @@ Used for debugging only, do not use in production. Will return the incremental e
             "description": "EIP 712 typed data hash"
           }
         },
-        "required": [
-          "action_hash",
-          "encoded_data",
-          "encoded_data_hashed",
-          "typed_data_hash"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

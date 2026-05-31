@@ -213,8 +213,8 @@ components:
           required:
             - signature
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     block_trade_signature:
       example: >-

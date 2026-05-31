@@ -42,7 +42,7 @@ The initial party initiates the block trade by calling [`private/verify_block_tr
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/verify_block_trade",
@@ -86,7 +86,7 @@ The initial party initiates the block trade by calling [`private/verify_block_tr
 
 ### Response
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -104,7 +104,7 @@ After receiving the signature, the second party is required to call [`private/ex
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/execute_block_trade",
@@ -148,7 +148,7 @@ Before executing a block trade, you can simulate it to check if it can be execut
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/simulate_block_trade",
@@ -203,7 +203,7 @@ To approve a block trade, use [`private/approve_block_trade`](/api-reference/blo
 
 ### Example Request - Approve Block Trade
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/approve_block_trade",
@@ -218,7 +218,7 @@ To approve a block trade, use [`private/approve_block_trade`](/api-reference/blo
 
 ### Example Request - Reject Block Trade
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/reject_block_trade",
@@ -239,7 +239,7 @@ To approve a block trade, use [`private/approve_block_trade`](/api-reference/blo
 
 If needed, you can invalidate a block trade signature using [`private/invalidate_block_trade_signature`](/api-reference/block-trade/private-invalidate_block_trade_signature):
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/invalidate_block_trade_signature",

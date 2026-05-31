@@ -119,7 +119,7 @@ On a related note, prefer the real-time subscription channels to any kind of con
 
 Deribit allows you to subscribe to multiple channels in a single API call, which is much more efficient than subscribing one by one. When your WebSocket connection is open, prepare a single [`public/subscribe`](/api-reference/subscription-management/public-subscribe) call with an array of all channels you want. The system can handle up to 500 channels in one subscription message, which should be more than sufficient in practice. Subscribing in bulk reduces the overhead (latency and load) of sending many small requests and ensures you start receiving all data at once. For example, instead of doing 100 separate `public/subscribe` calls for 100 instruments, do one call with a "channels" list of those 100. The snippet below illustrates a single request subscribing to four channels at once:
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 42,

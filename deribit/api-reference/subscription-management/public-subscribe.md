@@ -163,8 +163,8 @@ components:
             example: deribit_price_index.btc_usd
           description: A list of subscribed channels.
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     ErrorMessageResponse:
       properties:
@@ -181,9 +181,9 @@ components:
         error:
           type: integer
       required:
+        - jsonrpc
         - message
         - error
-        - jsonrpc
       type: object
 
 ````

@@ -24,7 +24,7 @@ Call [`public/auth`](/api-reference/authentication/public-auth) to authenticate:
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "public/auth",
@@ -53,7 +53,7 @@ Use [`public/exchange_token`](/api-reference/authentication/public-exchange_toke
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "public/exchange_token",
@@ -71,7 +71,7 @@ This returns a new `access_token` and `refresh_token` for the specified subaccou
 
 Alternatively, you can use [`public/fork_token`](/api-reference/authentication/public-fork-token) to create a new session token for the subaccount:
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "public/fork_token",
@@ -96,7 +96,7 @@ To transfer funds from the main account to a subaccount, call [`private/submit_t
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/submit_transfer_to_subaccount",
@@ -111,7 +111,7 @@ To transfer funds from the main account to a subaccount, call [`private/submit_t
 
 ### Response
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 3,
@@ -136,7 +136,7 @@ To transfer funds between two subaccounts under the same main account, call [`pr
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/submit_transfer_between_subaccounts",
@@ -152,7 +152,7 @@ To transfer funds between two subaccounts under the same main account, call [`pr
 
 ### Response
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 4,
@@ -173,7 +173,7 @@ Transfers are executed immediately and are reflected in both accounts. You can c
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/get_transfers",

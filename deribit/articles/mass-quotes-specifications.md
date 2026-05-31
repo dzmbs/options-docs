@@ -36,7 +36,7 @@ Quotes are rate-limited separately from regular orders and are fully integrated 
 
 * **Crossing quotes are rejected or cancelled** automatically.
 
-* **Each side is validated independently** — one side may succeed while the other fails.
+* **Each side is validated independently** — one side may succeed while the other fails. Note: this is specific to the JSON-RPC mass quote system. In the [Starbase Binary API](/starbase/mass-quotes), an invalid quantity on either side causes the entire `MassQuoteRequest` to be rejected.
 
 * **Amendments with no amount** are processed safely; if no quote exists, an error is returned.
 
@@ -108,8 +108,6 @@ To use mass quote methods:
 ### Priority in the Order Book
 
 Mass quotes follow standard Deribit **limit order book (LOB) priority rules**, with the following nuances:
-
-* If a quote is **amended without changing price, amount, or `quote_set_id`**, it **loses its priority**. This prevents abuse through repeated resubmission of identical quotes.
 
 * You may **change only the `quote_set_id` without affecting priority**.
 
@@ -201,7 +199,7 @@ You can submit up to **100 quotes total** (max 100 bids + 100 asks) per [private
 
 **Example request:**
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 7859,
@@ -242,7 +240,7 @@ You can submit up to **100 quotes total** (max 100 bids + 100 asks) per [private
 
 **Example response:**
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 7859,
@@ -382,7 +380,7 @@ Method [private/cancel\_quotes](https://docs.deribit.com/#private-cancel_quotes)
 
 **Example cancel request:**
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 5663,

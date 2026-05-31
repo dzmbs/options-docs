@@ -8,7 +8,7 @@
 
 ## Error Response Format
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "error": {
@@ -241,7 +241,7 @@ The following table contains the complete list of all RPC error codes returned b
 
 ### Basic Error Handler
 
-```javascript  theme={null}
+```javascript theme={null}
 function handleError(error) {
   switch (error.code) {
     case 13009:
@@ -269,7 +269,7 @@ function handleError(error) {
 
 ### Retry Logic
 
-```javascript  theme={null}
+```javascript theme={null}
 async function retryWithBackoff(fn, maxRetries = 3) {
   for (let i = 0; i < maxRetries; i++) {
     try {
@@ -304,7 +304,7 @@ function sleep(ms) {
 
 ### Error Recovery
 
-```javascript  theme={null}
+```javascript theme={null}
 class ErrorRecovery {
   constructor(apiClient) {
     this.apiClient = apiClient;
@@ -377,7 +377,7 @@ try {
 
 ### Error Logger
 
-```javascript  theme={null}
+```javascript theme={null}
 class ErrorLogger {
   constructor() {
     this.errors = [];
@@ -425,7 +425,7 @@ class ErrorLogger {
 
 ### Error Metrics
 
-```javascript  theme={null}
+```javascript theme={null}
 class ErrorMetrics {
   constructor() {
     this.metrics = {
@@ -482,7 +482,7 @@ class ErrorMetrics {
 
 ### Parameter Validation
 
-```javascript  theme={null}
+```javascript theme={null}
 function validateOrderParams(params) {
   const errors = [];
 
@@ -525,7 +525,7 @@ if (errors.length > 0) {
 
 ## Complete Error Handler
 
-```javascript  theme={null}
+```javascript theme={null}
 class DeribitErrorHandler {
   constructor(apiClient) {
     this.apiClient = apiClient;
@@ -620,7 +620,7 @@ try {
 
 ### 1. Always Check for Errors
 
-```javascript  theme={null}
+```javascript theme={null}
 const response = await apiCall();
 if (response.error) {
   handleError(response.error);
@@ -629,7 +629,7 @@ if (response.error) {
 
 ### 2. Implement Exponential Backoff
 
-```javascript  theme={null}
+```javascript theme={null}
 async function withBackoff(fn, maxRetries = 3) {
   for (let i = 0; i < maxRetries; i++) {
     try {
@@ -644,7 +644,7 @@ async function withBackoff(fn, maxRetries = 3) {
 
 ### 3. Log All Errors
 
-```javascript  theme={null}
+```javascript theme={null}
 function logError(error, context) {
   console.error({
     code: error.code,
@@ -657,7 +657,7 @@ function logError(error, context) {
 
 ### 4. Monitor Error Rates
 
-```javascript  theme={null}
+```javascript theme={null}
 if (errorMetrics.getErrorRate() > 1) {
   console.warn('High error rate detected');
   // Alert or throttle requests

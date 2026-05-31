@@ -15,7 +15,7 @@ Each MMP configuration contains the following key parameters:
 * **Vega Limit** – (Options only) Maximum change in vega exposure allowed before triggering.
 * **Time Interval** – Time window (in seconds) over which limits are measured.
 * **Frozen Time** – Duration (in seconds) for which quoting remains disabled after an MMP trigger.
-* **Maximum Quote Quantity (MQQ)** – Maximum combined open MMP order size per side, per index.
+* **Maximum Quote Quantity (MQQ)** – Maximum combined open MMP order size, configured per index but enforced per side, per instrument (order book).
 
 <Note>
   MMP groups exist but apply only to Mass Quotes Specifications. For standard order-based quoting, MMP configuration is defined per index.
@@ -35,14 +35,13 @@ For comprehensive details on MMP configuration and management, refer to the Deri
 
 These two required parameters serve different roles within the MMP system:
 
-### interval – Monitoring Window
+### interval
 
-The `interval` defines how long Deribit monitors trading activity after the first trade occurs:
+The `interval` defines how long Deribit tracks trading activity after the first trade occurs:
 
 * It starts after the first trade.
 * If no new trades happen after the interval ends, a new interval begins with the next trade.
 * If trades occur during the interval, it continues uninterrupted.
-* This creates short, rolling windows used to detect potential bursts of exposure or risky trading behavior.
 * All activity inside a single interval is counted toward MMP limits.
 * If set to 0, MMP is removed.
 
@@ -57,17 +56,22 @@ The `frozen_time` defines how long MMP remains triggered and blocking new MMP or
 
 ## Understanding Maximum Quote Quantity (MQQ)
 
-<Info>
-  Maximum Quote Quantity will be available after 25 November 2025 release.
-</Info>
+Maximum Quote Quantity (MQQ) defines the cumulative limit on the total size of open MMP quotes or orders. It acts as an exposure cap, preventing excessive quoting volume even before trades occur.
 
-Maximum Quote Quantity (MQQ) defines the cumulative limit on the total size of open MMP quotes or orders per side, per instrument (order book). It acts as an exposure cap, preventing excessive quoting volume even before trades occur.
+MQQ is **configured per index** (via `index_name` in `set_mmp_config`) but **enforced per side, per instrument (order book)**. This means a single MQQ value is set for an entire index (e.g., `eth_usd`), but the limit is applied independently to each instrument on that index — options, futures, and perpetuals each have their own separate enforcement.
+
+For example, with ETH instruments, MQQ is configured once for the `eth_usd` index but is enforced independently for each of the following:
+
+* `ETH-1APR26-1975-C`
+* `ETH-1APR26-2175-C`
+* `ETH-26JUN26`
+* `ETH-PERPETUAL`
 
 ### Key Concepts
 
-**Per Instrument (Order Book):**
+**Configured per Index, Enforced per Instrument (Order Book):**
 
-MQQ is enforced independently for each instrument, not aggregated across instruments or expiries. Each instrument (order book) has its own separate MQQ limit.
+MQQ is not aggregated across instruments or expiries. Each instrument (order book) has its own separate MQQ enforcement, even though the configuration is shared at the index level.
 
 **Cumulative Size Limit, Not Order Count:**
 
@@ -141,7 +145,7 @@ Example: Buy 10 BTC and sell 10 BTC = 20 total quantity.
 Applicable to both options and futures.
 
 <Note>
-  Once this is set, an initial margin will be reserved even without any open positions. Initial Margin due to `quantity_limit = quantity_limit * 0.03`
+  Once this is set, an initial margin will be reserved even without any open positions. Initial margin is now reserved based on `max_quote_quantity`: `margin reserved = max_quote_quantity * 0.03`
 </Note>
 
 ### delta\_limit
@@ -180,7 +184,11 @@ Similar to `delta_limit`, the `vega_limit` is direction-aware and evaluated on a
 
 ### mmp\_group
 
-Specifies the MMP group used for Mass Quotes. If omitted, the methods apply to the default MMP settings.
+Specifies the MMP group used for Mass Quotes. If left empty (omitted), the methods apply to the **orders MMP group** — the MMP configuration that governs regular MMP-tagged orders.
+
+<Note>
+  Leaving `mmp_group` empty is explicitly allowed and is the correct way to configure the orders MMP group. It is not an error or an incomplete request — omitting the field intentionally targets the default orders MMP group rather than any named mass quote group.
+</Note>
 
 <Warning>
   MMP groups are a feature dedicated to Mass Quotes and are not available for regular order flow. For details on how to use MMP groups with Mass Quotes, see Mass Quotes Specifications
@@ -192,7 +200,7 @@ When set to `true`, the methods apply to Block RFQ MMP settings. See Deribit Blo
 
 ## Setting up MMP
 
-To configure Market Maker Protection (MMP) for a specific index, you must define the monitoring window, freeze duration, and at least one exposure limit. MMP configuration is applied using the `private/set_mmp_config` method.
+To configure Market Maker Protection (MMP) for a specific index, you must define the interval duration, freeze duration, and at least one exposure limit. MMP configuration is applied using the `private/set_mmp_config` method.
 
 ### Required parameters
 
@@ -202,7 +210,7 @@ The index for which MMP is being configured (e.g., `btc_usd`, `eth_usd`).
 
 **interval**
 
-Duration (in seconds) of the monitoring window used to track trading activity.
+Duration (in seconds) used to track trading activity.
 
 **frozen\_time**
 
@@ -223,7 +231,7 @@ You must set at least one of the following:
 
 ### Example
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 42,
@@ -303,7 +311,7 @@ Replace `{index_name}` with the desired instrument index, such as:
 
 Upon MMP being triggered for a given index, the client will receive a trigger notification in the following format:
 
-```json  theme={null}
+```json theme={null}
 {
   "frozen_until": 1594390902986
 }
@@ -321,7 +329,7 @@ In addition to the event channel, Deribit also communicates MMP-trigger-related 
 
 If an order is cancelled as a direct result of an MMP trigger, the order event will include:
 
-```json  theme={null}
+```json theme={null}
 {
   "mmp_cancelled": true
 }

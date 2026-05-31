@@ -128,28 +128,28 @@ operations:
                   - name: trade_id
                     type: string
                     description: Unique (per currency) trade identifier
-                    required: false
+                    required: true
                   - name: trade_seq
                     type: integer
                     description: The sequence number of the trade within instrument
-                    required: false
+                    required: true
                   - name: instrument_name
                     type: string
                     description: Unique instrument identifier
-                    required: false
+                    required: true
                   - name: timestamp
                     type: integer
                     description: >-
                       The timestamp of the trade (milliseconds since the UNIX
                       epoch)
-                    required: false
+                    required: true
                   - name: direction
                     type: string
                     description: 'Direction: `buy`, or `sell`'
                     enumValues:
                       - buy
                       - sell
-                    required: false
+                    required: true
                   - name: tick_direction
                     type: integer
                     description: >-
@@ -160,22 +160,22 @@ operations:
                       - 1
                       - 2
                       - 3
-                    required: false
+                    required: true
                   - name: index_price
                     type: number
                     description: Index Price at the moment of trade
-                    required: false
+                    required: true
                   - name: price
                     type: number
                     description: Price in base currency
-                    required: false
+                    required: true
                   - name: amount
                     type: number
                     description: >-
                       Trade amount. For perpetual and inverse futures the amount
                       is in USD units. For options and linear futures it is the
                       underlying base currency coin.
-                    required: false
+                    required: true
                   - name: contracts
                     type: number
                     description: >-
@@ -201,7 +201,7 @@ operations:
                   - name: mark_price
                     type: number
                     description: Mark Price at the moment of trade
-                    required: false
+                    required: true
                   - name: block_trade_id
                     type: string
                     description: Block trade id - when trade was part of a block trade

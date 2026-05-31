@@ -58,6 +58,11 @@ Get the broker program referral performance. Epochs are 28 days long.
   "components": {
     "schemas": {
       "PublicGetReferralPerformanceParamsSchema": {
+        "type": "object",
+        "required": [
+          "end_ms",
+          "start_ms"
+        ],
         "properties": {
           "end_ms": {
             "title": "end_ms",
@@ -84,14 +89,14 @@ Get the broker program referral performance. Epochs are 28 days long.
             "nullable": true
           }
         },
-        "required": [
-          "end_ms",
-          "start_ms"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetReferralPerformanceResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -109,14 +114,20 @@ Get the broker program referral performance. Epochs are 28 days long.
             "$ref": "#/components/schemas/PublicGetReferralPerformanceResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetReferralPerformanceResultSchema": {
+        "type": "object",
+        "required": [
+          "fee_share_percentage",
+          "referral_code",
+          "rewards",
+          "stdrv_balance",
+          "total_builder_fee_collected",
+          "total_fee_rewards",
+          "total_notional_volume",
+          "total_referred_fees"
+        ],
         "properties": {
           "fee_share_percentage": {
             "title": "fee_share_percentage",
@@ -176,20 +187,17 @@ Get the broker program referral performance. Epochs are 28 days long.
             "description": "Total fees paid by referred traders (double counts if both taker and maker of a trade with rebated fees)"
           }
         },
-        "required": [
-          "fee_share_percentage",
-          "referral_code",
-          "rewards",
-          "stdrv_balance",
-          "total_builder_fee_collected",
-          "total_fee_rewards",
-          "total_notional_volume",
-          "total_referred_fees"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "ReferralPerformanceByInstrumentTypeSchema": {
+        "type": "object",
+        "required": [
+          "builder_fee",
+          "fee_reward",
+          "notional_volume",
+          "referred_fee",
+          "unique_traders_referred"
+        ],
         "properties": {
           "builder_fee": {
             "title": "builder_fee",
@@ -214,15 +222,13 @@ Get the broker program referral performance. Epochs are 28 days long.
             "type": "string",
             "format": "decimal",
             "description": "Fees paid by referred trader"
+          },
+          "unique_traders_referred": {
+            "title": "unique_traders_referred",
+            "type": "integer",
+            "description": "Number of unique wallets referred"
           }
         },
-        "required": [
-          "builder_fee",
-          "fee_reward",
-          "notional_volume",
-          "referred_fee"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

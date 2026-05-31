@@ -6,6 +6,14 @@
 
 > Creates a new withdrawal request. This method allows you to withdraw funds from your account to an external address. The withdrawal can be configured with priority settings and must use an address from your address book.
 
+**Withdrawal Checks & Balance Updates**
+
+Withdrawal funds are checked twice: when a user requests a withdrawal and again when they confirm it via the email link. If available funds decrease between these steps, the withdrawal may be rejected.
+
+A withdrawal may also be rejected if the on-chain fee increases between the request and confirmation.
+
+The withdrawal amount is deducted only after all checks pass and the transaction is scheduled. The web-interface Withdrawal tab displays all withdrawals regardless of their status (pending, cancelled, rejected, or completed).
+
 **📖 Related Article:** [Managing Withdrawals](https://docs.deribit.com/articles/managing-withdrawals-api)
 
 **Scope:** `wallet:read_write` and mainaccount
@@ -69,6 +77,24 @@ paths:
         address book.
 
 
+        **Withdrawal Checks & Balance Updates**
+
+
+        Withdrawal funds are checked twice: when a user requests a withdrawal
+        and again when they confirm it via the email link. If available funds
+        decrease between these steps, the withdrawal may be rejected.
+
+
+        A withdrawal may also be rejected if the on-chain fee increases between
+        the request and confirmation.
+
+
+        The withdrawal amount is deducted only after all checks pass and the
+        transaction is scheduled. The web-interface Withdrawal tab displays all
+        withdrawals regardless of their status (pending, cancelled, rejected, or
+        completed).
+
+
         **📖 Related Article:** [Managing
         Withdrawals](https://docs.deribit.com/articles/managing-withdrawals-api)
 
@@ -112,6 +138,17 @@ paths:
               - very_low
           required: false
           description: 'Withdrawal priority, optional for BTC, default: `high`'
+        - in: query
+          name: nonce
+          required: false
+          schema:
+            $ref: '#/components/schemas/nonce'
+          description: >-
+            Optional idempotency nonce. If provided, subsequent requests with
+            the same nonce will return the previously created transaction
+            instead of creating a new one. Must be 8-128 characters. The nonce
+            is persisted on the resulting transaction and returned in the
+            response.
       requestBody:
         content:
           application/json:
@@ -142,6 +179,10 @@ components:
         - EURR
       type: string
       description: Currency, i.e `"BTC"`, `"ETH"`, `"USDC"`
+    nonce:
+      example: bF1_gfgcsd
+      type: string
+      description: Nonce
     PrivateWithdrawResponse:
       properties:
         jsonrpc:
@@ -155,8 +196,8 @@ components:
         result:
           $ref: '#/components/schemas/withdrawal'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     withdrawal:
       properties:
@@ -191,6 +232,9 @@ components:
           $ref: '#/components/schemas/currency_transaction_id'
         updated_timestamp:
           $ref: '#/components/schemas/timestamp'
+        nonce:
+          type: string
+          description: Optional idempotency nonce if provided in the request
       required:
         - currency
         - address

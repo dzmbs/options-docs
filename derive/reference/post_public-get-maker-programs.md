@@ -58,11 +58,16 @@ Get all maker programs, including past / historical ones.
   "components": {
     "schemas": {
       "PublicGetMakerProgramsParamsSchema": {
-        "properties": {},
         "type": "object",
+        "properties": {},
         "additionalProperties": false
       },
       "PublicGetMakerProgramsResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -85,14 +90,19 @@ Get all maker programs, including past / historical ones.
             }
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "ProgramResponseSchema": {
+        "type": "object",
+        "required": [
+          "asset_types",
+          "currencies",
+          "end_timestamp",
+          "min_notional",
+          "name",
+          "rewards",
+          "start_timestamp"
+        ],
         "properties": {
           "asset_types": {
             "title": "asset_types",
@@ -144,16 +154,6 @@ Get all maker programs, including past / historical ones.
             "description": "Start timestamp of the epoch"
           }
         },
-        "required": [
-          "asset_types",
-          "currencies",
-          "end_timestamp",
-          "min_notional",
-          "name",
-          "rewards",
-          "start_timestamp"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

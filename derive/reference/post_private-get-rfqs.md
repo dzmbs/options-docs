@@ -59,6 +59,11 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
+        "type": "object",
+        "required": [
+          "count",
+          "num_pages"
+        ],
         "properties": {
           "count": {
             "title": "count",
@@ -71,14 +76,15 @@ Required minimum session key permission level is `read_only`
             "description": "Number of pages"
           }
         },
-        "required": [
-          "count",
-          "num_pages"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "LegUnpricedSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "direction",
+          "instrument_name"
+        ],
         "properties": {
           "amount": {
             "title": "amount",
@@ -101,15 +107,13 @@ Required minimum session key permission level is `read_only`
             "description": "Instrument name"
           }
         },
-        "required": [
-          "amount",
-          "direction",
-          "instrument_name"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetRfqsParamsSchema": {
+        "type": "object",
+        "required": [
+          "subaccount_id"
+        ],
         "properties": {
           "from_timestamp": {
             "title": "from_timestamp",
@@ -162,13 +166,14 @@ Required minimum session key permission level is `read_only`
             "description": "Latest `last_update_timestamp` to filter by (in ms since Unix epoch). If not provied, defaults to returning all data up to current time."
           }
         },
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetRfqsResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -186,14 +191,14 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetRfqsResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetRfqsResultSchema": {
+        "type": "object",
+        "required": [
+          "pagination",
+          "rfqs"
+        ],
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -207,14 +212,34 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "required": [
-          "pagination",
-          "rfqs"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "RFQResultSchema": {
+        "type": "object",
+        "required": [
+          "ask_total_cost",
+          "bid_total_cost",
+          "cancel_reason",
+          "counterparties",
+          "creation_timestamp",
+          "filled_direction",
+          "filled_pct",
+          "label",
+          "last_update_timestamp",
+          "legs",
+          "mark_total_cost",
+          "max_total_cost",
+          "min_total_cost",
+          "partial_fill_step",
+          "preferred_direction",
+          "reducing_direction",
+          "rfq_id",
+          "status",
+          "subaccount_id",
+          "total_cost",
+          "valid_until",
+          "wallet"
+        ],
         "properties": {
           "ask_total_cost": {
             "title": "ask_total_cost",
@@ -330,6 +355,28 @@ Required minimum session key permission level is `read_only`
             "format": "decimal",
             "description": "Step size for partial fills (default: 1)"
           },
+          "preferred_direction": {
+            "title": "preferred_direction",
+            "type": "string",
+            "default": null,
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "If disclosed, the direction the user is aiming to execute as.",
+            "nullable": true
+          },
+          "reducing_direction": {
+            "title": "reducing_direction",
+            "type": "string",
+            "default": null,
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "If applicable, the direction from user's perspective that would reduce their position in each leg.",
+            "nullable": true
+          },
           "rfq_id": {
             "title": "rfq_id",
             "type": "string",
@@ -371,29 +418,6 @@ Required minimum session key permission level is `read_only`
             "description": "Wallet address of the RFQ sender"
           }
         },
-        "required": [
-          "ask_total_cost",
-          "bid_total_cost",
-          "cancel_reason",
-          "counterparties",
-          "creation_timestamp",
-          "filled_direction",
-          "filled_pct",
-          "label",
-          "last_update_timestamp",
-          "legs",
-          "mark_total_cost",
-          "max_total_cost",
-          "min_total_cost",
-          "partial_fill_step",
-          "rfq_id",
-          "status",
-          "subaccount_id",
-          "total_cost",
-          "valid_until",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

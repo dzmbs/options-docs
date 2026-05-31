@@ -59,6 +59,11 @@ Required minimum session key permission level is `account`
   "components": {
     "schemas": {
       "PrivateEditSessionKeyParamsSchema": {
+        "type": "object",
+        "required": [
+          "public_session_key",
+          "wallet"
+        ],
         "properties": {
           "disable": {
             "title": "disable",
@@ -95,14 +100,14 @@ Required minimum session key permission level is `account`
             "description": "Ethereum wallet address of account"
           }
         },
-        "required": [
-          "public_session_key",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateEditSessionKeyResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -120,14 +125,18 @@ Required minimum session key permission level is `account`
             "$ref": "#/components/schemas/PrivateEditSessionKeyResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateEditSessionKeyResultSchema": {
+        "type": "object",
+        "required": [
+          "expiry_sec",
+          "ip_whitelist",
+          "label",
+          "public_session_key",
+          "registered_sec",
+          "scope"
+        ],
         "properties": {
           "expiry_sec": {
             "title": "expiry_sec",
@@ -164,15 +173,6 @@ Required minimum session key permission level is `account`
             "description": "Session key permission level scope"
           }
         },
-        "required": [
-          "expiry_sec",
-          "ip_whitelist",
-          "label",
-          "public_session_key",
-          "registered_sec",
-          "scope"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

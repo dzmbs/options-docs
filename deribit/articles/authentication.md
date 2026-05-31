@@ -12,7 +12,7 @@ This guide explains how to set up API keys, authenticate with the Deribit API, m
 
 **Example of a JSON request with token**:
 
-```json  theme={null}
+```json theme={null}
 {
     "id": 5647,
     "method": "private/get_subaccounts",
@@ -87,13 +87,13 @@ Deribit's primary authentication endpoint is [`public/auth`](/api-reference/auth
 
 Below is a sample request using client credentials, and the response structure:
 
-```bash  theme={null}
+```bash theme={null}
 GET /api/v2/public/auth?grant_type=client_credentials&client_id=<YOUR_CLIENT_ID>&client_secret=<YOUR_CLIENT_SECRET>
 ```
 
 On success, you receive a JSON response like:
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -167,7 +167,7 @@ Signature    = HEX_STRING( HMAC-SHA256( ClientSecret, StringToSign ) )
 
 General form, works on Linux and macOS:
 
-```bash  theme={null}
+```bash theme={null}
 ClientId="YOUR_CLIENT_ID"
 ClientSecret="YOUR_CLIENT_SECRET"
 
@@ -185,7 +185,7 @@ echo "$Signature"
 
 ### Example
 
-```bash  theme={null}
+```bash theme={null}
 ClientId=AMANDA
 ClientSecret=AMANDASECRECT
 Timestamp=1576074319000
@@ -213,7 +213,7 @@ Call [`public/auth`](/api-reference/authentication/public-auth) with `grant_type
 
 Sample JSON-RPC request using values calculated before:
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 9929,
@@ -252,7 +252,7 @@ On success, the server returns an `access_token` and `refresh_token`, the same a
 
 You can also use the following Python code to automatically generate the signature and complete the authentication process on test environment:
 
-```python  theme={null}
+```python theme={null}
 import datetime
 import random
 import string
@@ -305,7 +305,7 @@ Access tokens have a limited lifetime (defined in the `expires_in` field). Inste
 
 ### Example
 
-```json  theme={null}
+```json theme={null}
 {
   "method": "public/auth",
   "params": {
@@ -378,7 +378,7 @@ Authorization: deri-hmac-sha256 id=ClientId, ts=Timestamp, sig=Signature, nonce=
 
 #### Signature Formula for HTTP REST
 
-```bash  theme={null}
+```bash theme={null}
 RequestData = UPPERCASE(HTTP_METHOD()) + "\n" + URI() + "\n" + RequestBody + "\n";
 StringToSign = Timestamp + "\n" + Nonce + "\n" + RequestData;
 Signature = HEX_STRING( HMAC-SHA256( ClientSecret, StringToSign ) );
@@ -388,7 +388,7 @@ Signature = HEX_STRING( HMAC-SHA256( ClientSecret, StringToSign ) );
 
 #### Example – HTTP REST Signature
 
-```shell  theme={null}
+```shell theme={null}
 ClientId=AMANDA
 ClientSecret=AMANDASECRECT
 Timestamp=$( date +%s000 )

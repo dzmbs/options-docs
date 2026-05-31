@@ -258,6 +258,22 @@ Retrieves a list of RFQs matching filter criteria. Takers can use this to get th
         <tr>
           <td style={{textAlign: "left"}}>
             <span className="ws-small-font">result.rfqs\[].</span>
+            <strong>preferred\_direction</strong> 
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string or null</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>If disclosed, the direction the user is aiming to execute as.</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>buy</code> <code>sell</code>
+          </td>
+        </tr>
+
+        <tr>
+          <td style={{textAlign: "left"}}>
+            <span className="ws-small-font">result.rfqs\[].</span>
+            <strong>reducing\_direction</strong> 
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string or null</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>If applicable, the direction from user's perspective that would reduce their position in each leg.</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>buy</code> <code>sell</code>
+          </td>
+        </tr>
+
+        <tr>
+          <td style={{textAlign: "left"}}>
+            <span className="ws-small-font">result.rfqs\[].</span>
             <strong>rfq\_id</strong> 
             <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>RFQ ID</span>
           </td>

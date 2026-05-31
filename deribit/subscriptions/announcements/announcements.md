@@ -58,25 +58,25 @@ operations:
                   - name: id
                     type: integer
                     description: Announcement's identifier
-                    required: false
+                    required: true
                   - name: title
                     type: string
                     description: Announcement's title
-                    required: false
+                    required: true
                   - name: body
                     type: string
                     description: HTML-formatted announcement body
-                    required: false
+                    required: true
                   - name: publication_timestamp
                     type: integer
                     description: >-
                       The timestamp (milliseconds since the Unix epoch) of
                       announcement publication
-                    required: false
+                    required: true
                   - name: important
                     type: boolean
                     description: Whether the announcement is marked as important
-                    required: false
+                    required: true
                   - name: confirmation
                     type: boolean
                     description: >-
@@ -97,7 +97,7 @@ operations:
                     enumValues:
                       - new
                       - deleted
-                    required: false
+                    required: true
         headers: []
         jsonPayloadSchema:
           type: object

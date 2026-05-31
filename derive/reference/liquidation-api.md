@@ -1,5 +1,7 @@
 # Liquidation API
 
+> You may liquidate accounts directly via the UI: [https://app.derive.xyz/liquidations](https://app.derive.xyz/liquidations). The below guide covers programmatic liquidations via the API and is meant for more advanced users
+
 Liquidations on Derive are permissionless, meaning that anyone can flag an underwater subaccount for liquidations and bid on them. However, maintaining infrastructure for monitoring margin of the subaccounts, query their balances and do bidding on-chain is cumbersome to implement, which is why Derive also provides a liquidations API which works similar to orders and RFQs.
 
 For those interested in manual on-chain liquidations, or those interested in the details on how the auction is implemented, please refer to the full [liquidations guide here](https://docs.lyra.finance/docs/liquidations-1). This guide will focus on how to use the API to monitor live auctions and liquidate flagged users.

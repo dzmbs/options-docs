@@ -161,7 +161,7 @@ operations:
                       Timestamp (milliseconds since the UNIX epoch) until the
                       user will be frozen - 0 means that the user is frozen
                       until manual reset.
-                    required: false
+                    required: true
                   - name: index_name
                     type: string
                     description: >-

@@ -59,6 +59,14 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateExpiredAndCancelledHistoryParamsSchema": {
+        "type": "object",
+        "required": [
+          "end_timestamp",
+          "expiry",
+          "start_timestamp",
+          "subaccount_id",
+          "wallet"
+        ],
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
@@ -86,17 +94,14 @@ Required minimum session key permission level is `read_only`
             "description": "Wallet to download data for"
           }
         },
-        "required": [
-          "end_timestamp",
-          "expiry",
-          "start_timestamp",
-          "subaccount_id",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateExpiredAndCancelledHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -114,14 +119,13 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateExpiredAndCancelledHistoryResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateExpiredAndCancelledHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "presigned_urls"
+        ],
         "properties": {
           "presigned_urls": {
             "title": "presigned_urls",
@@ -133,10 +137,6 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "required": [
-          "presigned_urls"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

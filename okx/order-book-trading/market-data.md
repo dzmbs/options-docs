@@ -4,6 +4,8 @@ The API endpoints of `Market Data` do not require authentication.
 
 There are multiple services for market data, and each service has an independent cache. A random service will be requested for every request. So for two requests, it’s expected that the data obtained in the second request is earlier than the first request.
 
+For event contracts, market data module will only return data of the YES side. Users can derive NO side data on their own.
+
 ### GET / Tickers
 
 Retrieve the latest price snapshot, best bid/ask price, and trading volume in the last 24 hours. Best ask price may be lower than the best bid price during the pre-open period.
@@ -40,7 +42,7 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| instType | String | Yes | Instrument type`SPOT``SWAP``FUTURES``OPTION` |
+| instType | String | Yes | Instrument type`SPOT``SWAP``FUTURES``OPTION``EVENTS` |
 | instFamily | String | No | Instrument familyApplicable to `FUTURES`/`SWAP`/`OPTION` |
 
 Response Example
@@ -1635,9 +1637,9 @@ Use `books` for 400 depth levels, `books5` for 5 depth levels, `bbo-tbt` tick-by
 
 For more details, please refer to the changelog [2024-07-17](/docs-v5/log_en/#2024-07-17)
 
-Only API users who are VIP6 and above in trading fee tier are allowed to subscribe to "books-l2-tbt" 400 depth channels
+Only API users who are VIP4 and above in trading fee tier are allowed to subscribe to "books-l2-tbt" 400 depth channels. Other users will receive error code 64003.
 
-Only API users who are VIP5 and above in trading fee tier are allowed to subscribe to "books50-l2-tbt" 50 depth channels
+Only API users who are VIP4 and above in trading fee tier are allowed to subscribe to "books50-l2-tbt" 50 depth channels. Other users will receive error code 64003.
 
 Identity verification refers to [Login](/docs-v5/en/#overview-websocket-login)
 

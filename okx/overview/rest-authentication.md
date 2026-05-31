@@ -8,7 +8,7 @@ All private REST requests must contain the following headers:
 
 - `OK-ACCESS-SIGN` The Base64-encoded signature (see Signing Messages subsection for details).
 
-- `OK-ACCESS-TIMESTAMP` The UTC timestamp of your request .e.g : 2020-12-08T09:08:57.715Z
+- `OK-ACCESS-TIMESTAMP` Request timestamp in ISO 8601 UTC format with millisecond precision, e.g. `2020-12-08T09:08:57.715Z`. The server rejects requests where this differs from server time by more than 30 seconds (error 50102). Always use UTC — local timezone offset is the most common cause of error 50102. Synchronise with GET /api/v5/public/time before placing orders.
 
 - `OK-ACCESS-PASSPHRASE` The passphrase you specified when creating the API key.
 

@@ -1,4 +1,4 @@
-# Transfer Collateral and Positions [Python]
+# Transfer Collateral and Positions [Python / Rust]
 
 Before making API calls, make sure to setup and fund you account in the "Getting Started" guide.
 

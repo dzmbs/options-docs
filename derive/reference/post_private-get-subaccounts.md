@@ -59,6 +59,10 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetSubaccountsParamsSchema": {
+        "type": "object",
+        "required": [
+          "wallet"
+        ],
         "properties": {
           "wallet": {
             "title": "wallet",
@@ -66,13 +70,14 @@ Required minimum session key permission level is `read_only`
             "description": "Ethereum wallet address of account"
           }
         },
-        "required": [
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetSubaccountsResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -90,14 +95,14 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetSubaccountsResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetSubaccountsResultSchema": {
+        "type": "object",
+        "required": [
+          "subaccount_ids",
+          "wallet"
+        ],
         "properties": {
           "subaccount_ids": {
             "title": "subaccount_ids",
@@ -114,11 +119,6 @@ Required minimum session key permission level is `read_only`
             "description": "Ethereum wallet address"
           }
         },
-        "required": [
-          "subaccount_ids",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

@@ -111,11 +111,11 @@ operations:
                   - name: instrument_name
                     type: string
                     description: Unique instrument identifier
-                    required: false
+                    required: true
                   - name: change_id
                     type: integer
                     description: Identifier of the notification
-                    required: false
+                    required: true
                   - name: prev_change_id
                     type: integer
                     description: >-
@@ -124,10 +124,10 @@ operations:
                     required: false
                   - name: asks
                     type: array
-                    required: false
+                    required: true
                   - name: bids
                     type: array
-                    required: false
+                    required: true
                   - name: timestamp
                     type: integer
                     description: >-

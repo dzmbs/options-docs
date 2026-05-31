@@ -1,6 +1,6 @@
 # Get Spot Feed History Candles
 
-Get spot feed history candles by currency<br /><br />DB: read replica
+Get spot feed history candles by currency<br /><br />DEPRECATION NOTICE: This RPC is deprecated in favor of get_index_chart_data and get_tradingview_chart_data
 
 # OpenAPI definition
 
@@ -28,7 +28,7 @@ Get spot feed history candles by currency<br /><br />DB: read replica
           "Public"
         ],
         "summary": "Get Spot Feed History Candles",
-        "description": "Get spot feed history candles by currency<br /><br />DB: read replica",
+        "description": "Get spot feed history candles by currency<br /><br />DEPRECATION NOTICE: This RPC is deprecated in favor of get_index_chart_data and get_tradingview_chart_data",
         "responses": {
           "200": {
             "description": "successful operation",
@@ -57,98 +57,17 @@ Get spot feed history candles by currency<br /><br />DB: read replica
   },
   "components": {
     "schemas": {
-      "PublicGetSpotFeedHistoryCandlesParamsSchema": {
-        "properties": {
-          "currency": {
-            "title": "currency",
-            "type": "string",
-            "description": "Currency"
-          },
-          "end_timestamp": {
-            "title": "end_timestamp",
-            "type": "integer",
-            "description": "End timestamp"
-          },
-          "period": {
-            "title": "period",
-            "type": "string",
-            "enum": [
-              60,
-              300,
-              900,
-              1800,
-              3600,
-              14400,
-              28800,
-              86400,
-              604800
-            ],
-            "description": "Period"
-          },
-          "start_timestamp": {
-            "title": "start_timestamp",
-            "type": "integer",
-            "description": "Start timestamp"
-          }
-        },
-        "required": [
-          "currency",
-          "end_timestamp",
-          "period",
-          "start_timestamp"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PublicGetSpotFeedHistoryCandlesResponseSchema": {
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PublicGetSpotFeedHistoryCandlesResultSchema"
-          }
-        },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PublicGetSpotFeedHistoryCandlesResultSchema": {
-        "properties": {
-          "currency": {
-            "title": "currency",
-            "type": "string",
-            "description": "Currency"
-          },
-          "spot_feed_history": {
-            "title": "spot_feed_history",
-            "type": "array",
-            "description": "Spot feed history candles",
-            "items": {
-              "$ref": "#/components/schemas/SpotFeedHistoryCandlesResponseSchema"
-            }
-          }
-        },
-        "required": [
-          "currency",
-          "spot_feed_history"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
       "SpotFeedHistoryCandlesResponseSchema": {
+        "type": "object",
+        "required": [
+          "close_price",
+          "high_price",
+          "low_price",
+          "open_price",
+          "price",
+          "timestamp",
+          "timestamp_bucket"
+        ],
         "properties": {
           "close_price": {
             "title": "close_price",
@@ -191,16 +110,97 @@ Get spot feed history candles by currency<br /><br />DB: read replica
             "description": "Timestamp bucket; this value is regularly spaced out with `period` seconds between data points, missing values are forward-filled from earlier data where possible, if no earlier data is available, values are back-filled from the first observed data point"
           }
         },
-        "required": [
-          "close_price",
-          "high_price",
-          "low_price",
-          "open_price",
-          "price",
-          "timestamp",
-          "timestamp_bucket"
-        ],
+        "additionalProperties": false
+      },
+      "PublicGetSpotFeedHistoryCandlesParamsSchema": {
         "type": "object",
+        "required": [
+          "currency",
+          "end_timestamp",
+          "period",
+          "start_timestamp"
+        ],
+        "properties": {
+          "currency": {
+            "title": "currency",
+            "type": "string",
+            "description": "Currency"
+          },
+          "end_timestamp": {
+            "title": "end_timestamp",
+            "type": "integer",
+            "description": "End timestamp"
+          },
+          "period": {
+            "title": "period",
+            "type": "string",
+            "enum": [
+              60,
+              300,
+              900,
+              1800,
+              3600,
+              14400,
+              28800,
+              86400,
+              604800
+            ],
+            "description": "Period"
+          },
+          "start_timestamp": {
+            "title": "start_timestamp",
+            "type": "integer",
+            "description": "Start timestamp"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicGetSpotFeedHistoryCandlesResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PublicGetSpotFeedHistoryCandlesResultSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicGetSpotFeedHistoryCandlesResultSchema": {
+        "type": "object",
+        "required": [
+          "currency",
+          "spot_feed_history"
+        ],
+        "properties": {
+          "currency": {
+            "title": "currency",
+            "type": "string",
+            "description": "Currency"
+          },
+          "spot_feed_history": {
+            "title": "spot_feed_history",
+            "type": "array",
+            "description": "Spot feed history candles",
+            "items": {
+              "$ref": "#/components/schemas/SpotFeedHistoryCandlesResponseSchema"
+            }
+          }
+        },
         "additionalProperties": false
       }
     }

@@ -120,8 +120,8 @@ components:
         result:
           $ref: '#/components/schemas/order'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     order:
       properties:

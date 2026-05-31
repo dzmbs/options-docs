@@ -48,7 +48,7 @@ The security key authorization process follows these steps:
 
 Send your API request as you normally would:
 
-```json  theme={null}
+```json theme={null}
 {
   "method": "private/list_api_keys",
   "params": {}
@@ -59,7 +59,7 @@ Send your API request as you normally would:
 
 The server responds with a **non-error response** indicating that **security key authorization** is required:
 
-```json  theme={null}
+```json theme={null}
 {
     "jsonrpc": "2.0",
     "result": {
@@ -93,7 +93,7 @@ Generate a **TOTP code** from your **2FA secret**. See the [TOTP Code Generation
 
 Resend your original request, adding the **`authorization_data`** (your **TOTP code**) and the **`challenge`** from the previous response:
 
-```json  theme={null}
+```json theme={null}
 {
     "id": 88,
     "method": "private/list_api_keys",
@@ -128,7 +128,7 @@ The **TOTP algorithm** generates a **6-digit code** that changes every **30 seco
 
 <Tabs>
   <Tab title="Python">
-    ```python  theme={null}
+    ```python theme={null}
     import pyotp
     import time
 
@@ -170,7 +170,7 @@ The **TOTP algorithm** generates a **6-digit code** that changes every **30 seco
   </Tab>
 
   <Tab title="JavaScript/Node.js">
-    ```javascript  theme={null}
+    ```javascript theme={null}
     const speakeasy = require('speakeasy');
 
     // Your 2FA secret (base32 encoded string)
@@ -222,7 +222,7 @@ The **TOTP algorithm** generates a **6-digit code** that changes every **30 seco
   </Tab>
 
   <Tab title="C++">
-    ```cpp  theme={null}
+    ```cpp theme={null}
     #include <iostream>
     #include <string>
     #include <ctime>
@@ -369,7 +369,7 @@ When you set up **2FA** in your Deribit account, you receive a **secret key** (d
 
 **Example: Secure Secret Loading (Python)**
 
-```python  theme={null}
+```python theme={null}
 import os
 from cryptography.fernet import Fernet
 import pyotp
@@ -409,7 +409,7 @@ When there is an error related to **Security Key authorization**, the server ret
 
     **Error Response Example:**
 
-    ```json  theme={null}
+    ```json theme={null}
     {
         "jsonrpc": "2.0",
         "error": {

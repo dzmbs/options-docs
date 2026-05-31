@@ -9,9 +9,9 @@ You may use the user interface to:
 * Transfer funds between subaccounts
 * Create several subaccounts with different margin types
 * Monitor and manage positions / open orders via UX
-* Manage session keys
+* Manage session keys (similar to API keys / user session access control)
 
-If you'd like to complete these steps fully on-chain refer to [Onboard Manually](https://docs.derive.xyz/docs/onboard-manually).
+<br />
 
 ## Step 1: Connect Wallet
 

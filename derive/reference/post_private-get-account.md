@@ -59,6 +59,10 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetAccountParamsSchema": {
+        "type": "object",
+        "required": [
+          "wallet"
+        ],
         "properties": {
           "wallet": {
             "title": "wallet",
@@ -66,13 +70,14 @@ Required minimum session key permission level is `read_only`
             "description": "Ethereum wallet address of account"
           }
         },
-        "required": [
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetAccountResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -90,14 +95,22 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetAccountResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetAccountResultSchema": {
+        "type": "object",
+        "required": [
+          "cancel_on_disconnect",
+          "fee_info",
+          "is_rfq_maker",
+          "per_endpoint_tps",
+          "subaccount_ids",
+          "wallet",
+          "websocket_matching_tps",
+          "websocket_non_matching_tps",
+          "websocket_option_tps",
+          "websocket_perp_tps"
+        ],
         "properties": {
           "cancel_on_disconnect": {
             "title": "cancel_on_disconnect",
@@ -167,22 +180,21 @@ Required minimum session key permission level is `read_only`
             "description": "Max transactions per second for EACH perp instrument over websocket (see `Rate Limiting` in docs)"
           }
         },
-        "required": [
-          "cancel_on_disconnect",
-          "fee_info",
-          "is_rfq_maker",
-          "per_endpoint_tps",
-          "subaccount_ids",
-          "wallet",
-          "websocket_matching_tps",
-          "websocket_non_matching_tps",
-          "websocket_option_tps",
-          "websocket_perp_tps"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "AccountFeeInfoSchema": {
+        "type": "object",
+        "required": [
+          "base_fee_discount",
+          "option_maker_fee",
+          "option_taker_fee",
+          "perp_maker_fee",
+          "perp_taker_fee",
+          "rfq_maker_discount",
+          "rfq_taker_discount",
+          "spot_maker_fee",
+          "spot_taker_fee"
+        ],
         "properties": {
           "base_fee_discount": {
             "title": "base_fee_discount",
@@ -251,18 +263,6 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
-        "required": [
-          "base_fee_discount",
-          "option_maker_fee",
-          "option_taker_fee",
-          "perp_maker_fee",
-          "perp_taker_fee",
-          "rfq_maker_discount",
-          "rfq_taker_discount",
-          "spot_maker_fee",
-          "spot_taker_fee"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

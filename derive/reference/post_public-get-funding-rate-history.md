@@ -58,12 +58,16 @@ Get funding rate history. Start timestamp is restricted to at most 30 days ago.<
   "components": {
     "schemas": {
       "PublicGetFundingRateHistoryParamsSchema": {
+        "type": "object",
+        "required": [
+          "instrument_name"
+        ],
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
             "type": "integer",
             "default": 9223372036854776000,
-            "description": "End timestamp of the event history (default current time)"
+            "description": "End timestamp of the event history in ms since Unix epoch (default current time)"
           },
           "instrument_name": {
             "title": "instrument_name",
@@ -87,16 +91,17 @@ Get funding rate history. Start timestamp is restricted to at most 30 days ago.<
             "title": "start_timestamp",
             "type": "integer",
             "default": 0,
-            "description": "Start timestamp of the event history (default 0)"
+            "description": "Start timestamp of the event history in ms since Unix epoch (default 0)"
           }
         },
-        "required": [
-          "instrument_name"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetFundingRateHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -114,14 +119,13 @@ Get funding rate history. Start timestamp is restricted to at most 30 days ago.<
             "$ref": "#/components/schemas/PublicGetFundingRateHistoryResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetFundingRateHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "funding_rate_history"
+        ],
         "properties": {
           "funding_rate_history": {
             "title": "funding_rate_history",
@@ -132,13 +136,14 @@ Get funding rate history. Start timestamp is restricted to at most 30 days ago.<
             }
           }
         },
-        "required": [
-          "funding_rate_history"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "FundingRateSchema": {
+        "type": "object",
+        "required": [
+          "funding_rate",
+          "timestamp"
+        ],
         "properties": {
           "funding_rate": {
             "title": "funding_rate",
@@ -152,11 +157,6 @@ Get funding rate history. Start timestamp is restricted to at most 30 days ago.<
             "description": "Timestamp of the funding rate update (in ms since UNIX epoch)"
           }
         },
-        "required": [
-          "funding_rate",
-          "timestamp"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

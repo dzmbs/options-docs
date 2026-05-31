@@ -1,6 +1,6 @@
 # Get Order History
 
-Get order history for a subaccount
+Get order history for a subaccount or wallet.
 Required minimum session key permission level is `read_only`
 
 # OpenAPI definition
@@ -29,7 +29,7 @@ Required minimum session key permission level is `read_only`
           "Private"
         ],
         "summary": "Get Order History",
-        "description": "Get order history for a subaccount\nRequired minimum session key permission level is `read_only`",
+        "description": "Get order history for a subaccount or wallet.\nRequired minimum session key permission level is `read_only`",
         "responses": {
           "200": {
             "description": "successful operation",
@@ -58,28 +58,162 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
-      "PaginationInfoSchema": {
+      "PrivateGetOrderHistoryParamsSchema": {
+        "type": "object",
         "properties": {
-          "count": {
-            "title": "count",
+          "from_timestamp": {
+            "title": "from_timestamp",
             "type": "integer",
-            "description": "Total number of items, across all pages"
+            "default": 0,
+            "description": "Earliest timestamp to filter by (in ms since Unix epoch). Defaults to 0."
           },
-          "num_pages": {
-            "title": "num_pages",
+          "page": {
+            "title": "page",
             "type": "integer",
-            "description": "Number of pages"
+            "default": 1,
+            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
+          },
+          "page_size": {
+            "title": "page_size",
+            "type": "integer",
+            "default": 100,
+            "description": "Number of results per page (default 100, max 1000)"
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "default": null,
+            "description": "Subaccount_id (must be set if wallet is blank)",
+            "nullable": true
+          },
+          "to_timestamp": {
+            "title": "to_timestamp",
+            "type": "integer",
+            "default": 18446744073709552000,
+            "description": "Latest timestamp to filter by (in ms since Unix epoch). Defaults to current time."
+          },
+          "wallet": {
+            "title": "wallet",
+            "type": "string",
+            "default": null,
+            "description": "Wallet address (if set, subaccount_id ignored)",
+            "nullable": true
           }
         },
-        "required": [
-          "count",
-          "num_pages"
-        ],
+        "additionalProperties": false
+      },
+      "PrivateGetOrderHistoryResponseSchema": {
         "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivateGetOrderHistoryResultSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetOrderHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "orders",
+          "pagination",
+          "subaccount_id"
+        ],
+        "properties": {
+          "orders": {
+            "title": "orders",
+            "type": "array",
+            "description": "List of open orders",
+            "items": {
+              "$ref": "#/components/schemas/OrderResponseSchema"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationInfoSchema"
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount_id for which to get open orders"
+          }
+        },
         "additionalProperties": false
       },
       "OrderResponseSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "average_price",
+          "cancel_reason",
+          "creation_timestamp",
+          "direction",
+          "filled_amount",
+          "instrument_name",
+          "is_transfer",
+          "label",
+          "last_update_timestamp",
+          "limit_price",
+          "max_fee",
+          "mmp",
+          "nonce",
+          "order_fee",
+          "order_id",
+          "order_status",
+          "order_type",
+          "quote_id",
+          "signature",
+          "signature_expiry_sec",
+          "signer",
+          "subaccount_id",
+          "time_in_force"
+        ],
         "properties": {
+          "algo_duration_sec": {
+            "title": "algo_duration_sec",
+            "type": "integer",
+            "default": null,
+            "description": "Total execution window in seconds",
+            "nullable": true
+          },
+          "algo_num_slices": {
+            "title": "algo_num_slices",
+            "type": "integer",
+            "default": null,
+            "description": "Number of child executions",
+            "nullable": true
+          },
+          "algo_slices_completed": {
+            "title": "algo_slices_completed",
+            "type": "integer",
+            "default": null,
+            "description": "Number of slices executed so far",
+            "nullable": true
+          },
+          "algo_type": {
+            "title": "algo_type",
+            "type": "string",
+            "default": null,
+            "enum": [
+              "twap"
+            ],
+            "description": "Algo order type (twap or vwap)",
+            "nullable": true
+          },
           "amount": {
             "title": "amount",
             "type": "string",
@@ -107,7 +241,8 @@ Required minimum session key permission level is `read_only`
               "subaccount_withdrawn",
               "compliance",
               "trigger_failed",
-              "validation_failed"
+              "validation_failed",
+              "algo_completed"
             ],
             "description": "If cancelled, reason behind order cancellation"
           },
@@ -169,7 +304,7 @@ Required minimum session key permission level is `read_only`
             "title": "max_fee",
             "type": "string",
             "format": "decimal",
-            "description": "Max fee in units of the quote currency"
+            "description": "Max fee PER contract, denominated in USDC.Max fee must be > 2 x max(taker_fee, maker_fee) x spot_price + extra_fee / amount.If the order crosses the book, it must be >= 2 x max(taker_fee, maker_fee) x spot_price + base_fee / fill_amount + extra_fee / amount.Note, in this calculation, regardless of the account taker / maker fees, the standard taker / maker fees are used."
           },
           "mmp": {
             "title": "mmp",
@@ -200,7 +335,8 @@ Required minimum session key permission level is `read_only`
               "filled",
               "cancelled",
               "expired",
-              "untriggered"
+              "untriggered",
+              "algo_active"
             ],
             "description": "Order status"
           },
@@ -306,111 +442,26 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
-        "required": [
-          "amount",
-          "average_price",
-          "cancel_reason",
-          "creation_timestamp",
-          "direction",
-          "filled_amount",
-          "instrument_name",
-          "is_transfer",
-          "label",
-          "last_update_timestamp",
-          "limit_price",
-          "max_fee",
-          "mmp",
-          "nonce",
-          "order_fee",
-          "order_id",
-          "order_status",
-          "order_type",
-          "quote_id",
-          "signature",
-          "signature_expiry_sec",
-          "signer",
-          "subaccount_id",
-          "time_in_force"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
-      "PrivateGetOrderHistoryParamsSchema": {
+      "PaginationInfoSchema": {
+        "type": "object",
+        "required": [
+          "count",
+          "num_pages"
+        ],
         "properties": {
-          "page": {
-            "title": "page",
+          "count": {
+            "title": "count",
             "type": "integer",
-            "default": 1,
-            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
+            "description": "Total number of items, across all pages"
           },
-          "page_size": {
-            "title": "page_size",
+          "num_pages": {
+            "title": "num_pages",
             "type": "integer",
-            "default": 100,
-            "description": "Number of results per page (default 100, max 1000)"
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount_id for which to get order history"
+            "description": "Number of pages"
           }
         },
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateGetOrderHistoryResponseSchema": {
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivateGetOrderHistoryResultSchema"
-          }
-        },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateGetOrderHistoryResultSchema": {
-        "properties": {
-          "orders": {
-            "title": "orders",
-            "type": "array",
-            "description": "List of open orders",
-            "items": {
-              "$ref": "#/components/schemas/OrderResponseSchema"
-            }
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationInfoSchema"
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount_id for which to get open orders"
-          }
-        },
-        "required": [
-          "orders",
-          "pagination",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

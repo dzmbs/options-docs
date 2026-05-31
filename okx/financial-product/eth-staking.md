@@ -47,7 +47,10 @@ Response Example
  "code": "0",
  "data": [
  {
- "fastRedemptionDailyLimit": "100"
+ "fastRedemptionDailyLimit": "100",
+ "rate": "2.23",
+ "redemptDays": "8",
+ "minAmt": "0.001"
  }
  ],
  "msg": ""
@@ -60,6 +63,9 @@ Response Example
 | Parameter | Type | Description |
 | --- | --- | --- |
 | fastRedemptionDailyLimit | String | Fast redemption daily limitThe master account and sub-accounts share the same limit |
+| rate | String | Latest BETH APY |
+| redemptDays | String | Redemption days of BETH |
+| minAmt | String | Minimum subscription amount of BETH |
 
 ### POST / Purchase
 

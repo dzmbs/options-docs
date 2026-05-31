@@ -126,11 +126,11 @@ operations:
                   - name: currency
                     type: string
                     description: The selected currency
-                    required: false
+                    required: true
                   - name: equity
                     type: number
                     description: The account's current equity
-                    required: false
+                    required: true
                   - name: maintenance_margin
                     type: number
                     description: >-
@@ -138,7 +138,7 @@ operations:
                       this aggregated value is calculated by converting the sum
                       of each cross collateral currency's value to the given
                       currency, using each cross collateral currency's index.
-                    required: false
+                    required: true
                   - name: initial_margin
                     type: number
                     description: >-
@@ -147,7 +147,7 @@ operations:
                       the sum of each cross collateral currency's value to the
                       given currency, using each cross collateral currency's
                       index.
-                    required: false
+                    required: true
                   - name: available_funds
                     type: number
                     description: >-
@@ -156,15 +156,15 @@ operations:
                       the sum of each cross collateral currency's value to the
                       given currency, using each cross collateral currency's
                       index.
-                    required: false
+                    required: true
                   - name: available_withdrawal_funds
                     type: number
                     description: The account's available to withdrawal funds
-                    required: false
+                    required: true
                   - name: balance
                     type: number
                     description: The account's balance
-                    required: false
+                    required: true
                   - name: fee_balance
                     type: number
                     description: The account's fee balance (it can be used to pay for fees)
@@ -177,63 +177,63 @@ operations:
                       the sum of each cross collateral currency's value to the
                       given currency, using each cross collateral currency's
                       index.
-                    required: false
+                    required: true
                   - name: session_upl
                     type: number
                     description: Session unrealized profit and loss
-                    required: false
+                    required: true
                   - name: session_rpl
                     type: number
                     description: Session realized profit and loss
-                    required: false
+                    required: true
                   - name: total_pl
                     type: number
                     description: Profit and loss
-                    required: false
+                    required: true
                   - name: options_pl
                     type: number
                     description: Options profit and Loss
-                    required: false
+                    required: true
                   - name: options_session_rpl
                     type: number
                     description: Options session realized profit and Loss
-                    required: false
+                    required: true
                   - name: options_session_upl
                     type: number
                     description: Options session unrealized profit and Loss
-                    required: false
+                    required: true
                   - name: options_delta
                     type: number
                     description: Options summary delta
-                    required: false
+                    required: true
                   - name: options_gamma
                     type: number
                     description: Options summary gamma
-                    required: false
+                    required: true
                   - name: options_theta
                     type: number
                     description: Options summary theta
-                    required: false
+                    required: true
                   - name: options_value
                     type: number
                     description: Options value
-                    required: false
+                    required: true
                   - name: options_vega
                     type: number
                     description: Options summary vega
-                    required: false
+                    required: true
                   - name: futures_pl
                     type: number
                     description: Futures profit and Loss
-                    required: false
+                    required: true
                   - name: futures_session_rpl
                     type: number
                     description: Futures session realized profit and Loss
-                    required: false
+                    required: true
                   - name: futures_session_upl
                     type: number
                     description: Futures session unrealized profit and Loss
-                    required: false
+                    required: true
                   - name: delta_total
                     type: number
                     description: >
@@ -266,37 +266,37 @@ operations:
                   - name: delta_total_map
                     type: object
                     description: Map of position sum's per index
-                    required: false
+                    required: true
                   - name: options_gamma_map
                     type: object
                     description: Map of options' gammas per index
-                    required: false
+                    required: true
                   - name: options_theta_map
                     type: object
                     description: Map of options' thetas per index
-                    required: false
+                    required: true
                   - name: options_vega_map
                     type: object
                     description: Map of options' vegas per index
-                    required: false
+                    required: true
                   - name: projected_delta_total
                     type: number
                     description: >-
                       The sum of position deltas without positions that will
                       expire during closest expiration
-                    required: false
+                    required: true
                   - name: portfolio_margining_enabled
                     type: boolean
                     description: When `true` portfolio margining is enabled for user
-                    required: false
+                    required: true
                   - name: cross_collateral_enabled
                     type: boolean
                     description: When `true` cross collateral is enabled for user
-                    required: false
+                    required: true
                   - name: margin_model
                     type: string
                     description: Name of user's currently enabled margin model
-                    required: false
+                    required: true
                   - name: total_equity_usd
                     type: number
                     description: >-
@@ -349,7 +349,7 @@ operations:
                       the sum of each cross collateral currency's value to the
                       given currency, using each cross collateral currency's
                       index.
-                    required: false
+                    required: true
                   - name: estimated_liquidation_ratio
                     type: number
                     description: >-

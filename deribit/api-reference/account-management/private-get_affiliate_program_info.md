@@ -160,8 +160,8 @@ components:
             - is_enabled
           type: object
       required:
-        - result
         - jsonrpc
+        - result
       type: object
 
 ````

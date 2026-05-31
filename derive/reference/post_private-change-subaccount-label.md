@@ -59,6 +59,11 @@ Required minimum session key permission level is `account`
   "components": {
     "schemas": {
       "PrivateChangeSubaccountLabelParamsSchema": {
+        "type": "object",
+        "required": [
+          "label",
+          "subaccount_id"
+        ],
         "properties": {
           "label": {
             "title": "label",
@@ -71,14 +76,14 @@ Required minimum session key permission level is `account`
             "description": "Subaccount_id"
           }
         },
-        "required": [
-          "label",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateChangeSubaccountLabelResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -96,14 +101,14 @@ Required minimum session key permission level is `account`
             "$ref": "#/components/schemas/PrivateChangeSubaccountLabelResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateChangeSubaccountLabelResultSchema": {
+        "type": "object",
+        "required": [
+          "label",
+          "subaccount_id"
+        ],
         "properties": {
           "label": {
             "title": "label",
@@ -116,11 +121,6 @@ Required minimum session key permission level is `account`
             "description": "Subaccount_id"
           }
         },
-        "required": [
-          "label",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

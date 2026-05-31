@@ -200,7 +200,7 @@ Users can access the current rate limits by calling the [`private/get_account_su
 
 **Example for users without per currency config (default):**
 
-```json  theme={null}
+```json theme={null}
 {
   "non_matching_engine": {
     "burst": 1500,
@@ -240,7 +240,7 @@ Users can access the current rate limits by calling the [`private/get_account_su
 
 **Example for users with per currency config:**
 
-```json  theme={null}
+```json theme={null}
 {
   "non_matching_engine": {
     "burst": 1500,

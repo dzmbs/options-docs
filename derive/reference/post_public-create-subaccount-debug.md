@@ -58,6 +58,16 @@ Used for debugging only, do not use in production. Will return the incremental e
   "components": {
     "schemas": {
       "PublicCreateSubaccountDebugParamsSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "asset_name",
+          "margin_type",
+          "nonce",
+          "signature_expiry_sec",
+          "signer",
+          "wallet"
+        ],
         "properties": {
           "amount": {
             "title": "amount",
@@ -108,19 +118,14 @@ Used for debugging only, do not use in production. Will return the incremental e
             "description": "Ethereum wallet address"
           }
         },
-        "required": [
-          "amount",
-          "asset_name",
-          "margin_type",
-          "nonce",
-          "signature_expiry_sec",
-          "signer",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicCreateSubaccountDebugResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -138,14 +143,16 @@ Used for debugging only, do not use in production. Will return the incremental e
             "$ref": "#/components/schemas/PublicCreateSubaccountDebugResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicCreateSubaccountDebugResultSchema": {
+        "type": "object",
+        "required": [
+          "action_hash",
+          "encoded_data",
+          "encoded_data_hashed",
+          "typed_data_hash"
+        ],
         "properties": {
           "action_hash": {
             "title": "action_hash",
@@ -168,13 +175,6 @@ Used for debugging only, do not use in production. Will return the incremental e
             "description": "EIP 712 typed data hash"
           }
         },
-        "required": [
-          "action_hash",
-          "encoded_data",
-          "encoded_data_hashed",
-          "typed_data_hash"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

@@ -136,9 +136,113 @@ operations:
                   - name: asks
                     type: array
                     required: false
+                    properties:
+                      - name: makers
+                        type: array
+                        required: false
+                        properties:
+                          - name: item
+                            type: string
+                            description: Maker of the quote
+                            required: false
+                      - name: price
+                        type: number
+                        description: Price of a quote
+                        required: false
+                      - name: last_update_timestamp
+                        type: integer
+                        description: >-
+                          Timestamp of the last update of the quote
+                          (milliseconds since the UNIX epoch)
+                        required: false
+                      - name: execution_instruction
+                        type: string
+                        description: >-
+                          Execution instruction of the quote. Default -
+                          `any_part_of`
+
+
+                          - `"all_or_none (AON)"` - The quote can only be filled
+                          entirely or not at all, ensuring that its amount
+                          matches the amount specified in the Block RFQ.
+                          Additionally, 'all_or_none' quotes have priority over
+                          'any_part_of' quotes at the same price level.
+
+                          - `"any_part_of (APO)"` - The quote can be filled
+                          either partially or fully, with the filled amount
+                          potentially being less than the Block RFQ amount.
+                        enumValues:
+                          - any_part_of
+                          - all_or_none
+                        required: false
+                      - name: amount
+                        type: number
+                        description: >-
+                          This value multiplied by the ratio of a leg gives
+                          trade size on that leg.
+                        required: false
+                      - name: expires_at
+                        type: integer
+                        description: >-
+                          The timestamp when the quote expires (milliseconds
+                          since the Unix epoch), equal to the earliest expiry of
+                          placed quotes
+                        required: false
                   - name: bids
                     type: array
                     required: false
+                    properties:
+                      - name: makers
+                        type: array
+                        required: false
+                        properties:
+                          - name: item
+                            type: string
+                            description: Maker of the quote
+                            required: false
+                      - name: price
+                        type: number
+                        description: Price of a quote
+                        required: false
+                      - name: last_update_timestamp
+                        type: integer
+                        description: >-
+                          Timestamp of the last update of the quote
+                          (milliseconds since the UNIX epoch)
+                        required: false
+                      - name: execution_instruction
+                        type: string
+                        description: >-
+                          Execution instruction of the quote. Default -
+                          `any_part_of`
+
+
+                          - `"all_or_none (AON)"` - The quote can only be filled
+                          entirely or not at all, ensuring that its amount
+                          matches the amount specified in the Block RFQ.
+                          Additionally, 'all_or_none' quotes have priority over
+                          'any_part_of' quotes at the same price level.
+
+                          - `"any_part_of (APO)"` - The quote can be filled
+                          either partially or fully, with the filled amount
+                          potentially being less than the Block RFQ amount.
+                        enumValues:
+                          - any_part_of
+                          - all_or_none
+                        required: false
+                      - name: amount
+                        type: number
+                        description: >-
+                          This value multiplied by the ratio of a leg gives
+                          trade size on that leg.
+                        required: false
+                      - name: expires_at
+                        type: integer
+                        description: >-
+                          The timestamp when the quote expires (milliseconds
+                          since the Unix epoch), equal to the earliest expiry of
+                          placed quotes
+                        required: false
                   - name: legs
                     type: object
                     required: false
@@ -278,18 +382,18 @@ operations:
                           - triggered
                           - untriggered
                           - cancelled
-                        required: false
+                        required: true
                       - name: price
                         type: number
                         description: Price of the trade trigger
-                        required: false
+                        required: true
                       - name: direction
                         type: string
                         description: Direction of the trade trigger
                         enumValues:
                           - buy
                           - sell
-                        required: false
+                        required: true
                       - name: cancel_reason
                         type: string
                         description: >-

@@ -58,6 +58,13 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
   "components": {
     "schemas": {
       "LegPricedSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "direction",
+          "instrument_name",
+          "price"
+        ],
         "properties": {
           "amount": {
             "title": "amount",
@@ -86,16 +93,22 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
             "description": "Leg price"
           }
         },
-        "required": [
-          "amount",
-          "direction",
-          "instrument_name",
-          "price"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicExecuteQuoteDebugParamsSchema": {
+        "type": "object",
+        "required": [
+          "direction",
+          "legs",
+          "max_fee",
+          "nonce",
+          "quote_id",
+          "rfq_id",
+          "signature",
+          "signature_expiry_sec",
+          "signer",
+          "subaccount_id"
+        ],
         "properties": {
           "client": {
             "title": "client",
@@ -176,22 +189,14 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
             "description": "Subaccount ID"
           }
         },
-        "required": [
-          "direction",
-          "legs",
-          "max_fee",
-          "nonce",
-          "quote_id",
-          "rfq_id",
-          "signature",
-          "signature_expiry_sec",
-          "signer",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicExecuteQuoteDebugResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -209,14 +214,18 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
             "$ref": "#/components/schemas/PublicExecuteQuoteDebugResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicExecuteQuoteDebugResultSchema": {
+        "type": "object",
+        "required": [
+          "action_hash",
+          "encoded_data",
+          "encoded_data_hashed",
+          "encoded_legs",
+          "legs_hash",
+          "typed_data_hash"
+        ],
         "properties": {
           "action_hash": {
             "title": "action_hash",
@@ -249,15 +258,6 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
             "description": "EIP 712 typed data hash"
           }
         },
-        "required": [
-          "action_hash",
-          "encoded_data",
-          "encoded_data_hashed",
-          "encoded_legs",
-          "legs_hash",
-          "typed_data_hash"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

@@ -59,7 +59,65 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "OrderResponseSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "average_price",
+          "cancel_reason",
+          "creation_timestamp",
+          "direction",
+          "filled_amount",
+          "instrument_name",
+          "is_transfer",
+          "label",
+          "last_update_timestamp",
+          "limit_price",
+          "max_fee",
+          "mmp",
+          "nonce",
+          "order_fee",
+          "order_id",
+          "order_status",
+          "order_type",
+          "quote_id",
+          "signature",
+          "signature_expiry_sec",
+          "signer",
+          "subaccount_id",
+          "time_in_force"
+        ],
         "properties": {
+          "algo_duration_sec": {
+            "title": "algo_duration_sec",
+            "type": "integer",
+            "default": null,
+            "description": "Total execution window in seconds",
+            "nullable": true
+          },
+          "algo_num_slices": {
+            "title": "algo_num_slices",
+            "type": "integer",
+            "default": null,
+            "description": "Number of child executions",
+            "nullable": true
+          },
+          "algo_slices_completed": {
+            "title": "algo_slices_completed",
+            "type": "integer",
+            "default": null,
+            "description": "Number of slices executed so far",
+            "nullable": true
+          },
+          "algo_type": {
+            "title": "algo_type",
+            "type": "string",
+            "default": null,
+            "enum": [
+              "twap"
+            ],
+            "description": "Algo order type (twap or vwap)",
+            "nullable": true
+          },
           "amount": {
             "title": "amount",
             "type": "string",
@@ -87,7 +145,8 @@ Required minimum session key permission level is `admin`
               "subaccount_withdrawn",
               "compliance",
               "trigger_failed",
-              "validation_failed"
+              "validation_failed",
+              "algo_completed"
             ],
             "description": "If cancelled, reason behind order cancellation"
           },
@@ -149,7 +208,7 @@ Required minimum session key permission level is `admin`
             "title": "max_fee",
             "type": "string",
             "format": "decimal",
-            "description": "Max fee in units of the quote currency"
+            "description": "Max fee PER contract, denominated in USDC.Max fee must be > 2 x max(taker_fee, maker_fee) x spot_price + extra_fee / amount.If the order crosses the book, it must be >= 2 x max(taker_fee, maker_fee) x spot_price + base_fee / fill_amount + extra_fee / amount.Note, in this calculation, regardless of the account taker / maker fees, the standard taker / maker fees are used."
           },
           "mmp": {
             "title": "mmp",
@@ -180,7 +239,8 @@ Required minimum session key permission level is `admin`
               "filled",
               "cancelled",
               "expired",
-              "untriggered"
+              "untriggered",
+              "algo_active"
             ],
             "description": "Order status"
           },
@@ -286,182 +346,35 @@ Required minimum session key permission level is `admin`
             "nullable": true
           }
         },
-        "required": [
-          "amount",
-          "average_price",
-          "cancel_reason",
-          "creation_timestamp",
-          "direction",
-          "filled_amount",
-          "instrument_name",
-          "is_transfer",
-          "label",
-          "last_update_timestamp",
-          "limit_price",
-          "max_fee",
-          "mmp",
-          "nonce",
-          "order_fee",
-          "order_id",
-          "order_status",
-          "order_type",
-          "quote_id",
-          "signature",
-          "signature_expiry_sec",
-          "signer",
-          "subaccount_id",
-          "time_in_force"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateTransferPositionParamsSchema": {
-        "properties": {
-          "maker_params": {
-            "$ref": "#/components/schemas/TradeModuleParamsSchema"
-          },
-          "taker_params": {
-            "$ref": "#/components/schemas/TradeModuleParamsSchema"
-          },
-          "wallet": {
-            "title": "wallet",
-            "type": "string",
-            "description": "Public key (wallet) of the account"
-          }
-        },
-        "required": [
-          "maker_params",
-          "taker_params",
-          "wallet"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "TradeModuleParamsSchema": {
-        "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Order amount in units of the base"
-          },
-          "direction": {
-            "title": "direction",
-            "type": "string",
-            "enum": [
-              "buy",
-              "sell"
-            ],
-            "description": "Order direction"
-          },
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "description": "Instrument name"
-          },
-          "limit_price": {
-            "title": "limit_price",
-            "type": "string",
-            "format": "decimal",
-            "description": "Limit price in quote currency.<br />This field is still required for market orders because it is a component of the signature. However, market orders will not leave a resting order in the book in case of a partial fill."
-          },
-          "max_fee": {
-            "title": "max_fee",
-            "type": "string",
-            "format": "decimal",
-            "description": "Max fee per unit of volume, denominated in units of the quote currency (usually USDC).Order will be rejected if the supplied max fee is below the estimated fee for this order."
-          },
-          "nonce": {
-            "title": "nonce",
-            "type": "integer",
-            "description": "Unique nonce defined as (UTC_timestamp in ms)(random_number_up_to_3_digits) (e.g. 1695836058725001, where 001 is the random number).Note, using a random number beyond 3 digits will cause JSON serialization to fail."
-          },
-          "signature": {
-            "title": "signature",
-            "type": "string",
-            "description": "Ethereum signature of the order"
-          },
-          "signature_expiry_sec": {
-            "title": "signature_expiry_sec",
-            "type": "integer",
-            "description": "Unix timestamp in seconds. Order signature becomes invalid after this time, and the system will cancel the order.Expiry MUST be at least 5 min from now."
-          },
-          "signer": {
-            "title": "signer",
-            "type": "string",
-            "description": "Owner wallet address or registered session key that signed order"
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount ID"
-          }
-        },
-        "required": [
-          "amount",
-          "direction",
-          "instrument_name",
-          "limit_price",
-          "max_fee",
-          "nonce",
-          "signature",
-          "signature_expiry_sec",
-          "signer",
-          "subaccount_id"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateTransferPositionResponseSchema": {
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivateTransferPositionResultSchema"
-          }
-        },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateTransferPositionResultSchema": {
-        "properties": {
-          "maker_order": {
-            "$ref": "#/components/schemas/OrderResponseSchema"
-          },
-          "maker_trade": {
-            "$ref": "#/components/schemas/TradeResponseSchema"
-          },
-          "taker_order": {
-            "$ref": "#/components/schemas/OrderResponseSchema"
-          },
-          "taker_trade": {
-            "$ref": "#/components/schemas/TradeResponseSchema"
-          }
-        },
-        "required": [
-          "maker_order",
-          "maker_trade",
-          "taker_order",
-          "taker_trade"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "TradeResponseSchema": {
+        "type": "object",
+        "required": [
+          "direction",
+          "expected_rebate",
+          "extra_fee",
+          "index_price",
+          "instrument_name",
+          "is_transfer",
+          "label",
+          "liquidity_role",
+          "mark_price",
+          "order_id",
+          "quote_id",
+          "realized_pnl",
+          "realized_pnl_excl_fees",
+          "rfq_id",
+          "subaccount_id",
+          "timestamp",
+          "trade_amount",
+          "trade_fee",
+          "trade_id",
+          "trade_price",
+          "transaction_id",
+          "tx_hash",
+          "tx_status"
+        ],
         "properties": {
           "direction": {
             "title": "direction",
@@ -482,7 +395,7 @@ Required minimum session key permission level is `admin`
             "title": "extra_fee",
             "type": "string",
             "format": "decimal",
-            "description": "Extra fee in USDC added by the reffering client (included in trade fee)"
+            "description": "Extra fee in USDC added by the referring client (included in trade fee)"
           },
           "index_price": {
             "title": "index_price",
@@ -612,32 +525,152 @@ Required minimum session key permission level is `admin`
             "description": "Blockchain transaction status"
           }
         },
-        "required": [
-          "direction",
-          "expected_rebate",
-          "extra_fee",
-          "index_price",
-          "instrument_name",
-          "is_transfer",
-          "label",
-          "liquidity_role",
-          "mark_price",
-          "order_id",
-          "quote_id",
-          "realized_pnl",
-          "realized_pnl_excl_fees",
-          "rfq_id",
-          "subaccount_id",
-          "timestamp",
-          "trade_amount",
-          "trade_fee",
-          "trade_id",
-          "trade_price",
-          "transaction_id",
-          "tx_hash",
-          "tx_status"
-        ],
+        "additionalProperties": false
+      },
+      "PrivateTransferPositionParamsSchema": {
         "type": "object",
+        "required": [
+          "maker_params",
+          "taker_params",
+          "wallet"
+        ],
+        "properties": {
+          "maker_params": {
+            "$ref": "#/components/schemas/TradeModuleParamsSchema"
+          },
+          "taker_params": {
+            "$ref": "#/components/schemas/TradeModuleParamsSchema"
+          },
+          "wallet": {
+            "title": "wallet",
+            "type": "string",
+            "description": "Public key (wallet) of the account"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TradeModuleParamsSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "direction",
+          "instrument_name",
+          "limit_price",
+          "max_fee",
+          "nonce",
+          "signature",
+          "signature_expiry_sec",
+          "signer",
+          "subaccount_id"
+        ],
+        "properties": {
+          "amount": {
+            "title": "amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Order amount in units of the base"
+          },
+          "direction": {
+            "title": "direction",
+            "type": "string",
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "Order direction"
+          },
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "description": "Instrument name"
+          },
+          "limit_price": {
+            "title": "limit_price",
+            "type": "string",
+            "format": "decimal",
+            "description": "Limit price in quote currency.<br />This field is still required for market orders because it is a component of the signature. However, market orders will not leave a resting order in the book in case of a partial fill."
+          },
+          "max_fee": {
+            "title": "max_fee",
+            "type": "string",
+            "format": "decimal",
+            "description": "Max fee PER contract, denominated in USDC.<br />For resting orders (maker orders), max_fee must be > 2 x max(taker_fee, maker_fee) x spot_price + extra_fee / amount.For crossing orders (taker order), max_fee must be > maker max_fee + base_fee / fill_amount.<br />Note, in this calculation, regardless of the custom account taker / maker fees, the standard taker / maker fees are used.<br />The max(limit_price, index_price) is used to calculate the notional volume."
+          },
+          "nonce": {
+            "title": "nonce",
+            "type": "integer",
+            "description": "Unique nonce defined as (UTC_timestamp in ms)(random_number_up_to_3_digits) (e.g. 1695836058725001, where 001 is the random number).<br />Note, using a random number beyond 3 digits will cause JSON serialization to fail."
+          },
+          "signature": {
+            "title": "signature",
+            "type": "string",
+            "description": "Ethereum signature of the order"
+          },
+          "signature_expiry_sec": {
+            "title": "signature_expiry_sec",
+            "type": "integer",
+            "description": "Unix timestamp in seconds. Order signature becomes invalid after this time, and the system will cancel the order.<br />Expiry MUST be at least 5 min from now."
+          },
+          "signer": {
+            "title": "signer",
+            "type": "string",
+            "description": "Owner wallet address or registered session key that signed order"
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount ID"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateTransferPositionResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivateTransferPositionResultSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateTransferPositionResultSchema": {
+        "type": "object",
+        "required": [
+          "maker_order",
+          "maker_trade",
+          "taker_order",
+          "taker_trade"
+        ],
+        "properties": {
+          "maker_order": {
+            "$ref": "#/components/schemas/OrderResponseSchema"
+          },
+          "maker_trade": {
+            "$ref": "#/components/schemas/TradeResponseSchema"
+          },
+          "taker_order": {
+            "$ref": "#/components/schemas/OrderResponseSchema"
+          },
+          "taker_trade": {
+            "$ref": "#/components/schemas/TradeResponseSchema"
+          }
+        },
         "additionalProperties": false
       }
     }

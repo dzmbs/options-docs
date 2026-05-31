@@ -25,8 +25,6 @@ Error Code from 60000 to 64002
 | 60026 | Batch login by APIKey and token simultaneously is not supported. |
 | 60027 | Parameter {0} can not be empty. |
 | 60028 | The current operation is not supported by this URL. Please use the correct WebSocket URL for the operation. |
-| 60029 | Only users who are VIP6 and above in trading fee tier are allowed to subscribe to this channel. |
-| 60030 | Only users who are VIP5 and above in trading fee tier are allowed to subscribe to books50-l2-tbt channel. |
 | 60031 | The WebSocket endpoint does not allow multiple or repeated logins. |
 | 60032 | API key doesn't exist. |
 | 60033 | Parameter {param0} error. |

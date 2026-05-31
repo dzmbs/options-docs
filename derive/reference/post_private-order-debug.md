@@ -59,7 +59,44 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateOrderDebugParamsSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "direction",
+          "instrument_name",
+          "limit_price",
+          "max_fee",
+          "nonce",
+          "signature",
+          "signature_expiry_sec",
+          "signer",
+          "subaccount_id"
+        ],
         "properties": {
+          "algo_duration_sec": {
+            "title": "algo_duration_sec",
+            "type": "integer",
+            "default": null,
+            "description": "Total execution window in seconds (required for algo orders)",
+            "nullable": true
+          },
+          "algo_num_slices": {
+            "title": "algo_num_slices",
+            "type": "integer",
+            "default": null,
+            "description": "Number of child executions to split the order into (required for algo orders)",
+            "nullable": true
+          },
+          "algo_type": {
+            "title": "algo_type",
+            "type": "string",
+            "default": null,
+            "enum": [
+              "twap"
+            ],
+            "description": "Algo order type (twap). Cannot be combined with trigger fields.",
+            "nullable": true
+          },
           "amount": {
             "title": "amount",
             "type": "string",
@@ -117,7 +154,7 @@ Required minimum session key permission level is `read_only`
             "title": "max_fee",
             "type": "string",
             "format": "decimal",
-            "description": "Max fee per unit of volume, denominated in units of the quote currency (usually USDC).Order will be rejected if the supplied max fee is below the estimated fee for this order."
+            "description": "Max fee PER contract, denominated in USDC.<br />For resting orders (maker orders), max_fee must be > 2 x max(taker_fee, maker_fee) x spot_price + extra_fee / amount.For crossing orders (taker order), max_fee must be > maker max_fee + base_fee / fill_amount.<br />Note, in this calculation, regardless of the custom account taker / maker fees, the standard taker / maker fees are used.<br />The max(limit_price, index_price) is used to calculate the notional volume."
           },
           "mmp": {
             "title": "mmp",
@@ -128,7 +165,7 @@ Required minimum session key permission level is `read_only`
           "nonce": {
             "title": "nonce",
             "type": "integer",
-            "description": "Unique nonce defined as (UTC_timestamp in ms)(random_number_up_to_3_digits) (e.g. 1695836058725001, where 001 is the random number).Note, using a random number beyond 3 digits will cause JSON serialization to fail."
+            "description": "Unique nonce defined as (UTC_timestamp in ms)(random_number_up_to_3_digits) (e.g. 1695836058725001, where 001 is the random number).<br />Note, using a random number beyond 3 digits will cause JSON serialization to fail."
           },
           "order_type": {
             "title": "order_type",
@@ -172,7 +209,7 @@ Required minimum session key permission level is `read_only`
           "signature_expiry_sec": {
             "title": "signature_expiry_sec",
             "type": "integer",
-            "description": "Unix timestamp in seconds. Order signature becomes invalid after this time, and the system will cancel the order.Expiry MUST be at least 5 min from now."
+            "description": "Unix timestamp in seconds. Order signature becomes invalid after this time, and the system will cancel the order.<br />Expiry MUST be at least 5 min from now."
           },
           "signer": {
             "title": "signer",
@@ -227,22 +264,14 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
-        "required": [
-          "amount",
-          "direction",
-          "instrument_name",
-          "limit_price",
-          "max_fee",
-          "nonce",
-          "signature",
-          "signature_expiry_sec",
-          "signer",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateOrderDebugResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -260,14 +289,17 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateOrderDebugResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateOrderDebugResultSchema": {
+        "type": "object",
+        "required": [
+          "action_hash",
+          "encoded_data",
+          "encoded_data_hashed",
+          "raw_data",
+          "typed_data_hash"
+        ],
         "properties": {
           "action_hash": {
             "title": "action_hash",
@@ -293,17 +325,21 @@ Required minimum session key permission level is `read_only`
             "description": "EIP 712 typed data hash"
           }
         },
-        "required": [
-          "action_hash",
-          "encoded_data",
-          "encoded_data_hashed",
-          "raw_data",
-          "typed_data_hash"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "SignedTradeOrderSchema": {
+        "type": "object",
+        "required": [
+          "data",
+          "expiry",
+          "is_atomic_signing",
+          "module",
+          "nonce",
+          "owner",
+          "signature",
+          "signer",
+          "subaccount_id"
+        ],
         "properties": {
           "data": {
             "$ref": "#/components/schemas/TradeModuleDataSchema"
@@ -341,21 +377,20 @@ Required minimum session key permission level is `read_only`
             "type": "integer"
           }
         },
-        "required": [
-          "data",
-          "expiry",
-          "is_atomic_signing",
-          "module",
-          "nonce",
-          "owner",
-          "signature",
-          "signer",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "TradeModuleDataSchema": {
+        "type": "object",
+        "required": [
+          "asset",
+          "desired_amount",
+          "is_bid",
+          "limit_price",
+          "recipient_id",
+          "sub_id",
+          "trade_id",
+          "worst_fee"
+        ],
         "properties": {
           "asset": {
             "title": "asset",
@@ -393,17 +428,6 @@ Required minimum session key permission level is `read_only`
             "format": "decimal"
           }
         },
-        "required": [
-          "asset",
-          "desired_amount",
-          "is_bid",
-          "limit_price",
-          "recipient_id",
-          "sub_id",
-          "trade_id",
-          "worst_fee"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

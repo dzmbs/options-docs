@@ -160,8 +160,8 @@ components:
             continuation:
               $ref: '#/components/schemas/continuation'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     trigger_order_history_record:
       properties:

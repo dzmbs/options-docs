@@ -58,6 +58,7 @@ Get all vault assets held by user. Can query by smart contract address or smart 
   "components": {
     "schemas": {
       "PublicGetVaultBalancesParamsSchema": {
+        "type": "object",
         "properties": {
           "smart_contract_owner": {
             "title": "smart_contract_owner",
@@ -74,10 +75,14 @@ Get all vault assets held by user. Can query by smart contract address or smart 
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetVaultBalancesResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -100,14 +105,17 @@ Get all vault assets held by user. Can query by smart contract address or smart 
             }
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "VaultBalanceResponseSchema": {
+        "type": "object",
+        "required": [
+          "address",
+          "amount",
+          "chain_id",
+          "name",
+          "vault_asset_type"
+        ],
         "properties": {
           "address": {
             "title": "address",
@@ -131,14 +139,6 @@ Get all vault assets held by user. Can query by smart contract address or smart 
             "type": "string"
           }
         },
-        "required": [
-          "address",
-          "amount",
-          "chain_id",
-          "name",
-          "vault_asset_type"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

@@ -125,11 +125,11 @@ operations:
                   - name: timestamp
                     type: integer
                     description: The timestamp (milliseconds since the Unix epoch)
-                    required: false
+                    required: true
                   - name: price
                     type: number
                     description: Current index price
-                    required: false
+                    required: true
                   - name: index_name
                     type: string
                     description: >-
@@ -183,7 +183,7 @@ operations:
                       - paxg_btc
                       - drbfix-btc_usdc
                       - drbfix-eth_usdc
-                    required: false
+                    required: true
         headers: []
         jsonPayloadSchema:
           type: object

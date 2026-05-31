@@ -1,6 +1,6 @@
 # Get Erc20 Transfer History
 
-Get subaccount erc20 transfer history.<br /><br />Position transfers (e.g. options or perps) are treated as trades. Use `private/get_trade_history` for position transfer history.
+Get erc20 transfer history for a subaccount or wallet.<br /><br />Position transfers (e.g. options or perps) are treated as trades. Use `private/get_trade_history` for position transfer history.
 Required minimum session key permission level is `read_only`
 
 # OpenAPI definition
@@ -29,7 +29,7 @@ Required minimum session key permission level is `read_only`
           "Private"
         ],
         "summary": "Get Erc20 Transfer History",
-        "description": "Get subaccount erc20 transfer history.<br /><br />Position transfers (e.g. options or perps) are treated as trades. Use `private/get_trade_history` for position transfer history.\nRequired minimum session key permission level is `read_only`",
+        "description": "Get erc20 transfer history for a subaccount or wallet.<br /><br />Position transfers (e.g. options or perps) are treated as trades. Use `private/get_trade_history` for position transfer history.\nRequired minimum session key permission level is `read_only`",
         "responses": {
           "200": {
             "description": "successful operation",
@@ -59,32 +59,43 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetErc20TransferHistoryParamsSchema": {
+        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
             "type": "integer",
             "default": 9223372036854776000,
-            "description": "End timestamp of the event history (default current time)"
+            "description": "End timestamp of the event history in ms since Unix epoch (default current time)"
           },
           "start_timestamp": {
             "title": "start_timestamp",
             "type": "integer",
             "default": 0,
-            "description": "Start timestamp of the event history (default 0)"
+            "description": "Start timestamp of the event history in ms since Unix epoch (default 0)"
           },
           "subaccount_id": {
             "title": "subaccount_id",
             "type": "integer",
-            "description": "Subaccount id"
+            "default": null,
+            "description": "Subaccount id (must be set if wallet is blank)",
+            "nullable": true
+          },
+          "wallet": {
+            "title": "wallet",
+            "type": "string",
+            "default": null,
+            "description": "Wallet address (if set, subaccount_id ignored)",
+            "nullable": true
           }
         },
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetErc20TransferHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -102,14 +113,13 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetErc20TransferHistoryResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetErc20TransferHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "events"
+        ],
         "properties": {
           "events": {
             "title": "events",
@@ -120,13 +130,19 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "required": [
-          "events"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "ERC20TransferSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "asset",
+          "counterparty_subaccount_id",
+          "is_outgoing",
+          "subaccount_id",
+          "timestamp",
+          "tx_hash"
+        ],
         "properties": {
           "amount": {
             "title": "amount",
@@ -149,6 +165,11 @@ Required minimum session key permission level is `read_only`
             "type": "boolean",
             "description": "True if the transfer was initiated by the subaccount, False otherwise"
           },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount ID of the subaccount involved in the transfer"
+          },
           "timestamp": {
             "title": "timestamp",
             "type": "integer",
@@ -160,15 +181,6 @@ Required minimum session key permission level is `read_only`
             "description": "Hash of the transaction that withdrew the funds"
           }
         },
-        "required": [
-          "amount",
-          "asset",
-          "counterparty_subaccount_id",
-          "is_outgoing",
-          "timestamp",
-          "tx_hash"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

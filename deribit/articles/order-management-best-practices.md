@@ -160,7 +160,7 @@ Managing open orders efficiently often involves bulk cancellations, especially f
 
 Below is an example of using the JSON-RPC API (over WebSocket or HTTP) to cancel all orders for BTC instruments:
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 42,
@@ -201,7 +201,7 @@ If instead you cancelled the remaining 100 and placed a new order for 300, the n
 
 Whenever possible, prefer editing an order over canceling and recreating it, as long as your change falls within what's allowed (e.g., you cannot change a limit order into a stop order via edit; it's meant for price/amount adjustments). Deribit's `private/edit` (by `order_id`) or `private/edit_by_label` (if you use label) can be used for this purpose. Below is an example of editing an order by its label:
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 123,
@@ -244,7 +244,7 @@ Deribit offers a "Post-Only" option on orders, which is a common feature for avo
 
 ### Default behavior (price adjustment)
 
-By default, if a post-only order would cross the spread and execute, Deribit will automatically adjust the price to just one tick inside the spread to ensure it becomes a maker order. For example, suppose the best ask is 10,000 and you submit a buy order with `post_only` at 11,000. Instead of filling at 10,000, the system will place your order at $9,999.50 (assuming a $0.50 tick) – just below the best ask – so that it rests in the book without executing. This behavior ensures your post-only intent is honored by price sliding.
+By default, if a post-only order would cross the spread and execute, Deribit will automatically adjust the price to just one tick inside the spread to ensure it becomes a maker order. For example, suppose the best ask is 10,000 and you submit a buy order with `post_only` at 11,000. Instead of filling at 10,000, the system will place your order at \$9,999.50 (assuming a \$0.50 tick) – just below the best ask – so that it rests in the book without executing. This behavior ensures your post-only intent is honored by price sliding.
 
 ### Reject mode
 
@@ -289,11 +289,11 @@ Deribit allows linking orders together with conditional relationships, which can
 
 ### OTO – One-Triggers-Other
 
-This involves a primary order and one or more secondary orders that lie dormant until the primary order executes. When the primary order fully or partially fills (depending on the trigger condition), it triggers the secondary order(s) to be placed. For example, you want to buy 100 BTC-PERP if price drops to $20,000, and if that order fills, you want to immediately place a take-profit sell order at $22,000. This is a one-triggers-other setup: your buy is the primary; the sell is secondary and will only enter the book after your buy executes.
+This involves a primary order and one or more secondary orders that lie dormant until the primary order executes. When the primary order fully or partially fills (depending on the trigger condition), it triggers the secondary order(s) to be placed. For example, you want to buy 100 BTC-PERP if price drops to \$20,000, and if that order fills, you want to immediately place a take-profit sell order at \$22,000. This is a one-triggers-other setup: your buy is the primary; the sell is secondary and will only enter the book after your buy executes.
 
 ### OCO – One-Cancels-Other
 
-This links two orders such that if one order executes, the other is automatically cancelled. A common use case is bracketing the market with a stop loss and take profit. You might have a stop-market order to sell if price falls to $19,000 and a limit sell order to take profit at $22,000, both for the same position size. You only want one of them to eventually hit – whichever comes first cancels the other. These two orders would be linked as OCO. If the stop triggers and fills, the take profit is canceled, and vice versa.
+This links two orders such that if one order executes, the other is automatically cancelled. A common use case is bracketing the market with a stop loss and take profit. You might have a stop-market order to sell if price falls to \$19,000 and a limit sell order to take profit at \$22,000, both for the same position size. You only want one of them to eventually hit – whichever comes first cancels the other. These two orders would be linked as OCO. If the stop triggers and fills, the take profit is canceled, and vice versa.
 
 ### OTOCO – One-Triggers-One-Cancels-Other
 
@@ -345,7 +345,7 @@ The API will return all resulting order IDs and statuses once processed. While t
 
 ### OTOCO order example
 
-```json  theme={null}
+```json theme={null}
 {
   "method": "private/buy",
   "params": {
@@ -389,7 +389,7 @@ The two secondary orders are linked in an OCO relationship, so if one executes, 
 
 ### Example response
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 3,

@@ -59,6 +59,12 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "PrivateCancelParamsSchema": {
+        "type": "object",
+        "required": [
+          "instrument_name",
+          "order_id",
+          "subaccount_id"
+        ],
         "properties": {
           "instrument_name": {
             "title": "instrument_name",
@@ -74,15 +80,14 @@ Required minimum session key permission level is `admin`
             "type": "integer"
           }
         },
-        "required": [
-          "instrument_name",
-          "order_id",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCancelResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -100,15 +105,68 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateCancelResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCancelResultSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "average_price",
+          "cancel_reason",
+          "creation_timestamp",
+          "direction",
+          "filled_amount",
+          "instrument_name",
+          "is_transfer",
+          "label",
+          "last_update_timestamp",
+          "limit_price",
+          "max_fee",
+          "mmp",
+          "nonce",
+          "order_fee",
+          "order_id",
+          "order_status",
+          "order_type",
+          "quote_id",
+          "signature",
+          "signature_expiry_sec",
+          "signer",
+          "subaccount_id",
+          "time_in_force"
+        ],
         "properties": {
+          "algo_duration_sec": {
+            "title": "algo_duration_sec",
+            "type": "integer",
+            "default": null,
+            "description": "Total execution window in seconds",
+            "nullable": true
+          },
+          "algo_num_slices": {
+            "title": "algo_num_slices",
+            "type": "integer",
+            "default": null,
+            "description": "Number of child executions",
+            "nullable": true
+          },
+          "algo_slices_completed": {
+            "title": "algo_slices_completed",
+            "type": "integer",
+            "default": null,
+            "description": "Number of slices executed so far",
+            "nullable": true
+          },
+          "algo_type": {
+            "title": "algo_type",
+            "type": "string",
+            "default": null,
+            "enum": [
+              "twap"
+            ],
+            "description": "Algo order type (twap or vwap)",
+            "nullable": true
+          },
           "amount": {
             "title": "amount",
             "type": "string",
@@ -136,7 +194,8 @@ Required minimum session key permission level is `admin`
               "subaccount_withdrawn",
               "compliance",
               "trigger_failed",
-              "validation_failed"
+              "validation_failed",
+              "algo_completed"
             ],
             "description": "If cancelled, reason behind order cancellation"
           },
@@ -198,7 +257,7 @@ Required minimum session key permission level is `admin`
             "title": "max_fee",
             "type": "string",
             "format": "decimal",
-            "description": "Max fee in units of the quote currency"
+            "description": "Max fee PER contract, denominated in USDC.Max fee must be > 2 x max(taker_fee, maker_fee) x spot_price + extra_fee / amount.If the order crosses the book, it must be >= 2 x max(taker_fee, maker_fee) x spot_price + base_fee / fill_amount + extra_fee / amount.Note, in this calculation, regardless of the account taker / maker fees, the standard taker / maker fees are used."
           },
           "mmp": {
             "title": "mmp",
@@ -229,7 +288,8 @@ Required minimum session key permission level is `admin`
               "filled",
               "cancelled",
               "expired",
-              "untriggered"
+              "untriggered",
+              "algo_active"
             ],
             "description": "Order status"
           },
@@ -335,33 +395,6 @@ Required minimum session key permission level is `admin`
             "nullable": true
           }
         },
-        "required": [
-          "amount",
-          "average_price",
-          "cancel_reason",
-          "creation_timestamp",
-          "direction",
-          "filled_amount",
-          "instrument_name",
-          "is_transfer",
-          "label",
-          "last_update_timestamp",
-          "limit_price",
-          "max_fee",
-          "mmp",
-          "nonce",
-          "order_fee",
-          "order_id",
-          "order_status",
-          "order_type",
-          "quote_id",
-          "signature",
-          "signature_expiry_sec",
-          "signer",
-          "subaccount_id",
-          "time_in_force"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

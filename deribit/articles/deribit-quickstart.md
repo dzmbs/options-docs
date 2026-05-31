@@ -45,7 +45,7 @@ Deribit provides three different interfaces to access the API:
       <Tab title="HTTP (Simplest)">
         <Badge>Best for: Simple scripts, one-off requests, testing</Badge>
 
-        ```bash  theme={null}
+        ```bash theme={null}
         # Get market data (no authentication required)
         curl -X GET "https://test.deribit.com/api/v2/public/get_instruments?currency=BTC&kind=future"
         ```
@@ -54,7 +54,7 @@ Deribit provides three different interfaces to access the API:
       <Tab title="WebSocket (Recommended)">
         <Badge>Best for: Real-time data, subscriptions, trading bots</Badge>
 
-        ```javascript  theme={null}
+        ```javascript theme={null}
         const WebSocket = require('ws');
         const ws = new WebSocket('wss://test.deribit.com/ws/api/v2');
 
@@ -95,7 +95,7 @@ Deribit provides three different interfaces to access the API:
 
     <Tabs>
       <Tab title="HTTP Authentication">
-        ```bash  theme={null}
+        ```bash theme={null}
         # Get access token using Client Credentials
         curl -X GET "https://test.deribit.com/api/v2/public/auth" \
           -d "grant_type=client_credentials" \
@@ -105,7 +105,7 @@ Deribit provides three different interfaces to access the API:
 
         Response:
 
-        ```json  theme={null}
+        ```json theme={null}
         {
           "jsonrpc": "2.0",
           "result": {
@@ -120,7 +120,7 @@ Deribit provides three different interfaces to access the API:
       </Tab>
 
       <Tab title="WebSocket Authentication">
-        ```javascript  theme={null}
+        ```javascript theme={null}
         const WebSocket = require('ws');
         const ws = new WebSocket('wss://test.deribit.com/ws/api/v2');
 
@@ -159,7 +159,7 @@ Deribit provides three different interfaces to access the API:
       <Tab title="Public Data (No Auth)">
         **Get Market Data**
 
-        ```bash  theme={null}
+        ```bash theme={null}
         # Get all BTC futures
         curl -X GET "https://test.deribit.com/api/v2/public/get_instruments?currency=BTC&kind=future"
 
@@ -174,7 +174,7 @@ Deribit provides three different interfaces to access the API:
       <Tab title="Private Data (Auth Required)">
         **Get Account Information**
 
-        ```bash  theme={null}
+        ```bash theme={null}
         # Get account summary
         curl -X GET "https://test.deribit.com/api/v2/private/get_account_summary?currency=BTC" \
           -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
@@ -188,7 +188,7 @@ Deribit provides three different interfaces to access the API:
       <Tab title="WebSocket Subscriptions">
         **Subscribe to Real-Time Data**
 
-        ```javascript  theme={null}
+        ```javascript theme={null}
         const WebSocket = require('ws');
         const ws = new WebSocket('wss://test.deribit.com/ws/api/v2');
 
@@ -226,7 +226,7 @@ Deribit provides three different interfaces to access the API:
 
     <Tabs>
       <Tab title="HTTP">
-        ```bash  theme={null}
+        ```bash theme={null}
         # Place a limit buy order (testnet)
         curl -X GET "https://test.deribit.com/api/v2/private/buy" \
           -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
@@ -238,7 +238,7 @@ Deribit provides three different interfaces to access the API:
       </Tab>
 
       <Tab title="WebSocket">
-        ```javascript  theme={null}
+        ```javascript theme={null}
         ws.send(JSON.stringify({
           "jsonrpc": "2.0",
           "method": "private/buy",

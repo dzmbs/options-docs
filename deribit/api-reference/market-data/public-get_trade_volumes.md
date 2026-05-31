@@ -132,8 +132,8 @@ components:
           items:
             $ref: '#/components/schemas/trades_volumes'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     trades_volumes:
       properties:

@@ -105,31 +105,31 @@ operations:
                   - name: tick
                     type: integer
                     description: The timestamp (milliseconds since the Unix epoch)
-                    required: false
+                    required: true
                   - name: volume
                     type: number
                     description: Volume data for the candle
-                    required: false
+                    required: true
                   - name: cost
                     type: number
                     description: Cost data for the candle
-                    required: false
+                    required: true
                   - name: open
                     type: number
                     description: The open price for the candle'
-                    required: false
+                    required: true
                   - name: close
                     type: number
                     description: The close price for the candle
-                    required: false
+                    required: true
                   - name: high
                     type: number
                     description: The highest price level for the candle
-                    required: false
+                    required: true
                   - name: low
                     type: number
                     description: The lowest price level for the candle
-                    required: false
+                    required: true
         headers: []
         jsonPayloadSchema:
           type: object

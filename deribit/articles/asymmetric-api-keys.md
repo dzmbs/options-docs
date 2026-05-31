@@ -112,20 +112,20 @@ You can generate your public and private key pair using either **OpenSSL** (comm
 
 <Tabs>
   <Tab title="Debian/Ubuntu">
-    ```bash  theme={null}
+    ```bash theme={null}
     sudo apt update
     sudo apt install openssl
     ```
   </Tab>
 
   <Tab title="Fedora">
-    ```bash  theme={null}
+    ```bash theme={null}
     sudo dnf install openssl
     ```
   </Tab>
 
   <Tab title="Arch Linux">
-    ```bash  theme={null}
+    ```bash theme={null}
     sudo pacman -S openssl
     ```
   </Tab>
@@ -135,7 +135,7 @@ You can generate your public and private key pair using either **OpenSSL** (comm
 
 **Step 1: Generate Private Key**
 
-```bash  theme={null}
+```bash theme={null}
 openssl genpkey -algorithm ed25519 -out private.pem
 ```
 
@@ -143,7 +143,7 @@ This creates a file named `private.pem` containing your **private key**. **Keep 
 
 **Step 2: Extract Public Key**
 
-```bash  theme={null}
+```bash theme={null}
 openssl pkey -in private.pem -pubout -out public.pem
 ```
 
@@ -163,7 +163,7 @@ This creates `public.pem` containing your **public key**. This is the file you'l
 
 #### Ed25519 Key Generation
 
-```python  theme={null}
+```python theme={null}
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 from cryptography.hazmat.primitives import serialization
 
@@ -205,7 +205,7 @@ print("Public key saved to: public.pem (safe to share)")
 
 For RSA keys, Deribit requires a **minimum key size of 2048 bits**.
 
-```python  theme={null}
+```python theme={null}
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import serialization
 
@@ -309,7 +309,7 @@ You can also create an asymmetric API key programmatically using the [`private/c
 
 **Request Example:**
 
-```json  theme={null}
+```json theme={null}
 {
   "method": "private/create_api_key",
   "params": {
@@ -334,7 +334,7 @@ You can also create an asymmetric API key programmatically using the [`private/c
 
 **Response Example:**
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -381,7 +381,7 @@ To authenticate with an asymmetric API key, you must use **Deribit Signature Cre
 
 This example shows how to authenticate using a shell script with OpenSSL for HTTP requests:
 
-```bash  theme={null}
+```bash theme={null}
 # Set your base URL (test or production)
 base_url="https://test.deribit.com"
 
@@ -418,7 +418,7 @@ curl -s -X ${verb} \
 
 #### Ed25519 Authentication (WebSocket)
 
-```python  theme={null}
+```python theme={null}
 import asyncio
 from cryptography.hazmat.primitives import serialization
 import websockets
@@ -505,7 +505,7 @@ asyncio.get_event_loop().run_until_complete(call_api(msg))
 
 RSA authentication is similar to Ed25519, but uses different padding and hashing:
 
-```python  theme={null}
+```python theme={null}
 import asyncio
 from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import padding

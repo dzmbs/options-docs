@@ -257,8 +257,8 @@ components:
             - trades
             - has_more
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     user_trade:
       properties:

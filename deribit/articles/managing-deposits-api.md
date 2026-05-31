@@ -18,7 +18,7 @@ In order to generate a new on-chain deposit address for a selected currency use 
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/create_deposit_address",
@@ -46,7 +46,7 @@ In order to obtain a list of completed or pending deposits for a selected curren
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/get_deposits",
@@ -96,7 +96,7 @@ When submitting originator information, you need to provide:
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "method": "private/set_clearance_originator",
@@ -112,7 +112,7 @@ When submitting originator information, you need to provide:
 
 ### Response
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 1,

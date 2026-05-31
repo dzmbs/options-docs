@@ -59,6 +59,11 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
+        "type": "object",
+        "required": [
+          "count",
+          "num_pages"
+        ],
         "properties": {
           "count": {
             "title": "count",
@@ -71,14 +76,10 @@ Required minimum session key permission level is `read_only`
             "description": "Number of pages"
           }
         },
-        "required": [
-          "count",
-          "num_pages"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetNotificationsParamsSchema": {
+        "type": "object",
         "properties": {
           "page": {
             "title": "page",
@@ -141,10 +142,14 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetNotificationsResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -162,14 +167,14 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetNotificationsResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetNotificationsResultSchema": {
+        "type": "object",
+        "required": [
+          "notifications",
+          "pagination"
+        ],
         "properties": {
           "notifications": {
             "title": "notifications",
@@ -183,14 +188,18 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PaginationInfoSchema"
           }
         },
-        "required": [
-          "notifications",
-          "pagination"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "NotificationResponseSchema": {
+        "type": "object",
+        "required": [
+          "event",
+          "event_details",
+          "id",
+          "status",
+          "subaccount_id",
+          "timestamp"
+        ],
         "properties": {
           "event": {
             "title": "event",
@@ -238,15 +247,6 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
-        "required": [
-          "event",
-          "event_details",
-          "id",
-          "status",
-          "subaccount_id",
-          "timestamp"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

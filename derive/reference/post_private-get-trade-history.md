@@ -59,6 +59,11 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
+        "type": "object",
+        "required": [
+          "count",
+          "num_pages"
+        ],
         "properties": {
           "count": {
             "title": "count",
@@ -71,14 +76,152 @@ Required minimum session key permission level is `read_only`
             "description": "Number of pages"
           }
         },
-        "required": [
-          "count",
-          "num_pages"
-        ],
+        "additionalProperties": false
+      },
+      "PrivateGetTradeHistoryParamsSchema": {
         "type": "object",
+        "properties": {
+          "from_timestamp": {
+            "title": "from_timestamp",
+            "type": "integer",
+            "default": 0,
+            "description": "Earliest timestamp to filter by (in ms since Unix epoch). If not provied, defaults to 0."
+          },
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "default": null,
+            "description": "Instrument name to filter by",
+            "nullable": true
+          },
+          "order_id": {
+            "title": "order_id",
+            "type": "string",
+            "default": null,
+            "description": "Order id to filter by",
+            "nullable": true
+          },
+          "page": {
+            "title": "page",
+            "type": "integer",
+            "default": 1,
+            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
+          },
+          "page_size": {
+            "title": "page_size",
+            "type": "integer",
+            "default": 100,
+            "description": "Number of results per page (default 100, max 1000)"
+          },
+          "quote_id": {
+            "title": "quote_id",
+            "type": "string",
+            "default": null,
+            "description": "If supplied, quote id to filter by. Supports either a concrete UUID, or `is_quote` and `is_not_quote` enum",
+            "nullable": true
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "default": null,
+            "description": "Subaccount_id (must be set if wallet is blank)",
+            "nullable": true
+          },
+          "to_timestamp": {
+            "title": "to_timestamp",
+            "type": "integer",
+            "default": 18446744073709552000,
+            "description": "Latest timestamp to filter by (in ms since Unix epoch). If not provied, defaults to returning all data up to current time."
+          },
+          "wallet": {
+            "title": "wallet",
+            "type": "string",
+            "default": null,
+            "description": "Wallet address (if set, subaccount_id ignored)",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetTradeHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivateGetTradeHistoryResultSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetTradeHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "pagination",
+          "subaccount_id",
+          "trades"
+        ],
+        "properties": {
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationInfoSchema"
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount ID requested, or 0 if not provided"
+          },
+          "trades": {
+            "title": "trades",
+            "type": "array",
+            "description": "List of trades",
+            "items": {
+              "$ref": "#/components/schemas/TradeResponseSchema"
+            }
+          }
+        },
         "additionalProperties": false
       },
       "TradeResponseSchema": {
+        "type": "object",
+        "required": [
+          "direction",
+          "expected_rebate",
+          "extra_fee",
+          "index_price",
+          "instrument_name",
+          "is_transfer",
+          "label",
+          "liquidity_role",
+          "mark_price",
+          "order_id",
+          "quote_id",
+          "realized_pnl",
+          "realized_pnl_excl_fees",
+          "rfq_id",
+          "subaccount_id",
+          "timestamp",
+          "trade_amount",
+          "trade_fee",
+          "trade_id",
+          "trade_price",
+          "transaction_id",
+          "tx_hash",
+          "tx_status"
+        ],
         "properties": {
           "direction": {
             "title": "direction",
@@ -99,7 +242,7 @@ Required minimum session key permission level is `read_only`
             "title": "extra_fee",
             "type": "string",
             "format": "decimal",
-            "description": "Extra fee in USDC added by the reffering client (included in trade fee)"
+            "description": "Extra fee in USDC added by the referring client (included in trade fee)"
           },
           "index_price": {
             "title": "index_price",
@@ -229,149 +372,6 @@ Required minimum session key permission level is `read_only`
             "description": "Blockchain transaction status"
           }
         },
-        "required": [
-          "direction",
-          "expected_rebate",
-          "extra_fee",
-          "index_price",
-          "instrument_name",
-          "is_transfer",
-          "label",
-          "liquidity_role",
-          "mark_price",
-          "order_id",
-          "quote_id",
-          "realized_pnl",
-          "realized_pnl_excl_fees",
-          "rfq_id",
-          "subaccount_id",
-          "timestamp",
-          "trade_amount",
-          "trade_fee",
-          "trade_id",
-          "trade_price",
-          "transaction_id",
-          "tx_hash",
-          "tx_status"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateGetTradeHistoryParamsSchema": {
-        "properties": {
-          "from_timestamp": {
-            "title": "from_timestamp",
-            "type": "integer",
-            "default": 0,
-            "description": "Earliest timestamp to filter by (in ms since Unix epoch). If not provied, defaults to 0."
-          },
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "default": null,
-            "description": "Instrument name to filter by",
-            "nullable": true
-          },
-          "order_id": {
-            "title": "order_id",
-            "type": "string",
-            "default": null,
-            "description": "Order id to filter by",
-            "nullable": true
-          },
-          "page": {
-            "title": "page",
-            "type": "integer",
-            "default": 1,
-            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
-          },
-          "page_size": {
-            "title": "page_size",
-            "type": "integer",
-            "default": 100,
-            "description": "Number of results per page (default 100, max 1000)"
-          },
-          "quote_id": {
-            "title": "quote_id",
-            "type": "string",
-            "default": null,
-            "description": "If supplied, quote id to filter by. Supports either a concrete UUID, or `is_quote` and `is_not_quote` enum",
-            "nullable": true
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "default": null,
-            "description": "Subaccount_id (must be set if wallet is blank)",
-            "nullable": true
-          },
-          "to_timestamp": {
-            "title": "to_timestamp",
-            "type": "integer",
-            "default": 18446744073709552000,
-            "description": "Latest timestamp to filter by (in ms since Unix epoch). If not provied, defaults to returning all data up to current time."
-          },
-          "wallet": {
-            "title": "wallet",
-            "type": "string",
-            "default": null,
-            "description": "Wallet address (if set, subaccount_id ignored)",
-            "nullable": true
-          }
-        },
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateGetTradeHistoryResponseSchema": {
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivateGetTradeHistoryResultSchema"
-          }
-        },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateGetTradeHistoryResultSchema": {
-        "properties": {
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationInfoSchema"
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount ID requested, or 0 if not provided"
-          },
-          "trades": {
-            "title": "trades",
-            "type": "array",
-            "description": "List of trades",
-            "items": {
-              "$ref": "#/components/schemas/TradeResponseSchema"
-            }
-          }
-        },
-        "required": [
-          "pagination",
-          "subaccount_id",
-          "trades"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

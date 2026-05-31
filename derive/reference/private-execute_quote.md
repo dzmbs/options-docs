@@ -232,6 +232,14 @@ Executes a quote.<br />Required minimum session key permission level is `admin`
         <tr>
           <td style={{textAlign: "left"}}>
             <span className="ws-small-font">result.</span>
+            <strong>extra\_fee</strong> 
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Extra fee in USDC added by the referring client (included in quote fee)</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td style={{textAlign: "left"}}>
+            <span className="ws-small-font">result.</span>
             <strong>fee</strong> 
             <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Fee paid for this quote (if executed)</span>
           </td>

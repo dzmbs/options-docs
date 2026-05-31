@@ -4,7 +4,7 @@
 
 #### `public/get_option_settlement_history`
 
-Get expired option settlement history for a subaccount
+Get expired option settlement history, optionally filtered by subaccount or wallet.
 
 ### Parameters
 
@@ -42,6 +42,15 @@ Get expired option settlement history for a subaccount
 
             <strong>subaccount\_id</strong> 
             <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subaccount ID filter (defaults to all if not provided)</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td style={{textAlign: "left"}}>
+            <span className="ws-small-font" />
+
+            <strong>wallet</strong> 
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Wallet address filter (if set, subaccount\_id is ignored)</span>
           </td>
         </tr>
       </tbody>

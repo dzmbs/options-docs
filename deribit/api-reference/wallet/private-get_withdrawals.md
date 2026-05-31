@@ -152,8 +152,8 @@ components:
             - data
             - count
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     withdrawal:
       properties:
@@ -188,6 +188,9 @@ components:
           $ref: '#/components/schemas/currency_transaction_id'
         updated_timestamp:
           $ref: '#/components/schemas/timestamp'
+        nonce:
+          type: string
+          description: Optional idempotency nonce if provided in the request
       required:
         - currency
         - address

@@ -32,7 +32,7 @@ Returns a paginated history of auctions that the subaccount has participated in 
             <span className="ws-small-font" />
 
             <strong>end\_timestamp</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>End timestamp of the event history (default current time)</span>
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>End timestamp of the event history in ms since Unix epoch (default current time)</span>
           </td>
         </tr>
 
@@ -59,7 +59,7 @@ Returns a paginated history of auctions that the subaccount has participated in 
             <span className="ws-small-font" />
 
             <strong>start\_timestamp</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Start timestamp of the event history (default 0)</span>
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Start timestamp of the event history in ms since Unix epoch (default 0)</span>
           </td>
         </tr>
       </tbody>

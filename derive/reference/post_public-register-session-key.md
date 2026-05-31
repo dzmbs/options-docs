@@ -58,6 +58,14 @@ Register or update expiry of an existing session key.<br />Currently, this only 
   "components": {
     "schemas": {
       "PublicRegisterSessionKeyParamsSchema": {
+        "type": "object",
+        "required": [
+          "expiry_sec",
+          "label",
+          "public_session_key",
+          "signed_raw_tx",
+          "wallet"
+        ],
         "properties": {
           "expiry_sec": {
             "title": "expiry_sec",
@@ -85,17 +93,14 @@ Register or update expiry of an existing session key.<br />Currently, this only 
             "description": "Ethereum wallet address of account"
           }
         },
-        "required": [
-          "expiry_sec",
-          "label",
-          "public_session_key",
-          "signed_raw_tx",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicRegisterSessionKeyResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -113,14 +118,15 @@ Register or update expiry of an existing session key.<br />Currently, this only 
             "$ref": "#/components/schemas/PublicRegisterSessionKeyResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicRegisterSessionKeyResultSchema": {
+        "type": "object",
+        "required": [
+          "label",
+          "public_session_key",
+          "transaction_id"
+        ],
         "properties": {
           "label": {
             "title": "label",
@@ -139,12 +145,6 @@ Register or update expiry of an existing session key.<br />Currently, this only 
             "description": "ID to lookup status of transaction"
           }
         },
-        "required": [
-          "label",
-          "public_session_key",
-          "transaction_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

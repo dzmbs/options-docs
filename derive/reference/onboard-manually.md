@@ -2,6 +2,10 @@
 
 This is an advanced onboarding method. Most users are encouraged to use the onboarding method via the interface described in the [Getting Started](https://docs.derive.xyz/docs/getting-started) reference.
 
+> Note: You do NOT need to "onboard manually" in order to programmatically using the API. We recommend onboarding via Interface
+
+<br />
+
 * Onboard completely through a combination of calls to on-chain contracts and requests to the API (see [Onboard Manually](https://docs.derive.xyz/docs/onboard-manually))
 * Removes ability to interact with account via Interface.
 * Removes the "smart-contract" wallet layer

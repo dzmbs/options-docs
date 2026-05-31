@@ -296,8 +296,8 @@ components:
           example: 3
           description: Total number of successfully cancelled quotes
       required:
-        - result
         - jsonrpc
+        - result
       type: object
   responses:
     PrivateCancelQuotesResponse:

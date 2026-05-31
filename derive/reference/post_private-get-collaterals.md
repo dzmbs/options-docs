@@ -58,69 +58,32 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
-      "PrivateGetCollateralsParamsSchema": {
-        "properties": {
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount_id"
-          }
-        },
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateGetCollateralsResponseSchema": {
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivateGetCollateralsResultSchema"
-          }
-        },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateGetCollateralsResultSchema": {
-        "properties": {
-          "collaterals": {
-            "title": "collaterals",
-            "type": "array",
-            "description": "All collaterals that count towards margin of subaccount",
-            "items": {
-              "$ref": "#/components/schemas/CollateralResponseSchema"
-            }
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount_id"
-          }
-        },
-        "required": [
-          "collaterals",
-          "subaccount_id"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
       "CollateralResponseSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "amount_step",
+          "asset_name",
+          "asset_type",
+          "average_price",
+          "average_price_excl_fees",
+          "creation_timestamp",
+          "cumulative_interest",
+          "currency",
+          "delta",
+          "delta_currency",
+          "initial_margin",
+          "maintenance_margin",
+          "mark_price",
+          "mark_value",
+          "open_orders_margin",
+          "pending_interest",
+          "realized_pnl",
+          "realized_pnl_excl_fees",
+          "total_fees",
+          "unrealized_pnl",
+          "unrealized_pnl_excl_fees"
+        ],
         "properties": {
           "amount": {
             "title": "amount",
@@ -255,31 +218,68 @@ Required minimum session key permission level is `read_only`
             "description": "Unrealized trading profit or loss of the position excluding fees"
           }
         },
-        "required": [
-          "amount",
-          "amount_step",
-          "asset_name",
-          "asset_type",
-          "average_price",
-          "average_price_excl_fees",
-          "creation_timestamp",
-          "cumulative_interest",
-          "currency",
-          "delta",
-          "delta_currency",
-          "initial_margin",
-          "maintenance_margin",
-          "mark_price",
-          "mark_value",
-          "open_orders_margin",
-          "pending_interest",
-          "realized_pnl",
-          "realized_pnl_excl_fees",
-          "total_fees",
-          "unrealized_pnl",
-          "unrealized_pnl_excl_fees"
-        ],
+        "additionalProperties": false
+      },
+      "PrivateGetCollateralsParamsSchema": {
         "type": "object",
+        "required": [
+          "subaccount_id"
+        ],
+        "properties": {
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount_id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetCollateralsResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivateGetCollateralsResultSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetCollateralsResultSchema": {
+        "type": "object",
+        "required": [
+          "collaterals",
+          "subaccount_id"
+        ],
+        "properties": {
+          "collaterals": {
+            "title": "collaterals",
+            "type": "array",
+            "description": "All collaterals that count towards margin of subaccount",
+            "items": {
+              "$ref": "#/components/schemas/CollateralResponseSchema"
+            }
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount_id"
+          }
+        },
         "additionalProperties": false
       }
     }

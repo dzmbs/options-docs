@@ -59,6 +59,12 @@ Required minimum session key permission level is `account`
   "components": {
     "schemas": {
       "PrivateRegisterScopedSessionKeyParamsSchema": {
+        "type": "object",
+        "required": [
+          "expiry_sec",
+          "public_session_key",
+          "wallet"
+        ],
         "properties": {
           "expiry_sec": {
             "title": "expiry_sec",
@@ -112,15 +118,14 @@ Required minimum session key permission level is `account`
             "description": "Ethereum wallet address of account"
           }
         },
-        "required": [
-          "expiry_sec",
-          "public_session_key",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateRegisterScopedSessionKeyResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -138,14 +143,18 @@ Required minimum session key permission level is `account`
             "$ref": "#/components/schemas/PrivateRegisterScopedSessionKeyResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateRegisterScopedSessionKeyResultSchema": {
+        "type": "object",
+        "required": [
+          "expiry_sec",
+          "ip_whitelist",
+          "label",
+          "public_session_key",
+          "scope",
+          "transaction_id"
+        ],
         "properties": {
           "expiry_sec": {
             "title": "expiry_sec",
@@ -194,15 +203,6 @@ Required minimum session key permission level is `account`
             "nullable": true
           }
         },
-        "required": [
-          "expiry_sec",
-          "ip_whitelist",
-          "label",
-          "public_session_key",
-          "scope",
-          "transaction_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

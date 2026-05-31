@@ -156,8 +156,8 @@ components:
               - uid
               - positions
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     ErrorMessageResponse:
       properties:
@@ -174,9 +174,9 @@ components:
         error:
           type: integer
       required:
+        - jsonrpc
         - message
         - error
-        - jsonrpc
       type: object
     position:
       properties:

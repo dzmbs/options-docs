@@ -27,15 +27,13 @@ For more on integrating with the Derive API see [onboarding](https://docs.derive
 
 You can instantly begin earning 10% of the trade fees by using the above method.
 
-| **Broker Level** | **Volume Range** |     | **stakedDRV** | **Fee Share** |
-| :--------------: | :--------------: | :-: | :-----------: | :-----------: |
-|  Level 5+ Broker |     $500M – ∞    | AND |  ≥ 1,000,000  |      50%      |
-|  Level 4 Broker  |     $500M – ∞    |  OR |  ≥ 1,000,000  |      40%      |
-|  Level 3 Broker  |   $50M – $500M   |  OR |   ≥ 500,000   |      30%      |
-|  Level 2 Broker  |    $5M – $50M    |  OR |   ≥ 500,000   |      20%      |
-|  Level 1 Broker  |    $5M – $50M    |     |               |      10%      |
-
-<br />
+| Level | 28-Day Volume | AND/OR | stDRV Holdings | Fee Share |
+| :---- | :------------ | :----- | :------------- | :-------- |
+| 5     | ≥ 500M        | AND    | ≥ 1M           | 50%       |
+| 4     | ≥ 500M        | OR     | ≥ 1M           | 40%       |
+| 3     | 50-500M       | OR     | ≥ 500K         | 30%       |
+| 2     | 5-50M         | OR     | ≥ 200K         | 20%       |
+| 1     | \< 5M         |        |                | 10%       |
 
 <br />
 

@@ -205,8 +205,8 @@ components:
               $ref: '#/components/schemas/block_rfq_trade_tape_continuation'
           type: object
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     trade_timestamp:
       example: 1517329113791

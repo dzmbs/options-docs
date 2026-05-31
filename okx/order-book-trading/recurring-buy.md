@@ -52,6 +52,8 @@ body
 | recurringList | Array of objects | Yes | Recurring buy info |
 | > ccy | String | Yes | Recurring currency, e.g. `BTC` |
 | > ratio | String | Yes | Proportion of recurring currency assets, e.g. "0.2" representing 20% |
+| > minPx | String | No | Minimum price of recurring currency. `""` means no limit |
+| > maxPx | String | No | Maximum price of recurring currency. `""` means no limit |
 | period | String | Yes | Period`monthly``weekly``daily``hourly` |
 | recurringDay | String | Conditional | Recurring buy dateWhen the period is `monthly`, the value range is an integer of [1,28]When the period is `weekly`, the value range is an integer of [1,7]When the period is `daily`/`hourly`, the parameter is not required. |
 | recurringHour | String | Conditional | Recurring buy by hourly`1`/`4`/`8`/`12`, e.g. `4` represents "recurring buy every 4 hour"When the period is `hourly`, the parameter is required. |
@@ -63,6 +65,8 @@ body
 | algoClOrdId | String | No | Client-supplied Algo IDThere will be a value when algo order attaching algoClOrdId is triggered, or it will be "".A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters. |
 | tag | String | No | Order tagA combination of case-sensitive alphanumerics, all numbers, or all letters of up to 16 characters. |
 | tradeQuoteCcy | String | No | The quote currency for trading. |
+| source | Array | No | Funding source`1`: Trading account`2`: Funding account`3`: Simple earn accountDefault is `1` |
+| recurringTimeType | String | No | Recurring buy time type`1`: Custom time`2`: Immediate triggerDefault is `1` |
 
 Response Example
 
@@ -262,11 +266,15 @@ Response Example
  "recurringList": [
  {
  "ccy": "BTC",
- "ratio": "0.2"
+ "ratio": "0.2",
+ "minPx": "",
+ "maxPx": ""
  },
  {
  "ccy": "ETH",
- "ratio": "0.8"
+ "ratio": "0.8",
+ "minPx": "",
+ "maxPx": ""
  }
  ],
  "recurringTime": "12",
@@ -277,7 +285,10 @@ Response Example
  "totalAnnRate": "0",
  "totalPnl": "0",
  "uTime": "1699952473152",
- "tradeQuoteCcy": "USDT"
+ "tradeQuoteCcy": "USDT",
+ "source": ["1"],
+ "recurringTimeType": "1",
+ "recurringTimeMinutes": "0"
  }
  ],
  "msg": ""
@@ -300,6 +311,8 @@ Response Example
 | recurringList | Array of objects | Recurring buy info |
 | > ccy | String | Recurring currency, e.g. `BTC` |
 | > ratio | String | Proportion of recurring currency assets, e.g. "0.2" representing 20% |
+| > minPx | String | Minimum price of recurring currency. `""` means no limit |
+| > maxPx | String | Maximum price of recurring currency. `""` means no limit |
 | period | String | Period`monthly``weekly``daily``hourly` |
 | recurringDay | String | Recurring buy dateWhen the period is `monthly`, the value range is an integer of [1,28]When the period is `weekly`, the value range is an integer of [1,7] |
 | recurringHour | String | Recurring buy by hourly`1`/`4`/`8`/`12`, e.g. `4` represents "recurring buy every 4 hour" |
@@ -315,6 +328,9 @@ Response Example
 | cycles | String | Accumulate recurring buy cycles |
 | tag | String | Order tag |
 | tradeQuoteCcy | String | The quote currency for trading. |
+| source | Array | Funding source`1`: Trading account`2`: Funding account`3`: Simple earn account |
+| recurringTimeType | String | Recurring buy time type`1`: Custom time`2`: Immediate trigger |
+| recurringTimeMinutes | String | Recurring buy time in minutes, integer of [0,59] |
 
 ### GET / Recurring buy order history
 
@@ -367,11 +383,15 @@ Response Example
  "recurringList": [
  {
  "ccy": "BTC",
- "ratio": "0.2"
+ "ratio": "0.2",
+ "minPx": "",
+ "maxPx": ""
  },
  {
  "ccy": "ETH",
- "ratio": "0.8"
+ "ratio": "0.8",
+ "minPx": "",
+ "maxPx": ""
  }
  ],
  "recurringTime": "0",
@@ -405,6 +425,8 @@ Response Example
 | recurringList | Array of objects | Recurring buy info |
 | > ccy | String | Recurring currency, e.g. `BTC` |
 | > ratio | String | Proportion of recurring currency assets, e.g. "0.2" representing 20% |
+| > minPx | String | Minimum price of recurring currency. `""` means no limit |
+| > maxPx | String | Maximum price of recurring currency. `""` means no limit |
 | period | String | Period`monthly``weekly``daily``hourly` |
 | recurringDay | String | Recurring buy dateWhen the period is `monthly`, the value range is an integer of [1,28]When the period is `weekly`, the value range is an integer of [1,7] |
 | recurringHour | String | Recurring buy by hourly`1`/`4`/`8`/`12`, e.g. `4` represents "recurring buy every 4 hour" |
@@ -420,6 +442,9 @@ Response Example
 | cycles | String | Accumulate recurring buy cycles |
 | tag | String | Order tag |
 | tradeQuoteCcy | String | The quote currency for trading. |
+| source | Array | Funding source`1`: Trading account`2`: Funding account`3`: Simple earn account |
+| recurringTimeType | String | Recurring buy time type`1`: Custom time`2`: Immediate trigger |
+| recurringTimeMinutes | String | Recurring buy time in minutes, integer of [0,59] |
 
 ### GET / Recurring buy order details
 
@@ -474,6 +499,8 @@ Response Example
  "profit": "0",
  "px": "36683.2",
  "ratio": "0.2",
+ "minPx": "",
+ "maxPx": "",
  "totalAmt": "0"
  },
  {
@@ -482,6 +509,8 @@ Response Example
  "profit": "0",
  "px": "2058.36",
  "ratio": "0.8",
+ "minPx": "",
+ "maxPx": "",
  "totalAmt": "0"
  }
  ],
@@ -493,7 +522,10 @@ Response Example
  "totalAnnRate": "0",
  "totalPnl": "0",
  "uTime": "1699952485451",
- "tradeQuoteCcy": "USDT"
+ "tradeQuoteCcy": "USDT"，
+ "source": ["1"],
+ "recurringTimeType": "1",
+ "recurringTimeMinutes": "0"
  }
  ],
  "msg": ""
@@ -516,6 +548,8 @@ Response Example
 | recurringList | Array of objects | Recurring buy info |
 | > ccy | String | Recurring buy currency, e.g. `BTC` |
 | > ratio | String | Proportion of recurring currency assets, e.g. "0.2" representing 20% |
+| > minPx | String | Minimum price of recurring currency. `""` means no limit |
+| > maxPx | String | Maximum price of recurring currency. `""` means no limit |
 | > totalAmt | String | Accumulated quantity in unit of recurring buy currency |
 | > profit | String | Profit in unit of `investmentCcy` |
 | > avgPx | String | Average price of recurring buy, quote currency is `investmentCcy` |
@@ -536,6 +570,9 @@ Response Example
 | cycles | String | Accumulate recurring buy cycles |
 | tag | String | Order tag |
 | tradeQuoteCcy | String | The quote currency for trading. |
+| source | Array | Funding source`1`: Trading account`2`: Funding account`3`: Simple earn account |
+| recurringTimeType | String | Recurring buy time type`1`: Custom time`2`: Immediate trigger |
+| recurringTimeMinutes | String | Recurring buy time in minutes, integer of [0,59] |
 
 ### GET / Recurring buy sub orders
 
@@ -631,11 +668,11 @@ Response Example
 | cTime | String | Sub order created time, Unix timestamp format in milliseconds, e.g. `1597026383085` |
 | uTime | String | Sub order updated time, Unix timestamp format in milliseconds, e.g. `1597026383085` |
 | tdMode | String | Sub order trade modeMargin mode : `cross`Non-Margin mode : `cash` |
-| ordType | String | Sub order type`market`: Market order |
+| ordType | String | Sub order type`market`: Market order`manual_add_order`: Manual add investment order |
 | sz | String | Sub order quantity to buy or sell |
 | state | String | Sub order state`canceled``live``partially_filled``filled``cancelling` |
 | side | String | Sub order side`buy` `sell` |
-| px | String | Sub order limit priceIf it's a market order, "-1" will be return |
+| px | String | Sub order limit priceIf it is a market order, "-1" will be return |
 | fee | String | Sub order fee |
 | feeCcy | String | Sub order fee currency |
 | avgPx | String | Sub order average filled price |
@@ -781,6 +818,8 @@ Push Data Example:
  "profit": "0",
  "px": "36482",
  "ratio": "0.2",
+ "minPx": "30000",
+ "maxPx": "50000"
  "totalAmt": "0"
  }, {
  "avgPx": "0",
@@ -788,6 +827,8 @@ Push Data Example:
  "profit": "0",
  "px": "2057.54",
  "ratio": "0.8",
+ "minPx": "",
+ "maxPx": "",
  "totalAmt": "0"
  }],
  "recurringTime": "12",
@@ -825,6 +866,8 @@ Push Data Example:
 | > recurringList | Array of objects | Recurring buy info |
 | >> ccy | String | Recurring buy currency, e.g. `BTC` |
 | >> ratio | String | Proportion of recurring currency assets, e.g. "0.2" representing 20% |
+| >> minPx | String | Minimum price of price range. `""` means no limit |
+| >> maxPx | String | Maximum price of price range. `""` means no limit |
 | >> totalAmt | String | Accumulated quantity in unit of recurring buy currency |
 | >> profit | String | Profit in unit of `investmentCcy` |
 | >> avgPx | String | Average price of recurring buy, quote currency is `investmentCcy` |
@@ -846,3 +889,350 @@ Push Data Example:
 | > tag | String | Order tag |
 | > pTime | String | Push time of algo order information, Unix timestamp format in milliseconds, e.g. `1597026383085` |
 | > tradeQuoteCcy | String | The quote currency for trading. |
+| > recurringTimeType | String | Recurring buy time type |
+| > recurringTimeMinutes | String | Custom recurring buy minutes |
+| > source | Array | Source of recurring buy |
+
+### POST / Amend recurring buy time
+
+#### Rate Limit: 20 requests per 2 seconds
+
+#### Rate limit rule: User ID
+
+#### Permission: Trade
+
+#### HTTP Request
+
+`POST /api/v5/tradingBot/recurring/amend-recurring-time`
+
+Request Example
+
+```
+POST /api/v5/tradingBot/recurring/amend-recurring-time
+body
+{
+ "algoId": "2837428373700509696",
+ "recurringTimeType": "1",
+ "period": "hourly",
+ "recurringHour": "8",
+ "recurringDay": "1",
+ "recurringTime": "11",
+ "timeZone": "8"
+}
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| algoId | String | Yes | Algo ID |
+| recurringTimeType | String | Yes | Recurring buy time type`1`: Custom time`2`: Immediate trigger |
+| timeZone | String | Yes | UTC time zone, the value range is an integer of [-12,14]e.g. `8` representing UTC+8 (East 8 District), Beijing Time |
+| period | String | Yes | Period`monthly``weekly``daily``hourly` |
+| recurringHour | String | Conditional | Recurring buy by hourly`1`/`4`/`8`/`12`, e.g. `1` represents "recurring buy every 1 hour"Required when `period` is `hourly` |
+| recurringDay | String | Conditional | Recurring buy dateWhen the period is `monthly`, the value range is an integer of [1,28]When the period is `weekly`, the value range is an integer of [1,7]When the period is `daily`/`hourly`, the parameter is not requiredOnly required when `recurringTimeType` is `1` |
+| recurringTime | String | Conditional | Recurring buy time, the value range is an integer of [0,23]Only required when `recurringTimeType` is `1` |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [
+ {
+ "sCode": "0",
+ "sMsg": ""
+ }
+ ]
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| algoId | String | Algo order ID |
+| sCode | String | Event execution status code, `0` indicates success |
+| sMsg | String | Error message if the event execution failed |
+
+### POST / Amend recurring buy amount
+
+#### Rate Limit: 20 requests per 2 seconds
+
+#### Rate Limit Rule: User ID
+
+#### Permission: Trade
+
+#### HTTP Request
+
+`POST /api/v5/tradingBot/recurring/amend-recurring-amount`
+
+Request Example
+
+```
+POST /api/v5/tradingBot/recurring/amend-recurring-amount
+body
+{
+ "algoId": "2837428373700509696",
+ "amount": "20"
+}
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| algoId | String | Yes | Algo order ID |
+| amount | String | Yes | Amended recurring buy amount. Only the investment currency used when the strategy was created is supported |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [
+ {
+ "algoId": "2837428373700509696",
+ "sCode": "0",
+ "sMsg": ""
+ }
+ ]
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| algoId | String | Algo order ID |
+| sCode | String | Event execution status code, `0` indicates success |
+| sMsg | String | Error message if the event execution failed |
+
+### POST / Add investment
+
+#### Rate Limit: 20 requests per 2 seconds
+
+#### Rate Limit Rule: User ID
+
+#### Permission: Trade
+
+#### HTTP Request
+
+`POST /api/v5/tradingBot/recurring/add-investment`
+
+Request Example
+
+```
+POST /api/v5/tradingBot/recurring/add-investment
+body
+{
+ "algoId": "2837428373700509696",
+ "amount": "20"
+}
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| algoId | String | Yes | Algo order ID |
+| amount | String | Yes | Additional investment amount. Only the investment currency used when the strategy was created is supported |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [
+ {
+ "algoId": "2837428373700509696",
+ "sCode": "0",
+ "sMsg": ""
+ }
+ ]
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| algoId | String | Algo order ID |
+| sCode | String | Event execution status code, `0` indicates success |
+| sMsg | String | Error message if the event execution failed |
+
+### POST / Pause recurring buy
+
+#### Rate Limit: 20 requests per 2 seconds
+
+#### Rate Limit Rule: User ID
+
+#### Permission: Trade
+
+#### HTTP Request
+
+`POST /api/v5/tradingBot/recurring/pause`
+
+Request Example
+
+```
+POST /api/v5/tradingBot/recurring/pause
+body
+{
+ "algoId": "2837428373700509696"
+}
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| algoId | String | Yes | Algo order ID |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [
+ {
+ "algoId": "2837428373700509696",
+ "sCode": "0",
+ "sMsg": ""
+ }
+ ]
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| algoId | String | Algo order ID |
+| sCode | String | Event execution status code, `0` indicates success |
+| sMsg | String | Error message if the event execution failed |
+
+### POST / Restart recurring buy
+
+#### Rate Limit: 20 requests per 2 seconds
+
+#### Rate Limit Rule: User ID
+
+#### Permission: Trade
+
+#### HTTP Request
+
+`POST /api/v5/tradingBot/recurring/restart`
+
+Request Example
+
+```
+POST /api/v5/tradingBot/recurring/restart
+body
+{
+ "algoId": "2837428373700509696"
+}
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| algoId | String | Yes | Algo order ID |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [
+ {
+ "algoId": "2837428373700509696",
+ "sCode": "0",
+ "sMsg": ""
+ }
+ ]
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| algoId | String | Algo order ID |
+| sCode | String | Event execution status code, `0` indicates success |
+| sMsg | String | Error message if the event execution failed |
+
+### POST / Amend price range
+
+#### Rate Limit: 20 requests per 2 seconds
+
+#### Rate Limit Rule: User ID
+
+#### Permission: Trade
+
+#### HTTP Request
+
+`POST /api/v5/tradingBot/recurring/amend-price-range`
+
+Request Example
+
+```
+POST /api/v5/tradingBot/recurring/amend-price-range
+body
+{
+ "algoId": "2837428373700509696",
+ "recurringList": [
+ {
+ "ccy": "BTC",
+ "minPx": "80000",
+ "maxPx": "120000"
+ }
+ ]
+}
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| algoId | String | Yes | Algo order ID |
+| recurringList | Array | Yes | Price range settings. The currency must be within the scope of the recurring buy currencies |
+| >ccy | String | Yes | Recurring buy currency |
+| >minPx | String | Yes | Minimum price of price range. `""` means no limit |
+| >maxPx | String | Yes | Maximum price of price range. `""` means no limit |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [
+ {
+ "algoId": "2837428373700509696",
+ "sCode": "0",
+ "sMsg": ""
+ }
+ ]
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| algoId | String | Algo order ID |
+| sCode | String | Event execution status code, `0` indicates success |
+| sMsg | String | Error message if the event execution failed |

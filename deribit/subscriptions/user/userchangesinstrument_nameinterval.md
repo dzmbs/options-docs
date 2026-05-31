@@ -100,21 +100,21 @@ operations:
                       - name: trade_id
                         type: string
                         description: Unique (per currency) trade identifier
-                        required: false
+                        required: true
                       - name: trade_seq
                         type: integer
                         description: The sequence number of the trade within instrument
-                        required: false
+                        required: true
                       - name: instrument_name
                         type: string
                         description: Unique instrument identifier
-                        required: false
+                        required: true
                       - name: timestamp
                         type: integer
                         description: >-
                           The timestamp of the trade (milliseconds since the
                           UNIX epoch)
-                        required: false
+                        required: true
                       - name: order_type
                         type: string
                         description: 'Order type: `"limit`, `"market"`, or `"liquidation"`'
@@ -137,18 +137,18 @@ operations:
                         description: >-
                           Id of the user order (maker or taker), i.e.
                           subscriber's order id that took part in the trade
-                        required: false
+                        required: true
                       - name: matching_id
                         type: string
                         description: Always `null`
-                        required: false
+                        required: true
                       - name: direction
                         type: string
                         description: 'Direction: `buy`, or `sell`'
                         enumValues:
                           - buy
                           - sell
-                        required: false
+                        required: true
                       - name: tick_direction
                         type: integer
                         description: >-
@@ -160,22 +160,22 @@ operations:
                           - 1
                           - 2
                           - 3
-                        required: false
+                        required: true
                       - name: index_price
                         type: number
                         description: Index Price at the moment of trade
-                        required: false
+                        required: true
                       - name: price
                         type: number
                         description: Price in base currency
-                        required: false
+                        required: true
                       - name: amount
                         type: number
                         description: >-
                           Trade amount. For perpetual and inverse futures the
                           amount is in USD units. For options and linear futures
                           it is the underlying base currency coin.
-                        required: false
+                        required: true
                       - name: contracts
                         type: number
                         description: >-
@@ -217,7 +217,7 @@ operations:
                       - name: fee
                         type: number
                         description: User's fee in units of the specified `fee_currency`
-                        required: false
+                        required: true
                       - name: fee_currency
                         type: string
                         description: Currency, i.e `"BTC"`, `"ETH"`, `"USDC"`
@@ -227,7 +227,7 @@ operations:
                           - USDC
                           - USDT
                           - EURR
-                        required: false
+                        required: true
                       - name: label
                         type: string
                         description: >-
@@ -247,7 +247,7 @@ operations:
                           - cancelled
                           - untriggered
                           - archive
-                        required: false
+                        required: true
                       - name: block_trade_id
                         type: string
                         description: Block trade id - when trade was part of a block trade
@@ -294,7 +294,7 @@ operations:
                       - name: mark_price
                         type: number
                         description: Mark Price at the moment of trade
-                        required: false
+                        required: true
                       - name: legs
                         type: array
                         description: >-
@@ -344,11 +344,11 @@ operations:
                           - name: amount
                             type: number
                             description: Amount allocated to this user.
-                            required: false
+                            required: true
                           - name: fee
                             type: number
                             description: Fee for the allocated part of the trade.
-                            required: false
+                            required: true
                           - name: client_info
                             type: object
                             description: Optional client allocation info for brokers.
@@ -380,7 +380,7 @@ operations:
                       - name: order_id
                         type: string
                         description: Unique order identifier
-                        required: false
+                        required: true
                       - name: order_state
                         type: string
                         description: >-
@@ -393,7 +393,7 @@ operations:
                           - cancelled
                           - untriggered
                           - triggered
-                        required: false
+                        required: true
                       - name: order_type
                         type: string
                         description: >-
@@ -408,7 +408,7 @@ operations:
                           - take_market
                           - take_limit
                           - trailing_stop
-                        required: false
+                        required: true
                       - name: original_order_type
                         type: string
                         description: Original order type. Optional field
@@ -427,7 +427,7 @@ operations:
                           - good_til_day
                           - fill_or_kill
                           - immediate_or_cancel
-                        required: false
+                        required: true
                       - name: is_rebalance
                         type: boolean
                         description: >-
@@ -444,22 +444,22 @@ operations:
                       - name: instrument_name
                         type: string
                         description: Unique instrument identifier
-                        required: false
+                        required: true
                       - name: creation_timestamp
                         type: integer
                         description: The timestamp (milliseconds since the Unix epoch)
-                        required: false
+                        required: true
                       - name: last_update_timestamp
                         type: integer
                         description: The timestamp (milliseconds since the Unix epoch)
-                        required: false
+                        required: true
                       - name: direction
                         type: string
                         description: 'Direction: `buy`, or `sell`'
                         enumValues:
                           - buy
                           - sell
-                        required: false
+                        required: true
                       - name: description
                         type: string
                         description: >-
@@ -469,11 +469,11 @@ operations:
                       - name: label
                         type: string
                         description: User defined label (up to 64 characters)
-                        required: false
+                        required: true
                       - name: post_only
                         type: boolean
                         description: '`true` for post-only orders only'
-                        required: false
+                        required: true
                       - name: reject_post_only
                         type: boolean
                         description: >-
@@ -489,7 +489,7 @@ operations:
                       - name: api
                         type: boolean
                         description: '`true` if created with API'
-                        required: false
+                        required: true
                       - name: web
                         type: boolean
                         description: '`true` if created via Deribit frontend (optional)'
@@ -753,7 +753,7 @@ operations:
                       - name: instrument_name
                         type: string
                         description: Unique instrument identifier
-                        required: false
+                        required: true
                       - name: kind
                         type: string
                         description: >-
@@ -765,11 +765,11 @@ operations:
                           - spot
                           - future_combo
                           - option_combo
-                        required: false
+                        required: true
                       - name: average_price
                         type: number
                         description: Average price of trades that built this position
-                        required: false
+                        required: true
                       - name: direction
                         type: string
                         description: 'Direction: `buy`, `sell` or `zero`'
@@ -777,15 +777,15 @@ operations:
                           - buy
                           - sell
                           - zero
-                        required: false
+                        required: true
                       - name: mark_price
                         type: number
                         description: Current mark price for position's instrument
-                        required: false
+                        required: true
                       - name: delta
                         type: number
                         description: Delta parameter
-                        required: false
+                        required: true
                       - name: gamma
                         type: number
                         description: Only for options, Gamma parameter
@@ -801,40 +801,40 @@ operations:
                       - name: index_price
                         type: number
                         description: Current index price
-                        required: false
+                        required: true
                       - name: initial_margin
                         type: number
                         description: Initial margin
-                        required: false
+                        required: true
                       - name: maintenance_margin
                         type: number
                         description: Maintenance margin
-                        required: false
+                        required: true
                       - name: settlement_price
                         type: number
                         description: >-
                           Optional (not added for spot). Last settlement price
                           for position's instrument 0 if instrument wasn't
                           settled yet
-                        required: false
+                        required: true
                       - name: total_profit_loss
                         type: number
                         description: Profit or loss from position
-                        required: false
+                        required: true
                       - name: floating_profit_loss
                         type: number
                         description: Floating profit or loss
-                        required: false
+                        required: true
                       - name: realized_profit_loss
                         type: number
                         description: Realized profit or loss
-                        required: false
+                        required: true
                       - name: size
                         type: number
                         description: >-
                           Position size for futures size in quote currency (e.g.
                           USD), for options size is in base currency (e.g. BTC)
-                        required: false
+                        required: true
                       - name: size_currency
                         type: number
                         description: Only for futures, position size in base currency

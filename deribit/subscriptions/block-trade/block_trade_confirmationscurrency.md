@@ -83,45 +83,45 @@ operations:
                     description: >-
                       Nonce that can be used to approve or reject pending block
                       trade.
-                    required: false
+                    required: true
                   - name: timestamp
                     type: integer
                     description: >-
                       Timestamp that can be used to approve or reject pending
                       block trade.
-                    required: false
+                    required: true
                   - name: trades
                     type: object
-                    required: false
+                    required: true
                     properties:
                       - name: instrument_name
                         type: string
                         description: Unique instrument identifier
-                        required: false
+                        required: true
                       - name: direction
                         type: string
                         description: 'Direction: `buy`, or `sell`'
                         enumValues:
                           - buy
                           - sell
-                        required: false
+                        required: true
                       - name: price
                         type: number
                         description: Price in base currency
-                        required: false
+                        required: true
                       - name: amount
                         type: number
                         description: >-
                           Trade amount. For perpetual and inverse futures the
                           amount is in USD units. For options and linear futures
                           it is the underlying base currency coin.
-                        required: false
+                        required: true
                   - name: app_name
                     type: string
                     description: >-
                       The name of the application that executed the block trade
                       on behalf of the user (optional).
-                    required: false
+                    required: true
                   - name: username
                     type: string
                     description: Username of the user who initiated the block trade.
@@ -132,11 +132,11 @@ operations:
                     enumValues:
                       - maker
                       - taker
-                    required: false
+                    required: true
                   - name: user_id
                     type: integer
                     description: Unique user identifier
-                    required: false
+                    required: true
                   - name: broker_code
                     type: string
                     description: Broker code associated with the broker block trade.
@@ -148,7 +148,7 @@ operations:
                   - name: state
                     type: object
                     description: State of the pending block trade for current user.
-                    required: false
+                    required: true
                   - name: counterparty_state
                     type: object
                     description: >-

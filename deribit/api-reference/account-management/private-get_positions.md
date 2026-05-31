@@ -90,7 +90,7 @@ paths:
         - name: kind
           in: query
           schema:
-            $ref: '#/components/schemas/kind'
+            $ref: '#/components/schemas/kind_without_spot'
             example: future
           description: Kind filter on positions
           required: false
@@ -131,17 +131,17 @@ components:
         - any
       type: string
       description: Currency name or `"any"` if don't care
-    kind:
+    kind_without_spot:
       enum:
         - future
         - option
-        - spot
         - future_combo
         - option_combo
       type: string
       description: >-
-        Instrument kind: `"future"`, `"option"`, `"spot"`, `"future_combo"`,
-        `"option_combo"`
+        Instrument kind: `"future"`, `"option"`, `"future_combo"`,
+        `"option_combo"` (spot is excluded as spot trades are settled
+        immediately and have no open positions)
     PrivateGetPositionsResponse:
       properties:
         jsonrpc:
@@ -157,8 +157,8 @@ components:
           items:
             $ref: '#/components/schemas/position_with_elp'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     ErrorMessageResponse:
       properties:
@@ -175,9 +175,9 @@ components:
         error:
           type: integer
       required:
+        - jsonrpc
         - message
         - error
-        - jsonrpc
       type: object
     position_with_elp:
       allOf:
@@ -288,6 +288,17 @@ components:
       example: BTC-PERPETUAL
       type: string
       description: Unique instrument identifier
+    kind:
+      enum:
+        - future
+        - option
+        - spot
+        - future_combo
+        - option_combo
+      type: string
+      description: >-
+        Instrument kind: `"future"`, `"option"`, `"spot"`, `"future_combo"`,
+        `"option_combo"`
     position_direction:
       enum:
         - buy

@@ -58,6 +58,10 @@ Used for getting a transaction by its transaction id
   "components": {
     "schemas": {
       "PublicGetTransactionParamsSchema": {
+        "type": "object",
+        "required": [
+          "transaction_id"
+        ],
         "properties": {
           "transaction_id": {
             "title": "transaction_id",
@@ -66,13 +70,14 @@ Used for getting a transaction by its transaction id
             "description": "transaction_id of the transaction to get"
           }
         },
-        "required": [
-          "transaction_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTransactionResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -90,14 +95,16 @@ Used for getting a transaction by its transaction id
             "$ref": "#/components/schemas/PublicGetTransactionResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTransactionResultSchema": {
+        "type": "object",
+        "required": [
+          "data",
+          "error_log",
+          "status",
+          "transaction_hash"
+        ],
         "properties": {
           "data": {
             "title": "data",
@@ -132,13 +139,6 @@ Used for getting a transaction by its transaction id
             "nullable": true
           }
         },
-        "required": [
-          "data",
-          "error_log",
-          "status",
-          "transaction_hash"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

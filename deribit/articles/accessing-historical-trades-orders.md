@@ -37,7 +37,7 @@ To retrieve historical trades and orders, use `historical` parameter in your API
 
 ### Example Request
 
-```json  theme={null}
+```json theme={null}
 {
   "method": "private/get_user_trades_by_currency",
   "params": {
@@ -51,7 +51,7 @@ To retrieve historical trades and orders, use `historical` parameter in your API
 
 ### Example Response
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 2,

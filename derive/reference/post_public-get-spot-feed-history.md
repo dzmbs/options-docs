@@ -1,6 +1,6 @@
 # Get Spot Feed History
 
-Get spot feed history by currency<br /><br />DB: read replica
+Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is deprecated in favor of get_index_chart_data and get_tradingview_chart_data
 
 # OpenAPI definition
 
@@ -28,7 +28,7 @@ Get spot feed history by currency<br /><br />DB: read replica
           "Public"
         ],
         "summary": "Get Spot Feed History",
-        "description": "Get spot feed history by currency<br /><br />DB: read replica",
+        "description": "Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is deprecated in favor of get_index_chart_data and get_tradingview_chart_data",
         "responses": {
           "200": {
             "description": "successful operation",
@@ -58,6 +58,13 @@ Get spot feed history by currency<br /><br />DB: read replica
   "components": {
     "schemas": {
       "PublicGetSpotFeedHistoryParamsSchema": {
+        "type": "object",
+        "required": [
+          "currency",
+          "end_timestamp",
+          "period",
+          "start_timestamp"
+        ],
         "properties": {
           "currency": {
             "title": "currency",
@@ -80,16 +87,14 @@ Get spot feed history by currency<br /><br />DB: read replica
             "description": "Start timestamp"
           }
         },
-        "required": [
-          "currency",
-          "end_timestamp",
-          "period",
-          "start_timestamp"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetSpotFeedHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -107,14 +112,14 @@ Get spot feed history by currency<br /><br />DB: read replica
             "$ref": "#/components/schemas/PublicGetSpotFeedHistoryResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetSpotFeedHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "currency",
+          "spot_feed_history"
+        ],
         "properties": {
           "currency": {
             "title": "currency",
@@ -130,14 +135,15 @@ Get spot feed history by currency<br /><br />DB: read replica
             }
           }
         },
-        "required": [
-          "currency",
-          "spot_feed_history"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "SpotFeedHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "price",
+          "timestamp",
+          "timestamp_bucket"
+        ],
         "properties": {
           "price": {
             "title": "price",
@@ -156,12 +162,6 @@ Get spot feed history by currency<br /><br />DB: read replica
             "description": "Timestamp bucket; this value is regularly spaced out with `period` seconds between data points, missing values are forward-filled from earlier data where possible, if no earlier data is available, values are back-filled from the first observed data point"
           }
         },
-        "required": [
-          "price",
-          "timestamp",
-          "timestamp_bucket"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

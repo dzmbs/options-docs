@@ -59,6 +59,11 @@ Required minimum session key permission level is `account`
   "components": {
     "schemas": {
       "PrivateUpdateNotificationsParamsSchema": {
+        "type": "object",
+        "required": [
+          "notification_ids",
+          "subaccount_id"
+        ],
         "properties": {
           "notification_ids": {
             "title": "notification_ids",
@@ -86,14 +91,14 @@ Required minimum session key permission level is `account`
             "description": "Subaccount_id"
           }
         },
-        "required": [
-          "notification_ids",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateUpdateNotificationsResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -111,14 +116,13 @@ Required minimum session key permission level is `account`
             "$ref": "#/components/schemas/PrivateUpdateNotificationsResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateUpdateNotificationsResultSchema": {
+        "type": "object",
+        "required": [
+          "updated_count"
+        ],
         "properties": {
           "updated_count": {
             "title": "updated_count",
@@ -126,10 +130,6 @@ Required minimum session key permission level is `account`
             "description": "Number of notifications marked as seen"
           }
         },
-        "required": [
-          "updated_count"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

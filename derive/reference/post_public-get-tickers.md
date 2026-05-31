@@ -58,6 +58,10 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
   "components": {
     "schemas": {
       "PublicGetTickersParamsSchema": {
+        "type": "object",
+        "required": [
+          "instrument_type"
+        ],
         "properties": {
           "currency": {
             "title": "currency",
@@ -90,13 +94,14 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
             "description": "`erc20`, `option`, or `perp`"
           }
         },
-        "required": [
-          "instrument_type"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTickersResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -114,14 +119,13 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
             "$ref": "#/components/schemas/PublicGetTickersResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTickersResultSchema": {
+        "type": "object",
+        "required": [
+          "tickers"
+        ],
         "properties": {
           "tickers": {
             "title": "tickers",
@@ -132,13 +136,24 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
             }
           }
         },
-        "required": [
-          "tickers"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "TickerSlimSchema": {
+        "type": "object",
+        "required": [
+          "A",
+          "B",
+          "I",
+          "M",
+          "a",
+          "b",
+          "f",
+          "maxp",
+          "minp",
+          "option_pricing",
+          "stats",
+          "t"
+        ],
         "properties": {
           "A": {
             "title": "A",
@@ -209,24 +224,23 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
             "description": "Creation timestamp of the snapshot in milliseconds"
           }
         },
-        "required": [
-          "A",
-          "B",
-          "I",
-          "M",
-          "a",
-          "b",
-          "f",
-          "maxp",
-          "minp",
-          "option_pricing",
-          "stats",
-          "t"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "OptionPricingSlimSchema": {
+        "type": "object",
+        "required": [
+          "ai",
+          "bi",
+          "d",
+          "df",
+          "f",
+          "g",
+          "i",
+          "m",
+          "r",
+          "t",
+          "v"
+        ],
         "properties": {
           "ai": {
             "title": "ai",
@@ -295,23 +309,20 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
             "description": "Vega of the option"
           }
         },
-        "required": [
-          "ai",
-          "bi",
-          "d",
-          "df",
-          "f",
-          "g",
-          "i",
-          "m",
-          "r",
-          "t",
-          "v"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "AggregateTradingStatsSlimSchema": {
+        "type": "object",
+        "required": [
+          "c",
+          "h",
+          "l",
+          "n",
+          "oi",
+          "p",
+          "pr",
+          "v"
+        ],
         "properties": {
           "c": {
             "title": "c",
@@ -361,17 +372,6 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
             "description": "Notional volume traded during last 24 hours"
           }
         },
-        "required": [
-          "c",
-          "h",
-          "l",
-          "n",
-          "oi",
-          "p",
-          "pr",
-          "v"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

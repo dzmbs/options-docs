@@ -6,7 +6,7 @@
 
 > Configures Market Maker Protection (MMP) for a specific index. This method sets the monitoring window, freeze duration, and exposure limits (quantity, delta, vega, and Maximum Quote Quantity).
 
-At least one limit parameter must be set. Maximum Quote Quantity (MQQ) is a required parameter that limits the total combined size of open MMP orders per side, per order book (instrument).
+At least one limit parameter must be set. Maximum Quote Quantity (MQQ) is a required parameter that limits the total combined size of open MMP orders. MQQ is configured per index but enforced per side, per order book (instrument).
 
 The `interval` parameter defines the monitoring window duration in seconds. The `frozen_time` parameter sets how long MMP remains active after being triggered. Set `frozen_time` to `0` to disable automatic reset (manual reset required).
 
@@ -77,7 +77,8 @@ paths:
 
         At least one limit parameter must be set. Maximum Quote Quantity (MQQ)
         is a required parameter that limits the total combined size of open MMP
-        orders per side, per order book (instrument).
+        orders. MQQ is configured per index but enforced per side, per order
+        book (instrument).
 
 
         The `interval` parameter defines the monitoring window duration in
@@ -115,6 +116,8 @@ paths:
           in: query
           schema:
             type: integer
+            minimum: 0
+            maximum: 3600
             example: 60
           description: >
             The duration of the monitoring window in seconds. For example, an
@@ -132,11 +135,16 @@ paths:
 
 
             If set to `0`, MMP is removed.
+
+
+            Maximum value: `3600` seconds (1 hour).
         - name: frozen_time
           required: true
           in: query
           schema:
             type: integer
+            minimum: 0
+            maximum: 3600
             example: 0
           description: >
             Time in seconds that MMP remains active after being triggered. Once
@@ -150,6 +158,9 @@ paths:
 
 
             Manual reset is also possible during the frozen time period.
+
+
+            Maximum value: `3600` seconds (1 hour).
         - name: mmp_group
           required: false
           in: query
@@ -254,11 +265,11 @@ paths:
             type: number
             example: 2.5
           description: >-
-            Maximum Quote Quantity (MQQ) in base currency. The total combined
-            size of open MMP orders per side, per order book (instrument),
-            cannot exceed MQQ. **See response description for detailed
-            information about MQQ behavior and limitations.** Maximum 4 decimal
-            places.
+            Maximum Quote Quantity (MQQ) in base currency. MQQ is configured per
+            index but enforced per side, per order book (instrument) — the total
+            combined size of open MMP orders per side per instrument cannot
+            exceed MQQ. **See response description for detailed information
+            about MQQ behavior and limitations.** Maximum 4 decimal places.
         - name: block_rfq
           required: false
           in: query
@@ -357,6 +368,8 @@ components:
                 $ref: '#/components/schemas/index_name'
               interval:
                 type: integer
+                minimum: 0
+                maximum: 3600
                 description: >-
                   The duration of the monitoring window in seconds. For example,
                   an <code>interval</code> of <code>3</code> implies a 3-second
@@ -369,8 +382,11 @@ components:
                   mechanism allows the platform to track activity in short,
                   rolling windows to identify potentially risky trading
                   behavior. <br><br>If set to <code>0</code>, MMP is disabled.
+                  <br><br>Maximum value: <code>3600</code> seconds (1 hour).
               frozen_time:
                 type: integer
+                minimum: 0
+                maximum: 3600
                 description: >-
                   Time in seconds that MMP remains active after being triggered.
                   Once this frozen period has passed, MMP will automatically
@@ -379,10 +395,22 @@ components:
                   to <code>0</code>. In that case, a manual reset is required
                   using the <code>private/reset_mmp</code> method.
                   <br><br>Manual reset is also possible during the frozen time
-                  period.
+                  period. <br><br>Maximum value: <code>3600</code> seconds (1
+                  hour).
+              id:
+                type: integer
+                format: int64
+                description: >-
+                  Integer identifier for the MMP group (int64). This is the
+                  programmatic identifier for the group. Entries without an
+                  `mmp_group` name correspond to the orders MMP group (the
+                  default group).
               mmp_group:
                 type: string
-                description: Specified MMP Group
+                description: >-
+                  Name of the MMP group. Absent for the orders MMP group (the
+                  default group), which has no string name — its entry is
+                  identified by the `id` field alone.
               quantity_limit:
                 type: number
                 description: >-
@@ -434,41 +462,43 @@ components:
               max_quote_quantity:
                 type: number
                 description: >-
-                  Maximum Quote Quantity (MQQ). The total combined size of open
-                  MMP orders per side, per order book (instrument), cannot
-                  exceed MQQ (specified in base currency). MQQ is used for
-                  Initial Margin calculation (3% of MQQ is taken as Initial
+                  Maximum Quote Quantity (MQQ). MQQ is configured per index but
+                  enforced per side, per order book (instrument) — the total
+                  combined size of open MMP orders per side per instrument
+                  cannot exceed MQQ (specified in base currency). MQQ is used
+                  for Initial Margin calculation (3% of MQQ is taken as Initial
                   Margin for MMP orders and quotes). <br><br>**Important
-                  Notes:** <br>- **Order book = instrument, MQQ is per
-                  instrument (not sum across instruments):** "Per order book"
-                  means per instrument (not per expiry). MQQ is enforced
-                  separately for each instrument and applies independently to
-                  each instrument. The limit is NOT the sum across all
-                  instruments - each instrument has its own separate MQQ limit.
-                  <br>- **MQQ limits cumulative size, not order count:** For
-                  example, with MQQ of 3 BTC, you can place multiple orders
-                  (three orders of 1 BTC each, or one order of 2.5 BTC plus one
-                  of 0.5 BTC) as long as the total size per side per instrument
-                  does not exceed 3 BTC <br>- **MQQ is separate per MMP group:**
-                  Each MMP group has its own independent MQQ configuration. MQQ
-                  limits are enforced separately for each MMP group. <br>- **MQQ
-                  vs Quantity Limit relationship:** You can set MQQ >
-                  `quantity_limit`. This allows quotes to be larger than the
-                  quantity limit, and enables MMP to trigger on partial fills of
-                  quotes. This decouples the MMP reserved margin from the MMP
-                  quantity limit. <br>- **Base currency:** MQQ is specified and
-                  enforced in base currency <br>- **Inverse futures:** Size is
-                  calculated as Amount / Price to convert to base currency <br>-
-                  **Inverse future spreads:** Size is calculated as Amount /
-                  IndexPrice <br>- **SM accounts:** MMP orders and quotes on
-                  options and option_combos are not supported for SM accounts
-                  <br>- **Rejections:** MQQ is enforced for **MMP-enabled orders
-                  and quotes**. Quote entries and MMP-enabled orders (i.e.,
-                  orders with `mmp=true`) are rejected if their individual size
-                  is greater than `max_quote_quantity`, or if accepting them
-                  would make the total open MMP size per side per instrument
-                  exceed `max_quote_quantity`. Non‑MMP orders are not subject to
-                  MQQ and may be larger than `max_quote_quantity`. <br>-
+                  Notes:** <br>- **Configured per index, enforced per
+                  instrument:** MQQ is configured at the index level (an MMP
+                  group is linked to an index). However, the limit is enforced
+                  separately per order book (instrument) per side. "Per order
+                  book" means per instrument (not per expiry). The limit is NOT
+                  the sum across all instruments — each instrument has its own
+                  separate MQQ enforcement. <br>- **MQQ limits cumulative size,
+                  not order count:** For example, with MQQ of 3 BTC, you can
+                  place multiple orders (three orders of 1 BTC each, or one
+                  order of 2.5 BTC plus one of 0.5 BTC) as long as the total
+                  size per side per instrument does not exceed 3 BTC <br>- **MQQ
+                  is separate per MMP group:** Each MMP group has its own
+                  independent MQQ configuration. MQQ limits are enforced
+                  separately for each MMP group. <br>- **MQQ vs Quantity Limit
+                  relationship:** You can set MQQ > `quantity_limit`. This
+                  allows quotes to be larger than the quantity limit, and
+                  enables MMP to trigger on partial fills of quotes. This
+                  decouples the MMP reserved margin from the MMP quantity limit.
+                  <br>- **Base currency:** MQQ is specified and enforced in base
+                  currency <br>- **Inverse futures:** Size is calculated as
+                  Amount / Price to convert to base currency <br>- **Inverse
+                  future spreads:** Size is calculated as Amount / IndexPrice
+                  <br>- **SM accounts:** MMP orders and quotes on options and
+                  option_combos are not supported for SM accounts <br>-
+                  **Rejections:** MQQ is enforced for **MMP-enabled orders and
+                  quotes**. Quote entries and MMP-enabled orders (i.e., orders
+                  with `mmp=true`) are rejected if their individual size is
+                  greater than `max_quote_quantity`, or if accepting them would
+                  make the total open MMP size per side per instrument exceed
+                  `max_quote_quantity`. Non‑MMP orders are not subject to MQQ
+                  and may be larger than `max_quote_quantity`. <br>-
                   **Precision:** All MMP configuration values support maximum 4
                   decimal places <br>- **Latency:** There are no latency
                   benefits from MQQ if you already use mass quotes.
@@ -490,8 +520,8 @@ components:
               - interval
               - frozen_time
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     index_name:
       enum:

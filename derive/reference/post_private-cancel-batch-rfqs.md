@@ -59,6 +59,10 @@ Required minimum session key permission level is `account`
   "components": {
     "schemas": {
       "PrivateCancelBatchRfqsParamsSchema": {
+        "type": "object",
+        "required": [
+          "subaccount_id"
+        ],
         "properties": {
           "label": {
             "title": "label",
@@ -88,13 +92,14 @@ Required minimum session key permission level is `account`
             "description": "Subaccount ID"
           }
         },
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCancelBatchRfqsResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -112,14 +117,13 @@ Required minimum session key permission level is `account`
             "$ref": "#/components/schemas/PrivateCancelBatchRfqsResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCancelBatchRfqsResultSchema": {
+        "type": "object",
+        "required": [
+          "cancelled_ids"
+        ],
         "properties": {
           "cancelled_ids": {
             "title": "cancelled_ids",
@@ -132,10 +136,6 @@ Required minimum session key permission level is `account`
             }
           }
         },
-        "required": [
-          "cancelled_ids"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

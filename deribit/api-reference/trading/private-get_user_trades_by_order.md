@@ -8,6 +8,8 @@
 
 Results can be sorted in ascending or descending order by trade ID. Use `historical` to retrieve historical trade data. This is useful for tracking how an order was filled and analyzing execution quality.
 
+Main accounts may use the `subaccount_id` parameter to retrieve trade data for a specific subaccount (requires `mainaccount` scope).
+
 **📖 Related Article:** [Accessing Historical Trades and Orders Using API](https://docs.deribit.com/articles/accessing-historical-trades-orders)
 
 **Scope:** `trade:read`
@@ -75,6 +77,10 @@ paths:
         tracking how an order was filled and analyzing execution quality.
 
 
+        Main accounts may use the `subaccount_id` parameter to retrieve trade
+        data for a specific subaccount (requires `mainaccount` scope).
+
+
         **📖 Related Article:** [Accessing Historical Trades and Orders Using
         API](https://docs.deribit.com/articles/accessing-historical-trades-orders)
 
@@ -120,6 +126,13 @@ paths:
             **📖 Related Article:** [Accessing Historical Trades and Orders
             Using
             API](https://docs.deribit.com/articles/accessing-historical-trades-orders)
+        - name: subaccount_id
+          in: query
+          required: false
+          schema:
+            type: integer
+            example: 9
+          description: Id of a subaccount
       requestBody:
         content:
           application/json:

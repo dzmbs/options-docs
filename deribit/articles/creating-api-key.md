@@ -108,7 +108,7 @@ To create an API key via the Deribit API, use the `private/create_api_key` endpo
 
 ### Request
 
-```json  theme={null}
+```json theme={null}
 {
   "method": "private/create_api_key",
   "params": {
@@ -122,7 +122,7 @@ To create an API key via the Deribit API, use the `private/create_api_key` endpo
 
 ### Response
 
-```json  theme={null}
+```json theme={null}
 {
   "jsonrpc": "2.0",
   "id": 1,

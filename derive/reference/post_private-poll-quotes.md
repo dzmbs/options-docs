@@ -58,7 +58,34 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
+      "PaginationInfoSchema": {
+        "type": "object",
+        "required": [
+          "count",
+          "num_pages"
+        ],
+        "properties": {
+          "count": {
+            "title": "count",
+            "type": "integer",
+            "description": "Total number of items, across all pages"
+          },
+          "num_pages": {
+            "title": "num_pages",
+            "type": "integer",
+            "description": "Number of pages"
+          }
+        },
+        "additionalProperties": false
+      },
       "LegPricedSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "direction",
+          "instrument_name",
+          "price"
+        ],
         "properties": {
           "amount": {
             "title": "amount",
@@ -87,36 +114,140 @@ Required minimum session key permission level is `read_only`
             "description": "Leg price"
           }
         },
-        "required": [
-          "amount",
-          "direction",
-          "instrument_name",
-          "price"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
-      "PaginationInfoSchema": {
+      "PrivatePollQuotesParamsSchema": {
+        "type": "object",
+        "required": [
+          "subaccount_id"
+        ],
         "properties": {
-          "count": {
-            "title": "count",
+          "from_timestamp": {
+            "title": "from_timestamp",
             "type": "integer",
-            "description": "Total number of items, across all pages"
+            "default": 0,
+            "description": "Earliest timestamp to filter by (in ms since Unix epoch). If not provied, defaults to 0."
           },
-          "num_pages": {
-            "title": "num_pages",
+          "page": {
+            "title": "page",
             "type": "integer",
-            "description": "Number of pages"
+            "default": 1,
+            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
+          },
+          "page_size": {
+            "title": "page_size",
+            "type": "integer",
+            "default": 100,
+            "description": "Number of results per page (default 100, max 1000)"
+          },
+          "quote_id": {
+            "title": "quote_id",
+            "type": "string",
+            "format": "uuid",
+            "default": null,
+            "description": "Quote ID filter, if applicable",
+            "nullable": true
+          },
+          "rfq_id": {
+            "title": "rfq_id",
+            "type": "string",
+            "format": "uuid",
+            "default": null,
+            "description": "RFQ ID filter, if applicable",
+            "nullable": true
+          },
+          "status": {
+            "title": "status",
+            "type": "string",
+            "default": null,
+            "enum": [
+              "open",
+              "filled",
+              "cancelled",
+              "expired"
+            ],
+            "description": "Quote status filter, if applicable",
+            "nullable": true
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount ID for auth purposes, returned data will be scoped to this subaccount."
+          },
+          "to_timestamp": {
+            "title": "to_timestamp",
+            "type": "integer",
+            "default": 18446744073709552000,
+            "description": "Latest timestamp to filter by (in ms since Unix epoch). If not provied, defaults to returning all data up to current time."
           }
         },
-        "required": [
-          "count",
-          "num_pages"
-        ],
+        "additionalProperties": false
+      },
+      "PrivatePollQuotesResponseSchema": {
         "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivatePollQuotesResultSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivatePollQuotesResultSchema": {
+        "type": "object",
+        "required": [
+          "pagination",
+          "quotes"
+        ],
+        "properties": {
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationInfoSchema"
+          },
+          "quotes": {
+            "title": "quotes",
+            "type": "array",
+            "description": "Quotes matching filter criteria",
+            "items": {
+              "$ref": "#/components/schemas/QuoteResultPublicSchema"
+            }
+          }
+        },
         "additionalProperties": false
       },
       "QuoteResultPublicSchema": {
+        "type": "object",
+        "required": [
+          "cancel_reason",
+          "creation_timestamp",
+          "direction",
+          "fill_pct",
+          "last_update_timestamp",
+          "legs",
+          "legs_hash",
+          "liquidity_role",
+          "quote_id",
+          "rfq_id",
+          "status",
+          "subaccount_id",
+          "tx_hash",
+          "tx_status",
+          "wallet"
+        ],
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",
@@ -238,137 +369,6 @@ Required minimum session key permission level is `read_only`
             "description": "Wallet address of the quote sender"
           }
         },
-        "required": [
-          "cancel_reason",
-          "creation_timestamp",
-          "direction",
-          "fill_pct",
-          "last_update_timestamp",
-          "legs",
-          "legs_hash",
-          "liquidity_role",
-          "quote_id",
-          "rfq_id",
-          "status",
-          "subaccount_id",
-          "tx_hash",
-          "tx_status",
-          "wallet"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivatePollQuotesParamsSchema": {
-        "properties": {
-          "from_timestamp": {
-            "title": "from_timestamp",
-            "type": "integer",
-            "default": 0,
-            "description": "Earliest timestamp to filter by (in ms since Unix epoch). If not provied, defaults to 0."
-          },
-          "page": {
-            "title": "page",
-            "type": "integer",
-            "default": 1,
-            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
-          },
-          "page_size": {
-            "title": "page_size",
-            "type": "integer",
-            "default": 100,
-            "description": "Number of results per page (default 100, max 1000)"
-          },
-          "quote_id": {
-            "title": "quote_id",
-            "type": "string",
-            "format": "uuid",
-            "default": null,
-            "description": "Quote ID filter, if applicable",
-            "nullable": true
-          },
-          "rfq_id": {
-            "title": "rfq_id",
-            "type": "string",
-            "format": "uuid",
-            "default": null,
-            "description": "RFQ ID filter, if applicable",
-            "nullable": true
-          },
-          "status": {
-            "title": "status",
-            "type": "string",
-            "default": null,
-            "enum": [
-              "open",
-              "filled",
-              "cancelled",
-              "expired"
-            ],
-            "description": "Quote status filter, if applicable",
-            "nullable": true
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount ID for auth purposes, returned data will be scoped to this subaccount."
-          },
-          "to_timestamp": {
-            "title": "to_timestamp",
-            "type": "integer",
-            "default": 18446744073709552000,
-            "description": "Latest timestamp to filter by (in ms since Unix epoch). If not provied, defaults to returning all data up to current time."
-          }
-        },
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivatePollQuotesResponseSchema": {
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivatePollQuotesResultSchema"
-          }
-        },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivatePollQuotesResultSchema": {
-        "properties": {
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationInfoSchema"
-          },
-          "quotes": {
-            "title": "quotes",
-            "type": "array",
-            "description": "Quotes matching filter criteria",
-            "items": {
-              "$ref": "#/components/schemas/QuoteResultPublicSchema"
-            }
-          }
-        },
-        "required": [
-          "pagination",
-          "quotes"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

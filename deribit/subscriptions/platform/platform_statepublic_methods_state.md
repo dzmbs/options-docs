@@ -61,7 +61,7 @@ operations:
                     description: >-
                       Value is set to 'true' when unauthorized public requests
                       are allowed
-                    required: false
+                    required: true
         headers: []
         jsonPayloadSchema:
           type: object

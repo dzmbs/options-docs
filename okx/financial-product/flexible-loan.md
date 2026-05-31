@@ -78,7 +78,7 @@ Get collateral assets in funding account.
 Request Example
 
 ```
-GET /api/v5/finance/flexible-loan/collateral-assets
+GET /api/v5/finance/flexible-loan/collateral-assets?ordId=12345
 ```
 
 ```
@@ -92,7 +92,7 @@ passphrase = "YOUR_PASSPHRASE"
 flag = "0" # Production trading:0 , demo trading:1
 
 flexibleLoanAPI = FlexibleLoan.FlexibleLoanAPI(apikey, secretkey, passphrase, False, flag)
-result = flexibleLoanAPI.collateral_assets()
+result = flexibleLoanAPI.collateral_assets(ordId="12345")
 print(result)
 ```
 
@@ -101,6 +101,7 @@ print(result)
 | Parameters | Types | Required | Description |
 | --- | --- | --- | --- |
 | ccy | String | No | Collateral currency, e.g. `BTC` |
+| ordId | String. | No | Order ID of your flexible loan.If `ordId` is not passed, system will assume it is acting against the existing order with the earliest order start time.If there are no existing orders, system will return empty result data. |
 
 Response Example
 
@@ -160,6 +161,7 @@ Request Example
 POST /api/v5/finance/flexible-loan/max-loan
 body
 {
+ "ordId": "12345",
  "borrowCcy": "USDT"
 }
 ```
@@ -175,7 +177,7 @@ passphrase = "YOUR_PASSPHRASE"
 flag = "0" # Production trading:0 , demo trading:1
 
 flexibleLoanAPI = FlexibleLoan.FlexibleLoanAPI(apikey, secretkey, passphrase, False, flag)
-result = flexibleLoanAPI.max_loan(borrowCcy="USDT")
+result = flexibleLoanAPI.max_loan(ordId="12345", borrowCcy="USDT")
 print(result)
 ```
 
@@ -184,6 +186,7 @@ print(result)
 | Parameters | Types | Required | Description |
 | --- | --- | --- | --- |
 | borrowCcy | String | Yes | Currency to borrow, e.g. `USDT` |
+| ordId | String | No | Order ID of your flexible loan.If `ordId` is not passed, system will assume it is acting against the existing order with the earliest order start time.If there are no existing orders, system will return empty result data. |
 | supCollateral | Array of objects | No | Supplementary collateral assets |
 | > ccy | String | Yes | Currency, e.g. `BTC` |
 | > amt | String | Yes | Amount |
@@ -230,7 +233,7 @@ Response Example
 Request Example
 
 ```
-GET /api/v5/finance/flexible-loan/max-collateral-redeem-amount?ccy=USDT
+GET /api/v5/finance/flexible-loan/max-collateral-redeem-amount?ccy=USDT&ordId=12345
 ```
 
 ```
@@ -244,7 +247,7 @@ passphrase = "YOUR_PASSPHRASE"
 flag = "0" # Production trading:0 , demo trading:1
 
 flexibleLoanAPI = FlexibleLoan.FlexibleLoanAPI(apikey, secretkey, passphrase, False, flag)
-result = flexibleLoanAPI.max_collateral_redeem_amount("USDT")
+result = flexibleLoanAPI.max_collateral_redeem_amount(ordId="12345", ccy="USDT")
 print(result)
 ```
 
@@ -253,6 +256,7 @@ print(result)
 | Parameters | Types | Required | Description |
 | --- | --- | --- | --- |
 | ccy | String | Yes | Collateral currency, e.g. `USDT` |
+| ordId | String | No | Order ID of your flexible loan.If `ordId` is not passed, system will assume it is acting against the existing order with the earliest order start time.If there are no existing orders, system will return empty result data. |
 
 Response Example
 
@@ -296,6 +300,7 @@ POST /api/v5/finance/flexible-loan/adjust-collateral
 body
 {
  "type":"add",
+ "ordId": "12345",
  "collateralCcy": "BTC",
  "collateralAmt": "0.1"
 }
@@ -312,7 +317,7 @@ passphrase = "YOUR_PASSPHRASE"
 flag = "0" # Production trading:0 , demo trading:1
 
 flexibleLoanAPI = FlexibleLoan.FlexibleLoanAPI(apikey, secretkey, passphrase, False, flag)
-result = flexibleLoanAPI.adjust_collateral(type="add", collateralCcy="USDT", collateralAmt="1")
+result = flexibleLoanAPI.adjust_collateral(type="add", ordId="12345", collateralCcy="USDT", collateralAmt="1")
 print(result)
 ```
 
@@ -323,6 +328,7 @@ print(result)
 | type | String | Yes | Operation type`add`: Add collateral`reduce`: Reduce collateral |
 | collateralCcy | String | Yes | Collateral currency, e.g. `BTC` |
 | collateralAmt | String | Yes | Collateral amount |
+| ordId | String | No | Order ID of your flexible loan.If `ordId` is not passed, system will assume it is acting against the existing order with the earliest order start time.If there are no existing orders, system will return error `51063` |
 
 Response Example
 
@@ -373,6 +379,12 @@ result = flexibleLoanAPI.loan_info()
 print(result)
 ```
 
+#### Request Parameters
+
+| Parameters | Types | Required | Description |
+| --- | --- | --- | --- |
+| ordId | String | No | Order ID of your flexible loan.If `ordId` is not passed, system will return data of all existing orders |
+
 Response Example
 
 ```
@@ -380,6 +392,7 @@ Response Example
  "code": "0",
  "data": [
  {
+ "ordId": "12345",
  "collateralData": [
  {
  "amt": "0.0000097",
@@ -424,11 +437,12 @@ Response Example
 
 | Parameter | Type | Description |
 | --- | --- | --- |
+| ordId | String | Order ID |
 | loanNotionalUsd | String | Loan value in `USD` |
 | loanData | Array of objects | Loan data |
 | > ccy | String | Loan currency, e.g. `USDT` |
 | > amt | String | Loan amount |
-| collateralNotionalUsd | String | Collateral value in `USD` |
+| collateralNotionalUsd | String | Adjusted collateral value in `USD` |
 | collateralData | Array of objects | Collateral data |
 | > ccy | String | Collateral currency, e.g. `BTC` |
 | > amt | String | Collateral amount |
@@ -480,6 +494,7 @@ print(result)
 | after | String | No | Pagination of data to return records earlier than the requested `refId`(not include) |
 | before | String | No | Pagination of data to return records newer than the requested `refId`(not include) |
 | limit | String | No | Number of results per request. The maximum is `100`. The default is `100`. |
+| ordId | String | No | Order ID of your flexible loan.If `ordId` is not passed, system will return data of all orders |
 
 Response Example
 
@@ -553,6 +568,7 @@ print(result)
 | after | String | No | Pagination of data to return records earlier than the requested `refId`(not include) |
 | before | String | No | Pagination of data to return records newer than the requested `refId`(not include) |
 | limit | String | No | Number of results per request. The maximum is `100`. The default is `100`. |
+| ordId | String | No | Order ID of your flexible loan.If `ordId` is not passed, system will return data of all orders |
 
 返回结果
 

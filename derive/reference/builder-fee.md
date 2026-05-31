@@ -23,5 +23,3 @@ On top of earning "API Broker Fees", builders can directly charge their users a 
 <br />
 
 Extra fees (as well as the API Broker rewards) are distributed to the Derive Wallet you listed in the above form once every 4 weeks.
-
-<br />

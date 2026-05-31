@@ -143,8 +143,8 @@ components:
             The inner values correspond to the timestamp in ms and the markprice
             itself.
       required:
-        - result
         - jsonrpc
+        - result
       type: object
   responses:
     PublicGetMarkPriceHistoryResponse:

@@ -58,57 +58,11 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
-      "SimulatedCollateralSchema": {
-        "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Collateral amount to simulate"
-          },
-          "asset_name": {
-            "title": "asset_name",
-            "type": "string",
-            "description": "Collateral ERC20 asset name (e.g. ETH, USDC, WSTETH)"
-          }
-        },
-        "required": [
-          "amount",
-          "asset_name"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "SimulatedPositionSchema": {
-        "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Position amount to simulate"
-          },
-          "entry_price": {
-            "title": "entry_price",
-            "type": "string",
-            "format": "decimal",
-            "default": null,
-            "description": "Only for perps. Entry price to use in the simulation. Mark price is used if not provided.",
-            "nullable": true
-          },
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "description": "Instrument name"
-          }
-        },
-        "required": [
-          "amount",
-          "instrument_name"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
       "PrivateGetMarginParamsSchema": {
+        "type": "object",
+        "required": [
+          "subaccount_id"
+        ],
         "properties": {
           "simulated_collateral_changes": {
             "title": "simulated_collateral_changes",
@@ -136,13 +90,64 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id"
           }
         },
-        "required": [
-          "subaccount_id"
-        ],
+        "additionalProperties": false
+      },
+      "SimulatedCollateralSchema": {
         "type": "object",
+        "required": [
+          "amount",
+          "asset_name"
+        ],
+        "properties": {
+          "amount": {
+            "title": "amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Collateral amount to simulate"
+          },
+          "asset_name": {
+            "title": "asset_name",
+            "type": "string",
+            "description": "Collateral ERC20 asset name (e.g. ETH, USDC, WSTETH)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SimulatedPositionSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "instrument_name"
+        ],
+        "properties": {
+          "amount": {
+            "title": "amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Position amount to simulate"
+          },
+          "entry_price": {
+            "title": "entry_price",
+            "type": "string",
+            "format": "decimal",
+            "default": null,
+            "description": "Only for perps. Entry price to use in the simulation. Mark price is used if not provided.",
+            "nullable": true
+          },
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "description": "Instrument name"
+          }
+        },
         "additionalProperties": false
       },
       "PrivateGetMarginResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -160,14 +165,18 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetMarginResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetMarginResultSchema": {
+        "type": "object",
+        "required": [
+          "is_valid_trade",
+          "post_initial_margin",
+          "post_maintenance_margin",
+          "pre_initial_margin",
+          "pre_maintenance_margin",
+          "subaccount_id"
+        ],
         "properties": {
           "is_valid_trade": {
             "title": "is_valid_trade",
@@ -204,15 +213,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id"
           }
         },
-        "required": [
-          "is_valid_trade",
-          "post_initial_margin",
-          "post_maintenance_margin",
-          "pre_initial_margin",
-          "pre_maintenance_margin",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

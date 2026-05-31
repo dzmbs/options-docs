@@ -117,8 +117,8 @@ components:
         result:
           $ref: '#/components/schemas/TickerNotification'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     TickerNotification:
       properties:

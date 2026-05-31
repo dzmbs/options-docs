@@ -17,7 +17,7 @@ DELETE `/eapi/v1/batchOrders`
 
 ## Request Weight​
 
-1**
+5**
 
 ## Request Parameters​
 

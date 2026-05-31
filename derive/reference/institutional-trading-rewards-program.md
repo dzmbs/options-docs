@@ -1,9 +1,5 @@
 # Institutional Trading Rewards Program
 
-<br />
-
-<br />
-
 *\*The program outlined below and all numbers provided are subject to change.*
 
 # Program Purpose
@@ -81,23 +77,23 @@ Market Makers add value to the protocol by lowering the cost to trade. The Deriv
 
 **Option Fee Tiers**
 
-| MM % Score Share |    | 28-day Volume |    | 28-day Volume Share |     | Staked DRV  | Option Maker | Option Taker | Spot Maker | Spot Taker | RFQ Maker Discount | RFQ Taker Disount |
-| :--------------- | :- | :------------ | :- | :------------------ | :-- | :---------- | :----------- | :----------- | :--------- | :--------- | :----------------- | :---------------- |
-| 10%              | OR | ≥ 500M        | OR | ≥ 7.5%              | AND | ≥ 1,000,000 | -0.005%      | 0.0075%      | -0.01%     | 0.05%      | 100%               | 75%               |
-| 10%              | OR | ≥ 500M        | OR | ≥ 7.5%              | OR  | ≥ 1,000,000 | -0.0025%     | 0.01%        | 0%         | 0.05%      | 75%                | 50%               |
-| 5%               | OR | ≥ 250M        | OR | ≥ 5%                | OR  | ≥ 500,000   | -0.0013%     | 0.0125%      | 0.05%      | 0.07%      | 25%                | 25%               |
-| 1%               | OR | ≥ 50M         | OR | ≥ 2%                | OR  | ≥ 200,000   | 0%           | 0.015%       | 0.1%       | 0.09%      | 10%                | 10%               |
-| All traders      |    | \< 50M        | OR | \< 2%               | OR  | \< 200,000  | 0.01%        | 0.03%        | 0.15%      | 0.15%      | 0%                 | 0%                |
+| MM % Score Share |    | 28-day Volume |    | 28-day Volume Share |     | stDRV Holdings    | Option Maker | Option Taker | Spot Maker | Spot Taker | RFQ Maker Discount | RFQ Taker Disount |
+| :--------------- | :- | :------------ | :- | :------------------ | :-- | :---------------- | :----------- | :----------- | :--------- | :--------- | :----------------- | :---------------- |
+| 10%              | OR | ≥ 500M        | OR | ≥7.5%               | AND | ≥ 1,000,000 stDRV | -0.005%      | 0.0075%      | -0.01%     | 0.05%      | 100%               | 75%               |
+| 10%              | OR | ≥ 500M        | OR | ≥ 7.5%              | OR  | ≥ 1,000,000 stDRV | -0.0025%     | 0.01%        | 0%         | 0.05%      | 75%                | 50%               |
+| 5%               | OR | ≥ 250M        | OR | ≥ 5%                | OR  | ≥ 500,000 stDRV   | -0.0013%     | 0.0125%      | 0.05%      | 0.07%      | 25%                | 25%               |
+| 1%               | OR | ≥ 50M         | OR | ≥ 2%                | OR  | ≥ 200,000 stDRV   | 0%           | 0.015%       | 0.1%       | 0.09%      | 10%                | 10%               |
+| All Traders      |    |               |    |                     |     |                   | 0.01%        | 0.03%        | 0.15%      | 0.15%      | 0%                 | 0%                |
 
 **Perp Fee Tiers**
 
-| MM % Score Share |    | 28-day Volume |    | 28-day Volume Share |     | Staked DRV  | Perp Maker | Perp Taker |
+| MM % Score Share |    | 28-Day Volume |    | 28-Day Volume Share |     | Staked DRV  | Perp Maker | Perp Taker |
 | :--------------- | :- | :------------ | :- | :------------------ | :-- | :---------- | :--------- | :--------- |
 | 10%              | OR | ≥ 500M        | OR | ≥ 7.5%              | AND | ≥ 1,000,000 | -0.01%     | 0.015%     |
 | 10%              | OR | ≥ 500M        | OR | ≥ 7.5%              | OR  | ≥ 1,000,000 | -0.005%    | 0.02%      |
 | 5%               | OR | ≥ 250M        | OR | ≥ 5%                | OR  | ≥ 500,000   | -0.0025%   | 0.025%     |
 | 1%               | OR | ≥ 50M         | OR | ≥ 2%                | OR  | ≥ 200,000   | 0%         | 0.03%      |
-| All traders      |    | \< 50M        | OR | \< 2%               | OR  | \< 200,000  | 0.01%      | 0.03%      |
+| All Traders      |    |               |    |                     |     |             | 0.01%      | 0.03%      |
 
 * MM ranking, Volume share, and stDRV holding requirements are by market, i.e. spot, options, perps separately.
 * To achieve best fee tiers it requires 1M stDRV per program i.e. 2M required for both options and perps
@@ -112,9 +108,9 @@ The central limit order book will be snapshotted randomly, in 15 minutes windows
 To qualify for rewards, Traders must meet the following requirements:
 
 * Market Maker Program:
-  * Min quote size: $500
+  * Min quote size: 500
   * Delta Range: only options with a Delta > 1 and \< 98 will be included in the scoring snapshots
-  * 28-day Notional Trading Volume > $5M
+  * 28-day Notional Trading Volume > $50M
   * Trading Volume Share > 2%
 
 # Additional Incentives:

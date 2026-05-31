@@ -58,6 +58,10 @@ Get single instrument by asset name
   "components": {
     "schemas": {
       "ERC20PublicDetailsSchema": {
+        "type": "object",
+        "required": [
+          "decimals"
+        ],
         "properties": {
           "borrow_index": {
             "title": "borrow_index",
@@ -85,13 +89,16 @@ Get single instrument by asset name
             "description": "Address of underlying on-chain ERC20 (not V2 asset)"
           }
         },
-        "required": [
-          "decimals"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "OptionPublicDetailsSchema": {
+        "type": "object",
+        "required": [
+          "expiry",
+          "index",
+          "option_type",
+          "strike"
+        ],
         "properties": {
           "expiry": {
             "title": "expiry",
@@ -125,16 +132,18 @@ Get single instrument by asset name
             "format": "decimal"
           }
         },
-        "required": [
-          "expiry",
-          "index",
-          "option_type",
-          "strike"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PerpPublicDetailsSchema": {
+        "type": "object",
+        "required": [
+          "aggregate_funding",
+          "funding_rate",
+          "index",
+          "max_rate_per_hour",
+          "min_rate_per_hour",
+          "static_interest_rate"
+        ],
         "properties": {
           "aggregate_funding": {
             "title": "aggregate_funding",
@@ -172,18 +181,13 @@ Get single instrument by asset name
             "description": "Static interest rate as per `PerpAsset.sol`"
           }
         },
-        "required": [
-          "aggregate_funding",
-          "funding_rate",
-          "index",
-          "max_rate_per_hour",
-          "min_rate_per_hour",
-          "static_interest_rate"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetInstrumentParamsSchema": {
+        "type": "object",
+        "required": [
+          "instrument_name"
+        ],
         "properties": {
           "instrument_name": {
             "title": "instrument_name",
@@ -191,13 +195,14 @@ Get single instrument by asset name
             "description": "Instrument name"
           }
         },
-        "required": [
-          "instrument_name"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetInstrumentResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -215,14 +220,34 @@ Get single instrument by asset name
             "$ref": "#/components/schemas/PublicGetInstrumentResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetInstrumentResultSchema": {
+        "type": "object",
+        "required": [
+          "amount_step",
+          "base_asset_address",
+          "base_asset_sub_id",
+          "base_currency",
+          "base_fee",
+          "erc20_details",
+          "fifo_min_allocation",
+          "instrument_name",
+          "instrument_type",
+          "is_active",
+          "maker_fee_rate",
+          "maximum_amount",
+          "minimum_amount",
+          "option_details",
+          "perp_details",
+          "pro_rata_amount_step",
+          "pro_rata_fraction",
+          "quote_currency",
+          "scheduled_activation",
+          "scheduled_deactivation",
+          "taker_fee_rate",
+          "tick_size"
+        ],
         "properties": {
           "amount_step": {
             "title": "amount_step",
@@ -355,31 +380,6 @@ Get single instrument by asset name
             "description": "Tick size of the instrument, i.e. minimum price increment"
           }
         },
-        "required": [
-          "amount_step",
-          "base_asset_address",
-          "base_asset_sub_id",
-          "base_currency",
-          "base_fee",
-          "erc20_details",
-          "fifo_min_allocation",
-          "instrument_name",
-          "instrument_type",
-          "is_active",
-          "maker_fee_rate",
-          "maximum_amount",
-          "minimum_amount",
-          "option_details",
-          "perp_details",
-          "pro_rata_amount_step",
-          "pro_rata_fraction",
-          "quote_currency",
-          "scheduled_activation",
-          "scheduled_deactivation",
-          "taker_fee_rate",
-          "tick_size"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

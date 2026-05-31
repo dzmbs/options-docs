@@ -14,7 +14,7 @@ In accordance with the JSON-RPC specification, the format of a notification is t
 
 ### Basic Structure
 
-```json  theme={null}
+```json theme={null}
 {
     "jsonrpc": "2.0",
     "method": "subscription",
@@ -29,7 +29,7 @@ In accordance with the JSON-RPC specification, the format of a notification is t
 
 ### Example Notification
 
-```json  theme={null}
+```json theme={null}
 {
     "jsonrpc": "2.0",
     "method": "subscription",
@@ -62,7 +62,7 @@ At the moment of subscription, a "channel" must be specified. The channel determ
 
 ### Subscription Example
 
-```json  theme={null}
+```json theme={null}
 {
     "jsonrpc": "2.0",
     "method": "public/subscribe",
@@ -142,7 +142,7 @@ Order book notifications have special characteristics:
 
 The first notification after subscribing contains the **complete order book** (bid and ask amounts for all price levels):
 
-```json  theme={null}
+```json theme={null}
 {
     "jsonrpc": "2.0",
     "method": "subscription",
@@ -171,7 +171,7 @@ The first notification after subscribing contains the **complete order book** (b
 
 After the first notification, you will only receive **incremental updates** for changed price levels:
 
-```json  theme={null}
+```json theme={null}
 {
     "jsonrpc": "2.0",
     "method": "subscription",
@@ -215,7 +215,7 @@ Order book updates use three action types:
 
 Subscribe to receive real-time updates about your orders:
 
-```json  theme={null}
+```json theme={null}
 {
     "jsonrpc": "2.0",
     "method": "subscription",
@@ -240,7 +240,7 @@ Subscribe to receive real-time updates about your orders:
 
 Receive notifications when your orders are filled:
 
-```json  theme={null}
+```json theme={null}
 {
     "jsonrpc": "2.0",
     "method": "subscription",
@@ -266,7 +266,7 @@ Receive notifications when your orders are filled:
 
 Monitor your account balance and positions:
 
-```json  theme={null}
+```json theme={null}
 {
     "jsonrpc": "2.0",
     "method": "subscription",
@@ -296,7 +296,7 @@ Monitor your account balance and positions:
 
 For order book subscriptions, use `change_id` and `prev_change_id` to detect gaps:
 
-```javascript  theme={null}
+```javascript theme={null}
 let lastChangeId = null;
 
 ws.on('message', function incoming(data) {

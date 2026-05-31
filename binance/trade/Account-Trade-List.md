@@ -23,7 +23,7 @@ Get trades for a specific account and symbol.
 
 | Name | Type | Mandatory | Description |
 | --- | --- | --- | --- |
-| symbol | STRING | NO | Option symbol, e.g BTC-200730-9000-C |
+| symbol | STRING | YES | Option symbol, e.g BTC-200730-9000-C |
 | fromId | LONG | NO | Trade id to fetch from. Default gets most recent trades, e.g 4611875134427365376 |
 | startTime | LONG | NO | Start time, e.g 1593511200000 |
 | endTime | LONG | NO | End time, e.g 1593512200000 |

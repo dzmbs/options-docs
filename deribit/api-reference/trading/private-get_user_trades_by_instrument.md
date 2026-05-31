@@ -8,6 +8,8 @@
 
 Results can be filtered by sequence number range or timestamp range. Use the `count` parameter to limit the number of trades returned, and `sorting` to control the order (ascending or descending by trade ID). Use `historical` to retrieve historical trade data.
 
+Main accounts may use the `subaccount_id` parameter to retrieve trade data for a specific subaccount (requires `mainaccount` scope).
+
 **📖 Related Article:** [Accessing Historical Trades and Orders Using API](https://docs.deribit.com/articles/accessing-historical-trades-orders)
 
 **Scope:** `trade:read`
@@ -74,6 +76,10 @@ paths:
         the `count` parameter to limit the number of trades returned, and
         `sorting` to control the order (ascending or descending by trade ID).
         Use `historical` to retrieve historical trade data.
+
+
+        Main accounts may use the `subaccount_id` parameter to retrieve trade
+        data for a specific subaccount (requires `mainaccount` scope).
 
 
         **📖 Related Article:** [Accessing Historical Trades and Orders Using
@@ -159,6 +165,13 @@ paths:
           description: >-
             Direction of results sorting (`default` value means no sorting,
             results will be returned in order in which they left the database)
+        - name: subaccount_id
+          in: query
+          required: false
+          schema:
+            type: integer
+            example: 9
+          description: Id of a subaccount
       requestBody:
         content:
           application/json:
@@ -216,8 +229,8 @@ components:
             - trades
             - has_more
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     user_trade:
       properties:

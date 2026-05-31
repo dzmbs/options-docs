@@ -58,6 +58,11 @@ Get trade history for a subaccount, with filter parameters.
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
+        "type": "object",
+        "required": [
+          "count",
+          "num_pages"
+        ],
         "properties": {
           "count": {
             "title": "count",
@@ -70,14 +75,10 @@ Get trade history for a subaccount, with filter parameters.
             "description": "Number of pages"
           }
         },
-        "required": [
-          "count",
-          "num_pages"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTradeHistoryParamsSchema": {
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -163,10 +164,14 @@ Get trade history for a subaccount, with filter parameters.
             "description": "Transaction status to filter by (default `settled`)."
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTradeHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -184,14 +189,14 @@ Get trade history for a subaccount, with filter parameters.
             "$ref": "#/components/schemas/PublicGetTradeHistoryResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTradeHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "pagination",
+          "trades"
+        ],
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -205,14 +210,32 @@ Get trade history for a subaccount, with filter parameters.
             }
           }
         },
-        "required": [
-          "pagination",
-          "trades"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "TradeSettledPublicResponseSchema": {
+        "type": "object",
+        "required": [
+          "direction",
+          "expected_rebate",
+          "extra_fee",
+          "index_price",
+          "instrument_name",
+          "liquidity_role",
+          "mark_price",
+          "quote_id",
+          "realized_pnl",
+          "realized_pnl_excl_fees",
+          "rfq_id",
+          "subaccount_id",
+          "timestamp",
+          "trade_amount",
+          "trade_fee",
+          "trade_id",
+          "trade_price",
+          "tx_hash",
+          "tx_status",
+          "wallet"
+        ],
         "properties": {
           "direction": {
             "title": "direction",
@@ -233,7 +256,7 @@ Get trade history for a subaccount, with filter parameters.
             "title": "extra_fee",
             "type": "string",
             "format": "decimal",
-            "description": "Extra fee in USDC added by the reffering client (included in trade fee)"
+            "description": "Extra fee in USDC added by the referring client (included in trade fee)"
           },
           "index_price": {
             "title": "index_price",
@@ -343,29 +366,6 @@ Get trade history for a subaccount, with filter parameters.
             "description": "Wallet address (owner) of the subaccount"
           }
         },
-        "required": [
-          "direction",
-          "expected_rebate",
-          "extra_fee",
-          "index_price",
-          "instrument_name",
-          "liquidity_role",
-          "mark_price",
-          "quote_id",
-          "realized_pnl",
-          "realized_pnl_excl_fees",
-          "rfq_id",
-          "subaccount_id",
-          "timestamp",
-          "trade_amount",
-          "trade_fee",
-          "trade_id",
-          "trade_price",
-          "tx_hash",
-          "tx_status",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

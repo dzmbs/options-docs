@@ -197,7 +197,7 @@ Get trade history for a subaccount, with filter parameters.<br />Required minimu
           <td style={{textAlign: "left"}}>
             <span className="ws-small-font">result.trades\[].</span>
             <strong>extra\_fee</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Extra fee in USDC added by the reffering client (included in trade fee)</span>
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Extra fee in USDC added by the referring client (included in trade fee)</span>
           </td>
         </tr>
 

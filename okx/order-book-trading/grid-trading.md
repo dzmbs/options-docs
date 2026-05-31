@@ -656,6 +656,7 @@ Response Example
  "profitSharingRatio": "",
  "copyType": "0",
  "fee": "",
+ "feeCcy": "",
  "fundingFee": "",
  "tradeQuoteCcy": "USDT"
  }
@@ -722,6 +723,7 @@ Response Example
 | profitSharingRatio | String | Profit sharing ratioValue range [0, 0.3]If it is a normal order (neither copy order nor lead order), this field returns "" |
 | copyType | String | Profit sharing order type`0`: Normal order`1`: Copy order without profit sharing`2`: Copy order with profit sharing`3`: Lead order |
 | fee | String | Accumulated fee. Only applicable to contract grid, or it will be "" |
+| feeCcy | String | Accumulated fee currency. Only applicable to contract grid, or it will be "" |
 | fundingFee | String | Accumulated funding fee. Only applicable to contract grid, or it will be "" |
 | tradeQuoteCcy | String | The quote currency for trading. |
 
@@ -829,6 +831,7 @@ Response Example
  "profitSharingRatio": "",
  "copyType": "0",
  "fee": "",
+ "feeCcy": "",
  "fundingFee": "",
  "tradeQuoteCcy": "USDT"
  }
@@ -895,6 +898,7 @@ Response Example
 | profitSharingRatio | String | Profit sharing ratioValue range [0, 0.3]If it is a normal order (neither copy order nor lead order), this field returns "" |
 | copyType | String | Profit sharing order type`0`: Normal order`1`: Copy order without profit sharing`2`: Copy order with profit sharing`3`: Lead order |
 | fee | String | Accumulated fee. Only applicable to contract grid, or it will be "" |
+| feeCcy | String | Accumulated fee currency. Only applicable to contract grid, or it will be "" |
 | fundingFee | String | Accumulated funding fee. Only applicable to contract grid, or it will be "" |
 | stopResult | String | Stop result`0`: default, `1`: Successful selling of currency at market price, `-1`: Failed to sell currency at market priceOnly applicable to `Spot grid` |
 | tradeQuoteCcy | String | The quote currency for trading. |
@@ -1011,6 +1015,7 @@ Response Example
  "tpRatio": "",
  "slRatio": "",
  "fee": "",
+ "feeCcy": "",
  "fundingFee": "",
  "tradeQuoteCcy": "USDT"
  }
@@ -1092,6 +1097,7 @@ Response Example
 | tpRatio | String | Take profit ratio, 0.1 represents 10% |
 | slRatio | String | Stop loss ratio, 0.1 represents 10% |
 | fee | String | Accumulated fee. Only applicable to contract grid, or it will be "" |
+| feeCcy | String | Accumulated fee currency. Only applicable to contract grid, or it will be "" |
 | fundingFee | String | Accumulated funding fee. Only applicable to contract grid, or it will be "" |
 | tradeQuoteCcy | String | The quote currency for trading. |
 
@@ -1529,7 +1535,7 @@ GET /api/v5/tradingBot/grid/ai-param?instId=BTC-USDT&algoOrdType=grid
 | algoOrdType | String | Yes | Algo order type`grid`: Spot grid`contract_grid`: Contract grid |
 | instId | String | Yes | Instrument ID, e.g. `BTC-USDT` |
 | direction | String | Conditional | Contract grid type`long`,`short`,`neutral`Required in the case of `contract_grid` |
-| duration | String | No | Back testing duration`7D`: 7 Days, `30D`: 30 Days, `180D`: 180 DaysThe default is `7D` for `Spot grid`Only `7D` is available for `Contract grid` |
+| duration | String | No | Back testing duration in number of daysSpot grid default is `7D` with available durations of `7D`, `30D` and `180D`Contract grid default is `14D` with available durations of `7D`, `14D` and `30D` |
 
 Response Example
 
@@ -1780,6 +1786,91 @@ Response Example
 | Parameter | Type | Description |
 | --- | --- | --- |
 | maxGridQty | String | Maximum grid quantity |
+
+### POST / Copy grid algo order
+
+#### Rate Limit: 20 requests per 2 seconds
+
+#### Rate Limit Rule: User ID + Instrument ID
+
+#### Permission: Trade
+
+#### HTTP Request
+
+`POST /api/v5/tradingBot/grid/copy-order-algo`
+
+Request Example
+
+```
+# Spot grid copy
+POST /api/v5/tradingBot/grid/copy-order-algo
+body
+{
+ "instId": "BTC-USDT",
+ "algoOrdType": "grid",
+ "sourceAlgoId": "580007082221121536",
+ "quoteSz": "1000"
+}
+```
+
+```
+# Contract grid copy
+POST /api/v5/tradingBot/grid/copy-order-algo
+body
+{
+ "instId": "BTC-USDT-SWAP",
+ "algoOrdType": "contract_grid",
+ "sourceAlgoId": "580007082221121536",
+ "lever": "3",
+ "autoReserve": true,
+ "sz": "5000"
+}
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| instId | String | Yes | Instrument ID, e.g. `BTC-USDT` |
+| algoOrdType | String | Yes | Algo order type`grid`: Spot grid`contract_grid`: Contract grid |
+| sourceAlgoId | String | Yes | Lead algo order ID to follow and copy from |
+| quoteSz | String | No | Quote currency investment amountOnly applicable to `grid` |
+| lever | String | No | LeverageOnly applicable to `contract_grid` |
+| autoReserve | Boolean | No | Whether to auto-reserve margin. Only applicable to `contract_grid``true`: Actual margin and extra margin are automatically calculated based on `sz``false`: Manually specify `actualMarginSz` and `extraMarginSz` |
+| sz | String | No | Total investment amount in USDT. Required when `autoReserve` is `true`Only applicable to `contract_grid` |
+| actualMarginSz | String | No | Actual margin. Required when `autoReserve` is `false`Only applicable to `contract_grid` |
+| extraMarginSz | String | No | Extra margin reserved. Defaults to `0` when unspecifiedOnly applicable to `contract_grid` |
+| algoClOrdId | String | No | Client-supplied Algo ID |
+| tag | String | No | Order tag |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [
+ {
+ "algoId": "581234567890123456",
+ "algoClOrdId": "",
+ "sCode": "0",
+ "sMsg": "",
+ "tag": ""
+ }
+ ]
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| algoId | String | Algo order ID |
+| algoClOrdId | String | Client-supplied Algo ID |
+| sCode | String | Event execution status code, `0` indicates success |
+| sMsg | String | Error message if the event execution failed |
+| tag | String | Order tag |
 
 ### WS / Spot grid algo orders channel
 

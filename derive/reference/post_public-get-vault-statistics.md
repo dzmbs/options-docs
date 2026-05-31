@@ -58,11 +58,16 @@ Gets all the latest vault shareRate, totalSupply and TVL values for all vaults.<
   "components": {
     "schemas": {
       "PublicGetVaultStatisticsParamsSchema": {
-        "properties": {},
         "type": "object",
+        "properties": {},
         "additionalProperties": false
       },
       "PublicGetVaultStatisticsResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -85,14 +90,21 @@ Gets all the latest vault shareRate, totalSupply and TVL values for all vaults.<
             }
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "VaultStatisticsResponseSchema": {
+        "type": "object",
+        "required": [
+          "base_value",
+          "block_number",
+          "block_timestamp",
+          "subaccount_value_at_last_trade",
+          "total_supply",
+          "underlying_value",
+          "usd_tvl",
+          "usd_value",
+          "vault_name"
+        ],
         "properties": {
           "base_value": {
             "title": "base_value",
@@ -150,18 +162,6 @@ Gets all the latest vault shareRate, totalSupply and TVL values for all vaults.<
             "description": "Name of the vault"
           }
         },
-        "required": [
-          "base_value",
-          "block_number",
-          "block_timestamp",
-          "subaccount_value_at_last_trade",
-          "total_supply",
-          "underlying_value",
-          "usd_tvl",
-          "usd_value",
-          "vault_name"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

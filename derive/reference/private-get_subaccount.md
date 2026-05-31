@@ -405,7 +405,7 @@ Get open orders, active positions, and collaterals of a subaccount<br />Required
           <td style={{textAlign: "left"}}>
             <span className="ws-small-font">result.open\_orders\[].</span>
             <strong>cancel\_reason</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>If cancelled, reason behind order cancellation</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>user\_request</code> <code>mmp\_trigger</code> <code>insufficient\_margin</code> <code>signed\_max\_fee\_too\_low</code> <code>cancel\_on\_disconnect</code> <code>ioc\_or\_market\_partial\_fill</code> <code>session\_key\_deregistered</code> <code>subaccount\_withdrawn</code> <code>compliance</code> <code>trigger\_failed</code> <code>validation\_failed</code>
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>If cancelled, reason behind order cancellation</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>user\_request</code> <code>mmp\_trigger</code> <code>insufficient\_margin</code> <code>signed\_max\_fee\_too\_low</code> <code>cancel\_on\_disconnect</code> <code>ioc\_or\_market\_partial\_fill</code> <code>session\_key\_deregistered</code> <code>subaccount\_withdrawn</code> <code>compliance</code> <code>trigger\_failed</code> <code>validation\_failed</code> <code>algo\_completed</code>
           </td>
         </tr>
 
@@ -477,7 +477,7 @@ Get open orders, active positions, and collaterals of a subaccount<br />Required
           <td style={{textAlign: "left"}}>
             <span className="ws-small-font">result.open\_orders\[].</span>
             <strong>max\_fee</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Max fee in units of the quote currency</span>
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Max fee PER contract, denominated in USDC.Max fee must be > 2 x max(taker\_fee, maker\_fee) x spot\_price + extra\_fee / amount.If the order crosses the book, it must be >= 2 x max(taker\_fee, maker\_fee) x spot\_price + base\_fee / fill\_amount + extra\_fee / amount.Note, in this calculation, regardless of the account taker / maker fees, the standard taker / maker fees are used.</span>
           </td>
         </tr>
 
@@ -517,7 +517,7 @@ Get open orders, active positions, and collaterals of a subaccount<br />Required
           <td style={{textAlign: "left"}}>
             <span className="ws-small-font">result.open\_orders\[].</span>
             <strong>order\_status</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Order status</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>open</code> <code>filled</code> <code>cancelled</code> <code>expired</code> <code>untriggered</code>
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Order status</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>open</code> <code>filled</code> <code>cancelled</code> <code>expired</code> <code>untriggered</code> <code>algo\_active</code>
           </td>
         </tr>
 
@@ -574,6 +574,38 @@ Get open orders, active positions, and collaterals of a subaccount<br />Required
             <span className="ws-small-font">result.open\_orders\[].</span>
             <strong>time\_in\_force</strong> 
             <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Time in force</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>gtc</code> <code>post\_only</code> <code>fok</code> <code>ioc</code>
+          </td>
+        </tr>
+
+        <tr>
+          <td style={{textAlign: "left"}}>
+            <span className="ws-small-font">result.open\_orders\[].</span>
+            <strong>algo\_duration\_sec</strong> 
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer or null</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Total execution window in seconds</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td style={{textAlign: "left"}}>
+            <span className="ws-small-font">result.open\_orders\[].</span>
+            <strong>algo\_num\_slices</strong> 
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer or null</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Number of child executions</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td style={{textAlign: "left"}}>
+            <span className="ws-small-font">result.open\_orders\[].</span>
+            <strong>algo\_slices\_completed</strong> 
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer or null</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Number of slices executed so far</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td style={{textAlign: "left"}}>
+            <span className="ws-small-font">result.open\_orders\[].</span>
+            <strong>algo\_type</strong> 
+            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string or null</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Algo order type (twap or vwap)</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>twap</code>
           </td>
         </tr>
 

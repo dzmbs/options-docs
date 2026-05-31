@@ -59,6 +59,11 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
+        "type": "object",
+        "required": [
+          "count",
+          "num_pages"
+        ],
         "properties": {
           "count": {
             "title": "count",
@@ -71,45 +76,13 @@ Required minimum session key permission level is `read_only`
             "description": "Number of pages"
           }
         },
-        "required": [
-          "count",
-          "num_pages"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "LegUnpricedSchema": {
-        "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Amount in units of the base"
-          },
-          "direction": {
-            "title": "direction",
-            "type": "string",
-            "enum": [
-              "buy",
-              "sell"
-            ],
-            "description": "Leg direction"
-          },
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "description": "Instrument name"
-          }
-        },
-        "required": [
-          "amount",
-          "direction",
-          "instrument_name"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivatePollRfqsParamsSchema": {
+        "type": "object",
+        "required": [
+          "subaccount_id"
+        ],
         "properties": {
           "from_timestamp": {
             "title": "from_timestamp",
@@ -169,13 +142,14 @@ Required minimum session key permission level is `read_only`
             "description": "Latest `last_update_timestamp` to filter by (in ms since Unix epoch). If not provied, defaults to returning all data up to current time."
           }
         },
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivatePollRfqsResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -193,14 +167,14 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivatePollRfqsResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivatePollRfqsResultSchema": {
+        "type": "object",
+        "required": [
+          "pagination",
+          "rfqs"
+        ],
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -214,14 +188,29 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "required": [
-          "pagination",
-          "rfqs"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "RFQResultPublicSchema": {
+        "type": "object",
+        "required": [
+          "cancel_reason",
+          "creation_timestamp",
+          "fill_rate",
+          "filled_direction",
+          "filled_pct",
+          "last_update_timestamp",
+          "legs",
+          "partial_fill_step",
+          "preferred_direction",
+          "recent_fill_rate",
+          "reducing_direction",
+          "rfq_id",
+          "status",
+          "subaccount_id",
+          "total_cost",
+          "valid_until",
+          "wallet"
+        ],
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",
@@ -289,12 +278,34 @@ Required minimum session key permission level is `read_only`
             "format": "decimal",
             "description": "Step size for partial fills (default: 1)"
           },
+          "preferred_direction": {
+            "title": "preferred_direction",
+            "type": "string",
+            "default": null,
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "If disclosed, the direction the user is aiming to execute as.",
+            "nullable": true
+          },
           "recent_fill_rate": {
             "title": "recent_fill_rate",
             "type": "string",
             "format": "decimal",
             "default": null,
             "description": "Taker fill rate, weighted towards the recent several days of activity, from 0 to 1. Returns null for users with insufficient recent RFQ history.",
+            "nullable": true
+          },
+          "reducing_direction": {
+            "title": "reducing_direction",
+            "type": "string",
+            "default": null,
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "If applicable, the direction from user's perspective that would reduce their position in each leg.",
             "nullable": true
           },
           "rfq_id": {
@@ -338,24 +349,37 @@ Required minimum session key permission level is `read_only`
             "description": "Wallet address of the RFQ sender"
           }
         },
-        "required": [
-          "cancel_reason",
-          "creation_timestamp",
-          "fill_rate",
-          "filled_direction",
-          "filled_pct",
-          "last_update_timestamp",
-          "legs",
-          "partial_fill_step",
-          "recent_fill_rate",
-          "rfq_id",
-          "status",
-          "subaccount_id",
-          "total_cost",
-          "valid_until",
-          "wallet"
-        ],
+        "additionalProperties": false
+      },
+      "LegUnpricedSchema": {
         "type": "object",
+        "required": [
+          "amount",
+          "direction",
+          "instrument_name"
+        ],
+        "properties": {
+          "amount": {
+            "title": "amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Amount in units of the base"
+          },
+          "direction": {
+            "title": "direction",
+            "type": "string",
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "Leg direction"
+          },
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "description": "Instrument name"
+          }
+        },
         "additionalProperties": false
       }
     }

@@ -84,11 +84,11 @@ operations:
                   - name: instrument_name
                     type: string
                     description: Unique instrument identifier
-                    required: false
+                    required: true
                   - name: timestamp
                     type: integer
                     description: The timestamp (milliseconds since the Unix epoch)
-                    required: false
+                    required: true
                   - name: state
                     type: string
                     description: >
@@ -150,15 +150,15 @@ operations:
                       - name: volume
                         type: number
                         description: Volume during last 24h in base currency
-                        required: false
+                        required: true
                       - name: low
                         type: number
                         description: Lowest price during 24h
-                        required: false
+                        required: true
                       - name: high
                         type: number
                         description: Highest price during 24h
-                        required: false
+                        required: true
                       - name: price_change
                         type: number
                         description: >-
@@ -361,7 +361,7 @@ operations:
                           Note that DeltaTotal in account summary uses Net
                           Transaction Delta instead. See the greeks object
                           description for more details.
-                        required: false
+                        required: true
                       - name: gamma
                         type: number
                         description: >
@@ -372,7 +372,7 @@ operations:
 
                           Gamma measures the rate of change of delta with
                           respect to changes in the underlying asset price.
-                        required: false
+                        required: true
                       - name: rho
                         type: number
                         description: >
@@ -383,7 +383,7 @@ operations:
 
                           Rho measures the sensitivity of the option price to
                           changes in the risk-free interest rate.
-                        required: false
+                        required: true
                       - name: theta
                         type: number
                         description: >
@@ -401,7 +401,7 @@ operations:
 
                           Theta measures the rate of change of the option price
                           with respect to time decay.
-                        required: false
+                        required: true
                       - name: vega
                         type: number
                         description: >
@@ -413,7 +413,7 @@ operations:
                           Vega (not actually a Greek symbol) measures the
                           sensitivity of the option price to changes in implied
                           volatility.
-                        required: false
+                        required: true
                   - name: funding_8h
                     type: number
                     description: Funding 8h (perpetual only)

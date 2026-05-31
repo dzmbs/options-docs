@@ -28,7 +28,7 @@ Request Example
 
 ```
 curl -X 'POST' \
- 'https://www.okx.com/api/v5/trade/order' \
+ 'https://openapi.okx.com/api/v5/trade/order' \
  -H 'accept: application/json' \
  -H 'Content-Type: application/json' \
  -H 'OK-ACCESS-KEY: *****' \

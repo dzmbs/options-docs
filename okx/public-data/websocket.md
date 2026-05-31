@@ -63,7 +63,7 @@ asyncio.run(main())
 | op | String | Yes | Operation`subscribe``unsubscribe` |
 | args | Array of objects | Yes | List of subscribed channels |
 | > channel | String | Yes | Channel name`instruments` |
-| > instType | String | Yes | Instrument type`SPOT``MARGIN``SWAP``FUTURES``OPTION` |
+| > instType | String | Yes | Instrument type`SPOT``MARGIN``SWAP``FUTURES``OPTION``EVENTS` |
 
 Successful Response Example
 
@@ -101,7 +101,7 @@ Failure Response Example
 | event | String | Yes | Event`subscribe``unsubscribe``error` |
 | arg | Object | No | Subscribed channel |
 | > channel | String | Yes | Channel name |
-| > instType | String | Yes | Instrument type`SPOT``MARGIN``SWAP``FUTURES``OPTION` |
+| > instType | String | Yes | Instrument type`SPOT``MARGIN``SWAP``FUTURES``OPTION``EVENTS` |
 | code | String | No | Error code |
 | msg | String | No | Error message |
 | connId | String | Yes | WebSocket connection ID |
@@ -177,6 +177,7 @@ Push Data Example
 | > instType | String | Instrument type |
 | data | Array of objects | Subscribed data |
 | > instType | String | Instrument type |
+| > seriesId | String | Series ID, e.g. `BTC-ABOVE-DAILY`. Only applicable to `EVENTS` |
 | > instId | String | Instrument ID, e.g. `BTC-UST` |
 | > uly | String | Underlying, e.g. `BTC-USD` Only applicable to `FUTURES`/`SWAP`/`OPTION` |
 | > groupId | String | Instrument trading fee group IDSpot:`1`: Spot USDT`2`: Spot USDC & Crypto`3`: Spot TRY`4`: Spot EUR`5`: Spot BRL`7`: Spot AED`8`: Spot AUD`9`: Spot USD`10`: Spot SGD`11`: Spot zero`12`: Spot group one`13`: Spot group two`14`: Spot group three`15`: Spot special ruleExpiry futures:`1`: Expiry futures crypto-margined`2`: Expiry futures USDT-margined`3`: Expiry futures USDC-margined`4`: Expiry futures premarket`5`: Expiry futures group one`6`: Expiry futures group twoPerpetual futures:`1`: Perpetual futures crypto-margined`2`: Perpetual futures USDT-margined`3`: Perpetual futures USDC-margined`4`: Perpetual futures group one`5`: Perpetual futures group two`6`: Stock perpetual futures Options:`1`: Options crypto-margined`2`: Options USDC-marginedinstType and groupId should be used together to determine a trading fee group. Users should use this endpoint together with fee rates endpoint to get the trading fee of a specific symbol. Some enum values may not apply to you; the actual return values shall prevail. |
@@ -197,13 +198,13 @@ Push Data Example
 | > openType | String | Open type `fix_price`: fix price opening`pre_quote`: pre-quote`call_auction`: call auction Only applicable to `SPOT`/`MARGIN`, return "" for all other business lines |
 | > expTime | String | Expiry timeApplicable to `SPOT`/`MARGIN`/`FUTURES`/`SWAP`/`OPTION`. For `FUTURES`/`OPTION`, it is the delivery/exercise time. It can also be the delisting time of the trading instrument. Update once change. |
 | > lever | String | Max LeverageNot applicable to `SPOT`/`OPTION`, used to distinguish between `MARGIN` and `SPOT`. |
-| > tickSz | String | Tick size, e.g. `0.0001`For Option, it is minimum tickSz among tick band. |
+| > tickSz | String | Tick size, e.g. `0.0001`.For `OPTION`/`EVENTS`, it is the minimum tickSz among tick band. |
 | > lotSz | String | Lot sizeIf it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency` |
 | > minSz | String | Minimum order sizeIf it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency` |
 | > ctType | String | Contract type`linear`: linear contract`inverse`: inverse contractOnly applicable to `FUTURES`/`SWAP` |
-| > alias | String | Alias`this_week``next_week``this_month``next_month``quarter``next_quarter`Only applicable to `FUTURES` Not recommended for use, users are encouraged to rely on the expTime field to determine the delivery time of the contract |
-| > state | String | Instrument status`live``suspend``expired``rebase`: can't be traded during rebasing, only applicable to `SWAP``preopen`. e.g. There will be `preopen` before the Futures and Options new contracts state is live.`test`: Test pairs, can't be traded |
-| > ruleType | String | Trading rule types `normal`: normal trading `pre_market`: pre-market trading `rebase_contract`: pre-market rebase contract |
+| > alias | String | Contract alias (deprecated — use expTime to obtain the delivery time, will be removed by the end of April 2026)`this_week``next_week``this_month``next_month``quarter``next_quarter``this_five_years`: current 5-year contract`next_five_years`: next 5-year contractOnly applicable to `FUTURES` |
+| > state | String | Instrument status`live``suspend``expired``rebase`: can't be traded during rebasing, only applicable to `SWAP``post_only`: only post-only orders are accepted; existing post-only orders can be amended and cancelled. Other order types (market, IOC, FOK, normal limit) are rejected. Only applicable to `SWAP``preopen`. e.g. There will be `preopen` before the Futures and Options new contracts state is live.`test`: Test pairs, can't be traded`settling`: Settling, only applicable to `EVENTS` |
+| > ruleType | String | Trading rule types`normal`: normal trading`pre_market`: pre-market trading`rebase_contract`: pre-market rebase contract`xperp`: perpetual-style futures, only applicable to certain `FUTURES` contracts |
 | > maxLmtSz | String | The maximum order quantity of a single limit order.If it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
 | > maxMktSz | String | The maximum order quantity of a single market order.If it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `USDT`. |
 | > maxTwapSz | String | The maximum order quantity of a single TWAP order.If it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
@@ -212,7 +213,7 @@ Push Data Example
 | > maxStopSz | String | The maximum order quantity of a single stop market order.If it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `USDT`. |
 | > futureSettlement | Boolean | Whether daily settlement for expiry feature is enabledApplicable to `FUTURES` `cross` |
 | > instIdCode | Integer | Instrument ID code. For simple binary encoding, you must use `instIdCode` instead of `instId`.For the same `instId`, it's value may be different between production and demo trading. It is `null` when the value is not generated. |
-| > instCategory | String | The asset category of the instrument’s base asset (the first segment of the instrument ID). For example, for `BTC-USDT-SWAP`, the `instCategory` represents the asset category of `BTC`. `1`: Crypto `3`: Stocks |
+| > instCategory | String | The asset category of the instrument’s base asset (the first segment of the instrument ID). For example, for `BTC-USDT-SWAP`, the `instCategory` represents the asset category of `BTC`. `1`: Crypto `3`: Stocks `4`: Commodities `5`: Forex `6`: Bonds `""`: Not available |
 | > upcChg | Array of objects | Upcoming changes. It is [] when there is no upcoming change. |
 | >> param | String | The parameter name to be updated. `tickSz` `minSz` `maxMktSz` |
 | >> newValue | String | The parameter value that will replace the current one. |
@@ -232,6 +233,124 @@ state
 The state will always change from `preopen` to `live` when the listTime is reached. Certain symbols will now have `state:preopen` before they go live. Before going live, the instruments channel will push data for pre-listing symbols with `state:preopen`. If the listing is cancelled, the channel will send full data excluding the cancelled symbol, without additional notification. When the symbol goes live (reaching listTime), the channel will push data with `state:live`. Users can also query the corresponding data via the REST endpoint.
 
 When a product is going to be delisted (e.g. when a FUTURES contract is settled or OPTION contract is exercised), the instrument will not be available.
+
+### Event contract markets channel
+
+Pushes event contract market status updates and floorStrike generation. No initial snapshot push.
+
+#### URL Path
+
+/ws/v5/public
+
+Request Example
+
+```
+{
+ "op": "subscribe",
+ "args": [
+ {
+ "channel": "event-contract-markets",
+ "instType": "EVENTS"
+ }
+ ]
+}
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| id | String | No | Unique identifier of the message. Provided by client. Returned in response. Alphanumeric, 1-32 characters. |
+| op | String | Yes | Operation.`subscribe``unsubscribe` |
+| args | Array of objects | Yes | List of subscribed channels |
+| > channel | String | Yes | Channel name.`event-contract-markets` |
+| > instType | String | Yes | Instrument type.`EVENTS` |
+
+Successful Response Example
+
+```
+{
+ "id": "1512",
+ "event": "subscribe",
+ "arg": {
+ "channel": "event-contract-markets",
+ "instType": "EVENTS"
+ },
+ "connId": "a4d3ae55"
+}
+
+```
+
+Failure Response Example
+
+```
+{
+ "id": "1512",
+ "event": "error",
+ "code": "60012",
+ "msg": "Invalid request: {\"op\": \"subscribe\", \"argss\":[{\"channel\": \"event-contract-markets\", \"instType\": \"EVENTS\"}]}",
+ "connId": "a4d3ae55"
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| id | String | Unique identifier of the message |
+| event | String | Event.`subscribe``unsubscribe``error` |
+| arg | Object | Subscribed channel |
+| > channel | String | Channel name |
+| > instType | String | Instrument type |
+| code | String | Error code |
+| msg | String | Error message |
+| connId | String | WebSocket connection ID |
+
+Push Data Example
+
+```
+{
+ "arg": {
+ "channel": "event-contract-markets"
+ },
+ "data": [
+ {
+ "seriesId": "BTC-ABOVE-DAILY",
+ "eventId": "BTC-ABOVE-DAILY-260224-1600",
+ "instId": "BTC-ABOVE-DAILY-260224-1600-65000",
+ "listTime": "1769697132335",
+ "fixTime": "",
+ "expTime": "1769697132335",
+ "state": "live",
+ "outcome": "0",
+ "floorStrike": "120000",
+ "settleValue": "",
+ "disputed": false
+ }
+ ]
+}
+
+```
+
+#### Push Data Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| arg | Object | Subscribed channel |
+| > channel | String | Channel name |
+| data | Array of objects | Subscribed data |
+| > seriesId | String | Series ID, e.g. `BTC-ABOVE-DAILY` |
+| > eventId | String | Event ID, e.g. `BTC-ABOVE-DAILY-260224-1600` |
+| > instId | String | Instrument ID, e.g. `BTC-ABOVE-DAILY-260224-1600-65000` |
+| > listTime | String | Listing time, Unix timestamp format in milliseconds, e.g. `1597026383085` |
+| > fixTime | String | Strike price fixing time, Unix timestamp format in milliseconds, e.g. `1597026383085`. Only applicable to `price_up_down` settlement method. |
+| > expTime | String | Strike time for this event, Unix timestamp format in milliseconds, e.g. `1597026383085`. Updated once the market is settled. |
+| > state | String | Market state.`preopen``live``settling``expired` |
+| > outcome | String | Market outcome.`0`: Not available`1`: YES`2`: NO.`1`/`2` only applicable when state is `expired` |
+| > floorStrike | String | Minimum expiration value that leads to a YES outcome |
+| > settleValue | String | Settlement valueOnly return when the state is `expired` |
+| > disputed | Boolean | Whether the market has been disputed.`true``false` |
 
 ### Open interest channel
 
@@ -510,7 +629,7 @@ Push Data Example
 | > channel | String | Channel name |
 | > instId | String | Instrument ID |
 | data | Array of objects | Subscribed data |
-| > instType | String | Instrument type, `SWAP` |
+| > instType | String | Instrument type`SWAP`: Perpetual futures`FUTURES`: X-Perps futures |
 | > instId | String | Instrument ID, e.g. `BTC-USD-SWAP` |
 | > method | String | Funding rate mechanism `current_period` `next_period`(no longer supported) |
 | > formulaType | String | Formula type`noRate`: old funding rate formula`withRate`: new funding rate formula |
@@ -887,7 +1006,7 @@ asyncio.run(main())
 | op | String | Yes | Operation`subscribe``unsubscribe` |
 | args | Array of objects | Yes | List of subscribed channels |
 | > channel | String | Yes | Channel name`estimated-price` |
-| > instType | String | Yes | Instrument type`OPTION``FUTURES``SWAP` |
+| > instType | String | Yes | Instrument type`OPTION``FUTURES``SWAP``EVENTS` |
 | > instFamily | String | Conditional | Instrument familyEither `instFamily` or `instId` is required. |
 | > instId | String | Conditional | Instrument IDEither `instFamily` or `instId` is required. |
 
@@ -928,7 +1047,7 @@ Failure Response Example
 | event | String | Yes | Event`subscribe``unsubscribe``error` |
 | arg | Object | No | Subscribed channel |
 | > channel | String | Yes | Channel name |
-| > instType | String | Yes | Instrument type`OPTION``FUTURES``SWAP` |
+| > instType | String | Yes | Instrument type`OPTION``FUTURES``SWAP``EVENTS` |
 | > instFamily | String | Conditional | Instrument family |
 | > instId | String | Conditional | Instrument ID |
 | code | String | No | Error code |
@@ -961,7 +1080,7 @@ Push Data Example
 | --- | --- | --- |
 | arg | Object | Successfully subscribed channel |
 | > channel | String | Channel name |
-| > instType | String | Instrument type`FUTURES``OPTION``SWAP` |
+| > instType | String | Instrument type`FUTURES``OPTION``SWAP``EVENTS` |
 | > instFamily | String | Instrument family |
 | > instId | String | Instrument ID |
 | data | Array of objects | Subscribed data |
@@ -1506,7 +1625,7 @@ The order of the returned values is: [ts,o,h,l,c,confirm]
 
 ### Liquidation orders channel
 
-Retrieve the recent liquidation orders. For futures and swaps, each contract will only show a maximum of one order per one-second period. This data doesn’t represent the total number of liquidations on OKX.
+Retrieve the recent liquidation orders. This data doesn’t represent the total number of liquidations on OKX.
 
 #### URL Path
 

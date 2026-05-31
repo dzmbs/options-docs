@@ -59,6 +59,13 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "PrivateCancelByNonceParamsSchema": {
+        "type": "object",
+        "required": [
+          "instrument_name",
+          "nonce",
+          "subaccount_id",
+          "wallet"
+        ],
         "properties": {
           "instrument_name": {
             "title": "instrument_name",
@@ -81,16 +88,14 @@ Required minimum session key permission level is `admin`
             "description": "Wallet address"
           }
         },
-        "required": [
-          "instrument_name",
-          "nonce",
-          "subaccount_id",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCancelByNonceResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -108,14 +113,13 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateCancelByNonceResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCancelByNonceResultSchema": {
+        "type": "object",
+        "required": [
+          "cancelled_orders"
+        ],
         "properties": {
           "cancelled_orders": {
             "title": "cancelled_orders",
@@ -123,10 +127,6 @@ Required minimum session key permission level is `admin`
             "description": "Number of cancelled orders"
           }
         },
-        "required": [
-          "cancelled_orders"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

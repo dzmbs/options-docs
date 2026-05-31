@@ -251,8 +251,8 @@ components:
             - order
             - trades
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     order:
       properties:

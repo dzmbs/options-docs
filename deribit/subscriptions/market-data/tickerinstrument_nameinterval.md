@@ -130,11 +130,11 @@ operations:
                   - name: instrument_name
                     type: string
                     description: Unique instrument identifier
-                    required: false
+                    required: true
                   - name: timestamp
                     type: integer
                     description: The timestamp (milliseconds since the Unix epoch)
-                    required: false
+                    required: true
                   - name: state
                     type: string
                     description: >
@@ -188,23 +188,23 @@ operations:
                       - locked
                       - halted
                       - archivized
-                    required: false
+                    required: true
                   - name: stats
                     type: object
-                    required: false
+                    required: true
                     properties:
                       - name: volume
                         type: number
                         description: Volume during last 24h in base currency
-                        required: false
+                        required: true
                       - name: low
                         type: number
                         description: Lowest price during 24h
-                        required: false
+                        required: true
                       - name: high
                         type: number
                         description: Highest price during 24h
-                        required: false
+                        required: true
                       - name: price_change
                         type: number
                         description: >-
@@ -222,53 +222,53 @@ operations:
                       corresponding amount units. For perpetual and inverse
                       futures the amount is in USD units. For options and linear
                       futures it is the underlying base currency coin.
-                    required: false
+                    required: true
                   - name: best_bid_price
                     type: number
                     description: >-
                       The current best bid price, `null` if there aren't any
                       bids
-                    required: false
+                    required: true
                   - name: best_bid_amount
                     type: number
                     description: It represents the requested order size of all best bids
-                    required: false
+                    required: true
                   - name: best_ask_price
                     type: number
                     description: >-
                       The current best ask price, `null` if there aren't any
                       asks
-                    required: false
+                    required: true
                   - name: best_ask_amount
                     type: number
                     description: It represents the requested order size of all best asks
-                    required: false
+                    required: true
                   - name: index_price
                     type: number
                     description: Current index price
-                    required: false
+                    required: true
                   - name: min_price
                     type: number
                     description: >-
                       The minimum price for the future. Any sell orders you
                       submit lower than this price will be clamped to this
                       minimum.
-                    required: false
+                    required: true
                   - name: max_price
                     type: number
                     description: >-
                       The maximum price for the future. Any buy orders you
                       submit higher than this price, will be clamped to this
                       maximum.
-                    required: false
+                    required: true
                   - name: mark_price
                     type: number
                     description: The mark price for the instrument
-                    required: false
+                    required: true
                   - name: last_price
                     type: number
                     description: The price for the last trade
-                    required: false
+                    required: true
                   - name: underlying_price
                     type: number
                     description: >-
@@ -407,7 +407,7 @@ operations:
                           Note that DeltaTotal in account summary uses Net
                           Transaction Delta instead. See the greeks object
                           description for more details.
-                        required: false
+                        required: true
                       - name: gamma
                         type: number
                         description: >
@@ -418,7 +418,7 @@ operations:
 
                           Gamma measures the rate of change of delta with
                           respect to changes in the underlying asset price.
-                        required: false
+                        required: true
                       - name: rho
                         type: number
                         description: >
@@ -429,7 +429,7 @@ operations:
 
                           Rho measures the sensitivity of the option price to
                           changes in the risk-free interest rate.
-                        required: false
+                        required: true
                       - name: theta
                         type: number
                         description: >
@@ -447,7 +447,7 @@ operations:
 
                           Theta measures the rate of change of the option price
                           with respect to time decay.
-                        required: false
+                        required: true
                       - name: vega
                         type: number
                         description: >
@@ -459,7 +459,7 @@ operations:
                           Vega (not actually a Greek symbol) measures the
                           sensitivity of the option price to changes in implied
                           volatility.
-                        required: false
+                        required: true
                   - name: funding_8h
                     type: number
                     description: Funding 8h (perpetual only)
@@ -492,7 +492,7 @@ operations:
                       Estimated delivery price for the market. For more details,
                       see Contract Specification > General Documentation >
                       Expiration Price
-                    required: false
+                    required: true
         headers: []
         jsonPayloadSchema:
           type: object

@@ -453,8 +453,8 @@ components:
                     description: Error message.
               description: 'List of errors (present when `detailed` : `true`).'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     order:
       properties:

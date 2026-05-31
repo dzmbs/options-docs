@@ -151,8 +151,8 @@ components:
             - data
             - count
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     transfer_item:
       properties:
@@ -174,6 +174,9 @@ components:
           $ref: '#/components/schemas/transfer_direction'
         updated_timestamp:
           $ref: '#/components/schemas/timestamp'
+        nonce:
+          type: string
+          description: Optional idempotency nonce if provided in the request
       required:
         - currency
         - id

@@ -59,6 +59,16 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "PrivateDepositParamsSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "asset_name",
+          "nonce",
+          "signature",
+          "signature_expiry_sec",
+          "signer",
+          "subaccount_id"
+        ],
         "properties": {
           "amount": {
             "title": "amount",
@@ -103,19 +113,14 @@ Required minimum session key permission level is `admin`
             "description": "Subaccount_id"
           }
         },
-        "required": [
-          "amount",
-          "asset_name",
-          "nonce",
-          "signature",
-          "signature_expiry_sec",
-          "signer",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateDepositResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -133,14 +138,14 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateDepositResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateDepositResultSchema": {
+        "type": "object",
+        "required": [
+          "status",
+          "transaction_id"
+        ],
         "properties": {
           "status": {
             "title": "status",
@@ -154,11 +159,6 @@ Required minimum session key permission level is `admin`
             "description": "Transaction id of the deposit"
           }
         },
-        "required": [
-          "status",
-          "transaction_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

@@ -175,21 +175,21 @@ operations:
                       - paxg_btc
                       - drbfix-btc_usdc
                       - drbfix-eth_usdc
-                    required: false
+                    required: true
                   - name: low24h
                     type: number
                     description: The lowest recorded price within the last 24 hours
-                    required: false
+                    required: true
                   - name: high24h
                     type: number
                     description: The highest recorded price within the last 24 hours
-                    required: false
+                    required: true
                   - name: change24h
                     type: number
                     description: >-
                       The price index change calculated between the first and
                       last point within most recent 24 hours window
-                    required: false
+                    required: true
                   - name: fast_market
                     type: boolean
                     description: >-

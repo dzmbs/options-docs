@@ -58,6 +58,10 @@ Get settlement prices by expiry for each currency
   "components": {
     "schemas": {
       "PublicGetOptionSettlementPricesParamsSchema": {
+        "type": "object",
+        "required": [
+          "currency"
+        ],
         "properties": {
           "currency": {
             "title": "currency",
@@ -65,13 +69,14 @@ Get settlement prices by expiry for each currency
             "description": "Currency for which to show expiries"
           }
         },
-        "required": [
-          "currency"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetOptionSettlementPricesResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -89,14 +94,13 @@ Get settlement prices by expiry for each currency
             "$ref": "#/components/schemas/PublicGetOptionSettlementPricesResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetOptionSettlementPricesResultSchema": {
+        "type": "object",
+        "required": [
+          "expiries"
+        ],
         "properties": {
           "expiries": {
             "title": "expiries",
@@ -107,13 +111,15 @@ Get settlement prices by expiry for each currency
             }
           }
         },
-        "required": [
-          "expiries"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "ExpiryResponseSchema": {
+        "type": "object",
+        "required": [
+          "expiry_date",
+          "price",
+          "utc_expiry_sec"
+        ],
         "properties": {
           "expiry_date": {
             "title": "expiry_date",
@@ -134,12 +140,6 @@ Get settlement prices by expiry for each currency
             "description": "UTC timestamp of expiry"
           }
         },
-        "required": [
-          "expiry_date",
-          "price",
-          "utc_expiry_sec"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

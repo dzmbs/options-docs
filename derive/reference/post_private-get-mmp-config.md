@@ -59,6 +59,10 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetMmpConfigParamsSchema": {
+        "type": "object",
+        "required": [
+          "subaccount_id"
+        ],
         "properties": {
           "currency": {
             "title": "currency",
@@ -73,13 +77,14 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id for which to get the config"
           }
         },
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetMmpConfigResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -102,14 +107,18 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "MMPConfigResultSchema": {
+        "type": "object",
+        "required": [
+          "currency",
+          "is_frozen",
+          "mmp_frozen_time",
+          "mmp_interval",
+          "mmp_unfreeze_time",
+          "subaccount_id"
+        ],
         "properties": {
           "currency": {
             "title": "currency",
@@ -156,15 +165,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id for which to set the config"
           }
         },
-        "required": [
-          "currency",
-          "is_frozen",
-          "mmp_frozen_time",
-          "mmp_interval",
-          "mmp_unfreeze_time",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

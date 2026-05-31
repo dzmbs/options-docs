@@ -36,7 +36,8 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| instType | String | Yes | Instrument type`SPOT`: Spot`MARGIN`: Margin`SWAP`: Perpetual Futures`FUTURES`: Expiry Futures`OPTION`: Option |
+| instType | String | Yes | Instrument type`SPOT`: Spot`MARGIN`: Margin`SWAP`: Perpetual Futures`FUTURES`: Expiry Futures`OPTION`: Option`EVENTS`: Event Contracts |
+| seriesId | String | Conditional | Series ID, e.g. `BTC-ABOVE-DAILY`. Required when instType is `EVENTS` |
 | instFamily | String | Conditional | Instrument familyOnly applicable to `FUTURES`/`SWAP`/`OPTION`. If instType is `OPTION`, `instFamily` is required. |
 | instId | String | No | Instrument ID |
 
@@ -108,6 +109,7 @@ Response Example
 | Parameter | Type | Description |
 | --- | --- | --- |
 | instType | String | Instrument type |
+| seriesId | String | Series ID, e.g. `BTC-ABOVE-DAILY`. Only applicable to `EVENTS` |
 | instId | String | Instrument ID, e.g. `BTC-USD-SWAP` |
 | uly | String | Underlying, e.g. `BTC-USD` Only applicable to `MARGIN/FUTURES`/`SWAP`/`OPTION` |
 | groupId | String | Instrument trading fee group IDSpot:`1`: Spot USDT`2`: Spot USDC & Crypto`3`: Spot TRY`4`: Spot EUR`5`: Spot BRL`7`: Spot AED`8`: Spot AUD`9`: Spot USD`10`: Spot SGD`11`: Spot zero`12`: Spot group one`13`: Spot group two`14`: Spot group three`15`: Spot special ruleExpiry futures:`1`: Expiry futures crypto-margined`2`: Expiry futures USDT-margined`3`: Expiry futures USDC-margined`4`: Expiry futures premarket`5`: Expiry futures group one`6`: Expiry futures group twoPerpetual futures:`1`: Perpetual futures crypto-margined`2`: Perpetual futures USDT-margined`3`: Perpetual futures USDC-margined`4`: Perpetual futures group one`5`: Perpetual futures group two `6`: Stock perpetual futures Options:`1`: Options crypto-margined`2`: Options USDC-marginedinstType and groupId should be used together to determine a trading fee group. Users should use this endpoint together with fee rates endpoint to get the trading fee of a specific symbol. Some enum values may not apply to you; the actual return values shall prevail. |
@@ -116,7 +118,7 @@ Response Example
 | baseCcy | String | Base currency, e.g. `BTC` in`BTC-USDT` Only applicable to `SPOT`/`MARGIN` |
 | quoteCcy | String | Quote currency, e.g. `USDT` in `BTC-USDT` Only applicable to `SPOT`/`MARGIN` |
 | settleCcy | String | Settlement and margin currency, e.g. `BTC` Only applicable to `FUTURES`/`SWAP`/`OPTION` |
-| ctVal | String | Contract value Only applicable to `FUTURES`/`SWAP`/`OPTION` |
+| ctVal | String | Face value of one contract. Denomination depends on `ctType`: for linear contracts, `ctVal` is in the base currency (e.g., ctVal=0.01 BTC for BTC-USDT-SWAP); for inverse contracts, `ctVal` is in USD (e.g., ctVal=100 USD for BTC-USD-SWAP). Notional: linear = sz × ctVal × markPx (in quote ccy); inverse = sz × ctVal (in USD, fixed). Only applicable to `FUTURES`/`SWAP`/`OPTION` |
 | ctMult | String | Contract multiplier Only applicable to `FUTURES`/`SWAP`/`OPTION` |
 | ctValCcy | String | Contract value currency Only applicable to `FUTURES`/`SWAP`/`OPTION` |
 | optType | String | Option type, `C`: Call `P`: put Only applicable to `OPTION` |
@@ -127,14 +129,14 @@ Response Example
 | preMktSwTime | String | The time premarket swap switched to normal swap, Unix timestamp format in milliseconds, e.g. `1597026383085`. Only applicable premarket `SWAP` |
 | openType | String | Open type `fix_price`: fix price opening`pre_quote`: pre-quote`call_auction`: call auction Only applicable to `SPOT`/`MARGIN`, return "" for all other business lines |
 | expTime | String | Expiry time Applicable to `SPOT`/`MARGIN`/`FUTURES`/`SWAP`/`OPTION`. For `FUTURES`/`OPTION`, it is natural delivery/exercise time. It is the instrument offline time when there is `SPOT/MARGIN/FUTURES/SWAP/` manual offline. Update once change. |
-| lever | String | Max Leverage, Not applicable to `SPOT`, `OPTION` |
-| tickSz | String | Tick size, e.g. `0.0001`For Option, it is minimum tickSz among tick band, please use "Get option tick bands" if you want get option tickBands. |
-| lotSz | String | Lot sizeIf it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
-| minSz | String | Minimum order sizeIf it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
-| ctType | String | Contract type`linear`: linear contract`inverse`: inverse contract Only applicable to `FUTURES`/`SWAP` |
-| alias | String | Alias`this_week``next_week``this_month``next_month``quarter``next_quarter``third_quarter`Only applicable to `FUTURES` Not recommended for use, users are encouraged to rely on the expTime field to determine the delivery time of the contract |
-| state | String | Instrument status`live` `suspend``rebase`: can't be traded during rebasing, only applicable to `SWAP``preopen`. e.g. There will be `preopen` before the Futures and Options new contracts state is live.`test`: Test pairs, can’t be traded |
-| ruleType | String | Trading rule types `normal`: normal trading `pre_market`: pre-market trading `rebase_contract`: pre-market rebase contract |
+| lever | String | Exchange-defined maximum leverage ceiling for this instrument. The actual leverage available to a specific account may be lower based on VIP tier and position size. Use GET /api/v5/account/leverage-info for the user's current configured leverage. Not applicable to `SPOT`, `OPTION` |
+| tickSz | String | Minimum price increment, e.g. `0.0001`.For `OPTION`/`EVENTS`, it is the minimum tickSz among tick band. Use "Get instrument tick bands" endpoint with the corresponding `instType` for accurate tickSz per price range. |
+| lotSz | String | Lot size — the minimum order size increment. All order quantities (sz) must be a multiple of `lotSz`. Violation returns error 51121.If it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
+| minSz | String | Minimum order size. Order size must satisfy both: sz ≥ `minSz` AND sz is a multiple of `lotSz`.If it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
+| ctType | String | Contract type`linear`: linear contract — margin, P&L, and settlement in the quote currency (e.g., USDT for BTC-USDT-SWAP).`inverse`: inverse contract — margin, P&L, and settlement in the base currency (e.g., BTC for BTC-USD-SWAP). For inverse contracts, P&L in USD terms is non-linear: the USD value of a fixed BTC gain changes with the BTC price. Only applicable to `FUTURES`/`SWAP` |
+| alias | String | Contract alias (deprecated — use expTime to obtain the delivery time, will be removed by the end of April 2026)`this_week``next_week``this_month``next_month``quarter``next_quarter``third_quarter``this_five_years`: current 5-year contract`next_five_years`: next 5-year contractOnly applicable to `FUTURES` |
+| state | String | Instrument status`live` `suspend``rebase`: can’t be traded during rebasing, only applicable to `SWAP``post_only`: only post-only orders are accepted; existing post-only orders can be amended and cancelled. Other order types (market, IOC, FOK, normal limit) are rejected. Only applicable to `SWAP``preopen`. e.g. There will be `preopen` before the Futures and Options new contracts state is live.`test`: Test pairs, can’t be traded`settling`: Settling, only applicable to `EVENTS` |
+| ruleType | String | Trading rule types`normal`: normal trading`pre_market`: pre-market trading`rebase_contract`: pre-market rebase contract`xperp`: perpetual-style futures, only applicable to certain `FUTURES` contracts |
 | maxLmtSz | String | The maximum order quantity of a single limit order.If it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
 | maxMktSz | String | The maximum order quantity of a single market order.If it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `USDT`. |
 | maxLmtAmt | String | Max USD amount for a single limit order |
@@ -146,7 +148,7 @@ Response Example
 | futureSettlement | Boolean | Whether daily settlement for expiry feature is enabledApplicable to `FUTURES` `cross` |
 | tradeQuoteCcyList | Array of strings | List of quote currencies available for trading, e.g. ["USD", "USDC”]. |
 | instIdCode | Integer | Instrument ID code. For simple binary encoding, you must use `instIdCode` instead of `instId`.For the same `instId`, it's value may be different between production and demo trading. It is `null` when the value is not generated. |
-| instCategory | String | The asset category of the instrument’s base asset (the first segment of the instrument ID). For example, for `BTC-USDT-SWAP`, the `instCategory` represents the asset category of `BTC`. `1`: Crypto `3`: Stocks |
+| instCategory | String | The asset category of the instrument’s base asset (the first segment of the instrument ID). For example, for `BTC-USDT-SWAP`, the `instCategory` represents the asset category of `BTC`. `1`: Crypto `3`: Stocks `4`: Commodities `5`: Forex `6`: Bonds `""`: Not available |
 | upcChg | Array of objects | Upcoming changes. It is [] when there is no upcoming change. |
 | > param | String | The parameter name to be updated. `tickSz` `minSz` `maxMktSz` |
 | > newValue | String | The parameter value that will replace the current one. |
@@ -168,6 +170,202 @@ Instruments REST endpoint and WebSocket channel will update `listTime` once the 
 1. For `SPOT/MARGIN/SWAP`, this event is only applicable to `instType`, `instId`, `listTime`, `state`.
 2. For `FUTURES`, this event is only applicable to `instType`, `instFamily`, `listTime`, `state`.
 3. Other fields will be "" temporarily, but they will be updated at least 5 minutes in advance of the `listTime`, then the WebSocket subscription using related `instId`/`instFamily` can be available.
+
+### Get series
+
+Retrieve the list of series for OKX prediction markets.
+
+#### Rate Limit: 10 requests per 2 seconds
+
+#### Rate limit rule: IP
+
+#### Permission: Public
+
+#### HTTP Request
+
+`GET /api/v5/public/event-contract/series`
+
+Request Example
+
+```
+GET /api/v5/public/event-contract/series?seriesId=BTC-ABOVE-DAILY
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| seriesId | String | No | Series ID, e.g. `BTC-ABOVE-DAILY`. If not passed, all series will be returned. |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "data": [
+ {
+ "seriesId": "BTC-ABOVE-DAILY",
+ "freq": "daily",
+ "title": "BTC price above 15k",
+ "category": "Crypto",
+ "settlement": {
+ "method": "price_above",
+ "closeEarly": false,
+ "srcName": "okx_index",
+ "underlying": "BTC-USDT"
+ }
+ }
+ ],
+ "msg": ""
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| seriesId | String | Series ID, e.g. `BTC-ABOVE-DAILY` |
+| freq | String | Frequency of the series`five_min``fifteen_min``hourly``daily` |
+| title | String | Series title |
+| category | String | Category which this series belongs to, e.g. `Crypto` |
+| settlement | Object | Settlement information |
+| > method | String | Settlement method.`price_up_down`: Price up/down`price_above`: Price above |
+| > closeEarly | Boolean | Whether the market can be settled earlier than the expiration time.`true``false` |
+| > srcName | String | Settlement source name, e.g. `okx_index`, `cf_benchmark_index` |
+| > underlying | String | Price underlying in OKX trading symbol format, e.g. `BTC-USDT`. Only applicable to price-related settlement methods. |
+
+### Get events
+
+Get events for a series in OKX prediction markets. Returns all event records, including expired ones. Return data in expTime and eventId descending order.
+
+#### Rate Limit: 10 requests per 2 seconds
+
+#### Rate limit rule: IP
+
+#### Permission: Public
+
+#### HTTP Request
+
+`GET /api/v5/public/event-contract/events`
+
+Request Example
+
+```
+GET /api/v5/public/event-contract/events?seriesId=BTC-ABOVE-DAILY
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| seriesId | String | Yes | Series ID, e.g. `BTC-ABOVE-DAILY` |
+| eventId | String | No | Event ID, e.g. `BTC-ABOVE-DAILY-260224-1600` |
+| state | String | No | Event state filter.`preopen``live``settling``expired` |
+| limit | String | No | Number of results per request. Maximum is 100. Default is 100. |
+| before | String | No | Pagination. Returns records newer than the requested `expTime`, not included. |
+| after | String | No | Pagination. Returns records earlier than the requested `expTime`, not included. |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "data": [
+ {
+ "seriesId": "BTC-ABOVE-DAILY",
+ "eventId": "BTC-ABOVE-DAILY-260224-1600",
+ "expTime": "1769697132335",
+ "state": "live"
+ }
+ ],
+ "msg": ""
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| seriesId | String | Series ID, e.g. `BTC-ABOVE-DAILY` |
+| eventId | String | Event ID, e.g. `BTC-ABOVE-DAILY-260224-1600` |
+| fixTime | String | Strike price fixing time, Unix timestamp format in milliseconds, e.g. `1597026383085`. Only applicable to `price_up_down` settlement method. |
+| expTime | String | The specific strike time this event is based on, Unix timestamp format in milliseconds, e.g. `1597026383085` |
+| state | String | Event state.`preopen``live``settling``expired` |
+
+### Get markets
+
+Get markets for events in OKX prediction markets. Return data in expTime and floorStrike descending order.
+
+#### Rate Limit: 10 requests per 2 seconds
+
+#### Rate limit rule: IP
+
+#### Permission: Public
+
+#### HTTP Request
+
+`GET /api/v5/public/event-contract/markets`
+
+Request Example
+
+```
+GET /api/v5/public/event-contract/markets?seriesId=BTC-ABOVE-DAILY
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| seriesId | String | Yes | Series ID, e.g. `BTC-ABOVE-DAILY` |
+| eventId | String | No | Event ID, e.g. `BTC-ABOVE-DAILY-260224-1600` |
+| instId | String | No | Instrument ID, e.g. `BTC-ABOVE-DAILY-260224-1600-65000` |
+| state | String | No | Filter by market status.`preopen``live``settling``expired` |
+| limit | String | No | Number of results per request. Maximum is 100. Default is 100. |
+| before | String | No | Pagination. Returns records newer than the requested `expTime`, not included. |
+| after | String | No | Pagination. Returns records earlier than the requested `expTime`, not included. |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "data": [
+ {
+ "seriesId": "BTC-ABOVE-DAILY",
+ "eventId": "BTC-ABOVE-DAILY-260224-1600",
+ "instId": "BTC-ABOVE-DAILY-260224-1600-65000",
+ "listTime": "1769697132335",
+ "expTime": "1769697132335",
+ "state": "live",
+ "fixTime": "",
+ "outcome": "0",
+ "floorStrike": "120000",
+ "settleValue": "",
+ "disputed": false
+ }
+ ],
+ "msg": ""
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| seriesId | String | Series ID, e.g. `BTC-ABOVE-DAILY` |
+| eventId | String | Event ID, e.g. `BTC-ABOVE-DAILY-260224-1600` |
+| instId | String | Instrument ID, e.g. `BTC-ABOVE-DAILY-260224-1600-65000` |
+| listTime | String | Listing time, Unix timestamp format in milliseconds, e.g. `1597026383085` |
+| fixTime | String | Strike price fixing time, Unix timestamp format in milliseconds, e.g. `1597026383085`. Only applicable to `price_up_down` settlement method. |
+| expTime | String | Strike time for this event, Unix timestamp format in milliseconds, e.g. `1597026383085`. Updated once the market is settled. |
+| state | String | Market state.`preopen``live``settling``expired` |
+| disputed | Boolean | Whether the market has been disputed.`true``false` |
+| outcome | String | Market outcome.`0`: Not available`1`: YES`2`: NO.`1`/`2` only applicable when state is `expired` |
+| floorStrike | String | Minimum expiration value that leads to a YES outcome |
+| settleValue | String | Settlement valueOnly return when the state is `expired` |
 
 ### Get estimated delivery/exercise price
 
@@ -205,7 +403,7 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| instId | String | Yes | Instrument ID, e.g. `BTC-USD-200214` only applicable to `FUTURES`/`OPTION` |
+| instId | String | Yes | Instrument ID, e.g. `BTC-USD-200214` only applicable to `FUTURES`/`OPTION`/`EVENTS` |
 
 Response Example
 
@@ -477,7 +675,7 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| instId | String | Yes | Instrument ID, e.g. `BTC-USD-SWAP` or `ANY` to return the funding rate info of all swap symbols only applicable to `SWAP` |
+| instId | String | Yes | Instrument ID, e.g. `BTC-USD-SWAP` or X-Perps futures instId, or `ANY` to return the funding rate info of all perpetual and X-Perps futures contractsApplicable to `SWAP` and X-Perps `FUTURES` |
 
 Response Example
 
@@ -513,11 +711,11 @@ Response Example
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| instType | String | Instrument type `SWAP` |
+| instType | String | Instrument type`SWAP`: Perpetual futures`FUTURES`: X-Perps futures |
 | instId | String | Instrument ID, e.g. `BTC-USD-SWAP` or `ANY` |
 | method | String | Funding rate mechanism `current_period` `next_period`(no longer supported) |
 | formulaType | String | Formula type`noRate`: old funding rate formula`withRate`: new funding rate formula |
-| fundingRate | String | Current funding rate |
+| fundingRate | String | Predicted funding rate for the upcoming settlement period. Sign: positive = long positions pay short positions at the next `fundingTime`; negative = short positions pay long positions. This is a forecast — the final settled rate may differ. See `settFundingRate` for the last settled rate. Note: the settlement interval is typically 8 hours but may be adjusted; use the difference between `fundingTime` and `nextFundingTime` to determine the actual interval. |
 | nextFundingRate | String | Forecasted funding rate for the next period The nextFundingRate will be "" if the method is `current_period`(no longer supported) |
 | fundingTime | String | Settlement time, Unix timestamp format in milliseconds, e.g. `1597026383085` |
 | nextFundingTime | String | Forecasted funding time for the next period , Unix timestamp format in milliseconds, e.g. `1597026383085` |
@@ -568,7 +766,7 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| instId | String | Yes | Instrument ID, e.g. `BTC-USD-SWAP` only applicable to `SWAP` |
+| instId | String | Yes | Instrument ID, e.g. `BTC-USD-SWAP` or X-Perps futures instIdApplicable to `SWAP` and X-Perps `FUTURES` |
 | before | String | No | Pagination of data to return records newer than the requested `fundingTime` |
 | after | String | No | Pagination of data to return records earlier than the requested `fundingTime` |
 | limit | String | No | Number of results per request. The maximum is `400`; The default is `400` |
@@ -607,7 +805,7 @@ Response Example
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| instType | String | Instrument type`SWAP` |
+| instType | String | Instrument type`SWAP`: Perpetual futures`FUTURES`: X-Perps futures |
 | instId | String | Instrument ID, e.g. `BTC-USD-SWAP` |
 | formulaType | String | Formula type`noRate`: old funding rate formula`withRate`: new funding rate formula |
 | fundingRate | String | Predicted funding rate |
@@ -653,9 +851,9 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| instType | String | Yes | Instrument type`SWAP``FUTURES``OPTION` |
+| instType | String | Yes | Instrument type`SWAP``FUTURES``OPTION``EVENTS` |
 | instFamily | String | Conditional | Instrument familyApplicable to `FUTURES`/`SWAP`/`OPTION`If instType is `OPTION`, instFamily is required. |
-| instId | String | No | Instrument ID, e.g. `BTC-USDT-SWAP`Applicable to `FUTURES`/`SWAP`/`OPTION` |
+| instId | String | No | Instrument ID, e.g. `BTC-USDT-SWAP`Applicable to `FUTURES`/`SWAP`/`OPTION`/`EVENTS` |
 
 Response Example
 
@@ -796,7 +994,9 @@ print(result)
 | instFamily | String | Yes | Instrument family, only applicable to `OPTION` |
 | expTime | String | No | Contract expiry date, the format is "YYMMDD", e.g. "200527" |
 
-Response Example
+Note**: This endpoint may not return data for all instruments listed in [`/api/v5/public/instruments`](#get-instruments). Options with insufficient market depth for implied volatility surface fitting — particularly deep out-of-the-money (OTM) options — may not have entries.
+
+**Response Example
 
 ```
 {
@@ -1055,7 +1255,7 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| instType | String | Yes | Instrument type`MARGIN``SWAP``FUTURES``OPTION` |
+| instType | String | Yes | Instrument type`MARGIN``SWAP``FUTURES``OPTION``EVENTS` |
 | instFamily | String | No | Instrument familyApplicable to `FUTURES`/`SWAP`/`OPTION` |
 | instId | String | No | Instrument ID, e.g. `BTC-USD-SWAP` |
 
@@ -1081,7 +1281,7 @@ Response Example
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| instType | String | Instrument type`MARGIN``SWAP``FUTURES``OPTION` |
+| instType | String | Instrument type`MARGIN``SWAP``FUTURES``OPTION``EVENTS` |
 | instId | String | Instrument ID, e.g. `BTC-USD-200214` |
 | markPx | String | Mark price |
 | ts | String | Data return time, Unix timestamp format in milliseconds, e.g. `1597026383085` |
@@ -1528,9 +1728,9 @@ Response Example
 | sz | String | Quantity to buy or sellIt is quantity of contract while converting currency to contractIt is quantity of currency while contract to currency. |
 | unit | String | The unit of currency`coin``usds`: USDT/USDC |
 
-### Get option tick bands
+### Get instrument tick bands
 
-Get option tick bands information
+Get instrument tick bands information
 
 #### Rate Limit: 5 requests per 2 seconds
 
@@ -1546,12 +1746,16 @@ Request Example
 GET /api/v5/public/instrument-tick-bands?instType=OPTION
 ```
 
+```
+GET /api/v5/public/instrument-tick-bands?instType=EVENTS
+```
+
 #### Request Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| instType | String | Yes | Instrument type`OPTION` |
-| instFamily | String | No | Instrument familyOnly applicable to OPTION |
+| instType | String | Yes | Instrument type`OPTION``EVENTS` |
+| instFamily | String | No | Instrument familyOnly applicable to `OPTION` |
 
 Response Example
 
@@ -1597,16 +1801,49 @@ Response Example
 
 ```
 
+Response Example: EVENTS
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [
+ {
+ "instType": "EVENTS",
+ "instFamily": "",
+ "tickBand": [
+ {
+ "minPx": "0.001",
+ "maxPx": "0.04",
+ "tickSz": "0.001"
+ },
+ {
+ "minPx": "0.04",
+ "maxPx": "0.96",
+ "tickSz": "0.01"
+ },
+ {
+ "minPx": "0.96",
+ "maxPx": "0.999",
+ "tickSz": "0.001"
+ }
+ ]
+ }
+ ]
+}
+
+```
+
 #### Response Parameters
 
 | Parameter | Type | Description |
 | --- | --- | --- |
 | instType | String | Instrument type |
-| instFamily | String | Instrument family |
-| tickBand | Array of objects | Tick size band |
+| instFamily | String | Instrument family. Only applicable to `OPTION` |
+| tickBand | Array of objects | Tick size band. For `EVENTS`, returns unified tick bands applicable to all event contracts. |
 | > minPx | String | Minimum price while placing an order |
 | > maxPx | String | Maximum price while placing an order |
-| > tickSz | String | Tick size, e.g. 0.0001 |
+| > tickSz | String | Tick size, e.g. `0.0001` |
 
 ### Get premium history
 
@@ -2279,7 +2516,7 @@ Data availability****Historical data backfill is currently in progress. Data ava
 
 Legacy data format notice****For module 1 (trade history), some old historical files may contain column headers with both Chinese characters along with English column names. All the Chinese characters will be removed once the data backfill is done. Please account for this when parsing the data.
 
-Data release schedule****Most data for modules 1, 2, 3 is typically available on T+2; order book data is typically available on T+3.
+Data release schedule****Most data for modules 1, 2, 3, 11 is typically available on T+2; order book data is typically available on T+3.
 
 Retrieve historical market data for OKX.
 
@@ -2301,10 +2538,10 @@ GET /api/v5/public/market-data-history?module=1&instType=SWAP&instFamilyList=BTC
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| module | String | Yes | Data module type`1`: Tick-by-tick trade history`2`: 1-minute candlestick`3`: Funding rate`4`: 400-level orderbook`5`: 5000-level orderbook (from Nov 1, 2025)`6`: 50-level orderbook (will gradually be deprecated, please use module = `4`,`5` instead) |
+| module | String | Yes | Data module type`1`: Tick-by-tick trade history`2`: 1-minute candlestick`3`: Funding rate`4`: 400-level orderbook`5`: 5000-level orderbook (from Nov 1, 2025)`6`: 50-level orderbook (will gradually be deprecated, please use module = `4`,`5` instead)`11`: Borrowing rate |
 | instType | String | Yes | Instrument type`SPOT``FUTURES``SWAP``OPTION` |
-| instIdList | String | Conditional | List of instrument IDs, e.g. `BTC-USDT`, or `ANY` for all instruments (`ANY` is only supported for module = `1`, `2`, `3` & dateAggrType = `daily`)Multiple instrument IDs should be separated by commas, e.g. `BTC-USDT,ETH-USDT`Maximum length = 10Only applicable when instType = `SPOT` |
-| instFamilyList | String | Conditional | List of instrument families, e.g. `BTC-USDT`, or `ANY` for all instruments (`ANY` is only supported for module = `1`, `2`, `3` & dateAggrType = `daily`)Multiple instrument families should be separated by commas, e.g. `BTC-USDT,ETH-USDT`Maximum length = 10 (= 1when module = `6` & instType = `OPTION`)Only applicable when instType ≠ `SPOT` |
+| instIdList | String | Conditional | List of instrument IDs, e.g. `BTC-USDT`, or `ANY` for all instruments (`ANY` is only supported for module = `1`, `2`, `3`, `11` & dateAggrType = `daily`)Multiple instrument IDs should be separated by commas, e.g. `BTC-USDT,ETH-USDT`Maximum length = 10Only applicable when instType = `SPOT` |
+| instFamilyList | String | Conditional | List of instrument families, e.g. `BTC-USDT`, or `ANY` for all instruments (`ANY` is only supported for module = `1`, `2`, `3`, `11` & dateAggrType = `daily`)Multiple instrument families should be separated by commas, e.g. `BTC-USDT,ETH-USDT`Maximum length = 10 (= 1when module = `6` & instType = `OPTION`)Only applicable when instType ≠ `SPOT` |
 | dateAggrType | String | Yes | Date aggregation type `daily` (not supported for module = `3` & instFamilyList ≠ `ANY`) `monthly` (not supported for module = `6`) |
 | begin | String | Yes | Begin timestamp. Unix timestamp format in milliseconds (inclusive)Maximum range: 20 days for daily, 20 months for monthly |
 | end | String | Yes | End timestamp. Unix timestamp format in milliseconds (inclusive)When module = `6` & instType = `OPTION`, only returns data for the day specified by `end` |
@@ -2388,4 +2625,4 @@ Data query rules****• Only the date portion (yyyy-mm-dd) of timestamps is used
 • Exception:** When module = 6 & instType = OPTION, only data for the day specified by the end is returned
 
 **Timezone specifications for timestamp parsing****When converting Unix timestamps to dates, the following timezone conventions are applied to all timestamp fields (begin, end, dateRangeStart, dateRangeEnd, dataTs):
-• Orderbook data** (modules 4, 5, 6): UTC+0**• All other data modules** (modules 1, 2, 3): UTC+8
+• Orderbook data** (modules 4, 5, 6): UTC+0**• All other data modules** (modules 1, 2, 3, 11): UTC+8

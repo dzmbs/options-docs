@@ -35,7 +35,10 @@ Response Example
  "code": "0",
  "data": {
  "fastRedemptionAvail": "240",
- "fastRedemptionDailyLimit": "240"
+ "fastRedemptionDailyLimit": "240",
+ "rate": "5.57",
+ "redemptDays": "2",
+ "minAmt": "0.01"
  },
  "msg": ""
 }
@@ -48,6 +51,9 @@ Response Example
 | --- | --- | --- |
 | fastRedemptionDailyLimit | String | Fast redemption daily limitThe master account and sub-accounts share the same limit |
 | fastRedemptionAvail | String | Currently fast redemption max available amount |
+| rate | String | Latest OKSOL APY |
+| redemptDays | String | Redemption days of OKSOL |
+| minAmt | String | Minimum subscription amount of OKSOL |
 
 ### POST / Purchase
 

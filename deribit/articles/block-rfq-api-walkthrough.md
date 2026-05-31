@@ -46,7 +46,7 @@ The taker creates a Block RFQ using the [`private/create_block_rfq`](/api-refere
 
 **Example Request:**
 
-```json  theme={null}
+```json theme={null}
 {
   "method": "private/create_block_rfq",
   "params": {
@@ -81,7 +81,7 @@ Makers receive notifications about new Block RFQs through WebSocket subscription
 
 **Example Subscription:**
 
-```json  theme={null}
+```json theme={null}
 {
   "method": "public/subscribe",
   "params": {
@@ -94,7 +94,7 @@ Makers receive notifications about new Block RFQs through WebSocket subscription
 
 Makers respond to Block RFQs by adding quotes using [`private/add_block_rfq_quote`](/api-reference/block-rfq/private-add_block_rfq_quote):
 
-```json  theme={null}
+```json theme={null}
 {
   "method": "private/add_block_rfq_quote",
   "params": {
@@ -125,7 +125,7 @@ Takers can monitor their Block RFQs using:
 
 Once the taker has reviewed the quotes, they can accept a Block RFQ using [`private/accept_block_rfq`](/api-reference/block-rfq/private-accept_block_rfq):
 
-```json  theme={null}
+```json theme={null}
 {
   "method": "private/accept_block_rfq",
   "params": {
@@ -157,7 +157,7 @@ Block RFQ supports pre-allocation, allowing takers to split the total amount bet
 
 **Example:**
 
-```json  theme={null}
+```json theme={null}
 {
   "trade_allocations": [
     {

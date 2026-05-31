@@ -124,18 +124,18 @@ operations:
                   - name: timestamp
                     type: integer
                     description: The timestamp (milliseconds since the Unix epoch)
-                    required: false
+                    required: true
                   - name: volatility
                     type: number
                     description: Value of the corresponding volatility
-                    required: false
+                    required: true
                   - name: index_name
                     type: string
                     description: Index identifier supported for DVOL
                     enumValues:
                       - btc_usd
                       - eth_usd
-                    required: false
+                    required: true
         headers: []
         jsonPayloadSchema:
           type: object

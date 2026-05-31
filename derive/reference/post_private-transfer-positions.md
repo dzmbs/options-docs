@@ -58,45 +58,34 @@ Required minimum session key permission level is `admin`
   },
   "components": {
     "schemas": {
-      "LegPricedSchema": {
-        "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Amount in units of the base"
-          },
-          "direction": {
-            "title": "direction",
-            "type": "string",
-            "enum": [
-              "buy",
-              "sell"
-            ],
-            "description": "Leg direction"
-          },
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "description": "Instrument name"
-          },
-          "price": {
-            "title": "price",
-            "type": "string",
-            "format": "decimal",
-            "description": "Leg price"
-          }
-        },
-        "required": [
-          "amount",
-          "direction",
-          "instrument_name",
-          "price"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
       "QuoteResultSchema": {
+        "type": "object",
+        "required": [
+          "cancel_reason",
+          "creation_timestamp",
+          "direction",
+          "extra_fee",
+          "fee",
+          "fill_pct",
+          "is_transfer",
+          "label",
+          "last_update_timestamp",
+          "legs",
+          "legs_hash",
+          "liquidity_role",
+          "max_fee",
+          "mmp",
+          "nonce",
+          "quote_id",
+          "rfq_id",
+          "signature",
+          "signature_expiry_sec",
+          "signer",
+          "status",
+          "subaccount_id",
+          "tx_hash",
+          "tx_status"
+        ],
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",
@@ -128,6 +117,12 @@ Required minimum session key permission level is `admin`
               "sell"
             ],
             "description": "Quote direction"
+          },
+          "extra_fee": {
+            "title": "extra_fee",
+            "type": "string",
+            "format": "decimal",
+            "description": "Extra fee in USDC added by the referring client (included in quote fee)"
           },
           "fee": {
             "title": "fee",
@@ -260,35 +255,53 @@ Required minimum session key permission level is `admin`
             "nullable": true
           }
         },
-        "required": [
-          "cancel_reason",
-          "creation_timestamp",
-          "direction",
-          "fee",
-          "fill_pct",
-          "is_transfer",
-          "label",
-          "last_update_timestamp",
-          "legs",
-          "legs_hash",
-          "liquidity_role",
-          "max_fee",
-          "mmp",
-          "nonce",
-          "quote_id",
-          "rfq_id",
-          "signature",
-          "signature_expiry_sec",
-          "signer",
-          "status",
-          "subaccount_id",
-          "tx_hash",
-          "tx_status"
-        ],
+        "additionalProperties": false
+      },
+      "LegPricedSchema": {
         "type": "object",
+        "required": [
+          "amount",
+          "direction",
+          "instrument_name",
+          "price"
+        ],
+        "properties": {
+          "amount": {
+            "title": "amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Amount in units of the base"
+          },
+          "direction": {
+            "title": "direction",
+            "type": "string",
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "Leg direction"
+          },
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "description": "Instrument name"
+          },
+          "price": {
+            "title": "price",
+            "type": "string",
+            "format": "decimal",
+            "description": "Leg price"
+          }
+        },
         "additionalProperties": false
       },
       "PrivateTransferPositionsParamsSchema": {
+        "type": "object",
+        "required": [
+          "maker_params",
+          "taker_params",
+          "wallet"
+        ],
         "properties": {
           "maker_params": {
             "$ref": "#/components/schemas/SignedQuoteParamsSchema"
@@ -302,15 +315,20 @@ Required minimum session key permission level is `admin`
             "description": "Public key (wallet) of the account"
           }
         },
-        "required": [
-          "maker_params",
-          "taker_params",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "SignedQuoteParamsSchema": {
+        "type": "object",
+        "required": [
+          "direction",
+          "legs",
+          "max_fee",
+          "nonce",
+          "signature",
+          "signature_expiry_sec",
+          "signer",
+          "subaccount_id"
+        ],
         "properties": {
           "direction": {
             "title": "direction",
@@ -361,20 +379,14 @@ Required minimum session key permission level is `admin`
             "description": "Subaccount ID"
           }
         },
-        "required": [
-          "direction",
-          "legs",
-          "max_fee",
-          "nonce",
-          "signature",
-          "signature_expiry_sec",
-          "signer",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateTransferPositionsResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -392,14 +404,14 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateTransferPositionsResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateTransferPositionsResultSchema": {
+        "type": "object",
+        "required": [
+          "maker_quote",
+          "taker_quote"
+        ],
         "properties": {
           "maker_quote": {
             "$ref": "#/components/schemas/QuoteResultSchema"
@@ -408,11 +420,6 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/QuoteResultSchema"
           }
         },
-        "required": [
-          "maker_quote",
-          "taker_quote"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

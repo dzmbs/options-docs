@@ -172,8 +172,8 @@ components:
           items:
             $ref: '#/components/schemas/block_trade'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     block_trade:
       properties:

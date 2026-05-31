@@ -58,6 +58,11 @@ Gets the value of a vault's token against the base currency, underlying currency
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
+        "type": "object",
+        "required": [
+          "count",
+          "num_pages"
+        ],
         "properties": {
           "count": {
             "title": "count",
@@ -70,14 +75,15 @@ Gets the value of a vault's token against the base currency, underlying currency
             "description": "Number of pages"
           }
         },
-        "required": [
-          "count",
-          "num_pages"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetVaultShareParamsSchema": {
+        "type": "object",
+        "required": [
+          "from_timestamp_sec",
+          "to_timestamp_sec",
+          "vault_name"
+        ],
         "properties": {
           "from_timestamp_sec": {
             "title": "from_timestamp_sec",
@@ -107,15 +113,14 @@ Gets the value of a vault's token against the base currency, underlying currency
             "description": "Name of the vault"
           }
         },
-        "required": [
-          "from_timestamp_sec",
-          "to_timestamp_sec",
-          "vault_name"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetVaultShareResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -133,14 +138,14 @@ Gets the value of a vault's token against the base currency, underlying currency
             "$ref": "#/components/schemas/PublicGetVaultShareResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetVaultShareResultSchema": {
+        "type": "object",
+        "required": [
+          "pagination",
+          "vault_shares"
+        ],
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -154,14 +159,17 @@ Gets the value of a vault's token against the base currency, underlying currency
             }
           }
         },
-        "required": [
-          "pagination",
-          "vault_shares"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "VaultShareResponseSchema": {
+        "type": "object",
+        "required": [
+          "base_value",
+          "block_number",
+          "block_timestamp",
+          "underlying_value",
+          "usd_value"
+        ],
         "properties": {
           "base_value": {
             "title": "base_value",
@@ -194,14 +202,6 @@ Gets the value of a vault's token against the base currency, underlying currency
             "description": "The value of the vault's token against USD"
           }
         },
-        "required": [
-          "base_value",
-          "block_number",
-          "block_timestamp",
-          "underlying_value",
-          "usd_value"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

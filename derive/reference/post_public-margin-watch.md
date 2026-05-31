@@ -58,6 +58,10 @@ Calculates MtM and maintenance margin for a given subaccount.
   "components": {
     "schemas": {
       "PublicMarginWatchParamsSchema": {
+        "type": "object",
+        "required": [
+          "subaccount_id"
+        ],
         "properties": {
           "force_onchain": {
             "title": "force_onchain",
@@ -65,19 +69,26 @@ Calculates MtM and maintenance margin for a given subaccount.
             "default": false,
             "description": "Force the fetching of on-chain balances, default False."
           },
+          "is_delayed_liquidation": {
+            "title": "is_delayed_liquidation",
+            "type": "boolean",
+            "default": false,
+            "description": "If True, maintenance margin requirement is lowered for a brief period.Requires subaccount to have delayed liquidation enabled."
+          },
           "subaccount_id": {
             "title": "subaccount_id",
             "type": "integer",
             "description": "Subaccount ID to get margin for."
           }
         },
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicMarginWatchResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -95,14 +106,21 @@ Calculates MtM and maintenance margin for a given subaccount.
             "$ref": "#/components/schemas/PublicMarginWatchResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicMarginWatchResultSchema": {
+        "type": "object",
+        "required": [
+          "collaterals",
+          "currency",
+          "initial_margin",
+          "maintenance_margin",
+          "margin_type",
+          "positions",
+          "subaccount_id",
+          "subaccount_value",
+          "valuation_timestamp"
+        ],
         "properties": {
           "collaterals": {
             "title": "collaterals",
@@ -164,21 +182,21 @@ Calculates MtM and maintenance margin for a given subaccount.
             "description": "Timestamp (in seconds since epoch) of when margin and MtM were computed."
           }
         },
-        "required": [
-          "collaterals",
-          "currency",
-          "initial_margin",
-          "maintenance_margin",
-          "margin_type",
-          "positions",
-          "subaccount_id",
-          "subaccount_value",
-          "valuation_timestamp"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "CollateralPublicResponseSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "asset_name",
+          "asset_type",
+          "delta",
+          "delta_currency",
+          "initial_margin",
+          "maintenance_margin",
+          "mark_price",
+          "mark_value"
+        ],
         "properties": {
           "amount": {
             "title": "amount",
@@ -200,6 +218,17 @@ Calculates MtM and maintenance margin for a given subaccount.
               "perp"
             ],
             "description": "Type of asset collateral (currently always `erc20`)"
+          },
+          "delta": {
+            "title": "delta",
+            "type": "string",
+            "format": "decimal",
+            "description": "Delta of the collateral relative to delta_currency"
+          },
+          "delta_currency": {
+            "title": "delta_currency",
+            "type": "string",
+            "description": "Currency that this collateral's delta is correlated to"
           },
           "initial_margin": {
             "title": "initial_margin",
@@ -226,19 +255,25 @@ Calculates MtM and maintenance margin for a given subaccount.
             "description": "USD value of the collateral (amount * mark price)"
           }
         },
-        "required": [
-          "amount",
-          "asset_name",
-          "asset_type",
-          "initial_margin",
-          "maintenance_margin",
-          "mark_price",
-          "mark_value"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PositionPublicResponseSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "delta",
+          "gamma",
+          "index_price",
+          "initial_margin",
+          "instrument_name",
+          "instrument_type",
+          "liquidation_price",
+          "maintenance_margin",
+          "mark_price",
+          "mark_value",
+          "theta",
+          "vega"
+        ],
         "properties": {
           "amount": {
             "title": "amount",
@@ -324,22 +359,6 @@ Calculates MtM and maintenance margin for a given subaccount.
             "description": "Asset vega (zero for non-options)"
           }
         },
-        "required": [
-          "amount",
-          "delta",
-          "gamma",
-          "index_price",
-          "initial_margin",
-          "instrument_name",
-          "instrument_type",
-          "liquidation_price",
-          "maintenance_margin",
-          "mark_price",
-          "mark_value",
-          "theta",
-          "vega"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

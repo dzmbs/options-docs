@@ -153,6 +153,12 @@ Group RFQ introduction
 
 2. Data return by this endpoint should be at **parent RFQ level** regardless of the subaccounts allocation. blockTdId and tradeId will be empty.
 
+Mapping blockTdId to rfqId
+
+For normal RFQs, each `blockTdId` has a 1:1 relationship with an `rfqId`. For Group RFQs, one `rfqId` may correspond to multiple `blockTdId`s.
+
+This channel does not include `rfqId` directly. Users who are counterparties to the trade (taker and executing maker) can subscribe to the private [Structure block trades channel](/docs-v5/en/#block-trading-websocket-private-channel-structure-block-trades-channel), which provides both `rfqId` and `blockTdId`, enabling cross-referencing between the two channels.
+
 ### Public block trades channel
 
 Retrieve the recent block trades data by individual legs. Each leg in a block trade is pushed in a separate update. The data will be pushed 15 minutes after the block trade execution.

@@ -294,8 +294,8 @@ components:
         result:
           $ref: '#/components/schemas/address_book_item'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     address_book_item:
       properties:

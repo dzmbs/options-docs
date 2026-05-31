@@ -59,6 +59,11 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
+        "type": "object",
+        "required": [
+          "count",
+          "num_pages"
+        ],
         "properties": {
           "count": {
             "title": "count",
@@ -71,20 +76,16 @@ Required minimum session key permission level is `read_only`
             "description": "Number of pages"
           }
         },
-        "required": [
-          "count",
-          "num_pages"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetFundingHistoryParamsSchema": {
+        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
             "type": "integer",
             "default": 9223372036854776000,
-            "description": "End timestamp of the event history (default current time)"
+            "description": "End timestamp of the event history in ms since Unix epoch (default current time)"
           },
           "instrument_name": {
             "title": "instrument_name",
@@ -109,21 +110,31 @@ Required minimum session key permission level is `read_only`
             "title": "start_timestamp",
             "type": "integer",
             "default": 0,
-            "description": "Start timestamp of the event history (default 0)"
+            "description": "Start timestamp of the event history in ms since Unix epoch (default 0)"
           },
           "subaccount_id": {
             "title": "subaccount_id",
             "type": "integer",
-            "description": "Subaccount id"
+            "default": null,
+            "description": "Subaccount id (must be set if wallet is blank)",
+            "nullable": true
+          },
+          "wallet": {
+            "title": "wallet",
+            "type": "string",
+            "default": null,
+            "description": "Wallet address (if set, subaccount_id ignored)",
+            "nullable": true
           }
         },
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetFundingHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -141,14 +152,14 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetFundingHistoryResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetFundingHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "events",
+          "pagination"
+        ],
         "properties": {
           "events": {
             "title": "events",
@@ -162,14 +173,17 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PaginationInfoSchema"
           }
         },
-        "required": [
-          "events",
-          "pagination"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "FundingPaymentSchema": {
+        "type": "object",
+        "required": [
+          "funding",
+          "instrument_name",
+          "pnl",
+          "subaccount_id",
+          "timestamp"
+        ],
         "properties": {
           "funding": {
             "title": "funding",
@@ -188,19 +202,17 @@ Required minimum session key permission level is `read_only`
             "format": "decimal",
             "description": "Cashflow from the perp PnL settlement"
           },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount ID of the subaccount that received the funding payment"
+          },
           "timestamp": {
             "title": "timestamp",
             "type": "integer",
             "description": "Timestamp of the funding payment (in ms since UNIX epoch)"
           }
         },
-        "required": [
-          "funding",
-          "instrument_name",
-          "pnl",
-          "timestamp"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

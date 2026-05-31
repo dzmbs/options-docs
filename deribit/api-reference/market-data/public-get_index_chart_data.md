@@ -213,8 +213,8 @@ components:
             The data points are returned in chronological order, making them
             ready for direct use in charting libraries.
       required:
-        - result
         - jsonrpc
+        - result
       type: object
   responses:
     PublicGetIndexChartDataResponse:

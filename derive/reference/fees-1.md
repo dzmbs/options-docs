@@ -4,15 +4,13 @@
 
 Fees on Derive differ if you are are maker (i.e. you put out a resting limit order that is filled) or if you are a taker (i.e. you buy or sell against an existing order). The fees also differ by instrument (options vs perps), and are set out in the table below:
 
-| Instrument | Maker                   | Taker                           |
-| :--------- | :---------------------- | :------------------------------ |
-| Spot       | No maker fees.          | No taker fees.                  |
-| Perp       | 0.01% x notional volume | $0.01 + 0.03% x notional volume |
-| Option     | 0.01% x notional volume | $0.5 + 0.03% x notional volume  |
+| Instrument | Taker                                          | Maker                                   |
+| :--------- | :--------------------------------------------- | :-------------------------------------- |
+| Spot       | No taker fees                                  | No maker fees                           |
+| Perp       | $0.1 + 0.03% x notional                        | 0.01% x notional                        |
+| Option     | $0.5 + min(0.03% x notional, 12.5% \* premium) | min(0.01% x notional, 12.5% \* premium) |
 
-Option notional fees are capped at 12.5% of the value of the option.
-
-Note that takers pay an additional `base_fee` of $0.01 (Perps) or $0.5 (Options) per trade regardless of their trade size. This fee is waived for verified market maker accounts.
+Note, Builder Fees (a.k.a extra\_fees) are charged on top of these fees and passed on directly to builders.
 
 Examples:
 
@@ -20,7 +18,11 @@ Examples:
    `fee = $0.5 + 0.03% * 2 * $2200 = $1.82`
 2. Bob opens a 0.1 BTC perp sell limit order and later gets filled by Charlie, with spot at $43,000:\
    `feeBob = 0.01% * 0.1 * $43,000 = $0.43`\
-   `feeCharlie = $0.01 + 0.03% * 0.1 * $43,000 = $1.30`
+   `feeCharlie = $0.1 + 0.03% * 0.1 * $43,000 = $1.39`
+
+<br />
+
+> When setting the `max_fee` parameter in `private/order`, please use the formula described in the API reference definition. The matching engine adds extra buffers to the above calculation to prevent reverts during volatile market conditions.
 
 ## RFQs
 
@@ -49,3 +51,7 @@ Additionally, the system recognizes box spreads (a 4-legged trade with a long ca
 Derive charges a "yield spread" fee for this "bond" equal to `notional x 0.5% x years_to_expiry`, e.g. for a box with strikes $4000 and $5000 ($1000 notional) and 1 month to expiry, the fee would be `$1000 x 0.5% x 1/12 = $0.42`. This fee is charged to both maker and taker side, plus a $0.5 base fee is charged to the taker side only.
 
 <br />
+
+## Discounted Fee Tiers
+
+Pay lower fees by trading more volume and/or staking DRV. View the fee tiers in the [app](https://app.derive.xyz/fees)

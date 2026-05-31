@@ -58,6 +58,7 @@ Get latest signed data feeds
   "components": {
     "schemas": {
       "PublicGetLatestSignedFeedsParamsSchema": {
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -74,10 +75,14 @@ Get latest signed data feeds
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetLatestSignedFeedsResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -95,14 +100,17 @@ Get latest signed data feeds
             "$ref": "#/components/schemas/PublicGetLatestSignedFeedsResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetLatestSignedFeedsResultSchema": {
+        "type": "object",
+        "required": [
+          "fwd_data",
+          "perp_data",
+          "rate_data",
+          "spot_data",
+          "vol_data"
+        ],
         "properties": {
           "fwd_data": {
             "title": "fwd_data",
@@ -161,17 +169,21 @@ Get latest signed data feeds
             }
           }
         },
-        "required": [
-          "fwd_data",
-          "perp_data",
-          "rate_data",
-          "spot_data",
-          "vol_data"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "ForwardFeedDataSchema": {
+        "type": "object",
+        "required": [
+          "confidence",
+          "currency",
+          "deadline",
+          "expiry",
+          "fwd_diff",
+          "signatures",
+          "spot_aggregate_latest",
+          "spot_aggregate_start",
+          "timestamp"
+        ],
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -221,21 +233,10 @@ Get latest signed data feeds
             "description": "The timestamp for which the data was created"
           }
         },
-        "required": [
-          "confidence",
-          "currency",
-          "deadline",
-          "expiry",
-          "fwd_diff",
-          "signatures",
-          "spot_aggregate_latest",
-          "spot_aggregate_start",
-          "timestamp"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "OracleSignatureDataSchema": {
+        "type": "object",
         "properties": {
           "signatures": {
             "title": "signatures",
@@ -256,10 +257,19 @@ Get latest signed data feeds
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PerpFeedDataSchema": {
+        "type": "object",
+        "required": [
+          "confidence",
+          "currency",
+          "deadline",
+          "signatures",
+          "spot_diff_value",
+          "timestamp",
+          "type"
+        ],
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -302,19 +312,19 @@ Get latest signed data feeds
             "description": "The type of perp feed; mid price, ask impact or bid impact"
           }
         },
+        "additionalProperties": false
+      },
+      "RateFeedDataSchema": {
+        "type": "object",
         "required": [
           "confidence",
           "currency",
           "deadline",
+          "expiry",
+          "rate",
           "signatures",
-          "spot_diff_value",
-          "timestamp",
-          "type"
+          "timestamp"
         ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "RateFeedDataSchema": {
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -352,19 +362,18 @@ Get latest signed data feeds
             "description": "The timestamp for which the data was created"
           }
         },
+        "additionalProperties": false
+      },
+      "SpotFeedDataSchema": {
+        "type": "object",
         "required": [
           "confidence",
           "currency",
           "deadline",
-          "expiry",
-          "rate",
+          "price",
           "signatures",
           "timestamp"
         ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "SpotFeedDataSchema": {
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -407,18 +416,19 @@ Get latest signed data feeds
             "description": "The timestamp for which the data was created"
           }
         },
+        "additionalProperties": false
+      },
+      "VolFeedDataSchema": {
+        "type": "object",
         "required": [
           "confidence",
           "currency",
           "deadline",
-          "price",
+          "expiry",
           "signatures",
-          "timestamp"
+          "timestamp",
+          "vol_data"
         ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "VolFeedDataSchema": {
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -453,19 +463,19 @@ Get latest signed data feeds
             "$ref": "#/components/schemas/VolSVIParamDataSchema"
           }
         },
-        "required": [
-          "confidence",
-          "currency",
-          "deadline",
-          "expiry",
-          "signatures",
-          "timestamp",
-          "vol_data"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "VolSVIParamDataSchema": {
+        "type": "object",
+        "required": [
+          "SVI_a",
+          "SVI_b",
+          "SVI_fwd",
+          "SVI_m",
+          "SVI_refTau",
+          "SVI_rho",
+          "SVI_sigma"
+        ],
         "properties": {
           "SVI_a": {
             "title": "SVI_a",
@@ -503,16 +513,6 @@ Get latest signed data feeds
             "format": "decimal"
           }
         },
-        "required": [
-          "SVI_a",
-          "SVI_b",
-          "SVI_fwd",
-          "SVI_m",
-          "SVI_refTau",
-          "SVI_rho",
-          "SVI_sigma"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

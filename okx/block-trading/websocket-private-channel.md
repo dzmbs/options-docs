@@ -163,7 +163,7 @@ Push Data Example
 | data | Array of objects | Subscribed data |
 | > cTime | String | The timestamp the RFQ was created, Unix timestamp format in milliseconds. |
 | > uTime | String | The timestamp the RFQ was updated latest, Unix timestamp format in milliseconds. |
-| > state | String | The status of the RFQ. Valid values can be `active`, `canceled`, `filled`, `expired` `traded_away` or `failed`. `traded_away` only applies to Maker. |
+| > state | String | The status of the RFQ. Valid values can be `active`, `canceled`, `filled`, `expired` `traded_away` or `failed`. `filled` indicates the RFQ was successfully executed against the maker's quote. `traded_away` only applies to Maker. The same RFQ can appear as `filled` to one maker and `traded_away` to another. Example: taker creates RFQ → makerA quotes pxA, makerB quotes pxB → pxA is better than pxB → taker executes quoteA → makerA sees `filled`, makerB sees `traded_away`. |
 | > counterparties | Array of Strings | The list of counterparties traderCode the RFQ was broadcasted to. |
 | > validUntil | String | The timestamp the RFQ expires. Unix timestamp format in milliseconds. |
 | > clRfqId | String | Client-supplied RFQ ID. This attribute is treated as client sensitive information. It will not be exposed to the Maker. Return empty for Maker, eg. "". |
@@ -398,7 +398,7 @@ Push Data Example
 
 ### Structure block trades channel
 
-Retrieve user's block trades data. All the legs in the same block trade are included in the same update. Data will be pushed whenever there is a block trade that the user is a counterparty for.
+Retrieve user's block trades data. All the legs in the same block trade are included in the same update. Data will be pushed whenever there is a block trade that the user is a counterparty for (i.e. the taker or the executing maker). Makers who received a `traded_away` status will not receive data from this channel.
 
 #### URL Path
 

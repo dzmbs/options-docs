@@ -40,7 +40,8 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| instType | String | Yes | Instrument type`SPOT`: Spot`MARGIN`: Margin`SWAP`: Perpetual Futures`FUTURES`: Expiry Futures`OPTION`: Option |
+| instType | String | Yes | Instrument type`SPOT`: Spot`MARGIN`: Margin`SWAP`: Perpetual Futures`FUTURES`: Expiry Futures`OPTION`: Option`EVENTS`: Event Contracts |
+| seriesId | String | Conditional | Series ID, e.g. `BTC-ABOVE-DAILY`. Required when instType is `EVENTS` |
 | instFamily | String | Conditional | Instrument familyOnly applicable to `FUTURES`/`SWAP`/`OPTION`. If instType is `OPTION`, `instFamily` is required. |
 | instId | String | No | Instrument ID |
 
@@ -74,6 +75,7 @@ Response Example
  "maxMktAmt": "1000000",
  "maxMktSz": "1000000",
  "maxPlatOILmt": "1000000000",
+ "maxPlatOICoinLmt": "",
  "maxStopSz": "1000000",
  "maxTriggerSz": "9999999999.0000000000000000",
  "maxTwapSz": "9999999999.0000000000000000",
@@ -114,6 +116,7 @@ Response Example
 | Parameter | Type | Description |
 | --- | --- | --- |
 | instType | String | Instrument type |
+| seriesId | String | Series ID, e.g. `BTC-ABOVE-DAILY`. Only applicable to `EVENTS` |
 | instId | String | Instrument ID, e.g. `BTC-USD-SWAP` |
 | uly | String | Underlying, e.g. `BTC-USD` Only applicable to `MARGIN/FUTURES`/`SWAP`/`OPTION` |
 | groupId | String | Instrument trading fee group IDSpot:`1`: Spot USDT`2`: Spot USDC & Crypto`3`: Spot TRY`4`: Spot EUR`5`: Spot BRL`7`: Spot AED`8`: Spot AUD`9`: Spot USD`10`: Spot SGD`11`: Spot zero`12`: Spot group one`13`: Spot group two`14`: Spot group three`15`: Spot special ruleExpiry futures:`1`: Expiry futures crypto-margined`2`: Expiry futures USDT-margined`3`: Expiry futures USDC-margined`4`: Expiry futures premarket`5`: Expiry futures group one`6`: Expiry futures group twoPerpetual futures:`1`: Perpetual futures crypto-margined`2`: Perpetual futures USDT-margined`3`: Perpetual futures USDC-margined`4`: Perpetual futures group one`5`: Perpetual futures group two `6`: Stock perpetual futures Options:`1`: Options crypto-margined`2`: Options USDC-marginedinstType and groupId should be used together to determine a trading fee group. Users should use this endpoint together with fee rates endpoint to get the trading fee of a specific symbol. Some enum values may not apply to you; the actual return values shall prevail. |
@@ -134,15 +137,16 @@ Response Example
 | elp | String | ELP maker permission`0`: ELP is not enabled for this symbol`1`: ELP is enabled for this symbol, but current users don't have permission to place ELP orders for it. `2`: ELP is enabled for this symbol, and current users have permission to place ELP orders for it. It doesn't mean there will be ELP liquidity when elp is `1/2`. |
 | expTime | String | Expiry time Applicable to `SPOT`/`MARGIN`/`FUTURES`/`SWAP`/`OPTION`. For `FUTURES`/`OPTION`, it is natural delivery/exercise time. It is the instrument offline time when there is `SPOT/MARGIN/FUTURES/SWAP/` manual offline. Update once change. |
 | lever | String | Max Leverage, Not applicable to `SPOT`, `OPTION` |
-| tickSz | String | Tick size, e.g. `0.0001`For Option, it is minimum tickSz among tick band, please use "Get option tick bands" if you want get option tickBands. |
+| tickSz | String | Tick size, e.g. `0.0001`.For `OPTION`/`EVENTS`, it is the minimum tickSz among tick band. Use "Get instrument tick bands" endpoint with the corresponding `instType` for accurate tickSz per price range. |
 | lotSz | String | Lot sizeIf it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
 | minSz | String | Minimum order sizeIf it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
 | ctType | String | Contract type`linear`: linear contract`inverse`: inverse contract Only applicable to `FUTURES`/`SWAP` |
-| state | String | Instrument status`live` `suspend``rebase`: can't be traded during rebasing, only applicable to `SWAP``preopen` e.g. Futures and options contracts rollover from generation to trading start; certain symbols before they go live`test`: Test pairs, can't be traded |
-| ruleType | String | Trading rule types `normal`: normal trading `pre_market`: pre-market trading `rebase_contract`: pre-market rebase contract |
+| state | String | Instrument status`live` `suspend``rebase`: can't be traded during rebasing, only applicable to `SWAP``post_only`: only post-only orders are accepted; existing post-only orders can be amended and cancelled. Other order types (market, IOC, FOK, normal limit) are rejected. Only applicable to `SWAP``preopen` e.g. Futures and options contracts rollover from generation to trading start; certain symbols before they go live`test`: Test pairs, can't be traded`settling`: Settling, only applicable to `EVENTS` |
+| ruleType | String | Trading rule types`normal`: normal trading`pre_market`: pre-market trading`rebase_contract`: pre-market rebase contract`xperp`: perpetual-style futures, only applicable to certain `FUTURES` contracts |
 | posLmtAmt | String | Maximum position value (USD) for this instrument at the user level (shared across master and sub-accounts), based on the notional value of all same-direction open positions and resting orders. The effective user limit is max(posLmtAmt, oiUSD × posLmtPct). Applicable to `SWAP`/`FUTURES`. |
 | posLmtPct | String | Maximum position ratio (e.g., 30 for 30%) a user (shared across master and sub-accounts) may hold relative to the platform's current total position value. The effective user limit is max(posLmtAmt, oiUSD × posLmtPct). Applicable to `SWAP`/`FUTURES`. |
-| maxPlatOILmt | String | Platform-wide maximum position value (USD) for this instrument. If the global position limit switch is enabled and platform total open interest reaches or exceeds this value, all users’ new opening orders for this instrument are rejected; otherwise, orders pass. |
+| maxPlatOILmt | String | Platform-wide maximum position value (USD) for this instrument. If the platform total open interest (USD) reaches or exceeds this value, all users’ new opening orders for this instrument are rejected; otherwise, orders pass.Applicable to `SWAP`/`FUTURES` |
+| maxPlatOICoinLmt | String | Platform-wide maximum position value (coins) for this instrument. If the platform total open interest (coins) reaches or exceeds this value, all users’ new opening orders for this instrument are rejected; otherwise, orders pass.Applicable to `SWAP`/`FUTURES` |
 | longPosRemainingQuota | String | The remaining long position value (USD) the user is permitted to open, netting all existing long positions and resting buy orders. The quota is shared across the master account and all subaccounts. |
 | shortPosRemainingQuota | String | The remaining short position value (USD) the user is permitted to open, netting all existing short positions and resting sell orders. The quota is shared across the master account and all subaccounts. |
 | maxLmtSz | String | The maximum order quantity of a single limit order.If it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
@@ -156,7 +160,7 @@ Response Example
 | futureSettlement | Boolean | Whether daily settlement for expiry feature is enabledApplicable to `FUTURES` `cross` |
 | tradeQuoteCcyList | Array of strings | List of quote currencies available for trading, e.g. ["USD", "USDC"]. |
 | instIdCode | Integer | Instrument ID code. For simple binary encoding, you must use `instIdCode` instead of `instId`.For the same `instId`, it's value may be different between production and demo trading. It is `null` when the value is not generated. |
-| instCategory | String | The asset category of the instrument’s base asset (the first segment of the instrument ID). For example, for `BTC-USDT-SWAP`, the `instCategory` represents the asset category of `BTC`. `1`: Crypto `3`: Stocks |
+| instCategory | String | The asset category of the instrument’s base asset (the first segment of the instrument ID). For example, for `BTC-USDT-SWAP`, the `instCategory` represents the asset category of `BTC`. `1`: Crypto `3`: Stocks `4`: Commodities `5`: Forex `6`: Bonds `""`: Not available |
 | upcChg | Array of objects | Upcoming changes. It is [] when there is no upcoming change. |
 | > param | String | The parameter name to be updated. `tickSz` `minSz` `maxMktSz` |
 | > newValue | String | The parameter value that will replace the current one. |
@@ -310,19 +314,19 @@ Response Example
 | uTime | String | Update time of account information, millisecond format of Unix timestamp, e.g. `1597026383085` |
 | totalEq | String | Total account assets denominated in `USD` |
 | isoEq | String | Isolated margin equity in `USD`Applicable to `Futures mode`/`Multi-currency margin`/`Portfolio margin` |
-| adjEq | String | Adjusted / Effective equity in `USD` The net fiat value of the assets in the account that can provide margins for spot, expiry futures, perpetual futures and options under the cross-margin mode. In multi-ccy or PM mode, the asset and margin requirement will all be converted to USD value to process the order check or liquidation. Due to the volatility of each currency market, our platform calculates the actual USD value of each currency based on discount rates to balance market risks. Applicable to `Spot mode`/`Multi-currency margin` and `Portfolio margin` |
+| adjEq | String | Adjusted equity in `USD`: `totalEq` minus haircut discounts applied to non-stablecoin collateral assets. This is the operative value used in the margin ratio calculation (`mgnRatio` = `adjEq` / `mmr`). The net fiat value of the assets in the account that can provide margins for spot, expiry futures, perpetual futures and options under the cross-margin mode. In multi-ccy or PM mode, the asset and margin requirement will all be converted to USD value to process the order check or liquidation. Due to the volatility of each currency market, our platform calculates the actual USD value of each currency based on discount rates to balance market risks. Applicable to `Spot mode`/`Multi-currency margin` and `Portfolio margin` |
 | availEq | String | Account level available equity, excluding currencies that are restricted due to the collateralized borrowing limit. Applicable to `Multi-currency margin`/`Portfolio margin` |
 | ordFroz | String | Cross margin frozen for pending orders in `USD` Only applicable to `Spot mode`/`Multi-currency margin`/`Portfolio margin` |
-| imr | String | Initial margin requirement in `USD` The sum of initial margins of all open positions and pending orders under cross-margin mode in `USD`. Applicable to `Spot mode`/`Multi-currency margin`/`Portfolio margin` |
-| mmr | String | Maintenance margin requirement in `USD` The sum of maintenance margins of all open positions and pending orders under cross-margin mode in `USD`. Applicable to `Spot mode`/`Multi-currency margin`/`Portfolio margin` |
+| imr | String | Initial Margin Requirement (IMR) in `USD`: equity locked across all open cross-margin positions. The sum of initial margins of all open positions and pending orders under cross-margin mode. Formula per position: position size × markPx × initial margin rate (= 1/lever). Returns empty string in Simple mode. Applicable to `Spot mode`/`Multi-currency margin`/`Portfolio margin` |
+| mmr | String | Maintenance Margin Requirement (MMR) in `USD`: the minimum equity required to avoid forced liquidation. The sum of maintenance margins of all open positions and pending orders under cross-margin mode. When `adjEq` ≤ `mmr` (equivalently, `mgnRatio` ≤ 1.0), the system begins forced liquidation of positions. Subscribe to the position-risk-warning WebSocket channel for proactive alerts. Applicable to `Spot mode`/`Multi-currency margin`/`Portfolio margin` |
 | borrowFroz | String | Potential borrowing IMR of the account in `USD` Only applicable to `Spot mode`/`Multi-currency margin`/`Portfolio margin`. It is "" for other margin modes. |
-| mgnRatio | String | Maintenance margin ratio in `USD` Applicable to `Spot mode`/`Multi-currency margin`/`Portfolio margin` |
-| notionalUsd | String | Notional value of positions in `USD` Applicable to `Spot mode`/`Multi-currency margin`/`Portfolio margin` |
+| mgnRatio | String | Account-level margin ratio = `adjEq` / `mmr`. Values at or below 1.0 indicate the account is at or past the liquidation boundary. Monitor this field or subscribe to the position-risk-warning WebSocket channel for proactive alerts. Applicable to `Spot mode`/`Multi-currency margin`/`Portfolio margin` |
+| notionalUsd | String | Gross notional value of all open derivative positions converted to USD. Linear contracts: sz × ctVal × markPx. Inverse contracts: sz × ctVal (USD-denominated face value). Gross = long and short are not netted. Applicable to `Spot mode`/`Multi-currency margin`/`Portfolio margin` |
 | notionalUsdForBorrow | String | Notional value for `Borrow` in USDApplicable to `Spot mode`/`Multi-currency margin`/`Portfolio margin` |
 | notionalUsdForSwap | String | Notional value of positions for `Perpetual Futures` in USDApplicable to `Multi-currency margin`/`Portfolio margin` |
 | notionalUsdForFutures | String | Notional value of positions for `Expiry Futures` in USDApplicable to `Multi-currency margin`/`Portfolio margin` |
 | notionalUsdForOption | String | Notional value of positions for `Option` in USDApplicable to `Spot mode`/`Multi-currency margin`/`Portfolio margin` |
-| upl | String | Cross-margin info of unrealized profit and loss at the account level in `USD`Applicable to `Multi-currency margin`/`Portfolio margin` |
+| upl | String | Unrealized PnL across all open cross-margin positions at the account level, in `USD`. Calculated using mark price (not last trade price). Positive = unrealized gain; negative = unrealized loss. Returns empty string in Simple mode and Single-currency margin mode.Applicable to `Multi-currency margin`/`Portfolio margin` |
 | delta | String | Delta (USD) |
 | deltaLever | String | Delta neutral strategy account level delta leveragedeltaLever = delta / totalEq |
 | deltaNeutralStatus | String | Delta risk status`0`: normal`1`: transfer restricted`2`: delta reducing - cancel all pending orders if delta is greater than 5000 USD, only one delta reducing order allowed per index (spot, futures, swap) |
@@ -489,7 +493,7 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| instType | String | No | Instrument type`MARGIN``SWAP``FUTURES``OPTION``instId` will be checked against `instType` when both parameters are passed. |
+| instType | String | No | Instrument type`MARGIN``SWAP``FUTURES``OPTION``EVENTS``instId` will be checked against `instType` when both parameters are passed. |
 | instId | String | No | Instrument ID, e.g. `BTC-USDT-SWAP`. Single instrument ID or multiple instrument IDs (no more than 10) separated with comma |
 | posId | String | No | Single position ID or multiple position IDs (no more than 20) separated with comma. There is attribute expiration, the posId and position information will be cleared if it is more than 30 days after the last full close position. |
 
@@ -580,11 +584,11 @@ Response Example
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| instType | String | Instrument type |
+| instType | String | Instrument type`MARGIN``SWAP``FUTURES``OPTION``EVENTS` |
 | mgnMode | String | Margin mode`cross` `isolated` |
 | posId | String | Position ID |
 | posSide | String | Position side`long`, `pos` is positive `short`, `pos` is positive `net` (`FUTURES`/`SWAP`/`OPTION`: positive `pos` means long position and negative `pos` means short position. For `MARGIN`, `pos` is always positive, `posCcy` being base currency means long position, `posCcy` being quote currency means short position.) |
-| pos | String | Quantity of positions. In the isolated margin mode, when doing manual transfers, a position with pos of `0` will be generated after the deposit is transferred |
+| pos | String | Position quantity. Unit: number of contracts for SWAP/FUTURES/OPTIONS; base currency amount for MARGIN. Sign (net mode): positive = long, negative = short. In long/short mode, separate records are returned per side — check `posSide`. In the isolated margin mode, when doing manual transfers, a position with pos of `0` will be generated after the deposit is transferred (represents a funded-but-empty position record created after a margin deposit). |
 | hedgedPos | String | Hedged position sizeOnly return for accounts in delta neutral strategy, stgyType:1. Return "" for accounts in general strategy. |
 | baseBal | String | Base currency balance, only applicable to `MARGIN`（Quick Margin Mode）(Deprecated) |
 | quoteBal | String | Quote currency balance, only applicable to `MARGIN`（Quick Margin Mode）(Deprecated) |
@@ -594,17 +598,17 @@ Response Example
 | quoteInterest | String | Quote Interest, undeducted interest that has been incurred, only applicable to MARGIN(Quick Margin Mode）(Deprecated) |
 | posCcy | String | Position currency, only applicable to `MARGIN` positions. |
 | availPos | String | Position that can be closed Only applicable to `MARGIN` and `OPTION`.For `MARGIN` position, the rest of sz will be `SPOT` trading after the liability is repaid while closing the position. Please get the available reduce-only amount from "Get maximum available tradable amount" if you want to reduce the amount of `SPOT` trading as much as possible. |
-| avgPx | String | Average open priceUnder cross-margin mode, the entry price of expiry futures will update at settlement to the last settlement price, and when the position is opened or increased. |
+| avgPx | String | Volume-weighted average entry price of the current open position. Denominated in quote currency for linear contracts (e.g., USDT for BTC-USDT-SWAP) and in USD for inverse contracts (e.g., BTC-USD-SWAP). Recalculated after each fill that changes position size.Under cross-margin mode, the entry price of expiry futures will update at settlement to the last settlement price, and when the position is opened or increased. |
 | nonSettleAvgPx | String | Non-settlement entry priceThe non-settlement entry price only reflects the average price at which the position is opened or increased.Applicable to `cross` `FUTURES` positions. |
 | markPx | String | Latest Mark price |
-| upl | String | Unrealized profit and loss calculated by mark price. |
+| upl | String | Unrealized PnL for this position, denominated in the instrument's settlement currency (see `ccy`). Formula: (markPx − avgPx) × pos × ctVal for linear; (1/avgPx − 1/markPx) × pos × ctVal for inverse. For account-level USD total, see `upl` in GET /api/v5/account/balance. |
 | uplRatio | String | Unrealized profit and loss ratio calculated by mark price. |
 | uplLastPx | String | Unrealized profit and loss calculated by last price. Main usage is showing, actual value is upl. |
 | uplRatioLastPx | String | Unrealized profit and loss ratio calculated by last price. |
 | instId | String | Instrument ID, e.g. `BTC-USDT-SWAP` |
 | lever | String | Leverage Not applicable to `OPTION` and positions of cross margin mode under `Portfolio margin` |
-| liqPx | String | Estimated liquidation price Not applicable to `OPTION` |
-| imr | String | Initial margin requirement, only applicable to `cross`. |
+| liqPx | String | Estimated mark price at which this position would be forcibly liquidated. This is an estimate based on current equity and margin rates — the actual liquidation price can change quickly due to funding rate accrual, other position changes, or rapid market moves. Not applicable to `OPTION` |
+| imr | String | Initial margin requirement for this specific cross-margin position, in USD. Formula: position size × markPx × initial margin rate (1/lever). For total account IMR, see `imr` in GET /api/v5/account/balance. Empty string for isolated positions. Only applicable to `cross`. |
 | margin | String | Margin, can be added or reduced. Only applicable to `isolated`. |
 | mgnRatio | String | Maintenance margin ratio |
 | mmr | String | Maintenance margin requirement |
@@ -615,7 +619,7 @@ Response Example
 | optVal | String | Option Value, only applicable to `OPTION`. |
 | pendingCloseOrdLiabVal | String | The amount of close orders of isolated margin liability. |
 | notionalUsd | String | Notional value of positions in `USD` |
-| adl | String | Auto-deleveraging (ADL) indicatorDivided into 6 levels, from 0 to 5, the smaller the number, the weaker the adl intensity. Only applicable to `FUTURES/SWAP/OPTION` |
+| adl | String | Auto-Deleveraging (ADL) indicator. Range: 0–5, where 0 = lowest ADL priority (least likely to be forcibly deleveraged) and 5 = highest priority (first in queue if the insurance fund is depleted). Priority increases with higher unrealized profit and higher leverage. Only applicable to `FUTURES/SWAP/OPTION` |
 | ccy | String | Currency used for margin |
 | last | String | Latest traded price |
 | idxPx | String | Latest underlying index price |
@@ -638,7 +642,7 @@ Response Example
 | realizedPnl | String | Realized profit and lossOnly applicable to `FUTURES`/`SWAP`/`OPTION``realizedPnl`=`pnl`+`fee`+`fundingFee`+`liqPenalty`+`settledPnl` |
 | settledPnl | String | Accumulated settled profit and loss (calculated by settlement price)Only applicable to `cross` `FUTURES` |
 | pnl | String | Accumulated pnl of closing order(s) (excluding the fee). |
-| fee | String | Accumulated feeNegative number represents the user transaction fee charged by the platform.Positive number represents rebate. |
+| fee | String | Accumulated fee since the current position was opened. Resets to 0 when the position is fully closed. For per-fill fees, use GET /api/v5/trade/fills.Negative number represents the user transaction fee charged by the platform. Positive number represents rebate. |
 | fundingFee | String | Accumulated funding fee |
 | liqPenalty | String | Accumulated liquidation penalty. It is negative when there is a value. |
 | closeOrderAlgo | Array of objects | Close position algo orders attached to the position. This array will have values only after you request "Place algo order" with `closeFraction`=1. |
@@ -694,7 +698,7 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| instType | String | No | Instrument type`MARGIN``SWAP``FUTURES``OPTION` |
+| instType | String | No | Instrument type`MARGIN``SWAP``FUTURES``OPTION``EVENTS` |
 | instId | String | No | Instrument ID, e.g. `BTC-USD-SWAP` |
 | mgnMode | String | No | Margin mode`cross` `isolated` |
 | type | String | No | The type of latest close position`1`: Close position partially;`2`：Close all;`3`：Liquidation;`4`：Partial liquidation; `5`：ADL - position not fully closed; `6`：ADL - position fully closedIt is the latest type if there are several types for the same position. |
@@ -746,7 +750,7 @@ Response Example
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| instType | String | Instrument type |
+| instType | String | Instrument type`MARGIN``SWAP``FUTURES``OPTION``EVENTS` |
 | instId | String | Instrument ID |
 | mgnMode | String | Margin mode`cross` `isolated` |
 | type | String | The type of latest close position`1`：Close position partially;`2`：Close all;`3`：Liquidation;`4`：Partial liquidation; `5`：ADL; It is the latest type if there are several types for the same position. |
@@ -928,7 +932,7 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| instType | String | No | Instrument type`SPOT``MARGIN``SWAP``FUTURES``OPTION` |
+| instType | String | No | Instrument type`SPOT``MARGIN``SWAP``FUTURES``OPTION``EVENTS` |
 | instId | String | No | Instrument ID, e.g. `BTC-USDT` |
 | ccy | String | No | Bill currency |
 | mgnMode | String | No | Margin mode`isolated``cross` |
@@ -996,7 +1000,7 @@ Response Example
 | type | String | Bill type |
 | subType | String | Bill subtype |
 | ts | String | The time when the balance complete update, Unix timestamp format in milliseconds, e.g.`1597026383085` |
-| balChg | String | Change in balance amount at the account level |
+| balChg | String | Signed change in account balance for this event, in the currency specified by the `ccy` field. Positive: balance increased (e.g., received funding fee rebate, closed profitable trade). Negative: balance decreased (e.g., paid trading fee, settled a loss). |
 | posBalChg | String | Change in balance amount at the position level |
 | bal | String | Balance at the account level |
 | posBal | String | Balance at the position level |
@@ -1071,7 +1075,7 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| instType | String | No | Instrument type`SPOT``MARGIN``SWAP``FUTURES``OPTION` |
+| instType | String | No | Instrument type`SPOT``MARGIN``SWAP``FUTURES``OPTION``EVENTS` |
 | instId | String | No | Instrument ID, e.g. `BTC-USDT` |
 | ccy | String | No | Bill currency |
 | mgnMode | String | No | Margin mode`isolated``cross` |
@@ -1822,6 +1826,7 @@ print(result)
 | px | String | No | PriceWhen the price is not specified, it will be calculated according to the current limit price for `FUTURES` and `SWAP`, the last traded price for other instrument types.The parameter will be ignored when multiple instruments are specified. |
 | leverage | String | No | Leverage for instrumentThe default is current leverageOnly applicable to `MARGIN/FUTURES/SWAP` |
 | tradeQuoteCcy | String | No | The quote currency used for trading. Only applicable to `SPOT`. The default value is the quote currency of the `instId`, for example: for `BTC-USD`, the default is `USD`. |
+| outcome | String | No | Market outcome to trade on.`yes``no`Only applicable and optional for `EVENTS`, the default value is `yes` |
 
 Response Example
 
@@ -1945,7 +1950,7 @@ Increase or decrease the margin of the isolated position. Margin reduction may r
 
 `POST /api/v5/account/position/margin-balance`
 
-Request Example
+**Request Example
 
 ```
 POST /api/v5/account/position/margin-balance
@@ -2020,7 +2025,6 @@ Response Example
 | ccy | String | Currency |
 
 Manual transfer mode
-
 The value of the margin initially assigned to the isolated position must be greater than or equal to 10,000 USDT, and a position will be created on the account.
 
 ### Get leverage
@@ -2316,7 +2320,7 @@ print(result)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| instType | String | Yes | Instrument type`SPOT``MARGIN``SWAP``FUTURES``OPTION` |
+| instType | String | Yes | Instrument type`SPOT``MARGIN``SWAP``FUTURES``OPTION``EVENTS` |
 | instId | String | No | Instrument ID, e.g. `BTC-USDT`Applicable to `SPOT`/`MARGIN` |
 | instFamily | String | No | Instrument family, e.g. `BTC-USD`Applicable to `FUTURES`/`SWAP`/`OPTION` |
 | groupId | String | No | Instrument trading fee group ID Only one of groupId and instId/instFamily can be passed in Users can use instruments endpoint to fetch the mapping of an instrument ID and its trading fee group ID |
@@ -2333,6 +2337,7 @@ Response Example
  "exercise": "",
  "feeGroup": [
  {
+ "elpMaker": "-0.0008",
  "groupId": "1",
  "maker": "-0.0008",
  "taker": "-0.001"
@@ -2361,10 +2366,11 @@ Response Example
 | Parameter | Type | Description |
 | --- | --- | --- |
 | level | String | Fee rate Level |
-| feeGroup | Array of objects | Fee groups. Applicable to `SPOT/MARGIN/SWAP/FUTURES/OPTION` |
-| > taker | String | Taker fee |
-| > maker | String | Maker fee |
+| feeGroup | Array of objects | Fee groups. Applicable to `SPOT/MARGIN/SWAP/FUTURES/OPTION/EVENTS` |
+| > taker | String | Taker feeK1 parameter for `EVENTS` taker fee formula: `K1 × C × (P × (1-P))` (C = number of contracts, P = price) |
+| > maker | String | Maker feeK2 parameter for `EVENTS` maker fee formula: `K2 × C × (P × (1-P))` (C = number of contracts, P = price) |
 | > groupId | String | Instrument trading fee group IDinstType and groupId should be used together to determine a trading fee group. Users should use this endpoint together with instruments endpoint to get the trading fee of a specific symbol. |
+| > elpMaker | String | ELP Maker effective fee rate. Returns `""` if ELP is not applicable to the instrument. |
 | delivery | String | Delivery fee rate |
 | exercise | String | Fee rate for exercising the option |
 | instType | String | Instrument type |
@@ -2381,11 +2387,10 @@ Response Example
 | > ccy | String | Fiat currency. |
 | > taker | String | Taker fee rate |
 | > maker | String | Maker fee rate |
+| settle | String | Settlement fee rate for users whose positions match the event contract settlement result. Users holding the opposite positions will not be charged during settlement. Only applicable to `EVENTS` |
 
 Remarks:
-
 The fee rate like maker and taker: positive number, which means the rate of rebate; negative number, which means the rate of commission.
-
 Exception: The values for delivery and exercise are positive numbers, representing the commission rate.
 
 USDⓈ represent the stablecoin besides USDT
@@ -2753,11 +2758,9 @@ Response Example
 | isoMode | String | Isolated margin trading settings`automatic`: Auto transfers |
 
 CONTRACTS
-
 Auto transfers: Automatically occupy and release the margin when opening and closing positions
 
 MARGIN
-
 Auto transfers: Automatically borrow and return coins when opening and closing positions
 
 ### Get maximum withdrawals
@@ -3013,7 +3016,7 @@ Response Example
 
 Only applicable to `Spot mode` (enabled borrowing)
 
-#### Rate Limit: 1 request per second
+#### Rate Limit: 1 request per 3 seconds
 
 #### Rate limit rule: Master Account User ID
 
@@ -3226,7 +3229,6 @@ Response Example
 ### Position builder (new)
 
 Calculates portfolio margin information for virtual position/assets or current position of the user.
-
 You can add up to 200 virtual positions and 200 virtual assets in one request.
 
 #### Rate Limit: 2 requests per 2 seconds
@@ -4595,11 +4597,9 @@ This endpoint is used to set MMP configure
 Only applicable to Option in Portfolio Margin mode, and MMP privilege is required.
 
 What is MMP?
-
 Market Maker Protection (MMP) is an automated mechanism for market makers to pull their quotes when their executions exceed a certain threshold(`qtyLimit`) within a certain time frame(`timeInterval`). Once mmp is triggered, any pre-existing mmp pending orders(`mmp` and `mmp_and_post_only` orders) will be automatically canceled, and new orders tagged as MMP will be rejected for a specific duration(`frozenInterval`), or until manual reset by makers.
 
 How to enable MMP?
-
 Please send an email to institutional@okx.com or contact your business development (BD) manager to apply for MMP. The initial threshold will be upon your request.
 
 #### Rate Limit: 2 requests per 10 seconds
@@ -4868,6 +4868,13 @@ Response example:failure
  "data": []
 }
 
+// TradeFi positions are not supported.
+{
+ "code": "70004",
+ "msg": "Invalid instrument ID XAG-USDT-SWAP",
+ "data": []
+}
+
 ```
 
 #### Response parameters
@@ -4903,39 +4910,26 @@ Response example:failure
 
 #### Things to note
 
-- Only applicable to users with a trading level greater than or equal to VIP6, and can only be called through the API Key of the master account.
-
-- The source and destination accounts for move positions must be accounts under the same master account and they must be different.
-
-- For source account, a maximum of fifteen move position requests can be triggered within a 24-hour period. There is no limitation to the destination account to receive positions. Only successful requests are counted toward this limit.
-
-- The maximum number of legs per move position request is 30.
-
-- No move position fee will be charged at this time.
-
-- Moving positions is not supported in margin trading now.
-
-- The move position price is determined by the TWAP (Time-Weighted Average Price) of the mark price over the past 60 minutes, using the closing mark price per minute. If the symbol is newly listed and a 60-minute TWAP is unavailable, the move position will be rejected with error code 70065
-
-- The move position will share the same price limit as those in the order book. The move position will fail if the 60-minute mark price TWAP is outside of the price limit.
-
-- For the source account, move positions must be conducted in a reduce-only manner. You must choose the opposite side of your current position and specify a size equal to or smaller than your existing position size. The system will also process move position requests in a best-effort reduce-only manner.
-
-- The side field of source account leg (from) should be `sell` if you are holding a long position while the side of destination account leg (to) should be `buy`, vice versa for a short position.
-
-- The posSide field of destination account (to) should be `net` if it's in one-way mode; `long`/`short` if it's in hedge mode. If in hedge mode, you need to specify `long`/`short` to decide whether to close current positions or open reverse positions. Otherwise, it will always open new positions.
+Only applicable to users with a trading level greater than or equal to VIP6, and can only be called through the API Key of the master account.
+The source and destination accounts for move positions must be accounts under the same master account and they must be different.
+For source account, a maximum of fifteen move position requests can be triggered within a 24-hour period. There is no limitation to the destination account to receive positions. Only successful requests are counted toward this limit.
+The maximum number of legs per move position request is 30.
+No move position fee will be charged at this time.
+Moving positions is not supported in margin trading now.
+TradeFi positions are not supported.
+The move position price is determined by the TWAP (Time-Weighted Average Price) of the mark price over the past 60 minutes, using the closing mark price per minute. If the symbol is newly listed and a 60-minute TWAP is unavailable, the move position will be rejected with error code 70065
+The move position will share the same price limit as those in the order book. The move position will fail if the 60-minute mark price TWAP is outside of the price limit.
+For the source account, move positions must be conducted in a reduce-only manner. You must choose the opposite side of your current position and specify a size equal to or smaller than your existing position size. The system will also process move position requests in a best-effort reduce-only manner.
+The side field of source account leg (from) should be `sell` if you are holding a long position while the side of destination account leg (to) should be `buy`, vice versa for a short position.
+The posSide field of destination account (to) should be `net` if it's in one-way mode; `long`/`short` if it's in hedge mode. If in hedge mode, you need to specify `long`/`short` to decide whether to close current positions or open reverse positions. Otherwise, it will always open new positions.
 
 Open long: buy and open long (side: buy; posSide: long)
+Open short: sell and open short (side: sell; posSide: short)
+Close long: sell and close long (side: sell; posSide: long)
+Close short: buy and close short (side: buy; posSide: short)
 
-- Open short: sell and open short (side: sell; posSide: short)
-
-- Close long: sell and close long (side: sell; posSide: long)
-
-- Close short: buy and close short (side: buy; posSide: short)
-
-- Historical records of move positions can be fetched from the *Get move positions history* endpoint but only for pending or successful requests.
-
-- Move positions operation counting example.
+Historical records of move positions can be fetched from the Get move positions history endpoint but only for pending or successful requests.
+Move positions operation counting example.
 
 | Transfer done within the day | Account A count (total) | Account B count (total) | Account C count (total) | Account D count (total) |
 | --- | --- | --- | --- | --- |
@@ -5087,8 +5081,8 @@ Request example
 | --- | --- | --- | --- |
 | earnType | String | No | Auto earn type`0`: auto earn (auto lend, auto staking) `1`: auto earn (USDG earn) The default value is `0` |
 | ccy | String | Yes | Currency |
-| action | String | Yes | Auto earn operation action`turn_on`: turn on auto earn`turn_off`: turn off auto earn`amend`: amend minimum lending APR, applicable onlyto earnType `0` (deprecated) |
-| apr | String | Optional | Minimum lending APR. Users must pass in this field when earnType is `0` and action is `turn_on/amend`. 0.01 means 1%, available range 0.01-3.65, increment 0.01 (deprecated) |
+| action | String | Yes | Auto earn operation action`turn_on`: turn on auto earn`turn_off`: turn off auto earn`amend`: amend minimum lending APR, applicable only to earnType `0` (Deprecated) |
+| apr | String | Optional | Minimum lending APR. Users must pass in this field when earnType is `0` and action is `turn_on/amend`. 0.01 means 1%, available range 0.01-3.65, increment 0.01 (Deprecated) |
 
 Response example
 
@@ -5114,8 +5108,8 @@ Response example
 | --- | --- | --- |
 | earnType | String | Auto earn type`0`: auto earn (auto lend, auto staking) `1`: auto earn (USDG earn) |
 | ccy | String | Currency |
-| action | Boolean | Auto earn operation action `turn_on` `turn_off` `amend` (deprecated) |
-| apr | String | Minimum lending APR (deprecated) |
+| action | String | Auto earn operation action `turn_on` `turn_off` `amend` (Deprecated) |
+| apr | String | Minimum lending APR (Deprecated) |
 
 ### Set settle currency
 
@@ -5276,7 +5270,88 @@ Response example
 | Parameter | Type | Description |
 | --- | --- | --- |
 | unmatchedInfoCheck | Array of objects | Unmatched information list |
-| > type | String | Unmatched information type`spot_mode`: DNA is not supported under spot mode`futures_mode`: DNA is not supported under futures mode`isolated_margin`: Isolated margin position is not supported in DNA`isolated_contract`: Isolated contract position is not supported in DNA`positions_options`: Options are not supported in DNA`isolated_pending_orders`: Isolated pending orders are not supported in DNA`pending_orders_options`: Pending options orders are not supported in DNA`trading_bot`: Trading bot is not supported in DNA`repay_borrowings`: borrowing in the targeted strategy will exceed the main account borrowing limit after the switch. Repay liabilities and try again.`loan`: Flexible loan and DNA cannot be used at the same time `delta_risk`: delta risk check failed, lower delta and try again`collateral_all`: all coins must be set as collateral in DNA |
+| > type | String | Unmatched information type`spot_mode`: DNA is not supported under spot mode`futures_mode`: DNA is not supported under futures mode`isolated_margin`: Isolated margin position is not supported in DNA`isolated_contract`: Isolated contract position is not supported in DNA`positions_options`: Options are not supported in DNA`isolated_pending_orders`: Isolated pending orders are not supported in DNA`pending_orders_options`: Pending options orders are not supported in DNA`trading_bot`: Trading bot is not supported in DNA`repay_borrowings`: borrowing in the targeted strategy will exceed the main account borrowing limit after the switch. Repay liabilities and try again.`loan`: Flexible loan and DNA cannot be used at the same time `delta_risk`: delta risk check failed, lower delta and try again`collateral_all`: all coins must be set as collateral in DNA`risk_unit_type`: The account is part of a delta neutral risk unit and cannot be switched to general mode. Remove it from the risk unit before switching strategies. |
 | > deltaLever | String | Delta leverageApplicable when type is `delta_risk` |
 | > ordList | Array of strings | Unmatched order list, order IDApplicable when type is `isolated_pending_orders`/`pending_orders_options` |
 | > posList | Array of strings | Unmatched position list, position IDApplicable when type is `isolated_margin`/`isolated_contract`/`positions_options` |
+
+### Adjust demo account balance
+
+This endpoint is only applicable to the demo trading environment.**
+
+Allows users to increase or reduce balances for specific currencies (BTC, ETH, USDT, OKB) in a demo account, enabling flexible testing of trading strategies under different capital scenarios.
+
+All-or-nothing: if any currency in the request fails validation, the entire request is rejected and no balances are modified.
+
+#### Rate Limit: Increase — 3 requests per user per day (resets at UTC 0:00). Reduce — no limit.
+
+#### Rate limit rule: User ID
+
+#### Permission: Trade
+
+#### HTTP Request
+
+`POST /api/v5/account/demo-adjust-balance`
+
+Request Example
+
+```
+POST /api/v5/account/demo-adjust-balance
+body
+{
+ "type": "increase",
+ "adjustments": [
+ { "ccy": "BTC", "amt": "0.5" },
+ { "ccy": "USDT", "amt": "3000" }
+ ]
+}
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| type | String | Yes | Direction of adjustment.`increase`: add to balance`reduce`: deduct from balanceOne direction per request; increase and reduce cannot be mixed. |
+| adjustments | Array | Yes | List of currency adjustments. At least one item required. Duplicate currencies are not allowed. |
+| > ccy | String | Yes | Currency. Supported values: `BTC` `ETH` `USDT` `OKB` |
+| > amt | String | Yes | Adjustment amount. Must be non-negative. Decimal places must not exceed the precision defined for the currency.Increase limits per request: BTC: 1, ETH: 1, USDT: 5000, OKB: 100.Reduce has no per-request amount limit — only constrained by available balance ≥ 0. |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [{
+ "remainCnt": "2",
+ "totalCnt": "3",
+ "details": [
+ { "ccy": "BTC", "amt": "0.5", "bal": "1.5" },
+ { "ccy": "USDT", "amt": "3000", "bal": "13000" }
+ ]
+ }]
+}
+
+```
+
+Failure Example
+
+```
+{
+ "code": "59693",
+ "msg": "USDT transferable balance insufficient. Some funds are occupied by open orders or positions. Please cancel orders or close positions and try again",
+ "data": []
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| remainCnt | String | Remaining daily increase quota. Also returned for reduce requests, but reduce does not consume quota. |
+| totalCnt | String | Total daily increase quota (default: 3). |
+| details | Array | Per-currency operation details. |
+| > ccy | String | Currency. |
+| > amt | String | Adjustment amount applied. |
+| > bal | String | Post-operation balance for this currency. |

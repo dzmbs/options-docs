@@ -59,6 +59,17 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "PrivateCreateSubaccountParamsSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "asset_name",
+          "margin_type",
+          "nonce",
+          "signature",
+          "signature_expiry_sec",
+          "signer",
+          "wallet"
+        ],
         "properties": {
           "amount": {
             "title": "amount",
@@ -114,20 +125,14 @@ Required minimum session key permission level is `admin`
             "description": "Ethereum wallet address"
           }
         },
-        "required": [
-          "amount",
-          "asset_name",
-          "margin_type",
-          "nonce",
-          "signature",
-          "signature_expiry_sec",
-          "signer",
-          "wallet"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCreateSubaccountResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -145,14 +150,14 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateCreateSubaccountResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCreateSubaccountResultSchema": {
+        "type": "object",
+        "required": [
+          "status",
+          "transaction_id"
+        ],
         "properties": {
           "status": {
             "title": "status",
@@ -166,11 +171,6 @@ Required minimum session key permission level is `admin`
             "description": "Transaction id of the request"
           }
         },
-        "required": [
-          "status",
-          "transaction_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

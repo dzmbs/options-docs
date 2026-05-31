@@ -174,8 +174,8 @@ components:
             - settlements
           type: object
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     continuation:
       example: xY7T6cutS3t2B9YtaDkE6TS379oKnkzTvmEDUnEUP2Msa9xKWNNaT

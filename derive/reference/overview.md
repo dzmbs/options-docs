@@ -40,6 +40,8 @@ Visit [Documentation](https://docs.derive.xyz/docs/introduction) for Onboarding 
 
 # Derive API
 
+Use of Derive APIs, WebSocket streams, feeds, and public data endpoints is subject to the Derive Terms of Use and Derive Data Usage Policy. Commercial use, redistribution, derived data products, benchmarks, indices, valuation services, AI/ML use, scraping, or systematic extraction require prior written consent.
+
 The Derive API provides access to the Derive Exchange orderbook which matches orders and settles trades. Derive provides two interfaces to access the API:
 
 ### Mainnet

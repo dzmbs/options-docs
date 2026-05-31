@@ -214,8 +214,8 @@ components:
         result:
           $ref: '#/components/schemas/position_move'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     position_move:
       properties:

@@ -1,6 +1,6 @@
 # Get Subaccount Value History
 
-Get the value history of a subaccount
+Get the value history of a subaccount.<br />Supported periods: 900 (15m), 3600 (1h), 86400 (1d), 604800 (1w).<br />Returns up to 1000 entries per request. If the time range exceeds 1000 * period seconds,<br />the start is clamped forward to return the most recent 1000 entries.
 Required minimum session key permission level is `read_only`
 
 # OpenAPI definition
@@ -29,7 +29,7 @@ Required minimum session key permission level is `read_only`
           "Private"
         ],
         "summary": "Get Subaccount Value History",
-        "description": "Get the value history of a subaccount\nRequired minimum session key permission level is `read_only`",
+        "description": "Get the value history of a subaccount.<br />Supported periods: 900 (15m), 3600 (1h), 86400 (1d), 604800 (1w).<br />Returns up to 1000 entries per request. If the time range exceeds 1000 * period seconds,<br />the start is clamped forward to return the most recent 1000 entries.\nRequired minimum session key permission level is `read_only`",
         "responses": {
           "200": {
             "description": "successful operation",
@@ -59,21 +59,28 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetSubaccountValueHistoryParamsSchema": {
+        "type": "object",
+        "required": [
+          "end_timestamp",
+          "period",
+          "start_timestamp",
+          "subaccount_id"
+        ],
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
             "type": "integer",
-            "description": "End timestamp"
+            "description": "End timestamp in unix seconds"
           },
           "period": {
             "title": "period",
             "type": "integer",
-            "description": "Period"
+            "description": "Period in seconds. One of 900, 3600, 86400, 604800"
           },
           "start_timestamp": {
             "title": "start_timestamp",
             "type": "integer",
-            "description": "Start timestamp"
+            "description": "Start timestamp in unix seconds"
           },
           "subaccount_id": {
             "title": "subaccount_id",
@@ -81,16 +88,14 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id"
           }
         },
-        "required": [
-          "end_timestamp",
-          "period",
-          "start_timestamp",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetSubaccountValueHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -108,14 +113,14 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetSubaccountValueHistoryResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetSubaccountValueHistoryResultSchema": {
+        "type": "object",
+        "required": [
+          "subaccount_id",
+          "subaccount_value_history"
+        ],
         "properties": {
           "subaccount_id": {
             "title": "subaccount_id",
@@ -131,15 +136,48 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "required": [
-          "subaccount_id",
-          "subaccount_value_history"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "SubAccountValueHistoryResponseSchema": {
+        "type": "object",
+        "required": [
+          "currency",
+          "delayed_maintenance_margin",
+          "initial_margin",
+          "maintenance_margin",
+          "margin_type",
+          "subaccount_value",
+          "timestamp"
+        ],
         "properties": {
+          "currency": {
+            "title": "currency",
+            "type": "string",
+            "description": "Currency of the manager (empty string for SRM)"
+          },
+          "delayed_maintenance_margin": {
+            "title": "delayed_maintenance_margin",
+            "type": "string",
+            "format": "decimal",
+            "description": "Delayed liquidation maintenance margin (0 if not applicable)"
+          },
+          "initial_margin": {
+            "title": "initial_margin",
+            "type": "string",
+            "format": "decimal",
+            "description": "Initial margin requirement"
+          },
+          "maintenance_margin": {
+            "title": "maintenance_margin",
+            "type": "string",
+            "format": "decimal",
+            "description": "Maintenance margin requirement"
+          },
+          "margin_type": {
+            "title": "margin_type",
+            "type": "string",
+            "description": "Margin type of the subaccount (e.g. PM, PM2, SM)"
+          },
           "subaccount_value": {
             "title": "subaccount_value",
             "type": "string",
@@ -152,11 +190,6 @@ Required minimum session key permission level is `read_only`
             "description": "Timestamp of when the subaccount value was recorded into the database"
           }
         },
-        "required": [
-          "subaccount_value",
-          "timestamp"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

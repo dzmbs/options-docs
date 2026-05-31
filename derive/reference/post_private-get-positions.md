@@ -58,7 +58,99 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
+      "PrivateGetPositionsParamsSchema": {
+        "type": "object",
+        "required": [
+          "subaccount_id"
+        ],
+        "properties": {
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount_id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetPositionsResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivateGetPositionsResultSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetPositionsResultSchema": {
+        "type": "object",
+        "required": [
+          "positions",
+          "subaccount_id"
+        ],
+        "properties": {
+          "positions": {
+            "title": "positions",
+            "type": "array",
+            "description": "All active positions of subaccount",
+            "items": {
+              "$ref": "#/components/schemas/PositionResponseSchema"
+            }
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount_id"
+          }
+        },
+        "additionalProperties": false
+      },
       "PositionResponseSchema": {
+        "type": "object",
+        "required": [
+          "amount",
+          "amount_step",
+          "average_price",
+          "average_price_excl_fees",
+          "creation_timestamp",
+          "cumulative_funding",
+          "delta",
+          "gamma",
+          "index_price",
+          "initial_margin",
+          "instrument_name",
+          "instrument_type",
+          "leverage",
+          "liquidation_price",
+          "maintenance_margin",
+          "mark_price",
+          "mark_value",
+          "net_settlements",
+          "open_orders_margin",
+          "pending_funding",
+          "realized_pnl",
+          "realized_pnl_excl_fees",
+          "theta",
+          "total_fees",
+          "unrealized_pnl",
+          "unrealized_pnl_excl_fees",
+          "vega"
+        ],
         "properties": {
           "amount": {
             "title": "amount",
@@ -229,98 +321,6 @@ Required minimum session key permission level is `read_only`
             "description": "Asset vega (zero for non-options)"
           }
         },
-        "required": [
-          "amount",
-          "amount_step",
-          "average_price",
-          "average_price_excl_fees",
-          "creation_timestamp",
-          "cumulative_funding",
-          "delta",
-          "gamma",
-          "index_price",
-          "initial_margin",
-          "instrument_name",
-          "instrument_type",
-          "leverage",
-          "liquidation_price",
-          "maintenance_margin",
-          "mark_price",
-          "mark_value",
-          "net_settlements",
-          "open_orders_margin",
-          "pending_funding",
-          "realized_pnl",
-          "realized_pnl_excl_fees",
-          "theta",
-          "total_fees",
-          "unrealized_pnl",
-          "unrealized_pnl_excl_fees",
-          "vega"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateGetPositionsParamsSchema": {
-        "properties": {
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount_id"
-          }
-        },
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateGetPositionsResponseSchema": {
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivateGetPositionsResultSchema"
-          }
-        },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PrivateGetPositionsResultSchema": {
-        "properties": {
-          "positions": {
-            "title": "positions",
-            "type": "array",
-            "description": "All active positions of subaccount",
-            "items": {
-              "$ref": "#/components/schemas/PositionResponseSchema"
-            }
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount_id"
-          }
-        },
-        "required": [
-          "positions",
-          "subaccount_id"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

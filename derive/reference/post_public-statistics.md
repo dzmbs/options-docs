@@ -58,6 +58,10 @@ Get statistics for a specific instrument or instrument type
   "components": {
     "schemas": {
       "PublicStatisticsParamsSchema": {
+        "type": "object",
+        "required": [
+          "instrument_name"
+        ],
         "properties": {
           "currency": {
             "title": "currency",
@@ -79,13 +83,14 @@ Get statistics for a specific instrument or instrument type
             "description": "Instrument name or 'ALL', 'OPTION', 'PERP', 'SPOT'"
           }
         },
-        "required": [
-          "instrument_name"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicStatisticsResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
         "properties": {
           "id": {
             "oneOf": [
@@ -103,14 +108,21 @@ Get statistics for a specific instrument or instrument type
             "$ref": "#/components/schemas/PublicStatisticsResultSchema"
           }
         },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PublicStatisticsResultSchema": {
+        "type": "object",
+        "required": [
+          "daily_fees",
+          "daily_notional_volume",
+          "daily_premium_volume",
+          "daily_trades",
+          "open_interest",
+          "total_fees",
+          "total_notional_volume",
+          "total_premium_volume",
+          "total_trades"
+        ],
         "properties": {
           "daily_fees": {
             "title": "daily_fees",
@@ -165,18 +177,6 @@ Get statistics for a specific instrument or instrument type
             "description": "Total trades"
           }
         },
-        "required": [
-          "daily_fees",
-          "daily_notional_volume",
-          "daily_premium_volume",
-          "daily_trades",
-          "open_interest",
-          "total_fees",
-          "total_notional_volume",
-          "total_premium_volume",
-          "total_trades"
-        ],
-        "type": "object",
         "additionalProperties": false
       }
     }

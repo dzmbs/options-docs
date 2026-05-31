@@ -58,6 +58,11 @@ Get a paginated history of all instruments
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
+        "type": "object",
+        "required": [
+          "count",
+          "num_pages"
+        ],
         "properties": {
           "count": {
             "title": "count",
@@ -70,104 +75,34 @@ Get a paginated history of all instruments
             "description": "Number of pages"
           }
         },
-        "required": [
-          "count",
-          "num_pages"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PublicGetAllInstrumentsParamsSchema": {
-        "properties": {
-          "currency": {
-            "title": "currency",
-            "type": "string",
-            "default": null,
-            "description": "Underlying currency of asset (`ETH`, `BTC`, etc)",
-            "nullable": true
-          },
-          "expired": {
-            "title": "expired",
-            "type": "boolean",
-            "description": "If `True`: include expired instruments."
-          },
-          "instrument_type": {
-            "title": "instrument_type",
-            "type": "string",
-            "enum": [
-              "erc20",
-              "option",
-              "perp"
-            ],
-            "description": "`erc20`, `option`, or `perp`"
-          },
-          "page": {
-            "title": "page",
-            "type": "integer",
-            "default": 1,
-            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
-          },
-          "page_size": {
-            "title": "page_size",
-            "type": "integer",
-            "default": 100,
-            "description": "Number of results per page (default 100, max 1000)"
-          }
-        },
-        "required": [
-          "expired",
-          "instrument_type"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PublicGetAllInstrumentsResponseSchema": {
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PublicGetAllInstrumentsResultSchema"
-          }
-        },
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "PublicGetAllInstrumentsResultSchema": {
-        "properties": {
-          "instruments": {
-            "title": "instruments",
-            "type": "array",
-            "description": "List of instruments",
-            "items": {
-              "$ref": "#/components/schemas/InstrumentPublicResponseSchema"
-            }
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationInfoSchema"
-          }
-        },
-        "required": [
-          "instruments",
-          "pagination"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "InstrumentPublicResponseSchema": {
+        "type": "object",
+        "required": [
+          "amount_step",
+          "base_asset_address",
+          "base_asset_sub_id",
+          "base_currency",
+          "base_fee",
+          "erc20_details",
+          "fifo_min_allocation",
+          "instrument_name",
+          "instrument_type",
+          "is_active",
+          "maker_fee_rate",
+          "maximum_amount",
+          "minimum_amount",
+          "option_details",
+          "perp_details",
+          "pro_rata_amount_step",
+          "pro_rata_fraction",
+          "quote_currency",
+          "scheduled_activation",
+          "scheduled_deactivation",
+          "taker_fee_rate",
+          "tick_size"
+        ],
         "properties": {
           "amount_step": {
             "title": "amount_step",
@@ -300,34 +235,13 @@ Get a paginated history of all instruments
             "description": "Tick size of the instrument, i.e. minimum price increment"
           }
         },
-        "required": [
-          "amount_step",
-          "base_asset_address",
-          "base_asset_sub_id",
-          "base_currency",
-          "base_fee",
-          "erc20_details",
-          "fifo_min_allocation",
-          "instrument_name",
-          "instrument_type",
-          "is_active",
-          "maker_fee_rate",
-          "maximum_amount",
-          "minimum_amount",
-          "option_details",
-          "perp_details",
-          "pro_rata_amount_step",
-          "pro_rata_fraction",
-          "quote_currency",
-          "scheduled_activation",
-          "scheduled_deactivation",
-          "taker_fee_rate",
-          "tick_size"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "ERC20PublicDetailsSchema": {
+        "type": "object",
+        "required": [
+          "decimals"
+        ],
         "properties": {
           "borrow_index": {
             "title": "borrow_index",
@@ -355,13 +269,16 @@ Get a paginated history of all instruments
             "description": "Address of underlying on-chain ERC20 (not V2 asset)"
           }
         },
-        "required": [
-          "decimals"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "OptionPublicDetailsSchema": {
+        "type": "object",
+        "required": [
+          "expiry",
+          "index",
+          "option_type",
+          "strike"
+        ],
         "properties": {
           "expiry": {
             "title": "expiry",
@@ -395,16 +312,18 @@ Get a paginated history of all instruments
             "format": "decimal"
           }
         },
-        "required": [
-          "expiry",
-          "index",
-          "option_type",
-          "strike"
-        ],
-        "type": "object",
         "additionalProperties": false
       },
       "PerpPublicDetailsSchema": {
+        "type": "object",
+        "required": [
+          "aggregate_funding",
+          "funding_rate",
+          "index",
+          "max_rate_per_hour",
+          "min_rate_per_hour",
+          "static_interest_rate"
+        ],
         "properties": {
           "aggregate_funding": {
             "title": "aggregate_funding",
@@ -442,15 +361,96 @@ Get a paginated history of all instruments
             "description": "Static interest rate as per `PerpAsset.sol`"
           }
         },
-        "required": [
-          "aggregate_funding",
-          "funding_rate",
-          "index",
-          "max_rate_per_hour",
-          "min_rate_per_hour",
-          "static_interest_rate"
-        ],
+        "additionalProperties": false
+      },
+      "PublicGetAllInstrumentsParamsSchema": {
         "type": "object",
+        "required": [
+          "expired",
+          "instrument_type"
+        ],
+        "properties": {
+          "currency": {
+            "title": "currency",
+            "type": "string",
+            "default": null,
+            "description": "Underlying currency of asset (`ETH`, `BTC`, etc)",
+            "nullable": true
+          },
+          "expired": {
+            "title": "expired",
+            "type": "boolean",
+            "description": "If `True`: include expired instruments."
+          },
+          "instrument_type": {
+            "title": "instrument_type",
+            "type": "string",
+            "enum": [
+              "erc20",
+              "option",
+              "perp"
+            ],
+            "description": "`erc20`, `option`, or `perp`"
+          },
+          "page": {
+            "title": "page",
+            "type": "integer",
+            "default": 1,
+            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
+          },
+          "page_size": {
+            "title": "page_size",
+            "type": "integer",
+            "default": 100,
+            "description": "Number of results per page (default 100, max 1000)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicGetAllInstrumentsResponseSchema": {
+        "type": "object",
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PublicGetAllInstrumentsResultSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicGetAllInstrumentsResultSchema": {
+        "type": "object",
+        "required": [
+          "instruments",
+          "pagination"
+        ],
+        "properties": {
+          "instruments": {
+            "title": "instruments",
+            "type": "array",
+            "description": "List of instruments",
+            "items": {
+              "$ref": "#/components/schemas/InstrumentPublicResponseSchema"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationInfoSchema"
+          }
+        },
         "additionalProperties": false
       }
     }
