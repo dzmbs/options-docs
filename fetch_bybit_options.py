@@ -29,7 +29,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-REPO_URL = "git@github.com:bybit-exchange/docs.git"
+REPO_URL = "https://github.com/bybit-exchange/docs.git"
 MANIFEST_FILE = "bybit_options_manifest.json"
 
 # ---------------------------------------------------------------------------
