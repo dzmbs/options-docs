@@ -49,7 +49,7 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
         <th>inverse</th><th>linear</th><th>option</th><th>spot</th>
     </tr>
     <tr>
-        <td rowSpan="8">POST</td><td>/v5/order/create</td><td colSpan="2" align="center">10/s</td><td align="center">10/s</td><td>20/s</td><td align="center">Y</td>
+        <td rowSpan="9">POST</td><td>/v5/order/create</td><td colSpan="2" align="center">10/s</td><td align="center">10/s</td><td>20/s</td><td align="center">Y</td>
     </tr>
     <tr>
         <td>/v5/order/amend</td><td colSpan="2" align="center">10/s</td><td align="center">10/s</td><td align="center">10/s</td><td align="center">Y</td>
@@ -73,6 +73,9 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
         <td>/v5/order/disconnected-cancel-all</td><td colSpan="4" align="center">5/s</td><td align="center">N</td>
     </tr>
     <tr>
+        <td>/v5/order/pre-check</td><td colSpan="2" align="center">10/s</td><td align="center">10/s</td><td>20/s</td><td align="center">Y</td>
+    </tr>
+    <tr>
         <td rowSpan="4">GET</td><td>/v5/order/realtime</td><td colSpan="4" align="center">50/s</td><td align="center">N</td>
     </tr>
     <tr>
@@ -83,6 +86,72 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
     </tr>
     <tr>
         <td>/v5/order/spot-borrow-check</td><td colSpan="3" align="center">-</td><td align="center">50/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td rowSpan="19">POST</td><td>/v5/fcombobot/getlimit</td><td colSpan="2" align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/fcombobot/create</td><td colSpan="2" align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/fcombobot/close</td><td colSpan="2" align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/fcombobot/detail</td><td colSpan="2" align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/fgridbot/validate</td><td colSpan="2" align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/fgridbot/create</td><td colSpan="2" align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/fgridbot/close</td><td colSpan="2" align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/fgridbot/detail</td><td colSpan="2" align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/fmartingalebot/getlimit</td><td colSpan="2" align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/fmartingalebot/create</td><td colSpan="2" align="center">100/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/fmartingalebot/close</td><td colSpan="2" align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/fmartingalebot/detail</td><td colSpan="2" align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/grid/validate-input</td><td colSpan="3" align="center">-</td><td align="center">100/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/grid/create-grid</td><td colSpan="3" align="center">-</td><td align="center">3/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/grid/close-grid</td><td colSpan="3" align="center">-</td><td align="center">3/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/grid/query-grid-detail</td><td colSpan="3" align="center">-</td><td align="center">10/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/dca/create-bot</td><td colSpan="3" align="center">-</td><td align="center">3/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/dca/close-bot</td><td colSpan="3" align="center">-</td><td align="center">3/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/strategy/create</td><td colSpan="2" align="center">100/s</td><td align="center">-</td><td align="center">100/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td rowSpan="2">GET</td><td>/v5/strategy/list</td><td colSpan="2" align="center">200/s</td><td align="center">-</td><td align="center">200/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/strategy/order-list</td><td colSpan="2" align="center">200/s</td><td align="center">-</td><td align="center">200/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>POST</td><td>/v5/strategy/stop</td><td colSpan="2" align="center">100/s</td><td align="center">-</td><td align="center">100/s</td><td align="center">N</td>
     </tr>
 </table>
 </span>
@@ -97,13 +166,37 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
         <th>inverse</th><th>linear</th><th>option</th><th>spot</th>
     </tr>
     <tr>
-        <td rowSpan="2">GET</td><td>/v5/position/list</td><td colSpan="3" align="center">50/s</td><td align="center">-</td><td align="center">N</td>
+        <td rowSpan="4">GET</td><td>/v5/position/list</td><td colSpan="3" align="center">50/s</td><td align="center">-</td><td align="center">N</td>
     </tr>
     <tr>
         <td>/v5/position/closed-pnl</td><td colSpan="2" align="center">50/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
     </tr>
     <tr>
-        <td rowSpan="2">POST</td><td>/v5/position/set-leverage</td><td align="center">10/s</td><td align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+        <td>/v5/position/get-closed-positions</td><td align="center">-</td><td align="center">-</td><td align="center">50/s</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/position/move-history</td><td colSpan="4" align="center">10/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td rowSpan="7">POST</td><td>/v5/position/set-leverage</td><td colSpan="2" align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/position/switch-mode</td><td align="center">-</td><td align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/position/trading-stop</td><td colSpan="3" align="center">10/s</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/position/set-auto-add-margin</td><td align="center">-</td><td align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/position/add-margin</td><td colSpan="2" align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/position/confirm-pending-mmr</td><td colSpan="2" align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/position/move-positions</td><td colSpan="4" align="center">10/s</td><td align="center">N</td>
     </tr>
 </table>
 </span>
@@ -115,7 +208,7 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
         <th>Method</th><th>Path</th><th></th><th>Limit</th><th>upgradable</th>
     </tr>
     <tr>
-        <td rowSpan="13">GET</td><td>/v5/account/wallet-balance</td><td>accountType=UNIFIED</td><td>50/s</td><td align="center">N</td>
+        <td rowSpan="19">GET</td><td>/v5/account/wallet-balance</td><td>accountType=UNIFIED</td><td>50/s</td><td align="center">N</td>
     </tr>
     <tr>
         <td>/v5/account/withdrawal</td><td></td><td>50/s</td><td align="center">N</td>
@@ -139,19 +232,67 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
         <td>/v5/asset/coin-greeks</td><td></td><td>50/s</td><td align="center">N</td>
     </tr>
     <tr>
-        <td>/v5/account/transaction-log</td><td>accountType=UNIFIED</td><td>30/s</td><td align="center">N</td>
+        <td>/v5/account/transaction-log</td><td>accountType=UNIFIED</td><td>25/s</td><td align="center">N</td>
     </tr>
     <tr>
-        <td rowSpan="4">/v5/account/fee-rate</td><td>category=linear</td><td>10/s</td><td align="center">N</td>
+        <td>/v5/account/fee-rate</td><td></td><td>5/s</td><td align="center">N</td>
     </tr>
     <tr>
-         <td>category=spot</td><td>5/s</td><td align="center">N</td>
+        <td>/v5/account/info</td><td></td><td>50/s</td><td align="center">N</td>
     </tr>
     <tr>
-         <td>category=option</td><td>5/s</td><td align="center">N</td>
+        <td>/v5/account/instruments-info</td><td></td><td>10/s</td><td align="center">N</td>
     </tr>
     <tr>
-         <td>category=inverse</td><td>10/s</td><td align="center">N</td>
+        <td>/v5/account/mmp-state</td><td></td><td>-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/option-asset-info</td><td></td><td>-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/pay-info</td><td></td><td>50/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/query-dcp-info</td><td></td><td>5/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/smp-group</td><td></td><td>5/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/trade-info-for-analysis</td><td></td><td>50/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/user-setting-config</td><td></td><td>50/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td rowSpan="10">POST</td><td>/v5/account/mmp-modify</td><td></td><td>5/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/mmp-reset</td><td></td><td>5/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/quick-repayment</td><td></td><td>1/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/set-collateral-switch</td><td></td><td>-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/set-collateral-switch-batch</td><td></td><td>5/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/set-delta-mode</td><td></td><td>-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/set-hedging-mode</td><td></td><td>-</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/set-limit-px-action</td><td></td><td>10/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/set-margin-mode</td><td></td><td>5/s</td><td align="center">N</td>
+    </tr>
+    <tr>
+        <td>/v5/account/upgrade-to-uta</td><td></td><td>1/s</td><td align="center">N</td>
     </tr>
 
 </table>
@@ -164,7 +305,7 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
         <th>Method</th><th>Path</th><th>Limit</th><th>upgradable</th>
     </tr>
     <tr>
-        <td rowSpan="13">GET</td><td>/v5/asset/transfer/query-asset-info</td><td>60 req/min</td><td>N</td>
+        <td rowSpan="31">GET</td><td>/v5/asset/transfer/query-asset-info</td><td>60 req/min</td><td>N</td>
     </tr>
     <tr>
         <td>/v5/asset/transfer/query-transfer-coin-list</td><td>60 req/min</td><td>N</td>
@@ -180,6 +321,15 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
     </tr>
     <tr>
         <td>/v5/asset/transfer/query-account-coins-balance</td><td>5 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/transfer/query-account-coin-balance</td><td>450 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/asset-overview</td><td>50 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/withdraw/withdrawable-amount</td><td>300 req/s</td><td>N</td>
     </tr>
     <tr>
         <td>/v5/asset/deposit/query-record</td><td>100 req/min</td><td>N</td>
@@ -203,7 +353,52 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
         <td>/v5/asset/exchange/order-record</td><td>600 req/min</td><td>N</td>
     </tr>
     <tr>
-        <td rowSpan="5">POST</td><td>/v5/asset/transfer/inter-transfer</td><td>60 req/min</td><td>N</td>
+        <td>/v5/asset/exchange/query-coin-list</td><td>30 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/covert/small-balance-history</td><td>5 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/covert/small-balance-list</td><td>10 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/delivery-record</td><td>50 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/deposit/query-internal-record</td><td>300 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/fiat/balance-query</td><td>1000 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/fiat/query-coin-list</td><td>1000 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/fiat/trade-query</td><td>1000 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/fiat/query-trade-history</td><td>1000 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/fundinghistory</td><td>30 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/portfolio-margin</td><td>50 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/settlement-record</td><td>50 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/total-members-assets</td><td>50 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/withdraw/vasp/list</td><td>1 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/withdraw/query-address</td><td>300 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td rowSpan="12">POST</td><td>/v5/asset/transfer/inter-transfer</td><td>60 req/min</td><td>N</td>
     </tr>
     <tr>
         <td>/v5/asset/transfer/save-transfer-sub-member</td><td>20 req/s</td><td>N</td>
@@ -217,6 +412,36 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
     <tr>
         <td>/v5/asset/withdraw/cancel</td><td>60 req/min</td><td>N</td>
     </tr>
+    <tr>
+        <td>/v5/asset/exchange/quote-apply</td><td>20 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/exchange/convert-execute</td><td>20 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/covert/small-balance-execute</td><td>5 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/covert/get-quote</td><td>5 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/deposit/deposit-to-account</td><td>300 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/fiat/trade-execute</td><td>100 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/fiat/quote-apply</td><td>1000 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td rowSpan="3">GET</td><td>/v5/asset/exchange/convert-result-query</td><td>50 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/asset/exchange/query-convert-history</td><td>50 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/fiat/reference-price</td><td>1000 req/s</td><td>N</td>
+    </tr>
 </table>
 </span>
 
@@ -224,10 +449,10 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
 <span class="blocky_table">
 <table border="0.8">
     <tr>
-        <th>Method</th><th>Path</th><th>Limit</th><td>upgradable</td>
+        <th>Method</th><th>Path</th><th>Limit</th><th>upgradable</th>
     </tr>
     <tr>
-        <td rowSpan="7">POST</td><td>v5/user/create-sub-member</td><td>1 req/s</td><td>N</td>
+        <td rowSpan="7">POST</td><td>/v5/user/create-sub-member</td><td>1 req/s</td><td>N</td>
     </tr>
     <tr>
         <td>/v5/user/create-sub-api</td><td>1 req/s</td><td>N</td>
@@ -256,28 +481,103 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
     <tr>
         <td>/v5/user/aff-customer-info</td><td>10 req/s</td><td>N</td>
     </tr>
+    <tr>
+        <td>POST</td><td>/v5/user/agreement</td><td>20 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td rowSpan="4">GET</td><td>/v5/user/submembers</td><td>5 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/user/escrow_sub_members</td><td>5 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/user/sub-apikeys</td><td>10 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>/v5/user/get-member-type</td><td>10 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>POST</td><td>/v5/user/del-submember</td><td>5 req/s</td><td>N</td>
+    </tr>
+    <tr>
+        <td>GET</td><td>/v5/user/invitation/referrals</td><td>10 req/s</td><td>N</td>
+    </tr>
 </table>
 </span>
 
-#### Spot Margin Trade (UTA)
-<table border="0.8">
-    <tr>
-        <td>For now, there is no limit for endpoints under this category</td>
-    </tr>
-</table>
+#### Spot Margin Trade
+<span class="blocky_table">
+
+|Method |Path |Limit |Upgradable|
+|:----|:----:|----|----|
+|POST |[Toggle Margin Trade](spot-margin-uta/switch-mode) | 5 req/s| N |
+|POST |[Set Leverage](spot-margin-uta/set-leverage) | 5 req/s| N |
+|GET |[Get Status And Leverage](spot-margin-uta/status) | 50 req/s| N |
+|GET |[Get Max Borrowable Amount](spot-margin-uta/max-borrowable) | 50 req/s| N |
+|GET |[Get Coin State](spot-margin-uta/coinstate) | 50 req/s| N |
+|GET |[Get Available Amount to Repay](spot-margin-uta/repayment-available-amount) | 50 req/s| N |
+|POST |[Set Auto Repay Mode](spot-margin-uta/set-auto-repay-mode) | 5 req/s| N |
+|GET |[Get Auto Repay Mode](spot-margin-uta/get-auto-repay-mode) | 50 req/s| N |
+|GET |[Get Fixed-Rate Borrow Order Quote](spot-margin-uta/fixedborrow-order-quote) | 5 req/s| N |
+|POST |[Fixed-Rate Borrow](spot-margin-uta/fixedborrow) | 1 req/s| N |
+|POST |[Renew Fixed-Rate Borrow](spot-margin-uta/fixedborrow-renew) | 1 req/s| N |
+|GET |[Get Fixed-Rate Borrow Order Info](spot-margin-uta/fixedborrow-order-info) | 5 req/s| N |
+|GET |[Get Fixed-Rate Borrow Contract Info](spot-margin-uta/fixedborrow-contract-info) | 5 req/s| N |
+|GET |[Get Liability Info](spot-margin-uta/liability) | 5 req/s| N |
+
+</span>
 
 #### Spread Trading
 <span class="blocky_table">
 
 |Method |Path |Limit |Upgradable|
 |:----|:----:|----|----|
-|POST |[Create Spread Order](spread/trade/create-order) | 20 req/s| N |
-|POST |[Amend Spread Order](spread/trade/amend-order) | 20 req/s| N |
-|POST |[Cancel Spread Order](spread/trade/cancel-order) | 20 req/s| N |
-|POST |[Cancel All Spread Orders](spread/trade/cancel-all) | 5 req/s| N |
-|GET |[Get Spread Open Orders](spread/trade/open-order) | 50 req/s| N |
-|GET |[Get Spread Order History](spread/trade/order-history) | 50 req/s| N |
-|GET |[Get Spread Trade History](spread/trade/trade-history) | 50 req/s| N |
+|POST |[Create Order](spread/trade/create-order) | 20 req/s| N |
+|POST |[Amend Order](spread/trade/amend-order) | 20 req/s| N |
+|POST |[Cancel Order](spread/trade/cancel-order) | 20 req/s| N |
+|POST |[Cancel All Orders](spread/trade/cancel-all) | 5 req/s| N |
+|GET |[Get Open Orders](spread/trade/open-order) | 50 req/s| N |
+|GET |[Get Order History](spread/trade/order-history) | 50 req/s| N |
+|GET |[Get Trade History](spread/trade/trade-history) | 50 req/s| N |
+|GET |[Get Max Qty](spread/trade/max-qty) | 50 req/s | N |
+
+</span>
+
+#### RFQ
+<span class="blocky_table">
+
+|Method |Path |Limit |Upgradable|
+|:----|:----:|----|----|
+|POST |[Cancel All Quotes](rfq/trade/cancel-all-quotes) | 50 req/s | N |
+|POST |[Cancel Quote](rfq/trade/cancel-quote) | 50 req/s | N |
+|POST |[Accept non-LP Quote](rfq/trade/accept-other-quote) | 50 req/s | N |
+|POST |[Cancel All RFQs](rfq/trade/cancel-all-rfq) | 50 req/s | N |
+|POST |[Create Quote](rfq/trade/create-quote) | 50 req/s | N |
+|POST |[Create RFQ](rfq/trade/create-rfq) | 50 req/s | N |
+|POST |[Execute Quote](rfq/trade/execute-quote) | 50 req/s | N |
+|POST |[Cancel RFQ](rfq/trade/cancel-rfq) | 50 req/s | N |
+|GET |[Get Public Trades](rfq/trade/public-trades) | 50 req/s | N |
+|GET |[Get Quotes](rfq/trade/quote-list) | 50 req/s | N |
+|GET |[Get Quotes (real-time)](rfq/trade/quote-realtime) | 50 req/s | N |
+|GET |[Get RFQ Configuration](rfq/trade/rfq-config) | 50 req/s | N |
+|GET |[Get RFQs](rfq/trade/rfq-list) | 50 req/s | N |
+|GET |[Get RFQs (real-time)](rfq/trade/rfq-realtime) | 50 req/s | N |
+|GET |[Get Trade History](rfq/trade/trade-list) | 50 req/s | N |
+
+</span>
+
+#### Institutional Loan
+<span class="blocky_table">
+
+|Method |Path |Limit |Upgradable|
+|:----|:----:|----|----|
+|GET |[Get Product Info](otc/margin-product-info) | 100 req/s| N |
+|GET |[Get Margin Coin Info](otc/margin-coin-convert-info) | 100 req/s| N |
+|GET |[Get Loan Orders](otc/loan-info) | 20 req/s| N |
+|GET |[Get Repayment Orders](otc/repay-info) | 20 req/s| N |
+|GET |[Get LTV](otc/ltv-convert) | 20 req/s| N |
+|POST |[Bind Or Unbind UID](otc/bind-uid) | 1 req/s| N |
+|POST |[Repay](otc/repay) | 1 req/s| N |
 
 </span>
 

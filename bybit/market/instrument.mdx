@@ -52,6 +52,9 @@ Query for the instrument specification of online trading pairs.
             <td>> symbol</td><td>string</td><td>Symbol name </td>
         </tr>
         <tr>
+            <td>> symbolId</td><td>integer</td><td>The ID of symbol name </td>
+        </tr>
+        <tr>
             <td>> <a href="../enum#contracttype">contractType</a></td><td>string</td><td>Contract type</td>
         </tr>
         <tr>
@@ -148,7 +151,7 @@ Query for the instrument specification of online trading pairs.
             <td>> forbidUplWithdrawal</td><td>boolean</td><td>Whether to prohibit unrealised profit withdrawal</td>
         </tr>
         <tr>
-            <td>> riskParameters</td><td>object</td><td>Risk parameters for limit order price. Note that the <a href="https://announcements.bybit.com/en/article/adjustments-to-bybit-s-derivative-trading-limit-order-mechanism-blt469228de1902fff6/">formula changed</a> in Jan 2025</td>
+            <td>> riskParameters</td><td>object</td><td>Risk parameters for limit order price. Note that the <a href="https://announcements.bybit.com/en/article/update-contract-price-limit-enhancement-bltf9ebdcebe3089641/">formula changed</a> in May 2026</td>
         </tr>
         <tr>
             <td>>> priceLimitRatioX</td><td>string</td><td>Ratio X</td>
@@ -211,6 +214,9 @@ Query for the instrument specification of online trading pairs.
         </tr>
         <tr>
             <td>> symbol</td><td>string</td><td>Symbol name </td>
+        </tr>
+        <tr>
+            <td>> symbolId</td><td>integer</td><td>The ID of symbol name </td>
         </tr>
         <tr>
             <td>> optionsType</td><td>string</td><td>Option type. <code>Call</code>, <code>Put</code> </td>
@@ -276,6 +282,9 @@ Query for the instrument specification of online trading pairs.
         </tr>
         <tr>
             <td>list</td><td>array</td><td>Object</td>
+        </tr>
+        <tr>
+            <td>> symbolId</td><td>integer</td><td>The ID of symbol name </td>
         </tr>
         <tr>
             <td>> symbol</td><td>string</td><td>Symbol name </td>
@@ -608,6 +617,7 @@ client
         "list": [
             {
                 "symbol": "BTCUSDT",
+                "symbolId": 5,
                 "contractType": "LinearPerpetual",
                 "status": "Trading",
                 "baseCoin": "BTC",
@@ -794,6 +804,7 @@ client
         "category": "spot",
         "list": [
             {
+                "symbolId": 9,
                 "symbol": "BTCUSDT",
                 "baseCoin": "BTC",
                 "quoteCoin": "USDT",
