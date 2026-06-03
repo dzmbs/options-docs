@@ -58,11 +58,11 @@ Get expired option settlement history, optionally filtered by subaccount or wall
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
-        "type": "object",
         "required": [
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -110,11 +110,11 @@ Get expired option settlement history, optionally filtered by subaccount or wall
         "additionalProperties": false
       },
       "PublicGetOptionSettlementHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -135,11 +135,11 @@ Get expired option settlement history, optionally filtered by subaccount or wall
         "additionalProperties": false
       },
       "PublicGetOptionSettlementHistoryResultSchema": {
-        "type": "object",
         "required": [
           "pagination",
           "settlements"
         ],
+        "type": "object",
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -156,7 +156,6 @@ Get expired option settlement history, optionally filtered by subaccount or wall
         "additionalProperties": false
       },
       "OptionSettlementResponseSchema": {
-        "type": "object",
         "required": [
           "amount",
           "expiry",
@@ -166,6 +165,7 @@ Get expired option settlement history, optionally filtered by subaccount or wall
           "settlement_price",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",

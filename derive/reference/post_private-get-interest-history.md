@@ -91,11 +91,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetInterestHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -116,10 +116,10 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetInterestHistoryResultSchema": {
-        "type": "object",
         "required": [
           "events"
         ],
+        "type": "object",
         "properties": {
           "events": {
             "title": "events",
@@ -133,12 +133,12 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "InterestPaymentSchema": {
-        "type": "object",
         "required": [
           "interest",
           "subaccount_id",
           "timestamp"
         ],
+        "type": "object",
         "properties": {
           "interest": {
             "title": "interest",

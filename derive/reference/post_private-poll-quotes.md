@@ -59,11 +59,11 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
-        "type": "object",
         "required": [
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -79,13 +79,13 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "LegPricedSchema": {
-        "type": "object",
         "required": [
           "amount",
           "direction",
           "instrument_name",
           "price"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -117,10 +117,10 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivatePollQuotesParamsSchema": {
-        "type": "object",
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "from_timestamp": {
             "title": "from_timestamp",
@@ -184,11 +184,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivatePollQuotesResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -209,11 +209,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivatePollQuotesResultSchema": {
-        "type": "object",
         "required": [
           "pagination",
           "quotes"
         ],
+        "type": "object",
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -230,7 +230,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "QuoteResultPublicSchema": {
-        "type": "object",
         "required": [
           "cancel_reason",
           "creation_timestamp",
@@ -248,6 +247,7 @@ Required minimum session key permission level is `read_only`
           "tx_status",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",

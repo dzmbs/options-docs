@@ -57,43 +57,7 @@ Get all maker programs, including past / historical ones.
   },
   "components": {
     "schemas": {
-      "PublicGetMakerProgramsParamsSchema": {
-        "type": "object",
-        "properties": {},
-        "additionalProperties": false
-      },
-      "PublicGetMakerProgramsResponseSchema": {
-        "type": "object",
-        "required": [
-          "id",
-          "result"
-        ],
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "title": "result",
-            "type": "array",
-            "description": "",
-            "items": {
-              "$ref": "#/components/schemas/ProgramResponseSchema"
-            }
-          }
-        },
-        "additionalProperties": false
-      },
       "ProgramResponseSchema": {
-        "type": "object",
         "required": [
           "asset_types",
           "currencies",
@@ -103,6 +67,7 @@ Get all maker programs, including past / historical ones.
           "rewards",
           "start_timestamp"
         ],
+        "type": "object",
         "properties": {
           "asset_types": {
             "title": "asset_types",
@@ -152,6 +117,41 @@ Get all maker programs, including past / historical ones.
             "title": "start_timestamp",
             "type": "integer",
             "description": "Start timestamp of the epoch"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicGetMakerProgramsParamsSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "PublicGetMakerProgramsResponseSchema": {
+        "required": [
+          "id",
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "title": "result",
+            "type": "array",
+            "description": "",
+            "items": {
+              "$ref": "#/components/schemas/ProgramResponseSchema"
+            }
           }
         },
         "additionalProperties": false

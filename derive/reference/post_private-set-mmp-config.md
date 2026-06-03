@@ -59,13 +59,13 @@ Required minimum session key permission level is `account`
   "components": {
     "schemas": {
       "PrivateSetMmpConfigParamsSchema": {
-        "type": "object",
         "required": [
           "currency",
           "mmp_frozen_time",
           "mmp_interval",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -105,11 +105,11 @@ Required minimum session key permission level is `account`
         "additionalProperties": false
       },
       "PrivateSetMmpConfigResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -130,13 +130,13 @@ Required minimum session key permission level is `account`
         "additionalProperties": false
       },
       "PrivateSetMmpConfigResultSchema": {
-        "type": "object",
         "required": [
           "currency",
           "mmp_frozen_time",
           "mmp_interval",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",

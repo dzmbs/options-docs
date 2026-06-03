@@ -59,7 +59,6 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "PrivateCreateSubaccountParamsSchema": {
-        "type": "object",
         "required": [
           "amount",
           "asset_name",
@@ -70,6 +69,7 @@ Required minimum session key permission level is `admin`
           "signer",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -128,11 +128,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateCreateSubaccountResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -153,11 +153,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateCreateSubaccountResultSchema": {
-        "type": "object",
         "required": [
           "status",
           "transaction_id"
         ],
+        "type": "object",
         "properties": {
           "status": {
             "title": "status",

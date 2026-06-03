@@ -59,11 +59,11 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
-        "type": "object",
         "required": [
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -145,11 +145,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetNotificationsResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -170,11 +170,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetNotificationsResultSchema": {
-        "type": "object",
         "required": [
           "notifications",
           "pagination"
         ],
+        "type": "object",
         "properties": {
           "notifications": {
             "title": "notifications",
@@ -191,7 +191,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "NotificationResponseSchema": {
-        "type": "object",
         "required": [
           "event",
           "event_details",
@@ -200,6 +199,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "timestamp"
         ],
+        "type": "object",
         "properties": {
           "event": {
             "title": "event",

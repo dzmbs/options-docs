@@ -59,11 +59,11 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
-        "type": "object",
         "required": [
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -79,10 +79,10 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetLiquidatorHistoryParamsSchema": {
-        "type": "object",
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
@@ -117,11 +117,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetLiquidatorHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -142,11 +142,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetLiquidatorHistoryResultSchema": {
-        "type": "object",
         "required": [
           "bids",
           "pagination"
         ],
+        "type": "object",
         "properties": {
           "bids": {
             "title": "bids",
@@ -163,7 +163,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "AuctionBidEventSchema": {
-        "type": "object",
         "required": [
           "amounts_liquidated",
           "cash_received",
@@ -176,6 +175,7 @@ Required minimum session key permission level is `read_only`
           "timestamp",
           "tx_hash"
         ],
+        "type": "object",
         "properties": {
           "amounts_liquidated": {
             "title": "amounts_liquidated",

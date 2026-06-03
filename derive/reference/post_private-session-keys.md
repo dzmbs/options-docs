@@ -59,10 +59,10 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateSessionKeysParamsSchema": {
-        "type": "object",
         "required": [
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "wallet": {
             "title": "wallet",
@@ -73,11 +73,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateSessionKeysResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -98,10 +98,10 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateSessionKeysResultSchema": {
-        "type": "object",
         "required": [
           "public_session_keys"
         ],
+        "type": "object",
         "properties": {
           "public_session_keys": {
             "title": "public_session_keys",
@@ -115,7 +115,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "SessionKeyResponseSchema": {
-        "type": "object",
         "required": [
           "expiry_sec",
           "ip_whitelist",
@@ -124,6 +123,7 @@ Required minimum session key permission level is `read_only`
           "registered_sec",
           "scope"
         ],
+        "type": "object",
         "properties": {
           "expiry_sec": {
             "title": "expiry_sec",

@@ -59,10 +59,10 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetSubaccountsParamsSchema": {
-        "type": "object",
         "required": [
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "wallet": {
             "title": "wallet",
@@ -73,11 +73,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetSubaccountsResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -98,11 +98,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetSubaccountsResultSchema": {
-        "type": "object",
         "required": [
           "subaccount_ids",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "subaccount_ids": {
             "title": "subaccount_ids",

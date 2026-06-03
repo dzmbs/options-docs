@@ -58,12 +58,12 @@ Used for de-registering admin scoped keys. For other scopes, use `/edit_session_
   "components": {
     "schemas": {
       "PublicDeregisterSessionKeyParamsSchema": {
-        "type": "object",
         "required": [
           "public_session_key",
           "signed_raw_tx",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "public_session_key": {
             "title": "public_session_key",
@@ -84,11 +84,11 @@ Used for de-registering admin scoped keys. For other scopes, use `/edit_session_
         "additionalProperties": false
       },
       "PublicDeregisterSessionKeyResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -109,11 +109,11 @@ Used for de-registering admin scoped keys. For other scopes, use `/edit_session_
         "additionalProperties": false
       },
       "PublicDeregisterSessionKeyResultSchema": {
-        "type": "object",
         "required": [
           "public_session_key",
           "transaction_id"
         ],
+        "type": "object",
         "properties": {
           "public_session_key": {
             "title": "public_session_key",

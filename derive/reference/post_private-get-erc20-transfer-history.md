@@ -91,11 +91,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetErc20TransferHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -116,10 +116,10 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetErc20TransferHistoryResultSchema": {
-        "type": "object",
         "required": [
           "events"
         ],
+        "type": "object",
         "properties": {
           "events": {
             "title": "events",
@@ -133,7 +133,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "ERC20TransferSchema": {
-        "type": "object",
         "required": [
           "amount",
           "asset",
@@ -143,6 +142,7 @@ Required minimum session key permission level is `read_only`
           "timestamp",
           "tx_hash"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",

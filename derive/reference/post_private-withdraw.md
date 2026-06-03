@@ -59,7 +59,6 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "PrivateWithdrawParamsSchema": {
-        "type": "object",
         "required": [
           "amount",
           "asset_name",
@@ -69,6 +68,7 @@ Required minimum session key permission level is `admin`
           "signer",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -116,11 +116,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateWithdrawResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -141,11 +141,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateWithdrawResultSchema": {
-        "type": "object",
         "required": [
           "status",
           "transaction_id"
         ],
+        "type": "object",
         "properties": {
           "status": {
             "title": "status",

@@ -58,31 +58,11 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
-      "PaginationInfoSchema": {
-        "type": "object",
-        "required": [
-          "count",
-          "num_pages"
-        ],
-        "properties": {
-          "count": {
-            "title": "count",
-            "type": "integer",
-            "description": "Total number of items, across all pages"
-          },
-          "num_pages": {
-            "title": "num_pages",
-            "type": "integer",
-            "description": "Number of pages"
-          }
-        },
-        "additionalProperties": false
-      },
       "PrivatePollRfqsParamsSchema": {
-        "type": "object",
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "from_timestamp": {
             "title": "from_timestamp",
@@ -145,11 +125,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivatePollRfqsResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -170,11 +150,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivatePollRfqsResultSchema": {
-        "type": "object",
         "required": [
           "pagination",
           "rfqs"
         ],
+        "type": "object",
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -190,8 +170,27 @@ Required minimum session key permission level is `read_only`
         },
         "additionalProperties": false
       },
-      "RFQResultPublicSchema": {
+      "PaginationInfoSchema": {
+        "required": [
+          "count",
+          "num_pages"
+        ],
         "type": "object",
+        "properties": {
+          "count": {
+            "title": "count",
+            "type": "integer",
+            "description": "Total number of items, across all pages"
+          },
+          "num_pages": {
+            "title": "num_pages",
+            "type": "integer",
+            "description": "Number of pages"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RFQResultPublicSchema": {
         "required": [
           "cancel_reason",
           "creation_timestamp",
@@ -211,6 +210,7 @@ Required minimum session key permission level is `read_only`
           "valid_until",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",
@@ -352,12 +352,12 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "LegUnpricedSchema": {
-        "type": "object",
         "required": [
           "amount",
           "direction",
           "instrument_name"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",

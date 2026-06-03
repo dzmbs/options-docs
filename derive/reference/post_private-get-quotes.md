@@ -59,11 +59,11 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
-        "type": "object",
         "required": [
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -78,121 +78,45 @@ Required minimum session key permission level is `read_only`
         },
         "additionalProperties": false
       },
-      "PrivateGetQuotesParamsSchema": {
-        "type": "object",
+      "LegPricedSchema": {
         "required": [
-          "subaccount_id"
+          "amount",
+          "direction",
+          "instrument_name",
+          "price"
         ],
+        "type": "object",
         "properties": {
-          "from_timestamp": {
-            "title": "from_timestamp",
-            "type": "integer",
-            "default": 0,
-            "description": "Earliest timestamp to filter by (in ms since Unix epoch). If not provied, defaults to 0."
-          },
-          "page": {
-            "title": "page",
-            "type": "integer",
-            "default": 1,
-            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
-          },
-          "page_size": {
-            "title": "page_size",
-            "type": "integer",
-            "default": 100,
-            "description": "Number of results per page (default 100, max 1000)"
-          },
-          "quote_id": {
-            "title": "quote_id",
+          "amount": {
+            "title": "amount",
             "type": "string",
-            "format": "uuid",
-            "default": null,
-            "description": "Quote ID filter, if applicable",
-            "nullable": true
+            "format": "decimal",
+            "description": "Amount in units of the base"
           },
-          "rfq_id": {
-            "title": "rfq_id",
+          "direction": {
+            "title": "direction",
             "type": "string",
-            "format": "uuid",
-            "default": null,
-            "description": "RFQ ID filter, if applicable",
-            "nullable": true
-          },
-          "status": {
-            "title": "status",
-            "type": "string",
-            "default": null,
             "enum": [
-              "open",
-              "filled",
-              "cancelled",
-              "expired"
+              "buy",
+              "sell"
             ],
-            "description": "Quote status filter, if applicable",
-            "nullable": true
+            "description": "Leg direction"
           },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount ID for auth purposes, returned data will be scoped to this subaccount."
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "description": "Instrument name"
           },
-          "to_timestamp": {
-            "title": "to_timestamp",
-            "type": "integer",
-            "default": 18446744073709552000,
-            "description": "Latest timestamp to filter by (in ms since Unix epoch). If not provied, defaults to returning all data up to current time."
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetQuotesResponseSchema": {
-        "type": "object",
-        "required": [
-          "id",
-          "result"
-        ],
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivateGetQuotesResultSchema"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetQuotesResultSchema": {
-        "type": "object",
-        "required": [
-          "pagination",
-          "quotes"
-        ],
-        "properties": {
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationInfoSchema"
-          },
-          "quotes": {
-            "title": "quotes",
-            "type": "array",
-            "description": "Quotes matching filter criteria",
-            "items": {
-              "$ref": "#/components/schemas/QuoteResultSchema"
-            }
+          "price": {
+            "title": "price",
+            "type": "string",
+            "format": "decimal",
+            "description": "Leg price"
           }
         },
         "additionalProperties": false
       },
       "QuoteResultSchema": {
-        "type": "object",
         "required": [
           "cancel_reason",
           "creation_timestamp",
@@ -219,6 +143,7 @@ Required minimum session key permission level is `read_only`
           "tx_hash",
           "tx_status"
         ],
+        "type": "object",
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",
@@ -390,40 +315,115 @@ Required minimum session key permission level is `read_only`
         },
         "additionalProperties": false
       },
-      "LegPricedSchema": {
-        "type": "object",
+      "PrivateGetQuotesParamsSchema": {
         "required": [
-          "amount",
-          "direction",
-          "instrument_name",
-          "price"
+          "subaccount_id"
         ],
+        "type": "object",
         "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Amount in units of the base"
+          "from_timestamp": {
+            "title": "from_timestamp",
+            "type": "integer",
+            "default": 0,
+            "description": "Earliest timestamp to filter by (in ms since Unix epoch). If not provied, defaults to 0."
           },
-          "direction": {
-            "title": "direction",
+          "page": {
+            "title": "page",
+            "type": "integer",
+            "default": 1,
+            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
+          },
+          "page_size": {
+            "title": "page_size",
+            "type": "integer",
+            "default": 100,
+            "description": "Number of results per page (default 100, max 1000)"
+          },
+          "quote_id": {
+            "title": "quote_id",
             "type": "string",
+            "format": "uuid",
+            "default": null,
+            "description": "Quote ID filter, if applicable",
+            "nullable": true
+          },
+          "rfq_id": {
+            "title": "rfq_id",
+            "type": "string",
+            "format": "uuid",
+            "default": null,
+            "description": "RFQ ID filter, if applicable",
+            "nullable": true
+          },
+          "status": {
+            "title": "status",
+            "type": "string",
+            "default": null,
             "enum": [
-              "buy",
-              "sell"
+              "open",
+              "filled",
+              "cancelled",
+              "expired"
             ],
-            "description": "Leg direction"
+            "description": "Quote status filter, if applicable",
+            "nullable": true
           },
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "description": "Instrument name"
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount ID for auth purposes, returned data will be scoped to this subaccount."
           },
-          "price": {
-            "title": "price",
-            "type": "string",
-            "format": "decimal",
-            "description": "Leg price"
+          "to_timestamp": {
+            "title": "to_timestamp",
+            "type": "integer",
+            "default": 18446744073709552000,
+            "description": "Latest timestamp to filter by (in ms since Unix epoch). If not provied, defaults to returning all data up to current time."
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetQuotesResponseSchema": {
+        "required": [
+          "id",
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivateGetQuotesResultSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetQuotesResultSchema": {
+        "required": [
+          "pagination",
+          "quotes"
+        ],
+        "type": "object",
+        "properties": {
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationInfoSchema"
+          },
+          "quotes": {
+            "title": "quotes",
+            "type": "array",
+            "description": "Quotes matching filter criteria",
+            "items": {
+              "$ref": "#/components/schemas/QuoteResultSchema"
+            }
           }
         },
         "additionalProperties": false

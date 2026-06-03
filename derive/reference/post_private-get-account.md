@@ -59,10 +59,10 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetAccountParamsSchema": {
-        "type": "object",
         "required": [
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "wallet": {
             "title": "wallet",
@@ -73,11 +73,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetAccountResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -98,7 +98,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetAccountResultSchema": {
-        "type": "object",
         "required": [
           "cancel_on_disconnect",
           "fee_info",
@@ -111,6 +110,7 @@ Required minimum session key permission level is `read_only`
           "websocket_option_tps",
           "websocket_perp_tps"
         ],
+        "type": "object",
         "properties": {
           "cancel_on_disconnect": {
             "title": "cancel_on_disconnect",
@@ -183,7 +183,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "AccountFeeInfoSchema": {
-        "type": "object",
         "required": [
           "base_fee_discount",
           "option_maker_fee",
@@ -195,6 +194,7 @@ Required minimum session key permission level is `read_only`
           "spot_maker_fee",
           "spot_taker_fee"
         ],
+        "type": "object",
         "properties": {
           "base_fee_discount": {
             "title": "base_fee_discount",

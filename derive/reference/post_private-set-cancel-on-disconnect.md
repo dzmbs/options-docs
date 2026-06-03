@@ -59,11 +59,11 @@ Required minimum session key permission level is `account`
   "components": {
     "schemas": {
       "PrivateSetCancelOnDisconnectParamsSchema": {
-        "type": "object",
         "required": [
           "enabled",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "enabled": {
             "title": "enabled",
@@ -79,11 +79,11 @@ Required minimum session key permission level is `account`
         "additionalProperties": false
       },
       "PrivateSetCancelOnDisconnectResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [

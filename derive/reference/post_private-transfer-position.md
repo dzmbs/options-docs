@@ -59,7 +59,6 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "OrderResponseSchema": {
-        "type": "object",
         "required": [
           "amount",
           "average_price",
@@ -86,6 +85,7 @@ Required minimum session key permission level is `admin`
           "subaccount_id",
           "time_in_force"
         ],
+        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -349,7 +349,6 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "TradeResponseSchema": {
-        "type": "object",
         "required": [
           "direction",
           "expected_rebate",
@@ -375,6 +374,7 @@ Required minimum session key permission level is `admin`
           "tx_hash",
           "tx_status"
         ],
+        "type": "object",
         "properties": {
           "direction": {
             "title": "direction",
@@ -528,12 +528,12 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateTransferPositionParamsSchema": {
-        "type": "object",
         "required": [
           "maker_params",
           "taker_params",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "maker_params": {
             "$ref": "#/components/schemas/TradeModuleParamsSchema"
@@ -550,7 +550,6 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "TradeModuleParamsSchema": {
-        "type": "object",
         "required": [
           "amount",
           "direction",
@@ -563,6 +562,7 @@ Required minimum session key permission level is `admin`
           "signer",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -625,11 +625,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateTransferPositionResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -650,13 +650,13 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateTransferPositionResultSchema": {
-        "type": "object",
         "required": [
           "maker_order",
           "maker_trade",
           "taker_order",
           "taker_trade"
         ],
+        "type": "object",
         "properties": {
           "maker_order": {
             "$ref": "#/components/schemas/OrderResponseSchema"

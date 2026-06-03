@@ -58,10 +58,10 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
   "components": {
     "schemas": {
       "PublicGetCurrencyParamsSchema": {
-        "type": "object",
         "required": [
           "currency"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -72,11 +72,11 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
         "additionalProperties": false
       },
       "PublicGetCurrencyResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -97,7 +97,6 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
         "additionalProperties": false
       },
       "PublicGetCurrencyResultSchema": {
-        "type": "object",
         "required": [
           "asset_cap_and_supply_per_manager",
           "borrow_apy",
@@ -114,6 +113,7 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
           "total_borrow",
           "total_supply"
         ],
+        "type": "object",
         "properties": {
           "asset_cap_and_supply_per_manager": {
             "title": "asset_cap_and_supply_per_manager",
@@ -251,11 +251,11 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
         "additionalProperties": false
       },
       "OpenInterestStatsSchema": {
-        "type": "object",
         "required": [
           "current_open_interest",
           "interest_cap"
         ],
+        "type": "object",
         "properties": {
           "current_open_interest": {
             "title": "current_open_interest",
@@ -280,11 +280,11 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
         "additionalProperties": false
       },
       "ManagerContractResponseSchema": {
-        "type": "object",
         "required": [
           "address",
           "margin_type"
         ],
+        "type": "object",
         "properties": {
           "address": {
             "title": "address",
@@ -312,12 +312,12 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
         "additionalProperties": false
       },
       "PM2CollateralDiscountsSchema": {
-        "type": "object",
         "required": [
           "im_discount",
           "manager_currency",
           "mm_discount"
         ],
+        "type": "object",
         "properties": {
           "im_discount": {
             "title": "im_discount",
@@ -374,12 +374,12 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
         "additionalProperties": false
       },
       "SRMPerpMarginRequirementsPublicSchema": {
-        "type": "object",
         "required": [
           "im_perp_req",
           "max_leverage",
           "mm_perp_req"
         ],
+        "type": "object",
         "properties": {
           "im_perp_req": {
             "title": "im_perp_req",

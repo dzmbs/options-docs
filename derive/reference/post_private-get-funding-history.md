@@ -59,11 +59,11 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
-        "type": "object",
         "required": [
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -130,11 +130,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetFundingHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -155,11 +155,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetFundingHistoryResultSchema": {
-        "type": "object",
         "required": [
           "events",
           "pagination"
         ],
+        "type": "object",
         "properties": {
           "events": {
             "title": "events",
@@ -176,7 +176,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "FundingPaymentSchema": {
-        "type": "object",
         "required": [
           "funding",
           "instrument_name",
@@ -184,6 +183,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "timestamp"
         ],
+        "type": "object",
         "properties": {
           "funding": {
             "title": "funding",

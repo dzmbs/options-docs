@@ -58,11 +58,11 @@ Get trade history for a subaccount, with filter parameters.
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
-        "type": "object",
         "required": [
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -167,11 +167,11 @@ Get trade history for a subaccount, with filter parameters.
         "additionalProperties": false
       },
       "PublicGetTradeHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -192,11 +192,11 @@ Get trade history for a subaccount, with filter parameters.
         "additionalProperties": false
       },
       "PublicGetTradeHistoryResultSchema": {
-        "type": "object",
         "required": [
           "pagination",
           "trades"
         ],
+        "type": "object",
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -213,7 +213,6 @@ Get trade history for a subaccount, with filter parameters.
         "additionalProperties": false
       },
       "TradeSettledPublicResponseSchema": {
-        "type": "object",
         "required": [
           "direction",
           "expected_rebate",
@@ -236,6 +235,7 @@ Get trade history for a subaccount, with filter parameters.
           "tx_status",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "direction": {
             "title": "direction",

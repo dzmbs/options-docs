@@ -59,10 +59,10 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetMmpConfigParamsSchema": {
-        "type": "object",
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -80,11 +80,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetMmpConfigResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -110,7 +110,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "MMPConfigResultSchema": {
-        "type": "object",
         "required": [
           "currency",
           "is_frozen",
@@ -119,6 +118,7 @@ Required minimum session key permission level is `read_only`
           "mmp_unfreeze_time",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",

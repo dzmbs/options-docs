@@ -59,10 +59,10 @@ Required minimum session key permission level is `account`
   "components": {
     "schemas": {
       "PrivateResetMmpParamsSchema": {
-        "type": "object",
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -80,11 +80,11 @@ Required minimum session key permission level is `account`
         "additionalProperties": false
       },
       "PrivateResetMmpResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [

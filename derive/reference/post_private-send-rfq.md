@@ -59,12 +59,12 @@ Required minimum session key permission level is `account`
   "components": {
     "schemas": {
       "LegUnpricedSchema": {
-        "type": "object",
         "required": [
           "amount",
           "direction",
           "instrument_name"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -90,11 +90,11 @@ Required minimum session key permission level is `account`
         "additionalProperties": false
       },
       "PrivateSendRfqParamsSchema": {
-        "type": "object",
         "required": [
           "legs",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "client": {
             "title": "client",
@@ -183,11 +183,11 @@ Required minimum session key permission level is `account`
         "additionalProperties": false
       },
       "PrivateSendRfqResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -208,7 +208,6 @@ Required minimum session key permission level is `account`
         "additionalProperties": false
       },
       "PrivateSendRfqResultSchema": {
-        "type": "object",
         "required": [
           "ask_total_cost",
           "bid_total_cost",
@@ -233,6 +232,7 @@ Required minimum session key permission level is `account`
           "valid_until",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "ask_total_cost": {
             "title": "ask_total_cost",

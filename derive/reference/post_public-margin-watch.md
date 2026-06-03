@@ -58,10 +58,10 @@ Calculates MtM and maintenance margin for a given subaccount.
   "components": {
     "schemas": {
       "PublicMarginWatchParamsSchema": {
-        "type": "object",
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "force_onchain": {
             "title": "force_onchain",
@@ -84,11 +84,11 @@ Calculates MtM and maintenance margin for a given subaccount.
         "additionalProperties": false
       },
       "PublicMarginWatchResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -109,7 +109,6 @@ Calculates MtM and maintenance margin for a given subaccount.
         "additionalProperties": false
       },
       "PublicMarginWatchResultSchema": {
-        "type": "object",
         "required": [
           "collaterals",
           "currency",
@@ -121,6 +120,7 @@ Calculates MtM and maintenance margin for a given subaccount.
           "subaccount_value",
           "valuation_timestamp"
         ],
+        "type": "object",
         "properties": {
           "collaterals": {
             "title": "collaterals",
@@ -185,7 +185,6 @@ Calculates MtM and maintenance margin for a given subaccount.
         "additionalProperties": false
       },
       "CollateralPublicResponseSchema": {
-        "type": "object",
         "required": [
           "amount",
           "asset_name",
@@ -197,6 +196,7 @@ Calculates MtM and maintenance margin for a given subaccount.
           "mark_price",
           "mark_value"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -258,7 +258,6 @@ Calculates MtM and maintenance margin for a given subaccount.
         "additionalProperties": false
       },
       "PositionPublicResponseSchema": {
-        "type": "object",
         "required": [
           "amount",
           "delta",
@@ -274,6 +273,7 @@ Calculates MtM and maintenance margin for a given subaccount.
           "theta",
           "vega"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",

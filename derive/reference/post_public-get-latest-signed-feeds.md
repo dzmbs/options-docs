@@ -78,11 +78,11 @@ Get latest signed data feeds
         "additionalProperties": false
       },
       "PublicGetLatestSignedFeedsResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -103,7 +103,6 @@ Get latest signed data feeds
         "additionalProperties": false
       },
       "PublicGetLatestSignedFeedsResultSchema": {
-        "type": "object",
         "required": [
           "fwd_data",
           "perp_data",
@@ -111,6 +110,7 @@ Get latest signed data feeds
           "spot_data",
           "vol_data"
         ],
+        "type": "object",
         "properties": {
           "fwd_data": {
             "title": "fwd_data",
@@ -172,7 +172,6 @@ Get latest signed data feeds
         "additionalProperties": false
       },
       "ForwardFeedDataSchema": {
-        "type": "object",
         "required": [
           "confidence",
           "currency",
@@ -184,6 +183,7 @@ Get latest signed data feeds
           "spot_aggregate_start",
           "timestamp"
         ],
+        "type": "object",
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -260,7 +260,6 @@ Get latest signed data feeds
         "additionalProperties": false
       },
       "PerpFeedDataSchema": {
-        "type": "object",
         "required": [
           "confidence",
           "currency",
@@ -270,6 +269,7 @@ Get latest signed data feeds
           "timestamp",
           "type"
         ],
+        "type": "object",
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -315,7 +315,6 @@ Get latest signed data feeds
         "additionalProperties": false
       },
       "RateFeedDataSchema": {
-        "type": "object",
         "required": [
           "confidence",
           "currency",
@@ -325,6 +324,7 @@ Get latest signed data feeds
           "signatures",
           "timestamp"
         ],
+        "type": "object",
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -365,7 +365,6 @@ Get latest signed data feeds
         "additionalProperties": false
       },
       "SpotFeedDataSchema": {
-        "type": "object",
         "required": [
           "confidence",
           "currency",
@@ -374,6 +373,7 @@ Get latest signed data feeds
           "signatures",
           "timestamp"
         ],
+        "type": "object",
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -419,7 +419,6 @@ Get latest signed data feeds
         "additionalProperties": false
       },
       "VolFeedDataSchema": {
-        "type": "object",
         "required": [
           "confidence",
           "currency",
@@ -429,6 +428,7 @@ Get latest signed data feeds
           "timestamp",
           "vol_data"
         ],
+        "type": "object",
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -466,7 +466,6 @@ Get latest signed data feeds
         "additionalProperties": false
       },
       "VolSVIParamDataSchema": {
-        "type": "object",
         "required": [
           "SVI_a",
           "SVI_b",
@@ -476,6 +475,7 @@ Get latest signed data feeds
           "SVI_rho",
           "SVI_sigma"
         ],
+        "type": "object",
         "properties": {
           "SVI_a": {
             "title": "SVI_a",

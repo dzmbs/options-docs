@@ -59,7 +59,6 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PositionResponseSchema": {
-        "type": "object",
         "required": [
           "amount",
           "amount_step",
@@ -89,6 +88,7 @@ Required minimum session key permission level is `read_only`
           "unrealized_pnl_excl_fees",
           "vega"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -261,8 +261,316 @@ Required minimum session key permission level is `read_only`
         },
         "additionalProperties": false
       },
-      "OrderResponseSchema": {
+      "CollateralResponseSchema": {
+        "required": [
+          "amount",
+          "amount_step",
+          "asset_name",
+          "asset_type",
+          "average_price",
+          "average_price_excl_fees",
+          "creation_timestamp",
+          "cumulative_interest",
+          "currency",
+          "delta",
+          "delta_currency",
+          "initial_margin",
+          "maintenance_margin",
+          "mark_price",
+          "mark_value",
+          "open_orders_margin",
+          "pending_interest",
+          "realized_pnl",
+          "realized_pnl_excl_fees",
+          "total_fees",
+          "unrealized_pnl",
+          "unrealized_pnl_excl_fees"
+        ],
         "type": "object",
+        "properties": {
+          "amount": {
+            "title": "amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Asset amount of given collateral"
+          },
+          "amount_step": {
+            "title": "amount_step",
+            "type": "string",
+            "format": "decimal",
+            "description": "Minimum amount step for the collateral"
+          },
+          "asset_name": {
+            "title": "asset_name",
+            "type": "string",
+            "description": "Asset name"
+          },
+          "asset_type": {
+            "title": "asset_type",
+            "type": "string",
+            "enum": [
+              "erc20",
+              "option",
+              "perp"
+            ],
+            "description": "Type of asset collateral (currently always `erc20`)"
+          },
+          "average_price": {
+            "title": "average_price",
+            "type": "string",
+            "format": "decimal",
+            "description": "Average price of the collateral, 0 for USDC."
+          },
+          "average_price_excl_fees": {
+            "title": "average_price_excl_fees",
+            "type": "string",
+            "format": "decimal",
+            "description": "Average price of whole position excluding fees"
+          },
+          "creation_timestamp": {
+            "title": "creation_timestamp",
+            "type": "integer",
+            "description": "Timestamp of when the position was opened (in ms since Unix epoch)"
+          },
+          "cumulative_interest": {
+            "title": "cumulative_interest",
+            "type": "string",
+            "format": "decimal",
+            "description": "Cumulative interest earned on supplying collateral or paid for borrowing"
+          },
+          "currency": {
+            "title": "currency",
+            "type": "string",
+            "description": "Underlying currency of asset (`ETH`, `BTC`, etc)"
+          },
+          "delta": {
+            "title": "delta",
+            "type": "string",
+            "format": "decimal",
+            "description": "Asset delta w.r.t. the delta currency"
+          },
+          "delta_currency": {
+            "title": "delta_currency",
+            "type": "string",
+            "description": "Currency with respect to which delta is reported.For example, LRTs like WEETH have their delta reported in ETH"
+          },
+          "initial_margin": {
+            "title": "initial_margin",
+            "type": "string",
+            "format": "decimal",
+            "description": "USD value of collateral that contributes to initial margin"
+          },
+          "maintenance_margin": {
+            "title": "maintenance_margin",
+            "type": "string",
+            "format": "decimal",
+            "description": "USD value of collateral that contributes to maintenance margin"
+          },
+          "mark_price": {
+            "title": "mark_price",
+            "type": "string",
+            "format": "decimal",
+            "description": "Current mark price of the asset"
+          },
+          "mark_value": {
+            "title": "mark_value",
+            "type": "string",
+            "format": "decimal",
+            "description": "USD value of the collateral (amount * mark price)"
+          },
+          "open_orders_margin": {
+            "title": "open_orders_margin",
+            "type": "string",
+            "format": "decimal",
+            "description": "USD margin requirement for all open orders for this asset / instrument"
+          },
+          "pending_interest": {
+            "title": "pending_interest",
+            "type": "string",
+            "format": "decimal",
+            "description": "Portion of interest that has not yet been settled on-chain. This number is added to the portfolio value for margin calculations purposes."
+          },
+          "realized_pnl": {
+            "title": "realized_pnl",
+            "type": "string",
+            "format": "decimal",
+            "description": "Realized trading profit or loss of the collateral, 0 for USDC."
+          },
+          "realized_pnl_excl_fees": {
+            "title": "realized_pnl_excl_fees",
+            "type": "string",
+            "format": "decimal",
+            "description": "Realized trading profit or loss of the position excluding fees"
+          },
+          "total_fees": {
+            "title": "total_fees",
+            "type": "string",
+            "format": "decimal",
+            "description": "Total fees paid for opening and changing the position"
+          },
+          "unrealized_pnl": {
+            "title": "unrealized_pnl",
+            "type": "string",
+            "format": "decimal",
+            "description": "Unrealized trading profit or loss of the collateral, 0 for USDC."
+          },
+          "unrealized_pnl_excl_fees": {
+            "title": "unrealized_pnl_excl_fees",
+            "type": "string",
+            "format": "decimal",
+            "description": "Unrealized trading profit or loss of the position excluding fees"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetSubaccountResultSchema": {
+        "required": [
+          "collaterals",
+          "collaterals_initial_margin",
+          "collaterals_maintenance_margin",
+          "collaterals_value",
+          "currency",
+          "initial_margin",
+          "is_under_liquidation",
+          "label",
+          "maintenance_margin",
+          "margin_type",
+          "open_orders",
+          "open_orders_margin",
+          "positions",
+          "positions_initial_margin",
+          "positions_maintenance_margin",
+          "positions_value",
+          "projected_margin_change",
+          "subaccount_id",
+          "subaccount_value"
+        ],
+        "type": "object",
+        "properties": {
+          "collaterals": {
+            "title": "collaterals",
+            "type": "array",
+            "description": "All collaterals that count towards margin of subaccount",
+            "items": {
+              "$ref": "#/components/schemas/CollateralResponseSchema"
+            }
+          },
+          "collaterals_initial_margin": {
+            "title": "collaterals_initial_margin",
+            "type": "string",
+            "format": "decimal",
+            "description": "Total initial margin credit contributed by collaterals"
+          },
+          "collaterals_maintenance_margin": {
+            "title": "collaterals_maintenance_margin",
+            "type": "string",
+            "format": "decimal",
+            "description": "Total maintenance margin credit contributed by collaterals"
+          },
+          "collaterals_value": {
+            "title": "collaterals_value",
+            "type": "string",
+            "format": "decimal",
+            "description": "Total mark-to-market value of all collaterals"
+          },
+          "currency": {
+            "title": "currency",
+            "type": "string",
+            "description": "Currency of subaccount"
+          },
+          "initial_margin": {
+            "title": "initial_margin",
+            "type": "string",
+            "format": "decimal",
+            "description": "Total initial margin requirement of all positions and collaterals.Trades will be rejected if this value falls below zero after the trade."
+          },
+          "is_under_liquidation": {
+            "title": "is_under_liquidation",
+            "type": "boolean",
+            "description": "Whether the subaccount is undergoing a liquidation auction"
+          },
+          "label": {
+            "title": "label",
+            "type": "string",
+            "description": "User defined label"
+          },
+          "maintenance_margin": {
+            "title": "maintenance_margin",
+            "type": "string",
+            "format": "decimal",
+            "description": "Total maintenance margin requirement of all positions and collaterals.If this value falls below zero, the subaccount will be flagged for liquidation."
+          },
+          "margin_type": {
+            "title": "margin_type",
+            "type": "string",
+            "enum": [
+              "PM",
+              "SM",
+              "PM2"
+            ],
+            "description": "Margin type of subaccount (`PM` (Portfolio Margin), `PM2` (Portfolio Margin 2), or `SM` (Standard Margin))"
+          },
+          "open_orders": {
+            "title": "open_orders",
+            "type": "array",
+            "description": "All open orders of subaccount",
+            "items": {
+              "$ref": "#/components/schemas/OrderResponseSchema"
+            }
+          },
+          "open_orders_margin": {
+            "title": "open_orders_margin",
+            "type": "string",
+            "format": "decimal",
+            "description": "Total margin requirement of all open orders.Orders will be rejected if this value plus initial margin are below zero after the order."
+          },
+          "positions": {
+            "title": "positions",
+            "type": "array",
+            "description": "All active positions of subaccount",
+            "items": {
+              "$ref": "#/components/schemas/PositionResponseSchema"
+            }
+          },
+          "positions_initial_margin": {
+            "title": "positions_initial_margin",
+            "type": "string",
+            "format": "decimal",
+            "description": "Total initial margin requirement of all positions"
+          },
+          "positions_maintenance_margin": {
+            "title": "positions_maintenance_margin",
+            "type": "string",
+            "format": "decimal",
+            "description": "Total maintenance margin requirement of all positions"
+          },
+          "positions_value": {
+            "title": "positions_value",
+            "type": "string",
+            "format": "decimal",
+            "description": "Total mark-to-market value of all positions"
+          },
+          "projected_margin_change": {
+            "title": "projected_margin_change",
+            "type": "string",
+            "format": "decimal",
+            "description": "Projected change in maintenance margin requirement between now and projected margin at 8:01 UTC. If this value plus current maintenance margin ise below zero, the account is at risk of being flagged for liquidation right after the upcoming expiry."
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount_id"
+          },
+          "subaccount_value": {
+            "title": "subaccount_value",
+            "type": "string",
+            "format": "decimal",
+            "description": "Total mark-to-market value of all positions and collaterals"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderResponseSchema": {
         "required": [
           "amount",
           "average_price",
@@ -289,6 +597,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "time_in_force"
         ],
+        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -552,10 +861,10 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetAllPortfoliosParamsSchema": {
-        "type": "object",
         "required": [
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "wallet": {
             "title": "wallet",
@@ -566,11 +875,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetAllPortfoliosResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -591,315 +900,6 @@ Required minimum session key permission level is `read_only`
             "items": {
               "$ref": "#/components/schemas/PrivateGetSubaccountResultSchema"
             }
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetSubaccountResultSchema": {
-        "type": "object",
-        "required": [
-          "collaterals",
-          "collaterals_initial_margin",
-          "collaterals_maintenance_margin",
-          "collaterals_value",
-          "currency",
-          "initial_margin",
-          "is_under_liquidation",
-          "label",
-          "maintenance_margin",
-          "margin_type",
-          "open_orders",
-          "open_orders_margin",
-          "positions",
-          "positions_initial_margin",
-          "positions_maintenance_margin",
-          "positions_value",
-          "projected_margin_change",
-          "subaccount_id",
-          "subaccount_value"
-        ],
-        "properties": {
-          "collaterals": {
-            "title": "collaterals",
-            "type": "array",
-            "description": "All collaterals that count towards margin of subaccount",
-            "items": {
-              "$ref": "#/components/schemas/CollateralResponseSchema"
-            }
-          },
-          "collaterals_initial_margin": {
-            "title": "collaterals_initial_margin",
-            "type": "string",
-            "format": "decimal",
-            "description": "Total initial margin credit contributed by collaterals"
-          },
-          "collaterals_maintenance_margin": {
-            "title": "collaterals_maintenance_margin",
-            "type": "string",
-            "format": "decimal",
-            "description": "Total maintenance margin credit contributed by collaterals"
-          },
-          "collaterals_value": {
-            "title": "collaterals_value",
-            "type": "string",
-            "format": "decimal",
-            "description": "Total mark-to-market value of all collaterals"
-          },
-          "currency": {
-            "title": "currency",
-            "type": "string",
-            "description": "Currency of subaccount"
-          },
-          "initial_margin": {
-            "title": "initial_margin",
-            "type": "string",
-            "format": "decimal",
-            "description": "Total initial margin requirement of all positions and collaterals.Trades will be rejected if this value falls below zero after the trade."
-          },
-          "is_under_liquidation": {
-            "title": "is_under_liquidation",
-            "type": "boolean",
-            "description": "Whether the subaccount is undergoing a liquidation auction"
-          },
-          "label": {
-            "title": "label",
-            "type": "string",
-            "description": "User defined label"
-          },
-          "maintenance_margin": {
-            "title": "maintenance_margin",
-            "type": "string",
-            "format": "decimal",
-            "description": "Total maintenance margin requirement of all positions and collaterals.If this value falls below zero, the subaccount will be flagged for liquidation."
-          },
-          "margin_type": {
-            "title": "margin_type",
-            "type": "string",
-            "enum": [
-              "PM",
-              "SM",
-              "PM2"
-            ],
-            "description": "Margin type of subaccount (`PM` (Portfolio Margin), `PM2` (Portfolio Margin 2), or `SM` (Standard Margin))"
-          },
-          "open_orders": {
-            "title": "open_orders",
-            "type": "array",
-            "description": "All open orders of subaccount",
-            "items": {
-              "$ref": "#/components/schemas/OrderResponseSchema"
-            }
-          },
-          "open_orders_margin": {
-            "title": "open_orders_margin",
-            "type": "string",
-            "format": "decimal",
-            "description": "Total margin requirement of all open orders.Orders will be rejected if this value plus initial margin are below zero after the order."
-          },
-          "positions": {
-            "title": "positions",
-            "type": "array",
-            "description": "All active positions of subaccount",
-            "items": {
-              "$ref": "#/components/schemas/PositionResponseSchema"
-            }
-          },
-          "positions_initial_margin": {
-            "title": "positions_initial_margin",
-            "type": "string",
-            "format": "decimal",
-            "description": "Total initial margin requirement of all positions"
-          },
-          "positions_maintenance_margin": {
-            "title": "positions_maintenance_margin",
-            "type": "string",
-            "format": "decimal",
-            "description": "Total maintenance margin requirement of all positions"
-          },
-          "positions_value": {
-            "title": "positions_value",
-            "type": "string",
-            "format": "decimal",
-            "description": "Total mark-to-market value of all positions"
-          },
-          "projected_margin_change": {
-            "title": "projected_margin_change",
-            "type": "string",
-            "format": "decimal",
-            "description": "Projected change in maintenance margin requirement between now and projected margin at 8:01 UTC. If this value plus current maintenance margin ise below zero, the account is at risk of being flagged for liquidation right after the upcoming expiry."
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount_id"
-          },
-          "subaccount_value": {
-            "title": "subaccount_value",
-            "type": "string",
-            "format": "decimal",
-            "description": "Total mark-to-market value of all positions and collaterals"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CollateralResponseSchema": {
-        "type": "object",
-        "required": [
-          "amount",
-          "amount_step",
-          "asset_name",
-          "asset_type",
-          "average_price",
-          "average_price_excl_fees",
-          "creation_timestamp",
-          "cumulative_interest",
-          "currency",
-          "delta",
-          "delta_currency",
-          "initial_margin",
-          "maintenance_margin",
-          "mark_price",
-          "mark_value",
-          "open_orders_margin",
-          "pending_interest",
-          "realized_pnl",
-          "realized_pnl_excl_fees",
-          "total_fees",
-          "unrealized_pnl",
-          "unrealized_pnl_excl_fees"
-        ],
-        "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Asset amount of given collateral"
-          },
-          "amount_step": {
-            "title": "amount_step",
-            "type": "string",
-            "format": "decimal",
-            "description": "Minimum amount step for the collateral"
-          },
-          "asset_name": {
-            "title": "asset_name",
-            "type": "string",
-            "description": "Asset name"
-          },
-          "asset_type": {
-            "title": "asset_type",
-            "type": "string",
-            "enum": [
-              "erc20",
-              "option",
-              "perp"
-            ],
-            "description": "Type of asset collateral (currently always `erc20`)"
-          },
-          "average_price": {
-            "title": "average_price",
-            "type": "string",
-            "format": "decimal",
-            "description": "Average price of the collateral, 0 for USDC."
-          },
-          "average_price_excl_fees": {
-            "title": "average_price_excl_fees",
-            "type": "string",
-            "format": "decimal",
-            "description": "Average price of whole position excluding fees"
-          },
-          "creation_timestamp": {
-            "title": "creation_timestamp",
-            "type": "integer",
-            "description": "Timestamp of when the position was opened (in ms since Unix epoch)"
-          },
-          "cumulative_interest": {
-            "title": "cumulative_interest",
-            "type": "string",
-            "format": "decimal",
-            "description": "Cumulative interest earned on supplying collateral or paid for borrowing"
-          },
-          "currency": {
-            "title": "currency",
-            "type": "string",
-            "description": "Underlying currency of asset (`ETH`, `BTC`, etc)"
-          },
-          "delta": {
-            "title": "delta",
-            "type": "string",
-            "format": "decimal",
-            "description": "Asset delta w.r.t. the delta currency"
-          },
-          "delta_currency": {
-            "title": "delta_currency",
-            "type": "string",
-            "description": "Currency with respect to which delta is reported.For example, LRTs like WEETH have their delta reported in ETH"
-          },
-          "initial_margin": {
-            "title": "initial_margin",
-            "type": "string",
-            "format": "decimal",
-            "description": "USD value of collateral that contributes to initial margin"
-          },
-          "maintenance_margin": {
-            "title": "maintenance_margin",
-            "type": "string",
-            "format": "decimal",
-            "description": "USD value of collateral that contributes to maintenance margin"
-          },
-          "mark_price": {
-            "title": "mark_price",
-            "type": "string",
-            "format": "decimal",
-            "description": "Current mark price of the asset"
-          },
-          "mark_value": {
-            "title": "mark_value",
-            "type": "string",
-            "format": "decimal",
-            "description": "USD value of the collateral (amount * mark price)"
-          },
-          "open_orders_margin": {
-            "title": "open_orders_margin",
-            "type": "string",
-            "format": "decimal",
-            "description": "USD margin requirement for all open orders for this asset / instrument"
-          },
-          "pending_interest": {
-            "title": "pending_interest",
-            "type": "string",
-            "format": "decimal",
-            "description": "Portion of interest that has not yet been settled on-chain. This number is added to the portfolio value for margin calculations purposes."
-          },
-          "realized_pnl": {
-            "title": "realized_pnl",
-            "type": "string",
-            "format": "decimal",
-            "description": "Realized trading profit or loss of the collateral, 0 for USDC."
-          },
-          "realized_pnl_excl_fees": {
-            "title": "realized_pnl_excl_fees",
-            "type": "string",
-            "format": "decimal",
-            "description": "Realized trading profit or loss of the position excluding fees"
-          },
-          "total_fees": {
-            "title": "total_fees",
-            "type": "string",
-            "format": "decimal",
-            "description": "Total fees paid for opening and changing the position"
-          },
-          "unrealized_pnl": {
-            "title": "unrealized_pnl",
-            "type": "string",
-            "format": "decimal",
-            "description": "Unrealized trading profit or loss of the collateral, 0 for USDC."
-          },
-          "unrealized_pnl_excl_fees": {
-            "title": "unrealized_pnl_excl_fees",
-            "type": "string",
-            "format": "decimal",
-            "description": "Unrealized trading profit or loss of the position excluding fees"
           }
         },
         "additionalProperties": false

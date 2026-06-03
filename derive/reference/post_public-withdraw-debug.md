@@ -58,7 +58,6 @@ Used for debugging only, do not use in production. Will return the incremental e
   "components": {
     "schemas": {
       "PublicWithdrawDebugParamsSchema": {
-        "type": "object",
         "required": [
           "amount",
           "asset_name",
@@ -67,6 +66,7 @@ Used for debugging only, do not use in production. Will return the incremental e
           "signer",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -109,11 +109,11 @@ Used for debugging only, do not use in production. Will return the incremental e
         "additionalProperties": false
       },
       "PublicWithdrawDebugResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -134,13 +134,13 @@ Used for debugging only, do not use in production. Will return the incremental e
         "additionalProperties": false
       },
       "PublicWithdrawDebugResultSchema": {
-        "type": "object",
         "required": [
           "action_hash",
           "encoded_data",
           "encoded_data_hashed",
           "typed_data_hash"
         ],
+        "type": "object",
         "properties": {
           "action_hash": {
             "title": "action_hash",

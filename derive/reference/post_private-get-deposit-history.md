@@ -59,10 +59,10 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetDepositHistoryParamsSchema": {
-        "type": "object",
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
@@ -85,11 +85,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetDepositHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -110,10 +110,10 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetDepositHistoryResultSchema": {
-        "type": "object",
         "required": [
           "events"
         ],
+        "type": "object",
         "properties": {
           "events": {
             "title": "events",
@@ -127,7 +127,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "DepositSchema": {
-        "type": "object",
         "required": [
           "amount",
           "asset",
@@ -137,6 +136,7 @@ Required minimum session key permission level is `read_only`
           "tx_hash",
           "tx_status"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",

@@ -59,10 +59,10 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetPositionsParamsSchema": {
-        "type": "object",
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "subaccount_id": {
             "title": "subaccount_id",
@@ -73,11 +73,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetPositionsResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -98,11 +98,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetPositionsResultSchema": {
-        "type": "object",
         "required": [
           "positions",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "positions": {
             "title": "positions",
@@ -121,7 +121,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PositionResponseSchema": {
-        "type": "object",
         "required": [
           "amount",
           "amount_step",
@@ -151,6 +150,7 @@ Required minimum session key permission level is `read_only`
           "unrealized_pnl_excl_fees",
           "vega"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",

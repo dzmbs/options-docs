@@ -58,46 +58,7 @@ Required minimum session key permission level is `admin`
   },
   "components": {
     "schemas": {
-      "LegPricedSchema": {
-        "type": "object",
-        "required": [
-          "amount",
-          "direction",
-          "instrument_name",
-          "price"
-        ],
-        "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Amount in units of the base"
-          },
-          "direction": {
-            "title": "direction",
-            "type": "string",
-            "enum": [
-              "buy",
-              "sell"
-            ],
-            "description": "Leg direction"
-          },
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "description": "Instrument name"
-          },
-          "price": {
-            "title": "price",
-            "type": "string",
-            "format": "decimal",
-            "description": "Leg price"
-          }
-        },
-        "additionalProperties": false
-      },
       "PrivateExecuteQuoteParamsSchema": {
-        "type": "object",
         "required": [
           "direction",
           "legs",
@@ -110,6 +71,7 @@ Required minimum session key permission level is `admin`
           "signer",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "client": {
             "title": "client",
@@ -192,12 +154,50 @@ Required minimum session key permission level is `admin`
         },
         "additionalProperties": false
       },
-      "PrivateExecuteQuoteResponseSchema": {
+      "LegPricedSchema": {
+        "required": [
+          "amount",
+          "direction",
+          "instrument_name",
+          "price"
+        ],
         "type": "object",
+        "properties": {
+          "amount": {
+            "title": "amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Amount in units of the base"
+          },
+          "direction": {
+            "title": "direction",
+            "type": "string",
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "Leg direction"
+          },
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "description": "Instrument name"
+          },
+          "price": {
+            "title": "price",
+            "type": "string",
+            "format": "decimal",
+            "description": "Leg price"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateExecuteQuoteResponseSchema": {
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -218,7 +218,6 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateExecuteQuoteResultSchema": {
-        "type": "object",
         "required": [
           "cancel_reason",
           "creation_timestamp",
@@ -246,6 +245,7 @@ Required minimum session key permission level is `admin`
           "tx_hash",
           "tx_status"
         ],
+        "type": "object",
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",

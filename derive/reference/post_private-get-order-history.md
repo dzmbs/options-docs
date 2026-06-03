@@ -58,104 +58,27 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
-      "PrivateGetOrderHistoryParamsSchema": {
-        "type": "object",
-        "properties": {
-          "from_timestamp": {
-            "title": "from_timestamp",
-            "type": "integer",
-            "default": 0,
-            "description": "Earliest timestamp to filter by (in ms since Unix epoch). Defaults to 0."
-          },
-          "page": {
-            "title": "page",
-            "type": "integer",
-            "default": 1,
-            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
-          },
-          "page_size": {
-            "title": "page_size",
-            "type": "integer",
-            "default": 100,
-            "description": "Number of results per page (default 100, max 1000)"
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "default": null,
-            "description": "Subaccount_id (must be set if wallet is blank)",
-            "nullable": true
-          },
-          "to_timestamp": {
-            "title": "to_timestamp",
-            "type": "integer",
-            "default": 18446744073709552000,
-            "description": "Latest timestamp to filter by (in ms since Unix epoch). Defaults to current time."
-          },
-          "wallet": {
-            "title": "wallet",
-            "type": "string",
-            "default": null,
-            "description": "Wallet address (if set, subaccount_id ignored)",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetOrderHistoryResponseSchema": {
-        "type": "object",
+      "PaginationInfoSchema": {
         "required": [
-          "id",
-          "result"
+          "count",
+          "num_pages"
         ],
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivateGetOrderHistoryResultSchema"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetOrderHistoryResultSchema": {
         "type": "object",
-        "required": [
-          "orders",
-          "pagination",
-          "subaccount_id"
-        ],
         "properties": {
-          "orders": {
-            "title": "orders",
-            "type": "array",
-            "description": "List of open orders",
-            "items": {
-              "$ref": "#/components/schemas/OrderResponseSchema"
-            }
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationInfoSchema"
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
+          "count": {
+            "title": "count",
             "type": "integer",
-            "description": "Subaccount_id for which to get open orders"
+            "description": "Total number of items, across all pages"
+          },
+          "num_pages": {
+            "title": "num_pages",
+            "type": "integer",
+            "description": "Number of pages"
           }
         },
         "additionalProperties": false
       },
       "OrderResponseSchema": {
-        "type": "object",
         "required": [
           "amount",
           "average_price",
@@ -182,6 +105,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "time_in_force"
         ],
+        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -444,22 +368,98 @@ Required minimum session key permission level is `read_only`
         },
         "additionalProperties": false
       },
-      "PaginationInfoSchema": {
+      "PrivateGetOrderHistoryParamsSchema": {
         "type": "object",
-        "required": [
-          "count",
-          "num_pages"
-        ],
         "properties": {
-          "count": {
-            "title": "count",
+          "from_timestamp": {
+            "title": "from_timestamp",
             "type": "integer",
-            "description": "Total number of items, across all pages"
+            "default": 0,
+            "description": "Earliest timestamp to filter by (in ms since Unix epoch). Defaults to 0."
           },
-          "num_pages": {
-            "title": "num_pages",
+          "page": {
+            "title": "page",
             "type": "integer",
-            "description": "Number of pages"
+            "default": 1,
+            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
+          },
+          "page_size": {
+            "title": "page_size",
+            "type": "integer",
+            "default": 100,
+            "description": "Number of results per page (default 100, max 1000)"
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "default": null,
+            "description": "Subaccount_id (must be set if wallet is blank)",
+            "nullable": true
+          },
+          "to_timestamp": {
+            "title": "to_timestamp",
+            "type": "integer",
+            "default": 18446744073709552000,
+            "description": "Latest timestamp to filter by (in ms since Unix epoch). Defaults to current time."
+          },
+          "wallet": {
+            "title": "wallet",
+            "type": "string",
+            "default": null,
+            "description": "Wallet address (if set, subaccount_id ignored)",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetOrderHistoryResponseSchema": {
+        "required": [
+          "id",
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivateGetOrderHistoryResultSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetOrderHistoryResultSchema": {
+        "required": [
+          "orders",
+          "pagination",
+          "subaccount_id"
+        ],
+        "type": "object",
+        "properties": {
+          "orders": {
+            "title": "orders",
+            "type": "array",
+            "description": "List of open orders",
+            "items": {
+              "$ref": "#/components/schemas/OrderResponseSchema"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationInfoSchema"
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount_id for which to get open orders"
           }
         },
         "additionalProperties": false

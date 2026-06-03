@@ -59,10 +59,10 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "PrivateCancelBatchQuotesParamsSchema": {
-        "type": "object",
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "label": {
             "title": "label",
@@ -103,11 +103,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateCancelBatchQuotesResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -128,10 +128,10 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateCancelBatchQuotesResultSchema": {
-        "type": "object",
         "required": [
           "cancelled_ids"
         ],
+        "type": "object",
         "properties": {
           "cancelled_ids": {
             "title": "cancelled_ids",

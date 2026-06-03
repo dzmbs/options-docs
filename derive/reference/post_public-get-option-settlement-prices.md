@@ -58,10 +58,10 @@ Get settlement prices by expiry for each currency
   "components": {
     "schemas": {
       "PublicGetOptionSettlementPricesParamsSchema": {
-        "type": "object",
         "required": [
           "currency"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -72,11 +72,11 @@ Get settlement prices by expiry for each currency
         "additionalProperties": false
       },
       "PublicGetOptionSettlementPricesResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -97,10 +97,10 @@ Get settlement prices by expiry for each currency
         "additionalProperties": false
       },
       "PublicGetOptionSettlementPricesResultSchema": {
-        "type": "object",
         "required": [
           "expiries"
         ],
+        "type": "object",
         "properties": {
           "expiries": {
             "title": "expiries",
@@ -114,12 +114,12 @@ Get settlement prices by expiry for each currency
         "additionalProperties": false
       },
       "ExpiryResponseSchema": {
-        "type": "object",
         "required": [
           "expiry_date",
           "price",
           "utc_expiry_sec"
         ],
+        "type": "object",
         "properties": {
           "expiry_date": {
             "title": "expiry_date",

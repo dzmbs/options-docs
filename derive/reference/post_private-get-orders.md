@@ -58,8 +58,27 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
-      "OrderResponseSchema": {
+      "PaginationInfoSchema": {
+        "required": [
+          "count",
+          "num_pages"
+        ],
         "type": "object",
+        "properties": {
+          "count": {
+            "title": "count",
+            "type": "integer",
+            "description": "Total number of items, across all pages"
+          },
+          "num_pages": {
+            "title": "num_pages",
+            "type": "integer",
+            "description": "Number of pages"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderResponseSchema": {
         "required": [
           "amount",
           "average_price",
@@ -86,6 +105,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "time_in_force"
         ],
+        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -348,31 +368,11 @@ Required minimum session key permission level is `read_only`
         },
         "additionalProperties": false
       },
-      "PaginationInfoSchema": {
-        "type": "object",
-        "required": [
-          "count",
-          "num_pages"
-        ],
-        "properties": {
-          "count": {
-            "title": "count",
-            "type": "integer",
-            "description": "Total number of items, across all pages"
-          },
-          "num_pages": {
-            "title": "num_pages",
-            "type": "integer",
-            "description": "Number of pages"
-          }
-        },
-        "additionalProperties": false
-      },
       "PrivateGetOrdersParamsSchema": {
-        "type": "object",
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "instrument_name": {
             "title": "instrument_name",
@@ -424,11 +424,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetOrdersResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -449,12 +449,12 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetOrdersResultSchema": {
-        "type": "object",
         "required": [
           "orders",
           "pagination",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "orders": {
             "title": "orders",

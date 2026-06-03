@@ -59,11 +59,11 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetOrderParamsSchema": {
-        "type": "object",
         "required": [
           "order_id",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "order_id": {
             "title": "order_id",
@@ -79,11 +79,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetOrderResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -104,7 +104,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetOrderResultSchema": {
-        "type": "object",
         "required": [
           "amount",
           "average_price",
@@ -131,6 +130,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "time_in_force"
         ],
+        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",

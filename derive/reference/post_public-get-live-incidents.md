@@ -61,11 +61,11 @@
         "additionalProperties": false
       },
       "PublicGetLiveIncidentsResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -86,10 +86,10 @@
         "additionalProperties": false
       },
       "PublicGetLiveIncidentsResultSchema": {
-        "type": "object",
         "required": [
           "incidents"
         ],
+        "type": "object",
         "properties": {
           "incidents": {
             "title": "incidents",
@@ -103,7 +103,6 @@
         "additionalProperties": false
       },
       "IncidentResponseSchema": {
-        "type": "object",
         "required": [
           "creation_timestamp_sec",
           "label",
@@ -111,6 +110,7 @@
           "monitor_type",
           "severity"
         ],
+        "type": "object",
         "properties": {
           "creation_timestamp_sec": {
             "title": "creation_timestamp_sec",

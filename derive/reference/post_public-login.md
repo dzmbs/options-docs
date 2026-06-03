@@ -58,12 +58,12 @@ Authenticate a websocket connection. Unavailable via HTTP.
   "components": {
     "schemas": {
       "PublicLoginParamsSchema": {
-        "type": "object",
         "required": [
           "signature",
           "timestamp",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "signature": {
             "title": "signature",
@@ -84,11 +84,11 @@ Authenticate a websocket connection. Unavailable via HTTP.
         "additionalProperties": false
       },
       "PublicLoginResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [

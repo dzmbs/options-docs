@@ -58,13 +58,13 @@ Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is dep
   "components": {
     "schemas": {
       "PublicGetSpotFeedHistoryParamsSchema": {
-        "type": "object",
         "required": [
           "currency",
           "end_timestamp",
           "period",
           "start_timestamp"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -90,11 +90,11 @@ Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is dep
         "additionalProperties": false
       },
       "PublicGetSpotFeedHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -115,11 +115,11 @@ Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is dep
         "additionalProperties": false
       },
       "PublicGetSpotFeedHistoryResultSchema": {
-        "type": "object",
         "required": [
           "currency",
           "spot_feed_history"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -138,12 +138,12 @@ Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is dep
         "additionalProperties": false
       },
       "SpotFeedHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "price",
           "timestamp",
           "timestamp_bucket"
         ],
+        "type": "object",
         "properties": {
           "price": {
             "title": "price",

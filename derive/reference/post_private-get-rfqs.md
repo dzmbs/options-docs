@@ -59,11 +59,11 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
-        "type": "object",
         "required": [
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -79,12 +79,12 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "LegUnpricedSchema": {
-        "type": "object",
         "required": [
           "amount",
           "direction",
           "instrument_name"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -110,10 +110,10 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetRfqsParamsSchema": {
-        "type": "object",
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "from_timestamp": {
             "title": "from_timestamp",
@@ -169,11 +169,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetRfqsResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -194,11 +194,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetRfqsResultSchema": {
-        "type": "object",
         "required": [
           "pagination",
           "rfqs"
         ],
+        "type": "object",
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -215,7 +215,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "RFQResultSchema": {
-        "type": "object",
         "required": [
           "ask_total_cost",
           "bid_total_cost",
@@ -240,6 +239,7 @@ Required minimum session key permission level is `read_only`
           "valid_until",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "ask_total_cost": {
             "title": "ask_total_cost",

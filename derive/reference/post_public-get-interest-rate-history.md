@@ -58,11 +58,11 @@ Get latest USDC interest rate history
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
-        "type": "object",
         "required": [
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -78,11 +78,11 @@ Get latest USDC interest rate history
         "additionalProperties": false
       },
       "PublicGetInterestRateHistoryParamsSchema": {
-        "type": "object",
         "required": [
           "from_timestamp_sec",
           "to_timestamp_sec"
         ],
+        "type": "object",
         "properties": {
           "from_timestamp_sec": {
             "title": "from_timestamp_sec",
@@ -110,11 +110,11 @@ Get latest USDC interest rate history
         "additionalProperties": false
       },
       "PublicGetInterestRateHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -135,11 +135,11 @@ Get latest USDC interest rate history
         "additionalProperties": false
       },
       "PublicGetInterestRateHistoryResultSchema": {
-        "type": "object",
         "required": [
           "interest_rates",
           "pagination"
         ],
+        "type": "object",
         "properties": {
           "interest_rates": {
             "title": "interest_rates",
@@ -156,7 +156,6 @@ Get latest USDC interest rate history
         "additionalProperties": false
       },
       "InterestRateHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "block",
           "borrow_apy",
@@ -165,6 +164,7 @@ Get latest USDC interest rate history
           "total_borrow",
           "total_supply"
         ],
+        "type": "object",
         "properties": {
           "block": {
             "title": "block",

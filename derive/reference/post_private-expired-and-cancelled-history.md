@@ -59,7 +59,6 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateExpiredAndCancelledHistoryParamsSchema": {
-        "type": "object",
         "required": [
           "end_timestamp",
           "expiry",
@@ -67,6 +66,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
@@ -97,11 +97,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateExpiredAndCancelledHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -122,10 +122,10 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateExpiredAndCancelledHistoryResultSchema": {
-        "type": "object",
         "required": [
           "presigned_urls"
         ],
+        "type": "object",
         "properties": {
           "presigned_urls": {
             "title": "presigned_urls",

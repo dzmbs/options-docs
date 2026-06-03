@@ -59,7 +59,6 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "OptionSettlementResponseSchema": {
-        "type": "object",
         "required": [
           "amount",
           "expiry",
@@ -69,6 +68,7 @@ Required minimum session key permission level is `read_only`
           "settlement_price",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -133,11 +133,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetOptionSettlementHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -158,10 +158,10 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetOptionSettlementHistoryResultSchema": {
-        "type": "object",
         "required": [
           "settlements"
         ],
+        "type": "object",
         "properties": {
           "settlements": {
             "title": "settlements",

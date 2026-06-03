@@ -57,8 +57,87 @@ Get scores breakdown by maker program.
   },
   "components": {
     "schemas": {
-      "ProgramResponseSchema": {
+      "PublicGetMakerProgramScoresParamsSchema": {
+        "required": [
+          "epoch_start_timestamp",
+          "program_name"
+        ],
         "type": "object",
+        "properties": {
+          "epoch_start_timestamp": {
+            "title": "epoch_start_timestamp",
+            "type": "integer",
+            "description": "Start timestamp of the program epoch"
+          },
+          "program_name": {
+            "title": "program_name",
+            "type": "string",
+            "description": "Program name"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicGetMakerProgramScoresResponseSchema": {
+        "required": [
+          "id",
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PublicGetMakerProgramScoresResultSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicGetMakerProgramScoresResultSchema": {
+        "required": [
+          "program",
+          "scores",
+          "total_score",
+          "total_volume"
+        ],
+        "type": "object",
+        "properties": {
+          "program": {
+            "$ref": "#/components/schemas/ProgramResponseSchema"
+          },
+          "scores": {
+            "title": "scores",
+            "type": "array",
+            "description": "Scores breakdown of the program by market maker",
+            "items": {
+              "$ref": "#/components/schemas/ScoreBreakdownSchema"
+            }
+          },
+          "total_score": {
+            "title": "total_score",
+            "type": "string",
+            "format": "decimal",
+            "description": "Total score across all market makers for the epoch"
+          },
+          "total_volume": {
+            "title": "total_volume",
+            "type": "string",
+            "format": "decimal",
+            "description": "Total volume across all market makers for the epoch"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProgramResponseSchema": {
         "required": [
           "asset_types",
           "currencies",
@@ -68,6 +147,7 @@ Get scores breakdown by maker program.
           "rewards",
           "start_timestamp"
         ],
+        "type": "object",
         "properties": {
           "asset_types": {
             "title": "asset_types",
@@ -121,88 +201,7 @@ Get scores breakdown by maker program.
         },
         "additionalProperties": false
       },
-      "PublicGetMakerProgramScoresParamsSchema": {
-        "type": "object",
-        "required": [
-          "epoch_start_timestamp",
-          "program_name"
-        ],
-        "properties": {
-          "epoch_start_timestamp": {
-            "title": "epoch_start_timestamp",
-            "type": "integer",
-            "description": "Start timestamp of the program epoch"
-          },
-          "program_name": {
-            "title": "program_name",
-            "type": "string",
-            "description": "Program name"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PublicGetMakerProgramScoresResponseSchema": {
-        "type": "object",
-        "required": [
-          "id",
-          "result"
-        ],
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PublicGetMakerProgramScoresResultSchema"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PublicGetMakerProgramScoresResultSchema": {
-        "type": "object",
-        "required": [
-          "program",
-          "scores",
-          "total_score",
-          "total_volume"
-        ],
-        "properties": {
-          "program": {
-            "$ref": "#/components/schemas/ProgramResponseSchema"
-          },
-          "scores": {
-            "title": "scores",
-            "type": "array",
-            "description": "Scores breakdown of the program by market maker",
-            "items": {
-              "$ref": "#/components/schemas/ScoreBreakdownSchema"
-            }
-          },
-          "total_score": {
-            "title": "total_score",
-            "type": "string",
-            "format": "decimal",
-            "description": "Total score across all market makers for the epoch"
-          },
-          "total_volume": {
-            "title": "total_volume",
-            "type": "string",
-            "format": "decimal",
-            "description": "Total volume across all market makers for the epoch"
-          }
-        },
-        "additionalProperties": false
-      },
       "ScoreBreakdownSchema": {
-        "type": "object",
         "required": [
           "coverage_score",
           "holder_boost",
@@ -212,6 +211,7 @@ Get scores breakdown by maker program.
           "volume_multiplier",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "coverage_score": {
             "title": "coverage_score",

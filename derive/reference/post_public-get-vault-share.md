@@ -58,11 +58,11 @@ Gets the value of a vault's token against the base currency, underlying currency
   "components": {
     "schemas": {
       "PaginationInfoSchema": {
-        "type": "object",
         "required": [
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -78,12 +78,12 @@ Gets the value of a vault's token against the base currency, underlying currency
         "additionalProperties": false
       },
       "PublicGetVaultShareParamsSchema": {
-        "type": "object",
         "required": [
           "from_timestamp_sec",
           "to_timestamp_sec",
           "vault_name"
         ],
+        "type": "object",
         "properties": {
           "from_timestamp_sec": {
             "title": "from_timestamp_sec",
@@ -116,11 +116,11 @@ Gets the value of a vault's token against the base currency, underlying currency
         "additionalProperties": false
       },
       "PublicGetVaultShareResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -141,11 +141,11 @@ Gets the value of a vault's token against the base currency, underlying currency
         "additionalProperties": false
       },
       "PublicGetVaultShareResultSchema": {
-        "type": "object",
         "required": [
           "pagination",
           "vault_shares"
         ],
+        "type": "object",
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -162,7 +162,6 @@ Gets the value of a vault's token against the base currency, underlying currency
         "additionalProperties": false
       },
       "VaultShareResponseSchema": {
-        "type": "object",
         "required": [
           "base_value",
           "block_number",
@@ -170,6 +169,7 @@ Gets the value of a vault's token against the base currency, underlying currency
           "underlying_value",
           "usd_value"
         ],
+        "type": "object",
         "properties": {
           "base_value": {
             "title": "base_value",

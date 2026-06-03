@@ -59,13 +59,13 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetSubaccountValueHistoryParamsSchema": {
-        "type": "object",
         "required": [
           "end_timestamp",
           "period",
           "start_timestamp",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
@@ -91,11 +91,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetSubaccountValueHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -116,11 +116,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateGetSubaccountValueHistoryResultSchema": {
-        "type": "object",
         "required": [
           "subaccount_id",
           "subaccount_value_history"
         ],
+        "type": "object",
         "properties": {
           "subaccount_id": {
             "title": "subaccount_id",
@@ -139,7 +139,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "SubAccountValueHistoryResponseSchema": {
-        "type": "object",
         "required": [
           "currency",
           "delayed_maintenance_margin",
@@ -149,6 +148,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_value",
           "timestamp"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",

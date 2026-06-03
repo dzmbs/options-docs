@@ -58,11 +58,11 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
   "components": {
     "schemas": {
       "OpenInterestStatsSchema": {
-        "type": "object",
         "required": [
           "current_open_interest",
           "interest_cap"
         ],
+        "type": "object",
         "properties": {
           "current_open_interest": {
             "title": "current_open_interest",
@@ -87,10 +87,10 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
         "additionalProperties": false
       },
       "ERC20PublicDetailsSchema": {
-        "type": "object",
         "required": [
           "decimals"
         ],
+        "type": "object",
         "properties": {
           "borrow_index": {
             "title": "borrow_index",
@@ -121,13 +121,13 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
         "additionalProperties": false
       },
       "OptionPublicDetailsSchema": {
-        "type": "object",
         "required": [
           "expiry",
           "index",
           "option_type",
           "strike"
         ],
+        "type": "object",
         "properties": {
           "expiry": {
             "title": "expiry",
@@ -164,7 +164,6 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
         "additionalProperties": false
       },
       "PerpPublicDetailsSchema": {
-        "type": "object",
         "required": [
           "aggregate_funding",
           "funding_rate",
@@ -173,6 +172,7 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
           "min_rate_per_hour",
           "static_interest_rate"
         ],
+        "type": "object",
         "properties": {
           "aggregate_funding": {
             "title": "aggregate_funding",
@@ -213,10 +213,10 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
         "additionalProperties": false
       },
       "PublicGetTickerParamsSchema": {
-        "type": "object",
         "required": [
           "instrument_name"
         ],
+        "type": "object",
         "properties": {
           "instrument_name": {
             "title": "instrument_name",
@@ -227,11 +227,11 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
         "additionalProperties": false
       },
       "PublicGetTickerResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -252,7 +252,6 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
         "additionalProperties": false
       },
       "PublicGetTickerResultSchema": {
-        "type": "object",
         "required": [
           "amount_step",
           "base_asset_address",
@@ -290,6 +289,7 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
           "tick_size",
           "timestamp"
         ],
+        "type": "object",
         "properties": {
           "amount_step": {
             "title": "amount_step",
@@ -506,7 +506,6 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
         "additionalProperties": false
       },
       "OptionPricingSchema": {
-        "type": "object",
         "required": [
           "ask_iv",
           "bid_iv",
@@ -520,6 +519,7 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
           "theta",
           "vega"
         ],
+        "type": "object",
         "properties": {
           "ask_iv": {
             "title": "ask_iv",

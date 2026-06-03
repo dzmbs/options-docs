@@ -59,11 +59,11 @@ Required minimum session key permission level is `account`
   "components": {
     "schemas": {
       "PrivateCancelRfqParamsSchema": {
-        "type": "object",
         "required": [
           "rfq_id",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "rfq_id": {
             "title": "rfq_id",
@@ -80,11 +80,11 @@ Required minimum session key permission level is `account`
         "additionalProperties": false
       },
       "PrivateCancelRfqResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [

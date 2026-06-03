@@ -59,7 +59,6 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "AuctionBidEventSchema": {
-        "type": "object",
         "required": [
           "amounts_liquidated",
           "cash_received",
@@ -72,6 +71,7 @@ Required minimum session key permission level is `read_only`
           "timestamp",
           "tx_hash"
         ],
+        "type": "object",
         "properties": {
           "amounts_liquidated": {
             "title": "amounts_liquidated",
@@ -146,8 +146,69 @@ Required minimum session key permission level is `read_only`
         },
         "additionalProperties": false
       },
-      "AuctionHistoryResultSchema": {
+      "PrivateGetLiquidationHistoryParamsSchema": {
         "type": "object",
+        "properties": {
+          "end_timestamp": {
+            "title": "end_timestamp",
+            "type": "integer",
+            "default": 9223372036854776000,
+            "description": "End timestamp of the event history in ms since Unix epoch (default current time)"
+          },
+          "start_timestamp": {
+            "title": "start_timestamp",
+            "type": "integer",
+            "default": 0,
+            "description": "Start timestamp of the event history in ms since Unix epoch (default 0)"
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "default": null,
+            "description": "Subaccount id (must be set if wallet is blank)",
+            "nullable": true
+          },
+          "wallet": {
+            "title": "wallet",
+            "type": "string",
+            "default": null,
+            "description": "Wallet address (if set, subaccount_id ignored)",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetLiquidationHistoryResponseSchema": {
+        "required": [
+          "id",
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "title": "result",
+            "type": "array",
+            "description": "",
+            "items": {
+              "$ref": "#/components/schemas/AuctionHistoryResultSchema"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuctionHistoryResultSchema": {
         "required": [
           "auction_id",
           "auction_type",
@@ -158,6 +219,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "tx_hash"
         ],
+        "type": "object",
         "properties": {
           "auction_id": {
             "title": "auction_id",
@@ -208,68 +270,6 @@ Required minimum session key permission level is `read_only`
             "title": "tx_hash",
             "type": "string",
             "description": "Hash of the transaction that started the auction"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetLiquidationHistoryParamsSchema": {
-        "type": "object",
-        "properties": {
-          "end_timestamp": {
-            "title": "end_timestamp",
-            "type": "integer",
-            "default": 9223372036854776000,
-            "description": "End timestamp of the event history in ms since Unix epoch (default current time)"
-          },
-          "start_timestamp": {
-            "title": "start_timestamp",
-            "type": "integer",
-            "default": 0,
-            "description": "Start timestamp of the event history in ms since Unix epoch (default 0)"
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "default": null,
-            "description": "Subaccount id (must be set if wallet is blank)",
-            "nullable": true
-          },
-          "wallet": {
-            "title": "wallet",
-            "type": "string",
-            "default": null,
-            "description": "Wallet address (if set, subaccount_id ignored)",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetLiquidationHistoryResponseSchema": {
-        "type": "object",
-        "required": [
-          "id",
-          "result"
-        ],
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "title": "result",
-            "type": "array",
-            "description": "",
-            "items": {
-              "$ref": "#/components/schemas/AuctionHistoryResultSchema"
-            }
           }
         },
         "additionalProperties": false

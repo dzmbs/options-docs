@@ -59,12 +59,12 @@ Required minimum session key permission level is `account`
   "components": {
     "schemas": {
       "PrivateRegisterScopedSessionKeyParamsSchema": {
-        "type": "object",
         "required": [
           "expiry_sec",
           "public_session_key",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "expiry_sec": {
             "title": "expiry_sec",
@@ -121,11 +121,11 @@ Required minimum session key permission level is `account`
         "additionalProperties": false
       },
       "PrivateRegisterScopedSessionKeyResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -146,7 +146,6 @@ Required minimum session key permission level is `account`
         "additionalProperties": false
       },
       "PrivateRegisterScopedSessionKeyResultSchema": {
-        "type": "object",
         "required": [
           "expiry_sec",
           "ip_whitelist",
@@ -155,6 +154,7 @@ Required minimum session key permission level is `account`
           "scope",
           "transaction_id"
         ],
+        "type": "object",
         "properties": {
           "expiry_sec": {
             "title": "expiry_sec",

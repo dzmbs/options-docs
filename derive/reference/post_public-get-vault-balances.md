@@ -78,11 +78,11 @@ Get all vault assets held by user. Can query by smart contract address or smart 
         "additionalProperties": false
       },
       "PublicGetVaultBalancesResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -108,7 +108,6 @@ Get all vault assets held by user. Can query by smart contract address or smart 
         "additionalProperties": false
       },
       "VaultBalanceResponseSchema": {
-        "type": "object",
         "required": [
           "address",
           "amount",
@@ -116,6 +115,7 @@ Get all vault assets held by user. Can query by smart contract address or smart 
           "name",
           "vault_asset_type"
         ],
+        "type": "object",
         "properties": {
           "address": {
             "title": "address",

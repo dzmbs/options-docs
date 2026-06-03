@@ -59,7 +59,6 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "PrivateTransferErc20ParamsSchema": {
-        "type": "object",
         "required": [
           "recipient_details",
           "recipient_subaccount_id",
@@ -67,6 +66,7 @@ Required minimum session key permission level is `admin`
           "subaccount_id",
           "transfer"
         ],
+        "type": "object",
         "properties": {
           "recipient_details": {
             "$ref": "#/components/schemas/SignatureDetailsSchema"
@@ -91,13 +91,13 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "SignatureDetailsSchema": {
-        "type": "object",
         "required": [
           "nonce",
           "signature",
           "signature_expiry_sec",
           "signer"
         ],
+        "type": "object",
         "properties": {
           "nonce": {
             "title": "nonce",
@@ -123,12 +123,12 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "TransferDetailsSchema": {
-        "type": "object",
         "required": [
           "address",
           "amount",
           "sub_id"
         ],
+        "type": "object",
         "properties": {
           "address": {
             "title": "address",
@@ -150,11 +150,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateTransferErc20ResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -175,11 +175,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateTransferErc20ResultSchema": {
-        "type": "object",
         "required": [
           "status",
           "transaction_id"
         ],
+        "type": "object",
         "properties": {
           "status": {
             "title": "status",

@@ -58,7 +58,6 @@ Build a signable transaction params dictionary.
   "components": {
     "schemas": {
       "PublicBuildRegisterSessionKeyTxParamsSchema": {
-        "type": "object",
         "required": [
           "expiry_sec",
           "gas",
@@ -66,6 +65,7 @@ Build a signable transaction params dictionary.
           "public_session_key",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "expiry_sec": {
             "title": "expiry_sec",
@@ -100,11 +100,11 @@ Build a signable transaction params dictionary.
         "additionalProperties": false
       },
       "PublicBuildRegisterSessionKeyTxResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -125,10 +125,10 @@ Build a signable transaction params dictionary.
         "additionalProperties": false
       },
       "PublicBuildRegisterSessionKeyTxResultSchema": {
-        "type": "object",
         "required": [
           "tx_params"
         ],
+        "type": "object",
         "properties": {
           "tx_params": {
             "title": "tx_params",

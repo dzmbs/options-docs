@@ -58,11 +58,11 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
   "components": {
     "schemas": {
       "OpenInterestStatsSchema": {
-        "type": "object",
         "required": [
           "current_open_interest",
           "interest_cap"
         ],
+        "type": "object",
         "properties": {
           "current_open_interest": {
             "title": "current_open_interest",
@@ -87,11 +87,11 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
         "additionalProperties": false
       },
       "ManagerContractResponseSchema": {
-        "type": "object",
         "required": [
           "address",
           "margin_type"
         ],
+        "type": "object",
         "properties": {
           "address": {
             "title": "address",
@@ -119,12 +119,12 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
         "additionalProperties": false
       },
       "PM2CollateralDiscountsSchema": {
-        "type": "object",
         "required": [
           "im_discount",
           "manager_currency",
           "mm_discount"
         ],
+        "type": "object",
         "properties": {
           "im_discount": {
             "title": "im_discount",
@@ -181,12 +181,12 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
         "additionalProperties": false
       },
       "SRMPerpMarginRequirementsPublicSchema": {
-        "type": "object",
         "required": [
           "im_perp_req",
           "max_leverage",
           "mm_perp_req"
         ],
+        "type": "object",
         "properties": {
           "im_perp_req": {
             "title": "im_perp_req",
@@ -215,11 +215,11 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
         "additionalProperties": false
       },
       "PublicGetAllCurrenciesResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -245,7 +245,6 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
         "additionalProperties": false
       },
       "CurrencyDetailedResponseSchema": {
-        "type": "object",
         "required": [
           "asset_cap_and_supply_per_manager",
           "borrow_apy",
@@ -262,6 +261,7 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
           "total_borrow",
           "total_supply"
         ],
+        "type": "object",
         "properties": {
           "asset_cap_and_supply_per_manager": {
             "title": "asset_cap_and_supply_per_manager",

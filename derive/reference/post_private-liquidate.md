@@ -59,7 +59,6 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "PrivateLiquidateParamsSchema": {
-        "type": "object",
         "required": [
           "cash_transfer",
           "last_seen_trade_id",
@@ -72,6 +71,7 @@ Required minimum session key permission level is `admin`
           "signer",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "cash_transfer": {
             "title": "cash_transfer",
@@ -130,11 +130,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateLiquidateResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -155,13 +155,13 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateLiquidateResultSchema": {
-        "type": "object",
         "required": [
           "estimated_bid_price",
           "estimated_discount_pnl",
           "estimated_percent_bid",
           "transaction_id"
         ],
+        "type": "object",
         "properties": {
           "estimated_bid_price": {
             "title": "estimated_bid_price",

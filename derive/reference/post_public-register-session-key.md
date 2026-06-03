@@ -58,7 +58,6 @@ Register or update expiry of an existing session key.<br />Currently, this only 
   "components": {
     "schemas": {
       "PublicRegisterSessionKeyParamsSchema": {
-        "type": "object",
         "required": [
           "expiry_sec",
           "label",
@@ -66,6 +65,7 @@ Register or update expiry of an existing session key.<br />Currently, this only 
           "signed_raw_tx",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "expiry_sec": {
             "title": "expiry_sec",
@@ -96,11 +96,11 @@ Register or update expiry of an existing session key.<br />Currently, this only 
         "additionalProperties": false
       },
       "PublicRegisterSessionKeyResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -121,12 +121,12 @@ Register or update expiry of an existing session key.<br />Currently, this only 
         "additionalProperties": false
       },
       "PublicRegisterSessionKeyResultSchema": {
-        "type": "object",
         "required": [
           "label",
           "public_session_key",
           "transaction_id"
         ],
+        "type": "object",
         "properties": {
           "label": {
             "title": "label",

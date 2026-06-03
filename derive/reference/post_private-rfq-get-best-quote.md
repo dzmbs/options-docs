@@ -58,14 +58,45 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
-      "LegPricedSchema": {
+      "LegUnpricedSchema": {
+        "required": [
+          "amount",
+          "direction",
+          "instrument_name"
+        ],
         "type": "object",
+        "properties": {
+          "amount": {
+            "title": "amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Amount in units of the base"
+          },
+          "direction": {
+            "title": "direction",
+            "type": "string",
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "Leg direction"
+          },
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "description": "Instrument name"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LegPricedSchema": {
         "required": [
           "amount",
           "direction",
           "instrument_name",
           "price"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -96,39 +127,7 @@ Required minimum session key permission level is `read_only`
         },
         "additionalProperties": false
       },
-      "LegUnpricedSchema": {
-        "type": "object",
-        "required": [
-          "amount",
-          "direction",
-          "instrument_name"
-        ],
-        "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Amount in units of the base"
-          },
-          "direction": {
-            "title": "direction",
-            "type": "string",
-            "enum": [
-              "buy",
-              "sell"
-            ],
-            "description": "Leg direction"
-          },
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "description": "Instrument name"
-          }
-        },
-        "additionalProperties": false
-      },
       "QuoteResultPublicSchema": {
-        "type": "object",
         "required": [
           "cancel_reason",
           "creation_timestamp",
@@ -146,6 +145,7 @@ Required minimum session key permission level is `read_only`
           "tx_status",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",
@@ -270,11 +270,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateRfqGetBestQuoteParamsSchema": {
-        "type": "object",
         "required": [
           "legs",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "client": {
             "title": "client",
@@ -381,11 +381,11 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateRfqGetBestQuoteResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -406,7 +406,6 @@ Required minimum session key permission level is `read_only`
         "additionalProperties": false
       },
       "PrivateRfqGetBestQuoteResultSchema": {
-        "type": "object",
         "required": [
           "best_quote",
           "direction",
@@ -425,6 +424,7 @@ Required minimum session key permission level is `read_only`
           "suggested_max_fee",
           "up_liquidation_price"
         ],
+        "type": "object",
         "properties": {
           "best_quote": {
             "$ref": "#/components/schemas/QuoteResultPublicSchema",

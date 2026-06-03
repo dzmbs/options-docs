@@ -59,11 +59,11 @@ Required minimum session key permission level is `account`
   "components": {
     "schemas": {
       "PrivateUpdateNotificationsParamsSchema": {
-        "type": "object",
         "required": [
           "notification_ids",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "notification_ids": {
             "title": "notification_ids",
@@ -94,11 +94,11 @@ Required minimum session key permission level is `account`
         "additionalProperties": false
       },
       "PrivateUpdateNotificationsResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -119,10 +119,10 @@ Required minimum session key permission level is `account`
         "additionalProperties": false
       },
       "PrivateUpdateNotificationsResultSchema": {
-        "type": "object",
         "required": [
           "updated_count"
         ],
+        "type": "object",
         "properties": {
           "updated_count": {
             "title": "updated_count",

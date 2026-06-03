@@ -59,13 +59,13 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "LegPricedSchema": {
-        "type": "object",
         "required": [
           "amount",
           "direction",
           "instrument_name",
           "price"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -97,7 +97,6 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateSendQuoteParamsSchema": {
-        "type": "object",
         "required": [
           "direction",
           "legs",
@@ -109,6 +108,7 @@ Required minimum session key permission level is `admin`
           "signer",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "client": {
             "title": "client",
@@ -186,11 +186,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateSendQuoteResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -211,7 +211,6 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateSendQuoteResultSchema": {
-        "type": "object",
         "required": [
           "cancel_reason",
           "creation_timestamp",
@@ -238,6 +237,7 @@ Required minimum session key permission level is `admin`
           "tx_hash",
           "tx_status"
         ],
+        "type": "object",
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",

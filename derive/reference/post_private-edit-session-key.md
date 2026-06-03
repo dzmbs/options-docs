@@ -59,11 +59,11 @@ Required minimum session key permission level is `account`
   "components": {
     "schemas": {
       "PrivateEditSessionKeyParamsSchema": {
-        "type": "object",
         "required": [
           "public_session_key",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "disable": {
             "title": "disable",
@@ -103,11 +103,11 @@ Required minimum session key permission level is `account`
         "additionalProperties": false
       },
       "PrivateEditSessionKeyResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -128,7 +128,6 @@ Required minimum session key permission level is `account`
         "additionalProperties": false
       },
       "PrivateEditSessionKeyResultSchema": {
-        "type": "object",
         "required": [
           "expiry_sec",
           "ip_whitelist",
@@ -137,6 +136,7 @@ Required minimum session key permission level is `account`
           "registered_sec",
           "scope"
         ],
+        "type": "object",
         "properties": {
           "expiry_sec": {
             "title": "expiry_sec",

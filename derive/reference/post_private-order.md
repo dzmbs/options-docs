@@ -59,7 +59,6 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "OrderResponseSchema": {
-        "type": "object",
         "required": [
           "amount",
           "average_price",
@@ -86,6 +85,7 @@ Required minimum session key permission level is `admin`
           "subaccount_id",
           "time_in_force"
         ],
+        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -348,187 +348,7 @@ Required minimum session key permission level is `admin`
         },
         "additionalProperties": false
       },
-      "TradeResponseSchema": {
-        "type": "object",
-        "required": [
-          "direction",
-          "expected_rebate",
-          "extra_fee",
-          "index_price",
-          "instrument_name",
-          "is_transfer",
-          "label",
-          "liquidity_role",
-          "mark_price",
-          "order_id",
-          "quote_id",
-          "realized_pnl",
-          "realized_pnl_excl_fees",
-          "rfq_id",
-          "subaccount_id",
-          "timestamp",
-          "trade_amount",
-          "trade_fee",
-          "trade_id",
-          "trade_price",
-          "transaction_id",
-          "tx_hash",
-          "tx_status"
-        ],
-        "properties": {
-          "direction": {
-            "title": "direction",
-            "type": "string",
-            "enum": [
-              "buy",
-              "sell"
-            ],
-            "description": "Order direction"
-          },
-          "expected_rebate": {
-            "title": "expected_rebate",
-            "type": "string",
-            "format": "decimal",
-            "description": "Expected rebate for this trade"
-          },
-          "extra_fee": {
-            "title": "extra_fee",
-            "type": "string",
-            "format": "decimal",
-            "description": "Extra fee in USDC added by the referring client (included in trade fee)"
-          },
-          "index_price": {
-            "title": "index_price",
-            "type": "string",
-            "format": "decimal",
-            "description": "Index price of the underlying at the time of the trade"
-          },
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "description": "Instrument name"
-          },
-          "is_transfer": {
-            "title": "is_transfer",
-            "type": "boolean",
-            "description": "Whether the trade was generated through `private/transfer_position`"
-          },
-          "label": {
-            "title": "label",
-            "type": "string",
-            "description": "Optional user-defined label for the order"
-          },
-          "liquidity_role": {
-            "title": "liquidity_role",
-            "type": "string",
-            "enum": [
-              "maker",
-              "taker"
-            ],
-            "description": "Role of the user in the trade"
-          },
-          "mark_price": {
-            "title": "mark_price",
-            "type": "string",
-            "format": "decimal",
-            "description": "Mark price of the instrument at the time of the trade"
-          },
-          "order_id": {
-            "title": "order_id",
-            "type": "string",
-            "description": "Order ID"
-          },
-          "quote_id": {
-            "title": "quote_id",
-            "type": "string",
-            "format": "uuid",
-            "default": null,
-            "description": "Quote ID if the trade was executed via RFQ",
-            "nullable": true
-          },
-          "realized_pnl": {
-            "title": "realized_pnl",
-            "type": "string",
-            "format": "decimal",
-            "description": "Realized PnL for this trade"
-          },
-          "realized_pnl_excl_fees": {
-            "title": "realized_pnl_excl_fees",
-            "type": "string",
-            "format": "decimal",
-            "description": "Realized PnL for this trade using cost accounting that excludes fees"
-          },
-          "rfq_id": {
-            "title": "rfq_id",
-            "type": "string",
-            "format": "uuid",
-            "default": null,
-            "description": "RFQ ID if the trade was executed via RFQ",
-            "nullable": true
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount ID"
-          },
-          "timestamp": {
-            "title": "timestamp",
-            "type": "integer",
-            "description": "Trade timestamp (in ms since Unix epoch)"
-          },
-          "trade_amount": {
-            "title": "trade_amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Amount filled in this trade"
-          },
-          "trade_fee": {
-            "title": "trade_fee",
-            "type": "string",
-            "format": "decimal",
-            "description": "Base_fee (only takers) + unit_fee (adjusted via rebates / discounts) + extra_fee (set by referrring client))"
-          },
-          "trade_id": {
-            "title": "trade_id",
-            "type": "string",
-            "description": "Trade ID"
-          },
-          "trade_price": {
-            "title": "trade_price",
-            "type": "string",
-            "format": "decimal",
-            "description": "Price at which the trade was filled"
-          },
-          "transaction_id": {
-            "title": "transaction_id",
-            "type": "string",
-            "description": "The transaction id of the related settlement transaction"
-          },
-          "tx_hash": {
-            "title": "tx_hash",
-            "type": "string",
-            "default": null,
-            "description": "Blockchain transaction hash",
-            "nullable": true
-          },
-          "tx_status": {
-            "title": "tx_status",
-            "type": "string",
-            "enum": [
-              "requested",
-              "pending",
-              "settled",
-              "reverted",
-              "ignored",
-              "timed_out"
-            ],
-            "description": "Blockchain transaction status"
-          }
-        },
-        "additionalProperties": false
-      },
       "PrivateOrderParamsSchema": {
-        "type": "object",
         "required": [
           "amount",
           "direction",
@@ -541,6 +361,7 @@ Required minimum session key permission level is `admin`
           "signer",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -736,11 +557,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateOrderResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -761,11 +582,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateOrderResultSchema": {
-        "type": "object",
         "required": [
           "order",
           "trades"
         ],
+        "type": "object",
         "properties": {
           "order": {
             "$ref": "#/components/schemas/OrderResponseSchema"
@@ -776,6 +597,185 @@ Required minimum session key permission level is `admin`
             "items": {
               "$ref": "#/components/schemas/TradeResponseSchema"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "TradeResponseSchema": {
+        "required": [
+          "direction",
+          "expected_rebate",
+          "extra_fee",
+          "index_price",
+          "instrument_name",
+          "is_transfer",
+          "label",
+          "liquidity_role",
+          "mark_price",
+          "order_id",
+          "quote_id",
+          "realized_pnl",
+          "realized_pnl_excl_fees",
+          "rfq_id",
+          "subaccount_id",
+          "timestamp",
+          "trade_amount",
+          "trade_fee",
+          "trade_id",
+          "trade_price",
+          "transaction_id",
+          "tx_hash",
+          "tx_status"
+        ],
+        "type": "object",
+        "properties": {
+          "direction": {
+            "title": "direction",
+            "type": "string",
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "Order direction"
+          },
+          "expected_rebate": {
+            "title": "expected_rebate",
+            "type": "string",
+            "format": "decimal",
+            "description": "Expected rebate for this trade"
+          },
+          "extra_fee": {
+            "title": "extra_fee",
+            "type": "string",
+            "format": "decimal",
+            "description": "Extra fee in USDC added by the referring client (included in trade fee)"
+          },
+          "index_price": {
+            "title": "index_price",
+            "type": "string",
+            "format": "decimal",
+            "description": "Index price of the underlying at the time of the trade"
+          },
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "description": "Instrument name"
+          },
+          "is_transfer": {
+            "title": "is_transfer",
+            "type": "boolean",
+            "description": "Whether the trade was generated through `private/transfer_position`"
+          },
+          "label": {
+            "title": "label",
+            "type": "string",
+            "description": "Optional user-defined label for the order"
+          },
+          "liquidity_role": {
+            "title": "liquidity_role",
+            "type": "string",
+            "enum": [
+              "maker",
+              "taker"
+            ],
+            "description": "Role of the user in the trade"
+          },
+          "mark_price": {
+            "title": "mark_price",
+            "type": "string",
+            "format": "decimal",
+            "description": "Mark price of the instrument at the time of the trade"
+          },
+          "order_id": {
+            "title": "order_id",
+            "type": "string",
+            "description": "Order ID"
+          },
+          "quote_id": {
+            "title": "quote_id",
+            "type": "string",
+            "format": "uuid",
+            "default": null,
+            "description": "Quote ID if the trade was executed via RFQ",
+            "nullable": true
+          },
+          "realized_pnl": {
+            "title": "realized_pnl",
+            "type": "string",
+            "format": "decimal",
+            "description": "Realized PnL for this trade"
+          },
+          "realized_pnl_excl_fees": {
+            "title": "realized_pnl_excl_fees",
+            "type": "string",
+            "format": "decimal",
+            "description": "Realized PnL for this trade using cost accounting that excludes fees"
+          },
+          "rfq_id": {
+            "title": "rfq_id",
+            "type": "string",
+            "format": "uuid",
+            "default": null,
+            "description": "RFQ ID if the trade was executed via RFQ",
+            "nullable": true
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount ID"
+          },
+          "timestamp": {
+            "title": "timestamp",
+            "type": "integer",
+            "description": "Trade timestamp (in ms since Unix epoch)"
+          },
+          "trade_amount": {
+            "title": "trade_amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Amount filled in this trade"
+          },
+          "trade_fee": {
+            "title": "trade_fee",
+            "type": "string",
+            "format": "decimal",
+            "description": "Base_fee (only takers) + unit_fee (adjusted via rebates / discounts) + extra_fee (set by referrring client))"
+          },
+          "trade_id": {
+            "title": "trade_id",
+            "type": "string",
+            "description": "Trade ID"
+          },
+          "trade_price": {
+            "title": "trade_price",
+            "type": "string",
+            "format": "decimal",
+            "description": "Price at which the trade was filled"
+          },
+          "transaction_id": {
+            "title": "transaction_id",
+            "type": "string",
+            "description": "The transaction id of the related settlement transaction"
+          },
+          "tx_hash": {
+            "title": "tx_hash",
+            "type": "string",
+            "default": null,
+            "description": "Blockchain transaction hash",
+            "nullable": true
+          },
+          "tx_status": {
+            "title": "tx_status",
+            "type": "string",
+            "enum": [
+              "requested",
+              "pending",
+              "settled",
+              "reverted",
+              "ignored",
+              "timed_out"
+            ],
+            "description": "Blockchain transaction status"
           }
         },
         "additionalProperties": false

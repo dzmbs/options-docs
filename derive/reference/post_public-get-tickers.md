@@ -58,10 +58,10 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
   "components": {
     "schemas": {
       "PublicGetTickersParamsSchema": {
-        "type": "object",
         "required": [
           "instrument_type"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -97,11 +97,11 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
         "additionalProperties": false
       },
       "PublicGetTickersResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -122,10 +122,10 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
         "additionalProperties": false
       },
       "PublicGetTickersResultSchema": {
-        "type": "object",
         "required": [
           "tickers"
         ],
+        "type": "object",
         "properties": {
           "tickers": {
             "title": "tickers",
@@ -139,7 +139,6 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
         "additionalProperties": false
       },
       "TickerSlimSchema": {
-        "type": "object",
         "required": [
           "A",
           "B",
@@ -154,6 +153,7 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
           "stats",
           "t"
         ],
+        "type": "object",
         "properties": {
           "A": {
             "title": "A",
@@ -227,7 +227,6 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
         "additionalProperties": false
       },
       "OptionPricingSlimSchema": {
-        "type": "object",
         "required": [
           "ai",
           "bi",
@@ -241,6 +240,7 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
           "t",
           "v"
         ],
+        "type": "object",
         "properties": {
           "ai": {
             "title": "ai",
@@ -312,7 +312,6 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
         "additionalProperties": false
       },
       "AggregateTradingStatsSlimSchema": {
-        "type": "object",
         "required": [
           "c",
           "h",
@@ -323,6 +322,7 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
           "pr",
           "v"
         ],
+        "type": "object",
         "properties": {
           "c": {
             "title": "c",

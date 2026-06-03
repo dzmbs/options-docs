@@ -58,10 +58,10 @@ Get statistics for a specific instrument or instrument type
   "components": {
     "schemas": {
       "PublicStatisticsParamsSchema": {
-        "type": "object",
         "required": [
           "instrument_name"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -86,11 +86,11 @@ Get statistics for a specific instrument or instrument type
         "additionalProperties": false
       },
       "PublicStatisticsResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -111,7 +111,6 @@ Get statistics for a specific instrument or instrument type
         "additionalProperties": false
       },
       "PublicStatisticsResultSchema": {
-        "type": "object",
         "required": [
           "daily_fees",
           "daily_notional_volume",
@@ -123,6 +122,7 @@ Get statistics for a specific instrument or instrument type
           "total_premium_volume",
           "total_trades"
         ],
+        "type": "object",
         "properties": {
           "daily_fees": {
             "title": "daily_fees",

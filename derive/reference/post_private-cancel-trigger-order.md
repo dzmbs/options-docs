@@ -59,11 +59,11 @@ Required minimum session key permission level is `admin`
   "components": {
     "schemas": {
       "PrivateCancelTriggerOrderParamsSchema": {
-        "type": "object",
         "required": [
           "order_id",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "order_id": {
             "title": "order_id",
@@ -78,11 +78,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateCancelTriggerOrderResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -103,7 +103,6 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateCancelTriggerOrderResultSchema": {
-        "type": "object",
         "required": [
           "amount",
           "average_price",
@@ -130,6 +129,7 @@ Required minimum session key permission level is `admin`
           "subaccount_id",
           "time_in_force"
         ],
+        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",

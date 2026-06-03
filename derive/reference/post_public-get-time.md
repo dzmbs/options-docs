@@ -61,11 +61,11 @@
         "additionalProperties": false
       },
       "PublicGetTimeResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [

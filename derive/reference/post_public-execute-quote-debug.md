@@ -58,13 +58,13 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
   "components": {
     "schemas": {
       "LegPricedSchema": {
-        "type": "object",
         "required": [
           "amount",
           "direction",
           "instrument_name",
           "price"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -96,7 +96,6 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
         "additionalProperties": false
       },
       "PublicExecuteQuoteDebugParamsSchema": {
-        "type": "object",
         "required": [
           "direction",
           "legs",
@@ -109,6 +108,7 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
           "signer",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "client": {
             "title": "client",
@@ -192,11 +192,11 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
         "additionalProperties": false
       },
       "PublicExecuteQuoteDebugResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -217,7 +217,6 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
         "additionalProperties": false
       },
       "PublicExecuteQuoteDebugResultSchema": {
-        "type": "object",
         "required": [
           "action_hash",
           "encoded_data",
@@ -226,6 +225,7 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
           "legs_hash",
           "typed_data_hash"
         ],
+        "type": "object",
         "properties": {
           "action_hash": {
             "title": "action_hash",

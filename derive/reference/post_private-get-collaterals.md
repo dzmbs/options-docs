@@ -58,8 +58,69 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
-      "CollateralResponseSchema": {
+      "PrivateGetCollateralsParamsSchema": {
+        "required": [
+          "subaccount_id"
+        ],
         "type": "object",
+        "properties": {
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount_id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetCollateralsResponseSchema": {
+        "required": [
+          "id",
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivateGetCollateralsResultSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrivateGetCollateralsResultSchema": {
+        "required": [
+          "collaterals",
+          "subaccount_id"
+        ],
+        "type": "object",
+        "properties": {
+          "collaterals": {
+            "title": "collaterals",
+            "type": "array",
+            "description": "All collaterals that count towards margin of subaccount",
+            "items": {
+              "$ref": "#/components/schemas/CollateralResponseSchema"
+            }
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount_id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CollateralResponseSchema": {
         "required": [
           "amount",
           "amount_step",
@@ -84,6 +145,7 @@ Required minimum session key permission level is `read_only`
           "unrealized_pnl",
           "unrealized_pnl_excl_fees"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -216,68 +278,6 @@ Required minimum session key permission level is `read_only`
             "type": "string",
             "format": "decimal",
             "description": "Unrealized trading profit or loss of the position excluding fees"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetCollateralsParamsSchema": {
-        "type": "object",
-        "required": [
-          "subaccount_id"
-        ],
-        "properties": {
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount_id"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetCollateralsResponseSchema": {
-        "type": "object",
-        "required": [
-          "id",
-          "result"
-        ],
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivateGetCollateralsResultSchema"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetCollateralsResultSchema": {
-        "type": "object",
-        "required": [
-          "collaterals",
-          "subaccount_id"
-        ],
-        "properties": {
-          "collaterals": {
-            "title": "collaterals",
-            "type": "array",
-            "description": "All collaterals that count towards margin of subaccount",
-            "items": {
-              "$ref": "#/components/schemas/CollateralResponseSchema"
-            }
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount_id"
           }
         },
         "additionalProperties": false

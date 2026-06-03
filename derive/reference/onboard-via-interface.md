@@ -1,7 +1,5 @@
 # Getting Started
 
-Use of Derive APIs, WebSocket streams, feeds, and public data endpoints is subject to the Derive Terms of Use and Derive Data Usage Policy. Commercial use, redistribution, derived data products, benchmarks, indices, valuation services, AI/ML use, scraping, or systematic extraction require prior written consent.
-
 # Onboarding
 
 1. [Create Subaccount and Deposit](https://docs.derive.xyz/docs/ux-create-or-deposit-to-subaccount)

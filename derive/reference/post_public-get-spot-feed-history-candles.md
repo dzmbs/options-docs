@@ -57,8 +57,98 @@ Get spot feed history candles by currency<br /><br />DEPRECATION NOTICE: This RP
   },
   "components": {
     "schemas": {
-      "SpotFeedHistoryCandlesResponseSchema": {
+      "PublicGetSpotFeedHistoryCandlesParamsSchema": {
+        "required": [
+          "currency",
+          "end_timestamp",
+          "period",
+          "start_timestamp"
+        ],
         "type": "object",
+        "properties": {
+          "currency": {
+            "title": "currency",
+            "type": "string",
+            "description": "Currency"
+          },
+          "end_timestamp": {
+            "title": "end_timestamp",
+            "type": "integer",
+            "description": "End timestamp"
+          },
+          "period": {
+            "title": "period",
+            "type": "string",
+            "enum": [
+              60,
+              300,
+              900,
+              1800,
+              3600,
+              14400,
+              28800,
+              86400,
+              604800
+            ],
+            "description": "Period"
+          },
+          "start_timestamp": {
+            "title": "start_timestamp",
+            "type": "integer",
+            "description": "Start timestamp"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicGetSpotFeedHistoryCandlesResponseSchema": {
+        "required": [
+          "id",
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PublicGetSpotFeedHistoryCandlesResultSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicGetSpotFeedHistoryCandlesResultSchema": {
+        "required": [
+          "currency",
+          "spot_feed_history"
+        ],
+        "type": "object",
+        "properties": {
+          "currency": {
+            "title": "currency",
+            "type": "string",
+            "description": "Currency"
+          },
+          "spot_feed_history": {
+            "title": "spot_feed_history",
+            "type": "array",
+            "description": "Spot feed history candles",
+            "items": {
+              "$ref": "#/components/schemas/SpotFeedHistoryCandlesResponseSchema"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "SpotFeedHistoryCandlesResponseSchema": {
         "required": [
           "close_price",
           "high_price",
@@ -68,6 +158,7 @@ Get spot feed history candles by currency<br /><br />DEPRECATION NOTICE: This RP
           "timestamp",
           "timestamp_bucket"
         ],
+        "type": "object",
         "properties": {
           "close_price": {
             "title": "close_price",
@@ -108,97 +199,6 @@ Get spot feed history candles by currency<br /><br />DEPRECATION NOTICE: This RP
             "title": "timestamp_bucket",
             "type": "integer",
             "description": "Timestamp bucket; this value is regularly spaced out with `period` seconds between data points, missing values are forward-filled from earlier data where possible, if no earlier data is available, values are back-filled from the first observed data point"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PublicGetSpotFeedHistoryCandlesParamsSchema": {
-        "type": "object",
-        "required": [
-          "currency",
-          "end_timestamp",
-          "period",
-          "start_timestamp"
-        ],
-        "properties": {
-          "currency": {
-            "title": "currency",
-            "type": "string",
-            "description": "Currency"
-          },
-          "end_timestamp": {
-            "title": "end_timestamp",
-            "type": "integer",
-            "description": "End timestamp"
-          },
-          "period": {
-            "title": "period",
-            "type": "string",
-            "enum": [
-              60,
-              300,
-              900,
-              1800,
-              3600,
-              14400,
-              28800,
-              86400,
-              604800
-            ],
-            "description": "Period"
-          },
-          "start_timestamp": {
-            "title": "start_timestamp",
-            "type": "integer",
-            "description": "Start timestamp"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PublicGetSpotFeedHistoryCandlesResponseSchema": {
-        "type": "object",
-        "required": [
-          "id",
-          "result"
-        ],
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PublicGetSpotFeedHistoryCandlesResultSchema"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PublicGetSpotFeedHistoryCandlesResultSchema": {
-        "type": "object",
-        "required": [
-          "currency",
-          "spot_feed_history"
-        ],
-        "properties": {
-          "currency": {
-            "title": "currency",
-            "type": "string",
-            "description": "Currency"
-          },
-          "spot_feed_history": {
-            "title": "spot_feed_history",
-            "type": "array",
-            "description": "Spot feed history candles",
-            "items": {
-              "$ref": "#/components/schemas/SpotFeedHistoryCandlesResponseSchema"
-            }
           }
         },
         "additionalProperties": false

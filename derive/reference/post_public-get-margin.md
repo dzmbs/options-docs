@@ -57,63 +57,13 @@ Calculates margin for a given portfolio and (optionally) a simulated state chang
   },
   "components": {
     "schemas": {
-      "SimulatedCollateralSchema": {
-        "type": "object",
-        "required": [
-          "amount",
-          "asset_name"
-        ],
-        "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Collateral amount to simulate"
-          },
-          "asset_name": {
-            "title": "asset_name",
-            "type": "string",
-            "description": "Collateral ERC20 asset name (e.g. ETH, USDC, WSTETH)"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SimulatedPositionSchema": {
-        "type": "object",
-        "required": [
-          "amount",
-          "instrument_name"
-        ],
-        "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Position amount to simulate"
-          },
-          "entry_price": {
-            "title": "entry_price",
-            "type": "string",
-            "format": "decimal",
-            "default": null,
-            "description": "Only for perps. Entry price to use in the simulation. Mark price is used if not provided.",
-            "nullable": true
-          },
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "description": "Instrument name"
-          }
-        },
-        "additionalProperties": false
-      },
       "PublicGetMarginParamsSchema": {
-        "type": "object",
         "required": [
           "margin_type",
           "simulated_collaterals",
           "simulated_positions"
         ],
+        "type": "object",
         "properties": {
           "margin_type": {
             "title": "margin_type",
@@ -171,12 +121,62 @@ Calculates margin for a given portfolio and (optionally) a simulated state chang
         },
         "additionalProperties": false
       },
-      "PublicGetMarginResponseSchema": {
+      "SimulatedCollateralSchema": {
+        "required": [
+          "amount",
+          "asset_name"
+        ],
         "type": "object",
+        "properties": {
+          "amount": {
+            "title": "amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Collateral amount to simulate"
+          },
+          "asset_name": {
+            "title": "asset_name",
+            "type": "string",
+            "description": "Collateral ERC20 asset name (e.g. ETH, USDC, WSTETH)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SimulatedPositionSchema": {
+        "required": [
+          "amount",
+          "instrument_name"
+        ],
+        "type": "object",
+        "properties": {
+          "amount": {
+            "title": "amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Position amount to simulate"
+          },
+          "entry_price": {
+            "title": "entry_price",
+            "type": "string",
+            "format": "decimal",
+            "default": null,
+            "description": "Only for perps. Entry price to use in the simulation. Mark price is used if not provided.",
+            "nullable": true
+          },
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "description": "Instrument name"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicGetMarginResponseSchema": {
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -197,7 +197,6 @@ Calculates margin for a given portfolio and (optionally) a simulated state chang
         "additionalProperties": false
       },
       "PublicGetMarginResultSchema": {
-        "type": "object",
         "required": [
           "is_valid_trade",
           "post_initial_margin",
@@ -206,6 +205,7 @@ Calculates margin for a given portfolio and (optionally) a simulated state chang
           "pre_maintenance_margin",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "is_valid_trade": {
             "title": "is_valid_trade",

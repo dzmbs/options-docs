@@ -58,8 +58,45 @@ Required minimum session key permission level is `admin`
   },
   "components": {
     "schemas": {
-      "QuoteResultSchema": {
+      "LegPricedSchema": {
+        "required": [
+          "amount",
+          "direction",
+          "instrument_name",
+          "price"
+        ],
         "type": "object",
+        "properties": {
+          "amount": {
+            "title": "amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Amount in units of the base"
+          },
+          "direction": {
+            "title": "direction",
+            "type": "string",
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "Leg direction"
+          },
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "description": "Instrument name"
+          },
+          "price": {
+            "title": "price",
+            "type": "string",
+            "format": "decimal",
+            "description": "Leg price"
+          }
+        },
+        "additionalProperties": false
+      },
+      "QuoteResultSchema": {
         "required": [
           "cancel_reason",
           "creation_timestamp",
@@ -86,6 +123,7 @@ Required minimum session key permission level is `admin`
           "tx_hash",
           "tx_status"
         ],
+        "type": "object",
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",
@@ -257,51 +295,13 @@ Required minimum session key permission level is `admin`
         },
         "additionalProperties": false
       },
-      "LegPricedSchema": {
-        "type": "object",
-        "required": [
-          "amount",
-          "direction",
-          "instrument_name",
-          "price"
-        ],
-        "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Amount in units of the base"
-          },
-          "direction": {
-            "title": "direction",
-            "type": "string",
-            "enum": [
-              "buy",
-              "sell"
-            ],
-            "description": "Leg direction"
-          },
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "description": "Instrument name"
-          },
-          "price": {
-            "title": "price",
-            "type": "string",
-            "format": "decimal",
-            "description": "Leg price"
-          }
-        },
-        "additionalProperties": false
-      },
       "PrivateTransferPositionsParamsSchema": {
-        "type": "object",
         "required": [
           "maker_params",
           "taker_params",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "maker_params": {
             "$ref": "#/components/schemas/SignedQuoteParamsSchema"
@@ -318,7 +318,6 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "SignedQuoteParamsSchema": {
-        "type": "object",
         "required": [
           "direction",
           "legs",
@@ -329,6 +328,7 @@ Required minimum session key permission level is `admin`
           "signer",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "direction": {
             "title": "direction",
@@ -382,11 +382,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateTransferPositionsResponseSchema": {
-        "type": "object",
         "required": [
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -407,11 +407,11 @@ Required minimum session key permission level is `admin`
         "additionalProperties": false
       },
       "PrivateTransferPositionsResultSchema": {
-        "type": "object",
         "required": [
           "maker_quote",
           "taker_quote"
         ],
+        "type": "object",
         "properties": {
           "maker_quote": {
             "$ref": "#/components/schemas/QuoteResultSchema"

@@ -18,25 +18,9 @@ If a participant meets the conditions of different fee tiers through market maki
 
 # Partner Incentives
 
-## Market Maker Rewards:
+## Market Maker Rewards
 
-**60K $OP rewards pool per 28-day epoch** distributed to qualifying Market Makers split pro-rata based on Market Making Score.
-
-* 40K allocated to options (80% orderbook, 20% RFQ)
-* 20K allocated to perpetual futures (50% to majors, 50% to Alt markets)
-
-Up to **$500,000 USDC per 28-day epoch exchange rebate program**
-
-## OP Perp Taker Rewards
-
-10k OP rewards **pool per 28-day epoch** distributed to qualifying Takers split pro-rata based on taker volume
-
-* Requirements: > $250M notional OR > 7.5% in TAKER VOLUME
-
-## DRV and OP Public Trading Incentives
-
-* Traders and Market Makers earn points on net taker fees paid
-* Currently, 10K OP allocated weekly in public rewards
+* Up to **$500,000 USDC per 28-day epoch exchange rebate program**
 
 ## DRV Market Maker Incentives
 
