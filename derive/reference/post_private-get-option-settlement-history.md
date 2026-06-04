@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Get Option Settlement History
 
 Get expired option settlement history for a subaccount or wallet.<br />If wallet is provided, returns settlements for all subaccounts belonging to that wallet.

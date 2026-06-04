@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Rate Limits
 
 The below rate limits have been implemented to safeguard our system. Rate limiters use a "fixed window" algorithm to discretely refill the request allowance every 5 seconds.

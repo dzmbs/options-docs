@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Edit Session Key
 
 Edits session key parameters such as label and IP whitelist.<br />For non-admin keys you can also toggle whether to disable a particular key.<br />Disabling non-admin keys must be done through /deregister_session_key
