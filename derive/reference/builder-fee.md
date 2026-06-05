@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Builder Fee
 
 On top of earning "API Broker Fees", builders can directly charge their users a builder fee (a.k.a `extra_fee`). This fee is charged  *on top* of exchange fees / API Broker fees / rebates and are directly sent to the builder Derive Wallet once every 4 weeks.

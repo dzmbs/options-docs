@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Get Ticker
 
 Get ticker information (best bid / ask, instrument contraints, fees info, etc.) for a single instrument<br /><br />DEPRECATION NOTICE: This RPC is deprecated in favor of `get_tickers` on Dec 1, 2025.

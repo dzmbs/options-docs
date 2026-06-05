@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Onboard Manually
 
 This is an advanced onboarding method. Most users are encouraged to use the onboarding method via the interface described in the [Getting Started](https://docs.derive.xyz/docs/getting-started) reference.
