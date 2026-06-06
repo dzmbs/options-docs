@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Get Subaccount Value History
 
 Get the value history of a subaccount.<br />Supported periods: 900 (15m), 3600 (1h), 86400 (1d), 604800 (1w).<br />Returns up to 1000 entries per request. If the time range exceeds 1000 * period seconds,<br />the start is clamped forward to return the most recent 1000 entries.

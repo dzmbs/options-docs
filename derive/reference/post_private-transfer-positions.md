@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Transfer Positions
 
 Transfers multiple positions from one subaccount to another, owned by the same wallet.<br /><br />The transfer is executed as a an RFQ. A mock RFQ is first created from the taker parameters, followed by a maker quote and a taker execute.<br />The leg amounts, prices and instrument name must be the same in both param payloads.<br />Fee is not charged and a zero `max_fee` must be signed.<br />Every leg in the transfer must be a position reduction for either maker or taker (or both).<br /><br />History: for position transfer history, use the `private/get_trade_history` RPC (not `private/get_erc20_transfer_history`).
