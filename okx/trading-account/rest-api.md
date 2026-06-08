@@ -162,7 +162,7 @@ Response Example
 | instIdCode | Integer | Instrument ID code. For simple binary encoding, you must use `instIdCode` instead of `instId`.For the same `instId`, it's value may be different between production and demo trading. It is `null` when the value is not generated. |
 | instCategory | String | The asset category of the instrument’s base asset (the first segment of the instrument ID). For example, for `BTC-USDT-SWAP`, the `instCategory` represents the asset category of `BTC`. `1`: Crypto `3`: Stocks `4`: Commodities `5`: Forex `6`: Bonds `""`: Not available |
 | upcChg | Array of objects | Upcoming changes. It is [] when there is no upcoming change. |
-| > param | String | The parameter name to be updated. `tickSz` `minSz` `maxMktSz` |
+| > param | String | The parameter name to be updated. `tickSz` `minSz`: For `FUTURES`/`SWAP`, `lotSz` will be modified synchronously. `maxMktSz` |
 | > newValue | String | The parameter value that will replace the current one. |
 | > effTime | String | Effective time. Unix timestamp format in milliseconds, e.g. `1597026383085` |
 
@@ -2321,7 +2321,7 @@ print(result)
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | instType | String | Yes | Instrument type`SPOT``MARGIN``SWAP``FUTURES``OPTION``EVENTS` |
-| instId | String | No | Instrument ID, e.g. `BTC-USDT`Applicable to `SPOT`/`MARGIN` |
+| instId | String | No | Instrument ID, e.g. `BTC-USDT`Applicable to `SPOT`/`MARGIN`Specifying this parameter returns the correct applicable fee rates (e.g., market maker rates for users in incentive programs). |
 | instFamily | String | No | Instrument family, e.g. `BTC-USD`Applicable to `FUTURES`/`SWAP`/`OPTION` |
 | groupId | String | No | Instrument trading fee group ID Only one of groupId and instId/instFamily can be passed in Users can use instruments endpoint to fetch the mapping of an instrument ID and its trading fee group ID |
 
@@ -2396,6 +2396,8 @@ Exception: The values for delivery and exercise are positive numbers, representi
 USDⓈ represent the stablecoin besides USDT
 
 The Open API will not reflect zero-fee trading. For zero-fee pairs, please refer to [https://www.okx.com/fees](https://www.okx.com/fees).
+
+For users in market maker incentive programs: specifying `instId` (for `SPOT`/`MARGIN`) or `instFamily` (for `FUTURES`/`SWAP`/`OPTION`) returns the correct applicable fee rates. Without these parameters, the response reflects the organic base fee rates.
 
 ### Get interest accrued data
 

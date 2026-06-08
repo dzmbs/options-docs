@@ -150,7 +150,7 @@ Response Example
 | instIdCode | Integer | Instrument ID code. For simple binary encoding, you must use `instIdCode` instead of `instId`.For the same `instId`, it's value may be different between production and demo trading. It is `null` when the value is not generated. |
 | instCategory | String | The asset category of the instrument’s base asset (the first segment of the instrument ID). For example, for `BTC-USDT-SWAP`, the `instCategory` represents the asset category of `BTC`. `1`: Crypto `3`: Stocks `4`: Commodities `5`: Forex `6`: Bonds `""`: Not available |
 | upcChg | Array of objects | Upcoming changes. It is [] when there is no upcoming change. |
-| > param | String | The parameter name to be updated. `tickSz` `minSz` `maxMktSz` |
+| > param | String | The parameter name to be updated. `tickSz` `minSz`: For `FUTURES`/`SWAP`, `lotSz` will be modified synchronously. `maxMktSz` |
 | > newValue | String | The parameter value that will replace the current one. |
 | > effTime | String | Effective time. Unix timestamp format in milliseconds, e.g. `1597026383085` |
 
@@ -994,7 +994,9 @@ print(result)
 | instFamily | String | Yes | Instrument family, only applicable to `OPTION` |
 | expTime | String | No | Contract expiry date, the format is "YYMMDD", e.g. "200527" |
 
-Note**: This endpoint may not return data for all instruments listed in [`/api/v5/public/instruments`](#get-instruments). Options with insufficient market depth for implied volatility surface fitting — particularly deep out-of-the-money (OTM) options — may not have entries.
+Note**: This endpoint may not return data for every option listed in [`/api/v5/public/instruments`](#get-instruments). Data can be absent in two cases:
+1. The option is listed but not yet tradeable (e.g. supplemental options may not become tradeable until a scheduled time; data will not be available before trading opens).
+2. Implied volatility surface fitting fails due to insufficient market quotes. This is more likely to occur in demo trading; in live trading, market maker quotes are generally available to ensure fitting succeeds.
 
 **Response Example
 
