@@ -412,6 +412,7 @@ print(result)
 | after | String | No | Pagination of data to return records earlier than the requested `ts` |
 | before | String | No | Pagination of data to return records newer than the requested `ts`. The latest data will be returned when using `before` individually |
 | limit | String | No | Number of results per request. The maximum is `300`. The default is `100`. |
+| adjust | String | No | Price adjustment type for equity perpetual contracts.`forward`: Forward adjustment.If this field is omitted, unadjusted data is returned by default.Only applicable to equity perpetual contracts. |
 
 Response Example
 
@@ -467,6 +468,8 @@ The data returned will be arranged in an array like this: [ts,o,h,l,c,vol,volCcy
 
 For the current cycle of k-line data, when there is no transaction, the opening high and closing low default take the closing price of the previous cycle.
 
+When `adjust=forward`, the historical OHLC prices are multiplied by the adjustment factor for the relevant period. For stock splits, `vol` and `volCcy` are also adjusted proportionally. `volCcyQuote` is not adjusted. This parameter is only effective for equity perpetual contracts.
+
 ### GET / Candlesticks history
 
 Retrieve history candlestick charts from recent years(It is last 3 months supported for 1s candlestick).
@@ -508,6 +511,7 @@ print(result)
 | before | String | No | Pagination of data to return records newer than the requested `ts`. The latest data will be returned when using `before` individually |
 | bar | String | No | Bar size, the default is `1m`e.g. [1s/1m/3m/5m/15m/30m/1H/2H/4H] UTC+8 opening price k-line: [6H/12H/1D/2D/3D/1W/1M/3M]UTC+0 opening price k-line: [6Hutc/12Hutc/1Dutc/2Dutc/3Dutc/1Wutc/1Mutc/3Mutc] |
 | limit | String | No | Number of results per request. The maximum is `300`. The default is `100`. |
+| adjust | String | No | Price adjustment type for equity perpetual contracts.`forward`: Forward adjustment.If this field is omitted, unadjusted data is returned by default.Only applicable to equity perpetual contracts. |
 
 Response Example
 
@@ -562,6 +566,8 @@ Response Example
 The data returned will be arranged in an array like this: [ts,o,h,l,c,vol,volCcy,volCcyQuote,confirm]
 
 1s candle is not supported by OPTION, but it is supported by other business lines (SPOT, MARGIN, FUTURES and SWAP)
+
+When `adjust=forward`, the historical OHLC prices are multiplied by the adjustment factor for the relevant period. For stock splits, `vol` and `volCcy` are also adjusted proportionally. `volCcyQuote` is not adjusted. This parameter is only effective for equity perpetual contracts.
 
 ### GET / Trades
 

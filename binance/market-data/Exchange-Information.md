@@ -74,6 +74,7 @@ NONE
  "priceScale": 2, // price precision
  "quantityScale": 2, // quantity precision
  "quoteAsset": "USDT", // Quotation asset
+ "nakedSell": false, // Whether naked selling is allowed for this symbol
  "status": "TRADING" // Trading Status
  }
  ],

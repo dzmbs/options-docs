@@ -1407,13 +1407,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-06-10T12:16:29.417126",
-    "duration_seconds": 368.682004,
+    "completed_at": "2026-06-11T12:30:42.339402",
+    "duration_seconds": 293.28694,
     "pages_total": 281,
     "pages_fetched": 281,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-06-10T12:16:29.417142",
+  "last_updated": "2026-06-11T12:30:42.339419",
   "source": "https://docs.deribit.com"
 }

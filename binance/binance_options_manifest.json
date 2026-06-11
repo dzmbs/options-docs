@@ -32,8 +32,8 @@
     },
     "market-data/Exchange-Information.md": {
       "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data/Exchange-Information",
-      "hash": "42f6744b657e5f5abb65ea4862fa62e8d31b4b1d9a02d9e1a7e4987cb9f8f80f",
-      "last_updated": "2026-03-22T10:21:04.759310"
+      "hash": "29deb9697cb6b4c92793da820106eea4a8c5579eeef1d7ce3d5b0d7223dcb348",
+      "last_updated": "2026-06-11T12:24:26.847338"
     },
     "market-data/Historical-Exercise-Records.md": {
       "source_url": "https://developers.binance.com/docs/derivatives/options-trading/market-data/Historical-Exercise-Records",
@@ -352,13 +352,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-06-10T12:10:19.176547",
-    "duration_seconds": 90.526704,
+    "completed_at": "2026-06-11T12:25:47.859783",
+    "duration_seconds": 89.927111,
     "pages_total": 70,
     "pages_fetched": 70,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-06-10T12:10:19.176564",
+  "last_updated": "2026-06-11T12:25:47.859801",
   "source": "https://developers.binance.com/docs/derivatives/options-trading"
 }
