@@ -912,8 +912,8 @@
     },
     "articles/deribit-quickstart.md": {
       "source_url": "https://docs.deribit.com/articles/deribit-quickstart.md",
-      "hash": "7d0e35a6f5906c11b351959773895fda74ba8ab27fc79058c56d70a71f31973c",
-      "last_updated": "2026-05-31T21:06:11.972806"
+      "hash": "49b8baa0c81263a2bc55e99c8f74f4c203c6e49e9de180e9b6e7413670f14bec",
+      "last_updated": "2026-06-12T12:12:56.215402"
     },
     "articles/errors.md": {
       "source_url": "https://docs.deribit.com/articles/errors.md",
@@ -1407,13 +1407,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-06-11T12:30:42.339402",
-    "duration_seconds": 293.28694,
+    "completed_at": "2026-06-12T12:15:14.964861",
+    "duration_seconds": 329.987886,
     "pages_total": 281,
     "pages_fetched": 281,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-06-11T12:30:42.339419",
+  "last_updated": "2026-06-12T12:15:14.964879",
   "source": "https://docs.deribit.com"
 }

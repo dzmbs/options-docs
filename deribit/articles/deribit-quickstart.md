@@ -40,49 +40,7 @@ Deribit provides three different interfaces to access the API:
     </CardGroup>
   </Step>
 
-  <Step title="Choose Your Interface">
-    <Tabs>
-      <Tab title="HTTP (Simplest)">
-        <Badge>Best for: Simple scripts, one-off requests, testing</Badge>
-
-        ```bash theme={null}
-        # Get market data (no authentication required)
-        curl -X GET "https://test.deribit.com/api/v2/public/get_instruments?currency=BTC&kind=future"
-        ```
-      </Tab>
-
-      <Tab title="WebSocket (Recommended)">
-        <Badge>Best for: Real-time data, subscriptions, trading bots</Badge>
-
-        ```javascript theme={null}
-        const WebSocket = require('ws');
-        const ws = new WebSocket('wss://test.deribit.com/ws/api/v2');
-
-        ws.on('open', function open() {
-          // Subscribe to order book updates
-          ws.send(JSON.stringify({
-            "jsonrpc": "2.0",
-            "method": "public/subscribe",
-            "params": {
-              "channels": ["book.BTC-PERPETUAL.100ms"]
-            },
-            "id": 1
-          }));
-        });
-
-        ws.on('message', function incoming(data) {
-          console.log(JSON.parse(data));
-        });
-        ```
-      </Tab>
-
-      <Tab title="FIX API">
-        <Badge>Best for: Institutional trading, high-frequency trading</Badge>
-
-        See the [FIX API documentation](/fix-api/production/overview) for details.
-      </Tab>
-    </Tabs>
-  </Step>
+  <Step title="Choose Your Interface" />
 
   <Step title="Authenticate">
     For private methods, you need to authenticate. Deribit supports multiple authentication methods:
