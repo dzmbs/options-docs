@@ -346,7 +346,7 @@ operations:
                           trade is a combo trade
                         required: false
                       - name: combo_trade_id
-                        type: number
+                        type: string
                         description: >-
                           Optional field containing combo trade identifier if
                           the trade is a combo trade
@@ -1132,7 +1132,7 @@ operations:
                         trade is a combo trade
                       x-parser-schema-id: <anonymous-schema-961>
                     combo_trade_id:
-                      type: number
+                      type: string
                       description: >-
                         Optional field containing combo trade identifier if the
                         trade is a combo trade
