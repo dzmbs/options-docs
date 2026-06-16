@@ -130,6 +130,10 @@ Many channels support different notification intervals to control the frequency 
 * **`100ms`** - Notifications aggregated over 100 milliseconds
 * **`agg2`** - Notifications aggregated over 2 seconds
 
+<Note>
+  The `raw` interval requires an authenticated connection. Unauthenticated users cannot subscribe to raw channels.
+</Note>
+
 <Info>
   Using aggregated intervals (like `100ms` or `agg2`) can reduce the number of messages you receive and help manage bandwidth and processing load.
 </Info>

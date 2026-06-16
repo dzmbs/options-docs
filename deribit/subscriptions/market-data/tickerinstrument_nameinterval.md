@@ -493,6 +493,29 @@ operations:
                       see Contract Specification > General Documentation >
                       Expiration Price
                     required: true
+                  - name: is_anchor_breached
+                    type: boolean
+                    description: >-
+                      Whether the mark price has breached the anchor price band.
+                      Only present for RWA perpetual instruments when an anchor
+                      price is active.
+                    required: false
+                  - name: anchor_min_price
+                    type: number
+                    description: >-
+                      The lower bound of the anchor price band, computed as
+                      `anchor_price * (1 - bandwidth)`. Only present for RWA
+                      perpetual instruments when an anchor price and bandwidth
+                      are defined.
+                    required: false
+                  - name: anchor_max_price
+                    type: number
+                    description: >-
+                      The upper bound of the anchor price band, computed as
+                      `anchor_price * (1 + bandwidth)`. Only present for RWA
+                      perpetual instruments when an anchor price and bandwidth
+                      are defined.
+                    required: false
         headers: []
         jsonPayloadSchema:
           type: object
@@ -874,6 +897,29 @@ operations:
                   example: 11628.81
                   type: number
                   x-parser-schema-id: <anonymous-schema-91>
+                is_anchor_breached:
+                  type: boolean
+                  description: >-
+                    Whether the mark price has breached the anchor price band.
+                    Only present for RWA perpetual instruments when an anchor
+                    price is active.
+                  x-parser-schema-id: <anonymous-schema-92>
+                anchor_min_price:
+                  type: number
+                  description: >-
+                    The lower bound of the anchor price band, computed as
+                    `anchor_price * (1 - bandwidth)`. Only present for RWA
+                    perpetual instruments when an anchor price and bandwidth are
+                    defined.
+                  x-parser-schema-id: <anonymous-schema-93>
+                anchor_max_price:
+                  type: number
+                  description: >-
+                    The upper bound of the anchor price band, computed as
+                    `anchor_price * (1 + bandwidth)`. Only present for RWA
+                    perpetual instruments when an anchor price and bandwidth are
+                    defined.
+                  x-parser-schema-id: <anonymous-schema-94>
               required:
                 - instrument_name
                 - timestamp

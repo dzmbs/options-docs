@@ -224,10 +224,20 @@ components:
         current_funding:
           type: number
           example: 0.12344
-          description: Current funding (perpetual only)
+          description: >-
+            Current instantaneous funding rate (perpetual only). Calculated as
+            `(mark_price − index_price) / index_price` at this moment. This is
+            the rate that would apply if a funding settlement occurred right
+            now.
         funding_8h:
           type: number
-          description: Funding 8h (perpetual only)
+          description: >-
+            Projected 8-hour funding rate for the current settlement window
+            (perpetual only). This is the time-weighted accumulation of the
+            funding rate since the last 8-hour settlement — i.e. the total rate
+            that will be charged or received at the next settlement.
+            `current_funding` shows the instantaneous rate; `funding_8h` shows
+            what has accumulated toward the next settlement.
         mark_iv:
           $ref: '#/components/schemas/mark_iv'
         interest_rate:

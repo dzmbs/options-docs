@@ -150,27 +150,27 @@ operations:
                   type: string
                   description: Unique instrument identifier
                   example: BTC-PERPETUAL
-                  x-parser-schema-id: <anonymous-schema-274>
+                  x-parser-schema-id: <anonymous-schema-277>
                 mark_price:
                   description: The mark price for the instrument
                   type: number
-                  x-parser-schema-id: <anonymous-schema-275>
+                  x-parser-schema-id: <anonymous-schema-278>
                 iv:
                   description: Value of the volatility of the underlying instrument
                   type: number
-                  x-parser-schema-id: <anonymous-schema-276>
+                  x-parser-schema-id: <anonymous-schema-279>
                 timestamp:
                   type: integer
                   example: 1536569522277
                   description: The timestamp (milliseconds since the Unix epoch)
-                  x-parser-schema-id: <anonymous-schema-277>
+                  x-parser-schema-id: <anonymous-schema-280>
               required: []
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-273>
+              x-parser-schema-id: <anonymous-schema-276>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-272>
+          x-parser-schema-id: <anonymous-schema-275>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -238,7 +238,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-271>
+          x-parser-schema-id: <anonymous-schema-274>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

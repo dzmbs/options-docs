@@ -162,39 +162,39 @@ operations:
                   type: string
                   description: Stock exchange identifier
                   example: binance
-                  x-parser-schema-id: <anonymous-schema-248>
+                  x-parser-schema-id: <anonymous-schema-251>
                 enabled:
                   type: boolean
                   description: Stock exchange status
-                  x-parser-schema-id: <anonymous-schema-249>
+                  x-parser-schema-id: <anonymous-schema-252>
                 original_price:
                   type: number
                   description: Index price retrieved from stock's data
-                  x-parser-schema-id: <anonymous-schema-250>
+                  x-parser-schema-id: <anonymous-schema-253>
                 price:
                   type: number
                   description: >-
                     Adjusted stock exchange index price, used for Deribit price
                     index calculations
-                  x-parser-schema-id: <anonymous-schema-251>
+                  x-parser-schema-id: <anonymous-schema-254>
                 timestamp:
                   type: integer
                   description: >-
                     The timestamp of the last update from stock exchange
                     (milliseconds since the UNIX epoch)
                   example: 1536569522277
-                  x-parser-schema-id: <anonymous-schema-252>
+                  x-parser-schema-id: <anonymous-schema-255>
                 weight:
                   type: number
                   description: The weight of the ranking given in percent
-                  x-parser-schema-id: <anonymous-schema-253>
+                  x-parser-schema-id: <anonymous-schema-256>
               required: []
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-247>
+              x-parser-schema-id: <anonymous-schema-250>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-246>
+          x-parser-schema-id: <anonymous-schema-249>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -280,7 +280,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-245>
+          x-parser-schema-id: <anonymous-schema-248>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

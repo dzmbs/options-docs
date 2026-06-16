@@ -176,6 +176,24 @@ components:
           $ref: '#/components/schemas/settlement_price'
         estimated_delivery_price:
           $ref: '#/components/schemas/estimated_delivery_price'
+        is_anchor_breached:
+          type: boolean
+          description: >-
+            Whether the mark price has breached the anchor price band. Only
+            present for RWA perpetual instruments when an anchor price is
+            active.
+        anchor_min_price:
+          type: number
+          description: >-
+            The lower bound of the anchor price band, computed as `anchor_price
+            * (1 - bandwidth)`. Only present for RWA perpetual instruments when
+            an anchor price and bandwidth are defined.
+        anchor_max_price:
+          type: number
+          description: >-
+            The upper bound of the anchor price band, computed as `anchor_price
+            * (1 + bandwidth)`. Only present for RWA perpetual instruments when
+            an anchor price and bandwidth are defined.
       required:
         - instrument_name
         - timestamp

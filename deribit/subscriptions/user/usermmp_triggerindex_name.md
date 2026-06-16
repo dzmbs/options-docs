@@ -197,7 +197,7 @@ operations:
                     will be frozen - 0 means that the user is frozen until
                     manual reset.
                   example: 0
-                  x-parser-schema-id: <anonymous-schema-303>
+                  x-parser-schema-id: <anonymous-schema-306>
                 index_name:
                   type: string
                   description: >-
@@ -205,29 +205,29 @@ operations:
                     For Block RFQ MMP, this will be "all" when triggered by
                     trade count limit.
                   example: eth_usdc
-                  x-parser-schema-id: <anonymous-schema-304>
+                  x-parser-schema-id: <anonymous-schema-307>
                 mmp_group:
                   type: string
                   description: >-
                     Triggered mmp group, this parameter is optional (appears
                     only for Mass Quote orders trigger)
                   example: MassQuoteBot7
-                  x-parser-schema-id: <anonymous-schema-305>
+                  x-parser-schema-id: <anonymous-schema-308>
                 block_rfq:
                   type: boolean
                   description: >-
                     If true, indicates that the MMP trigger is for Block RFQ.
                     Block RFQ MMP triggers are completely separate from normal
                     order/quote MMP triggers.
-                  x-parser-schema-id: <anonymous-schema-306>
+                  x-parser-schema-id: <anonymous-schema-309>
               required:
                 - frozen_until
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-302>
+              x-parser-schema-id: <anonymous-schema-305>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-301>
+          x-parser-schema-id: <anonymous-schema-304>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -269,7 +269,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-300>
+          x-parser-schema-id: <anonymous-schema-303>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

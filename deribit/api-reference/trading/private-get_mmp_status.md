@@ -114,6 +114,12 @@ paths:
             `index_name` must be specified before using this parameter.
 
 
+            **Leaving `mmp_group` empty** (passing `""` or omitting it) targets
+            the **orders MMP group** — the default group used for regular orders
+            with the `mmp` flag set. This is not an error or an incomplete
+            request.
+
+
             **📖 Related Article:** [Mass Quotes
             Specifications](https://docs.deribit.com/articles/mass-quotes-specifications)
         - name: block_rfq

@@ -310,14 +310,17 @@ paths:
               type: object
               properties:
                 amount:
-                  $ref: '#/components/schemas/amount'
+                  type: number
                   description: >-
-                    It represents the requested order size. For perpetual and
+                    **Required.** The secondary order size. For perpetual and
                     inverse futures the amount is in USD units. For options and
                     linear futures it is the underlying base currency coin.
                 direction:
-                  $ref: '#/components/schemas/direction'
-                  description: Direction of trade from the maker perspective
+                  type: string
+                  enum:
+                    - buy
+                    - sell
+                  description: '**Required.** Direction of the secondary order.'
                 type:
                   type: string
                   enum:
@@ -329,21 +332,21 @@ paths:
                     - take_market
                     - market_limit
                     - trailing_stop
-                  description: 'The order type, default: "limit"'
+                  description: 'The order type, default: `"limit"`'
                 label:
                   type: string
-                  description: user defined label for the order (maximum 64 characters)
+                  description: User defined label for the order (maximum 64 characters).
                 price:
                   type: number
                   description: >-
-                    The order price in base currency (Only for limit and
-                    stop_limit orders)
+                    The order price in base currency. Required for limit and
+                    stop_limit orders.
                 reduce_only:
                   type: boolean
                   default: false
                   description: >-
                     If true, the order is considered reduce-only which is
-                    intended to only reduce a current position
+                    intended to only reduce a current position.
                 time_in_force:
                   type: string
                   default: good_til_cancelled
@@ -354,7 +357,7 @@ paths:
                     - immediate_or_cancel
                   description: >-
                     Specifies how long the order remains in effect. Default
-                    "good_til_cancelled"
+                    `"good_til_cancelled"`.
                 post_only:
                   type: boolean
                   default: false
@@ -373,19 +376,27 @@ paths:
                 trigger_price:
                   type: number
                   description: >-
-                    Trigger price, required for trigger orders only (Stop-loss
-                    or Take-profit orders)
+                    Trigger price. Required for trigger orders (stop-loss or
+                    take-profit orders).
                 trigger_offset:
                   type: number
                   description: >-
                     The maximum deviation from the price peak beyond which the
-                    order will be triggered
+                    order will be triggered. Used for trailing stop orders.
                 trigger:
-                  $ref: '#/components/schemas/trigger'
+                  type: string
+                  enum:
+                    - index_price
+                    - mark_price
+                    - last_price
                   description: >-
-                    Defines the trigger type. Required for "Stop-Loss",
-                    "Take-Profit" and "Trailing" trigger orders
-          description: List of orders to create or cancel when this order is filled.
+                    Defines the trigger type. Required for stop-loss,
+                    take-profit, and trailing stop orders.
+          description: >-
+            List of secondary orders to place or cancel when the primary order
+            is filled. Each entry in the array defines one secondary order.
+            `amount` and `direction` are required; all other fields are
+            optional.
           required: false
           style: form
           explode: true
@@ -431,18 +442,6 @@ components:
       description: >
         advanced type: `"usd"` or `"implv"` (Only for options; field is omitted
         if not applicable).
-    amount:
-      type: number
-      description: >-
-        It represents the requested order size. For perpetual and inverse
-        futures the amount is in USD units. For options and linear futures it is
-        the underlying base currency coin.
-    direction:
-      enum:
-        - buy
-        - sell
-      type: string
-      description: 'Direction: `buy`, or `sell`'
     PrivateBuyAndSellResponse:
       properties:
         jsonrpc:
@@ -765,7 +764,7 @@ components:
             Optional field containing combo instrument name if the trade is a
             combo trade
         combo_trade_id:
-          type: number
+          type: string
           description: >-
             Optional field containing combo trade identifier if the trade is a
             combo trade
@@ -888,6 +887,12 @@ components:
       example: 1536569522277
       type: integer
       description: The timestamp (milliseconds since the Unix epoch)
+    direction:
+      enum:
+        - buy
+        - sell
+      type: string
+      description: 'Direction: `buy`, or `sell`'
     open_order_price:
       oneOf:
         - type: number
@@ -933,6 +938,12 @@ components:
       description: >-
         The actual display amount of iceberg order. Absent for other types of
         orders.
+    amount:
+      type: number
+      description: >-
+        It represents the requested order size. For perpetual and inverse
+        futures the amount is in USD units. For options and linear futures it is
+        the underlying base currency coin.
     contracts:
       type: number
       description: >-

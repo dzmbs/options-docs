@@ -8,6 +8,8 @@
 
 Results can be filtered by settlement type and timestamp. Use pagination parameters (`count` and `continuation`) to retrieve large settlement histories. This data is useful for analyzing historical contract settlements and understanding market events.
 
+**Note on `profit_loss` and `session_profit_loss`:** Because this is a public endpoint, these fields are **platform-wide aggregates**, not per-account values. `profit_loss` is the sum of realized P&L of all position holders at the settlement price. `session_profit_loss` is the sum of each holder's total session P&L (realized + unrealized) across all participants.
+
 [Try in API console](https://test.deribit.com/api_console?method=%2Fpublic%2Fget_last_settlements_by_currency)
 
 
@@ -70,6 +72,14 @@ paths:
         parameters (`count` and `continuation`) to retrieve large settlement
         histories. This data is useful for analyzing historical contract
         settlements and understanding market events.
+
+
+        **Note on `profit_loss` and `session_profit_loss`:** Because this is a
+        public endpoint, these fields are **platform-wide aggregates**, not
+        per-account values. `profit_loss` is the sum of realized P&L of all
+        position holders at the settlement price. `session_profit_loss` is the
+        sum of each holder's total session P&L (realized + unrealized) across
+        all participants.
 
 
         [Try in API
@@ -214,7 +224,12 @@ components:
         profit_loss:
           example: 0
           type: number
-          description: profit and loss (in base currency; settlement and delivery only)
+          description: >-
+            Platform-wide aggregate realized profit and loss for this settlement
+            event, in base currency. This is the sum of the realized P&L of
+            every position holder at the settlement or delivery price — it is
+            **not** a per-account value. Present for `settlement` and `delivery`
+            types only.
         session_bankruptcy:
           example: 0.001160788
           type: number
@@ -222,7 +237,12 @@ components:
         session_profit_loss:
           example: 0.001160788
           type: number
-          description: total value of session profit and losses (in base currency)
+          description: >-
+            Platform-wide aggregate total session profit and loss for this
+            settlement event, in base currency. This is the sum of each position
+            holder's session P&L (combining realized and unrealized components)
+            across all users who held positions in the instrument — it is
+            **not** a per-account value.
         session_tax:
           example: -0.001160788
           type: number

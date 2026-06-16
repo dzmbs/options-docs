@@ -141,7 +141,7 @@ MMP groups let market makers define custom protection rules – such as quantity
 
 * **IM Reservation:** Each MMP group continuously reserves initial margin (IM), regardless of open orders or positions.
 
-* **Group Assignment:** Each mass quote request must include a `mmp_group` name. All quotes in the request will be linked to that group.
+* **Group Assignment:** Each mass quote request must include a `mmp_group` name. All quotes in the request will be linked to that group. If `mmp_group` is omitted or left empty in `set_mmp_config` or `reset_mmp`, the call applies to the **orders MMP group** — the default group governing regular MMP-tagged orders, not mass quotes.
 
 * **Group count:** You can configure up to **16 MMP groups** per (sub)account. Attempting to create a 17th group will result in an error.
 

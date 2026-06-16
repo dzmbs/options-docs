@@ -43,7 +43,7 @@ The `interval` defines how long Deribit tracks trading activity after the first 
 * If no new trades happen after the interval ends, a new interval begins with the next trade.
 * If trades occur during the interval, it continues uninterrupted.
 * All activity inside a single interval is counted toward MMP limits.
-* If set to 0, MMP is removed.
+* If set to 0, MMP is removed and any reserved margin is released.
 
 ### frozen\_time – Freeze Duration
 
@@ -115,10 +115,14 @@ All MMP configuration parameters, including MQQ, support up to four decimal plac
 
 **Margin Calculation:**
 
-* From 18.11.2025 Release: `margin reserved = max(MQQ, quantity_limit)`
-* From December 2025 Release: `margin reserved = max_quote_quantity (≈ 3 % of MQQ)`
+MMP **continuously reserves initial margin** based on your MQQ setting, regardless of open positions or open orders:
 
-This change shifts MMP margin logic from quote size limits to active quote exposure.
+* From 18.11.2025 Release: `margin reserved = max(MQQ, quantity_limit)`
+* From December 2025 Release: `margin reserved = MQQ × 0.03`
+
+<Note>
+  Reserved margin is held as long as MMP is configured. To release it, set `interval` to `0` via `private/set_mmp_config` — this removes the MMP configuration and frees all held margin. You can verify your current MMP margin requirement in the **Portfolio Margin** section of the Deribit platform.
+</Note>
 
 **Latency:**
 

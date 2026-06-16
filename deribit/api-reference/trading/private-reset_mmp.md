@@ -124,9 +124,18 @@ paths:
             type: string
             example: MassQuoteBot7
           description: >
-            Specifies the MMP group for which limits are being reset. If this
-            parameter is omitted, the method resets the traditional (no group)
-            MMP limits.
+            Specifies the MMP group for which limits are being reset.
+
+
+            **Omitting this parameter is explicitly allowed** and targets the
+            **orders MMP group** — the default group used for regular orders
+            with the `mmp` flag set. This is not an error or an incomplete
+            request; it is the correct way to reset the orders MMP group.
+
+
+            Passing an explicit empty string (`""`) is **not** allowed and
+            returns an error. Only omitting the parameter reaches the orders MMP
+            group.
 
 
             **📖 Related Article:** [Mass Quotes

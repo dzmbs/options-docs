@@ -273,10 +273,6 @@ components:
                   <br><br>Example: Buy <code>10</code> BTC and sell
                   <code>10</code> BTC = <code>20</code> total quantity.
                   <br><br>Applicable to both options and futures.
-                  <br><br><strong>Note:</strong> Once this is set, an initial
-                  margin will be reserved even without any open positions.
-                  Initial Margin due to <code>quantity_limit</code> =
-                  <code>quantity_limit</code> * <code>0.03</code>
                   <br><br>Maximum 4 decimal places.
               delta_limit:
                 type: number
@@ -317,40 +313,50 @@ components:
                   Maximum Quote Quantity (MQQ). MQQ is configured per index but
                   enforced per side, per order book (instrument) — the total
                   combined size of open MMP orders per side per instrument
-                  cannot exceed MQQ (specified in base currency). MQQ is used
-                  for Initial Margin calculation (3% of MQQ is taken as Initial
-                  Margin for MMP orders and quotes). <br><br>**Important
-                  Notes:** <br>- **Configured per index, enforced per
-                  instrument:** MQQ is configured at the index level (an MMP
-                  group is linked to an index). However, the limit is enforced
-                  separately per order book (instrument) per side. "Per order
-                  book" means per instrument (not per expiry). The limit is NOT
-                  the sum across all instruments — each instrument has its own
-                  separate MQQ enforcement. <br>- **MQQ limits cumulative size,
-                  not order count:** For example, with MQQ of 3 BTC, you can
-                  place multiple orders (three orders of 1 BTC each, or one
-                  order of 2.5 BTC plus one of 0.5 BTC) as long as the total
-                  size per side per instrument does not exceed 3 BTC <br>- **MQQ
-                  is separate per MMP group:** Each MMP group has its own
-                  independent MQQ configuration. MQQ limits are enforced
-                  separately for each MMP group. <br>- **MQQ vs Quantity Limit
-                  relationship:** You can set MQQ > `quantity_limit`. This
-                  allows quotes to be larger than the quantity limit, and
-                  enables MMP to trigger on partial fills of quotes. This
-                  decouples the MMP reserved margin from the MMP quantity limit.
-                  <br>- **Base currency:** MQQ is specified and enforced in base
-                  currency <br>- **Inverse futures:** Size is calculated as
-                  Amount / Price to convert to base currency <br>- **Inverse
-                  future spreads:** Size is calculated as Amount / IndexPrice
-                  <br>- **SM accounts:** MMP orders and quotes on options and
-                  option_combos are not supported for SM accounts <br>-
-                  **Rejections:** MQQ is enforced for **MMP-enabled orders and
-                  quotes**. Quote entries and MMP-enabled orders (i.e., orders
-                  with `mmp=true`) are rejected if their individual size is
-                  greater than `max_quote_quantity`, or if accepting them would
-                  make the total open MMP size per side per instrument exceed
-                  `max_quote_quantity`. Non‑MMP orders are not subject to MQQ
-                  and may be larger than `max_quote_quantity`. <br>-
+                  cannot exceed MQQ (specified in base currency). <br><br>**MQQ
+                  reserves Initial Margin unconditionally.** As soon as MMP
+                  configuration with a non-zero MQQ is active, the platform
+                  reserves Initial Margin equal to `MQQ × 3%` — regardless of
+                  whether you have any open positions or open orders. This
+                  reservation is continuous: it applies from the moment the
+                  config is set until it is removed. The reserved margin is
+                  visible in the **Portfolio Margin** section of the platform.
+                  <br><br>**Releasing MMP-reserved margin.** To free the
+                  reserved margin, remove the MMP configuration entirely by
+                  calling `private/set_mmp_config` with `interval = 0`. Setting
+                  only `max_quote_quantity = 0` without removing the config is
+                  not sufficient — the entire configuration entry must be
+                  deleted. <br><br>**Important Notes:** <br>- **Configured per
+                  index, enforced per instrument:** MQQ is configured at the
+                  index level (an MMP group is linked to an index). However, the
+                  limit is enforced separately per order book (instrument) per
+                  side. "Per order book" means per instrument (not per expiry).
+                  The limit is NOT the sum across all instruments — each
+                  instrument has its own separate MQQ enforcement. <br>- **MQQ
+                  limits cumulative size, not order count:** For example, with
+                  MQQ of 3 BTC, you can place multiple orders (three orders of 1
+                  BTC each, or one order of 2.5 BTC plus one of 0.5 BTC) as long
+                  as the total size per side per instrument does not exceed 3
+                  BTC <br>- **MQQ is separate per MMP group:** Each MMP group
+                  has its own independent MQQ configuration. MQQ limits are
+                  enforced separately for each MMP group. <br>- **MQQ vs
+                  Quantity Limit relationship:** You can set MQQ >
+                  `quantity_limit`. This allows quotes to be larger than the
+                  quantity limit, and enables MMP to trigger on partial fills of
+                  quotes. This decouples the MMP reserved margin from the MMP
+                  quantity limit. <br>- **Base currency:** MQQ is specified and
+                  enforced in base currency <br>- **Inverse futures:** Size is
+                  calculated as Amount / Price to convert to base currency <br>-
+                  **Inverse future spreads:** Size is calculated as Amount /
+                  IndexPrice <br>- **SM accounts:** MMP orders and quotes on
+                  options and option_combos are not supported for SM accounts
+                  <br>- **Rejections:** MQQ is enforced for **MMP-enabled orders
+                  and quotes**. Quote entries and MMP-enabled orders (i.e.,
+                  orders with `mmp=true`) are rejected if their individual size
+                  is greater than `max_quote_quantity`, or if accepting them
+                  would make the total open MMP size per side per instrument
+                  exceed `max_quote_quantity`. Non‑MMP orders are not subject to
+                  MQQ and may be larger than `max_quote_quantity`. <br>-
                   **Precision:** All MMP configuration values support maximum 4
                   decimal places <br>- **Latency:** There are no latency
                   benefits from MQQ if you already use mass quotes.

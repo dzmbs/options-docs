@@ -104,28 +104,28 @@ operations:
                   type: integer
                   example: 1536569522277
                   description: The timestamp (milliseconds since the Unix epoch)
-                  x-parser-schema-id: <anonymous-schema-145>
+                  x-parser-schema-id: <anonymous-schema-148>
                 instrument_name:
                   type: string
                   description: Unique instrument identifier
                   example: BTC-PERPETUAL
-                  x-parser-schema-id: <anonymous-schema-146>
+                  x-parser-schema-id: <anonymous-schema-149>
                 best_bid_price:
                   description: The current best bid price, `null` if there aren't any bids
                   type: number
-                  x-parser-schema-id: <anonymous-schema-147>
+                  x-parser-schema-id: <anonymous-schema-150>
                 best_bid_amount:
                   description: It represents the requested order size of all best bids
                   type: number
-                  x-parser-schema-id: <anonymous-schema-148>
+                  x-parser-schema-id: <anonymous-schema-151>
                 best_ask_price:
                   description: The current best ask price, `null` if there aren't any asks
                   type: number
-                  x-parser-schema-id: <anonymous-schema-149>
+                  x-parser-schema-id: <anonymous-schema-152>
                 best_ask_amount:
                   description: It represents the requested order size of all best asks
                   type: number
-                  x-parser-schema-id: <anonymous-schema-150>
+                  x-parser-schema-id: <anonymous-schema-153>
               required:
                 - timestamp
                 - instrument_name
@@ -134,11 +134,11 @@ operations:
                 - best_add_amount
                 - best_add_price
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-144>
+              x-parser-schema-id: <anonymous-schema-147>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-143>
+          x-parser-schema-id: <anonymous-schema-146>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -182,7 +182,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-142>
+          x-parser-schema-id: <anonymous-schema-145>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

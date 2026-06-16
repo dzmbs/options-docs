@@ -171,9 +171,285 @@ components:
         id:
           type: integer
           description: The id that was sent in the request
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/user_trade'
       required:
         - jsonrpc
+        - result
       type: object
+    user_trade:
+      properties:
+        trade_id:
+          $ref: '#/components/schemas/trade_id'
+        trade_seq:
+          $ref: '#/components/schemas/trade_seq'
+        instrument_name:
+          $ref: '#/components/schemas/instrument_name'
+        timestamp:
+          $ref: '#/components/schemas/trade_timestamp'
+        order_type:
+          type: string
+          enum:
+            - limit
+            - market
+            - liquidation
+          description: 'Order type: `"limit`, `"market"`, or `"liquidation"`'
+        advanced:
+          type: string
+          enum:
+            - usd
+            - implv
+          description: >-
+            Advanced type of user order: `"usd"` or `"implv"` (only for options;
+            omitted if not applicable)
+        order_id:
+          type: string
+          description: >-
+            Id of the user order (maker or taker), i.e. subscriber's order id
+            that took part in the trade
+        matching_id:
+          type: string
+          description: Always `null`
+        direction:
+          $ref: '#/components/schemas/direction'
+          description: Trade direction of the taker
+        tick_direction:
+          $ref: '#/components/schemas/tick_direction'
+        index_price:
+          type: number
+          description: Index Price at the moment of trade
+        price:
+          $ref: '#/components/schemas/price'
+          description: The price of the trade
+        amount:
+          type: number
+          description: >-
+            Trade amount. For perpetual and inverse futures the amount is in USD
+            units. For options and linear futures it is the underlying base
+            currency coin.
+        contracts:
+          type: number
+          description: >-
+            Trade size in contract units (optional, may be absent in historical
+            trades)
+        iv:
+          type: number
+          description: Option implied volatility for the price (Option only)
+        underlying_price:
+          type: number
+          description: Underlying price for implied volatility calculations (Options only)
+        liquidation:
+          type: string
+          enum:
+            - M
+            - T
+            - MT
+          description: >-
+            Optional field (only for trades caused by liquidation): `"M"` when
+            maker side of trade was under liquidation, `"T"` when taker side was
+            under liquidation, `"MT"` when both sides of trade were under
+            liquidation
+        liquidity:
+          type: string
+          enum:
+            - M
+            - T
+          description: >-
+            Describes what was role of users order: `"M"` when it was maker
+            order, `"T"` when it was taker order
+        fee:
+          type: number
+          description: User's fee in units of the specified `fee_currency`
+        fee_currency:
+          $ref: '#/components/schemas/currency'
+        label:
+          $ref: '#/components/schemas/label_presentation'
+        state:
+          $ref: '#/components/schemas/order_state_in_user_trade'
+        block_trade_id:
+          $ref: '#/components/schemas/block_trade_id_in_result'
+        block_rfq_id:
+          type: integer
+          description: ID of the Block RFQ - when trade was part of the Block RFQ
+        block_rfq_quote_id:
+          type: integer
+          description: ID of the Block RFQ quote - when trade was part of the Block RFQ
+        reduce_only:
+          type: string
+          description: '`true` if user order is reduce-only'
+        post_only:
+          type: string
+          description: '`true` if user order is post-only'
+        mmp:
+          type: boolean
+          description: '`true` if user order is MMP'
+        risk_reducing:
+          type: boolean
+          description: >-
+            `true` if user order is marked by the platform as a risk reducing
+            order (can apply only to orders placed by PM users)
+        api:
+          type: boolean
+          description: '`true` if user order was created with API'
+        profit_loss:
+          $ref: '#/components/schemas/profit_loss'
+        mark_price:
+          type: number
+          description: Mark Price at the moment of trade
+        legs:
+          type: array
+          description: >-
+            Optional field containing leg trades if trade is a combo trade
+            (present when querying for **only** combo trades and in
+            `combo_trades` events)
+        combo_id:
+          type: string
+          description: >-
+            Optional field containing combo instrument name if the trade is a
+            combo trade
+        combo_trade_id:
+          type: string
+          description: >-
+            Optional field containing combo trade identifier if the trade is a
+            combo trade
+        quote_set_id:
+          type: string
+          description: >-
+            QuoteSet of the user order (optional, present only for orders placed
+            with `private/mass_quote`)
+        quote_id:
+          type: string
+          description: >-
+            QuoteID of the user order (optional, present only for orders placed
+            with `private/mass_quote`)
+        trade_allocations:
+          type: array
+          items:
+            type: object
+            properties:
+              user_id:
+                type: integer
+                description: >-
+                  User ID to which part of the trade is allocated. For brokers
+                  the User ID is obstructed.
+              amount:
+                type: number
+                description: Amount allocated to this user.
+              fee:
+                type: number
+                description: Fee for the allocated part of the trade.
+              client_info:
+                type: object
+                properties:
+                  client_id:
+                    type: integer
+                    description: >-
+                      ID of a client; available to broker. Represents a group of
+                      users under a common name.
+                  client_link_id:
+                    type: integer
+                    description: >-
+                      ID assigned to a single user in a client; available to
+                      broker.
+                  name:
+                    type: string
+                    description: >-
+                      Name of the linked user within the client; available to
+                      broker.
+                description: Optional client allocation info for brokers.
+            required:
+              - amount
+              - fee
+          description: >-
+            List of allocations for Block RFQ pre-allocation. Each allocation
+            specifies `user_id`, `amount`, and `fee` for the allocated part of
+            the trade. For broker client allocations, a `client_info` object
+            will be included.
+      required:
+        - trade_id
+        - trade_seq
+        - instrument_name
+        - timestamp
+        - order_id
+        - matching_id
+        - direction
+        - tick_direction
+        - index_price
+        - price
+        - amount
+        - fee
+        - fee_currency
+        - state
+        - mark_price
+      type: object
+    trade_id:
+      type: string
+      description: Unique (per currency) trade identifier
+    trade_seq:
+      type: integer
+      description: The sequence number of the trade within instrument
+    instrument_name:
+      example: BTC-PERPETUAL
+      type: string
+      description: Unique instrument identifier
+    trade_timestamp:
+      example: 1517329113791
+      type: integer
+      description: The timestamp of the trade (milliseconds since the UNIX epoch)
+    direction:
+      enum:
+        - buy
+        - sell
+      type: string
+      description: 'Direction: `buy`, or `sell`'
+    tick_direction:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+      type: integer
+      description: >-
+        Direction of the "tick" (`0` = Plus Tick, `1` = Zero-Plus Tick, `2` =
+        Minus Tick, `3` = Zero-Minus Tick).
+    price:
+      type: number
+      description: Price in base currency
+    currency:
+      enum:
+        - BTC
+        - ETH
+        - USDC
+        - USDT
+        - EURR
+      type: string
+      description: Currency, i.e `"BTC"`, `"ETH"`, `"USDC"`
+    label_presentation:
+      type: string
+      description: >-
+        User defined label (presented only when previously set for order by
+        user)
+    order_state_in_user_trade:
+      enum:
+        - open
+        - filled
+        - rejected
+        - cancelled
+        - untriggered
+        - archive
+      type: string
+      description: >-
+        Order state: `"open"`, `"filled"`, `"rejected"`, `"cancelled"`,
+        `"untriggered"` or `"archive"` (if order was archived)
+    block_trade_id_in_result:
+      example: '154'
+      type: string
+      description: Block trade id - when trade was part of a block trade
+    profit_loss:
+      type: number
+      description: Profit and loss in base currency.
   responses:
     PrivateGetUserTradesByOrderResponse:
       content:

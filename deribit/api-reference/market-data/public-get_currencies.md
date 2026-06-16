@@ -203,6 +203,12 @@ components:
           type: integer
           example: 6
           description: The number of decimal places for the currency
+        currency_uuid:
+          type: string
+          example: 5b71fc48-3dd3-540c-809b-f8c94d0e68b5
+          description: >-
+            Internal identifier for this currency. Absent if the currency does
+            not have an assigned identifier.
       required:
         - currency
         - currency_long

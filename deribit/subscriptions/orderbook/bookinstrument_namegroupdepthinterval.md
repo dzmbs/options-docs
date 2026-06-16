@@ -135,17 +135,22 @@ parameters:
       type: string
       description: >-
         Frequency of notifications. Events will be aggregated over this
-        interval.
+        interval. The value `raw` means no aggregation will be applied **(Please
+        note that `raw` interval is only available to authorized users)**
 
 
-        **Allowed values:** `100ms`, `agg2`
+        **Allowed values:** `raw`, `100ms`, `agg2`
       enum:
+        - raw
         - 100ms
         - agg2
-    description: |-
+    description: >-
       Frequency of notifications. Events will be aggregated over this interval.
+      The value `raw` means no aggregation will be applied **(Please note that
+      `raw` interval is only available to authorized users)**
 
-      **Allowed values:** `100ms`, `agg2`
+
+      **Allowed values:** `raw`, `100ms`, `agg2`
     type: string
     required: true
     deprecated: false

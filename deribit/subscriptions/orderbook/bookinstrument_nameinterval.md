@@ -6,11 +6,13 @@
 
 > Real-time order book updates for a specific instrument.
 
-- The first notification contains a full snapshot of the book (bids and asks for all price levels).
+- The first notification contains a full snapshot of the book (bids and asks for **all price levels** — no depth limit).
 - Subsequent notifications contain only incremental changes to individual price levels.
 - Updates are tuples in the form `[action, price, amount]`, where `action` is one of: `new`, `change`, `delete`.
 
 Each notification includes a `change_id`. Every message except the first also contains `prev_change_id`. If `prev_change_id` equals the `change_id` of the previous message, it indicates that no messages were missed.
+
+**Depth:** This channel delivers the complete order book with no depth restriction. If you need a depth-limited, price-grouped snapshot, use `book.{instrument_name}.{group}.{depth}.{interval}` instead.
 
 **Units:** For perpetuals and futures, `amount` is in USD units. For options, `amount` is in the corresponding cryptocurrency contracts (e.g., BTC or ETH).
 
@@ -27,7 +29,7 @@ description: >
 
 
   - The first notification contains a full snapshot of the book (bids and asks
-  for all price levels).
+  for **all price levels** — no depth limit).
 
   - Subsequent notifications contain only incremental changes to individual
   price levels.
@@ -39,6 +41,11 @@ description: >
   Each notification includes a `change_id`. Every message except the first also
   contains `prev_change_id`. If `prev_change_id` equals the `change_id` of the
   previous message, it indicates that no messages were missed.
+
+
+  **Depth:** This channel delivers the complete order book with no depth
+  restriction. If you need a depth-limited, price-grouped snapshot, use
+  `book.{instrument_name}.{group}.{depth}.{interval}` instead.
 
 
   **Units:** For perpetuals and futures, `amount` is in USD units. For options,

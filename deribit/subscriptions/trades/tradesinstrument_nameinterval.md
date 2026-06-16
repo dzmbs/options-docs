@@ -202,30 +202,30 @@ operations:
                 trade_id:
                   type: string
                   description: Unique (per currency) trade identifier
-                  x-parser-schema-id: <anonymous-schema-156>
+                  x-parser-schema-id: <anonymous-schema-159>
                 trade_seq:
                   description: The sequence number of the trade within instrument
                   type: integer
-                  x-parser-schema-id: <anonymous-schema-157>
+                  x-parser-schema-id: <anonymous-schema-160>
                 instrument_name:
                   type: string
                   description: Unique instrument identifier
                   example: BTC-PERPETUAL
-                  x-parser-schema-id: <anonymous-schema-158>
+                  x-parser-schema-id: <anonymous-schema-161>
                 timestamp:
                   description: >-
                     The timestamp of the trade (milliseconds since the UNIX
                     epoch)
                   example: 1517329113791
                   type: integer
-                  x-parser-schema-id: <anonymous-schema-159>
+                  x-parser-schema-id: <anonymous-schema-162>
                 direction:
                   type: string
                   description: 'Direction: `buy`, or `sell`'
                   enum:
                     - buy
                     - sell
-                  x-parser-schema-id: <anonymous-schema-160>
+                  x-parser-schema-id: <anonymous-schema-163>
                 tick_direction:
                   type: integer
                   enum:
@@ -236,32 +236,32 @@ operations:
                   description: >-
                     Direction of the "tick" (`0` = Plus Tick, `1` = Zero-Plus
                     Tick, `2` = Minus Tick, `3` = Zero-Minus Tick).
-                  x-parser-schema-id: <anonymous-schema-161>
+                  x-parser-schema-id: <anonymous-schema-164>
                 index_price:
                   type: number
                   description: Index Price at the moment of trade
-                  x-parser-schema-id: <anonymous-schema-162>
+                  x-parser-schema-id: <anonymous-schema-165>
                 price:
                   description: Price in base currency
                   type: number
-                  x-parser-schema-id: <anonymous-schema-163>
+                  x-parser-schema-id: <anonymous-schema-166>
                 amount:
                   type: number
                   description: >-
                     Trade amount. For perpetual and inverse futures the amount
                     is in USD units. For options and linear futures it is the
                     underlying base currency coin.
-                  x-parser-schema-id: <anonymous-schema-164>
+                  x-parser-schema-id: <anonymous-schema-167>
                 contracts:
                   type: number
                   description: >-
                     Trade size in contract units (optional, may be absent in
                     historical trades)
-                  x-parser-schema-id: <anonymous-schema-165>
+                  x-parser-schema-id: <anonymous-schema-168>
                 iv:
                   type: number
                   description: Option implied volatility for the price (Option only)
-                  x-parser-schema-id: <anonymous-schema-166>
+                  x-parser-schema-id: <anonymous-schema-169>
                 liquidation:
                   type: string
                   description: >-
@@ -273,37 +273,37 @@ operations:
                     - M
                     - T
                     - MT
-                  x-parser-schema-id: <anonymous-schema-167>
+                  x-parser-schema-id: <anonymous-schema-170>
                 mark_price:
                   type: number
                   description: Mark Price at the moment of trade
-                  x-parser-schema-id: <anonymous-schema-168>
+                  x-parser-schema-id: <anonymous-schema-171>
                 block_trade_id:
                   description: Block trade id - when trade was part of a block trade
                   type: string
                   example: '154'
-                  x-parser-schema-id: <anonymous-schema-169>
+                  x-parser-schema-id: <anonymous-schema-172>
                 block_trade_leg_count:
                   description: Block trade leg count - when trade was part of a block trade
                   type: integer
                   example: 3
-                  x-parser-schema-id: <anonymous-schema-170>
+                  x-parser-schema-id: <anonymous-schema-173>
                 combo_id:
                   type: string
                   description: >-
                     Optional field containing combo instrument name if the trade
                     is a combo trade
-                  x-parser-schema-id: <anonymous-schema-171>
+                  x-parser-schema-id: <anonymous-schema-174>
                 combo_trade_id:
                   type: string
                   description: >-
                     Optional field containing combo trade identifier if the
                     trade is a combo trade
-                  x-parser-schema-id: <anonymous-schema-172>
+                  x-parser-schema-id: <anonymous-schema-175>
                 block_rfq_id:
                   type: integer
                   description: ID of the Block RFQ - when trade was part of the Block RFQ
-                  x-parser-schema-id: <anonymous-schema-173>
+                  x-parser-schema-id: <anonymous-schema-176>
               required:
                 - trade_id
                 - instrument_name
@@ -316,11 +316,11 @@ operations:
                 - amount
                 - mark_price
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-155>
+              x-parser-schema-id: <anonymous-schema-158>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-154>
+          x-parser-schema-id: <anonymous-schema-157>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -336,7 +336,22 @@ operations:
                 "instrument_name": "BTC-PERPETUAL",
                 "index_price": 8955.88,
                 "direction": "sell",
-                "amount": 10
+                "amount": 10,
+                "contracts": 1
+              },
+              {
+                "trade_seq": 30289443,
+                "trade_id": "48079270",
+                "timestamp": 1590484513004,
+                "tick_direction": 0,
+                "price": 8960,
+                "mark_price": 8948.9,
+                "instrument_name": "BTC-PERPETUAL",
+                "index_price": 8955.88,
+                "direction": "buy",
+                "amount": 20,
+                "contracts": 2,
+                "liquidation": "T"
               }
             ]
           }
@@ -370,7 +385,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-153>
+          x-parser-schema-id: <anonymous-schema-156>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

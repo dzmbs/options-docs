@@ -148,28 +148,28 @@ operations:
                   type: integer
                   example: 1536569522277
                   description: The timestamp (milliseconds since the Unix epoch)
-                  x-parser-schema-id: <anonymous-schema-267>
+                  x-parser-schema-id: <anonymous-schema-270>
                 volatility:
                   description: Value of the corresponding volatility
                   type: number
-                  x-parser-schema-id: <anonymous-schema-268>
+                  x-parser-schema-id: <anonymous-schema-271>
                 index_name:
                   description: Index identifier supported for DVOL
                   type: string
                   enum:
                     - btc_usd
                     - eth_usd
-                  x-parser-schema-id: <anonymous-schema-269>
+                  x-parser-schema-id: <anonymous-schema-272>
               required:
                 - timestamp
                 - volatility
                 - index_name
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-266>
+              x-parser-schema-id: <anonymous-schema-269>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-265>
+          x-parser-schema-id: <anonymous-schema-268>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -210,7 +210,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-264>
+          x-parser-schema-id: <anonymous-schema-267>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

@@ -411,7 +411,7 @@ components:
             Optional field containing combo instrument name if the trade is a
             combo trade
         combo_trade_id:
-          type: number
+          type: string
           description: >-
             Optional field containing combo trade identifier if the trade is a
             combo trade

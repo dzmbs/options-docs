@@ -207,8 +207,8 @@
     },
     "api-reference/block-rfq/private-accept_block_rfq.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-rfq/private-accept_block_rfq.md",
-      "hash": "6d6627be7a3977e05c29ddb77612810a88046325213d2d5aa1c38f9a21d4dd36",
-      "last_updated": "2026-05-31T21:04:36.594080"
+      "hash": "0b4a28c8f0adc0b176e98677225dfaaef764f053c2eec77536b2591b05cdee5b",
+      "last_updated": "2026-06-16T12:42:39.302700"
     },
     "api-reference/block-rfq/private-add_block_rfq_quote.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-rfq/private-add_block_rfq_quote.md",
@@ -277,13 +277,13 @@
     },
     "api-reference/block-trade/private-execute_block_trade.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-execute_block_trade.md",
-      "hash": "6df1e91b5bcd18b57e88570030faddfad0ac5509990adb3955c33b7f948d53f8",
-      "last_updated": "2026-05-31T21:04:46.278406"
+      "hash": "b8f93df986f129eb145781583e7796b682df60ed2116c7129423f41b43284c6f",
+      "last_updated": "2026-06-16T12:42:48.854743"
     },
     "api-reference/block-trade/private-get_block_trade.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-get_block_trade.md",
-      "hash": "5e129b967e4045b1b54555db0d94a0650619b19fb8db15943dc47c39b821d6a9",
-      "last_updated": "2026-05-31T21:04:46.992802"
+      "hash": "15e7ee65597f121dcf82e96a6cbdb95999649629344a24441db8875b900d36a7",
+      "last_updated": "2026-06-16T12:42:49.485937"
     },
     "api-reference/block-trade/private-get_block_trade_requests.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-get_block_trade_requests.md",
@@ -292,8 +292,13 @@
     },
     "api-reference/block-trade/private-get_block_trades.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-get_block_trades.md",
-      "hash": "59d7b965aad8a91d81e61c6e795851a91a824d023c5aed1d2ec8c25a74d3a2f3",
-      "last_updated": "2026-05-31T21:04:48.292615"
+      "hash": "28e21332b4437582d86f3c5a9f7ab098e6c44eefde871538bb900d1629c508b1",
+      "last_updated": "2026-06-16T12:42:50.836891"
+    },
+    "api-reference/block-trade/private-get_broker_clients.md": {
+      "source_url": "https://docs.deribit.com/api-reference/block-trade/private-get_broker_clients.md",
+      "hash": "84bd76a86111724174c2d590e53da45d180ee0e0ac580888c578850e5336eafe",
+      "last_updated": "2026-06-16T12:42:51.432117"
     },
     "api-reference/block-trade/private-get_broker_trade_requests.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-get_broker_trade_requests.md",
@@ -302,8 +307,8 @@
     },
     "api-reference/block-trade/private-get_broker_trades.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-get_broker_trades.md",
-      "hash": "af45f8d402d5b539ff1f9e48322090c546c79ce221af42fada7d70636148c747",
-      "last_updated": "2026-05-31T21:04:49.599470"
+      "hash": "fe1dd2c13b35e51becabc829962177b1ffd5f1c2a8eb517bd98c9961263d4b5a",
+      "last_updated": "2026-06-16T12:42:52.826309"
     },
     "api-reference/block-trade/private-invalidate_block_trade_signature.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-invalidate_block_trade_signature.md",
@@ -357,13 +362,13 @@
     },
     "api-reference/market-data/public-get_book_summary_by_currency.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_book_summary_by_currency.md",
-      "hash": "027ea6a04d56003f521ec90f642345f714909d62330af579ceb91cf4d01e0a5f",
-      "last_updated": "2026-05-31T21:04:57.013366"
+      "hash": "92519ee638602e181c059064a48c2e4818bba523a13c68d61ec2315147eb596e",
+      "last_updated": "2026-06-16T12:43:00.369660"
     },
     "api-reference/market-data/public-get_book_summary_by_instrument.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_book_summary_by_instrument.md",
-      "hash": "677fe8ad872f05fb059834e643a208f893945a5c08a120902e9a414c3ba6fc57",
-      "last_updated": "2026-05-31T21:04:57.732757"
+      "hash": "ea225d6f6c934cd022bf436700bab1ed6d6c6849bbc29e576e754b8641e78196",
+      "last_updated": "2026-06-16T12:43:01.008853"
     },
     "api-reference/market-data/public-get_contract_size.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_contract_size.md",
@@ -372,8 +377,8 @@
     },
     "api-reference/market-data/public-get_currencies.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_currencies.md",
-      "hash": "c5f8f51ed9770fd30a31255cd4fe8241d831ec486f80c22a25cde21581a40789",
-      "last_updated": "2026-05-31T21:04:58.992255"
+      "hash": "d31670f5e87d10d64c06cfee06d136e5512ced18196f18c5eb0934d71cf442b4",
+      "last_updated": "2026-06-16T12:43:02.565901"
     },
     "api-reference/market-data/public-get_delivery_prices.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_delivery_prices.md",
@@ -422,43 +427,43 @@
     },
     "api-reference/market-data/public-get_instrument.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_instrument.md",
-      "hash": "0975dc29b6c3cae9033ca4a0dfae30d10946e26876b6d0e1c56187682cd71b9f",
-      "last_updated": "2026-05-31T21:05:05.496368"
+      "hash": "67850b118c31813a0eea2a2a8dd3cd0371da4b95989d4a131ba2ab54a3d4fd62",
+      "last_updated": "2026-06-16T12:43:09.778555"
     },
     "api-reference/market-data/public-get_instruments.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_instruments.md",
-      "hash": "bbd00e16f8d0e4861ede084b83a6b2a075d40f773cbc5a2914be36d31f6cbcbe",
-      "last_updated": "2026-05-31T21:05:06.100196"
+      "hash": "1a42928b599a004c38d148c7c4adebd3e39d55ab06cf792c5851945faa2bb196",
+      "last_updated": "2026-06-16T12:43:10.373747"
     },
     "api-reference/market-data/public-get_last_settlements_by_currency.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_last_settlements_by_currency.md",
-      "hash": "e901e139746cf97406f3db8cca89ce2f565f476b710113e52361ae755bb7def8",
-      "last_updated": "2026-05-31T21:05:06.779089"
+      "hash": "efabc1049f5b5436d6fda64d3788c9cb410dda9ead0d57ce9d5593ba507eba8f",
+      "last_updated": "2026-06-16T12:43:10.976508"
     },
     "api-reference/market-data/public-get_last_settlements_by_instrument.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_last_settlements_by_instrument.md",
-      "hash": "1463ec510a92e9e0cd63b5ad928df37494cf6dd53f6eb1df83d49026c0d07891",
-      "last_updated": "2026-05-31T21:05:07.445574"
+      "hash": "f7c42723ce2692009032b7d26ebb3307c35b689ada2c8e3d15f8a207f4d7da96",
+      "last_updated": "2026-06-16T12:43:11.897952"
     },
     "api-reference/market-data/public-get_last_trades_by_currency.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_last_trades_by_currency.md",
-      "hash": "31d635a5024295505a7af92831746f67e4f8f49e8235e27cdced03df0c560d27",
-      "last_updated": "2026-05-31T21:05:08.128647"
+      "hash": "beb982584704bcf8f396dedc39d348b5606980a6c6d4941d2571b0b4f8f0ab01",
+      "last_updated": "2026-06-16T12:43:12.637857"
     },
     "api-reference/market-data/public-get_last_trades_by_currency_and_time.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_last_trades_by_currency_and_time.md",
-      "hash": "458f23c6f38085b848a3e5d1185e164eaffb8e38458fd1c9a9566f62a5099a54",
-      "last_updated": "2026-05-31T21:05:08.814671"
+      "hash": "15f6a2b2e91c376198f250b12f6b95d70acb1200572cf69caf665fbb093b27d9",
+      "last_updated": "2026-06-16T12:43:13.426248"
     },
     "api-reference/market-data/public-get_last_trades_by_instrument.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_last_trades_by_instrument.md",
-      "hash": "5a642f31f06a519c58a8485be0c2ce53b6be909a43f7d6460858488aa0122266",
-      "last_updated": "2026-05-31T21:05:09.527661"
+      "hash": "de2142bd7cb1299561291d269ad88d764c2e402a284555f4fc5768d5fb9a48bb",
+      "last_updated": "2026-06-16T12:43:14.096307"
     },
     "api-reference/market-data/public-get_last_trades_by_instrument_and_time.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_last_trades_by_instrument_and_time.md",
-      "hash": "28dc8ab9eed41940fc86f9d0e56d7fbd6fdc49857c2c00c8c8744a2d1a97aa1d",
-      "last_updated": "2026-05-31T21:05:10.238186"
+      "hash": "95ac5a1502ce5e829e53162b45ea065f4bdccf95b44b719a757c017383bb7193",
+      "last_updated": "2026-06-16T12:43:14.691725"
     },
     "api-reference/market-data/public-get_mark_price_history.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_mark_price_history.md",
@@ -497,8 +502,8 @@
     },
     "api-reference/market-data/public-ticker.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-ticker.md",
-      "hash": "8f10c7bf6f58800c94122634cf452db3140c846c9a2bb4e8dc7ac3d63f0c2efd",
-      "last_updated": "2026-05-31T21:05:15.253462"
+      "hash": "7fed17ac0ee24defc4367dfdcabc17a7bb51d9ef8ee6f4f1e41bfe579e39d3ee",
+      "last_updated": "2026-06-16T12:43:20.069637"
     },
     "api-reference/session-management/private-disable_cancel_on_disconnect.md": {
       "source_url": "https://docs.deribit.com/api-reference/session-management/private-disable_cancel_on_disconnect.md",
@@ -577,8 +582,8 @@
     },
     "api-reference/trading/private-buy.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-buy.md",
-      "hash": "bf6999ade78c99cd640913a9c030c31b86a4c5a0bbec32b3075d612e862cfa83",
-      "last_updated": "2026-05-31T21:05:25.977700"
+      "hash": "f946ce98df0de7fc84e35f07aac7a4f58e1f446ef8e3d8917f8f5f70eef375f0",
+      "last_updated": "2026-06-16T12:43:31.530752"
     },
     "api-reference/trading/private-cancel.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-cancel.md",
@@ -622,18 +627,18 @@
     },
     "api-reference/trading/private-close_position.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-close_position.md",
-      "hash": "5b7dad772659567357a64c01fc556725d63a51c0e56ed8cfd27cd7e93eae9d35",
-      "last_updated": "2026-05-31T21:05:31.900267"
+      "hash": "bddccd5097f2998e46f0373f541159da5403f854a2d5d623c0167f746ea04b6b",
+      "last_updated": "2026-06-16T12:43:38.175104"
     },
     "api-reference/trading/private-edit.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-edit.md",
-      "hash": "84b77ccd61a112c01fc59db3ea5db0e1bef8ca8a4dbc68e6a672f538696da355",
-      "last_updated": "2026-05-31T21:05:32.492768"
+      "hash": "6ab0ef85443530fceee8086a13ce16748e96648b39de914dae3366167677a921",
+      "last_updated": "2026-06-16T12:43:38.839638"
     },
     "api-reference/trading/private-edit_by_label.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-edit_by_label.md",
-      "hash": "5e13a3b6b31604fd09776f0fe2d76fd50c3c7d788af456f3759ca717e59d41ec",
-      "last_updated": "2026-05-31T21:05:33.159273"
+      "hash": "014ce7a8793b524e69109747151faeefdc0ce893a39288506a6c19ef11fb512d",
+      "last_updated": "2026-06-16T12:43:39.512411"
     },
     "api-reference/trading/private-get_margins.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_margins.md",
@@ -642,13 +647,13 @@
     },
     "api-reference/trading/private-get_mmp_config.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_mmp_config.md",
-      "hash": "6db2703d1d962772617195fb1f35dedff0d7be40ecabdc66ae17e6ec8d479dc5",
-      "last_updated": "2026-05-31T21:05:34.517371"
+      "hash": "eb4011347552548949d1756bc4eabe859c6159681f32a9ddca56c62b39c4a381",
+      "last_updated": "2026-06-16T12:43:41.077267"
     },
     "api-reference/trading/private-get_mmp_status.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_mmp_status.md",
-      "hash": "a3a0bc3695a74d1feda5f59931673ca7ed0d1f7da815d04bf911b71a81cb1b6a",
-      "last_updated": "2026-05-31T21:05:35.184773"
+      "hash": "3345b1bc9a16b3ad44355975e7d36eee84f8e5905bcaf4b995fb8af37f1b3fcd",
+      "last_updated": "2026-06-16T12:43:41.758267"
     },
     "api-reference/trading/private-get_open_orders.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_open_orders.md",
@@ -697,13 +702,13 @@
     },
     "api-reference/trading/private-get_settlement_history_by_currency.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_settlement_history_by_currency.md",
-      "hash": "5df84c43f055a2ea6962257c70307609e7a6174bba4cacab4bd7fdba9154ae4b",
-      "last_updated": "2026-05-31T21:05:42.097025"
+      "hash": "84bb179caa0043556584afdaffda9a927208ec1d9b9dcdcb62cecf92d8a4a82b",
+      "last_updated": "2026-06-16T12:43:48.810775"
     },
     "api-reference/trading/private-get_settlement_history_by_instrument.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_settlement_history_by_instrument.md",
-      "hash": "ad2d6e0598cfa6c68ff5314fc13c221beadea963f233471eda6ffba773d82382",
-      "last_updated": "2026-05-31T21:05:42.811574"
+      "hash": "cb82fa7f52437969c810976630695b8a5bf1d4923fafa615fd0677e68fb5c9da",
+      "last_updated": "2026-06-16T12:43:49.568116"
     },
     "api-reference/trading/private-get_trigger_order_history.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_trigger_order_history.md",
@@ -712,33 +717,33 @@
     },
     "api-reference/trading/private-get_user_trades_by_currency.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_user_trades_by_currency.md",
-      "hash": "d8719c84cf02f3b4188a72e127df26811cbafd01882446744c5c585dc61e88ca",
-      "last_updated": "2026-05-31T21:05:44.127992"
+      "hash": "80a02f4819aa3d75da1ae0e8ab136634d1a4163c12d4d70c2831b2e647820401",
+      "last_updated": "2026-06-16T12:43:50.911664"
     },
     "api-reference/trading/private-get_user_trades_by_currency_and_time.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_user_trades_by_currency_and_time.md",
-      "hash": "4ff5eda6591f099747282c0e345ca897465611b312c2ffc746812ded0c02ee0b",
-      "last_updated": "2026-05-31T21:05:44.812727"
+      "hash": "0d3830d47d3f0043bd206a900bde1cfc9db5e20f9f695b385a0bfc850294c842",
+      "last_updated": "2026-06-16T12:43:51.544184"
     },
     "api-reference/trading/private-get_user_trades_by_instrument.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_user_trades_by_instrument.md",
-      "hash": "79bf2a16753a3e796fd6e98beea4a84a4655c87a756edbbbae7d40bbdefd5b94",
-      "last_updated": "2026-05-31T21:05:45.474311"
+      "hash": "dbadedd6f87850c259cc2c70858c872aa5becb3976cb32a148ef5b73d74f67d8",
+      "last_updated": "2026-06-16T12:43:52.194815"
     },
     "api-reference/trading/private-get_user_trades_by_instrument_and_time.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_user_trades_by_instrument_and_time.md",
-      "hash": "464831f68027a3dd2f76e18e1d3b9466e3120bfdbcb1e72b1541a602919f8857",
-      "last_updated": "2026-05-31T21:05:46.145346"
+      "hash": "20a31ab2b81dd6b4be24a388c2d771c97549bf60042a5eaf5f22be7af3ff545f",
+      "last_updated": "2026-06-16T12:43:52.916114"
     },
     "api-reference/trading/private-get_user_trades_by_order.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_user_trades_by_order.md",
-      "hash": "1f673ef026902df61ee777924fe41f4e2190b27bc64d39f6e51b4a1dfd8a0b00",
-      "last_updated": "2026-05-31T21:05:46.983476"
+      "hash": "8b3604f25ff118193950a57c629cd4e635d160c232c35e41de0fff8dc4840e23",
+      "last_updated": "2026-06-16T12:43:53.605587"
     },
     "api-reference/trading/private-mass_quote.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-mass_quote.md",
-      "hash": "3f1d9f15ab8c7c6d92bd6a1561495b8780a575dc9ccac74ed63d564cec3a8543",
-      "last_updated": "2026-05-31T21:05:47.615150"
+      "hash": "f5d452d7aaffcfcba72b0b611deae8ecc7d77fc83c2244fb4b91aa4bd2651260",
+      "last_updated": "2026-06-16T12:43:54.270608"
     },
     "api-reference/trading/private-move_positions.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-move_positions.md",
@@ -747,18 +752,18 @@
     },
     "api-reference/trading/private-reset_mmp.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-reset_mmp.md",
-      "hash": "21b569840133c7f37b4e4f17d6ab6b5972dcc3b9e9c534a0414e56c41dc59f1a",
-      "last_updated": "2026-05-31T21:05:49.022041"
+      "hash": "eef26e86277d77021fb45423248bbfe6edbbdca61ebf2b340dd6b4e985eec50f",
+      "last_updated": "2026-06-16T12:43:55.564392"
     },
     "api-reference/trading/private-sell.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-sell.md",
-      "hash": "f15fbaa8a864f6362e4b0897de81eb3ae831ba21bfd748b6265ae1aa10dc44b4",
-      "last_updated": "2026-05-31T21:05:49.779980"
+      "hash": "5e233ca6c461a50a0d474e9f6c1114e5e2f3e679360d07e32424500e6bcee81b",
+      "last_updated": "2026-06-16T12:43:56.240431"
     },
     "api-reference/trading/private-set_mmp_config.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-set_mmp_config.md",
-      "hash": "a283fc73203a5f6afad71cc89cb094c8ada60e40fe8905d5d16e1ccb827ab646",
-      "last_updated": "2026-05-31T21:05:50.416625"
+      "hash": "0311502b71ed5b375035d5f63df34728d250780bf23acd4e3021201a3b4aa4b2",
+      "last_updated": "2026-06-16T12:43:56.969922"
     },
     "api-reference/wallet/private-add_to_address_book.md": {
       "source_url": "https://docs.deribit.com/api-reference/wallet/private-add_to_address_book.md",
@@ -952,13 +957,13 @@
     },
     "articles/market-maker-protection.md": {
       "source_url": "https://docs.deribit.com/articles/market-maker-protection.md",
-      "hash": "7cc5bf99586fade37c005f5ba97f2b1c4ae6d9518e4eaff5b89384fc449c6c15",
-      "last_updated": "2026-05-31T21:06:17.318067"
+      "hash": "e4b915f3833bbc73904e3038cbb58cee0658a8c4f643cc9a0b4a409804b78f14",
+      "last_updated": "2026-06-16T12:44:23.534289"
     },
     "articles/mass-quotes-specifications.md": {
       "source_url": "https://docs.deribit.com/articles/mass-quotes-specifications.md",
-      "hash": "88b5f4b95f6d2108dd6ad6d5a5de2d96fbee982104bc8b99b80a9a0ce6d75839",
-      "last_updated": "2026-05-31T21:06:18.009329"
+      "hash": "36f3d7153205766ec1161219eb18488246a055a6d6a8c2012aae38ce5ccbaf1e",
+      "last_updated": "2026-06-16T12:44:24.197797"
     },
     "articles/moving-positions-api.md": {
       "source_url": "https://docs.deribit.com/articles/moving-positions-api.md",
@@ -967,8 +972,8 @@
     },
     "articles/notifications.md": {
       "source_url": "https://docs.deribit.com/articles/notifications.md",
-      "hash": "ed4a94f3e2bd8f0cb82b864ca17d0349aef5dd69d1fe9fa3e0e052f2ae1dad37",
-      "last_updated": "2026-05-31T21:06:19.290541"
+      "hash": "f669d9af14a2af065bc705a88e96e4dd1d94e8c0d3fce392f75d60f38b5901c9",
+      "last_updated": "2026-06-16T12:44:25.485877"
     },
     "articles/order-management-best-practices.md": {
       "source_url": "https://docs.deribit.com/articles/order-management-best-practices.md",
@@ -1217,103 +1222,108 @@
     },
     "subscriptions/block-rfq/block_rfqmakercurrency.md": {
       "source_url": "https://docs.deribit.com/subscriptions/block-rfq/block_rfqmakercurrency.md",
-      "hash": "e8a61364e9acc63a13579d04d6f088add54d316e10ee8c6a692f860a3a63da30",
-      "last_updated": "2026-03-22T18:16:45.020444"
+      "hash": "155d9cbf0cfce4a3c36b815693190394ca4177add9e56da71ee37ece3d080948",
+      "last_updated": "2026-06-16T12:44:59.933466"
     },
     "subscriptions/block-rfq/block_rfqmakerquotescurrency.md": {
       "source_url": "https://docs.deribit.com/subscriptions/block-rfq/block_rfqmakerquotescurrency.md",
-      "hash": "b9c67fd6ce2c108bcf26fd9d7e5b6bf88426d7cf701c7c6a46d9bd2d513d7e3f",
-      "last_updated": "2026-03-22T18:16:45.944660"
+      "hash": "1d9959355df91f63aad6c3026ca4babe549798d5f74734ee25fe1da09d5bdd48",
+      "last_updated": "2026-06-16T12:45:00.620967"
     },
     "subscriptions/block-rfq/block_rfqtakercurrency.md": {
       "source_url": "https://docs.deribit.com/subscriptions/block-rfq/block_rfqtakercurrency.md",
-      "hash": "440b3252249103ed4c92d451b7d77ce0f33d0e4377edc58a2597344ee17d2268",
-      "last_updated": "2026-05-31T21:06:55.264794"
+      "hash": "91eb273f0de8ba248c457b21958daafe4bb06a3b831ef20dbb2b71c20e666e61",
+      "last_updated": "2026-06-16T12:45:01.372367"
     },
     "subscriptions/block-rfq/block_rfqtradescurrency.md": {
       "source_url": "https://docs.deribit.com/subscriptions/block-rfq/block_rfqtradescurrency.md",
-      "hash": "53468c3ee4b7307e540ef15774e4139a1a7eda4c54f4ed8021aad99c23d0935d",
-      "last_updated": "2026-03-22T18:16:47.177967"
+      "hash": "a770eee6f8355a47523d8b67c6f12d61c967d4d543d906a31bfe28c861f4979d",
+      "last_updated": "2026-06-16T12:45:02.057793"
     },
     "subscriptions/block-trade/block_trade_confirmations.md": {
       "source_url": "https://docs.deribit.com/subscriptions/block-trade/block_trade_confirmations.md",
-      "hash": "f5b9d662d65c82ce014b55b286dc19dc60fa66e1553977d883493f8e03e31463",
-      "last_updated": "2026-05-31T21:06:56.661472"
+      "hash": "b9139f10440283a09c48fcb02c669a51b281e9a9123fb8195b6248df09348945",
+      "last_updated": "2026-06-16T12:45:02.814419"
     },
     "subscriptions/block-trade/block_trade_confirmationscurrency.md": {
       "source_url": "https://docs.deribit.com/subscriptions/block-trade/block_trade_confirmationscurrency.md",
-      "hash": "02a779ea8448edc1f2c486b43ea3db34e3b775b6e3b6a7b0b95365eb76fb00d1",
-      "last_updated": "2026-05-31T21:06:57.383630"
+      "hash": "6bea33cdf7513085f530730d9f09beb7c984f903fc32a8343c428992c4bc5b78",
+      "last_updated": "2026-06-16T12:45:03.491530"
     },
     "subscriptions/market-data/charttradesinstrument_nameresolution.md": {
       "source_url": "https://docs.deribit.com/subscriptions/market-data/charttradesinstrument_nameresolution.md",
-      "hash": "4d65ecb649bf58567adbd585b3a3022b93fbddb9e87efc877cc6f083a81b2eb4",
-      "last_updated": "2026-05-31T21:06:58.046871"
+      "hash": "7bdc45a64399aaf9c55326346a7e8b43e88edde002b2992498a134a4c9097169",
+      "last_updated": "2026-06-16T12:45:04.184247"
     },
     "subscriptions/market-data/deribit_price_indexindex_name.md": {
       "source_url": "https://docs.deribit.com/subscriptions/market-data/deribit_price_indexindex_name.md",
-      "hash": "0d9fa64e11c4ac31d01e9ebc26e14066811ff26ca01e32595a56aba127d241a5",
-      "last_updated": "2026-05-31T21:06:58.728589"
+      "hash": "efcd81e4f658b1291cd9ec8d2e6d2de06f2fec293b1111239926d8486ffb342d",
+      "last_updated": "2026-06-16T12:45:04.849678"
     },
     "subscriptions/market-data/deribit_price_rankingindex_name.md": {
       "source_url": "https://docs.deribit.com/subscriptions/market-data/deribit_price_rankingindex_name.md",
-      "hash": "cad4ce22aea757df8410d1260ab1b2851aafa58c4908b304764e48f146a18c9f",
-      "last_updated": "2026-03-22T18:16:50.172255"
+      "hash": "2a640018b6123e8f86916cc0d24541de8c64566c69c2bc28b13b8ef854ec38f1",
+      "last_updated": "2026-06-16T12:45:05.559812"
     },
     "subscriptions/market-data/deribit_price_statisticsindex_name.md": {
       "source_url": "https://docs.deribit.com/subscriptions/market-data/deribit_price_statisticsindex_name.md",
-      "hash": "b91c5af2264bad65afee5c35ab4a8f402cd0b594cadfbb4494039ed12372d198",
-      "last_updated": "2026-05-31T21:07:00.098880"
+      "hash": "58bc7411078ef20606af88b5d8cf2cf26a3cb1c063068e0228abf15d9a095649",
+      "last_updated": "2026-06-16T12:45:06.290112"
     },
     "subscriptions/market-data/deribit_volatility_indexindex_name.md": {
       "source_url": "https://docs.deribit.com/subscriptions/market-data/deribit_volatility_indexindex_name.md",
-      "hash": "2feddbc9b16b2055c918ece41608ef4a9b663e66a1eadabe9596ae3a130c49db",
-      "last_updated": "2026-05-31T21:07:00.806036"
+      "hash": "a667e0eabfabd1b783519129ff5656ea0a73f83a83b7fed1e583aa54268b11f1",
+      "last_updated": "2026-06-16T12:45:07.003643"
     },
     "subscriptions/market-data/estimated_expiration_priceindex_name.md": {
       "source_url": "https://docs.deribit.com/subscriptions/market-data/estimated_expiration_priceindex_name.md",
-      "hash": "635243a38879f4c9c5fd132cef7e4edf1b28ab4c9a1360440c46b154dbc5fd8e",
-      "last_updated": "2026-05-31T21:07:01.695264"
+      "hash": "b13d940cb1d39615ec51ae8db935c66364aa647b8b195ccf95d412224d99f4fe",
+      "last_updated": "2026-06-16T12:45:07.656443"
     },
     "subscriptions/market-data/incremental_tickerinstrument_name.md": {
       "source_url": "https://docs.deribit.com/subscriptions/market-data/incremental_tickerinstrument_name.md",
-      "hash": "a7c8225288da479046bac6b4b5dda32a7bc006dde00c118298aa7663a23636f8",
-      "last_updated": "2026-05-31T21:07:02.386532"
+      "hash": "8662ce62787a5d9d595f1fd94bd88c4a0231a80dee1efb2de2c1736cf5d5f8be",
+      "last_updated": "2026-06-16T12:45:08.339707"
+    },
+    "subscriptions/market-data/instrumentcreationkindcurrency.md": {
+      "source_url": "https://docs.deribit.com/subscriptions/market-data/instrumentcreationkindcurrency.md",
+      "hash": "761cd7eb8d379c9a5656cbf9d1b53069b4daa1d38c247a2da1291d6252b3b378",
+      "last_updated": "2026-06-16T12:45:09.000666"
     },
     "subscriptions/market-data/instrumentstatekindcurrency.md": {
       "source_url": "https://docs.deribit.com/subscriptions/market-data/instrumentstatekindcurrency.md",
-      "hash": "d8211edfda45fc9f3328db54d77f9503c2427aab9b29f721f1445ad15d9204bf",
-      "last_updated": "2026-03-22T18:16:53.116830"
+      "hash": "a315bf5688e1398567a0b33c4a173e1f5dfed0dcf406dd0afabd3c11429117fa",
+      "last_updated": "2026-06-16T12:45:09.633609"
     },
     "subscriptions/market-data/markpriceoptionsindex_name.md": {
       "source_url": "https://docs.deribit.com/subscriptions/market-data/markpriceoptionsindex_name.md",
-      "hash": "65971d0af34fdcb52b4a9fec1dc14abdda9b160b35390034ba77c74adbdadb7a",
-      "last_updated": "2026-03-22T18:16:53.710337"
+      "hash": "217bb6b07627e5d85f4375b846191f2c3fcd229472db2211c0037b3582e98028",
+      "last_updated": "2026-06-16T12:45:10.316049"
     },
     "subscriptions/market-data/perpetualinstrument_nameinterval.md": {
       "source_url": "https://docs.deribit.com/subscriptions/market-data/perpetualinstrument_nameinterval.md",
-      "hash": "7ea901b56e9fcf5a9ce290888425c713d4059878d34df0e6c3aa7593f721c16c",
-      "last_updated": "2026-05-31T21:07:04.407065"
+      "hash": "12f065aec9a847db62f182cfc9370f96f3e754f035d84e86437b7521a18f8212",
+      "last_updated": "2026-06-16T12:45:10.971679"
     },
     "subscriptions/market-data/quoteinstrument_name.md": {
       "source_url": "https://docs.deribit.com/subscriptions/market-data/quoteinstrument_name.md",
-      "hash": "dfa088c17f8e3211b795f49de465fcd1d035d9c67453cbcadaa5bcf41b05cc9a",
-      "last_updated": "2026-05-31T21:07:05.088464"
+      "hash": "9abc8b2e15715d075e8e1b1fc37ea782e7f922332fbdb31d1a403a1dbc731164",
+      "last_updated": "2026-06-16T12:45:11.736336"
     },
     "subscriptions/market-data/tickerinstrument_nameinterval.md": {
       "source_url": "https://docs.deribit.com/subscriptions/market-data/tickerinstrument_nameinterval.md",
-      "hash": "c67531d8c44972a4c29222d9b92cc675f399b1afa8930d736acccf2316ca96ba",
-      "last_updated": "2026-05-31T21:07:05.830891"
+      "hash": "2f81fb2d2ac3d06835dedece0f1b4bfe15ac1ac59f5ba1ca12882edea8bb3189",
+      "last_updated": "2026-06-16T12:45:12.323805"
     },
     "subscriptions/orderbook/bookinstrument_namegroupdepthinterval.md": {
       "source_url": "https://docs.deribit.com/subscriptions/orderbook/bookinstrument_namegroupdepthinterval.md",
-      "hash": "0d15f3c439d500d73542f8e5c8374b9e630cf97815fc1b31479c38b057853c96",
-      "last_updated": "2026-05-31T21:07:06.549244"
+      "hash": "ab88e57797efeffc72297faf44ac22649514a6aa0907dfc069c9682ff7a908b7",
+      "last_updated": "2026-06-16T12:45:13.046279"
     },
     "subscriptions/orderbook/bookinstrument_nameinterval.md": {
       "source_url": "https://docs.deribit.com/subscriptions/orderbook/bookinstrument_nameinterval.md",
-      "hash": "9b98efbdd04d3b6415f744286298599cd82ac44f0c214d887a9615c8e9bdbe48",
-      "last_updated": "2026-05-31T21:07:07.231398"
+      "hash": "35994ac7c3b04573631b108860780e587049250ef204e401710a2493eb8d352b",
+      "last_updated": "2026-06-16T12:45:13.663668"
     },
     "subscriptions/platform/platform_state.md": {
       "source_url": "https://docs.deribit.com/subscriptions/platform/platform_state.md",
@@ -1327,93 +1337,93 @@
     },
     "subscriptions/trades/tradesinstrument_nameinterval.md": {
       "source_url": "https://docs.deribit.com/subscriptions/trades/tradesinstrument_nameinterval.md",
-      "hash": "62078136fb97c6f323dca2453093febcef18c71e61e3ad5139c07a05f355b342",
-      "last_updated": "2026-06-13T11:47:16.126523"
+      "hash": "4250d9de9a9af5bcc62bd73ac4cb6e30d0009aa736a97a586350a0baa59c9751",
+      "last_updated": "2026-06-16T12:45:15.693275"
     },
     "subscriptions/trades/tradeskindcurrencyinterval.md": {
       "source_url": "https://docs.deribit.com/subscriptions/trades/tradeskindcurrencyinterval.md",
-      "hash": "482650567424e0d5144eb0490e0dd72959b83a9204f0eb51d956f4775d20cc11",
-      "last_updated": "2026-06-13T11:47:17.790610"
+      "hash": "418bbe0d657538242b2502b0bae432e9ce1f7581daac0debc1a260bb9ba7c1ef",
+      "last_updated": "2026-06-16T12:45:16.364272"
     },
     "subscriptions/user/useraccess_log.md": {
       "source_url": "https://docs.deribit.com/subscriptions/user/useraccess_log.md",
-      "hash": "b096f38bd6af55410ecf166ac20d1d87739458eb9ad28282ae52b7124672cb01",
-      "last_updated": "2026-05-31T21:07:10.790115"
+      "hash": "e8c4e203f21b49240195e9fc2856a914cf4b4f8175b2c5e984fa8f7162af93b9",
+      "last_updated": "2026-06-16T12:45:17.007761"
     },
     "subscriptions/user/userchangesinstrument_nameinterval.md": {
       "source_url": "https://docs.deribit.com/subscriptions/user/userchangesinstrument_nameinterval.md",
-      "hash": "eb9c9f669e665731ceebcaf82d43965fc9c7d696e0f587ab59d62ab819d8800f",
-      "last_updated": "2026-06-13T11:47:21.336945"
+      "hash": "9809c5e9f1729ac3b4e79fd3c8d1f7f8dd8fd33cafd4b90027c51fad9bf122b7",
+      "last_updated": "2026-06-16T12:45:17.713736"
     },
     "subscriptions/user/userchangeskindcurrencyinterval.md": {
       "source_url": "https://docs.deribit.com/subscriptions/user/userchangeskindcurrencyinterval.md",
-      "hash": "7a49ca8d476d5f10f71791ffdf1cbc28364dfcf1782cb6034280e34f5e42594a",
-      "last_updated": "2026-06-13T11:47:22.961183"
+      "hash": "d9da8fc59d48fb6e5bf45be65c60b401b871e41724d08a7b1ca5b074289fbba0",
+      "last_updated": "2026-06-16T12:45:18.439372"
     },
     "subscriptions/user/usercombo_tradesinstrument_nameinterval.md": {
       "source_url": "https://docs.deribit.com/subscriptions/user/usercombo_tradesinstrument_nameinterval.md",
-      "hash": "983398e64da7d5bae576c48d62a3878005fc0e0668ef55c6045b8d72777e9e24",
-      "last_updated": "2026-06-13T11:47:24.612033"
+      "hash": "168100adcd34e18592c297316d8ff7f6f92d5094aefa24783ae5a1101de24553",
+      "last_updated": "2026-06-16T12:45:19.116144"
     },
     "subscriptions/user/usercombo_tradeskindcurrencyinterval.md": {
       "source_url": "https://docs.deribit.com/subscriptions/user/usercombo_tradeskindcurrencyinterval.md",
-      "hash": "d45ff6df8547b96b658b20e6cbe9600d45a198258715c2dd68d26871791d3c68",
-      "last_updated": "2026-06-13T11:47:26.418550"
+      "hash": "0cbfd9a826ba466a4e171a671d2c16ce4bd1448d42b8cde089c6e9046336ec3a",
+      "last_updated": "2026-06-16T12:45:19.839273"
     },
     "subscriptions/user/userlock.md": {
       "source_url": "https://docs.deribit.com/subscriptions/user/userlock.md",
-      "hash": "4ed3018076dc812e86be28512646562383135800e4fe6f4efe3ccd2559323f02",
-      "last_updated": "2026-05-31T21:07:14.353537"
+      "hash": "768be788096e63ec9dcbd0d9e2355b46eca2795391f9d7f1786701a88d98c1d9",
+      "last_updated": "2026-06-16T12:45:20.535728"
     },
     "subscriptions/user/usermmp_triggerindex_name.md": {
       "source_url": "https://docs.deribit.com/subscriptions/user/usermmp_triggerindex_name.md",
-      "hash": "7dc14febd787b055375c1c40561ae1275b854f6ee9624074c311540216ab2630",
-      "last_updated": "2026-05-31T21:07:15.051232"
+      "hash": "b5d40f93bc27e8b6d5acc461991a2055d2229981c95bd1202d5cd8a9df0003a1",
+      "last_updated": "2026-06-16T12:45:21.209249"
     },
     "subscriptions/user/userordersinstrument_nameinterval.md": {
       "source_url": "https://docs.deribit.com/subscriptions/user/userordersinstrument_nameinterval.md",
-      "hash": "cbc87859ef2cab648834b08ed81749dbfdd3730391883aac71b8199074434114",
-      "last_updated": "2026-05-31T21:07:15.755183"
+      "hash": "24f3d20db5a6f2d7bbdf940736c8561497a65db38f2a1e15232c287dd2cf636c",
+      "last_updated": "2026-06-16T12:45:21.871509"
     },
     "subscriptions/user/userordersinstrument_nameraw.md": {
       "source_url": "https://docs.deribit.com/subscriptions/user/userordersinstrument_nameraw.md",
-      "hash": "688891a68092a65a612d35b1907844858378cbfedef9acbb436c38cbd43a6c92",
-      "last_updated": "2026-05-31T21:07:16.442505"
+      "hash": "178a34f9389bc8206e231e90f4ac165bd9bc8d2408ee52230f92cb4f99e220c2",
+      "last_updated": "2026-06-16T12:45:22.583505"
     },
     "subscriptions/user/userorderskindcurrencyinterval.md": {
       "source_url": "https://docs.deribit.com/subscriptions/user/userorderskindcurrencyinterval.md",
-      "hash": "973c372c488499bd7f922d9ae5d2531e011ad4c26273e348666a781c29ce236f",
-      "last_updated": "2026-05-31T21:07:17.080881"
+      "hash": "5916bacccc71e0363adb52db6155f8937cfcf36972794f498932efabbf86859a",
+      "last_updated": "2026-06-16T12:45:23.238332"
     },
     "subscriptions/user/userorderskindcurrencyraw.md": {
       "source_url": "https://docs.deribit.com/subscriptions/user/userorderskindcurrencyraw.md",
-      "hash": "8a5d5ab610bff343badeb0d66701f6674dd89feab956008652365d2efc2a8847",
-      "last_updated": "2026-05-31T21:07:17.787384"
+      "hash": "3ac1e08a87f7e4de2f8a4193f81d11d075c984174206aed893198690b0df3a84",
+      "last_updated": "2026-06-16T12:45:23.921731"
     },
     "subscriptions/user/userportfoliocurrency.md": {
       "source_url": "https://docs.deribit.com/subscriptions/user/userportfoliocurrency.md",
-      "hash": "d91c033dd24c86f9d9b70469d0990df530ef57366b76ff3d9869a496187eb685",
-      "last_updated": "2026-05-31T21:07:18.516578"
+      "hash": "aed3ce2eb115b9a0ad84217eea50e9db15b7849198a5936880dbca12447f1def",
+      "last_updated": "2026-06-16T12:45:24.699863"
     },
     "subscriptions/user/usertradesinstrument_nameinterval.md": {
       "source_url": "https://docs.deribit.com/subscriptions/user/usertradesinstrument_nameinterval.md",
-      "hash": "07242216bdfb529c957454861891163f0c4815f090b2a5e09ce93a2f88c5ca03",
-      "last_updated": "2026-06-13T11:47:40.241059"
+      "hash": "0aca9c127b9c6c28b1e1edce84ca28c83ee5903ae33b82c70e0f59f82754ba96",
+      "last_updated": "2026-06-16T12:45:25.416910"
     },
     "subscriptions/user/usertradeskindcurrencyinterval.md": {
       "source_url": "https://docs.deribit.com/subscriptions/user/usertradeskindcurrencyinterval.md",
-      "hash": "7672f4a5d1aeb8631b63f67abb4fc822a661a8819f9a845d318cc3c7a26acd65",
-      "last_updated": "2026-06-13T11:47:41.918110"
+      "hash": "103445f6b00b256da351a66d008b557cd4382f035ffdcca386a24e3cab5895d7",
+      "last_updated": "2026-06-16T12:45:26.261359"
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-06-15T13:15:10.615086",
-    "duration_seconds": 351.338305,
-    "pages_total": 281,
-    "pages_fetched": 281,
+    "completed_at": "2026-06-16T12:45:26.262247",
+    "duration_seconds": 195.941594,
+    "pages_total": 283,
+    "pages_fetched": 283,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-06-15T13:15:10.615101",
+  "last_updated": "2026-06-16T12:45:26.262265",
   "source": "https://docs.deribit.com"
 }

@@ -201,31 +201,31 @@ operations:
                 id:
                   type: integer
                   description: ID of the Block RFQ
-                  x-parser-schema-id: <anonymous-schema-1197>
+                  x-parser-schema-id: <anonymous-schema-1205>
                 timestamp:
                   description: >-
                     The timestamp of the trade (milliseconds since the UNIX
                     epoch)
                   example: 1517329113791
                   type: integer
-                  x-parser-schema-id: <anonymous-schema-1198>
+                  x-parser-schema-id: <anonymous-schema-1206>
                 direction:
                   description: Trade direction of the taker
                   type: string
                   enum:
                     - buy
                     - sell
-                  x-parser-schema-id: <anonymous-schema-1199>
+                  x-parser-schema-id: <anonymous-schema-1207>
                 amount:
                   description: >-
                     This value multiplied by the ratio of a leg gives trade size
                     on that leg.
                   type: number
-                  x-parser-schema-id: <anonymous-schema-1200>
+                  x-parser-schema-id: <anonymous-schema-1208>
                 mark_price:
                   description: Mark Price at the moment of trade
                   type: number
-                  x-parser-schema-id: <anonymous-schema-1201>
+                  x-parser-schema-id: <anonymous-schema-1209>
                 legs:
                   type: object
                   description: ''
@@ -233,31 +233,31 @@ operations:
                     ratio:
                       description: Ratio of amount between legs
                       type: integer
-                      x-parser-schema-id: <anonymous-schema-1203>
+                      x-parser-schema-id: <anonymous-schema-1211>
                     instrument_name:
                       type: string
                       description: Unique instrument identifier
                       example: BTC-PERPETUAL
-                      x-parser-schema-id: <anonymous-schema-1204>
+                      x-parser-schema-id: <anonymous-schema-1212>
                     direction:
                       type: string
                       description: 'Direction: `buy`, or `sell`'
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-1205>
+                      x-parser-schema-id: <anonymous-schema-1213>
                     price:
                       description: Price for a leg
                       type: number
-                      x-parser-schema-id: <anonymous-schema-1206>
+                      x-parser-schema-id: <anonymous-schema-1214>
                   required: []
                   additionalProperties: false
-                  x-parser-schema-id: <anonymous-schema-1202>
+                  x-parser-schema-id: <anonymous-schema-1210>
                 combo_id:
                   type: string
                   description: Unique combo identifier
                   example: BTC-FS-31DEC21-PERP
-                  x-parser-schema-id: <anonymous-schema-1207>
+                  x-parser-schema-id: <anonymous-schema-1215>
                 hedge:
                   type: object
                   properties:
@@ -268,24 +268,24 @@ operations:
                         units. For options and linear futures it is the
                         underlying base currency coin.
                       type: integer
-                      x-parser-schema-id: <anonymous-schema-1209>
+                      x-parser-schema-id: <anonymous-schema-1217>
                     instrument_name:
                       type: string
                       description: Unique instrument identifier
                       example: BTC-PERPETUAL
-                      x-parser-schema-id: <anonymous-schema-1210>
+                      x-parser-schema-id: <anonymous-schema-1218>
                     direction:
                       type: string
                       description: 'Direction: `buy`, or `sell`'
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-1211>
+                      x-parser-schema-id: <anonymous-schema-1219>
                     price:
                       description: Price for a hedge leg
                       type: number
-                      x-parser-schema-id: <anonymous-schema-1212>
-                  x-parser-schema-id: <anonymous-schema-1208>
+                      x-parser-schema-id: <anonymous-schema-1220>
+                  x-parser-schema-id: <anonymous-schema-1216>
                 trades:
                   type: object
                   description: ''
@@ -296,11 +296,11 @@ operations:
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-1214>
+                      x-parser-schema-id: <anonymous-schema-1222>
                     price:
                       description: Price in base currency
                       type: number
-                      x-parser-schema-id: <anonymous-schema-1215>
+                      x-parser-schema-id: <anonymous-schema-1223>
                     amount:
                       description: >-
                         Trade amount. For options, linear futures, linear
@@ -308,7 +308,7 @@ operations:
                         underlying base currency coin. The inverse perpetuals
                         and inverse futures are denominated in USD units.
                       type: number
-                      x-parser-schema-id: <anonymous-schema-1216>
+                      x-parser-schema-id: <anonymous-schema-1224>
                     hedge_amount:
                       type: number
                       description: >-
@@ -316,17 +316,17 @@ operations:
                         perpetuals and spots the amount is denominated in the
                         underlying base currency coin. The inverse perpetuals
                         and inverse futures are denominated in USD units.
-                      x-parser-schema-id: <anonymous-schema-1217>
+                      x-parser-schema-id: <anonymous-schema-1225>
                   required: []
                   additionalProperties: false
-                  x-parser-schema-id: <anonymous-schema-1213>
+                  x-parser-schema-id: <anonymous-schema-1221>
               required: []
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-1196>
+              x-parser-schema-id: <anonymous-schema-1204>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-1195>
+          x-parser-schema-id: <anonymous-schema-1203>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -385,7 +385,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-1194>
+          x-parser-schema-id: <anonymous-schema-1202>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

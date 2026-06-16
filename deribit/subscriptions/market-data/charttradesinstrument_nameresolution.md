@@ -142,31 +142,31 @@ operations:
                   type: integer
                   example: 1536569522277
                   description: The timestamp (milliseconds since the Unix epoch)
-                  x-parser-schema-id: <anonymous-schema-292>
+                  x-parser-schema-id: <anonymous-schema-295>
                 volume:
                   type: number
                   description: Volume data for the candle
-                  x-parser-schema-id: <anonymous-schema-293>
+                  x-parser-schema-id: <anonymous-schema-296>
                 cost:
                   type: number
                   description: Cost data for the candle
-                  x-parser-schema-id: <anonymous-schema-294>
+                  x-parser-schema-id: <anonymous-schema-297>
                 open:
                   type: number
                   description: The open price for the candle'
-                  x-parser-schema-id: <anonymous-schema-295>
+                  x-parser-schema-id: <anonymous-schema-298>
                 close:
                   type: number
                   description: The close price for the candle
-                  x-parser-schema-id: <anonymous-schema-296>
+                  x-parser-schema-id: <anonymous-schema-299>
                 high:
                   type: number
                   description: The highest price level for the candle
-                  x-parser-schema-id: <anonymous-schema-297>
+                  x-parser-schema-id: <anonymous-schema-300>
                 low:
                   type: number
                   description: The lowest price level for the candle
-                  x-parser-schema-id: <anonymous-schema-298>
+                  x-parser-schema-id: <anonymous-schema-301>
               required:
                 - tick
                 - volume
@@ -176,11 +176,11 @@ operations:
                 - high
                 - low
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-291>
+              x-parser-schema-id: <anonymous-schema-294>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-290>
+          x-parser-schema-id: <anonymous-schema-293>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -225,7 +225,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-289>
+          x-parser-schema-id: <anonymous-schema-292>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

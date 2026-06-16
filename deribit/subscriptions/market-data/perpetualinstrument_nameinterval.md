@@ -104,27 +104,27 @@ operations:
                 interest:
                   type: number
                   description: Current interest
-                  x-parser-schema-id: <anonymous-schema-138>
+                  x-parser-schema-id: <anonymous-schema-141>
                 timestamp:
                   type: integer
                   example: 1536569522277
                   description: The timestamp (milliseconds since the Unix epoch)
-                  x-parser-schema-id: <anonymous-schema-139>
+                  x-parser-schema-id: <anonymous-schema-142>
                 index_price:
                   description: Current index price
                   type: number
                   example: 8247.27
-                  x-parser-schema-id: <anonymous-schema-140>
+                  x-parser-schema-id: <anonymous-schema-143>
               required:
                 - interest
                 - timestamp
                 - index_price
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-137>
+              x-parser-schema-id: <anonymous-schema-140>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-136>
+          x-parser-schema-id: <anonymous-schema-139>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -165,7 +165,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-135>
+          x-parser-schema-id: <anonymous-schema-138>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

@@ -22,6 +22,8 @@ Makers can subscribe to specific currencies (BTC, ETH, USDC, USDT) or use `any` 
 
 **Scope required:** `block_rfq:read`
 
+**Trade cross-posting:** When a Block RFQ is filled, the resulting trades are also delivered through the `user.trades.{instrument_name}.{interval}` and `user.trades.{kind}.{currency}.{interval}` channels. Those notifications include `block_rfq_id`, `block_trade_id`, and — for the maker side — `block_rfq_quote_id`.
+
 **📖 Related Article:** [Deribit Block RFQ API walkthrough](https://docs.deribit.com/articles/block-rfq-api-walkthrough)
 
 
@@ -76,6 +78,13 @@ description: >
 
 
   **Scope required:** `block_rfq:read`
+
+
+  **Trade cross-posting:** When a Block RFQ is filled, the resulting trades are
+  also delivered through the `user.trades.{instrument_name}.{interval}` and
+  `user.trades.{kind}.{currency}.{interval}` channels. Those notifications
+  include `block_rfq_id`, `block_trade_id`, and — for the maker side —
+  `block_rfq_quote_id`.
 
 
   **📖 Related Article:** [Deribit Block RFQ API
@@ -301,25 +310,25 @@ operations:
                     the Unix epoch)
                   type: integer
                   example: 1536569522277
-                  x-parser-schema-id: <anonymous-schema-1071>
+                  x-parser-schema-id: <anonymous-schema-1079>
                 expiration_timestamp:
                   type: integer
                   example: 1536569522277
                   description: >-
                     The timestamp when the Block RFQ will expire (milliseconds
                     since the UNIX epoch)
-                  x-parser-schema-id: <anonymous-schema-1072>
+                  x-parser-schema-id: <anonymous-schema-1080>
                 block_rfq_id:
                   type: integer
                   description: ID of the Block RFQ
-                  x-parser-schema-id: <anonymous-schema-1073>
+                  x-parser-schema-id: <anonymous-schema-1081>
                 role:
                   description: Role of the user in Block RFQ
                   type: string
                   enum:
                     - taker
                     - maker
-                  x-parser-schema-id: <anonymous-schema-1074>
+                  x-parser-schema-id: <anonymous-schema-1082>
                 state:
                   description: State of the Block RFQ
                   type: string
@@ -328,21 +337,21 @@ operations:
                     - filled
                     - cancelled
                     - expired
-                  x-parser-schema-id: <anonymous-schema-1075>
+                  x-parser-schema-id: <anonymous-schema-1083>
                 taker_rating:
                   description: Rating of the taker
                   type: string
-                  x-parser-schema-id: <anonymous-schema-1076>
+                  x-parser-schema-id: <anonymous-schema-1084>
                 amount:
                   description: >-
                     This value multiplied by the ratio of a leg gives trade size
                     on that leg.
                   type: number
-                  x-parser-schema-id: <anonymous-schema-1077>
+                  x-parser-schema-id: <anonymous-schema-1085>
                 min_trade_amount:
                   description: Minimum amount for trading
                   type: number
-                  x-parser-schema-id: <anonymous-schema-1078>
+                  x-parser-schema-id: <anonymous-schema-1086>
                 legs:
                   type: object
                   description: ''
@@ -350,22 +359,22 @@ operations:
                     ratio:
                       description: Ratio of amount between legs
                       type: integer
-                      x-parser-schema-id: <anonymous-schema-1080>
+                      x-parser-schema-id: <anonymous-schema-1088>
                     instrument_name:
                       type: string
                       description: Unique instrument identifier
                       example: BTC-PERPETUAL
-                      x-parser-schema-id: <anonymous-schema-1081>
+                      x-parser-schema-id: <anonymous-schema-1089>
                     direction:
                       type: string
                       description: 'Direction: `buy`, or `sell`'
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-1082>
+                      x-parser-schema-id: <anonymous-schema-1090>
                   required: []
                   additionalProperties: false
-                  x-parser-schema-id: <anonymous-schema-1079>
+                  x-parser-schema-id: <anonymous-schema-1087>
                 hedge:
                   type: object
                   properties:
@@ -376,54 +385,54 @@ operations:
                         units. For options and linear futures it is the
                         underlying base currency coin.
                       type: integer
-                      x-parser-schema-id: <anonymous-schema-1084>
+                      x-parser-schema-id: <anonymous-schema-1092>
                     instrument_name:
                       type: string
                       description: Unique instrument identifier
                       example: BTC-PERPETUAL
-                      x-parser-schema-id: <anonymous-schema-1085>
+                      x-parser-schema-id: <anonymous-schema-1093>
                     direction:
                       type: string
                       description: 'Direction: `buy`, or `sell`'
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-1086>
+                      x-parser-schema-id: <anonymous-schema-1094>
                     price:
                       description: Price for a hedge leg
                       type: number
-                      x-parser-schema-id: <anonymous-schema-1087>
-                  x-parser-schema-id: <anonymous-schema-1083>
+                      x-parser-schema-id: <anonymous-schema-1095>
+                  x-parser-schema-id: <anonymous-schema-1091>
                 combo_id:
                   type: string
                   description: Unique combo identifier
                   example: BTC-FS-31DEC21-PERP
-                  x-parser-schema-id: <anonymous-schema-1088>
+                  x-parser-schema-id: <anonymous-schema-1096>
                 disclosed:
                   description: >-
                     Indicates whether the RFQ was created as non-anonymous,
                     meaning taker and maker aliases are visible to
                     counterparties.
                   type: boolean
-                  x-parser-schema-id: <anonymous-schema-1089>
+                  x-parser-schema-id: <anonymous-schema-1097>
                 taker:
                   description: Taker alias. Present only when `disclosed` is `true`.
                   type: string
                   example: TAKER1
-                  x-parser-schema-id: <anonymous-schema-1090>
+                  x-parser-schema-id: <anonymous-schema-1098>
                 index_prices:
                   type: object
                   description: ''
                   properties: {}
                   additionalProperties: true
-                  x-parser-schema-id: <anonymous-schema-1091>
+                  x-parser-schema-id: <anonymous-schema-1099>
                 included_in_taker_rating:
                   description: >-
                     Indicates whether the RFQ is included in the taker's rating
                     calculation. Present only for closed RFQs created by the
                     requesting taker.
                   type: boolean
-                  x-parser-schema-id: <anonymous-schema-1092>
+                  x-parser-schema-id: <anonymous-schema-1100>
                 trades:
                   type: object
                   description: ''
@@ -434,11 +443,11 @@ operations:
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-1094>
+                      x-parser-schema-id: <anonymous-schema-1102>
                     price:
                       description: Price in base currency
                       type: number
-                      x-parser-schema-id: <anonymous-schema-1095>
+                      x-parser-schema-id: <anonymous-schema-1103>
                     amount:
                       description: >-
                         Trade amount. For options, linear futures, linear
@@ -446,11 +455,11 @@ operations:
                         underlying base currency coin. The inverse perpetuals
                         and inverse futures are denominated in USD units.
                       type: number
-                      x-parser-schema-id: <anonymous-schema-1096>
+                      x-parser-schema-id: <anonymous-schema-1104>
                     maker:
                       type: string
                       description: Alias of the maker (optional)
-                      x-parser-schema-id: <anonymous-schema-1097>
+                      x-parser-schema-id: <anonymous-schema-1105>
                     hedge_amount:
                       type: number
                       description: >-
@@ -458,17 +467,17 @@ operations:
                         perpetuals and spots the amount is denominated in the
                         underlying base currency coin. The inverse perpetuals
                         and inverse futures are denominated in USD units.
-                      x-parser-schema-id: <anonymous-schema-1098>
+                      x-parser-schema-id: <anonymous-schema-1106>
                   required: []
                   additionalProperties: false
-                  x-parser-schema-id: <anonymous-schema-1093>
+                  x-parser-schema-id: <anonymous-schema-1101>
               required: []
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-1070>
+              x-parser-schema-id: <anonymous-schema-1078>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-1069>
+          x-parser-schema-id: <anonymous-schema-1077>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -523,7 +532,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-1068>
+          x-parser-schema-id: <anonymous-schema-1076>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

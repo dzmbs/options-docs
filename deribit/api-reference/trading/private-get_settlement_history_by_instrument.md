@@ -215,7 +215,12 @@ components:
         profit_loss:
           example: 0
           type: number
-          description: profit and loss (in base currency; settlement and delivery only)
+          description: >-
+            Platform-wide aggregate realized profit and loss for this settlement
+            event, in base currency. This is the sum of the realized P&L of
+            every position holder at the settlement or delivery price — it is
+            **not** a per-account value. Present for `settlement` and `delivery`
+            types only.
         session_bankruptcy:
           example: 0.001160788
           type: number
@@ -223,7 +228,12 @@ components:
         session_profit_loss:
           example: 0.001160788
           type: number
-          description: total value of session profit and losses (in base currency)
+          description: >-
+            Platform-wide aggregate total session profit and loss for this
+            settlement event, in base currency. This is the sum of each position
+            holder's session P&L (combining realized and unrealized components)
+            across all users who held positions in the instrument — it is
+            **not** a per-account value.
         session_tax:
           example: -0.001160788
           type: number

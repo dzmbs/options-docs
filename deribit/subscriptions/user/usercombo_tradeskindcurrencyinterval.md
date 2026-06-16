@@ -8,6 +8,8 @@
 
 Trades include a `legs` field describing the underlying legs. The `interval` controls aggregation frequency.
 
+**Block RFQ trades:** Block RFQ does not support combo instruments. RFQ-executed trades do not appear in this channel.
+
 
 
 
@@ -23,6 +25,10 @@ description: >
 
   Trades include a `legs` field describing the underlying legs. The `interval`
   controls aggregation frequency.
+
+
+  **Block RFQ trades:** Block RFQ does not support combo instruments.
+  RFQ-executed trades do not appear in this channel.
 servers:
   - id: production
     protocol: wss
@@ -408,23 +414,23 @@ operations:
                 trade_id:
                   type: string
                   description: Unique (per currency) trade identifier
-                  x-parser-schema-id: <anonymous-schema-510>
+                  x-parser-schema-id: <anonymous-schema-513>
                 trade_seq:
                   description: The sequence number of the trade within instrument
                   type: integer
-                  x-parser-schema-id: <anonymous-schema-511>
+                  x-parser-schema-id: <anonymous-schema-514>
                 instrument_name:
                   type: string
                   description: Unique instrument identifier
                   example: BTC-PERPETUAL
-                  x-parser-schema-id: <anonymous-schema-512>
+                  x-parser-schema-id: <anonymous-schema-515>
                 timestamp:
                   description: >-
                     The timestamp of the trade (milliseconds since the UNIX
                     epoch)
                   example: 1517329113791
                   type: integer
-                  x-parser-schema-id: <anonymous-schema-513>
+                  x-parser-schema-id: <anonymous-schema-516>
                 order_type:
                   type: string
                   description: 'Order type: `"limit`, `"market"`, or `"liquidation"`'
@@ -432,7 +438,7 @@ operations:
                     - limit
                     - market
                     - liquidation
-                  x-parser-schema-id: <anonymous-schema-514>
+                  x-parser-schema-id: <anonymous-schema-517>
                 advanced:
                   type: string
                   description: >-
@@ -441,24 +447,24 @@ operations:
                   enum:
                     - usd
                     - implv
-                  x-parser-schema-id: <anonymous-schema-515>
+                  x-parser-schema-id: <anonymous-schema-518>
                 order_id:
                   type: string
                   description: >-
                     Id of the user order (maker or taker), i.e. subscriber's
                     order id that took part in the trade
-                  x-parser-schema-id: <anonymous-schema-516>
+                  x-parser-schema-id: <anonymous-schema-519>
                 matching_id:
                   type: string
                   description: Always `null`
-                  x-parser-schema-id: <anonymous-schema-517>
+                  x-parser-schema-id: <anonymous-schema-520>
                 direction:
                   type: string
                   description: 'Direction: `buy`, or `sell`'
                   enum:
                     - buy
                     - sell
-                  x-parser-schema-id: <anonymous-schema-518>
+                  x-parser-schema-id: <anonymous-schema-521>
                 tick_direction:
                   type: integer
                   enum:
@@ -469,38 +475,38 @@ operations:
                   description: >-
                     Direction of the "tick" (`0` = Plus Tick, `1` = Zero-Plus
                     Tick, `2` = Minus Tick, `3` = Zero-Minus Tick).
-                  x-parser-schema-id: <anonymous-schema-519>
+                  x-parser-schema-id: <anonymous-schema-522>
                 index_price:
                   type: number
                   description: Index Price at the moment of trade
-                  x-parser-schema-id: <anonymous-schema-520>
+                  x-parser-schema-id: <anonymous-schema-523>
                 price:
                   description: Price in base currency
                   type: number
-                  x-parser-schema-id: <anonymous-schema-521>
+                  x-parser-schema-id: <anonymous-schema-524>
                 amount:
                   type: number
                   description: >-
                     Trade amount. For perpetual and inverse futures the amount
                     is in USD units. For options and linear futures it is the
                     underlying base currency coin.
-                  x-parser-schema-id: <anonymous-schema-522>
+                  x-parser-schema-id: <anonymous-schema-525>
                 contracts:
                   type: number
                   description: >-
                     Trade size in contract units (optional, may be absent in
                     historical trades)
-                  x-parser-schema-id: <anonymous-schema-523>
+                  x-parser-schema-id: <anonymous-schema-526>
                 iv:
                   type: number
                   description: Option implied volatility for the price (Option only)
-                  x-parser-schema-id: <anonymous-schema-524>
+                  x-parser-schema-id: <anonymous-schema-527>
                 underlying_price:
                   type: number
                   description: >-
                     Underlying price for implied volatility calculations
                     (Options only)
-                  x-parser-schema-id: <anonymous-schema-525>
+                  x-parser-schema-id: <anonymous-schema-528>
                 liquidation:
                   type: string
                   description: >-
@@ -512,7 +518,7 @@ operations:
                     - M
                     - T
                     - MT
-                  x-parser-schema-id: <anonymous-schema-526>
+                  x-parser-schema-id: <anonymous-schema-529>
                 liquidity:
                   type: string
                   description: >-
@@ -521,11 +527,11 @@ operations:
                   enum:
                     - M
                     - T
-                  x-parser-schema-id: <anonymous-schema-527>
+                  x-parser-schema-id: <anonymous-schema-530>
                 fee:
                   type: number
                   description: User's fee in units of the specified `fee_currency`
-                  x-parser-schema-id: <anonymous-schema-528>
+                  x-parser-schema-id: <anonymous-schema-531>
                 fee_currency:
                   type: string
                   description: Currency, i.e `"BTC"`, `"ETH"`, `"USDC"`
@@ -535,13 +541,13 @@ operations:
                     - USDC
                     - USDT
                     - EURR
-                  x-parser-schema-id: <anonymous-schema-529>
+                  x-parser-schema-id: <anonymous-schema-532>
                 label:
                   type: string
                   description: >-
                     User defined label (presented only when previously set for
                     order by user)
-                  x-parser-schema-id: <anonymous-schema-530>
+                  x-parser-schema-id: <anonymous-schema-533>
                 state:
                   type: string
                   description: >-
@@ -555,83 +561,83 @@ operations:
                     - cancelled
                     - untriggered
                     - archive
-                  x-parser-schema-id: <anonymous-schema-531>
+                  x-parser-schema-id: <anonymous-schema-534>
                 block_trade_id:
                   description: Block trade id - when trade was part of a block trade
                   type: string
                   example: '154'
-                  x-parser-schema-id: <anonymous-schema-532>
+                  x-parser-schema-id: <anonymous-schema-535>
                 block_rfq_id:
                   type: integer
                   description: ID of the Block RFQ - when trade was part of the Block RFQ
-                  x-parser-schema-id: <anonymous-schema-533>
+                  x-parser-schema-id: <anonymous-schema-536>
                 block_rfq_quote_id:
                   type: integer
                   description: >-
                     ID of the Block RFQ quote - when trade was part of the Block
                     RFQ
-                  x-parser-schema-id: <anonymous-schema-534>
+                  x-parser-schema-id: <anonymous-schema-537>
                 reduce_only:
                   type: string
                   description: '`true` if user order is reduce-only'
-                  x-parser-schema-id: <anonymous-schema-535>
+                  x-parser-schema-id: <anonymous-schema-538>
                 post_only:
                   type: string
                   description: '`true` if user order is post-only'
-                  x-parser-schema-id: <anonymous-schema-536>
+                  x-parser-schema-id: <anonymous-schema-539>
                 mmp:
                   type: boolean
                   description: '`true` if user order is MMP'
-                  x-parser-schema-id: <anonymous-schema-537>
+                  x-parser-schema-id: <anonymous-schema-540>
                 risk_reducing:
                   type: boolean
                   description: >-
                     `true` if user order is marked by the platform as a risk
                     reducing order (can apply only to orders placed by PM users)
-                  x-parser-schema-id: <anonymous-schema-538>
+                  x-parser-schema-id: <anonymous-schema-541>
                 api:
                   type: boolean
                   description: '`true` if user order was created with API'
-                  x-parser-schema-id: <anonymous-schema-539>
+                  x-parser-schema-id: <anonymous-schema-542>
                 profit_loss:
                   type: number
                   description: Profit and loss in base currency.
-                  x-parser-schema-id: <anonymous-schema-540>
+                  x-parser-schema-id: <anonymous-schema-543>
                 mark_price:
                   type: number
                   description: Mark Price at the moment of trade
-                  x-parser-schema-id: <anonymous-schema-541>
+                  x-parser-schema-id: <anonymous-schema-544>
                 legs:
                   type: array
                   description: >-
                     Optional field containing leg trades if trade is a combo
                     trade (present when querying for **only** combo trades and
                     in `combo_trades` events)
-                  x-parser-schema-id: <anonymous-schema-542>
+                  x-parser-schema-id: <anonymous-schema-545>
                 combo_id:
                   type: string
                   description: >-
                     Optional field containing combo instrument name if the trade
                     is a combo trade
-                  x-parser-schema-id: <anonymous-schema-543>
+                  x-parser-schema-id: <anonymous-schema-546>
                 combo_trade_id:
                   type: string
                   description: >-
                     Optional field containing combo trade identifier if the
                     trade is a combo trade
-                  x-parser-schema-id: <anonymous-schema-544>
+                  x-parser-schema-id: <anonymous-schema-547>
                 quote_set_id:
                   type: string
                   description: >-
                     QuoteSet of the user order (optional, present only for
                     orders placed with `private/mass_quote`)
-                  x-parser-schema-id: <anonymous-schema-545>
+                  x-parser-schema-id: <anonymous-schema-548>
                 quote_id:
                   type: string
                   description: >-
                     QuoteID of the user order (optional, present only for orders
                     placed with `private/mass_quote`)
-                  x-parser-schema-id: <anonymous-schema-546>
+                  x-parser-schema-id: <anonymous-schema-549>
                 trade_allocations:
                   type: object
                   description: >-
@@ -645,15 +651,15 @@ operations:
                         User ID to which part of the trade is allocated. For
                         brokers the User ID is obstructed.
                       type: integer
-                      x-parser-schema-id: <anonymous-schema-548>
+                      x-parser-schema-id: <anonymous-schema-551>
                     amount:
                       description: Amount allocated to this user.
                       type: number
-                      x-parser-schema-id: <anonymous-schema-549>
+                      x-parser-schema-id: <anonymous-schema-552>
                     fee:
                       description: Fee for the allocated part of the trade.
                       type: number
-                      x-parser-schema-id: <anonymous-schema-550>
+                      x-parser-schema-id: <anonymous-schema-553>
                     client_info:
                       description: Optional client allocation info for brokers.
                       type: object
@@ -663,25 +669,25 @@ operations:
                             ID of a client; available to broker. Represents a
                             group of users under a common name.
                           type: integer
-                          x-parser-schema-id: <anonymous-schema-552>
+                          x-parser-schema-id: <anonymous-schema-555>
                         client_link_id:
                           description: >-
                             ID assigned to a single user in a client; available
                             to broker.
                           type: integer
-                          x-parser-schema-id: <anonymous-schema-553>
+                          x-parser-schema-id: <anonymous-schema-556>
                         name:
                           description: >-
                             Name of the linked user within the client; available
                             to broker.
                           type: string
-                          x-parser-schema-id: <anonymous-schema-554>
-                      x-parser-schema-id: <anonymous-schema-551>
+                          x-parser-schema-id: <anonymous-schema-557>
+                      x-parser-schema-id: <anonymous-schema-554>
                   required:
                     - amount
                     - fee
                   additionalProperties: false
-                  x-parser-schema-id: <anonymous-schema-547>
+                  x-parser-schema-id: <anonymous-schema-550>
               required:
                 - trade_id
                 - trade_seq
@@ -699,11 +705,11 @@ operations:
                 - state
                 - mark_price
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-509>
+              x-parser-schema-id: <anonymous-schema-512>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-508>
+          x-parser-schema-id: <anonymous-schema-511>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -822,7 +828,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-507>
+          x-parser-schema-id: <anonymous-schema-510>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

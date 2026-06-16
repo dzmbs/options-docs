@@ -196,12 +196,12 @@ operations:
                   type: integer
                   example: 1536569522277
                   description: The timestamp (milliseconds since the Unix epoch)
-                  x-parser-schema-id: <anonymous-schema-241>
+                  x-parser-schema-id: <anonymous-schema-244>
                 price:
                   description: Current index price
                   type: number
                   example: 8247.27
-                  x-parser-schema-id: <anonymous-schema-242>
+                  x-parser-schema-id: <anonymous-schema-245>
                 index_name:
                   description: >-
                     Index identifier, matches (base) cryptocurrency with quote
@@ -255,17 +255,17 @@ operations:
                     - paxg_btc
                     - drbfix-btc_usdc
                     - drbfix-eth_usdc
-                  x-parser-schema-id: <anonymous-schema-243>
+                  x-parser-schema-id: <anonymous-schema-246>
               required:
                 - timestamp
                 - price
                 - index_name
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-240>
+              x-parser-schema-id: <anonymous-schema-243>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-239>
+          x-parser-schema-id: <anonymous-schema-242>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -306,7 +306,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-238>
+          x-parser-schema-id: <anonymous-schema-241>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

@@ -8,8 +8,6 @@
 
 Results can be filtered by instrument kind. Use the `count` parameter to limit the number of trades returned, and `sorting` to control the order (ascending or descending by trade ID).
 
-> **Note:** This endpoint only returns trades from the last **24 hours**. Requests with `start_timestamp` older than 24 hours will return an empty result without an error.
-
 **Scope:** `trade:read`
 
 [Try in API console](https://test.deribit.com/api_console?method=%2Fpublic%2Fget_last_trades_by_currency_and_time)
@@ -73,11 +71,6 @@ paths:
         Results can be filtered by instrument kind. Use the `count` parameter to
         limit the number of trades returned, and `sorting` to control the order
         (ascending or descending by trade ID).
-
-
-        > **Note:** This endpoint only returns trades from the last **24
-        hours**. Requests with `start_timestamp` older than 24 hours will return
-        an empty result without an error.
 
 
         **Scope:** `trade:read`
@@ -273,7 +266,7 @@ components:
             Optional field containing combo instrument name if the trade is a
             combo trade
         combo_trade_id:
-          type: number
+          type: string
           description: >-
             Optional field containing combo trade identifier if the trade is a
             combo trade

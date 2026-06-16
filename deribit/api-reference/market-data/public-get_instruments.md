@@ -292,8 +292,45 @@ components:
           description: Maximal leverage for instrument (only for futures).
         price_index:
           $ref: '#/components/schemas/price_index'
+        underlying_type:
+          type: string
+          enum:
+            - equity
+            - commodity
+            - crypto
+          description: The type of the underlying asset.
         state:
           $ref: '#/components/schemas/book_state'
+        base_currency_uuid:
+          type: string
+          example: 5b71fc48-3dd3-540c-809b-f8c94d0e68b5
+          description: >-
+            Internal identifier for the base currency. Absent if the base
+            currency does not have an assigned identifier.
+        quote_currency_uuid:
+          type: string
+          example: 2b92315d-eab7-5bef-84fa-089a131333f5
+          description: >-
+            Internal identifier for the quote currency. Absent if the quote
+            currency does not have an assigned identifier.
+        qty_tick_size:
+          type: number
+          example: 1
+          description: >-
+            Minimum quantity change (step size) for order amounts on this
+            instrument.
+        index_id:
+          type: integer
+          example: 2000033
+          description: >-
+            Internal numeric identifier for the price index associated with this
+            instrument.
+        product_group:
+          type: string
+          example: ETH
+          description: >-
+            Product group classification for the instrument's base currency
+            (e.g. BTC, ETH, TIER_2).
       required:
         - kind
         - base_currency
@@ -417,6 +454,9 @@ components:
                     block_trade_commission: 0.00025
                     base_currency: BTC
                     state: open
+                    qty_tick_size: 10
+                    index_id: 1000001
+                    product_group: BTC
                   - tick_size: 0.5
                     tick_size_steps: []
                     taker_commission: 0.0005
@@ -442,6 +482,9 @@ components:
                     block_trade_commission: 0.00025
                     base_currency: BTC
                     state: open
+                    qty_tick_size: 10
+                    index_id: 1000002
+                    product_group: BTC
               description: Response example
       description: Success response
 

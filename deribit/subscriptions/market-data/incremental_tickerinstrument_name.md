@@ -457,17 +457,17 @@ operations:
                   enum:
                     - snapshot
                     - change
-                  x-parser-schema-id: <anonymous-schema-96>
+                  x-parser-schema-id: <anonymous-schema-99>
                 instrument_name:
                   type: string
                   description: Unique instrument identifier
                   example: BTC-PERPETUAL
-                  x-parser-schema-id: <anonymous-schema-97>
+                  x-parser-schema-id: <anonymous-schema-100>
                 timestamp:
                   type: integer
                   example: 1536569522277
                   description: The timestamp (milliseconds since the Unix epoch)
-                  x-parser-schema-id: <anonymous-schema-98>
+                  x-parser-schema-id: <anonymous-schema-101>
                 state:
                   description: >
                     The state of the order book. Represents the current
@@ -521,7 +521,7 @@ operations:
                     - locked
                     - halted
                     - archivized
-                  x-parser-schema-id: <anonymous-schema-99>
+                  x-parser-schema-id: <anonymous-schema-102>
                 stats:
                   type: object
                   required:
@@ -532,27 +532,27 @@ operations:
                     volume:
                       description: Volume during last 24h in base currency
                       type: number
-                      x-parser-schema-id: <anonymous-schema-101>
+                      x-parser-schema-id: <anonymous-schema-104>
                     low:
                       description: Lowest price during 24h
                       type: number
-                      x-parser-schema-id: <anonymous-schema-102>
+                      x-parser-schema-id: <anonymous-schema-105>
                     high:
                       description: Highest price during 24h
                       type: number
-                      x-parser-schema-id: <anonymous-schema-103>
+                      x-parser-schema-id: <anonymous-schema-106>
                     price_change:
                       description: >-
                         24-hour price change expressed as a percentage, `null`
                         if there weren't any trades
                       example: 10.23
                       type: number
-                      x-parser-schema-id: <anonymous-schema-104>
+                      x-parser-schema-id: <anonymous-schema-107>
                     volume_usd:
                       description: Volume in usd (futures only)
                       type: number
-                      x-parser-schema-id: <anonymous-schema-105>
-                  x-parser-schema-id: <anonymous-schema-100>
+                      x-parser-schema-id: <anonymous-schema-108>
+                  x-parser-schema-id: <anonymous-schema-103>
                 open_interest:
                   description: >-
                     The total amount of outstanding contracts in the
@@ -560,78 +560,78 @@ operations:
                     futures the amount is in USD units. For options and linear
                     futures it is the underlying base currency coin.
                   type: number
-                  x-parser-schema-id: <anonymous-schema-106>
+                  x-parser-schema-id: <anonymous-schema-109>
                 best_bid_price:
                   description: The current best bid price, `null` if there aren't any bids
                   type: number
-                  x-parser-schema-id: <anonymous-schema-107>
+                  x-parser-schema-id: <anonymous-schema-110>
                 best_bid_amount:
                   description: It represents the requested order size of all best bids
                   type: number
-                  x-parser-schema-id: <anonymous-schema-108>
+                  x-parser-schema-id: <anonymous-schema-111>
                 best_ask_price:
                   description: The current best ask price, `null` if there aren't any asks
                   type: number
-                  x-parser-schema-id: <anonymous-schema-109>
+                  x-parser-schema-id: <anonymous-schema-112>
                 best_ask_amount:
                   description: It represents the requested order size of all best asks
                   type: number
-                  x-parser-schema-id: <anonymous-schema-110>
+                  x-parser-schema-id: <anonymous-schema-113>
                 index_price:
                   description: Current index price
                   type: number
                   example: 8247.27
-                  x-parser-schema-id: <anonymous-schema-111>
+                  x-parser-schema-id: <anonymous-schema-114>
                 min_price:
                   description: >-
                     The minimum price for the future. Any sell orders you submit
                     lower than this price will be clamped to this minimum.
                   type: number
-                  x-parser-schema-id: <anonymous-schema-112>
+                  x-parser-schema-id: <anonymous-schema-115>
                 max_price:
                   description: >-
                     The maximum price for the future. Any buy orders you submit
                     higher than this price, will be clamped to this maximum.
                   type: number
-                  x-parser-schema-id: <anonymous-schema-113>
+                  x-parser-schema-id: <anonymous-schema-116>
                 mark_price:
                   description: The mark price for the instrument
                   type: number
-                  x-parser-schema-id: <anonymous-schema-114>
+                  x-parser-schema-id: <anonymous-schema-117>
                 last_price:
                   description: The price for the last trade
                   type: number
-                  x-parser-schema-id: <anonymous-schema-115>
+                  x-parser-schema-id: <anonymous-schema-118>
                 underlying_price:
                   description: >-
                     Underlying price for implied volatility calculations
                     (options only)
                   type: number
-                  x-parser-schema-id: <anonymous-schema-116>
+                  x-parser-schema-id: <anonymous-schema-119>
                 underlying_index:
                   description: >-
                     Name of the underlying future, or `index_price` (options
                     only)
                   type: number
-                  x-parser-schema-id: <anonymous-schema-117>
+                  x-parser-schema-id: <anonymous-schema-120>
                 interest_rate:
                   description: >-
                     Interest rate used in implied volatility calculations
                     (options only)
                   type: number
-                  x-parser-schema-id: <anonymous-schema-118>
+                  x-parser-schema-id: <anonymous-schema-121>
                 bid_iv:
                   description: (Only for option) implied volatility for best bid
                   type: number
-                  x-parser-schema-id: <anonymous-schema-119>
+                  x-parser-schema-id: <anonymous-schema-122>
                 ask_iv:
                   description: (Only for option) implied volatility for best ask
                   type: number
-                  x-parser-schema-id: <anonymous-schema-120>
+                  x-parser-schema-id: <anonymous-schema-123>
                 mark_iv:
                   description: (Only for option) implied volatility for mark price
                   type: number
-                  x-parser-schema-id: <anonymous-schema-121>
+                  x-parser-schema-id: <anonymous-schema-124>
                 greeks:
                   description: >
                     Only for options. Greeks are risk measures that describe how
@@ -743,7 +743,7 @@ operations:
                         Transaction Delta instead. See the greeks object
                         description for more details.
                       type: number
-                      x-parser-schema-id: <anonymous-schema-123>
+                      x-parser-schema-id: <anonymous-schema-126>
                     gamma:
                       description: >
                         (Only for option) The gamma value for the option.
@@ -754,7 +754,7 @@ operations:
                         Gamma measures the rate of change of delta with respect
                         to changes in the underlying asset price.
                       type: number
-                      x-parser-schema-id: <anonymous-schema-124>
+                      x-parser-schema-id: <anonymous-schema-127>
                     rho:
                       description: >
                         (Only for option) The rho value for the option.
@@ -765,7 +765,7 @@ operations:
                         Rho measures the sensitivity of the option price to
                         changes in the risk-free interest rate.
                       type: number
-                      x-parser-schema-id: <anonymous-schema-125>
+                      x-parser-schema-id: <anonymous-schema-128>
                     theta:
                       description: >
                         (Only for option) The theta value for the option.
@@ -783,7 +783,7 @@ operations:
                         Theta measures the rate of change of the option price
                         with respect to time decay.
                       type: number
-                      x-parser-schema-id: <anonymous-schema-126>
+                      x-parser-schema-id: <anonymous-schema-129>
                     vega:
                       description: >
                         (Only for option) The vega value for the option.
@@ -795,28 +795,28 @@ operations:
                         sensitivity of the option price to changes in implied
                         volatility.
                       type: number
-                      x-parser-schema-id: <anonymous-schema-127>
-                  x-parser-schema-id: <anonymous-schema-122>
+                      x-parser-schema-id: <anonymous-schema-130>
+                  x-parser-schema-id: <anonymous-schema-125>
                 funding_8h:
                   description: Funding 8h (perpetual only)
                   type: number
-                  x-parser-schema-id: <anonymous-schema-128>
+                  x-parser-schema-id: <anonymous-schema-131>
                 current_funding:
                   description: Current funding (perpetual only)
                   type: number
-                  x-parser-schema-id: <anonymous-schema-129>
+                  x-parser-schema-id: <anonymous-schema-132>
                 delivery_price:
                   description: >-
                     The settlement price for the instrument. Only when `state =
                     closed`
                   type: number
-                  x-parser-schema-id: <anonymous-schema-130>
+                  x-parser-schema-id: <anonymous-schema-133>
                 settlement_price:
                   description: >-
                     Optional (not added for spot). The settlement price for the
                     instrument. Only when `state = open`
                   type: number
-                  x-parser-schema-id: <anonymous-schema-131>
+                  x-parser-schema-id: <anonymous-schema-134>
                 estimated_delivery_price:
                   description: >-
                     Estimated delivery price for the market. For more details,
@@ -824,16 +824,16 @@ operations:
                     Expiration Price
                   example: 11628.81
                   type: number
-                  x-parser-schema-id: <anonymous-schema-132>
+                  x-parser-schema-id: <anonymous-schema-135>
               required:
                 - instrument_name
                 - timestamp
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-95>
+              x-parser-schema-id: <anonymous-schema-98>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-94>
+          x-parser-schema-id: <anonymous-schema-97>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -896,7 +896,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-93>
+          x-parser-schema-id: <anonymous-schema-96>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

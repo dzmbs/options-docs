@@ -259,21 +259,21 @@ operations:
                     - paxg_btc
                     - drbfix-btc_usdc
                     - drbfix-eth_usdc
-                  x-parser-schema-id: <anonymous-schema-258>
+                  x-parser-schema-id: <anonymous-schema-261>
                 low24h:
                   type: number
                   description: The lowest recorded price within the last 24 hours
-                  x-parser-schema-id: <anonymous-schema-259>
+                  x-parser-schema-id: <anonymous-schema-262>
                 high24h:
                   type: number
                   description: The highest recorded price within the last 24 hours
-                  x-parser-schema-id: <anonymous-schema-260>
+                  x-parser-schema-id: <anonymous-schema-263>
                 change24h:
                   type: number
                   description: >-
                     The price index change calculated between the first and last
                     point within most recent 24 hours window
-                  x-parser-schema-id: <anonymous-schema-261>
+                  x-parser-schema-id: <anonymous-schema-264>
                 fast_market:
                   type: boolean
                   description: >-
@@ -281,18 +281,18 @@ operations:
                     value `true` is set when the price index value drastically
                     changed within the last 1 hour. This indicator remains
                     active even for 2 more hours after the prices calm down
-                  x-parser-schema-id: <anonymous-schema-262>
+                  x-parser-schema-id: <anonymous-schema-265>
               required:
                 - index_name
                 - low24h
                 - high24h
                 - change24h
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-257>
+              x-parser-schema-id: <anonymous-schema-260>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-256>
+          x-parser-schema-id: <anonymous-schema-259>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -335,7 +335,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-255>
+          x-parser-schema-id: <anonymous-schema-258>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification
