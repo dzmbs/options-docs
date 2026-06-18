@@ -148,6 +148,36 @@ Block RFQs can be in one of the following states:
 * `cancelled` - The RFQ was canceled by the taker
 * `expired` - The RFQ expired without being filled
 
+## Taker Rating
+
+Deribit tracks how reliably takers fill the RFQs they create. This **taker rating** is exposed on the `taker_rating` field of a Block RFQ and is visible to makers when they decide whether to quote.
+
+### How the rating is calculated
+
+The rating is based on a weighted **fill ratio** over a rolling 3-month window:
+
+```
+ratio = (unfilled_weight + filled_weight) / filled_weight
+```
+
+Weights are based on the **notional size** of each RFQ — a large RFQ counts more than a small one. An expired or cancelled RFQ only counts toward the ratio if quotes were received on both sides and the first quote arrived within 2 minutes of creation (i.e. the market was genuinely active).
+
+| `taker_rating` | Ratio condition              | Example (filled / expired+cancelled) | Ratio | Fill rate         |
+| -------------- | ---------------------------- | ------------------------------------ | ----- | ----------------- |
+| `"1-2"`        | ratio ≤ 2                    | 8 filled, 2 unfilled → (2+8)/8       | 1.25  | ≥ 50%             |
+| `"2-5"`        | 2 \< ratio ≤ 5               | 5 filled, 15 unfilled → (15+5)/5     | 4.0   | 20–50%            |
+| `"5-20"`       | 5 \< ratio ≤ 20              | 2 filled, 18 unfilled → (18+2)/2     | 10.0  | 5–20%             |
+| `"20+"`        | ratio > 20, or 0 fills       | 1 filled, 25 unfilled → (25+1)/1     | 26.0  | \< 5%             |
+| `null`         | Fewer than 6 qualifying RFQs | —                                    | —     | Insufficient data |
+
+### What this means in practice
+
+* A `null` rating means the taker is new or infrequent — makers have no historical signal.
+* A low ratio (e.g. `"1-2"`) indicates the taker consistently follows through on quoted RFQs.
+* A high ratio (e.g. `"20+"`) indicates the taker frequently lets RFQs expire or cancels after receiving quotes, which may discourage makers from quoting.
+
+Takers can improve their rating by cancelling RFQs promptly when they are no longer needed (before quotes arrive), rather than letting them expire.
+
 ## Pre-Allocation
 
 Block RFQ supports pre-allocation, allowing takers to split the total amount between different (sub)accounts. Each allocation must specify:

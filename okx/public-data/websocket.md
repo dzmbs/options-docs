@@ -230,7 +230,7 @@ For spot symbols listed through a call auction or pre-open, listTime represents 
 
 state
 
-The state will always change from `preopen` to `live` when the listTime is reached. Certain symbols will now have `state:preopen` before they go live. Before going live, the instruments channel will push data for pre-listing symbols with `state:preopen`. If the listing is cancelled, the channel will send full data excluding the cancelled symbol, without additional notification. When the symbol goes live (reaching listTime), the channel will push data with `state:live`. Users can also query the corresponding data via the REST endpoint.
+For `SPOT`, `MARGIN`, `SWAP`, and `FUTURES`, the state changes from `preopen` to `live` when the `listTime` is reached. For `OPTION` contracts, the state may change to `live` slightly after `listTime` due to internal processing. It is recommended to verify that `state` is `live` before placing orders. Certain symbols will now have `state:preopen` before they go live. Before going live, the instruments channel will push data for pre-listing symbols with `state:preopen`. If the listing is cancelled, the channel will send full data excluding the cancelled symbol, without additional notification. When the symbol goes live (at or shortly after `listTime` for `OPTION`), the channel will push data with `state:live`. Users can also query the corresponding data via the REST endpoint.
 
 When a product is going to be delisted (e.g. when a FUTURES contract is settled or OPTION contract is exercised), the instrument will not be available.
 
@@ -1741,9 +1741,7 @@ Liquidation data comes from different data sources, so the updated data is not n
 
 Auto-deleveraging warning channel.
 
-In the `normal` state, data will be pushed once every minute to display the balance of security fund and etc.
-
-In the warning state or when there is ADL risk (`warning/adl`), data will be pushed every second to display information such as the real-time decline rate of security fund.
+Data is only pushed in the `warning` or `adl` state, once every second, displaying the security fund balance and related risk information. No data is pushed in the `normal` state.
 
 For more ADL details, please refer to [Introduction to Auto-deleveraging](https://www.okx.com/help/iv-introduction-to-auto-deleveraging-adl)
 
@@ -1855,17 +1853,20 @@ Push Data Example
  },
  "data":[
  {
- "maxBal":"",
- "adlRecBal":"8000.0",
- "bal":"280784384.9564228289548144",
  "instType":"FUTURES",
- "ccy": "USDT",
  "instFamily":"BTC-USDT",
+ "state":"warning",
+ "bal":"280784384.9564228289548144",
+ "ccy":"",
+ "maxBal":"",
  "maxBalTs":"",
  "adlType":"",
- "state":"normal",
- "adlBal":"0",
- "ts":"1700210763001"
+ "adlBal":"",
+ "adlRecBal":"",
+ "ts":"1700210763001",
+ "decRate":"",
+ "adlRate":"",
+ "adlRecRate":""
  }
  ]
 }
@@ -1883,14 +1884,14 @@ Push Data Example
 | data | Array of objects | Subscribed data |
 | > instType | String | Instrument type |
 | > instFamily | String | Instrument family |
-| > state | String | state `normal` `warning` `adl` |
+| > state | String | state `warning` `adl` |
 | > bal | String | Real-time security fund balance |
-| > ccy | String | The corresponding currency of security fund balance |
-| > maxBal | String | Maximum security fund balance in the past eight hours Applicable when state is `warning` or `adl` |
-| > maxBalTs | String | Timestamp when security fund balance reached maximum in the past eight hours, Unix timestamp format in milliseconds, e.g. `1597026383085` |
-| > adlType | String | ADL related events `rate_adl_start`: ADL begins due to high security fund decline rate `bal_adl_start`: ADL begins due to security fund balance falling `pos_adl_start`：ADL begins due to the volume of liquidation orders falls to a certain level (only applicable to premarket symbols) `adl_end`: ADL ends |
-| > adlBal | String | security fund balance that triggers ADL |
-| > adlRecBal | String | security fund balance that turns off ADL |
+| > ccy | String | The corresponding currency of security fund balance(Deprecated, returns `""`. To be removed in a future update) |
+| > maxBal | String | Maximum security fund balance in the past eight hours Applicable when state is `warning` or `adl`(Deprecated, returns `""`. To be removed in a future update) |
+| > maxBalTs | String | Timestamp when security fund balance reached maximum in the past eight hours, Unix timestamp format in milliseconds, e.g. `1597026383085`(Deprecated, returns `""`. To be removed in a future update) |
+| > adlType | String | ADL related events `rate_adl_start`: ADL begins due to high security fund decline rate `bal_adl_start`: ADL begins due to security fund balance falling `pos_adl_start`：ADL begins due to the volume of liquidation orders falls to a certain level (only applicable to premarket symbols) `adl_end`: ADL ends(Deprecated, returns `""`. To be removed in a future update) |
+| > adlBal | String | security fund balance that triggers ADL(Deprecated, returns `""`. To be removed in a future update) |
+| > adlRecBal | String | security fund balance that turns off ADL(Deprecated, returns `""`. To be removed in a future update) |
 | > ts | String | Data push time, Unix timestamp format in milliseconds, e.g. `1597026383085` |
 | > decRate | String | Real-time security fund decline rate (compare bal and maxBal) Applicable when state is `warning` or `adl`(Deprecated) |
 | > adlRate | String | security fund decline rate that triggers ADL(Deprecated) |

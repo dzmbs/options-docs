@@ -18,9 +18,33 @@ Voice Broker Trading enables a licensed broker to execute block trades on behalf
 * **Client / Client Link** — the broker identifies each side of a trade by `client_id` (counterparty group) and `client_link_id` (specific linked user).
 * **Trade Confirmations** — each client link has a `confirmations_required` flag. When `true` (the default), the trade is held **pending** until the client approves it via API. The window is **10 minutes**; expiry or rejection cancels the trade.
 
+## Broker: List Clients
+
+[**`private/get_broker_clients`**](/api-reference/block-trade/private-get_broker_clients) — Scope: `block_trade:read`
+
+Returns all clients registered under the broker account. Use this endpoint to look up the `client_id` and `client_link_id` values required by other broker methods such as [`private/execute_broker_trade`](/api-reference/block-trade/private-execute_broker_trade).
+
+Each client record contains:
+
+* **`client_id`** — numeric identifier grouping one or more linked users under a single client name.
+* **`links`** — array of individual user connections within that client. Each entry includes a `client_link_id` that uniquely identifies a single linked user.
+
+**Link states:**
+
+* `connected` — user has accepted the broker invitation and is ready to trade.
+* `pending` — invitation not yet accepted.
+* `rejected` — link is inactive.
+
+Call this endpoint without parameters to retrieve all clients, locate the client by name, then read `client_id` from the top-level object and `client_link_id` from the relevant entry in `links`.
+
+| Parameter             | Description                                                             |
+| --------------------- | ----------------------------------------------------------------------- |
+| `client_id`           | Optional. Filter to return only this client's record.                   |
+| `include_subaccounts` | Optional. Set `true` to include clients managed by broker sub-accounts. |
+
 ## Broker: Execute a Trade
 
-**`private/execute_broker_trade`** — Scope: `block_trade:read_write`
+[**`private/execute_broker_trade`**](/api-reference/block-trade/private-execute_broker_trade) — Scope: `block_trade:read_write`
 
 Submits both sides in one call. `direction` is always from the **maker's perspective**.
 
@@ -98,7 +122,7 @@ Side `state.value`: `initial` → `approved` / `rejected`. The trade executes on
 
 ## Broker: Cancel a Pending Trade
 
-**`private/cancel_broker_trade_request`** — Scope: `block_trade:read_write`
+[**`private/cancel_broker_trade_request`**](/api-reference/block-trade/private-cancel_broker_trade_request) — Scope: `block_trade:read_write`
 
 Cancels a pending trade using the `nonce` and `timestamp` from the execute response.
 
@@ -116,7 +140,7 @@ Cancels a pending trade using the `nonce` and `timestamp` from the execute respo
 
 ## Broker: Monitor Pending Requests
 
-**`private/get_broker_trade_requests`** — Scope: `block_trade:read`
+[**`private/get_broker_trade_requests`**](/api-reference/block-trade/private-get_broker_trade_requests) — Scope: `block_trade:read`
 
 Returns an array of all pending (and recently settled) broker trade requests with current per-side states. Takes no parameters.
 
@@ -124,7 +148,7 @@ Returns an array of all pending (and recently settled) broker trade requests wit
 
 ## Broker: Trade History
 
-**`private/get_broker_trades`** — Scope: `block_trade:read`
+[**`private/get_broker_trades`**](/api-reference/block-trade/private-get_broker_trades) — Scope: `block_trade:read`
 
 ```json theme={null}
 {
@@ -152,9 +176,9 @@ Response: `{ "history": [...], "next_start_id": 41 }`. Pass `next_start_id` as `
 
 When `confirmations_required = true`, the client is notified and must act within **10 minutes**.
 
-**Subscribe** to `block_trade_confirmations` for real-time notifications. The notification data includes `timestamp`, `nonce`, `role` (`maker` or `taker`), `broker_name`, `broker_code`, `trades[]`, and `state`.
+**Subscribe** to [`block_trade_confirmations`](/subscriptions/block-trade/block_trade_confirmations) for real-time notifications. The notification data includes `timestamp`, `nonce`, `role` (`maker` or `taker`), `broker_name`, `broker_code`, `trades[]`, and `state`.
 
-**Poll** pending trades with `private/get_block_trade_requests` — pass `broker_code` to filter broker-only requests.
+**Poll** pending trades with [`private/get_block_trade_requests`](/api-reference/block-trade/private-get_block_trade_requests) — pass `broker_code` to filter broker-only requests.
 
 ### Approve
 
@@ -214,8 +238,22 @@ Broker trades appear in regular block trade history. Filter by broker using the 
 
 ## Related Methods
 
-**Broker:** [`private/execute_broker_trade`](/api-reference/block-trade/private-execute_broker_trade) · [`private/cancel_broker_trade_request`](/api-reference/block-trade/private-cancel_broker_trade_request) · [`private/get_broker_trade_requests`](/api-reference/block-trade/private-get_broker_trade_requests) · [`private/get_broker_trades`](/api-reference/block-trade/private-get_broker_trades)
+**Broker**
 
-**Client:** [`private/get_block_trade_requests`](/api-reference/block-trade/private-get_block_trade_requests) · [`private/approve_block_trade`](/api-reference/block-trade/private-approve_block_trade) · [`private/reject_block_trade`](/api-reference/block-trade/private-reject_block_trade) · [`private/get_block_trades`](/api-reference/block-trade/private-get_block_trades)
+* [`private/get_broker_clients`](/api-reference/block-trade/private-get_broker_clients) — List registered clients and their link IDs
+* [`private/execute_broker_trade`](/api-reference/block-trade/private-execute_broker_trade) — Submit a block trade on behalf of two clients
+* [`private/cancel_broker_trade_request`](/api-reference/block-trade/private-cancel_broker_trade_request) — Cancel a pending trade request
+* [`private/get_broker_trade_requests`](/api-reference/block-trade/private-get_broker_trade_requests) — List pending and recently settled trade requests
+* [`private/get_broker_trades`](/api-reference/block-trade/private-get_broker_trades) — Broker's completed trade history
 
-**WebSocket:** [`block_trade_confirmations`](/subscriptions/block-trade/block_trade_confirmations) · `broker.trade_requests.{currency}`
+**Client**
+
+* [`private/get_block_trade_requests`](/api-reference/block-trade/private-get_block_trade_requests) — List pending block trade requests (filter by `broker_code` for broker trades)
+* [`private/approve_block_trade`](/api-reference/block-trade/private-approve_block_trade) — Approve a pending trade
+* [`private/reject_block_trade`](/api-reference/block-trade/private-reject_block_trade) — Reject a pending trade
+* [`private/get_block_trades`](/api-reference/block-trade/private-get_block_trades) — Client's block trade history (filter by `broker_code`)
+
+**WebSocket**
+
+* [`block_trade_confirmations`](/subscriptions/block-trade/block_trade_confirmations) — Real-time notifications for trade confirmation requests
+* `broker.trade_requests.{currency}` — Real-time updates for broker trade request state changes

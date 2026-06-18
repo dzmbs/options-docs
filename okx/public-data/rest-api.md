@@ -161,7 +161,7 @@ Response Example
 For spot symbols listed through a call auction or pre-open, listTime represents the start time of the auction or pre-open, and contTdSwTime indicates the end of the auction or pre-open and the start of continuous trading. For other scenarios, listTime will mark the beginning of continuous trading, and contTdSwTime will return an empty value "".
 
 state
-The state will always change from `preopen` to `live` when the listTime is reached.
+For `SPOT`, `MARGIN`, `SWAP`, and `FUTURES`, the state changes from `preopen` to `live` when the `listTime` is reached. For `OPTION` contracts, the state may change to `live` slightly after `listTime` due to internal processing. It is recommended to verify that `state` is `live` before placing orders.
 When a product is going to be delisted (e.g. when a FUTURES contract is settled or OPTION contract is exercised), the instrument will not be available.
 
 Instruments REST endpoints and WebSocket channel will update `expTime` once the delisting announcement is published.
@@ -1600,7 +1600,7 @@ print(result)
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | instType | String | Yes | Instrument type`MARGIN``SWAP``FUTURES``OPTION` |
-| type | String | No | Type`regular_update` `liquidation_balance_deposit``bankruptcy_loss``platform_revenue` `adl`: ADL historical data The default is `all type` |
+| type | String | No | Type`liquidation_balance_deposit``bankruptcy_loss``platform_revenue`(Deprecated, returns empty values. To be removed in a future update) `adl`(Deprecated, returns empty values. To be removed in a future update) The default is `all type` |
 | instFamily | String | Conditional | Instrument familyRequired for `FUTURES`/`SWAP`/`OPTION` |
 | ccy | String | Conditional | Currency, only applicable to `MARGIN` |
 | before | String | No | Pagination of data to return records newer than the requested `ts` |
@@ -1617,13 +1617,13 @@ Response Example
  "details": [
  {
  "adlType": "",
- "amt": "",
- "balance": "1343.1308",
+ "amt": "1343.1308",
+ "balance": "1369179138.7489",
  "ccy": "ETH",
  "maxBal": "",
  "maxBalTs": "",
  "ts": "1704883083000",
- "type": "regular_update"
+ "type": "liquidation_balance_deposit"
  }
  ],
  "instFamily": "ETH-USD",
@@ -1645,16 +1645,16 @@ Response Example
 | instType | String | Instrument type |
 | details | Array of objects | security fund data |
 | > balance | String | The balance of security fund |
-| > amt | String | The change in the balance of security fund Applicable when type is `liquidation_balance_deposit`, `bankruptcy_loss` or `platform_revenue` |
+| > amt | String | The change in the balance of security fund Applicable when type is `liquidation_balance_deposit` or `bankruptcy_loss` |
 | > ccy | String | The currency of security fund |
-| > type | String | The type of security fund |
-| > maxBal | String | Maximum security fund balance in the past eight hours Only applicable when type is `adl` |
-| > maxBalTs | String | Timestamp when security fund balance reached maximum in the past eight hours, Unix timestamp format in milliseconds, e.g. `1597026383085` Only applicable when type is `adl` |
+| > type | String | The type of security fund`liquidation_balance_deposit``bankruptcy_loss``platform_revenue`(Deprecated, returns empty values)`adl`(Deprecated, returns empty values) |
+| > maxBal | String | Maximum security fund balance in the past eight hours Only applicable when type is `adl`(Deprecated, returns empty values) |
+| > maxBalTs | String | Timestamp when security fund balance reached maximum in the past eight hours, Unix timestamp format in milliseconds, e.g. `1597026383085` Only applicable when type is `adl`(Deprecated, returns empty values) |
 | > decRate | String | Real-time security fund decline rate (compare balance and maxBal) Only applicable when type is `adl`(Deprecated) |
-| > adlType | String | ADL related events `rate_adl_start`: ADL begins due to high security fund decline rate `bal_adl_start`: ADL begins due to security fund balance falling `pos_adl_start`：ADL begins due to the volume of liquidation orders falls to a certain level (only applicable to premarket symbols) `adl_end`: ADL ends Only applicable when type is `adl` |
+| > adlType | String | ADL related events `rate_adl_start`: ADL begins due to high security fund decline rate `bal_adl_start`: ADL begins due to security fund balance falling `pos_adl_start`：ADL begins due to the volume of liquidation orders falls to a certain level (only applicable to premarket symbols) `adl_end`: ADL ends Only applicable when type is `adl`(Deprecated, returns empty values) |
 | > ts | String | The update timestamp of security fund. Unix timestamp format in milliseconds, e.g. `1597026383085` |
 
-The enumeration value `regular_update` of type field is used to present up-to-minute security fund change. The amt field will be used to present the difference of security fund balance when the type field is `liquidation_balance_deposit`, `bankruptcy_loss` or `platform_revenue`, which is generated once per day around 08:00 am (UTC). When type is `regular_update`, the amt field will be returned as "".
+The `regular_update` type has been removed. The `adl` and `platform_revenue` types are deprecated and currently return empty values; they will be removed in a future update. The `amt` field presents the difference in security fund balance when the `type` is `liquidation_balance_deposit` or `bankruptcy_loss`, which is generated once per day around 08:00 am (UTC).
 
 ### Unit convert
 
