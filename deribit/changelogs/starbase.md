@@ -6,6 +6,47 @@
 
 > Changes and announcements for the Deribit Starbase API.
 
+<Update label="Announcement 18.06.2026">
+  ## Announcement
+
+  We are one month away from the go-live of Starbase. Below is a confirmation of key timelines along with important details on speed bumps, rate limits, spot and circuit redundancy.
+
+  ### Confirmation of Timelines
+
+  * **July 13th:** Member and API key creation will be available in the UI, along with four SBE Order Entry endpoints for connectivity testing: Logon, Logout, Heartbeat, and Test. Access to market data and FIX drop copy will also be enabled on this date. Multicast market data feeds will begin propagating to client servers within LD4, AWS eu-west-2 and AWS ap-northeast-1 for all derivatives. This phased rollout ensures a smooth transition before order entry go-live.
+  * **July 20th (Go-Live):** Clients will receive full access to the SBE Order Entry gateway for all derivatives.
+
+  ### Speed Bumps
+
+  We have experienced delays in the rollout of [speed bumps](/starbase/speed-bumps) to the test environment due to some downstream processes not handling the new order state well. The speed bump as described in our documentation will go live on Starbase's test environment at least two weeks ahead of the production go-live.
+
+  Speed bumps will apply to every instrument except the top 5 crypto perpetuals by volume: BTC, ETH, SOL, XRP and HYPE. This also means BTC and ETH inverse perpetuals are exempt from speed bumps. The following instruments will all be speed bumped:
+
+  * All crypto and RWA perpetuals, except BTC, ETH, SOL, XRP and HYPE
+  * All options, both inverse and linear
+  * All dated futures, both inverse and linear
+  * All multi-leg instruments including one of the above as a leg (future spreads, option combinations)
+
+  To align with market standards, each order or quote in the speed bump is guaranteed to be firm. Cancelling an order or quote in the speed bump will convert its TIF into IOC. CoD or triggers will also convert speed-bumped orders and quotes into IOCs. An order or quote subject to [self-match prevention](/starbase/smp) that leaves the speed bump will have the `CANCEL_MAKER` behaviour, even if `CANCEL_TAKER` is configured.
+
+  ### Rate Limits
+
+  The Starbase rate limit framework has been finalised. See the [rate limits article](/starbase/rate-limits) for a full explanation of the mechanics. Two important points:
+
+  * Members receiving this announcement will likely receive a **Member Override**. Do not assume the default values in the article apply to you — treat them as illustrative examples. Please reach out to your account manager to confirm your production rate limits as of July 20th.
+  * Rate limits are applied **per member, per gateway**. As each instrument is available through two gateways, not utilising both means not utilising your full rate limit allocation.
+
+  ### Spot
+
+  Deribit's spot order books will not be available on Starbase. Shortly after go-live, spot orders will be routed to Coinbase Exchange, located in the US. Until that migration, spot order books will remain available only via the current WebSocket and FIX APIs. A small subset of order books not available on Coinbase — such as BUIDL, USYC and USDE — will remain on Deribit's legacy matching engine indefinitely.
+
+  ### Redundant Cross-Connect
+
+  We strongly recommend maintaining a primary and a secondary circuit. During switch maintenance or cable-length validations, we assume clients have redundant connectivity in place so that trading can continue uninterrupted.
+
+  Starbase is only available via hosted co-location, cross-connect or AWS PrivateLink. Downtime on a single circuit may require you to fall back to the WebSocket API. Please reach out to [colo-support@coinbase.com](mailto:colo-support@coinbase.com) or your technical account manager with any questions.
+</Update>
+
 <Update label="Starbase Release 06.05.2026 — v1.0">
   ## Starbase Release
 

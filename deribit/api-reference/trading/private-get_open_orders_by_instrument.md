@@ -267,6 +267,12 @@ components:
           description: >-
             Id of the trigger order that created the order (Only for orders that
             were created by triggered orders).
+        combo_order_id:
+          type: string
+          example: '103148386169'
+          description: >-
+            Id of the combo order that created this order (only present for
+            orders that were created as legs of a combo order).
         app_name:
           type: string
           example: Example Application

@@ -229,26 +229,26 @@ operations:
                     Unix epoch)
                   type: integer
                   example: 1536569522277
-                  x-parser-schema-id: <anonymous-schema-1177>
+                  x-parser-schema-id: <anonymous-schema-1183>
                 last_update_timestamp:
                   type: integer
                   example: 1536569522277
                   description: >-
                     Timestamp of the last update of the quote (milliseconds
                     since the UNIX epoch)
-                  x-parser-schema-id: <anonymous-schema-1178>
+                  x-parser-schema-id: <anonymous-schema-1184>
                 block_rfq_id:
                   type: integer
                   description: ID of the Block RFQ
-                  x-parser-schema-id: <anonymous-schema-1179>
+                  x-parser-schema-id: <anonymous-schema-1185>
                 block_rfq_quote_id:
                   type: integer
                   description: ID of the Block RFQ quote
-                  x-parser-schema-id: <anonymous-schema-1180>
+                  x-parser-schema-id: <anonymous-schema-1186>
                 quote_state:
                   description: State of the quote
                   type: string
-                  x-parser-schema-id: <anonymous-schema-1181>
+                  x-parser-schema-id: <anonymous-schema-1187>
                 execution_instruction:
                   type: string
                   description: >-
@@ -267,31 +267,31 @@ operations:
                   enum:
                     - any_part_of
                     - all_or_none
-                  x-parser-schema-id: <anonymous-schema-1182>
+                  x-parser-schema-id: <anonymous-schema-1188>
                 price:
                   description: Price of a quote
                   type: number
-                  x-parser-schema-id: <anonymous-schema-1183>
+                  x-parser-schema-id: <anonymous-schema-1189>
                 amount:
                   description: >-
                     This value multiplied by the ratio of a leg gives trade size
                     on that leg.
                   type: number
-                  x-parser-schema-id: <anonymous-schema-1184>
+                  x-parser-schema-id: <anonymous-schema-1190>
                 direction:
                   type: string
                   description: Direction of trade from the maker perspective
                   enum:
                     - buy
                     - sell
-                  x-parser-schema-id: <anonymous-schema-1185>
+                  x-parser-schema-id: <anonymous-schema-1191>
                 filled_amount:
                   type: number
                   description: >-
                     Filled amount of the quote. For perpetual and futures the
                     filled_amount is in USD units, for options - in units or
                     corresponding cryptocurrency contracts, e.g., BTC or ETH.
-                  x-parser-schema-id: <anonymous-schema-1186>
+                  x-parser-schema-id: <anonymous-schema-1192>
                 legs:
                   type: object
                   description: ''
@@ -299,26 +299,26 @@ operations:
                     ratio:
                       description: Ratio of amount between legs
                       type: integer
-                      x-parser-schema-id: <anonymous-schema-1188>
+                      x-parser-schema-id: <anonymous-schema-1194>
                     instrument_name:
                       type: string
                       description: Unique instrument identifier
                       example: BTC-PERPETUAL
-                      x-parser-schema-id: <anonymous-schema-1189>
+                      x-parser-schema-id: <anonymous-schema-1195>
                     direction:
                       type: string
                       description: 'Direction: `buy`, or `sell`'
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-1190>
+                      x-parser-schema-id: <anonymous-schema-1196>
                     price:
                       description: Price for a leg
                       type: number
-                      x-parser-schema-id: <anonymous-schema-1191>
+                      x-parser-schema-id: <anonymous-schema-1197>
                   required: []
                   additionalProperties: false
-                  x-parser-schema-id: <anonymous-schema-1187>
+                  x-parser-schema-id: <anonymous-schema-1193>
                 hedge:
                   type: object
                   properties:
@@ -329,50 +329,50 @@ operations:
                         units. For options and linear futures it is the
                         underlying base currency coin.
                       type: integer
-                      x-parser-schema-id: <anonymous-schema-1193>
+                      x-parser-schema-id: <anonymous-schema-1199>
                     instrument_name:
                       type: string
                       description: Unique instrument identifier
                       example: BTC-PERPETUAL
-                      x-parser-schema-id: <anonymous-schema-1194>
+                      x-parser-schema-id: <anonymous-schema-1200>
                     direction:
                       type: string
                       description: 'Direction: `buy`, or `sell`'
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-1195>
+                      x-parser-schema-id: <anonymous-schema-1201>
                     price:
                       description: Price for a hedge leg
                       type: number
-                      x-parser-schema-id: <anonymous-schema-1196>
-                  x-parser-schema-id: <anonymous-schema-1192>
+                      x-parser-schema-id: <anonymous-schema-1202>
+                  x-parser-schema-id: <anonymous-schema-1198>
                 replaced:
                   type: boolean
                   description: '`true` if the quote was edited, otherwise `false`.'
-                  x-parser-schema-id: <anonymous-schema-1197>
+                  x-parser-schema-id: <anonymous-schema-1203>
                 label:
                   type: string
                   description: User defined label for the quote (maximum 64 characters)
-                  x-parser-schema-id: <anonymous-schema-1198>
+                  x-parser-schema-id: <anonymous-schema-1204>
                 app_name:
                   description: >-
                     The name of the application that placed the quote on behalf
                     of the user (optional).
                   type: string
                   example: Example Application
-                  x-parser-schema-id: <anonymous-schema-1199>
+                  x-parser-schema-id: <anonymous-schema-1205>
                 quote_state_reason:
                   description: Reason of quote cancellation
                   type: string
-                  x-parser-schema-id: <anonymous-schema-1200>
+                  x-parser-schema-id: <anonymous-schema-1206>
               required: []
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-1176>
+              x-parser-schema-id: <anonymous-schema-1182>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-1175>
+          x-parser-schema-id: <anonymous-schema-1181>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -431,7 +431,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-1174>
+          x-parser-schema-id: <anonymous-schema-1180>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

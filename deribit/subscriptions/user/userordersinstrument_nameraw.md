@@ -335,6 +335,13 @@ operations:
                       Id of the trigger order that created the order (Only for
                       orders that were created by triggered orders).
                     required: false
+                  - name: combo_order_id
+                    type: string
+                    description: >-
+                      Id of the combo order that created this order (only
+                      present for orders that were created as legs of a combo
+                      order).
+                    required: false
                   - name: app_name
                     type: string
                     description: >-
@@ -703,18 +710,25 @@ operations:
                     orders that were created by triggered orders).
                   example: SLIB-370
                   x-parser-schema-id: <anonymous-schema-617>
+                combo_order_id:
+                  type: string
+                  description: >-
+                    Id of the combo order that created this order (only present
+                    for orders that were created as legs of a combo order).
+                  example: '103148386169'
+                  x-parser-schema-id: <anonymous-schema-618>
                 app_name:
                   type: string
                   description: >-
                     The name of the application that placed the order on behalf
                     of the user (optional).
                   example: Example Application
-                  x-parser-schema-id: <anonymous-schema-618>
+                  x-parser-schema-id: <anonymous-schema-619>
                 mmp_cancelled:
                   type: boolean
                   description: '`true` if order was cancelled by mmp trigger (optional)'
                   example: true
-                  x-parser-schema-id: <anonymous-schema-619>
+                  x-parser-schema-id: <anonymous-schema-620>
                 cancel_reason:
                   type: string
                   description: >-
@@ -745,7 +759,7 @@ operations:
                     - oco_other_closed
                     - oto_primary_closed
                     - settlement
-                  x-parser-schema-id: <anonymous-schema-620>
+                  x-parser-schema-id: <anonymous-schema-621>
                 oto_order_ids:
                   type: object
                   description: >-
@@ -753,7 +767,7 @@ operations:
                     filled
                   properties: {}
                   additionalProperties: true
-                  x-parser-schema-id: <anonymous-schema-621>
+                  x-parser-schema-id: <anonymous-schema-622>
                 trigger_fill_condition:
                   description: >-
                     <p>The fill condition of the linked order (Only for linked
@@ -772,30 +786,30 @@ operations:
                     - first_hit
                     - complete_fill
                     - incremental
-                  x-parser-schema-id: <anonymous-schema-622>
+                  x-parser-schema-id: <anonymous-schema-623>
                 oco_ref:
                   type: string
                   description: >-
                     Unique reference that identifies a one_cancels_others (OCO)
                     pair.
-                  x-parser-schema-id: <anonymous-schema-623>
+                  x-parser-schema-id: <anonymous-schema-624>
                 primary_order_id:
                   description: Unique order identifier
                   type: string
                   example: ETH-100234
-                  x-parser-schema-id: <anonymous-schema-624>
+                  x-parser-schema-id: <anonymous-schema-625>
                 is_secondary_oto:
                   type: boolean
                   description: >-
                     `true` if the order is an order that can be triggered by
                     another order, otherwise not present.
-                  x-parser-schema-id: <anonymous-schema-625>
+                  x-parser-schema-id: <anonymous-schema-626>
                 is_primary_otoco:
                   type: boolean
                   description: >-
                     `true` if the order is an order that can trigger an OCO
                     pair, otherwise not present.
-                  x-parser-schema-id: <anonymous-schema-626>
+                  x-parser-schema-id: <anonymous-schema-627>
               required:
                 - order_id
                 - order_state
