@@ -66,7 +66,6 @@ Gets the value of a vault's token against the base currency, underlying currency
           "count",
           "num_pages"
         ],
-        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -79,6 +78,7 @@ Gets the value of a vault's token against the base currency, underlying currency
             "description": "Number of pages"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicGetVaultShareParamsSchema": {
@@ -87,7 +87,6 @@ Gets the value of a vault's token against the base currency, underlying currency
           "to_timestamp_sec",
           "vault_name"
         ],
-        "type": "object",
         "properties": {
           "from_timestamp_sec": {
             "title": "from_timestamp_sec",
@@ -117,6 +116,7 @@ Gets the value of a vault's token against the base currency, underlying currency
             "description": "Name of the vault"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicGetVaultShareResponseSchema": {
@@ -124,7 +124,6 @@ Gets the value of a vault's token against the base currency, underlying currency
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -142,6 +141,7 @@ Gets the value of a vault's token against the base currency, underlying currency
             "$ref": "#/components/schemas/PublicGetVaultShareResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicGetVaultShareResultSchema": {
@@ -149,7 +149,6 @@ Gets the value of a vault's token against the base currency, underlying currency
           "pagination",
           "vault_shares"
         ],
-        "type": "object",
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -163,6 +162,7 @@ Gets the value of a vault's token against the base currency, underlying currency
             }
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "VaultShareResponseSchema": {
@@ -173,7 +173,6 @@ Gets the value of a vault's token against the base currency, underlying currency
           "underlying_value",
           "usd_value"
         ],
-        "type": "object",
         "properties": {
           "base_value": {
             "title": "base_value",
@@ -206,6 +205,7 @@ Gets the value of a vault's token against the base currency, underlying currency
             "description": "The value of the vault's token against USD"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

@@ -62,6 +62,72 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
+      "AuctionHistoryResultSchema": {
+        "required": [
+          "auction_id",
+          "auction_type",
+          "bids",
+          "end_timestamp",
+          "fee",
+          "start_timestamp",
+          "subaccount_id",
+          "tx_hash"
+        ],
+        "properties": {
+          "auction_id": {
+            "title": "auction_id",
+            "type": "string",
+            "description": "Unique ID of the auction"
+          },
+          "auction_type": {
+            "title": "auction_type",
+            "type": "string",
+            "enum": [
+              "solvent",
+              "insolvent"
+            ],
+            "description": "Type of auction"
+          },
+          "bids": {
+            "title": "bids",
+            "type": "array",
+            "description": "List of auction bid events",
+            "items": {
+              "$ref": "#/components/schemas/AuctionBidEventSchema"
+            }
+          },
+          "end_timestamp": {
+            "title": "end_timestamp",
+            "type": "integer",
+            "default": null,
+            "description": "Timestamp of the auction end (in ms since UNIX epoch), or `null` if not ended",
+            "nullable": true
+          },
+          "fee": {
+            "title": "fee",
+            "type": "string",
+            "format": "decimal",
+            "description": "Fee paid by the subaccount"
+          },
+          "start_timestamp": {
+            "title": "start_timestamp",
+            "type": "integer",
+            "description": "Timestamp of the auction start (in ms since UNIX epoch)"
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Liquidated subaccount ID"
+          },
+          "tx_hash": {
+            "title": "tx_hash",
+            "type": "string",
+            "description": "Hash of the transaction that started the auction"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
       "AuctionBidEventSchema": {
         "required": [
           "amounts_liquidated",
@@ -75,7 +141,6 @@ Required minimum session key permission level is `read_only`
           "timestamp",
           "tx_hash"
         ],
-        "type": "object",
         "properties": {
           "amounts_liquidated": {
             "title": "amounts_liquidated",
@@ -148,10 +213,10 @@ Required minimum session key permission level is `read_only`
             "description": "Hash of the bid transaction"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetLiquidationHistoryParamsSchema": {
-        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
@@ -180,6 +245,7 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetLiquidationHistoryResponseSchema": {
@@ -187,7 +253,6 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -210,72 +275,7 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "additionalProperties": false
-      },
-      "AuctionHistoryResultSchema": {
-        "required": [
-          "auction_id",
-          "auction_type",
-          "bids",
-          "end_timestamp",
-          "fee",
-          "start_timestamp",
-          "subaccount_id",
-          "tx_hash"
-        ],
         "type": "object",
-        "properties": {
-          "auction_id": {
-            "title": "auction_id",
-            "type": "string",
-            "description": "Unique ID of the auction"
-          },
-          "auction_type": {
-            "title": "auction_type",
-            "type": "string",
-            "enum": [
-              "solvent",
-              "insolvent"
-            ],
-            "description": "Type of auction"
-          },
-          "bids": {
-            "title": "bids",
-            "type": "array",
-            "description": "List of auction bid events",
-            "items": {
-              "$ref": "#/components/schemas/AuctionBidEventSchema"
-            }
-          },
-          "end_timestamp": {
-            "title": "end_timestamp",
-            "type": "integer",
-            "default": null,
-            "description": "Timestamp of the auction end (in ms since UNIX epoch), or `null` if not ended",
-            "nullable": true
-          },
-          "fee": {
-            "title": "fee",
-            "type": "string",
-            "format": "decimal",
-            "description": "Fee paid by the subaccount"
-          },
-          "start_timestamp": {
-            "title": "start_timestamp",
-            "type": "integer",
-            "description": "Timestamp of the auction start (in ms since UNIX epoch)"
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Liquidated subaccount ID"
-          },
-          "tx_hash": {
-            "title": "tx_hash",
-            "type": "string",
-            "description": "Hash of the transaction that started the auction"
-          }
-        },
         "additionalProperties": false
       }
     }

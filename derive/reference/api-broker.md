@@ -49,7 +49,7 @@ For taker orders (when the opposite maker has a **negative** fee rate): `fee sha
 
 For maker orders (when **positive**): `fee share * maker trade fee`
 
-For maker orders (when **negative**): `fee share * (taker trade fee - maker rebate)`
+For maker orders (when **negative**): `0`
 
 <br />
 

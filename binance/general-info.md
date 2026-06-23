@@ -17,14 +17,14 @@ All time and timestamp related fields are in milliseconds.
 ### Testnet API Information​
 
 Most of the endpoints can be used in the testnet platform.
-The REST base url for testnet** is "[https://testnet.binancefuture.com](https://testnet.binancefuture.com)"
+The REST base url for testnet** is "[https://demo-fapi.binance.com](https://demo-fapi.binance.com)"
 - The Websocket base url for **testnet** is:
 
-High Performance Market Data url path:"wss://fstream.binancefuture.com/public/"
+High Performance Market Data url path:"wss://demo-fstream.binance.com/public/"
 
-- Market Data url path: "wss://fstream.binancefuture.com/market/"
+- Market Data url path: "wss://demo-fstream.binance.com/market/"
 
-- Private Data url path: "wss://fstream.binancefuture.com/private/"
+- Private Data url path: "wss://demo-fstream.binance.com/private/"
 
 - After generating an API key on the testnet, users can use this API key directly for testnet options trading.
 

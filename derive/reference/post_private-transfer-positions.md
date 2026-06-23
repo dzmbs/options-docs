@@ -69,7 +69,6 @@ Required minimum session key permission level is `admin`
           "instrument_name",
           "price"
         ],
-        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -98,6 +97,7 @@ Required minimum session key permission level is `admin`
             "description": "Leg price"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "QuoteResultSchema": {
@@ -127,7 +127,6 @@ Required minimum session key permission level is `admin`
           "tx_hash",
           "tx_status"
         ],
-        "type": "object",
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",
@@ -297,6 +296,7 @@ Required minimum session key permission level is `admin`
             "nullable": true
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateTransferPositionsParamsSchema": {
@@ -305,7 +305,6 @@ Required minimum session key permission level is `admin`
           "taker_params",
           "wallet"
         ],
-        "type": "object",
         "properties": {
           "maker_params": {
             "$ref": "#/components/schemas/SignedQuoteParamsSchema"
@@ -319,6 +318,7 @@ Required minimum session key permission level is `admin`
             "description": "Public key (wallet) of the account"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "SignedQuoteParamsSchema": {
@@ -332,7 +332,6 @@ Required minimum session key permission level is `admin`
           "signer",
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "direction": {
             "title": "direction",
@@ -383,6 +382,7 @@ Required minimum session key permission level is `admin`
             "description": "Subaccount ID"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateTransferPositionsResponseSchema": {
@@ -390,7 +390,6 @@ Required minimum session key permission level is `admin`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -408,6 +407,7 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateTransferPositionsResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateTransferPositionsResultSchema": {
@@ -415,7 +415,6 @@ Required minimum session key permission level is `admin`
           "maker_quote",
           "taker_quote"
         ],
-        "type": "object",
         "properties": {
           "maker_quote": {
             "$ref": "#/components/schemas/QuoteResultSchema"
@@ -424,6 +423,7 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/QuoteResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

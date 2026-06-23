@@ -62,6 +62,68 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
+      "PrivateGetOptionSettlementHistoryParamsSchema": {
+        "properties": {
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "default": null,
+            "description": "Subaccount ID for which to get expired option settlement history",
+            "nullable": true
+          },
+          "wallet": {
+            "title": "wallet",
+            "type": "string",
+            "default": null,
+            "description": "Wallet address (if set, returns settlements for all subaccounts)",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PrivateGetOptionSettlementHistoryResponseSchema": {
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivateGetOptionSettlementHistoryResultSchema"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PrivateGetOptionSettlementHistoryResultSchema": {
+        "required": [
+          "settlements"
+        ],
+        "properties": {
+          "settlements": {
+            "title": "settlements",
+            "type": "array",
+            "description": "List of expired option settlements",
+            "items": {
+              "$ref": "#/components/schemas/OptionSettlementResponseSchema"
+            }
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
       "OptionSettlementResponseSchema": {
         "required": [
           "amount",
@@ -72,7 +134,6 @@ Required minimum session key permission level is `read_only`
           "settlement_price",
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -114,68 +175,7 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount ID of the settlement event"
           }
         },
-        "additionalProperties": false
-      },
-      "PrivateGetOptionSettlementHistoryParamsSchema": {
         "type": "object",
-        "properties": {
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "default": null,
-            "description": "Subaccount ID for which to get expired option settlement history",
-            "nullable": true
-          },
-          "wallet": {
-            "title": "wallet",
-            "type": "string",
-            "default": null,
-            "description": "Wallet address (if set, returns settlements for all subaccounts)",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetOptionSettlementHistoryResponseSchema": {
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivateGetOptionSettlementHistoryResultSchema"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetOptionSettlementHistoryResultSchema": {
-        "required": [
-          "settlements"
-        ],
-        "type": "object",
-        "properties": {
-          "settlements": {
-            "title": "settlements",
-            "type": "array",
-            "description": "List of expired option settlements",
-            "items": {
-              "$ref": "#/components/schemas/OptionSettlementResponseSchema"
-            }
-          }
-        },
         "additionalProperties": false
       }
     }

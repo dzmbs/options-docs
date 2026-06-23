@@ -66,7 +66,6 @@ Required minimum session key permission level is `read_only`
         "required": [
           "wallet"
         ],
-        "type": "object",
         "properties": {
           "wallet": {
             "title": "wallet",
@@ -74,6 +73,7 @@ Required minimum session key permission level is `read_only`
             "description": "Ethereum wallet address of account"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetAccountResponseSchema": {
@@ -81,7 +81,6 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -99,6 +98,7 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetAccountResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetAccountResultSchema": {
@@ -114,7 +114,6 @@ Required minimum session key permission level is `read_only`
           "websocket_option_tps",
           "websocket_perp_tps"
         ],
-        "type": "object",
         "properties": {
           "cancel_on_disconnect": {
             "title": "cancel_on_disconnect",
@@ -184,6 +183,7 @@ Required minimum session key permission level is `read_only`
             "description": "Max transactions per second for EACH perp instrument over websocket (see `Rate Limiting` in docs)"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "AccountFeeInfoSchema": {
@@ -198,7 +198,6 @@ Required minimum session key permission level is `read_only`
           "spot_maker_fee",
           "spot_taker_fee"
         ],
-        "type": "object",
         "properties": {
           "base_fee_discount": {
             "title": "base_fee_discount",
@@ -267,6 +266,7 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

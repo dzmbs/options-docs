@@ -68,7 +68,6 @@ Required minimum session key permission level is `account`
           "direction",
           "instrument_name"
         ],
-        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -91,6 +90,7 @@ Required minimum session key permission level is `account`
             "description": "Instrument name"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateSendRfqParamsSchema": {
@@ -98,7 +98,6 @@ Required minimum session key permission level is `account`
           "legs",
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "client": {
             "title": "client",
@@ -184,6 +183,7 @@ Required minimum session key permission level is `account`
             "description": "Subaccount ID"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateSendRfqResponseSchema": {
@@ -191,7 +191,6 @@ Required minimum session key permission level is `account`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -209,6 +208,7 @@ Required minimum session key permission level is `account`
             "$ref": "#/components/schemas/PrivateSendRfqResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateSendRfqResultSchema": {
@@ -236,7 +236,6 @@ Required minimum session key permission level is `account`
           "valid_until",
           "wallet"
         ],
-        "type": "object",
         "properties": {
           "ask_total_cost": {
             "title": "ask_total_cost",
@@ -415,6 +414,7 @@ Required minimum session key permission level is `account`
             "description": "Wallet address of the RFQ sender"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

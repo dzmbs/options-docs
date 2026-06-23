@@ -65,7 +65,6 @@ Calculates MtM and maintenance margin for a given subaccount.
         "required": [
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "force_onchain": {
             "title": "force_onchain",
@@ -85,6 +84,7 @@ Calculates MtM and maintenance margin for a given subaccount.
             "description": "Subaccount ID to get margin for."
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicMarginWatchResponseSchema": {
@@ -92,7 +92,6 @@ Calculates MtM and maintenance margin for a given subaccount.
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -110,6 +109,7 @@ Calculates MtM and maintenance margin for a given subaccount.
             "$ref": "#/components/schemas/PublicMarginWatchResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicMarginWatchResultSchema": {
@@ -124,7 +124,6 @@ Calculates MtM and maintenance margin for a given subaccount.
           "subaccount_value",
           "valuation_timestamp"
         ],
-        "type": "object",
         "properties": {
           "collaterals": {
             "title": "collaterals",
@@ -186,6 +185,7 @@ Calculates MtM and maintenance margin for a given subaccount.
             "description": "Timestamp (in seconds since epoch) of when margin and MtM were computed."
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "CollateralPublicResponseSchema": {
@@ -200,7 +200,6 @@ Calculates MtM and maintenance margin for a given subaccount.
           "mark_price",
           "mark_value"
         ],
-        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -259,6 +258,7 @@ Calculates MtM and maintenance margin for a given subaccount.
             "description": "USD value of the collateral (amount * mark price)"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PositionPublicResponseSchema": {
@@ -277,7 +277,6 @@ Calculates MtM and maintenance margin for a given subaccount.
           "theta",
           "vega"
         ],
-        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -363,6 +362,7 @@ Calculates MtM and maintenance margin for a given subaccount.
             "description": "Asset vega (zero for non-options)"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

@@ -62,68 +62,6 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
-      "PrivateGetPositionsParamsSchema": {
-        "required": [
-          "subaccount_id"
-        ],
-        "type": "object",
-        "properties": {
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount_id"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetPositionsResponseSchema": {
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivateGetPositionsResultSchema"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetPositionsResultSchema": {
-        "required": [
-          "positions",
-          "subaccount_id"
-        ],
-        "type": "object",
-        "properties": {
-          "positions": {
-            "title": "positions",
-            "type": "array",
-            "description": "All active positions of subaccount",
-            "items": {
-              "$ref": "#/components/schemas/PositionResponseSchema"
-            }
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount_id"
-          }
-        },
-        "additionalProperties": false
-      },
       "PositionResponseSchema": {
         "required": [
           "amount",
@@ -154,7 +92,6 @@ Required minimum session key permission level is `read_only`
           "unrealized_pnl_excl_fees",
           "vega"
         ],
-        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -325,6 +262,69 @@ Required minimum session key permission level is `read_only`
             "description": "Asset vega (zero for non-options)"
           }
         },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PrivateGetPositionsParamsSchema": {
+        "required": [
+          "subaccount_id"
+        ],
+        "properties": {
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount_id"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PrivateGetPositionsResponseSchema": {
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivateGetPositionsResultSchema"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PrivateGetPositionsResultSchema": {
+        "required": [
+          "positions",
+          "subaccount_id"
+        ],
+        "properties": {
+          "positions": {
+            "title": "positions",
+            "type": "array",
+            "description": "All active positions of subaccount",
+            "items": {
+              "$ref": "#/components/schemas/PositionResponseSchema"
+            }
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount_id"
+          }
+        },
+        "type": "object",
         "additionalProperties": false
       }
     }

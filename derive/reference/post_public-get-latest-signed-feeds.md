@@ -62,7 +62,6 @@ Get latest signed data feeds
   "components": {
     "schemas": {
       "PublicGetLatestSignedFeedsParamsSchema": {
-        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -79,6 +78,7 @@ Get latest signed data feeds
             "nullable": true
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicGetLatestSignedFeedsResponseSchema": {
@@ -86,7 +86,6 @@ Get latest signed data feeds
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -104,6 +103,7 @@ Get latest signed data feeds
             "$ref": "#/components/schemas/PublicGetLatestSignedFeedsResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicGetLatestSignedFeedsResultSchema": {
@@ -114,7 +114,6 @@ Get latest signed data feeds
           "spot_data",
           "vol_data"
         ],
-        "type": "object",
         "properties": {
           "fwd_data": {
             "title": "fwd_data",
@@ -173,6 +172,7 @@ Get latest signed data feeds
             }
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "ForwardFeedDataSchema": {
@@ -187,7 +187,6 @@ Get latest signed data feeds
           "spot_aggregate_start",
           "timestamp"
         ],
-        "type": "object",
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -237,10 +236,10 @@ Get latest signed data feeds
             "description": "The timestamp for which the data was created"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "OracleSignatureDataSchema": {
-        "type": "object",
         "properties": {
           "signatures": {
             "title": "signatures",
@@ -261,6 +260,7 @@ Get latest signed data feeds
             }
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PerpFeedDataSchema": {
@@ -273,7 +273,6 @@ Get latest signed data feeds
           "timestamp",
           "type"
         ],
-        "type": "object",
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -316,6 +315,7 @@ Get latest signed data feeds
             "description": "The type of perp feed; mid price, ask impact or bid impact"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "RateFeedDataSchema": {
@@ -328,7 +328,6 @@ Get latest signed data feeds
           "signatures",
           "timestamp"
         ],
-        "type": "object",
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -366,6 +365,7 @@ Get latest signed data feeds
             "description": "The timestamp for which the data was created"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "SpotFeedDataSchema": {
@@ -377,7 +377,6 @@ Get latest signed data feeds
           "signatures",
           "timestamp"
         ],
-        "type": "object",
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -420,6 +419,7 @@ Get latest signed data feeds
             "description": "The timestamp for which the data was created"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "VolFeedDataSchema": {
@@ -432,7 +432,6 @@ Get latest signed data feeds
           "timestamp",
           "vol_data"
         ],
-        "type": "object",
         "properties": {
           "confidence": {
             "title": "confidence",
@@ -467,6 +466,7 @@ Get latest signed data feeds
             "$ref": "#/components/schemas/VolSVIParamDataSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "VolSVIParamDataSchema": {
@@ -479,7 +479,6 @@ Get latest signed data feeds
           "SVI_rho",
           "SVI_sigma"
         ],
-        "type": "object",
         "properties": {
           "SVI_a": {
             "title": "SVI_a",
@@ -517,6 +516,7 @@ Get latest signed data feeds
             "format": "decimal"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

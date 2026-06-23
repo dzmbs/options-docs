@@ -67,7 +67,6 @@ Required minimum session key permission level is `read_only`
           "count",
           "num_pages"
         ],
-        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -80,6 +79,7 @@ Required minimum session key permission level is `read_only`
             "description": "Number of pages"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "LegPricedSchema": {
@@ -89,7 +89,6 @@ Required minimum session key permission level is `read_only`
           "instrument_name",
           "price"
         ],
-        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -118,13 +117,13 @@ Required minimum session key permission level is `read_only`
             "description": "Leg price"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivatePollQuotesParamsSchema": {
         "required": [
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "from_timestamp": {
             "title": "from_timestamp",
@@ -185,6 +184,7 @@ Required minimum session key permission level is `read_only`
             "description": "Latest timestamp to filter by (in ms since Unix epoch). If not provied, defaults to returning all data up to current time."
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivatePollQuotesResponseSchema": {
@@ -192,7 +192,6 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -210,6 +209,7 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivatePollQuotesResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivatePollQuotesResultSchema": {
@@ -217,7 +217,6 @@ Required minimum session key permission level is `read_only`
           "pagination",
           "quotes"
         ],
-        "type": "object",
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -231,6 +230,7 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "QuoteResultPublicSchema": {
@@ -251,7 +251,6 @@ Required minimum session key permission level is `read_only`
           "tx_status",
           "wallet"
         ],
-        "type": "object",
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",
@@ -373,6 +372,7 @@ Required minimum session key permission level is `read_only`
             "description": "Wallet address of the quote sender"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

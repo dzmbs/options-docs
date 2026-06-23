@@ -67,7 +67,6 @@ Required minimum session key permission level is `read_only`
           "amount",
           "asset_name"
         ],
-        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -81,6 +80,7 @@ Required minimum session key permission level is `read_only`
             "description": "Collateral ERC20 asset name (e.g. ETH, USDC, WSTETH)"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "SimulatedPositionSchema": {
@@ -88,7 +88,6 @@ Required minimum session key permission level is `read_only`
           "amount",
           "instrument_name"
         ],
-        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -110,13 +109,13 @@ Required minimum session key permission level is `read_only`
             "description": "Instrument name"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetMarginParamsSchema": {
         "required": [
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "simulated_collateral_changes": {
             "title": "simulated_collateral_changes",
@@ -144,6 +143,7 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetMarginResponseSchema": {
@@ -151,7 +151,6 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -169,6 +168,7 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetMarginResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetMarginResultSchema": {
@@ -180,7 +180,6 @@ Required minimum session key permission level is `read_only`
           "pre_maintenance_margin",
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "is_valid_trade": {
             "title": "is_valid_trade",
@@ -217,6 +216,7 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

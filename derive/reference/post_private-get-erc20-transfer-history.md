@@ -63,7 +63,6 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetErc20TransferHistoryParamsSchema": {
-        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
@@ -92,6 +91,7 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetErc20TransferHistoryResponseSchema": {
@@ -99,7 +99,6 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -117,13 +116,13 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetErc20TransferHistoryResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetErc20TransferHistoryResultSchema": {
         "required": [
           "events"
         ],
-        "type": "object",
         "properties": {
           "events": {
             "title": "events",
@@ -134,6 +133,7 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "ERC20TransferSchema": {
@@ -146,7 +146,6 @@ Required minimum session key permission level is `read_only`
           "timestamp",
           "tx_hash"
         ],
-        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -185,6 +184,7 @@ Required minimum session key permission level is `read_only`
             "description": "Hash of the transaction that withdrew the funds"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

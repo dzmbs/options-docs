@@ -72,7 +72,6 @@ Required minimum session key permission level is `admin`
           "signer",
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -117,6 +116,7 @@ Required minimum session key permission level is `admin`
             "description": "Subaccount_id"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateDepositResponseSchema": {
@@ -124,7 +124,6 @@ Required minimum session key permission level is `admin`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -142,6 +141,7 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateDepositResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateDepositResultSchema": {
@@ -149,7 +149,6 @@ Required minimum session key permission level is `admin`
           "status",
           "transaction_id"
         ],
-        "type": "object",
         "properties": {
           "status": {
             "title": "status",
@@ -163,6 +162,7 @@ Required minimum session key permission level is `admin`
             "description": "Transaction id of the deposit"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

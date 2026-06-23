@@ -60,8 +60,8 @@
   "components": {
     "schemas": {
       "PublicGetTimeParamsSchema": {
-        "type": "object",
         "properties": {},
+        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTimeResponseSchema": {
@@ -69,7 +69,6 @@
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -89,6 +88,7 @@
             "description": "Current time in milliseconds since UNIX epoch"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

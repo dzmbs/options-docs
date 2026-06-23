@@ -6,6 +6,10 @@
 
 > Changes and announcements for the Deribit FIX API.
 
+<Update label="Release 27.06.2026">
+  `Security List` (`y`): `UnderlyingSecurityType` (`310`) is now included in the response for all instruments. Possible values: `CRYPTO`, `COMMODITY`, `EQUITY`.
+</Update>
+
 <Update label="Release 17.02.2026">
   `Execution Reports` (`8`): added nonmandatory tag `CashOrderQty` (`152`) to differentiate value based orders from quantity based orders. For value based orders (BTC & ETH inverse futures and perpetuals where the order size is specified as a USD amount), both `OrderQty`(`38`) and `CashOrderQty`(`152`) are present and equal. For quantity based orders, `CashOrderQty` is absent
 </Update>

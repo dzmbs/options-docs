@@ -2,8 +2,8 @@
   "files": {
     "general-info.md": {
       "source_url": "https://developers.binance.com/docs/derivatives/options-trading/general-info",
-      "hash": "866e6c516b7274b13309baf52246b67e242d597f97db7b89ceb5cad96f1572e8",
-      "last_updated": "2026-03-22T10:20:55.069769"
+      "hash": "2347487275fd14b5d159973c11d858505fa83720f04c1f243ad6061c67a8a6e7",
+      "last_updated": "2026-06-23T12:04:41.199896"
     },
     "common-definition.md": {
       "source_url": "https://developers.binance.com/docs/derivatives/options-trading/common-definition",
@@ -352,13 +352,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-06-22T13:03:26.814672",
-    "duration_seconds": 85.273132,
+    "completed_at": "2026-06-23T12:06:08.967881",
+    "duration_seconds": 88.377642,
     "pages_total": 70,
     "pages_fetched": 70,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-06-22T13:03:26.814689",
+  "last_updated": "2026-06-23T12:06:08.967897",
   "source": "https://developers.binance.com/docs/derivatives/options-trading"
 }

@@ -62,24 +62,111 @@ Required minimum session key permission level is `read_only`
   },
   "components": {
     "schemas": {
-      "PaginationInfoSchema": {
+      "PrivateGetOrdersParamsSchema": {
         "required": [
-          "count",
-          "num_pages"
+          "subaccount_id"
         ],
-        "type": "object",
         "properties": {
-          "count": {
-            "title": "count",
-            "type": "integer",
-            "description": "Total number of items, across all pages"
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "default": null,
+            "description": "Filter by instrument name",
+            "nullable": true
           },
-          "num_pages": {
-            "title": "num_pages",
+          "label": {
+            "title": "label",
+            "type": "string",
+            "default": null,
+            "description": "Filter by label",
+            "nullable": true
+          },
+          "page": {
+            "title": "page",
             "type": "integer",
-            "description": "Number of pages"
+            "default": 1,
+            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
+          },
+          "page_size": {
+            "title": "page_size",
+            "type": "integer",
+            "default": 100,
+            "description": "Number of results per page (default 100, max 1000)"
+          },
+          "status": {
+            "title": "status",
+            "type": "string",
+            "default": null,
+            "enum": [
+              "open",
+              "filled",
+              "cancelled",
+              "expired",
+              "untriggered",
+              "algo_active"
+            ],
+            "description": "Filter by order status",
+            "nullable": true
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount_id for which to get open orders"
           }
         },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PrivateGetOrdersResponseSchema": {
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivateGetOrdersResultSchema"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PrivateGetOrdersResultSchema": {
+        "required": [
+          "orders",
+          "pagination",
+          "subaccount_id"
+        ],
+        "properties": {
+          "orders": {
+            "title": "orders",
+            "type": "array",
+            "description": "List of open orders",
+            "items": {
+              "$ref": "#/components/schemas/OrderResponseSchema"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationInfoSchema"
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount_id for which to get open orders"
+          }
+        },
+        "type": "object",
         "additionalProperties": false
       },
       "OrderResponseSchema": {
@@ -109,7 +196,6 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "time_in_force"
         ],
-        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -370,113 +456,27 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
-      "PrivateGetOrdersParamsSchema": {
+      "PaginationInfoSchema": {
         "required": [
-          "subaccount_id"
+          "count",
+          "num_pages"
         ],
-        "type": "object",
         "properties": {
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "default": null,
-            "description": "Filter by instrument name",
-            "nullable": true
-          },
-          "label": {
-            "title": "label",
-            "type": "string",
-            "default": null,
-            "description": "Filter by label",
-            "nullable": true
-          },
-          "page": {
-            "title": "page",
+          "count": {
+            "title": "count",
             "type": "integer",
-            "default": 1,
-            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
+            "description": "Total number of items, across all pages"
           },
-          "page_size": {
-            "title": "page_size",
+          "num_pages": {
+            "title": "num_pages",
             "type": "integer",
-            "default": 100,
-            "description": "Number of results per page (default 100, max 1000)"
-          },
-          "status": {
-            "title": "status",
-            "type": "string",
-            "default": null,
-            "enum": [
-              "open",
-              "filled",
-              "cancelled",
-              "expired",
-              "untriggered",
-              "algo_active"
-            ],
-            "description": "Filter by order status",
-            "nullable": true
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount_id for which to get open orders"
+            "description": "Number of pages"
           }
         },
-        "additionalProperties": false
-      },
-      "PrivateGetOrdersResponseSchema": {
-        "required": [
-          "id",
-          "result"
-        ],
         "type": "object",
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivateGetOrdersResultSchema"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetOrdersResultSchema": {
-        "required": [
-          "orders",
-          "pagination",
-          "subaccount_id"
-        ],
-        "type": "object",
-        "properties": {
-          "orders": {
-            "title": "orders",
-            "type": "array",
-            "description": "List of open orders",
-            "items": {
-              "$ref": "#/components/schemas/OrderResponseSchema"
-            }
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationInfoSchema"
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount_id for which to get open orders"
-          }
-        },
         "additionalProperties": false
       }
     }

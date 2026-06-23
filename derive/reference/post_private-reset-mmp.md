@@ -66,7 +66,6 @@ Required minimum session key permission level is `account`
         "required": [
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -81,6 +80,7 @@ Required minimum session key permission level is `account`
             "description": "Subaccount_id for which to reset the mmp state"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateResetMmpResponseSchema": {
@@ -88,7 +88,6 @@ Required minimum session key permission level is `account`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -111,6 +110,7 @@ Required minimum session key permission level is `account`
             "description": "The result of this method call, `ok` if successful"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

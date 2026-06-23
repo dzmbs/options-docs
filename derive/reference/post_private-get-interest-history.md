@@ -63,7 +63,6 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetInterestHistoryParamsSchema": {
-        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
@@ -92,6 +91,7 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetInterestHistoryResponseSchema": {
@@ -99,7 +99,6 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -117,13 +116,13 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetInterestHistoryResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetInterestHistoryResultSchema": {
         "required": [
           "events"
         ],
-        "type": "object",
         "properties": {
           "events": {
             "title": "events",
@@ -134,6 +133,7 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "InterestPaymentSchema": {
@@ -142,7 +142,6 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "timestamp"
         ],
-        "type": "object",
         "properties": {
           "interest": {
             "title": "interest",
@@ -161,6 +160,7 @@ Required minimum session key permission level is `read_only`
             "description": "Timestamp of the interest payment (in ms since UNIX epoch)"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

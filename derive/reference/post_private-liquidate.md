@@ -75,7 +75,6 @@ Required minimum session key permission level is `admin`
           "signer",
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "cash_transfer": {
             "title": "cash_transfer",
@@ -131,6 +130,7 @@ Required minimum session key permission level is `admin`
             "description": "Subaccount ID owned by wallet, that will be doing the bidding."
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateLiquidateResponseSchema": {
@@ -138,7 +138,6 @@ Required minimum session key permission level is `admin`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -156,6 +155,7 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateLiquidateResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateLiquidateResultSchema": {
@@ -165,7 +165,6 @@ Required minimum session key permission level is `admin`
           "estimated_percent_bid",
           "transaction_id"
         ],
-        "type": "object",
         "properties": {
           "estimated_bid_price": {
             "title": "estimated_bid_price",
@@ -192,6 +191,7 @@ Required minimum session key permission level is `admin`
             "description": "The transaction id of the related settlement transaction"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

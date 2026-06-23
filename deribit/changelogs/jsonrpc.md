@@ -6,6 +6,12 @@
 
 > Changes and announcements for the Deribit JSON-RPC API.
 
+<Update label="Release 27.06.2026">
+  The response of [private/get\_margins](https://docs.deribit.com/api-reference/trading/private-get_margins) now includes fee fields.
+
+  The `underlying_type` field is now returned in [public/get\_instrument](https://docs.deribit.com/api-reference/market-data/public-get_instrument) and [public/get\_instruments](https://docs.deribit.com/api-reference/market-data/public-get_instruments).
+</Update>
+
 <Update label="Release 24.02.2026">
   New API method: [public/get\_index\_chart\_data](https://docs.deribit.com/api-reference/market-data/public-get_index_chart_data) is now publicly accessible.
 

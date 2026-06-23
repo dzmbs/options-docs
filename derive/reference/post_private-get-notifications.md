@@ -67,7 +67,6 @@ Required minimum session key permission level is `read_only`
           "count",
           "num_pages"
         ],
-        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -80,10 +79,10 @@ Required minimum session key permission level is `read_only`
             "description": "Number of pages"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetNotificationsParamsSchema": {
-        "type": "object",
         "properties": {
           "page": {
             "title": "page",
@@ -146,6 +145,7 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetNotificationsResponseSchema": {
@@ -153,7 +153,6 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -171,6 +170,7 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetNotificationsResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetNotificationsResultSchema": {
@@ -178,7 +178,6 @@ Required minimum session key permission level is `read_only`
           "notifications",
           "pagination"
         ],
-        "type": "object",
         "properties": {
           "notifications": {
             "title": "notifications",
@@ -192,6 +191,7 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PaginationInfoSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "NotificationResponseSchema": {
@@ -203,7 +203,6 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "timestamp"
         ],
-        "type": "object",
         "properties": {
           "event": {
             "title": "event",
@@ -251,6 +250,7 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

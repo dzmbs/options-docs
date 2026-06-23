@@ -89,7 +89,6 @@ Required minimum session key permission level is `admin`
           "subaccount_id",
           "time_in_force"
         ],
-        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -350,6 +349,7 @@ Required minimum session key permission level is `admin`
             "nullable": true
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "TradeResponseSchema": {
@@ -378,7 +378,6 @@ Required minimum session key permission level is `admin`
           "tx_hash",
           "tx_status"
         ],
-        "type": "object",
         "properties": {
           "direction": {
             "title": "direction",
@@ -529,30 +528,7 @@ Required minimum session key permission level is `admin`
             "description": "Blockchain transaction status"
           }
         },
-        "additionalProperties": false
-      },
-      "RPCErrorFormatSchema": {
-        "required": [
-          "code",
-          "message"
-        ],
         "type": "object",
-        "properties": {
-          "code": {
-            "title": "code",
-            "type": "integer"
-          },
-          "data": {
-            "title": "data",
-            "type": "string",
-            "default": null,
-            "nullable": true
-          },
-          "message": {
-            "title": "message",
-            "type": "string"
-          }
-        },
         "additionalProperties": false
       },
       "PrivateReplaceParamsSchema": {
@@ -568,7 +544,6 @@ Required minimum session key permission level is `admin`
           "signer",
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -784,6 +759,7 @@ Required minimum session key permission level is `admin`
             "nullable": true
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateReplaceResponseSchema": {
@@ -791,7 +767,6 @@ Required minimum session key permission level is `admin`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -809,13 +784,13 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateReplaceResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateReplaceResultSchema": {
         "required": [
           "cancelled_order"
         ],
-        "type": "object",
         "properties": {
           "cancelled_order": {
             "$ref": "#/components/schemas/OrderResponseSchema"
@@ -839,6 +814,31 @@ Required minimum session key permission level is `admin`
             "nullable": true
           }
         },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "RPCErrorFormatSchema": {
+        "required": [
+          "code",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "integer"
+          },
+          "data": {
+            "title": "data",
+            "type": "string",
+            "default": null,
+            "nullable": true
+          },
+          "message": {
+            "title": "message",
+            "type": "string"
+          }
+        },
+        "type": "object",
         "additionalProperties": false
       }
     }

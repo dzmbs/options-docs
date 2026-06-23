@@ -65,7 +65,6 @@ Get funding rate history. Start timestamp is restricted to at most 30 days ago.<
         "required": [
           "instrument_name"
         ],
-        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
@@ -98,6 +97,7 @@ Get funding rate history. Start timestamp is restricted to at most 30 days ago.<
             "description": "Start timestamp of the event history in ms since Unix epoch (default 0)"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicGetFundingRateHistoryResponseSchema": {
@@ -105,7 +105,6 @@ Get funding rate history. Start timestamp is restricted to at most 30 days ago.<
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -123,13 +122,13 @@ Get funding rate history. Start timestamp is restricted to at most 30 days ago.<
             "$ref": "#/components/schemas/PublicGetFundingRateHistoryResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicGetFundingRateHistoryResultSchema": {
         "required": [
           "funding_rate_history"
         ],
-        "type": "object",
         "properties": {
           "funding_rate_history": {
             "title": "funding_rate_history",
@@ -140,6 +139,7 @@ Get funding rate history. Start timestamp is restricted to at most 30 days ago.<
             }
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "FundingRateSchema": {
@@ -147,7 +147,6 @@ Get funding rate history. Start timestamp is restricted to at most 30 days ago.<
           "funding_rate",
           "timestamp"
         ],
-        "type": "object",
         "properties": {
           "funding_rate": {
             "title": "funding_rate",
@@ -161,6 +160,7 @@ Get funding rate history. Start timestamp is restricted to at most 30 days ago.<
             "description": "Timestamp of the funding rate update (in ms since UNIX epoch)"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

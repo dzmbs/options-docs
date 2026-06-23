@@ -67,7 +67,6 @@ Required minimum session key permission level is `account`
           "enabled",
           "wallet"
         ],
-        "type": "object",
         "properties": {
           "enabled": {
             "title": "enabled",
@@ -80,6 +79,7 @@ Required minimum session key permission level is `account`
             "description": "Public key (wallet) of the account"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateSetCancelOnDisconnectResponseSchema": {
@@ -87,7 +87,6 @@ Required minimum session key permission level is `account`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -110,6 +109,7 @@ Required minimum session key permission level is `account`
             "description": ""
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

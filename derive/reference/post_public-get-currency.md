@@ -61,11 +61,162 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
   },
   "components": {
     "schemas": {
+      "OpenInterestStatsSchema": {
+        "required": [
+          "current_open_interest",
+          "interest_cap"
+        ],
+        "properties": {
+          "current_open_interest": {
+            "title": "current_open_interest",
+            "type": "string",
+            "format": "decimal",
+            "description": "Current open interest for the margin type"
+          },
+          "interest_cap": {
+            "title": "interest_cap",
+            "type": "string",
+            "format": "decimal",
+            "description": "Total open interest cap"
+          },
+          "manager_currency": {
+            "title": "manager_currency",
+            "type": "string",
+            "default": null,
+            "description": "Currency of the manager (only applies to Portfolio Margin)",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ManagerContractResponseSchema": {
+        "required": [
+          "address",
+          "margin_type"
+        ],
+        "properties": {
+          "address": {
+            "title": "address",
+            "type": "string",
+            "description": "Address of the manager"
+          },
+          "currency": {
+            "title": "currency",
+            "type": "string",
+            "default": null,
+            "description": "Currency of the manager (only applies to portfolio managers)",
+            "nullable": true
+          },
+          "margin_type": {
+            "title": "margin_type",
+            "type": "string",
+            "enum": [
+              "PM",
+              "SM",
+              "PM2"
+            ],
+            "description": "Margin type of the manager"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PM2CollateralDiscountsSchema": {
+        "required": [
+          "im_discount",
+          "manager_currency",
+          "mm_discount"
+        ],
+        "properties": {
+          "im_discount": {
+            "title": "im_discount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Initial Margin discount for given collateral in PM2"
+          },
+          "manager_currency": {
+            "title": "manager_currency",
+            "type": "string",
+            "description": "Currency of the manager"
+          },
+          "mm_discount": {
+            "title": "mm_discount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Maintenance Margin discount for given collateral in PM2"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ProtocolAssetAddressesSchema": {
+        "properties": {
+          "option": {
+            "title": "option",
+            "type": "string",
+            "default": null,
+            "description": "Address of the Derive protocol option contract (none if not supported)",
+            "nullable": true
+          },
+          "perp": {
+            "title": "perp",
+            "type": "string",
+            "default": null,
+            "description": "Address of the Derive protocol perp contract (none if not supported)",
+            "nullable": true
+          },
+          "spot": {
+            "title": "spot",
+            "type": "string",
+            "default": null,
+            "description": "Address of the Derive protocol spot contract (none if not supported)",
+            "nullable": true
+          },
+          "underlying_erc20": {
+            "title": "underlying_erc20",
+            "type": "string",
+            "default": null,
+            "description": "Address of the erc20 asset on Derive chain. This is the asset that is deposited into the spot asset",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "SRMPerpMarginRequirementsPublicSchema": {
+        "required": [
+          "im_perp_req",
+          "max_leverage",
+          "mm_perp_req"
+        ],
+        "properties": {
+          "im_perp_req": {
+            "title": "im_perp_req",
+            "type": "string",
+            "format": "decimal",
+            "description": "Initial margin requirement for perp positions (fraction of notional)"
+          },
+          "max_leverage": {
+            "title": "max_leverage",
+            "type": "string",
+            "format": "decimal",
+            "description": "Maximum leverage for perp positions (1 / im_perp_req)"
+          },
+          "mm_perp_req": {
+            "title": "mm_perp_req",
+            "type": "string",
+            "format": "decimal",
+            "description": "Maintenance margin requirement for perp positions (fraction of notional)"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
       "PublicGetCurrencyParamsSchema": {
         "required": [
           "currency"
         ],
-        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -73,6 +224,7 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
             "description": "Underlying currency of asset (`ETH`, `BTC`, etc)"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicGetCurrencyResponseSchema": {
@@ -80,7 +232,6 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -98,6 +249,7 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
             "$ref": "#/components/schemas/PublicGetCurrencyResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicGetCurrencyResultSchema": {
@@ -117,7 +269,6 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
           "total_borrow",
           "total_supply"
         ],
-        "type": "object",
         "properties": {
           "asset_cap_and_supply_per_manager": {
             "title": "asset_cap_and_supply_per_manager",
@@ -252,158 +403,7 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
             "description": "Total collateral supplied in the protocol"
           }
         },
-        "additionalProperties": false
-      },
-      "OpenInterestStatsSchema": {
-        "required": [
-          "current_open_interest",
-          "interest_cap"
-        ],
         "type": "object",
-        "properties": {
-          "current_open_interest": {
-            "title": "current_open_interest",
-            "type": "string",
-            "format": "decimal",
-            "description": "Current open interest for the margin type"
-          },
-          "interest_cap": {
-            "title": "interest_cap",
-            "type": "string",
-            "format": "decimal",
-            "description": "Total open interest cap"
-          },
-          "manager_currency": {
-            "title": "manager_currency",
-            "type": "string",
-            "default": null,
-            "description": "Currency of the manager (only applies to Portfolio Margin)",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ManagerContractResponseSchema": {
-        "required": [
-          "address",
-          "margin_type"
-        ],
-        "type": "object",
-        "properties": {
-          "address": {
-            "title": "address",
-            "type": "string",
-            "description": "Address of the manager"
-          },
-          "currency": {
-            "title": "currency",
-            "type": "string",
-            "default": null,
-            "description": "Currency of the manager (only applies to portfolio managers)",
-            "nullable": true
-          },
-          "margin_type": {
-            "title": "margin_type",
-            "type": "string",
-            "enum": [
-              "PM",
-              "SM",
-              "PM2"
-            ],
-            "description": "Margin type of the manager"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PM2CollateralDiscountsSchema": {
-        "required": [
-          "im_discount",
-          "manager_currency",
-          "mm_discount"
-        ],
-        "type": "object",
-        "properties": {
-          "im_discount": {
-            "title": "im_discount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Initial Margin discount for given collateral in PM2"
-          },
-          "manager_currency": {
-            "title": "manager_currency",
-            "type": "string",
-            "description": "Currency of the manager"
-          },
-          "mm_discount": {
-            "title": "mm_discount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Maintenance Margin discount for given collateral in PM2"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ProtocolAssetAddressesSchema": {
-        "type": "object",
-        "properties": {
-          "option": {
-            "title": "option",
-            "type": "string",
-            "default": null,
-            "description": "Address of the Derive protocol option contract (none if not supported)",
-            "nullable": true
-          },
-          "perp": {
-            "title": "perp",
-            "type": "string",
-            "default": null,
-            "description": "Address of the Derive protocol perp contract (none if not supported)",
-            "nullable": true
-          },
-          "spot": {
-            "title": "spot",
-            "type": "string",
-            "default": null,
-            "description": "Address of the Derive protocol spot contract (none if not supported)",
-            "nullable": true
-          },
-          "underlying_erc20": {
-            "title": "underlying_erc20",
-            "type": "string",
-            "default": null,
-            "description": "Address of the erc20 asset on Derive chain. This is the asset that is deposited into the spot asset",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "SRMPerpMarginRequirementsPublicSchema": {
-        "required": [
-          "im_perp_req",
-          "max_leverage",
-          "mm_perp_req"
-        ],
-        "type": "object",
-        "properties": {
-          "im_perp_req": {
-            "title": "im_perp_req",
-            "type": "string",
-            "format": "decimal",
-            "description": "Initial margin requirement for perp positions (fraction of notional)"
-          },
-          "max_leverage": {
-            "title": "max_leverage",
-            "type": "string",
-            "format": "decimal",
-            "description": "Maximum leverage for perp positions (1 / im_perp_req)"
-          },
-          "mm_perp_req": {
-            "title": "mm_perp_req",
-            "type": "string",
-            "format": "decimal",
-            "description": "Maintenance margin requirement for perp positions (fraction of notional)"
-          }
-        },
         "additionalProperties": false
       }
     }

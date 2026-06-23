@@ -997,13 +997,13 @@
     },
     "changelogs/fix.md": {
       "source_url": "https://docs.deribit.com/changelogs/fix.md",
-      "hash": "db5c6a4e34c7884b0f46925e935ed529525c8452e4a7e743fb3fa294d00b3345",
-      "last_updated": "2026-05-31T21:06:22.497587"
+      "hash": "9bc8d00e532c63174d2cd04ba085a17f0d3d63fde12c67813f2dc5f583c46c5f",
+      "last_updated": "2026-06-23T12:09:45.744815"
     },
     "changelogs/jsonrpc.md": {
       "source_url": "https://docs.deribit.com/changelogs/jsonrpc.md",
-      "hash": "745d532d0933708e49d374cc11e9aa720819438fe5c83513605b7566eb91c855",
-      "last_updated": "2026-05-31T21:06:23.183421"
+      "hash": "1c1006e951c99b54a3d7099ebbf880c4cb588921a517d49d12d38f73c21a20ed",
+      "last_updated": "2026-06-23T12:09:46.540137"
     },
     "changelogs/starbase.md": {
       "source_url": "https://docs.deribit.com/changelogs/starbase.md",
@@ -1417,13 +1417,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-06-22T13:09:19.003389",
-    "duration_seconds": 350.50473,
+    "completed_at": "2026-06-23T12:11:46.563434",
+    "duration_seconds": 335.916373,
     "pages_total": 283,
     "pages_fetched": 283,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-06-22T13:09:19.003405",
+  "last_updated": "2026-06-23T12:11:46.563450",
   "source": "https://docs.deribit.com"
 }

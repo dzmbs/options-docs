@@ -67,7 +67,6 @@ Required minimum session key permission level is `read_only`
           "count",
           "num_pages"
         ],
-        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -80,90 +79,7 @@ Required minimum session key permission level is `read_only`
             "description": "Number of pages"
           }
         },
-        "additionalProperties": false
-      },
-      "PrivateGetLiquidatorHistoryParamsSchema": {
-        "required": [
-          "subaccount_id"
-        ],
         "type": "object",
-        "properties": {
-          "end_timestamp": {
-            "title": "end_timestamp",
-            "type": "integer",
-            "default": 9223372036854776000,
-            "description": "End timestamp of the event history in ms since Unix epoch (default current time)"
-          },
-          "page": {
-            "title": "page",
-            "type": "integer",
-            "default": 1,
-            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
-          },
-          "page_size": {
-            "title": "page_size",
-            "type": "integer",
-            "default": 100,
-            "description": "Number of results per page (default 100, max 1000)"
-          },
-          "start_timestamp": {
-            "title": "start_timestamp",
-            "type": "integer",
-            "default": 0,
-            "description": "Start timestamp of the event history in ms since Unix epoch (default 0)"
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount ID"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetLiquidatorHistoryResponseSchema": {
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivateGetLiquidatorHistoryResultSchema"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateGetLiquidatorHistoryResultSchema": {
-        "required": [
-          "bids",
-          "pagination"
-        ],
-        "type": "object",
-        "properties": {
-          "bids": {
-            "title": "bids",
-            "type": "array",
-            "description": "List of auction bid events",
-            "items": {
-              "$ref": "#/components/schemas/AuctionBidEventSchema"
-            }
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationInfoSchema"
-          }
-        },
         "additionalProperties": false
       },
       "AuctionBidEventSchema": {
@@ -179,7 +95,6 @@ Required minimum session key permission level is `read_only`
           "timestamp",
           "tx_hash"
         ],
-        "type": "object",
         "properties": {
           "amounts_liquidated": {
             "title": "amounts_liquidated",
@@ -252,6 +167,91 @@ Required minimum session key permission level is `read_only`
             "description": "Hash of the bid transaction"
           }
         },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PrivateGetLiquidatorHistoryParamsSchema": {
+        "required": [
+          "subaccount_id"
+        ],
+        "properties": {
+          "end_timestamp": {
+            "title": "end_timestamp",
+            "type": "integer",
+            "default": 9223372036854776000,
+            "description": "End timestamp of the event history in ms since Unix epoch (default current time)"
+          },
+          "page": {
+            "title": "page",
+            "type": "integer",
+            "default": 1,
+            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
+          },
+          "page_size": {
+            "title": "page_size",
+            "type": "integer",
+            "default": 100,
+            "description": "Number of results per page (default 100, max 1000)"
+          },
+          "start_timestamp": {
+            "title": "start_timestamp",
+            "type": "integer",
+            "default": 0,
+            "description": "Start timestamp of the event history in ms since Unix epoch (default 0)"
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount ID"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PrivateGetLiquidatorHistoryResponseSchema": {
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivateGetLiquidatorHistoryResultSchema"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PrivateGetLiquidatorHistoryResultSchema": {
+        "required": [
+          "bids",
+          "pagination"
+        ],
+        "properties": {
+          "bids": {
+            "title": "bids",
+            "type": "array",
+            "description": "List of auction bid events",
+            "items": {
+              "$ref": "#/components/schemas/AuctionBidEventSchema"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationInfoSchema"
+          }
+        },
+        "type": "object",
         "additionalProperties": false
       }
     }

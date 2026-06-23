@@ -89,7 +89,6 @@ Required minimum session key permission level is `admin`
           "subaccount_id",
           "time_in_force"
         ],
-        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -350,6 +349,153 @@ Required minimum session key permission level is `admin`
             "nullable": true
           }
         },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PrivateTransferPositionParamsSchema": {
+        "required": [
+          "maker_params",
+          "taker_params",
+          "wallet"
+        ],
+        "properties": {
+          "maker_params": {
+            "$ref": "#/components/schemas/TradeModuleParamsSchema"
+          },
+          "taker_params": {
+            "$ref": "#/components/schemas/TradeModuleParamsSchema"
+          },
+          "wallet": {
+            "title": "wallet",
+            "type": "string",
+            "description": "Public key (wallet) of the account"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "TradeModuleParamsSchema": {
+        "required": [
+          "amount",
+          "direction",
+          "instrument_name",
+          "limit_price",
+          "max_fee",
+          "nonce",
+          "signature",
+          "signature_expiry_sec",
+          "signer",
+          "subaccount_id"
+        ],
+        "properties": {
+          "amount": {
+            "title": "amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Order amount in units of the base"
+          },
+          "direction": {
+            "title": "direction",
+            "type": "string",
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "Order direction"
+          },
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "description": "Instrument name"
+          },
+          "limit_price": {
+            "title": "limit_price",
+            "type": "string",
+            "format": "decimal",
+            "description": "Limit price in quote currency.<br />This field is still required for market orders because it is a component of the signature. However, market orders will not leave a resting order in the book in case of a partial fill."
+          },
+          "max_fee": {
+            "title": "max_fee",
+            "type": "string",
+            "format": "decimal",
+            "description": "Max fee PER contract, denominated in USDC.<br />For resting orders (maker orders), max_fee must be > 2 x max(taker_fee, maker_fee) x spot_price + extra_fee / amount.For crossing orders (taker order), max_fee must be > maker max_fee + base_fee / fill_amount.<br />Note, in this calculation, regardless of the custom account taker / maker fees, the standard taker / maker fees are used.<br />The max(limit_price, index_price) is used to calculate the notional volume."
+          },
+          "nonce": {
+            "title": "nonce",
+            "type": "integer",
+            "description": "Unique nonce defined as (UTC_timestamp in ms)(random_number_up_to_3_digits) (e.g. 1695836058725001, where 001 is the random number).<br />Note, using a random number beyond 3 digits will cause JSON serialization to fail."
+          },
+          "signature": {
+            "title": "signature",
+            "type": "string",
+            "description": "Ethereum signature of the order"
+          },
+          "signature_expiry_sec": {
+            "title": "signature_expiry_sec",
+            "type": "integer",
+            "description": "Unix timestamp in seconds. Order signature becomes invalid after this time, and the system will cancel the order.<br />Expiry MUST be at least 5 min from now."
+          },
+          "signer": {
+            "title": "signer",
+            "type": "string",
+            "description": "Owner wallet address or registered session key that signed order"
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "description": "Subaccount ID"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PrivateTransferPositionResponseSchema": {
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PrivateTransferPositionResultSchema"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PrivateTransferPositionResultSchema": {
+        "required": [
+          "maker_order",
+          "maker_trade",
+          "taker_order",
+          "taker_trade"
+        ],
+        "properties": {
+          "maker_order": {
+            "$ref": "#/components/schemas/OrderResponseSchema"
+          },
+          "maker_trade": {
+            "$ref": "#/components/schemas/TradeResponseSchema"
+          },
+          "taker_order": {
+            "$ref": "#/components/schemas/OrderResponseSchema"
+          },
+          "taker_trade": {
+            "$ref": "#/components/schemas/TradeResponseSchema"
+          }
+        },
+        "type": "object",
         "additionalProperties": false
       },
       "TradeResponseSchema": {
@@ -378,7 +524,6 @@ Required minimum session key permission level is `admin`
           "tx_hash",
           "tx_status"
         ],
-        "type": "object",
         "properties": {
           "direction": {
             "title": "direction",
@@ -529,152 +674,7 @@ Required minimum session key permission level is `admin`
             "description": "Blockchain transaction status"
           }
         },
-        "additionalProperties": false
-      },
-      "PrivateTransferPositionParamsSchema": {
-        "required": [
-          "maker_params",
-          "taker_params",
-          "wallet"
-        ],
         "type": "object",
-        "properties": {
-          "maker_params": {
-            "$ref": "#/components/schemas/TradeModuleParamsSchema"
-          },
-          "taker_params": {
-            "$ref": "#/components/schemas/TradeModuleParamsSchema"
-          },
-          "wallet": {
-            "title": "wallet",
-            "type": "string",
-            "description": "Public key (wallet) of the account"
-          }
-        },
-        "additionalProperties": false
-      },
-      "TradeModuleParamsSchema": {
-        "required": [
-          "amount",
-          "direction",
-          "instrument_name",
-          "limit_price",
-          "max_fee",
-          "nonce",
-          "signature",
-          "signature_expiry_sec",
-          "signer",
-          "subaccount_id"
-        ],
-        "type": "object",
-        "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Order amount in units of the base"
-          },
-          "direction": {
-            "title": "direction",
-            "type": "string",
-            "enum": [
-              "buy",
-              "sell"
-            ],
-            "description": "Order direction"
-          },
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "description": "Instrument name"
-          },
-          "limit_price": {
-            "title": "limit_price",
-            "type": "string",
-            "format": "decimal",
-            "description": "Limit price in quote currency.<br />This field is still required for market orders because it is a component of the signature. However, market orders will not leave a resting order in the book in case of a partial fill."
-          },
-          "max_fee": {
-            "title": "max_fee",
-            "type": "string",
-            "format": "decimal",
-            "description": "Max fee PER contract, denominated in USDC.<br />For resting orders (maker orders), max_fee must be > 2 x max(taker_fee, maker_fee) x spot_price + extra_fee / amount.For crossing orders (taker order), max_fee must be > maker max_fee + base_fee / fill_amount.<br />Note, in this calculation, regardless of the custom account taker / maker fees, the standard taker / maker fees are used.<br />The max(limit_price, index_price) is used to calculate the notional volume."
-          },
-          "nonce": {
-            "title": "nonce",
-            "type": "integer",
-            "description": "Unique nonce defined as (UTC_timestamp in ms)(random_number_up_to_3_digits) (e.g. 1695836058725001, where 001 is the random number).<br />Note, using a random number beyond 3 digits will cause JSON serialization to fail."
-          },
-          "signature": {
-            "title": "signature",
-            "type": "string",
-            "description": "Ethereum signature of the order"
-          },
-          "signature_expiry_sec": {
-            "title": "signature_expiry_sec",
-            "type": "integer",
-            "description": "Unix timestamp in seconds. Order signature becomes invalid after this time, and the system will cancel the order.<br />Expiry MUST be at least 5 min from now."
-          },
-          "signer": {
-            "title": "signer",
-            "type": "string",
-            "description": "Owner wallet address or registered session key that signed order"
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "description": "Subaccount ID"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateTransferPositionResponseSchema": {
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PrivateTransferPositionResultSchema"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PrivateTransferPositionResultSchema": {
-        "required": [
-          "maker_order",
-          "maker_trade",
-          "taker_order",
-          "taker_trade"
-        ],
-        "type": "object",
-        "properties": {
-          "maker_order": {
-            "$ref": "#/components/schemas/OrderResponseSchema"
-          },
-          "maker_trade": {
-            "$ref": "#/components/schemas/TradeResponseSchema"
-          },
-          "taker_order": {
-            "$ref": "#/components/schemas/OrderResponseSchema"
-          },
-          "taker_trade": {
-            "$ref": "#/components/schemas/TradeResponseSchema"
-          }
-        },
         "additionalProperties": false
       }
     }

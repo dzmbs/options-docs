@@ -60,8 +60,8 @@
   "components": {
     "schemas": {
       "PublicGetLiveIncidentsParamsSchema": {
-        "type": "object",
         "properties": {},
+        "type": "object",
         "additionalProperties": false
       },
       "PublicGetLiveIncidentsResponseSchema": {
@@ -69,7 +69,6 @@
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -87,13 +86,13 @@
             "$ref": "#/components/schemas/PublicGetLiveIncidentsResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicGetLiveIncidentsResultSchema": {
         "required": [
           "incidents"
         ],
-        "type": "object",
         "properties": {
           "incidents": {
             "title": "incidents",
@@ -104,6 +103,7 @@
             }
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "IncidentResponseSchema": {
@@ -114,7 +114,6 @@
           "monitor_type",
           "severity"
         ],
-        "type": "object",
         "properties": {
           "creation_timestamp_sec": {
             "title": "creation_timestamp_sec",
@@ -151,6 +150,7 @@
             "description": "Incident severity"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

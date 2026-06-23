@@ -61,44 +61,6 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
   },
   "components": {
     "schemas": {
-      "LegPricedSchema": {
-        "required": [
-          "amount",
-          "direction",
-          "instrument_name",
-          "price"
-        ],
-        "type": "object",
-        "properties": {
-          "amount": {
-            "title": "amount",
-            "type": "string",
-            "format": "decimal",
-            "description": "Amount in units of the base"
-          },
-          "direction": {
-            "title": "direction",
-            "type": "string",
-            "enum": [
-              "buy",
-              "sell"
-            ],
-            "description": "Leg direction"
-          },
-          "instrument_name": {
-            "title": "instrument_name",
-            "type": "string",
-            "description": "Instrument name"
-          },
-          "price": {
-            "title": "price",
-            "type": "string",
-            "format": "decimal",
-            "description": "Leg price"
-          }
-        },
-        "additionalProperties": false
-      },
       "PublicExecuteQuoteDebugParamsSchema": {
         "required": [
           "direction",
@@ -112,7 +74,6 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
           "signer",
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "client": {
             "title": "client",
@@ -193,6 +154,45 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
             "description": "Subaccount ID"
           }
         },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "LegPricedSchema": {
+        "required": [
+          "amount",
+          "direction",
+          "instrument_name",
+          "price"
+        ],
+        "properties": {
+          "amount": {
+            "title": "amount",
+            "type": "string",
+            "format": "decimal",
+            "description": "Amount in units of the base"
+          },
+          "direction": {
+            "title": "direction",
+            "type": "string",
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "description": "Leg direction"
+          },
+          "instrument_name": {
+            "title": "instrument_name",
+            "type": "string",
+            "description": "Instrument name"
+          },
+          "price": {
+            "title": "price",
+            "type": "string",
+            "format": "decimal",
+            "description": "Leg price"
+          }
+        },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicExecuteQuoteDebugResponseSchema": {
@@ -200,7 +200,6 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -218,6 +217,7 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
             "$ref": "#/components/schemas/PublicExecuteQuoteDebugResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicExecuteQuoteDebugResultSchema": {
@@ -229,7 +229,6 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
           "legs_hash",
           "typed_data_hash"
         ],
-        "type": "object",
         "properties": {
           "action_hash": {
             "title": "action_hash",
@@ -262,6 +261,7 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
             "description": "EIP 712 typed data hash"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

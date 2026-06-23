@@ -67,7 +67,6 @@ Required minimum session key permission level is `account`
           "rfq_id",
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "rfq_id": {
             "title": "rfq_id",
@@ -81,6 +80,7 @@ Required minimum session key permission level is `account`
             "description": "Subaccount ID"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PrivateCancelRfqResponseSchema": {
@@ -88,7 +88,6 @@ Required minimum session key permission level is `account`
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -111,6 +110,7 @@ Required minimum session key permission level is `account`
             "description": "The result of this method call, `ok` if successful"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

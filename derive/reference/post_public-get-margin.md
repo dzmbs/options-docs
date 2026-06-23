@@ -67,7 +67,6 @@ Calculates margin for a given portfolio and (optionally) a simulated state chang
           "simulated_collaterals",
           "simulated_positions"
         ],
-        "type": "object",
         "properties": {
           "margin_type": {
             "title": "margin_type",
@@ -123,6 +122,7 @@ Calculates margin for a given portfolio and (optionally) a simulated state chang
             }
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "SimulatedCollateralSchema": {
@@ -130,7 +130,6 @@ Calculates margin for a given portfolio and (optionally) a simulated state chang
           "amount",
           "asset_name"
         ],
-        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -144,6 +143,7 @@ Calculates margin for a given portfolio and (optionally) a simulated state chang
             "description": "Collateral ERC20 asset name (e.g. ETH, USDC, WSTETH)"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "SimulatedPositionSchema": {
@@ -151,7 +151,6 @@ Calculates margin for a given portfolio and (optionally) a simulated state chang
           "amount",
           "instrument_name"
         ],
-        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -173,6 +172,7 @@ Calculates margin for a given portfolio and (optionally) a simulated state chang
             "description": "Instrument name"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicGetMarginResponseSchema": {
@@ -180,7 +180,6 @@ Calculates margin for a given portfolio and (optionally) a simulated state chang
           "id",
           "result"
         ],
-        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -198,6 +197,7 @@ Calculates margin for a given portfolio and (optionally) a simulated state chang
             "$ref": "#/components/schemas/PublicGetMarginResultSchema"
           }
         },
+        "type": "object",
         "additionalProperties": false
       },
       "PublicGetMarginResultSchema": {
@@ -209,7 +209,6 @@ Calculates margin for a given portfolio and (optionally) a simulated state chang
           "pre_maintenance_margin",
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "is_valid_trade": {
             "title": "is_valid_trade",
@@ -246,6 +245,7 @@ Calculates margin for a given portfolio and (optionally) a simulated state chang
             "description": "Subaccount_id"
           }
         },
+        "type": "object",
         "additionalProperties": false
       }
     }

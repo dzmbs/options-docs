@@ -66,7 +66,6 @@ Get expired option settlement history, optionally filtered by subaccount or wall
           "count",
           "num_pages"
         ],
-        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -79,84 +78,7 @@ Get expired option settlement history, optionally filtered by subaccount or wall
             "description": "Number of pages"
           }
         },
-        "additionalProperties": false
-      },
-      "PublicGetOptionSettlementHistoryParamsSchema": {
         "type": "object",
-        "properties": {
-          "page": {
-            "title": "page",
-            "type": "integer",
-            "default": 1,
-            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
-          },
-          "page_size": {
-            "title": "page_size",
-            "type": "integer",
-            "default": 100,
-            "description": "Number of results per page (default 100, max 1000)"
-          },
-          "subaccount_id": {
-            "title": "subaccount_id",
-            "type": "integer",
-            "default": null,
-            "description": "Subaccount ID filter (defaults to all if not provided)",
-            "nullable": true
-          },
-          "wallet": {
-            "title": "wallet",
-            "type": "string",
-            "default": null,
-            "description": "Wallet address filter (if set, subaccount_id is ignored)",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PublicGetOptionSettlementHistoryResponseSchema": {
-        "required": [
-          "id",
-          "result"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "title": "",
-                "type": "string"
-              },
-              {
-                "title": "",
-                "type": "integer"
-              }
-            ]
-          },
-          "result": {
-            "$ref": "#/components/schemas/PublicGetOptionSettlementHistoryResultSchema"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PublicGetOptionSettlementHistoryResultSchema": {
-        "required": [
-          "pagination",
-          "settlements"
-        ],
-        "type": "object",
-        "properties": {
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationInfoSchema"
-          },
-          "settlements": {
-            "title": "settlements",
-            "type": "array",
-            "description": "List of expired option settlements",
-            "items": {
-              "$ref": "#/components/schemas/OptionSettlementResponseSchema"
-            }
-          }
-        },
         "additionalProperties": false
       },
       "OptionSettlementResponseSchema": {
@@ -169,7 +91,6 @@ Get expired option settlement history, optionally filtered by subaccount or wall
           "settlement_price",
           "subaccount_id"
         ],
-        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -211,6 +132,85 @@ Get expired option settlement history, optionally filtered by subaccount or wall
             "description": "Subaccount ID of the settlement event"
           }
         },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PublicGetOptionSettlementHistoryParamsSchema": {
+        "properties": {
+          "page": {
+            "title": "page",
+            "type": "integer",
+            "default": 1,
+            "description": "Page number of results to return (default 1, returns last if above `num_pages`)"
+          },
+          "page_size": {
+            "title": "page_size",
+            "type": "integer",
+            "default": 100,
+            "description": "Number of results per page (default 100, max 1000)"
+          },
+          "subaccount_id": {
+            "title": "subaccount_id",
+            "type": "integer",
+            "default": null,
+            "description": "Subaccount ID filter (defaults to all if not provided)",
+            "nullable": true
+          },
+          "wallet": {
+            "title": "wallet",
+            "type": "string",
+            "default": null,
+            "description": "Wallet address filter (if set, subaccount_id is ignored)",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PublicGetOptionSettlementHistoryResponseSchema": {
+        "required": [
+          "id",
+          "result"
+        ],
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "title": "",
+                "type": "string"
+              },
+              {
+                "title": "",
+                "type": "integer"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/PublicGetOptionSettlementHistoryResultSchema"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PublicGetOptionSettlementHistoryResultSchema": {
+        "required": [
+          "pagination",
+          "settlements"
+        ],
+        "properties": {
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationInfoSchema"
+          },
+          "settlements": {
+            "title": "settlements",
+            "type": "array",
+            "description": "List of expired option settlements",
+            "items": {
+              "$ref": "#/components/schemas/OptionSettlementResponseSchema"
+            }
+          }
+        },
+        "type": "object",
         "additionalProperties": false
       }
     }
