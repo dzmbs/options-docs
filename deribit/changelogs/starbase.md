@@ -6,6 +6,27 @@
 
 > Changes and announcements for the Deribit Starbase API.
 
+<Update label="Starbase Release 26.06.2026 — v1.1">
+  ## API Changes
+
+  The order entry SBE schema has been updated to version `4`.
+
+  ### Order Entry
+
+  New message:
+
+  * `CancelOrderByIdRequest` (125) — cancel an order by its exchange-assigned `orderId` instead of `clientOrderId`
+
+  New `CancelOrderRejectReason` values:
+
+  * `IN_LIQUIDATION` (5) — cancel rejected because the portfolio is in liquidation
+  * `INVALID_INSTRUMENT` (6) — cancel rejected because the instrument is not valid
+
+  New `MassQuoteRejectReason` value:
+
+  * `DUPLICATE_INSTRUMENT` (8) — the same instrument appears in more than one entry of a single mass quote
+</Update>
+
 <Update label="Announcement 18.06.2026">
   ## Announcement
 

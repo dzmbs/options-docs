@@ -1007,8 +1007,8 @@
     },
     "changelogs/starbase.md": {
       "source_url": "https://docs.deribit.com/changelogs/starbase.md",
-      "hash": "bfe56b2032edc64a5b8847f3b98c57cd151ca589ede7f1bc1b79b4e102546689",
-      "last_updated": "2026-06-19T12:29:14.221434"
+      "hash": "813c0cb3f197c695d48d9e20cda9179d832373d92e4750c0bde88cc9e36d04ba",
+      "last_updated": "2026-06-27T11:39:21.808172"
     },
     "fix-api/production/changes-log.md": {
       "source_url": "https://docs.deribit.com/fix-api/production/changes-log.md",
@@ -1417,13 +1417,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-06-26T12:01:27.424167",
-    "duration_seconds": 307.165076,
+    "completed_at": "2026-06-27T11:40:52.767830",
+    "duration_seconds": 259.245119,
     "pages_total": 283,
     "pages_fetched": 283,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-06-26T12:01:27.424184",
+  "last_updated": "2026-06-27T11:40:52.767846",
   "source": "https://docs.deribit.com"
 }
