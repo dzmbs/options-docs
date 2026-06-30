@@ -1221,6 +1221,8 @@ Push Data Example
 | > markPx | String | Mark price |
 | > ts | String | Price update time, Unix timestamp format in milliseconds, e.g. `1597026383085` |
 
+In rare cases, two mark price messages with the same timestamp may be received within a short window. This can occur during scheduled system maintenance or deployments and is not persistent. When this happens, clients should use the later-received message as the authoritative value. The difference between the two values will be negligible and will not materially affect trading strategies.
+
 ### Index tickers channel
 
 Retrieve index tickers data. Push data every 100ms if there are any changes, otherwise push once a minute.

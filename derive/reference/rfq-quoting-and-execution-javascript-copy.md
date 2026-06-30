@@ -27,5 +27,5 @@ For Maker actions (steps 1, 3, 4) refer to the [RFQ quote example](https://githu
 
 Please refer to our clients for working code:
 
-* Python: [https://github.com/8ball030/derive\_client/blob/main/examples/create\_order.py](https://github.com/8ball030/derive_client/blob/main/examples/create_order.py)
-* Rust: [https://github.com/derivexyz/cockpit/blob/master/lyra-vaults/src/shared/rfq.rs](https://github.com/derivexyz/cockpit/blob/master/lyra-vaults/src/shared/rfq.rs)
+* Python: <https://github.com/8ball030/derive_client/blob/main/examples/create_order.py>
+* Rust: <https://github.com/derivexyz/cockpit/blob/master/lyra-vaults/src/shared/rfq.rs>

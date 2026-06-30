@@ -45,15 +45,15 @@ Each of the bridges have their own limits for deposits and withdrawals. For exam
 * $10m USDC in deposits
 * $1m USDC in withdrawals
 
-Here is the contract interface you can use to deposit USDC via the Socket bridge: [https://etherscan.io/address/0x6d303cee7959f814042d31e0624fb88ec6fbcc1d#writeContract](https://etherscan.io/address/0x6d303cee7959f814042d31e0624fb88ec6fbcc1d#writeContract)
+Here is the contract interface you can use to deposit USDC via the Socket bridge: <https://etherscan.io/address/0x6d303cee7959f814042d31e0624fb88ec6fbcc1d#writeContract>
 
-Here is a sample USDC deposit via the Socket bridge: [https://etherscan.io/tx/0x69272bbed41fd09f4b50bba6e0e451cc57a19fe81db41ac7819e003cb3088a00](https://etherscan.io/tx/0x69272bbed41fd09f4b50bba6e0e451cc57a19fe81db41ac7819e003cb3088a00)
+Here is a sample USDC deposit via the Socket bridge: <https://etherscan.io/tx/0x69272bbed41fd09f4b50bba6e0e451cc57a19fe81db41ac7819e003cb3088a00>
 
 ## Depositing ETH
 
 ETH on the Derive chain is needed for certain transactions that require direct smart contract interaction. If you are manually setting up your account, you will need some small amount of eth. **Do not use this method for wETH to be used as collateral in the protocol.**
 
-You may be able to bridge using the interface provided by the superbridge team here: [https://app.rollbridge.app/lyra](https://app.rollbridge.app/lyra)
+You may be able to bridge using the interface provided by the superbridge team here: <https://app.rollbridge.app/lyra>
 
 Alternatively, to manually deposit ETH to Derive Chain, use the standard bridge. The native bridge is[OP Stack's](https://stack.optimism.io/) native bridge for deposits and withdrawals.
 
@@ -62,6 +62,6 @@ Deposits and withdrawals are subject to the following delays:
 * Deposits confirmed in 5-10 minutes
 * Withdrawals confirmed in 7 days, after the [challenge period](https://docs.optimism.io/builders/dapp-developers/bridging/messaging#understanding-the-challenge-period)
 
-Here is the contract interface you can use to deposit via the native bridge: [https://etherscan.io/address/0x61e44dc0dae6888b5a301887732217d5725b0bff#writeProxyContract](https://etherscan.io/address/0x61e44dc0dae6888b5a301887732217d5725b0bff#writeProxyContract)
+Here is the contract interface you can use to deposit via the native bridge: <https://etherscan.io/address/0x61e44dc0dae6888b5a301887732217d5725b0bff#writeProxyContract>
 
-Here is a sample ETH deposit via the native bridge: [https://etherscan.io/tx/0x1c6b7bb4e060d2e335dfc1b3501d9e778cec1adac80652645f645a6d79daf159](https://etherscan.io/tx/0x1c6b7bb4e060d2e335dfc1b3501d9e778cec1adac80652645f645a6d79daf159)
+Here is a sample ETH deposit via the native bridge: <https://etherscan.io/tx/0x1c6b7bb4e060d2e335dfc1b3501d9e778cec1adac80652645f645a6d79daf159>

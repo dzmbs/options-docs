@@ -21,7 +21,7 @@ On top of earning "API Broker Fees", builders can directly charge their users a 
 
 # Viewing your rewards
 
-* Both API Broker Fees and Builder Fees can be viewed in this dashboard: [https://pro.derive.xyz/broker](https://pro.derive.xyz/broker)
+* Both API Broker Fees and Builder Fees can be viewed in this dashboard: <https://pro.derive.xyz/broker>
 * Type in your referral code (case sensitive)
 
 <br />

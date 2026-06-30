@@ -6,10 +6,10 @@
 
 ## Rollup RPC Node
 
-| Contract       | Mainnet Address                                                | Testnet Address                                                                                                  |
-| -------------- | -------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
-| RPC Endpoint   | [https://rpc.lyra.finance](https://rpc.lyra.finance)           | [https://rpc-prod-testnet-0eakp60405.t.conduit.xyz](https://rpc-prod-testnet-0eakp60405.t.conduit.xyz)           |
-| Block Explorer | [https://explorer.lyra.finance](https://explorer.lyra.finance) | [https://explorer-prod-testnet-0eakp60405.t.conduit.xyz](https://explorer-prod-testnet-0eakp60405.t.conduit.xyz) |
+| Contract       | Mainnet Address                 | Testnet Address                                          |
+| -------------- | ------------------------------- | :------------------------------------------------------- |
+| RPC Endpoint   | <https://rpc.lyra.finance>      | <https://rpc-prod-testnet-0eakp60405.t.conduit.xyz>      |
+| Block Explorer | <https://explorer.lyra.finance> | <https://explorer-prod-testnet-0eakp60405.t.conduit.xyz> |
 
 ## Contracts
 

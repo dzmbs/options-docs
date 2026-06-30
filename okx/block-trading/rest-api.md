@@ -1220,6 +1220,8 @@ Response Example
 
 Allows the user to Quote an RFQ that they are a counterparty to. The user MUST quote the entire RFQ and not part of the legs or part of the quantity. Partial quoting is not allowed.
 
+Only one active quote is allowed per RFQ at a time. Submitting a new quote for the same `rfqId` will automatically cancel the existing active quote before the new one is created.
+
 #### Rate Limit: 50 requests per 2 seconds
 
 #### Rate limit rule: User ID
@@ -1397,6 +1399,8 @@ Response Example
 ### Cancel Quote
 
 Cancels an existing active Quote you have created in response to an RFQ.
+
+If a new `create-quote` for the same `rfqId` is processed before this cancel request arrives, the original quote will already be in `canceled` state and this request will return error `70400`. This can occur when requests are sent from different connections or processes, which do not guarantee ordering. To ensure strict create→cancel sequencing, wait for the create-quote response before issuing the cancel, using a single connection.
 
 #### Rate Limit: 50 requests per 2 seconds
 

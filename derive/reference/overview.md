@@ -18,16 +18,16 @@ The following docs describe Derive technical concepts relating to the Protocol a
 
 # Clients
 
-* Python (community client): [https://github.com/8ball030/derive\_client](https://github.com/8ball030/derive_client)
-* Python on-chain signing SDK (used above): [https://github.com/derivexyz/v2-action-signing-python](https://github.com/derivexyz/v2-action-signing-python)
+* Python (community client): <https://github.com/8ball030/derive_client>
+* Python on-chain signing SDK (used above): <https://github.com/derivexyz/v2-action-signing-python>
 * Rust (market making algos and example client): [https://github.com/derivexyz/cockpit](https://github.com/derivexyz/cockpit/tree/master/lyra-client)
 
 <br />
 
 # Useful integrations
 
-* hummingbot integration: [https://hummingbot.org/exchanges/derive/](https://hummingbot.org/exchanges/derive/)
-* ccxt integration: [https://github.com/ccxt/ccxt/blob/master/python/ccxt/derive.py](https://github.com/ccxt/ccxt/blob/master/python/ccxt/derive.py)
+* hummingbot integration: <https://hummingbot.org/exchanges/derive/>
+* ccxt integration: <https://github.com/ccxt/ccxt/blob/master/python/ccxt/derive.py>
 
 <br />
 
@@ -48,12 +48,12 @@ The Derive API provides access to the Derive Exchange orderbook which matches or
 
 ### Mainnet
 
-* [JSON-RPC over HTTP](https://docs.derive.xyz/reference/public) at [https://api.lyra.finance](https://api.lyra.finance)
-* [JSON-RPC over Websocket](https://docs.derive.xyz/reference/subscribe) at [wss://api.lyra.finance/ws](wss://api.lyra.finance/ws)
+* [JSON-RPC over HTTP](https://docs.derive.xyz/reference/public) at <https://api.lyra.finance>
+* [JSON-RPC over Websocket](https://docs.derive.xyz/reference/subscribe) at <wss://api.lyra.finance/ws>
 
 ### Testnet
 
-* [JSON-RPC over HTTP](https://docs.derive.xyz/reference/public) at [https://api-demo.lyra.finance](https://api-demo.lyra.finance)
-* [JSON-RPC over Websocket](https://docs.derive.xyz/reference/subscribe) at [wss://api-demo.lyra.finance/ws](wss://api-demo.lyra.finance/ws)
+* [JSON-RPC over HTTP](https://docs.derive.xyz/reference/public) at <https://api-demo.lyra.finance>
+* [JSON-RPC over Websocket](https://docs.derive.xyz/reference/subscribe) at <wss://api-demo.lyra.finance/ws>
 
 The API v2.0-alpha is available in our testing environment which settles to Derive Chain / Protocol testnet. All examples in this documentation refer to the test environment.
