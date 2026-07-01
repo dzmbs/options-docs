@@ -71,6 +71,7 @@ Get all maker programs, including past / historical ones.
           "rewards",
           "start_timestamp"
         ],
+        "type": "object",
         "properties": {
           "asset_types": {
             "title": "asset_types",
@@ -122,12 +123,11 @@ Get all maker programs, including past / historical ones.
             "description": "Start timestamp of the epoch"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetMakerProgramsParamsSchema": {
-        "properties": {},
         "type": "object",
+        "properties": {},
         "additionalProperties": false
       },
       "PublicGetMakerProgramsResponseSchema": {
@@ -135,6 +135,7 @@ Get all maker programs, including past / historical ones.
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -157,7 +158,6 @@ Get all maker programs, including past / historical ones.
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

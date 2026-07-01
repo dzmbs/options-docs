@@ -66,6 +66,7 @@ Get trade history for a subaccount, with filter parameters.
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -78,10 +79,10 @@ Get trade history for a subaccount, with filter parameters.
             "description": "Number of pages"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTradeHistoryParamsSchema": {
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -167,7 +168,6 @@ Get trade history for a subaccount, with filter parameters.
             "description": "Transaction status to filter by (default `settled`)."
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTradeHistoryResponseSchema": {
@@ -175,6 +175,7 @@ Get trade history for a subaccount, with filter parameters.
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -192,7 +193,6 @@ Get trade history for a subaccount, with filter parameters.
             "$ref": "#/components/schemas/PublicGetTradeHistoryResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTradeHistoryResultSchema": {
@@ -200,6 +200,7 @@ Get trade history for a subaccount, with filter parameters.
           "pagination",
           "trades"
         ],
+        "type": "object",
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -213,7 +214,6 @@ Get trade history for a subaccount, with filter parameters.
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "TradeSettledPublicResponseSchema": {
@@ -239,6 +239,7 @@ Get trade history for a subaccount, with filter parameters.
           "tx_status",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "direction": {
             "title": "direction",
@@ -369,7 +370,6 @@ Get trade history for a subaccount, with filter parameters.
             "description": "Wallet address (owner) of the subaccount"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

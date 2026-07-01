@@ -89,6 +89,7 @@ Required minimum session key permission level is `admin`
           "subaccount_id",
           "time_in_force"
         ],
+        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -349,7 +350,6 @@ Required minimum session key permission level is `admin`
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateTransferPositionParamsSchema": {
@@ -358,6 +358,7 @@ Required minimum session key permission level is `admin`
           "taker_params",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "maker_params": {
             "$ref": "#/components/schemas/TradeModuleParamsSchema"
@@ -371,7 +372,6 @@ Required minimum session key permission level is `admin`
             "description": "Public key (wallet) of the account"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "TradeModuleParamsSchema": {
@@ -387,6 +387,7 @@ Required minimum session key permission level is `admin`
           "signer",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -446,7 +447,6 @@ Required minimum session key permission level is `admin`
             "description": "Subaccount ID"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateTransferPositionResponseSchema": {
@@ -454,6 +454,7 @@ Required minimum session key permission level is `admin`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -471,7 +472,6 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateTransferPositionResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateTransferPositionResultSchema": {
@@ -481,6 +481,7 @@ Required minimum session key permission level is `admin`
           "taker_order",
           "taker_trade"
         ],
+        "type": "object",
         "properties": {
           "maker_order": {
             "$ref": "#/components/schemas/OrderResponseSchema"
@@ -495,7 +496,6 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/TradeResponseSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "TradeResponseSchema": {
@@ -524,6 +524,7 @@ Required minimum session key permission level is `admin`
           "tx_hash",
           "tx_status"
         ],
+        "type": "object",
         "properties": {
           "direction": {
             "title": "direction",
@@ -674,7 +675,6 @@ Required minimum session key permission level is `admin`
             "description": "Blockchain transaction status"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

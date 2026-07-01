@@ -66,6 +66,7 @@ Required minimum session key permission level is `read_only`
         "required": [
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "wallet": {
             "title": "wallet",
@@ -73,7 +74,6 @@ Required minimum session key permission level is `read_only`
             "description": "Ethereum wallet address of account"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateSessionKeysResponseSchema": {
@@ -81,6 +81,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -98,13 +99,13 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateSessionKeysResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateSessionKeysResultSchema": {
         "required": [
           "public_session_keys"
         ],
+        "type": "object",
         "properties": {
           "public_session_keys": {
             "title": "public_session_keys",
@@ -115,7 +116,6 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "SessionKeyResponseSchema": {
@@ -127,6 +127,7 @@ Required minimum session key permission level is `read_only`
           "registered_sec",
           "scope"
         ],
+        "type": "object",
         "properties": {
           "expiry_sec": {
             "title": "expiry_sec",
@@ -163,7 +164,6 @@ Required minimum session key permission level is `read_only`
             "description": "Session key permission level scope"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

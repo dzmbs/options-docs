@@ -62,8 +62,8 @@ Gets all the latest vault shareRate, totalSupply and TVL values for all vaults.<
   "components": {
     "schemas": {
       "PublicGetVaultStatisticsParamsSchema": {
-        "properties": {},
         "type": "object",
+        "properties": {},
         "additionalProperties": false
       },
       "PublicGetVaultStatisticsResponseSchema": {
@@ -71,6 +71,7 @@ Gets all the latest vault shareRate, totalSupply and TVL values for all vaults.<
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -93,7 +94,6 @@ Gets all the latest vault shareRate, totalSupply and TVL values for all vaults.<
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "VaultStatisticsResponseSchema": {
@@ -108,6 +108,7 @@ Gets all the latest vault shareRate, totalSupply and TVL values for all vaults.<
           "usd_value",
           "vault_name"
         ],
+        "type": "object",
         "properties": {
           "base_value": {
             "title": "base_value",
@@ -165,7 +166,6 @@ Gets all the latest vault shareRate, totalSupply and TVL values for all vaults.<
             "description": "Name of the vault"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

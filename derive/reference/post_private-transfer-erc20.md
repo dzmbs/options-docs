@@ -70,6 +70,7 @@ Required minimum session key permission level is `admin`
           "subaccount_id",
           "transfer"
         ],
+        "type": "object",
         "properties": {
           "recipient_details": {
             "$ref": "#/components/schemas/SignatureDetailsSchema"
@@ -91,7 +92,6 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/TransferDetailsSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "SignatureDetailsSchema": {
@@ -101,6 +101,7 @@ Required minimum session key permission level is `admin`
           "signature_expiry_sec",
           "signer"
         ],
+        "type": "object",
         "properties": {
           "nonce": {
             "title": "nonce",
@@ -123,7 +124,6 @@ Required minimum session key permission level is `admin`
             "description": "Ethereum wallet address that is signing the transfer"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "TransferDetailsSchema": {
@@ -132,6 +132,7 @@ Required minimum session key permission level is `admin`
           "amount",
           "sub_id"
         ],
+        "type": "object",
         "properties": {
           "address": {
             "title": "address",
@@ -150,7 +151,6 @@ Required minimum session key permission level is `admin`
             "description": "Sub ID of the asset being transferred"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateTransferErc20ResponseSchema": {
@@ -158,6 +158,7 @@ Required minimum session key permission level is `admin`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -175,7 +176,6 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateTransferErc20ResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateTransferErc20ResultSchema": {
@@ -183,6 +183,7 @@ Required minimum session key permission level is `admin`
           "status",
           "transaction_id"
         ],
+        "type": "object",
         "properties": {
           "status": {
             "title": "status",
@@ -196,7 +197,6 @@ Required minimum session key permission level is `admin`
             "description": "Transaction id of the transfer"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

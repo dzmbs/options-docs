@@ -69,6 +69,7 @@ Required minimum session key permission level is `admin`
           "instrument_name",
           "price"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -97,7 +98,6 @@ Required minimum session key permission level is `admin`
             "description": "Leg price"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCancelQuoteParamsSchema": {
@@ -105,6 +105,7 @@ Required minimum session key permission level is `admin`
           "quote_id",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "quote_id": {
             "title": "quote_id",
@@ -118,7 +119,6 @@ Required minimum session key permission level is `admin`
             "description": "Subaccount ID"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCancelQuoteResponseSchema": {
@@ -126,6 +126,7 @@ Required minimum session key permission level is `admin`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -143,7 +144,6 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateCancelQuoteResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCancelQuoteResultSchema": {
@@ -173,6 +173,7 @@ Required minimum session key permission level is `admin`
           "tx_hash",
           "tx_status"
         ],
+        "type": "object",
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",
@@ -342,7 +343,6 @@ Required minimum session key permission level is `admin`
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

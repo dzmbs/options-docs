@@ -71,6 +71,7 @@ Get spot feed history candles by currency<br /><br />DEPRECATION NOTICE: This RP
           "timestamp",
           "timestamp_bucket"
         ],
+        "type": "object",
         "properties": {
           "close_price": {
             "title": "close_price",
@@ -113,7 +114,6 @@ Get spot feed history candles by currency<br /><br />DEPRECATION NOTICE: This RP
             "description": "Timestamp bucket; this value is regularly spaced out with `period` seconds between data points, missing values are forward-filled from earlier data where possible, if no earlier data is available, values are back-filled from the first observed data point"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetSpotFeedHistoryCandlesParamsSchema": {
@@ -123,6 +123,7 @@ Get spot feed history candles by currency<br /><br />DEPRECATION NOTICE: This RP
           "period",
           "start_timestamp"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -156,7 +157,6 @@ Get spot feed history candles by currency<br /><br />DEPRECATION NOTICE: This RP
             "description": "Start timestamp"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetSpotFeedHistoryCandlesResponseSchema": {
@@ -164,6 +164,7 @@ Get spot feed history candles by currency<br /><br />DEPRECATION NOTICE: This RP
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -181,7 +182,6 @@ Get spot feed history candles by currency<br /><br />DEPRECATION NOTICE: This RP
             "$ref": "#/components/schemas/PublicGetSpotFeedHistoryCandlesResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetSpotFeedHistoryCandlesResultSchema": {
@@ -189,6 +189,7 @@ Get spot feed history candles by currency<br /><br />DEPRECATION NOTICE: This RP
           "currency",
           "spot_feed_history"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -204,7 +205,6 @@ Get spot feed history candles by currency<br /><br />DEPRECATION NOTICE: This RP
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

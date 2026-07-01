@@ -17,65 +17,46 @@ Set the mmp config for the subaccount and currency<br />Required minimum session
     <table>
       <thead>
         <tr>
-          <th style={{ textAlign: 'left' }} />
+          <th style={{ textAlign: 'left' }}></th>
         </tr>
       </thead>
-
-      <tbody>
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>currency</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Currency of this mmp config</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>mmp\_frozen\_time</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Time interval in ms setting how long the subaccount is frozen after an mmp trigger, if 0 then a manual reset would be required via private/reset\_mmp</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>mmp\_interval</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Time interval in ms over which the limits are monotored, if 0 then mmp is disabled</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>subaccount\_id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subaccount\_id for which to set the config</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>mmp\_amount\_limit</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Maximum total order amount that can be traded within the mmp\_interval across all instruments of the provided currency. The amounts are not netted, so a filled bid of 1 and a filled ask of 2 would count as 3.<br />Default: 0 (no limit)</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>mmp\_delta\_limit</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Maximum total delta that can be traded within the mmp\_interval across all instruments of the provided currency. This quantity is netted, so a filled order with +1 delta and a filled order with -2 delta would count as -1<br />Default: 0 (no limit)</span>
-          </td>
-        </tr>
-      </tbody>
+      <tbody><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>currency</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Currency of this mmp config</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>mmp_frozen_time</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Time interval in ms setting how long the subaccount is frozen after an mmp trigger, if 0 then a manual reset would be required via private/reset_mmp</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>mmp_interval</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Time interval in ms over which the limits are monotored, if 0 then mmp is disabled</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>subaccount_id</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subaccount_id for which to set the config</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>mmp_amount_limit</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Maximum total order amount that can be traded within the mmp_interval across all instruments of the provided currency. The amounts are not netted, so a filled bid of 1 and a filled ask of 2 would count as 3.<br />Default: 0 (no limit)</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>mmp_delta_limit</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Maximum total delta that can be traded within the mmp_interval across all instruments of the provided currency. This quantity is netted, so a filled order with +1 delta and a filled order with -2 delta would count as -1<br />Default: 0 (no limit)</span>
+  </td>
+</tr></tbody>
     </table>
   </div>
 </div>
@@ -87,77 +68,58 @@ Set the mmp config for the subaccount and currency<br />Required minimum session
     <table>
       <thead>
         <tr>
-          <th style={{ textAlign: 'left' }} />
+          <th style={{ textAlign: 'left' }}></th>
         </tr>
       </thead>
-
-      <tbody>
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string or integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>result</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>object</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result.</span>
-            <strong>currency</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Currency of this mmp config</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result.</span>
-            <strong>mmp\_frozen\_time</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Time interval in ms setting how long the subaccount is frozen after an mmp trigger, if 0 then a manual reset would be required via private/reset\_mmp</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result.</span>
-            <strong>mmp\_interval</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Time interval in ms over which the limits are monotored, if 0 then mmp is disabled</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result.</span>
-            <strong>subaccount\_id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subaccount\_id for which to set the config</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result.</span>
-            <strong>mmp\_amount\_limit</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Maximum total order amount that can be traded within the mmp\_interval across all instruments of the provided currency. The amounts are not netted, so a filled bid of 1 and a filled ask of 2 would count as 3.<br />Default: 0 (no limit)</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result.</span>
-            <strong>mmp\_delta\_limit</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Maximum total delta that can be traded within the mmp\_interval across all instruments of the provided currency. This quantity is netted, so a filled order with +1 delta and a filled order with -2 delta would count as -1<br />Default: 0 (no limit)</span>
-          </td>
-        </tr>
-      </tbody>
+      <tbody><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>id</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string&nbsp;or&nbsp;integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>result</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>object</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result.</span>
+    <strong>currency</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Currency of this mmp config</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result.</span>
+    <strong>mmp_frozen_time</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Time interval in ms setting how long the subaccount is frozen after an mmp trigger, if 0 then a manual reset would be required via private/reset_mmp</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result.</span>
+    <strong>mmp_interval</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Time interval in ms over which the limits are monotored, if 0 then mmp is disabled</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result.</span>
+    <strong>subaccount_id</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subaccount_id for which to set the config</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result.</span>
+    <strong>mmp_amount_limit</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Maximum total order amount that can be traded within the mmp_interval across all instruments of the provided currency. The amounts are not netted, so a filled bid of 1 and a filled ask of 2 would count as 3.<br />Default: 0 (no limit)</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result.</span>
+    <strong>mmp_delta_limit</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Maximum total delta that can be traded within the mmp_interval across all instruments of the provided currency. This quantity is netted, so a filled order with +1 delta and a filled order with -2 delta would count as -1<br />Default: 0 (no limit)</span>
+  </td>
+</tr></tbody>
     </table>
   </div>
 </div>
@@ -167,11 +129,9 @@ Set the mmp config for the subaccount and currency<br />Required minimum session
 ```shell
 {request_example_shell}
 ```
-
 ```javascript
 {request_example_javascript}
 ```
-
 ```python
 {request_example_python}
 ```

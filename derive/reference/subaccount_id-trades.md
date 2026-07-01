@@ -17,20 +17,16 @@ Subscribe to user's trades (order executions) for a given subaccount ID.
     <table>
       <thead>
         <tr>
-          <th style={{ textAlign: 'left' }} />
+          <th style={{ textAlign: 'left' }}></th>
         </tr>
       </thead>
-
-      <tbody>
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>subaccount\_id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subaccount ID</span>
-          </td>
-        </tr>
-      </tbody>
+      <tbody><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>subaccount_id</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subaccount ID</span>
+  </td>
+</tr></tbody>
     </table>
   </div>
 </div>
@@ -42,213 +38,160 @@ Subscribe to user's trades (order executions) for a given subaccount ID.
     <table>
       <thead>
         <tr>
-          <th style={{ textAlign: 'left' }} />
+          <th style={{ textAlign: 'left' }}></th>
         </tr>
       </thead>
-
-      <tbody>
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>channel</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subscribed channel name</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>data</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>array of objects</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>direction</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Order direction</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>buy</code> <code>sell</code>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>expected\_rebate</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Expected rebate for this trade</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>extra\_fee</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Extra fee in USDC added by the referring client (included in trade fee)</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>index\_price</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Index price of the underlying at the time of the trade</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>instrument\_name</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Instrument name</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>is\_transfer</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>boolean</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Whether the trade was generated through <code>private/transfer\_position</code></span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>label</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Optional user-defined label for the order</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>liquidity\_role</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Role of the user in the trade</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>maker</code> <code>taker</code>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>mark\_price</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Mark price of the instrument at the time of the trade</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>order\_id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Order ID</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>quote\_id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string or null</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Quote ID if the trade was executed via RFQ</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>realized\_pnl</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Realized PnL for this trade</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>realized\_pnl\_excl\_fees</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Realized PnL for this trade using cost accounting that excludes fees</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>rfq\_id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string or null</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>RFQ ID if the trade was executed via RFQ</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>subaccount\_id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subaccount ID</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>timestamp</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Trade timestamp (in ms since Unix epoch)</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>trade\_amount</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Amount filled in this trade</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>trade\_fee</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Base\_fee (only takers) + unit\_fee (adjusted via rebates / discounts) + extra\_fee (set by referrring client))</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>trade\_id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Trade ID</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>trade\_price</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Price at which the trade was filled</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>transaction\_id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>The transaction id of the related settlement transaction</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>tx\_hash</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string or null</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Blockchain transaction hash</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>tx\_status</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Blockchain transaction status</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>requested</code> <code>pending</code> <code>settled</code> <code>reverted</code> <code>ignored</code> <code>timed\_out</code>
-          </td>
-        </tr>
-      </tbody>
+      <tbody><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>channel</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subscribed channel name</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>data</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>array&nbsp;of&nbsp;objects</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>direction</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Order direction</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>buy</code> <code>sell</code>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>expected_rebate</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Expected rebate for this trade</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>extra_fee</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Extra fee in USDC added by the referring client (included in trade fee)</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>index_price</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Index price of the underlying at the time of the trade</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>instrument_name</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Instrument name</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>is_transfer</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>boolean</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Whether the trade was generated through <code>private/transfer_position</code></span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>label</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Optional user-defined label for the order</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>liquidity_role</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Role of the user in the trade</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>maker</code> <code>taker</code>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>mark_price</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Mark price of the instrument at the time of the trade</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>order_id</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Order ID</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>quote_id</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string&nbsp;or&nbsp;null</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Quote ID if the trade was executed via RFQ</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>realized_pnl</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Realized PnL for this trade</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>realized_pnl_excl_fees</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Realized PnL for this trade using cost accounting that excludes fees</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>rfq_id</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string&nbsp;or&nbsp;null</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>RFQ ID if the trade was executed via RFQ</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>subaccount_id</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subaccount ID</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>timestamp</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Trade timestamp (in ms since Unix epoch)</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>trade_amount</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Amount filled in this trade</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>trade_fee</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Base_fee (only takers) + unit_fee (adjusted via rebates / discounts) + extra_fee (set by referrring client))</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>trade_id</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Trade ID</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>trade_price</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Price at which the trade was filled</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>transaction_id</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>The transaction id of the related settlement transaction</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>tx_hash</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string&nbsp;or&nbsp;null</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Blockchain transaction hash</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>tx_status</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Blockchain transaction status</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>requested</code> <code>pending</code> <code>settled</code> <code>reverted</code> <code>ignored</code> <code>timed_out</code>
+  </td>
+</tr></tbody>
     </table>
   </div>
 </div>
@@ -260,7 +203,6 @@ Subscribe to user's trades (order executions) for a given subaccount ID.
 ```javascript
 {request_example_javascript}
 ```
-
 ```python
 {request_example_python}
 ```

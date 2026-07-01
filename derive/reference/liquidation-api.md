@@ -4,7 +4,7 @@
 
 # Liquidation API
 
-> You may liquidate accounts directly via the UI: [https://app.derive.xyz/liquidations](https://app.derive.xyz/liquidations). The below guide covers programmatic liquidations via the API and is meant for more advanced users
+> You may liquidate accounts directly via the UI: <https://app.derive.xyz/liquidations>. The below guide covers programmatic liquidations via the API and is meant for more advanced users
 
 Liquidations on Derive are permissionless, meaning that anyone can flag an underwater subaccount for liquidations and bid on them. However, maintaining infrastructure for monitoring margin of the subaccounts, query their balances and do bidding on-chain is cumbersome to implement, which is why Derive also provides a liquidations API which works similar to orders and RFQs.
 

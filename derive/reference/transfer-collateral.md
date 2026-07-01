@@ -18,5 +18,5 @@ The above examples use the [Derive Python Action Signing SDK](https://pypi.org/p
 
 Please refer to our clients for working code:
 
-* Python: [https://github.com/8ball030/derive\_client/blob/main/examples/create\_order.py](https://github.com/8ball030/derive_client/blob/main/examples/create_order.py)
+* Python: <https://github.com/8ball030/derive_client/blob/main/examples/create_order.py>
 * Rust: [https://github.com/derivexyz/cockpit](https://github.com/derivexyz/cockpit/tree/master/lyra-client)

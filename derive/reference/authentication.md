@@ -8,7 +8,7 @@ There are two authentication types, both sign-able via the owner or registered s
 
 Please refer to our clients for working code:
 
-* Python: [https://github.com/8ball030/derive\_client](https://github.com/8ball030/derive_client)
+* Python: <https://github.com/8ball030/derive_client>
 * Rust: [https://github.com/derivexyz/cockpit](https://github.com/derivexyz/cockpit/tree/master/lyra-client)
 
 # Private Endpoints

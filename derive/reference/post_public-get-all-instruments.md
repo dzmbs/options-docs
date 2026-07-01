@@ -66,6 +66,7 @@ Get a paginated history of all instruments
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -78,7 +79,6 @@ Get a paginated history of all instruments
             "description": "Number of pages"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "InstrumentPublicResponseSchema": {
@@ -106,6 +106,7 @@ Get a paginated history of all instruments
           "taker_fee_rate",
           "tick_size"
         ],
+        "type": "object",
         "properties": {
           "amount_step": {
             "title": "amount_step",
@@ -238,13 +239,13 @@ Get a paginated history of all instruments
             "description": "Tick size of the instrument, i.e. minimum price increment"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "ERC20PublicDetailsSchema": {
         "required": [
           "decimals"
         ],
+        "type": "object",
         "properties": {
           "borrow_index": {
             "title": "borrow_index",
@@ -272,7 +273,6 @@ Get a paginated history of all instruments
             "description": "Address of underlying on-chain ERC20 (not V2 asset)"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "OptionPublicDetailsSchema": {
@@ -282,6 +282,7 @@ Get a paginated history of all instruments
           "option_type",
           "strike"
         ],
+        "type": "object",
         "properties": {
           "expiry": {
             "title": "expiry",
@@ -315,7 +316,6 @@ Get a paginated history of all instruments
             "format": "decimal"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PerpPublicDetailsSchema": {
@@ -327,6 +327,7 @@ Get a paginated history of all instruments
           "min_rate_per_hour",
           "static_interest_rate"
         ],
+        "type": "object",
         "properties": {
           "aggregate_funding": {
             "title": "aggregate_funding",
@@ -364,7 +365,6 @@ Get a paginated history of all instruments
             "description": "Static interest rate as per `PerpAsset.sol`"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetAllInstrumentsParamsSchema": {
@@ -372,6 +372,7 @@ Get a paginated history of all instruments
           "expired",
           "instrument_type"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -408,7 +409,6 @@ Get a paginated history of all instruments
             "description": "Number of results per page (default 100, max 1000)"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetAllInstrumentsResponseSchema": {
@@ -416,6 +416,7 @@ Get a paginated history of all instruments
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -433,7 +434,6 @@ Get a paginated history of all instruments
             "$ref": "#/components/schemas/PublicGetAllInstrumentsResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetAllInstrumentsResultSchema": {
@@ -441,6 +441,7 @@ Get a paginated history of all instruments
           "instruments",
           "pagination"
         ],
+        "type": "object",
         "properties": {
           "instruments": {
             "title": "instruments",
@@ -454,7 +455,6 @@ Get a paginated history of all instruments
             "$ref": "#/components/schemas/PaginationInfoSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

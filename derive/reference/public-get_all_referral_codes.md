@@ -17,11 +17,10 @@ Get all valid referral codes for this wallet.
     <table>
       <thead>
         <tr>
-          <th style={{ textAlign: 'left' }} />
+          <th style={{ textAlign: 'left' }}></th>
         </tr>
       </thead>
-
-      <tbody />
+      <tbody></tbody>
     </table>
   </div>
 </div>
@@ -33,53 +32,40 @@ Get all valid referral codes for this wallet.
     <table>
       <thead>
         <tr>
-          <th style={{ textAlign: 'left' }} />
+          <th style={{ textAlign: 'left' }}></th>
         </tr>
       </thead>
-
-      <tbody>
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string or integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>result</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>array of objects</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result\[].</span>
-            <strong>referral\_code</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Referral code</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result\[].</span>
-            <strong>wallet</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Wallet of the referrer</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result\[].</span>
-            <strong>receiving\_wallet</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string or null</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Wallet for reward payments</span>
-          </td>
-        </tr>
-      </tbody>
+      <tbody><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>id</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string&nbsp;or&nbsp;integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>result</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>array&nbsp;of&nbsp;objects</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result[].</span>
+    <strong>referral_code</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Referral code</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result[].</span>
+    <strong>wallet</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Wallet of the referrer</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result[].</span>
+    <strong>receiving_wallet</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string&nbsp;or&nbsp;null</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Wallet for reward payments</span>
+  </td>
+</tr></tbody>
     </table>
   </div>
 </div>
@@ -89,11 +75,9 @@ Get all valid referral codes for this wallet.
 ```shell
 {request_example_shell}
 ```
-
 ```javascript
 {request_example_javascript}
 ```
-
 ```python
 {request_example_python}
 ```

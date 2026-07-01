@@ -87,6 +87,7 @@ Required minimum session key permission level is `read_only`
           "unrealized_pnl",
           "unrealized_pnl_excl_fees"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -221,13 +222,13 @@ Required minimum session key permission level is `read_only`
             "description": "Unrealized trading profit or loss of the position excluding fees"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetCollateralsParamsSchema": {
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "subaccount_id": {
             "title": "subaccount_id",
@@ -235,7 +236,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetCollateralsResponseSchema": {
@@ -243,6 +243,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -260,7 +261,6 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetCollateralsResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetCollateralsResultSchema": {
@@ -268,6 +268,7 @@ Required minimum session key permission level is `read_only`
           "collaterals",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "collaterals": {
             "title": "collaterals",
@@ -283,7 +284,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

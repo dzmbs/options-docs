@@ -69,6 +69,7 @@ Required minimum session key permission level is `read_only`
           "start_timestamp",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
@@ -91,7 +92,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetSubaccountValueHistoryResponseSchema": {
@@ -99,6 +99,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -116,7 +117,6 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetSubaccountValueHistoryResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetSubaccountValueHistoryResultSchema": {
@@ -124,6 +124,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "subaccount_value_history"
         ],
+        "type": "object",
         "properties": {
           "subaccount_id": {
             "title": "subaccount_id",
@@ -139,7 +140,6 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "SubAccountValueHistoryResponseSchema": {
@@ -152,6 +152,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_value",
           "timestamp"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -193,7 +194,6 @@ Required minimum session key permission level is `read_only`
             "description": "Timestamp of when the subaccount value was recorded into the database"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

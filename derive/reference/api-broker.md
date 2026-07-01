@@ -22,7 +22,7 @@ For more on integrating with the Derive API see [onboarding](https://docs.derive
 
 # Viewing your rewards
 
-* Go to the Broker dashboard: [https://pro.derive.xyz/broker](https://pro.derive.xyz/broker)
+* Go to the Broker dashboard: <https://pro.derive.xyz/broker>
 * Type in your referral code (case sensitive)
 
 <br />
@@ -37,7 +37,7 @@ You can instantly begin earning 10% of the trade fees by using the above method.
 | 4     | ≥ 500M        | OR     | ≥ 1M           | 40%       |
 | 3     | 50-500M       | OR     | ≥ 500K         | 30%       |
 | 2     | 5-50M         | OR     | ≥ 200K         | 20%       |
-| 1     | \< 5M         |        |                | 10%       |
+| 1     | < 5M          |        |                | 10%       |
 
 <br />
 

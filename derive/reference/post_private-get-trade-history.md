@@ -67,6 +67,7 @@ Required minimum session key permission level is `read_only`
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -79,7 +80,6 @@ Required minimum session key permission level is `read_only`
             "description": "Number of pages"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "TradeResponseSchema": {
@@ -108,6 +108,7 @@ Required minimum session key permission level is `read_only`
           "tx_hash",
           "tx_status"
         ],
+        "type": "object",
         "properties": {
           "direction": {
             "title": "direction",
@@ -258,10 +259,10 @@ Required minimum session key permission level is `read_only`
             "description": "Blockchain transaction status"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetTradeHistoryParamsSchema": {
+        "type": "object",
         "properties": {
           "from_timestamp": {
             "title": "from_timestamp",
@@ -323,7 +324,6 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetTradeHistoryResponseSchema": {
@@ -331,6 +331,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -348,7 +349,6 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetTradeHistoryResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetTradeHistoryResultSchema": {
@@ -357,6 +357,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "trades"
         ],
+        "type": "object",
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -375,7 +376,6 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

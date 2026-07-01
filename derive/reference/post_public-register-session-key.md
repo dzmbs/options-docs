@@ -69,6 +69,7 @@ Register or update expiry of an existing session key.<br />Currently, this only 
           "signed_raw_tx",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "expiry_sec": {
             "title": "expiry_sec",
@@ -96,7 +97,6 @@ Register or update expiry of an existing session key.<br />Currently, this only 
             "description": "Ethereum wallet address of account"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicRegisterSessionKeyResponseSchema": {
@@ -104,6 +104,7 @@ Register or update expiry of an existing session key.<br />Currently, this only 
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -121,7 +122,6 @@ Register or update expiry of an existing session key.<br />Currently, this only 
             "$ref": "#/components/schemas/PublicRegisterSessionKeyResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicRegisterSessionKeyResultSchema": {
@@ -130,6 +130,7 @@ Register or update expiry of an existing session key.<br />Currently, this only 
           "public_session_key",
           "transaction_id"
         ],
+        "type": "object",
         "properties": {
           "label": {
             "title": "label",
@@ -148,7 +149,6 @@ Register or update expiry of an existing session key.<br />Currently, this only 
             "description": "ID to lookup status of transaction"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

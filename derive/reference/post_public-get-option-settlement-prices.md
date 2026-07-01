@@ -65,6 +65,7 @@ Get settlement prices by expiry for each currency
         "required": [
           "currency"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -72,7 +73,6 @@ Get settlement prices by expiry for each currency
             "description": "Currency for which to show expiries"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetOptionSettlementPricesResponseSchema": {
@@ -80,6 +80,7 @@ Get settlement prices by expiry for each currency
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -97,13 +98,13 @@ Get settlement prices by expiry for each currency
             "$ref": "#/components/schemas/PublicGetOptionSettlementPricesResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetOptionSettlementPricesResultSchema": {
         "required": [
           "expiries"
         ],
+        "type": "object",
         "properties": {
           "expiries": {
             "title": "expiries",
@@ -114,7 +115,6 @@ Get settlement prices by expiry for each currency
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "ExpiryResponseSchema": {
@@ -123,6 +123,7 @@ Get settlement prices by expiry for each currency
           "price",
           "utc_expiry_sec"
         ],
+        "type": "object",
         "properties": {
           "expiry_date": {
             "title": "expiry_date",
@@ -143,7 +144,6 @@ Get settlement prices by expiry for each currency
             "description": "UTC timestamp of expiry"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

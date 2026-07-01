@@ -68,6 +68,7 @@ Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is dep
           "period",
           "start_timestamp"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -90,7 +91,6 @@ Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is dep
             "description": "Start timestamp"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetSpotFeedHistoryResponseSchema": {
@@ -98,6 +98,7 @@ Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is dep
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -115,7 +116,6 @@ Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is dep
             "$ref": "#/components/schemas/PublicGetSpotFeedHistoryResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetSpotFeedHistoryResultSchema": {
@@ -123,6 +123,7 @@ Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is dep
           "currency",
           "spot_feed_history"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -138,7 +139,6 @@ Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is dep
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "SpotFeedHistoryResponseSchema": {
@@ -147,6 +147,7 @@ Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is dep
           "timestamp",
           "timestamp_bucket"
         ],
+        "type": "object",
         "properties": {
           "price": {
             "title": "price",
@@ -165,7 +166,6 @@ Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is dep
             "description": "Timestamp bucket; this value is regularly spaced out with `period` seconds between data points, missing values are forward-filled from earlier data where possible, if no earlier data is available, values are back-filled from the first observed data point"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

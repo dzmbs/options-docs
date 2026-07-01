@@ -62,8 +62,8 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
   "components": {
     "schemas": {
       "PublicGetAllCurrenciesParamsSchema": {
-        "properties": {},
         "type": "object",
+        "properties": {},
         "additionalProperties": false
       },
       "PublicGetAllCurrenciesResponseSchema": {
@@ -71,6 +71,7 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -93,7 +94,6 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "CurrencyDetailedResponseSchema": {
@@ -113,6 +113,7 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
           "total_borrow",
           "total_supply"
         ],
+        "type": "object",
         "properties": {
           "asset_cap_and_supply_per_manager": {
             "title": "asset_cap_and_supply_per_manager",
@@ -247,7 +248,6 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
             "description": "Total collateral supplied in the protocol"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "OpenInterestStatsSchema": {
@@ -255,6 +255,7 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
           "current_open_interest",
           "interest_cap"
         ],
+        "type": "object",
         "properties": {
           "current_open_interest": {
             "title": "current_open_interest",
@@ -276,7 +277,6 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "ManagerContractResponseSchema": {
@@ -284,6 +284,7 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
           "address",
           "margin_type"
         ],
+        "type": "object",
         "properties": {
           "address": {
             "title": "address",
@@ -308,7 +309,6 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
             "description": "Margin type of the manager"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PM2CollateralDiscountsSchema": {
@@ -317,6 +317,7 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
           "manager_currency",
           "mm_discount"
         ],
+        "type": "object",
         "properties": {
           "im_discount": {
             "title": "im_discount",
@@ -336,10 +337,10 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
             "description": "Maintenance Margin discount for given collateral in PM2"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "ProtocolAssetAddressesSchema": {
+        "type": "object",
         "properties": {
           "option": {
             "title": "option",
@@ -370,7 +371,6 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "SRMPerpMarginRequirementsPublicSchema": {
@@ -379,6 +379,7 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
           "max_leverage",
           "mm_perp_req"
         ],
+        "type": "object",
         "properties": {
           "im_perp_req": {
             "title": "im_perp_req",
@@ -399,7 +400,6 @@ Get all active currencies with their spot price, spot price 24hrs ago.<br /><br 
             "description": "Maintenance margin requirement for perp positions (fraction of notional)"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

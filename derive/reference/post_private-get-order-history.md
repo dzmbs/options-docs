@@ -89,6 +89,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "time_in_force"
         ],
+        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -349,7 +350,6 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PaginationInfoSchema": {
@@ -357,6 +357,7 @@ Required minimum session key permission level is `read_only`
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -369,10 +370,10 @@ Required minimum session key permission level is `read_only`
             "description": "Number of pages"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetOrderHistoryParamsSchema": {
+        "type": "object",
         "properties": {
           "from_timestamp": {
             "title": "from_timestamp",
@@ -413,7 +414,6 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetOrderHistoryResponseSchema": {
@@ -421,6 +421,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -438,7 +439,6 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetOrderHistoryResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetOrderHistoryResultSchema": {
@@ -447,6 +447,7 @@ Required minimum session key permission level is `read_only`
           "pagination",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "orders": {
             "title": "orders",
@@ -465,7 +466,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id for which to get open orders"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

@@ -69,6 +69,7 @@ Required minimum session key permission level is `admin`
           "instrument_name",
           "price"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -97,7 +98,6 @@ Required minimum session key permission level is `admin`
             "description": "Leg price"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "QuoteResultSchema": {
@@ -127,6 +127,7 @@ Required minimum session key permission level is `admin`
           "tx_hash",
           "tx_status"
         ],
+        "type": "object",
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",
@@ -296,7 +297,6 @@ Required minimum session key permission level is `admin`
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "RPCErrorFormatSchema": {
@@ -304,6 +304,7 @@ Required minimum session key permission level is `admin`
           "code",
           "message"
         ],
+        "type": "object",
         "properties": {
           "code": {
             "title": "code",
@@ -320,7 +321,6 @@ Required minimum session key permission level is `admin`
             "type": "string"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateReplaceQuoteParamsSchema": {
@@ -335,6 +335,7 @@ Required minimum session key permission level is `admin`
           "signer",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "client": {
             "title": "client",
@@ -424,7 +425,6 @@ Required minimum session key permission level is `admin`
             "description": "Subaccount ID"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateReplaceQuoteResponseSchema": {
@@ -432,6 +432,7 @@ Required minimum session key permission level is `admin`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -449,7 +450,6 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateReplaceQuoteResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateReplaceQuoteResultSchema": {
@@ -458,6 +458,7 @@ Required minimum session key permission level is `admin`
           "create_quote_error",
           "quote"
         ],
+        "type": "object",
         "properties": {
           "cancelled_quote": {
             "$ref": "#/components/schemas/QuoteResultSchema"
@@ -471,7 +472,6 @@ Required minimum session key permission level is `admin`
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

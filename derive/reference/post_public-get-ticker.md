@@ -65,6 +65,7 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
         "required": [
           "decimals"
         ],
+        "type": "object",
         "properties": {
           "borrow_index": {
             "title": "borrow_index",
@@ -92,7 +93,6 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "description": "Address of underlying on-chain ERC20 (not V2 asset)"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "OptionPublicDetailsSchema": {
@@ -102,6 +102,7 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
           "option_type",
           "strike"
         ],
+        "type": "object",
         "properties": {
           "expiry": {
             "title": "expiry",
@@ -135,7 +136,6 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "format": "decimal"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PerpPublicDetailsSchema": {
@@ -147,6 +147,7 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
           "min_rate_per_hour",
           "static_interest_rate"
         ],
+        "type": "object",
         "properties": {
           "aggregate_funding": {
             "title": "aggregate_funding",
@@ -184,7 +185,6 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "description": "Static interest rate as per `PerpAsset.sol`"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "OpenInterestStatsSchema": {
@@ -192,6 +192,7 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
           "current_open_interest",
           "interest_cap"
         ],
+        "type": "object",
         "properties": {
           "current_open_interest": {
             "title": "current_open_interest",
@@ -213,13 +214,13 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTickerParamsSchema": {
         "required": [
           "instrument_name"
         ],
+        "type": "object",
         "properties": {
           "instrument_name": {
             "title": "instrument_name",
@@ -227,7 +228,6 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "description": "Instrument name"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTickerResponseSchema": {
@@ -235,6 +235,7 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -252,7 +253,6 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "$ref": "#/components/schemas/PublicGetTickerResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTickerResultSchema": {
@@ -293,6 +293,7 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
           "tick_size",
           "timestamp"
         ],
+        "type": "object",
         "properties": {
           "amount_step": {
             "title": "amount_step",
@@ -506,7 +507,6 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "description": "Timestamp of the ticker feed snapshot"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "OptionPricingSchema": {
@@ -523,6 +523,7 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
           "theta",
           "vega"
         ],
+        "type": "object",
         "properties": {
           "ask_iv": {
             "title": "ask_iv",
@@ -591,7 +592,6 @@ Get ticker information (best bid / ask, instrument contraints, fees info, etc.) 
             "description": "Vega of the option"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

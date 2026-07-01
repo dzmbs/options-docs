@@ -65,6 +65,7 @@ Get single instrument by asset name
         "required": [
           "decimals"
         ],
+        "type": "object",
         "properties": {
           "borrow_index": {
             "title": "borrow_index",
@@ -92,7 +93,6 @@ Get single instrument by asset name
             "description": "Address of underlying on-chain ERC20 (not V2 asset)"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "OptionPublicDetailsSchema": {
@@ -102,6 +102,7 @@ Get single instrument by asset name
           "option_type",
           "strike"
         ],
+        "type": "object",
         "properties": {
           "expiry": {
             "title": "expiry",
@@ -135,7 +136,6 @@ Get single instrument by asset name
             "format": "decimal"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PerpPublicDetailsSchema": {
@@ -147,6 +147,7 @@ Get single instrument by asset name
           "min_rate_per_hour",
           "static_interest_rate"
         ],
+        "type": "object",
         "properties": {
           "aggregate_funding": {
             "title": "aggregate_funding",
@@ -184,13 +185,13 @@ Get single instrument by asset name
             "description": "Static interest rate as per `PerpAsset.sol`"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetInstrumentParamsSchema": {
         "required": [
           "instrument_name"
         ],
+        "type": "object",
         "properties": {
           "instrument_name": {
             "title": "instrument_name",
@@ -198,7 +199,6 @@ Get single instrument by asset name
             "description": "Instrument name"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetInstrumentResponseSchema": {
@@ -206,6 +206,7 @@ Get single instrument by asset name
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -223,7 +224,6 @@ Get single instrument by asset name
             "$ref": "#/components/schemas/PublicGetInstrumentResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetInstrumentResultSchema": {
@@ -251,6 +251,7 @@ Get single instrument by asset name
           "taker_fee_rate",
           "tick_size"
         ],
+        "type": "object",
         "properties": {
           "amount_step": {
             "title": "amount_step",
@@ -383,7 +384,6 @@ Get single instrument by asset name
             "description": "Tick size of the instrument, i.e. minimum price increment"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

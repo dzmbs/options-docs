@@ -66,6 +66,7 @@ Get the broker program referral performance. Epochs are 28 days long.
           "end_ms",
           "start_ms"
         ],
+        "type": "object",
         "properties": {
           "end_ms": {
             "title": "end_ms",
@@ -92,7 +93,6 @@ Get the broker program referral performance. Epochs are 28 days long.
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetReferralPerformanceResponseSchema": {
@@ -100,6 +100,7 @@ Get the broker program referral performance. Epochs are 28 days long.
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -117,7 +118,6 @@ Get the broker program referral performance. Epochs are 28 days long.
             "$ref": "#/components/schemas/PublicGetReferralPerformanceResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetReferralPerformanceResultSchema": {
@@ -131,6 +131,7 @@ Get the broker program referral performance. Epochs are 28 days long.
           "total_notional_volume",
           "total_referred_fees"
         ],
+        "type": "object",
         "properties": {
           "fee_share_percentage": {
             "title": "fee_share_percentage",
@@ -190,7 +191,6 @@ Get the broker program referral performance. Epochs are 28 days long.
             "description": "Total fees paid by referred traders (double counts if both taker and maker of a trade with rebated fees)"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "ReferralPerformanceByInstrumentTypeSchema": {
@@ -201,6 +201,7 @@ Get the broker program referral performance. Epochs are 28 days long.
           "referred_fee",
           "unique_traders_referred"
         ],
+        "type": "object",
         "properties": {
           "builder_fee": {
             "title": "builder_fee",
@@ -232,7 +233,6 @@ Get the broker program referral performance. Epochs are 28 days long.
             "description": "Number of unique wallets referred"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

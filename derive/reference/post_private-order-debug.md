@@ -75,6 +75,7 @@ Required minimum session key permission level is `read_only`
           "signer",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -267,7 +268,6 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateOrderDebugResponseSchema": {
@@ -275,6 +275,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -292,7 +293,6 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateOrderDebugResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateOrderDebugResultSchema": {
@@ -303,6 +303,7 @@ Required minimum session key permission level is `read_only`
           "raw_data",
           "typed_data_hash"
         ],
+        "type": "object",
         "properties": {
           "action_hash": {
             "title": "action_hash",
@@ -328,7 +329,6 @@ Required minimum session key permission level is `read_only`
             "description": "EIP 712 typed data hash"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "SignedTradeOrderSchema": {
@@ -343,6 +343,7 @@ Required minimum session key permission level is `read_only`
           "signer",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "data": {
             "$ref": "#/components/schemas/TradeModuleDataSchema"
@@ -380,7 +381,6 @@ Required minimum session key permission level is `read_only`
             "type": "integer"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "TradeModuleDataSchema": {
@@ -394,6 +394,7 @@ Required minimum session key permission level is `read_only`
           "trade_id",
           "worst_fee"
         ],
+        "type": "object",
         "properties": {
           "asset": {
             "title": "asset",
@@ -431,7 +432,6 @@ Required minimum session key permission level is `read_only`
             "format": "decimal"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

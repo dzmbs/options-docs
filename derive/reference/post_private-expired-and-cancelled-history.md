@@ -70,6 +70,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
@@ -97,7 +98,6 @@ Required minimum session key permission level is `read_only`
             "description": "Wallet to download data for"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateExpiredAndCancelledHistoryResponseSchema": {
@@ -105,6 +105,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -122,13 +123,13 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateExpiredAndCancelledHistoryResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateExpiredAndCancelledHistoryResultSchema": {
         "required": [
           "presigned_urls"
         ],
+        "type": "object",
         "properties": {
           "presigned_urls": {
             "title": "presigned_urls",
@@ -140,7 +141,6 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

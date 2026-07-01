@@ -26,13 +26,26 @@ If a participant meets the conditions of different fee tiers through market maki
 
 * Up to **$500,000 USDC per 28-day epoch exchange rebate program**
 
-## DRV Market Maker Incentives
+## Overview DRV Rewards Pool:
 
-1M DRV rewards pool distributed to qualifying Market Makers split pro-rata based on Market Making Score.
+From the epoch roll on June 30th 00:00 UTC -- 1M DRV rewards are distributed to qualifying Market Makers split pro-rata. Scoring, qualification, and payout mechanics follow the existing program.
 
-* 500K allocated to options
-* 500K allocated to perpetual futures (50% to majors, 50% to Alt markets)
-* DRV will be distributed after the airdrop period when the token is launched. 50% of the earned Market Maker DRV rewards are to be paid out immediately when DRV goes live, while the other half is subject to a 6-epoch vesting period. If the address becomes inactive (**earns rewards \< 1 % of MM score**) for any epoch during the vesting period, the vested rewards will be subject to forfeiture. All rewards are subject to governance approval.
+<br />
+
+1. Pool allocations:
+   * Options RFQ: 200,000 DRV
+   * Options OB: 400,000 DRV
+   * Perps: 400,000 DRV
+2. Asset-category split - Percentage allocated across the three categories:
+   * ETH/BTC/SOL: 50%
+   * HYPE 25%
+   * Alts, incl. ZEC/XRP/CC/XAUT: 25%
+3. Per pool breakdown:
+   |                              | Options OB  | Options RFQ | Perps       |
+   | ---------------------------- | ----------- | ----------- | ----------- |
+   | ETH/BTC/SOL                  | 100,000 DRV | 200,000 DRV | 200,000 DRV |
+   | HYPE                         | 50,000 DRV  | 100,000 DRV | 100,000 DRV |
+   | Alts,  incl. ZEC/XRP/CC/XAUT | 50,000 DRV  | 100,000 DRV | 100,000 DRV |
 
 # Trading Fees
 
@@ -49,7 +62,7 @@ Derive's fee structure consists of:
 
 *\*Derive's matching fees are subject to change.*
 
-# USDC Rewards Pool Overview:
+# Overview USDC Rewards Pool:
 
 Market Makers add value to the protocol by lowering the cost to trade. The Derive Exchange pays program participants on their Maker Volume, and offers discounts to high-volume Takers, through a rebate program. Trading rebates are distributed in 28-day epochs and outlined in the table below.
 
@@ -97,7 +110,7 @@ To qualify for rewards, Traders must meet the following requirements:
 
 * Market Maker Program:
   * Min quote size: 500
-  * Delta Range: only options with a Delta > 1 and \< 98 will be included in the scoring snapshots
+  * Delta Range: only options with a Delta > 1 and < 98 will be included in the scoring snapshots
   * 28-day Notional Trading Volume > $50M
   * Trading Volume Share > 2%
 
@@ -160,21 +173,21 @@ RFQ Scores are boosted by:
 * The closer orders are to the BBO, the higher the multiplier
 * Low-quality markets have a multiplier of 0
 
-| Distance from BBO Options     | Multiplier |
-| :---------------------------- | :--------- |
-| \< 0.10%                      | 5          |
-| 0.10% \< Order Price \< 0.50% | 1.5        |
-| 0.50% \< Order Price \< 1.0%  | 1          |
-| 1.0% \< Order Price \< 2.0%   | 0.5        |
-| > 2%                          | 0          |
+| Distance from BBO Options   | Multiplier |
+| :-------------------------- | :--------- |
+| < 0.10%                     | 5          |
+| 0.10% < Order Price < 0.50% | 1.5        |
+| 0.50% < Order Price < 1.0%  | 1          |
+| 1.0% < Order Price < 2.0%   | 0.5        |
+| > 2%                        | 0          |
 
-| Distance from BBO Perps        | Multiplier |
-| :----------------------------- | :--------- |
-| \< 0.0050%                     | 5          |
-| 0.005% \< Order Price \< 0.01% | 1.5        |
-| 0.01% \< Order Price \< 0.05%  | 1          |
-| 0.05% \< Order Price \< 0.10%  | 0.5        |
-| > 0.1%                         | 0          |
+| Distance from BBO Perps      | Multiplier |
+| :--------------------------- | :--------- |
+| < 0.0050%                    | 5          |
+| 0.005% < Order Price < 0.01% | 1.5        |
+| 0.01% < Order Price < 0.05%  | 1          |
+| 0.05% < Order Price < 0.10%  | 0.5        |
+| > 0.1%                       | 0          |
 
 *\*Weightings and categories are subject to change, see the documentation for the most up to date.*
 
@@ -187,7 +200,7 @@ RFQ Scores are boosted by:
 
 | Distance from Max Cost | Multiplier |
 | :--------------------- | :--------- |
-| \< 0%                  | 0          |
+| < 0%                   | 0          |
 | 0 - 1%                 | 1          |
 | 1 - 3%                 | 2          |
 | 3%+                    | 4          |
@@ -201,10 +214,10 @@ Each market, set of expiries, or group of strikes can have a unique Market Scali
 | Market                         | Market Scaling Factor |
 | :----------------------------- | :-------------------- |
 | ETH Perps                      | 1                     |
-| ETH Weekly Options \< 7 DTE    | 3                     |
+| ETH Weekly Options < 7 DTE     | 3                     |
 | ETH Long-Dated Options > 7 DTE | 1                     |
 | BTC Perps                      | 1                     |
-| BTC Weekly Options \< 7 DTE    | 3                     |
+| BTC Weekly Options < 7 DTE     | 3                     |
 | BTC Long-Dated Options > 7 DTE | 1                     |
 | SOL Perps                      | 1                     |
 | DOGE Perps                     | 1                     |

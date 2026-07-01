@@ -66,6 +66,7 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -78,10 +79,10 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
             "description": "Number of pages"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetLiquidationHistoryParamsSchema": {
+        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
@@ -115,7 +116,6 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetLiquidationHistoryResponseSchema": {
@@ -123,6 +123,7 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -140,7 +141,6 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
             "$ref": "#/components/schemas/PublicGetLiquidationHistoryResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetLiquidationHistoryResultSchema": {
@@ -148,6 +148,7 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
           "auctions",
           "pagination"
         ],
+        "type": "object",
         "properties": {
           "auctions": {
             "title": "auctions",
@@ -161,7 +162,6 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
             "$ref": "#/components/schemas/PaginationInfoSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "AuctionHistoryResultSchema": {
@@ -175,6 +175,7 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
           "subaccount_id",
           "tx_hash"
         ],
+        "type": "object",
         "properties": {
           "auction_id": {
             "title": "auction_id",
@@ -227,7 +228,6 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
             "description": "Hash of the transaction that started the auction"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "AuctionBidEventSchema": {
@@ -243,6 +243,7 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
           "timestamp",
           "tx_hash"
         ],
+        "type": "object",
         "properties": {
           "amounts_liquidated": {
             "title": "amounts_liquidated",
@@ -315,7 +316,6 @@ Returns a paginated liquidation history for all subaccounts. Note that the pagin
             "description": "Hash of the bid transaction"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

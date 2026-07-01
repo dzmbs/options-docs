@@ -66,6 +66,7 @@ Get scores breakdown by maker program.
           "epoch_start_timestamp",
           "program_name"
         ],
+        "type": "object",
         "properties": {
           "epoch_start_timestamp": {
             "title": "epoch_start_timestamp",
@@ -78,7 +79,6 @@ Get scores breakdown by maker program.
             "description": "Program name"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetMakerProgramScoresResponseSchema": {
@@ -86,6 +86,7 @@ Get scores breakdown by maker program.
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -103,7 +104,6 @@ Get scores breakdown by maker program.
             "$ref": "#/components/schemas/PublicGetMakerProgramScoresResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetMakerProgramScoresResultSchema": {
@@ -113,6 +113,7 @@ Get scores breakdown by maker program.
           "total_score",
           "total_volume"
         ],
+        "type": "object",
         "properties": {
           "program": {
             "$ref": "#/components/schemas/ProgramResponseSchema"
@@ -138,7 +139,6 @@ Get scores breakdown by maker program.
             "description": "Total volume across all market makers for the epoch"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "ProgramResponseSchema": {
@@ -151,6 +151,7 @@ Get scores breakdown by maker program.
           "rewards",
           "start_timestamp"
         ],
+        "type": "object",
         "properties": {
           "asset_types": {
             "title": "asset_types",
@@ -202,7 +203,6 @@ Get scores breakdown by maker program.
             "description": "Start timestamp of the epoch"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "ScoreBreakdownSchema": {
@@ -215,6 +215,7 @@ Get scores breakdown by maker program.
           "volume_multiplier",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "coverage_score": {
             "title": "coverage_score",
@@ -258,7 +259,6 @@ Get scores breakdown by maker program.
             "description": "Wallet address of the account"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

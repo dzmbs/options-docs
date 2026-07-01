@@ -65,6 +65,7 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
         "required": [
           "instrument_type"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -97,7 +98,6 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
             "description": "`erc20`, `option`, or `perp`"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTickersResponseSchema": {
@@ -105,6 +105,7 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -122,13 +123,13 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
             "$ref": "#/components/schemas/PublicGetTickersResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetTickersResultSchema": {
         "required": [
           "tickers"
         ],
+        "type": "object",
         "properties": {
           "tickers": {
             "title": "tickers",
@@ -139,7 +140,6 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "TickerSlimSchema": {
@@ -157,6 +157,7 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
           "stats",
           "t"
         ],
+        "type": "object",
         "properties": {
           "A": {
             "title": "A",
@@ -227,7 +228,6 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
             "description": "Creation timestamp of the snapshot in milliseconds"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "OptionPricingSlimSchema": {
@@ -244,6 +244,7 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
           "t",
           "v"
         ],
+        "type": "object",
         "properties": {
           "ai": {
             "title": "ai",
@@ -312,7 +313,6 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
             "description": "Vega of the option"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "AggregateTradingStatsSlimSchema": {
@@ -326,6 +326,7 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
           "pr",
           "v"
         ],
+        "type": "object",
         "properties": {
           "c": {
             "title": "c",
@@ -375,7 +376,6 @@ Get tickers information (best bid / ask, stats, etc.) for a multiple instruments
             "description": "Notional volume traded during last 24 hours"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

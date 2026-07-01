@@ -67,6 +67,7 @@ Required minimum session key permission level is `read_only`
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -79,13 +80,13 @@ Required minimum session key permission level is `read_only`
             "description": "Number of pages"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivatePollRfqsParamsSchema": {
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "from_timestamp": {
             "title": "from_timestamp",
@@ -145,7 +146,6 @@ Required minimum session key permission level is `read_only`
             "description": "Latest `last_update_timestamp` to filter by (in ms since Unix epoch). If not provied, defaults to returning all data up to current time."
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivatePollRfqsResponseSchema": {
@@ -153,6 +153,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -170,7 +171,6 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivatePollRfqsResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivatePollRfqsResultSchema": {
@@ -178,6 +178,7 @@ Required minimum session key permission level is `read_only`
           "pagination",
           "rfqs"
         ],
+        "type": "object",
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -191,7 +192,6 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "RFQResultPublicSchema": {
@@ -214,6 +214,7 @@ Required minimum session key permission level is `read_only`
           "valid_until",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",
@@ -352,7 +353,6 @@ Required minimum session key permission level is `read_only`
             "description": "Wallet address of the RFQ sender"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "LegUnpricedSchema": {
@@ -361,6 +361,7 @@ Required minimum session key permission level is `read_only`
           "direction",
           "instrument_name"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -383,7 +384,6 @@ Required minimum session key permission level is `read_only`
             "description": "Instrument name"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

@@ -66,6 +66,7 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
           "current_open_interest",
           "interest_cap"
         ],
+        "type": "object",
         "properties": {
           "current_open_interest": {
             "title": "current_open_interest",
@@ -87,7 +88,6 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "ManagerContractResponseSchema": {
@@ -95,6 +95,7 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
           "address",
           "margin_type"
         ],
+        "type": "object",
         "properties": {
           "address": {
             "title": "address",
@@ -119,7 +120,6 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
             "description": "Margin type of the manager"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PM2CollateralDiscountsSchema": {
@@ -128,6 +128,7 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
           "manager_currency",
           "mm_discount"
         ],
+        "type": "object",
         "properties": {
           "im_discount": {
             "title": "im_discount",
@@ -147,10 +148,10 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
             "description": "Maintenance Margin discount for given collateral in PM2"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "ProtocolAssetAddressesSchema": {
+        "type": "object",
         "properties": {
           "option": {
             "title": "option",
@@ -181,7 +182,6 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "SRMPerpMarginRequirementsPublicSchema": {
@@ -190,6 +190,7 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
           "max_leverage",
           "mm_perp_req"
         ],
+        "type": "object",
         "properties": {
           "im_perp_req": {
             "title": "im_perp_req",
@@ -210,13 +211,13 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
             "description": "Maintenance margin requirement for perp positions (fraction of notional)"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetCurrencyParamsSchema": {
         "required": [
           "currency"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -224,7 +225,6 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
             "description": "Underlying currency of asset (`ETH`, `BTC`, etc)"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetCurrencyResponseSchema": {
@@ -232,6 +232,7 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -249,7 +250,6 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
             "$ref": "#/components/schemas/PublicGetCurrencyResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetCurrencyResultSchema": {
@@ -269,6 +269,7 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
           "total_borrow",
           "total_supply"
         ],
+        "type": "object",
         "properties": {
           "asset_cap_and_supply_per_manager": {
             "title": "asset_cap_and_supply_per_manager",
@@ -403,7 +404,6 @@ Get currency related risk params, spot price 24hrs ago and lending details for a
             "description": "Total collateral supplied in the protocol"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

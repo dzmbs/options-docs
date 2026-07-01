@@ -16,13 +16,13 @@
 
 # API Clients
 
-* Python (community client): [https://github.com/8ball030/derive\_client](https://github.com/8ball030/derive_client)
-* Python on-chain signing SDK (used above): [https://github.com/derivexyz/v2-action-signing-python](https://github.com/derivexyz/v2-action-signing-python)
+* Python (community client): <https://github.com/8ball030/derive_client>
+* Python on-chain signing SDK (used above): <https://github.com/derivexyz/v2-action-signing-python>
 * Rust (market making algos and example client): [https://github.com/derivexyz/cockpit](https://github.com/derivexyz/cockpit/tree/master/lyra-client)
 
 <br />
 
 # Integrations
 
-* hummingbot integration: [https://hummingbot.org/exchanges/derive/](https://hummingbot.org/exchanges/derive/)
-* ccxt integration: [https://github.com/ccxt/ccxt/blob/master/python/ccxt/derive.py](https://github.com/ccxt/ccxt/blob/master/python/ccxt/derive.py)
+* hummingbot integration: <https://hummingbot.org/exchanges/derive/>
+* ccxt integration: <https://github.com/ccxt/ccxt/blob/master/python/ccxt/derive.py>

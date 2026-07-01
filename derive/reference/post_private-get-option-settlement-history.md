@@ -63,6 +63,7 @@ Required minimum session key permission level is `read_only`
   "components": {
     "schemas": {
       "PrivateGetOptionSettlementHistoryParamsSchema": {
+        "type": "object",
         "properties": {
           "subaccount_id": {
             "title": "subaccount_id",
@@ -79,7 +80,6 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetOptionSettlementHistoryResponseSchema": {
@@ -87,6 +87,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -104,13 +105,13 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetOptionSettlementHistoryResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetOptionSettlementHistoryResultSchema": {
         "required": [
           "settlements"
         ],
+        "type": "object",
         "properties": {
           "settlements": {
             "title": "settlements",
@@ -121,7 +122,6 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "OptionSettlementResponseSchema": {
@@ -134,6 +134,7 @@ Required minimum session key permission level is `read_only`
           "settlement_price",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -175,7 +176,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount ID of the settlement event"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

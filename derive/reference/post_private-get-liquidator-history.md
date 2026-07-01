@@ -67,6 +67,7 @@ Required minimum session key permission level is `read_only`
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -79,7 +80,6 @@ Required minimum session key permission level is `read_only`
             "description": "Number of pages"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "AuctionBidEventSchema": {
@@ -95,6 +95,7 @@ Required minimum session key permission level is `read_only`
           "timestamp",
           "tx_hash"
         ],
+        "type": "object",
         "properties": {
           "amounts_liquidated": {
             "title": "amounts_liquidated",
@@ -167,13 +168,13 @@ Required minimum session key permission level is `read_only`
             "description": "Hash of the bid transaction"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetLiquidatorHistoryParamsSchema": {
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
@@ -205,7 +206,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount ID"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetLiquidatorHistoryResponseSchema": {
@@ -213,6 +213,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -230,7 +231,6 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetLiquidatorHistoryResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetLiquidatorHistoryResultSchema": {
@@ -238,6 +238,7 @@ Required minimum session key permission level is `read_only`
           "bids",
           "pagination"
         ],
+        "type": "object",
         "properties": {
           "bids": {
             "title": "bids",
@@ -251,7 +252,6 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PaginationInfoSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

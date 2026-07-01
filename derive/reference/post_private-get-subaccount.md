@@ -89,6 +89,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "time_in_force"
         ],
+        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -349,7 +350,6 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetSubaccountResultSchema": {
@@ -374,6 +374,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "subaccount_value"
         ],
+        "type": "object",
         "properties": {
           "collaterals": {
             "title": "collaterals",
@@ -496,7 +497,6 @@ Required minimum session key permission level is `read_only`
             "description": "Total mark-to-market value of all positions and collaterals"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "CollateralResponseSchema": {
@@ -524,6 +524,7 @@ Required minimum session key permission level is `read_only`
           "unrealized_pnl",
           "unrealized_pnl_excl_fees"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -658,7 +659,6 @@ Required minimum session key permission level is `read_only`
             "description": "Unrealized trading profit or loss of the position excluding fees"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PositionResponseSchema": {
@@ -691,6 +691,7 @@ Required minimum session key permission level is `read_only`
           "unrealized_pnl_excl_fees",
           "vega"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -861,13 +862,13 @@ Required minimum session key permission level is `read_only`
             "description": "Asset vega (zero for non-options)"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetSubaccountParamsSchema": {
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "subaccount_id": {
             "title": "subaccount_id",
@@ -875,7 +876,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetSubaccountResponseSchema": {
@@ -883,6 +883,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -900,7 +901,6 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetSubaccountResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

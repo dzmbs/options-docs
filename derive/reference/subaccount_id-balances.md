@@ -17,20 +17,16 @@ Subscribe to changes in user's positions for a given subaccount ID.<br /><br />F
     <table>
       <thead>
         <tr>
-          <th style={{ textAlign: 'left' }} />
+          <th style={{ textAlign: 'left' }}></th>
         </tr>
       </thead>
-
-      <tbody>
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>subaccount\_id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subaccount ID</span>
-          </td>
-        </tr>
-      </tbody>
+      <tbody><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>subaccount_id</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subaccount ID</span>
+  </td>
+</tr></tbody>
     </table>
   </div>
 </div>
@@ -42,61 +38,46 @@ Subscribe to changes in user's positions for a given subaccount ID.<br /><br />F
     <table>
       <thead>
         <tr>
-          <th style={{ textAlign: 'left' }} />
+          <th style={{ textAlign: 'left' }}></th>
         </tr>
       </thead>
-
-      <tbody>
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>channel</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subscribed channel name</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>data</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>array of objects</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>name</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Name of colletaral asset or instrument</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>new\_balance</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Balance after update</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>previous\_balance</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Balance before update</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">data\[].</span>
-            <strong>update\_type</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Type of transaction</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>trade</code> <code>asset\_deposit</code> <code>asset\_withdrawal</code> <code>transfer</code> <code>subaccount\_deposit</code> <code>subaccount\_withdrawal</code> <code>liquidation</code> <code>liquidator</code> <code>onchain\_drift\_fix</code> <code>perp\_settlement</code> <code>option\_settlement</code> <code>interest\_accrual</code> <code>onchain\_revert</code> <code>double\_revert</code>
-          </td>
-        </tr>
-      </tbody>
+      <tbody><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>channel</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Subscribed channel name</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>data</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>array&nbsp;of&nbsp;objects</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>name</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Name of colletaral asset or instrument</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>new_balance</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Balance after update</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>previous_balance</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Balance before update</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">data[].</span>
+    <strong>update_type</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Type of transaction</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>trade</code> <code>asset_deposit</code> <code>asset_withdrawal</code> <code>transfer</code> <code>subaccount_deposit</code> <code>subaccount_withdrawal</code> <code>liquidation</code> <code>liquidator</code> <code>onchain_drift_fix</code> <code>perp_settlement</code> <code>option_settlement</code> <code>interest_accrual</code> <code>onchain_revert</code> <code>double_revert</code>
+  </td>
+</tr></tbody>
     </table>
   </div>
 </div>
@@ -108,7 +89,6 @@ Subscribe to changes in user's positions for a given subaccount ID.<br /><br />F
 ```javascript
 {request_example_javascript}
 ```
-
 ```python
 {request_example_python}
 ```

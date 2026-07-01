@@ -69,6 +69,7 @@ Required minimum session key permission level is `account`
           "mmp_interval",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -105,7 +106,6 @@ Required minimum session key permission level is `account`
             "description": "Subaccount_id for which to set the config"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateSetMmpConfigResponseSchema": {
@@ -113,6 +113,7 @@ Required minimum session key permission level is `account`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -130,7 +131,6 @@ Required minimum session key permission level is `account`
             "$ref": "#/components/schemas/PrivateSetMmpConfigResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateSetMmpConfigResultSchema": {
@@ -140,6 +140,7 @@ Required minimum session key permission level is `account`
           "mmp_interval",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -176,7 +177,6 @@ Required minimum session key permission level is `account`
             "description": "Subaccount_id for which to set the config"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

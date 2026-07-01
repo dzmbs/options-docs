@@ -66,6 +66,7 @@ Get expired option settlement history, optionally filtered by subaccount or wall
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -78,7 +79,6 @@ Get expired option settlement history, optionally filtered by subaccount or wall
             "description": "Number of pages"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "OptionSettlementResponseSchema": {
@@ -91,6 +91,7 @@ Get expired option settlement history, optionally filtered by subaccount or wall
           "settlement_price",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -132,10 +133,10 @@ Get expired option settlement history, optionally filtered by subaccount or wall
             "description": "Subaccount ID of the settlement event"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetOptionSettlementHistoryParamsSchema": {
+        "type": "object",
         "properties": {
           "page": {
             "title": "page",
@@ -164,7 +165,6 @@ Get expired option settlement history, optionally filtered by subaccount or wall
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetOptionSettlementHistoryResponseSchema": {
@@ -172,6 +172,7 @@ Get expired option settlement history, optionally filtered by subaccount or wall
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -189,7 +190,6 @@ Get expired option settlement history, optionally filtered by subaccount or wall
             "$ref": "#/components/schemas/PublicGetOptionSettlementHistoryResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetOptionSettlementHistoryResultSchema": {
@@ -197,6 +197,7 @@ Get expired option settlement history, optionally filtered by subaccount or wall
           "pagination",
           "settlements"
         ],
+        "type": "object",
         "properties": {
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfoSchema"
@@ -210,7 +211,6 @@ Get expired option settlement history, optionally filtered by subaccount or wall
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

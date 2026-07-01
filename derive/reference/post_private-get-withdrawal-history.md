@@ -66,6 +66,7 @@ Required minimum session key permission level is `read_only`
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "end_timestamp": {
             "title": "end_timestamp",
@@ -85,7 +86,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount id"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetWithdrawalHistoryResponseSchema": {
@@ -93,6 +93,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -110,13 +111,13 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetWithdrawalHistoryResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetWithdrawalHistoryResultSchema": {
         "required": [
           "events"
         ],
+        "type": "object",
         "properties": {
           "events": {
             "title": "events",
@@ -127,7 +128,6 @@ Required minimum session key permission level is `read_only`
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "WithdrawalSchema": {
@@ -139,6 +139,7 @@ Required minimum session key permission level is `read_only`
           "tx_hash",
           "tx_status"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -183,7 +184,6 @@ Required minimum session key permission level is `read_only`
             "description": "Status of the transaction that deposited the funds"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

@@ -92,6 +92,7 @@ Required minimum session key permission level is `read_only`
           "unrealized_pnl_excl_fees",
           "vega"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -262,13 +263,13 @@ Required minimum session key permission level is `read_only`
             "description": "Asset vega (zero for non-options)"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetPositionsParamsSchema": {
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "subaccount_id": {
             "title": "subaccount_id",
@@ -276,7 +277,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetPositionsResponseSchema": {
@@ -284,6 +284,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -301,7 +302,6 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetPositionsResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetPositionsResultSchema": {
@@ -309,6 +309,7 @@ Required minimum session key permission level is `read_only`
           "positions",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "positions": {
             "title": "positions",
@@ -324,7 +325,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

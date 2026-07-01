@@ -89,6 +89,7 @@ Required minimum session key permission level is `read_only`
           "subaccount_id",
           "time_in_force"
         ],
+        "type": "object",
         "properties": {
           "algo_duration_sec": {
             "title": "algo_duration_sec",
@@ -349,13 +350,13 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetOpenOrdersParamsSchema": {
         "required": [
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "subaccount_id": {
             "title": "subaccount_id",
@@ -363,7 +364,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id for which to get open orders"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetOpenOrdersResponseSchema": {
@@ -371,6 +371,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -388,7 +389,6 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateGetOpenOrdersResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateGetOpenOrdersResultSchema": {
@@ -396,6 +396,7 @@ Required minimum session key permission level is `read_only`
           "orders",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "orders": {
             "title": "orders",
@@ -411,7 +412,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount_id for which to get open orders"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

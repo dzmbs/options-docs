@@ -67,6 +67,7 @@ Required minimum session key permission level is `admin`
           "label",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "instrument_name": {
             "title": "instrument_name",
@@ -86,7 +87,6 @@ Required minimum session key permission level is `admin`
             "description": "Subaccount ID"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCancelByLabelResponseSchema": {
@@ -94,6 +94,7 @@ Required minimum session key permission level is `admin`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -111,13 +112,13 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateCancelByLabelResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCancelByLabelResultSchema": {
         "required": [
           "cancelled_orders"
         ],
+        "type": "object",
         "properties": {
           "cancelled_orders": {
             "title": "cancelled_orders",
@@ -125,7 +126,6 @@ Required minimum session key permission level is `admin`
             "description": "Number of cancelled orders"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

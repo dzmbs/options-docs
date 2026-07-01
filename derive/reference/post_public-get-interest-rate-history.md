@@ -66,6 +66,7 @@ Get latest USDC interest rate history
           "count",
           "num_pages"
         ],
+        "type": "object",
         "properties": {
           "count": {
             "title": "count",
@@ -78,7 +79,6 @@ Get latest USDC interest rate history
             "description": "Number of pages"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetInterestRateHistoryParamsSchema": {
@@ -86,6 +86,7 @@ Get latest USDC interest rate history
           "from_timestamp_sec",
           "to_timestamp_sec"
         ],
+        "type": "object",
         "properties": {
           "from_timestamp_sec": {
             "title": "from_timestamp_sec",
@@ -110,7 +111,6 @@ Get latest USDC interest rate history
             "description": "To timestamp in seconds"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetInterestRateHistoryResponseSchema": {
@@ -118,6 +118,7 @@ Get latest USDC interest rate history
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -135,7 +136,6 @@ Get latest USDC interest rate history
             "$ref": "#/components/schemas/PublicGetInterestRateHistoryResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetInterestRateHistoryResultSchema": {
@@ -143,6 +143,7 @@ Get latest USDC interest rate history
           "interest_rates",
           "pagination"
         ],
+        "type": "object",
         "properties": {
           "interest_rates": {
             "title": "interest_rates",
@@ -156,7 +157,6 @@ Get latest USDC interest rate history
             "$ref": "#/components/schemas/PaginationInfoSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "InterestRateHistoryResponseSchema": {
@@ -168,6 +168,7 @@ Get latest USDC interest rate history
           "total_borrow",
           "total_supply"
         ],
+        "type": "object",
         "properties": {
           "block": {
             "title": "block",
@@ -204,7 +205,6 @@ Get latest USDC interest rate history
             "description": "Total USDC supplied"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

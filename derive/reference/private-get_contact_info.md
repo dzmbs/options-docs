@@ -17,29 +17,22 @@ List all contact information for the authenticated account.<br />Required minimu
     <table>
       <thead>
         <tr>
-          <th style={{ textAlign: 'left' }} />
+          <th style={{ textAlign: 'left' }}></th>
         </tr>
       </thead>
-
-      <tbody>
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>wallet</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Ethereum wallet address</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>contact\_type</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Filter by contact type (optional)</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>telegram</code> <code>email</code>
-          </td>
-        </tr>
-      </tbody>
+      <tbody><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>wallet</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Ethereum wallet address</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>contact_type</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Filter by contact type (optional)</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>enum </span><code>telegram</code> <code>email</code>
+  </td>
+</tr></tbody>
     </table>
   </div>
 </div>
@@ -51,77 +44,58 @@ List all contact information for the authenticated account.<br />Required minimu
     <table>
       <thead>
         <tr>
-          <th style={{ textAlign: 'left' }} />
+          <th style={{ textAlign: 'left' }}></th>
         </tr>
       </thead>
-
-      <tbody>
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string or integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font" />
-
-            <strong>result</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>object</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result.</span>
-            <strong>contacts</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>array of objects</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>List of contact information</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result.contacts\[].</span>
-            <strong>contact\_type</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Type of contact (telegram, email)</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result.contacts\[].</span>
-            <strong>contact\_value</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>The actual contact value</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result.contacts\[].</span>
-            <strong>created\_at\_sec</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Creation timestamp (sec)</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result.contacts\[].</span>
-            <strong>id</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Contact info ID</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td style={{textAlign: "left"}}>
-            <span className="ws-small-font">result.contacts\[].</span>
-            <strong>updated\_at\_sec</strong> 
-            <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span> <span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Last update timestamp (sec)</span>
-          </td>
-        </tr>
-      </tbody>
+      <tbody><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>id</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string&nbsp;or&nbsp;integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font"></span>
+    <strong>result</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>object</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result.</span>
+    <strong>contacts</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>array&nbsp;of&nbsp;objects</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>List of contact information</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result.contacts[].</span>
+    <strong>contact_type</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Type of contact (telegram, email)</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result.contacts[].</span>
+    <strong>contact_value</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>string</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>The actual contact value</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result.contacts[].</span>
+    <strong>created_at_sec</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Creation timestamp (sec)</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result.contacts[].</span>
+    <strong>id</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Contact info ID</span>
+  </td>
+</tr><tr>
+  <td style={{textAlign: "left"}}>
+    <span className="ws-small-font">result.contacts[].</span>
+    <strong>updated_at_sec</strong>&nbsp;
+    <span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>integer</span>&nbsp;<span className="ws-required-tag ws-small-font" style={{color: "#e95f6a", marginLeft: "8px", fontSize: "13px"}}>required</span><br /><span className="ws-data-type ws-small-font" style={{color: "#adb4c1", fontSize: "13px"}}>Last update timestamp (sec)</span>
+  </td>
+</tr></tbody>
     </table>
   </div>
 </div>
@@ -131,11 +105,9 @@ List all contact information for the authenticated account.<br />Required minimu
 ```shell
 {request_example_shell}
 ```
-
 ```javascript
 {request_example_javascript}
 ```
-
 ```python
 {request_example_python}
 ```

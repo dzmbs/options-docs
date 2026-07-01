@@ -71,6 +71,7 @@ Used for debugging only, do not use in production. Will return the incremental e
           "signer",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -121,7 +122,6 @@ Used for debugging only, do not use in production. Will return the incremental e
             "description": "Ethereum wallet address"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicCreateSubaccountDebugResponseSchema": {
@@ -129,6 +129,7 @@ Used for debugging only, do not use in production. Will return the incremental e
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -146,7 +147,6 @@ Used for debugging only, do not use in production. Will return the incremental e
             "$ref": "#/components/schemas/PublicCreateSubaccountDebugResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicCreateSubaccountDebugResultSchema": {
@@ -156,6 +156,7 @@ Used for debugging only, do not use in production. Will return the incremental e
           "encoded_data_hashed",
           "typed_data_hash"
         ],
+        "type": "object",
         "properties": {
           "action_hash": {
             "title": "action_hash",
@@ -178,7 +179,6 @@ Used for debugging only, do not use in production. Will return the incremental e
             "description": "EIP 712 typed data hash"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

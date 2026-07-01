@@ -23,7 +23,7 @@ For guides on managing session keys, refer to [Onboard via Interface](https://do
 
 Please refer to our clients for working code:
 
-* Python: [https://github.com/8ball030/derive\_client](https://github.com/8ball030/derive_client)
+* Python: <https://github.com/8ball030/derive_client>
 * Rust: [https://github.com/derivexyz/cockpit](https://github.com/derivexyz/cockpit/tree/master/lyra-client)
 
 <br />

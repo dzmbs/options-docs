@@ -74,6 +74,7 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
           "signer",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "client": {
             "title": "client",
@@ -154,7 +155,6 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
             "description": "Subaccount ID"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "LegPricedSchema": {
@@ -164,6 +164,7 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
           "instrument_name",
           "price"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -192,7 +193,6 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
             "description": "Leg price"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicExecuteQuoteDebugResponseSchema": {
@@ -200,6 +200,7 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -217,7 +218,6 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
             "$ref": "#/components/schemas/PublicExecuteQuoteDebugResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicExecuteQuoteDebugResultSchema": {
@@ -229,6 +229,7 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
           "legs_hash",
           "typed_data_hash"
         ],
+        "type": "object",
         "properties": {
           "action_hash": {
             "title": "action_hash",
@@ -261,7 +262,6 @@ Sends a quote in response to an RFQ request.<br />The legs supplied in the param
             "description": "EIP 712 typed data hash"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

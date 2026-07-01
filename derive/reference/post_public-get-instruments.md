@@ -67,6 +67,7 @@ Get all active instruments for a given `currency` and `type`.
           "expired",
           "instrument_type"
         ],
+        "type": "object",
         "properties": {
           "currency": {
             "title": "currency",
@@ -89,7 +90,6 @@ Get all active instruments for a given `currency` and `type`.
             "description": "`erc20`, `option`, or `perp`"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PublicGetInstrumentsResponseSchema": {
@@ -97,6 +97,7 @@ Get all active instruments for a given `currency` and `type`.
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -119,7 +120,6 @@ Get all active instruments for a given `currency` and `type`.
             }
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "InstrumentPublicResponseSchema": {
@@ -147,6 +147,7 @@ Get all active instruments for a given `currency` and `type`.
           "taker_fee_rate",
           "tick_size"
         ],
+        "type": "object",
         "properties": {
           "amount_step": {
             "title": "amount_step",
@@ -279,13 +280,13 @@ Get all active instruments for a given `currency` and `type`.
             "description": "Tick size of the instrument, i.e. minimum price increment"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "ERC20PublicDetailsSchema": {
         "required": [
           "decimals"
         ],
+        "type": "object",
         "properties": {
           "borrow_index": {
             "title": "borrow_index",
@@ -313,7 +314,6 @@ Get all active instruments for a given `currency` and `type`.
             "description": "Address of underlying on-chain ERC20 (not V2 asset)"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "OptionPublicDetailsSchema": {
@@ -323,6 +323,7 @@ Get all active instruments for a given `currency` and `type`.
           "option_type",
           "strike"
         ],
+        "type": "object",
         "properties": {
           "expiry": {
             "title": "expiry",
@@ -356,7 +357,6 @@ Get all active instruments for a given `currency` and `type`.
             "format": "decimal"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PerpPublicDetailsSchema": {
@@ -368,6 +368,7 @@ Get all active instruments for a given `currency` and `type`.
           "min_rate_per_hour",
           "static_interest_rate"
         ],
+        "type": "object",
         "properties": {
           "aggregate_funding": {
             "title": "aggregate_funding",
@@ -405,7 +406,6 @@ Get all active instruments for a given `currency` and `type`.
             "description": "Static interest rate as per `PerpAsset.sol`"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

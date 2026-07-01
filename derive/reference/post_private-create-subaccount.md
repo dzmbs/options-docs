@@ -73,6 +73,7 @@ Required minimum session key permission level is `admin`
           "signer",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -128,7 +129,6 @@ Required minimum session key permission level is `admin`
             "description": "Ethereum wallet address"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCreateSubaccountResponseSchema": {
@@ -136,6 +136,7 @@ Required minimum session key permission level is `admin`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -153,7 +154,6 @@ Required minimum session key permission level is `admin`
             "$ref": "#/components/schemas/PrivateCreateSubaccountResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateCreateSubaccountResultSchema": {
@@ -161,6 +161,7 @@ Required minimum session key permission level is `admin`
           "status",
           "transaction_id"
         ],
+        "type": "object",
         "properties": {
           "status": {
             "title": "status",
@@ -174,7 +175,6 @@ Required minimum session key permission level is `admin`
             "description": "Transaction id of the request"
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }

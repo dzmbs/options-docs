@@ -69,6 +69,7 @@ Required minimum session key permission level is `read_only`
           "instrument_name",
           "price"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -97,7 +98,6 @@ Required minimum session key permission level is `read_only`
             "description": "Leg price"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "QuoteResultPublicSchema": {
@@ -118,6 +118,7 @@ Required minimum session key permission level is `read_only`
           "tx_status",
           "wallet"
         ],
+        "type": "object",
         "properties": {
           "cancel_reason": {
             "title": "cancel_reason",
@@ -239,7 +240,6 @@ Required minimum session key permission level is `read_only`
             "description": "Wallet address of the quote sender"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "LegUnpricedSchema": {
@@ -248,6 +248,7 @@ Required minimum session key permission level is `read_only`
           "direction",
           "instrument_name"
         ],
+        "type": "object",
         "properties": {
           "amount": {
             "title": "amount",
@@ -270,7 +271,6 @@ Required minimum session key permission level is `read_only`
             "description": "Instrument name"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateRfqGetBestQuoteParamsSchema": {
@@ -278,6 +278,7 @@ Required minimum session key permission level is `read_only`
           "legs",
           "subaccount_id"
         ],
+        "type": "object",
         "properties": {
           "client": {
             "title": "client",
@@ -381,7 +382,6 @@ Required minimum session key permission level is `read_only`
             "description": "Subaccount ID"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateRfqGetBestQuoteResponseSchema": {
@@ -389,6 +389,7 @@ Required minimum session key permission level is `read_only`
           "id",
           "result"
         ],
+        "type": "object",
         "properties": {
           "id": {
             "oneOf": [
@@ -406,7 +407,6 @@ Required minimum session key permission level is `read_only`
             "$ref": "#/components/schemas/PrivateRfqGetBestQuoteResultSchema"
           }
         },
-        "type": "object",
         "additionalProperties": false
       },
       "PrivateRfqGetBestQuoteResultSchema": {
@@ -428,6 +428,7 @@ Required minimum session key permission level is `read_only`
           "suggested_max_fee",
           "up_liquidation_price"
         ],
+        "type": "object",
         "properties": {
           "best_quote": {
             "$ref": "#/components/schemas/QuoteResultPublicSchema",
@@ -544,7 +545,6 @@ Required minimum session key permission level is `read_only`
             "nullable": true
           }
         },
-        "type": "object",
         "additionalProperties": false
       }
     }
