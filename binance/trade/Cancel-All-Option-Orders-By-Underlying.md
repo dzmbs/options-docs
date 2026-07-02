@@ -1,4 +1,4 @@
-- [](/docs/)
+- [](/legacy-docs/)
 - Options Trading
 - Trade
 - Cancel All Option Orders By Underlying

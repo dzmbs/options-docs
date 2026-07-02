@@ -1,4 +1,4 @@
-- [](/docs/)
+- [](/legacy-docs/)
 - Options Trading
 - Account
 - Account Funding Flow

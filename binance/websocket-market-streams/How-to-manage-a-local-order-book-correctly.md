@@ -1,4 +1,4 @@
-- [](/docs/)
+- [](/legacy-docs/)
 - Options Trading
 - Websocket Market Streams
 - How To Manage A Local Order Book Correctly

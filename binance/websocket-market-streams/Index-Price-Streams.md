@@ -1,4 +1,4 @@
-- [](/docs/)
+- [](/legacy-docs/)
 - Options Trading
 - Websocket Market Streams
 - Index Price Streams

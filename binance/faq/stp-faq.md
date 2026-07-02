@@ -1,4 +1,4 @@
-- [](/docs/)
+- [](/legacy-docs/)
 - Options Trading
 - FAQ
 - Self Trade Prevention

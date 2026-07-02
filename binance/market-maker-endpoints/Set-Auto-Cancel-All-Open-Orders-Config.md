@@ -1,4 +1,4 @@
-- [](/docs/)
+- [](/legacy-docs/)
 - Options Trading
 - Market Maker Endpoints
 - Set Auto Cancel All Open Orders Config

@@ -1,4 +1,4 @@
-- [](/docs/)
+- [](/legacy-docs/)
 - Options Trading
 - Market Maker Endpoints
 - Set Market Maker Protection Config

@@ -1,4 +1,4 @@
-- [](/docs/)
+- [](/legacy-docs/)
 - Options Trading
 - Market Data
 - 24hr Ticker Price Change Statistics

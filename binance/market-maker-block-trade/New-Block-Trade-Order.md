@@ -1,4 +1,4 @@
-- [](/docs/)
+- [](/legacy-docs/)
 **On this page
 
 

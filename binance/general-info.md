@@ -1,4 +1,4 @@
-- [](/docs/)
+- [](/legacy-docs/)
 - Options Trading
 - General Info
 **On this page
@@ -60,7 +60,7 @@ If there is an error message **"Unknown error, please check your request or try 
 {**"code": -1121, "msg": "Invalid symbol."}
 ```
 
-Specific error codes and messages defined in [Error Codes](/docs/derivatives/options-trading/general-info#error-codes).
+Specific error codes and messages defined in [Error Codes](/legacy-docs/derivatives/options-trading/general-info#error-codes).
 
 ### General Information on Endpoints​
 
