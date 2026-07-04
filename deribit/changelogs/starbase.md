@@ -6,6 +6,35 @@
 
 > Changes and announcements for the Deribit Starbase API.
 
+<Update label="Announcement 03.07.2026">
+  ## Announcement
+
+  We're writing to inform you of a **delay** to the Starbase production go-live. The two key dates are changing, resulting in a total delay **of 2 weeks**.
+
+  * Market data, FIX Drop Copy and gateway connectivity: now 21st of July, previously 13th of July
+  * Speed bump activation: now 28th of July, previously 13th of July
+  * SBE order entry gateway access: now 4th of August, previously 20th of August
+
+  We have recently experienced postponements in production deployments, which in turn delayed the rollout of key features. To ensure stability throughout the entire migration, we are adjusting the schedule.
+
+  Certain production order books are already matching on Starbase. The more order books we have on Starbase and the longer they match, the more certain we are of performance and resilience. We migrated some order books later than we would have liked and feel additional time is prudent.
+
+  Three key features will appear on Starbase's test-environment in the coming week or so. To give you and us ample time to test these, two extra weeks are necessary.
+
+  * Speed bumps. We aim to activate speed bumps on the test environment early next week.
+  * Cancel-on-disconnect. Cancel-on-disconnect (CoD) is not yet available on the test environment. We will ensure this is available one week before the 4th of August.
+  * L2 market data. As some of you have noticed, orders or quotes submitted directly on Starbase are not yet reflected in the Deribit UI or legacy L2 market data feeds. We aim to integrate this on the test environment next week.
+
+  Deribit is undergoing many changes this year. We want to assure you that many of the other key initiatives are NOT affected by this delay, including:
+
+  * The merger with Coinbase International, now scheduled for the 9th of September. This was communicated to Coinbase International clients earlier this week. If you are unaware, please reach out to your point of contact.
+  * We plan to list all of Coinbase International's perpetuals on Deribit between the 10th of August and 9th of September.
+  * Our BTC and ETH options will switch from cash-settled to futures-settled as of August 1st.
+  * New fees, quoting programs and the launch of the Liquidity Support Program are still slated for August 1st.
+
+  We apologize for the delay and hope the additional two weeks allow you to better support Starbase at launch. Please reach out to your point of contact with any questions or concerns.
+</Update>
+
 <Update label="Starbase Release 26.06.2026 — v1.1">
   ## API Changes
 
