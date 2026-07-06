@@ -13,7 +13,7 @@
 
   * Market data, FIX Drop Copy and gateway connectivity: now 21st of July, previously 13th of July
   * Speed bump activation: now 28th of July, previously 13th of July
-  * SBE order entry gateway access: now 4th of August, previously 20th of August
+  * SBE order entry gateway access: now 4th of August, previously 20th of July
 
   We have recently experienced postponements in production deployments, which in turn delayed the rollout of key features. To ensure stability throughout the entire migration, we are adjusting the schedule.
 
