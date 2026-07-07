@@ -1,41 +1,4 @@
-- [](/legacy-docs/)
-- Options Trading
-- Market Data
-- Open Interest
-**On this page
+# JavaScript is disabled
 
-
-# Open Interest
-
-## API Description​
-
-Get open interest for specific underlying asset on specific expiration date.
-
-## HTTP Request​
-
-GET `/eapi/v1/openInterest`
-
-## Request Weight​
-
-0**
-
-## Request Parameters​
-
-| Name | Type | Mandatory | Description |
-| --- | --- | --- | --- |
-| underlyingAsset | STRING | YES | underlying asset, e.g ETH/BTC |
-| expiration | STRING | YES | expiration date, e.g 221225 |
-
-## Response Example​
-
-```
-[
- {
- "symbol": "ETH-221119-1175-P",
- "sumOpenInterest": "4.01",
- "sumOpenInterestUsd": "4880.2985615624",
- "timestamp": "1668754020000"
- }
-]
-
-```
+ In order to continue, we need to verify that you're not a robot.
+ This requires JavaScript. Enable JavaScript and then reload the page.

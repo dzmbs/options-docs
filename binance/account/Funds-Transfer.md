@@ -1,12 +1,4 @@
-- [](/legacy-docs/)
-- Options Trading
-- Account
-- Funds Transfer
-On this page
+# JavaScript is disabled
 
-
-# Funds Transfer(TRADE)
-
-## API Description​
-
-Please find details from [here](https://developers.binance.com/docs/wallet/asset/user-universal-transfer).
+ In order to continue, we need to verify that you're not a robot.
+ This requires JavaScript. Enable JavaScript and then reload the page.

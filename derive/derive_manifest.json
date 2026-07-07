@@ -1412,8 +1412,8 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-07-06T14:41:40.748561",
-    "duration_seconds": 223.532243,
+    "completed_at": "2026-07-07T13:38:43.503454",
+    "duration_seconds": 222.46451,
     "pages_total": 291,
     "pages_fetched": 282,
     "pages_failed": 9,
@@ -1429,6 +1429,6 @@
       "https://docs.derive.xyz/reference/private-change_session_key_label"
     ]
   },
-  "last_updated": "2026-07-06T14:41:40.748576",
+  "last_updated": "2026-07-07T13:38:43.503471",
   "source": "https://docs.derive.xyz"
 }

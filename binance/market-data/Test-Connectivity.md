@@ -1,31 +1,4 @@
-- [](/legacy-docs/)
-- Options Trading
-- Market Data
-- Test Connectivity
-**On this page
+# JavaScript is disabled
 
-
-# Test Connectivity
-
-## API Description​
-
-Test connectivity to the Rest API.
-
-## HTTP Request​
-
-GET `/eapi/v1/ping`
-
-## Request Weight​
-
-1**
-
-## Request Parameters​
-
-NONE
-
-## Response Example​
-
-```
-{}
-
-```
+ In order to continue, we need to verify that you're not a robot.
+ This requires JavaScript. Enable JavaScript and then reload the page.

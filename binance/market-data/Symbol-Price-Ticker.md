@@ -1,36 +1,4 @@
-- [](/legacy-docs/)
-- Options Trading
-- Market Data
-- Symbol Price Ticker
-**On this page
+# JavaScript is disabled
 
-
-# Index Price
-
-## API Description​
-
-Get spot index price for option underlying.
-
-## HTTP Request​
-
-GET `/eapi/v1/index`
-
-## Request Weight​
-
-1**
-
-## Request Parameters​
-
-| Name | Type | Mandatory | Description |
-| --- | --- | --- | --- |
-| underlying | STRING | YES | Spot pair（Option contract underlying asset, e.g BTCUSDT) |
-
-## Response Example​
-
-```
-{
-   "time": 1656647305000,
-   "indexPrice": "105917.75" // Current index price
-}
-
-```
+ In order to continue, we need to verify that you're not a robot.
+ This requires JavaScript. Enable JavaScript and then reload the page.

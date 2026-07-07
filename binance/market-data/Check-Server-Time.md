@@ -1,30 +1,4 @@
-- [](/legacy-docs/)
-**On this page
+# JavaScript is disabled
 
-
-# Check Server Time
-
-## API Description​
-
-Test connectivity to the Rest API and get the current server time.
-
-## HTTP Request​
-
-GET `/eapi/v1/time`
-
-## Request Weight​
-
-1**
-
-## Request Parameters​
-
-NONE
-
-## Response Example​
-
-```
-{
- "serverTime": 1499827319559
-}
-
-```
+ In order to continue, we need to verify that you're not a robot.
+ This requires JavaScript. Enable JavaScript and then reload the page.
