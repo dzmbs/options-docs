@@ -146,6 +146,22 @@ components:
               example: 0.01680479
               type: number
               description: Margin when selling
+            buy_taker_fee:
+              example: 0.000017
+              type: number
+              description: Estimated fee when buying as a taker
+            buy_maker_fee:
+              example: 0.000017
+              type: number
+              description: Estimated fee when buying as a maker
+            sell_taker_fee:
+              example: 0.000017
+              type: number
+              description: Estimated fee when selling as a taker
+            sell_maker_fee:
+              example: 0.000017
+              type: number
+              description: Estimated fee when selling as a maker
             min_price:
               $ref: '#/components/schemas/min_price'
             max_price:
@@ -153,6 +169,10 @@ components:
           required:
             - buy
             - sell
+            - buy_taker_fee
+            - buy_maker_fee
+            - sell_taker_fee
+            - sell_maker_fee
             - min_price
             - max_price
           type: object
@@ -186,6 +206,10 @@ components:
                   min_price: 3684.8
                   max_price: 3759.24
                   buy: 0.0219949
+                  buy_taker_fee: 0.000085
+                  buy_maker_fee: 0.000017
+                  sell_taker_fee: 0.000085
+                  sell_maker_fee: 0.000017
               description: Response example
       description: Success response
 

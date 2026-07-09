@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Manage Session Keys
 
 Refer to the "Session Keys" section in the "API Reference" for more information on the nature of session keys.

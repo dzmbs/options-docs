@@ -8,6 +8,8 @@
 
 The response includes both the API key ID and the secret key. Store the secret securely as it will not be displayed again. You can view the API key details (without the secret) using the `list_api_keys` method.
 
+**Note:** The new API key cannot be granted higher scopes than the API key used for authentication. Attempting to assign a scope that exceeds the authenticating key's permissions will result in an error.
+
 **[TFA required](https://docs.deribit.com/articles/security-keys)**
 
 **📖 Related Articles:** 
@@ -77,6 +79,11 @@ paths:
         The response includes both the API key ID and the secret key. Store the
         secret securely as it will not be displayed again. You can view the API
         key details (without the secret) using the `list_api_keys` method.
+
+
+        **Note:** The new API key cannot be granted higher scopes than the API
+        key used for authentication. Attempting to assign a scope that exceeds
+        the authenticating key's permissions will result in an error.
 
 
         **[TFA required](https://docs.deribit.com/articles/security-keys)**

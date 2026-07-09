@@ -138,6 +138,10 @@ components:
           description: The id that was sent in the request
         result:
           type: array
+          items:
+            type: array
+            items:
+              type: number
           description: >-
             Markprice history values as an array of arrays with 2 values each.
             The inner values correspond to the timestamp in ms and the markprice

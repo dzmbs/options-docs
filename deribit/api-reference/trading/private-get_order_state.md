@@ -143,8 +143,8 @@ components:
         error:
           type: integer
       required:
-        - jsonrpc
         - message
+        - jsonrpc
         - error
       type: object
     order:

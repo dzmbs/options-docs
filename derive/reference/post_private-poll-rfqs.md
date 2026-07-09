@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Poll Rfqs
 
 Retrieves a list of RFQs matching filter criteria. Market makers can use this to poll RFQs directed to them.

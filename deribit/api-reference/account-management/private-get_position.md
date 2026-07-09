@@ -141,8 +141,8 @@ components:
         error:
           type: integer
       required:
-        - jsonrpc
         - message
+        - jsonrpc
         - error
       type: object
     position_with_elp:

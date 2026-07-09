@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Send Rfq
 
 Requests two-sided quotes from participating market makers.

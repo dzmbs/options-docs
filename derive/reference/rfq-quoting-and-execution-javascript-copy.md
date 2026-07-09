@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # RFQ Quoting and Execution [Python / Rust]
 
 Before making API calls, make sure to setup and fund you account in the "Getting Started" guide.

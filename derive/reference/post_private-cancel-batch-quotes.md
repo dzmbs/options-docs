@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Cancel Batch Quotes
 
 Cancels quotes given optional filters. If no filters are provided, all quotes by the subaccount are cancelled.<br />All filters are combined using `AND` logic, so mutually exclusive filters will result in no quotes being cancelled.

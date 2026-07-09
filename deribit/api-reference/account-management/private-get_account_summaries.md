@@ -557,12 +557,18 @@ components:
                     description: Options summary vega
                   options_gamma_map:
                     type: object
+                    additionalProperties:
+                      type: number
                     description: Map of options' gammas per index
                   options_theta_map:
                     type: object
+                    additionalProperties:
+                      type: number
                     description: Map of options' thetas per index
                   options_vega_map:
                     type: object
+                    additionalProperties:
+                      type: number
                     description: Map of options' vegas per index
                   projected_initial_margin:
                     $ref: '#/components/schemas/projected_initial_margin'

@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Get Vault Statistics
 
 Gets all the latest vault shareRate, totalSupply and TVL values for all vaults.<br /><br />For data on shares across chains, use public/get_vault_assets.

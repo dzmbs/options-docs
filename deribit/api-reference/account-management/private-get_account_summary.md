@@ -287,12 +287,18 @@ components:
               description: Options summary vega
             options_gamma_map:
               type: object
+              additionalProperties:
+                type: number
               description: Map of options' gammas per index
             options_theta_map:
               type: object
+              additionalProperties:
+                type: number
               description: Map of options' thetas per index
             options_vega_map:
               type: object
+              additionalProperties:
+                type: number
               description: Map of options' vegas per index
             security_keys_enabled:
               example: false

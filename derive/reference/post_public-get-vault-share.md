@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Get Vault Share
 
 Gets the value of a vault's token against the base currency, underlying currency, and USD for a timestamp range.<br /><br />The name of the vault from the Vault proxy contract is used to fetch the vault's value.

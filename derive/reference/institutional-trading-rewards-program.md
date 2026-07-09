@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Institutional Trading Rewards Program
 
 *\*The program outlined below and all numbers provided are subject to change.*

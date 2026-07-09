@@ -8,7 +8,7 @@
 
 **Note - This method has distinct API rate limiting requirements:** Sustained rate: 1 request/second. To avoid rate limits, we recommend using either the REST requests for server-cached data or the WebSocket subscription to [instrument_state.{kind}.{currency}](https://docs.deribit.com/api-reference/subscription-channels/instrument-state-kind-currency) for real-time updates. For more information, see [Rate Limits](https://support.deribit.com/hc/en-us/articles/25944617523357-Rate-Limits).
 
-Results can be filtered by currency and instrument kind (future, option, etc.). Set the `expired` parameter to `true` to retrieve recently expired instruments instead of active ones.
+Results can be filtered by currency and instrument kind (future, option, etc.). Set the `expired` parameter to `true` to retrieve recently expired instruments instead of active ones. Each instrument includes the `underlying_type` field indicating whether the underlying asset is `equity`, `commodity`, or `crypto`.
 
 [Try in API console](https://test.deribit.com/api_console?method=%2Fpublic%2Fget_instruments)
 
@@ -79,7 +79,9 @@ paths:
 
         Results can be filtered by currency and instrument kind (future, option,
         etc.). Set the `expired` parameter to `true` to retrieve recently
-        expired instruments instead of active ones.
+        expired instruments instead of active ones. Each instrument includes the
+        `underlying_type` field indicating whether the underlying asset is
+        `equity`, `commodity`, or `crypto`.
 
 
         [Try in API
@@ -331,6 +333,12 @@ components:
           description: >-
             Product group classification for the instrument's base currency
             (e.g. BTC, ETH, TIER_2).
+        is_csr:
+          type: boolean
+          description: >-
+            Optional (only for spot). When `true`, orders on this instrument are
+            routed to Coinbase Exchange (CBE) for matching instead of the native
+            Deribit matching engine.
       required:
         - kind
         - base_currency
@@ -344,6 +352,7 @@ components:
         - expiration_timestamp
         - contract_size
         - price_index
+        - underlying_type
       type: object
     instrument_name:
       example: BTC-PERPETUAL
@@ -457,6 +466,7 @@ components:
                     qty_tick_size: 10
                     index_id: 1000001
                     product_group: BTC
+                    underlying_type: crypto
                   - tick_size: 0.5
                     tick_size_steps: []
                     taker_commission: 0.0005
@@ -485,6 +495,7 @@ components:
                     qty_tick_size: 10
                     index_id: 1000002
                     product_group: BTC
+                    underlying_type: crypto
               description: Response example
       description: Success response
 

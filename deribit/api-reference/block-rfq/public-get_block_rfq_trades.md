@@ -172,6 +172,8 @@ components:
                     $ref: '#/components/schemas/block_rfq_hedge_leg'
                   index_prices:
                     type: object
+                    additionalProperties:
+                      type: number
                     description: >-
                       A map of index prices for the underlying instrument(s) at
                       the time of trade execution, where keys are price index

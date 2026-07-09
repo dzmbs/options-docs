@@ -122,6 +122,8 @@ components:
                 currencies locked
             locked_indices:
               type: array
+              items:
+                type: string
               description: List of currency indices locked platform-wise
           required:
             - locked

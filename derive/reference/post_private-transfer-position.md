@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Transfer Position
 
 Transfers a positions from one subaccount to another, owned by the same wallet.<br /><br />The transfer is executed as a pair of orders crossing each other.<br />The maker order is created first, followed by a taker order crossing it.<br />The order amounts, limit prices and instrument name must be the same for both orders.<br />Fee is not charged and a zero `max_fee` must be signed.<br />The maker order is forcibly considered to be `reduce_only`, meaning it can only reduce the position size.<br /><br />History: For position transfer history, use the `private/get_trade_history` RPC (not `private/get_erc20_transfer_history`).

@@ -229,11 +229,11 @@ Response Example
 | Parameter | Type | Description |
 | --- | --- | --- |
 | seriesId | String | Series ID, e.g. `BTC-ABOVE-DAILY` |
-| freq | String | Frequency of the series`five_min``fifteen_min``hourly``daily` |
+| freq | String | Frequency of the series`five_min``fifteen_min``hourly``daily``monthly` |
 | title | String | Series title |
 | category | String | Category which this series belongs to, e.g. `Crypto` |
 | settlement | Object | Settlement information |
-| > method | String | Settlement method.`price_up_down`: Price up/down`price_above`: Price above |
+| > method | String | Settlement method.`price_up_down`: Price up/down`price_above`: Price above`hit`: Hit (price touches strike level, settles immediately)`between`: Between (settle price within [floorStrike, capStrike) range) |
 | > closeEarly | Boolean | Whether the market can be settled earlier than the expiration time.`true``false` |
 | > srcName | String | Settlement source name, e.g. `okx_index`, `cf_benchmark_index` |
 | > underlying | String | Price underlying in OKX trading symbol format, e.g. `BTC-USDT`. Only applicable to price-related settlement methods. |
@@ -345,8 +345,10 @@ Response Example
  "fixTime": "",
  "outcome": "0",
  "floorStrike": "120000",
+ "capStrike": "",
  "settleValue": "",
- "disputed": false
+ "disputed": false,
+ "hitDir": ""
  }
  ],
  "msg": ""
@@ -368,7 +370,9 @@ Response Example
 | disputed | Boolean | Whether the market has been disputed.`true``false` |
 | outcome | String | Market outcome.`0`: Not available`1`: YES`2`: NO.`1`/`2` only applicable when state is `expired` |
 | floorStrike | String | Minimum expiration value that leads to a YES outcome |
+| capStrike | String | Maximum expiration value that leads to a YES outcome for `between` method. `"INF"` indicates no upper bound (the topmost bracket).Returns `""` for non-`between` methods. |
 | settleValue | String | Settlement valueOnly return when the state is `expired` |
+| hitDir | String | Hit direction. Only applicable when the settlement method is `hit`.`up`: price hit from below`dn`: price hit from above`""`: not applicable (non-`hit` methods) |
 
 ### Get estimated delivery/exercise price
 

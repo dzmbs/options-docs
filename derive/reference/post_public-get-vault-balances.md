@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Get Vault Balances
 
 Get all vault assets held by user. Can query by smart contract address or smart contract owner.<br /><br />Includes VaultERC20Pool balances

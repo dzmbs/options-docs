@@ -176,6 +176,10 @@ components:
           description: The id that was sent in the request
         result:
           type: array
+          items:
+            type: array
+            items:
+              type: number
           description: >
             **Response:**
 

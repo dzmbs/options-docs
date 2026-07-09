@@ -325,8 +325,10 @@ Push Data Example
  "state": "live",
  "outcome": "0",
  "floorStrike": "120000",
+ "capStrike": "",
  "settleValue": "",
- "disputed": false
+ "disputed": false,
+ "hitDir": ""
  }
  ]
 }
@@ -349,8 +351,10 @@ Push Data Example
 | > state | String | Market state.`preopen``live``settling``expired` |
 | > outcome | String | Market outcome.`0`: Not available`1`: YES`2`: NO.`1`/`2` only applicable when state is `expired` |
 | > floorStrike | String | Minimum expiration value that leads to a YES outcome |
+| > capStrike | String | Maximum expiration value that leads to a YES outcome for `between` method. `"INF"` indicates no upper bound (the topmost bracket).Returns `""` for non-`between` methods. |
 | > settleValue | String | Settlement valueOnly return when the state is `expired` |
 | > disputed | Boolean | Whether the market has been disputed.`true``false` |
+| > hitDir | String | Hit direction. Only applicable when the settlement method is `hit`.`up`: price hit from below`dn`: price hit from above`""`: not applicable (non-`hit` methods) |
 
 ### Open interest channel
 
@@ -1731,7 +1735,7 @@ Response Example
 | > details | Array of objects | Liquidation details |
 | >> side | String | Order side`buy``sell`Applicable to `FUTURES`/`SWAP` |
 | >> posSide | String | Position mode side`long`: Hedge mode long`short`: Hedge mode short`net`: Net mode |
-| >> bkPx | String | Bankruptcy price. The price of the transaction with the system's liquidation account, only applicable to `FUTURES`/`SWAP` |
+| >> bkPx | String | Liquidation mark price. The price of the transaction with the system's liquidation account, only applicable to `FUTURES`/`SWAP` |
 | >> sz | String | Quantity of liquidation, only applicable to `MARGIN`/`FUTURES`/`SWAP`. For `MARGIN`, the unit is base currency. For `FUTURES/SWAP`, the unit is contract. |
 | >> bkLoss | String | Bankruptcy loss |
 | >> ccy | String | Liquidation currency, only applicable to `MARGIN` |

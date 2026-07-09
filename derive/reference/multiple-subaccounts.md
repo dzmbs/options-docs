@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Multiple Subaccounts
 
 You may create several subaccounts all managed by the same Ethereum Wallet (EOA) / Derive Wallet (SCW). To do so, go to the [Subaccounts page](https://app.derive.xyz/subaccounts) via the left-hand sidebar:

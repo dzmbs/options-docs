@@ -4,7 +4,7 @@
 
 # public/get_instrument
 
-> Retrieves detailed information about a specific instrument, including instrument specifications, contract details, tick size, settlement currency, expiration date (for futures and options), strike price (for options), and other instrument parameters.
+> Retrieves detailed information about a specific instrument, including instrument specifications, contract details, tick size, settlement currency, expiration date (for futures and options), strike price (for options), underlying type, and other instrument parameters.
 
 This method is useful for obtaining instrument metadata needed for trading operations and calculations.
 
@@ -64,7 +64,7 @@ paths:
         Retrieves detailed information about a specific instrument, including
         instrument specifications, contract details, tick size, settlement
         currency, expiration date (for futures and options), strike price (for
-        options), and other instrument parameters.
+        options), underlying type, and other instrument parameters.
 
 
         This method is useful for obtaining instrument metadata needed for
@@ -283,6 +283,12 @@ components:
           description: >-
             Product group classification for the instrument's base currency
             (e.g. BTC, ETH, TIER_2).
+        is_csr:
+          type: boolean
+          description: >-
+            Optional (only for spot). When `true`, orders on this instrument are
+            routed to Coinbase Exchange (CBE) for matching instead of the native
+            Deribit matching engine.
       required:
         - kind
         - base_currency
@@ -296,6 +302,7 @@ components:
         - expiration_timestamp
         - contract_size
         - price_index
+        - underlying_type
       type: object
     kind:
       enum:
@@ -419,6 +426,7 @@ components:
                   qty_tick_size: 0.1
                   index_id: 1000001
                   product_group: BTC
+                  underlying_type: crypto
               description: Response example
       description: Success response
 

@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Create or Deposit to Subaccount
 
 **NOTE** If you haven't done so yet, use the `public/create_account` to create an account using an ETH EOA or Smart Contract wallet.

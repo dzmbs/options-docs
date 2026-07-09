@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Deposit to Derive Chain
 
 The easiest way to deposit to Derive Chain is by setting up an account via the Interface (see the guides under "Onboard via Interface) as this fully handles bridging / deposits / account setups / withdrawals. **Only use this guide if you'd like to setup your account fully on-chain.**

@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Rfq Get Best Quote
 
 Performs a "dry run" on an RFQ, returning the estimated fee and whether the trade is expected to pass.<br /><br />Should any exception be raised in the process of evaluating the trade, a standard RPC error will be returned<br />with the error details.

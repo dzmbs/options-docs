@@ -608,6 +608,7 @@ There is a sub-code format used to further distinguish different scenarios withi
 | 54078 | 200 | If the main order is a buy order, the TP ratio must be greater than 0, while the SL ratio must be between -1 and 0. If the main order is a sell order, the TP ratio must be between -1 and 0, and the SL ratio must be greater than 0. Additionally, the ratio must be multiples of 0.0001. |
 | 54079 | 200 | Dynamic change is available only for futures trading in futures mode or multi-currency mode. Note that when selecting dynamic change, the trigger price can only be calculated using the last price. |
 | 54092 | 200 | Action Required: Please accept the TradFi Perps disclaimer on Web or App by attempting to place a TradFi Perp trade via the frontend. Each account, including sub-accounts, must separately accept the disclaimer before API trading is enabled |
+| 54094 | 200 | Order rejected. The cool-off period is active for the current instId. |
 
 #### Data class
 

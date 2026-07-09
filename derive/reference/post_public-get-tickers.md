@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Get Tickers
 
 Get tickers information (best bid / ask, stats, etc.) for a multiple instruments.<br /><br />For options: currency is required and expiry_date is required.<br />For perps: currency is optional, expiry_date will throw an error.<br />For erc20s: currency is optional, expiry_date will throw an error.<br /><br />For most up to date stream of tickers, use the `ticker.<instrument_name>.<interval>` channels.

@@ -274,17 +274,25 @@ components:
               description: Options summary vega
             options_gamma_map:
               type: object
+              additionalProperties:
+                type: number
               description: Map of options' gammas per index
             options_theta_map:
               type: object
+              additionalProperties:
+                type: number
               description: Map of options' thetas per index
             options_vega_map:
               type: object
+              additionalProperties:
+                type: number
               description: Map of options' vegas per index
             delta_total:
               $ref: '#/components/schemas/delta_total'
             delta_total_map:
               type: object
+              additionalProperties:
+                type: number
               description: Map of total deltas per index
             projected_delta_total:
               $ref: '#/components/schemas/projected_delta_total'

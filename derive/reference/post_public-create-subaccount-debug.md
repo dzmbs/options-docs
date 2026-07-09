@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Create Subaccount Debug
 
 Used for debugging only, do not use in production. Will return the incremental encoded and hashed data.<br /><br />See guides in Documentation for more.

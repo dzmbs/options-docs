@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Register Session Key
 
 Register or update expiry of an existing session key.<br />Currently, this only supports creating admin level session keys.<br />Keys with fewer permissions are registered via `/register_scoped_session_key`<br /><br />Expiries updated on admin session keys may not happen immediately due to waiting for the onchain transaction to settle.

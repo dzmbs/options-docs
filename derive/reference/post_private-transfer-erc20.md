@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Transfer Erc20
 
 Transfer ERC20 assets from one subaccount to another (e.g. USDC or ETH).<br /><br />For transfering positions (e.g. options or perps), use `private/transfer_position` instead.

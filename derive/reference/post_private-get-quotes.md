@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Get Quotes
 
 Retrieves a list of quotes matching filter criteria.<br />Market makers can use this to get their open quotes, quote history, etc.

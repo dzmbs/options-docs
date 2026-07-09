@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # JSON-RPC
 
 [JSON-RPC](https://www.jsonrpc.org/specification) is a standard RPC (remote procedure call) protocol widely used both by the exchanges and the native Ethereum ecosystem. Derive API is built on top of this specification with minor adjustments.

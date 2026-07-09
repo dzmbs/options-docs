@@ -1,7 +1,3 @@
-> ## Documentation Index
-> Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt
-> Use this file to discover all available pages before exploring further.
-
 # Cancel By Nonce
 
 Cancel a single order by nonce. Uses up that nonce if the order does not exist, so any future orders with that nonce will fail
