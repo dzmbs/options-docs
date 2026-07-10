@@ -8,6 +8,8 @@
 
 Results can be filtered by currency, time range, and transaction type. Use the `continuation` parameter for pagination when retrieving large transaction histories. To retrieve transactions for a specific subaccount, use the `subaccount_id` parameter.
 
+When an option expires out of the money, the transaction log type is `expiry`. As there is nothing to settle into futures in this case, this remains the only entry in the transaction log for that expiration.
+
 **History Limit:** This API method has **no time limit** - users can query transaction history back to account creation. Note that the CSV export feature available on the website is year-limited to 2023. 
 
 **Note - This method has distinct API rate limiting requirements:** Sustained rate: 1 request/second. For more information, see [Rate Limits](https://support.deribit.com/hc/en-us/articles/25944617523357-Rate-Limits).
@@ -80,6 +82,11 @@ paths:
         subaccount, use the `subaccount_id` parameter.
 
 
+        When an option expires out of the money, the transaction log type is
+        `expiry`. As there is nothing to settle into futures in this case, this
+        remains the only entry in the transaction log for that expiration.
+
+
         **History Limit:** This API method has **no time limit** - users can
         query transaction history back to account creation. Note that the CSV
         export feature available on the website is year-limited to 2023. 
@@ -133,8 +140,8 @@ paths:
             The following keywords can be used to filter the results: `trade`,
             `maker`, `taker`, `open`, `close`, `liquidation`, `buy`, `sell`,
             `withdrawal`, `delivery`, `settlement`, `deposit`, `transfer`,
-            `option`, `future`, `correction`, `block_trade`, `swap`. Plus
-            withdrawal or transfer addresses
+            `option`, `future`, `correction`, `block_trade`, `swap`, `expiry`.
+            Plus withdrawal or transfer addresses
         - name: count
           in: query
           required: false
@@ -268,7 +275,8 @@ components:
           description: >-
             Transaction category/type. The most common are: `trade`, `deposit`,
             `withdrawal`, `settlement`, `delivery`, `transfer`, `swap`,
-            `correction`. New types can be added any time in the future
+            `correction`, `expiry`. New types can be added any time in the
+            future
         info:
           type: object
           description: >-
@@ -552,6 +560,28 @@ components:
                       commission: 0
                       change: -0.04611
                       cashflow: -0.04611
+                      balance: 3003.17813712
+                      amount: 0.3
+                    - username: TestUser
+                      user_seq: 6004
+                      user_id: 7
+                      type: expiry
+                      trade_id: null
+                      timestamp: 1613657734620
+                      side: close buy
+                      price_currency: BTC
+                      price: 0
+                      position: 0
+                      order_id: null
+                      interest_pl: null
+                      instrument_name: BTC-19FEB21-52000-C
+                      info: null
+                      id: 61287
+                      equity: 3002.83270455
+                      currency: BTC
+                      commission: 0
+                      change: 0
+                      cashflow: 0
                       balance: 3003.17813712
                       amount: 0.3
                   continuation: 61282

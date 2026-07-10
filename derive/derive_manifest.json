@@ -695,6 +695,16 @@
       "hash": "d30ba0a55cd0e349d4235eee5b1e1a2bad482b1c113c3ae37bf1a5b91578bb0c",
       "last_updated": "2026-07-09T14:00:22.435854"
     },
+    "reference/public-validate_invite_code.md": {
+      "source_url": "https://docs.derive.xyz/reference/public-validate_invite_code",
+      "hash": "c644cdfbc1f208e18e29feb1fecb3070f097d538c36582cc48a098a282ac6e03",
+      "last_updated": "2026-07-10T13:24:35.852881"
+    },
+    "reference/public-get_points.md": {
+      "source_url": "https://docs.derive.xyz/reference/public-get_points",
+      "hash": "dbc9f7ba3a3f9c6c001ce6f979bab8fae33e7ab1acc5b7b21f2e2af318cfc6cb",
+      "last_updated": "2026-07-10T13:24:36.549093"
+    },
     "reference/public-get_ticker.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_ticker",
       "hash": "3bd9128d95cbf9a9e45f55f3aca652102f9a8fc953125d658015a22e5cf98c0d",
@@ -780,10 +790,35 @@
       "hash": "dcbc08890c4f996ed4b06f07b009217a24b1c5d4f89f9c942747f15489f9730f",
       "last_updated": "2026-07-09T14:00:36.413462"
     },
+    "reference/public-get_all_points.md": {
+      "source_url": "https://docs.derive.xyz/reference/public-get_all_points",
+      "hash": "63778d8405ce4515a76a22e90e0ff4fdd5f178a2eeac79d89801e55878faec0f",
+      "last_updated": "2026-07-10T13:24:48.035674"
+    },
+    "reference/public-get_points_leaderboard.md": {
+      "source_url": "https://docs.derive.xyz/reference/public-get_points_leaderboard",
+      "hash": "fc24f4e36de70bafffb8f4956d97ebc06e0eaccf171bc1d5fd4ef32d75da98f5",
+      "last_updated": "2026-07-10T13:24:48.668255"
+    },
     "reference/public-create_subaccount_debug.md": {
       "source_url": "https://docs.derive.xyz/reference/public-create_subaccount_debug",
       "hash": "8bea18cc461c63febddba3d8424bfbfed15ad381d5539f7ba46699309f4ccd3c",
       "last_updated": "2026-07-09T14:00:38.513567"
+    },
+    "reference/public-get_descendant_tree.md": {
+      "source_url": "https://docs.derive.xyz/reference/public-get_descendant_tree",
+      "hash": "86adeccb498889b9c0621ae81dd614b1eb65b3dedf08b6fc901dbc7b5c9bc9ad",
+      "last_updated": "2026-07-10T13:24:49.951852"
+    },
+    "reference/public-get_tree_roots.md": {
+      "source_url": "https://docs.derive.xyz/reference/public-get_tree_roots",
+      "hash": "ed232652e22919981bae4bb134017ce5ec95697426c8247a906ea83d959c4eda",
+      "last_updated": "2026-07-10T13:24:50.615107"
+    },
+    "reference/public-get_invite_code.md": {
+      "source_url": "https://docs.derive.xyz/reference/public-get_invite_code",
+      "hash": "bd65f80db05a5c616d0ffd7ad11ae705186d2d12ba9dd116dbc9f1a9ad7802c2",
+      "last_updated": "2026-07-10T13:24:51.277243"
     },
     "reference/public-deposit_debug.md": {
       "source_url": "https://docs.derive.xyz/reference/public-deposit_debug",
@@ -794,6 +829,11 @@
       "source_url": "https://docs.derive.xyz/reference/public-withdraw_debug",
       "hash": "bce20f7dbb1582babea16e96d3dd0e8e18671864f64f1d46cf8ab33e3ff37ebf",
       "last_updated": "2026-07-09T14:00:42.136043"
+    },
+    "reference/public-get_referral_code.md": {
+      "source_url": "https://docs.derive.xyz/reference/public-get_referral_code",
+      "hash": "22563ccf3f3afa096891c8eeba8f391c335d1adba050e13d602ecaa64a0cfa59",
+      "last_updated": "2026-07-10T13:24:53.184492"
     },
     "reference/public-create_account_with_secret-1.md": {
       "source_url": "https://docs.derive.xyz/reference/public-create_account_with_secret-1",
@@ -949,6 +989,11 @@
       "source_url": "https://docs.derive.xyz/reference/public-user_statistics",
       "hash": "0df051a708c38bcbab4b5e47d40c1af42542ca32ddc5c07ee261de92f9ff5faf",
       "last_updated": "2026-07-09T14:01:05.489703"
+    },
+    "reference/private-change_session_key_label.md": {
+      "source_url": "https://docs.derive.xyz/reference/private-change_session_key_label",
+      "hash": "19371bba013ad43db0bf44d99126bfbb4ee491c50236da4d99d4619655010c5c",
+      "last_updated": "2026-07-10T13:25:13.788506"
     },
     "reference/private-create_subaccount.md": {
       "source_url": "https://docs.derive.xyz/reference/private-create_subaccount",
@@ -1412,23 +1457,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-07-09T14:02:16.033063",
-    "duration_seconds": 228.941323,
+    "completed_at": "2026-07-10T13:26:12.909505",
+    "duration_seconds": 195.297539,
     "pages_total": 291,
-    "pages_fetched": 282,
-    "pages_failed": 9,
-    "failed_pages": [
-      "https://docs.derive.xyz/reference/public-validate_invite_code",
-      "https://docs.derive.xyz/reference/public-get_points",
-      "https://docs.derive.xyz/reference/public-get_all_points",
-      "https://docs.derive.xyz/reference/public-get_points_leaderboard",
-      "https://docs.derive.xyz/reference/public-get_descendant_tree",
-      "https://docs.derive.xyz/reference/public-get_tree_roots",
-      "https://docs.derive.xyz/reference/public-get_invite_code",
-      "https://docs.derive.xyz/reference/public-get_referral_code",
-      "https://docs.derive.xyz/reference/private-change_session_key_label"
-    ]
+    "pages_fetched": 291,
+    "pages_failed": 0,
+    "failed_pages": []
   },
-  "last_updated": "2026-07-09T14:02:16.033083",
+  "last_updated": "2026-07-10T13:26:12.909521",
   "source": "https://docs.derive.xyz"
 }

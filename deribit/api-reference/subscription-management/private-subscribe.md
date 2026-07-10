@@ -191,8 +191,8 @@ components:
           type: integer
       required:
         - message
-        - jsonrpc
         - error
+        - jsonrpc
       type: object
 
 ````
