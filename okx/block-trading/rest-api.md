@@ -1220,7 +1220,7 @@ Response Example
 
 Allows the user to Quote an RFQ that they are a counterparty to. The user MUST quote the entire RFQ and not part of the legs or part of the quantity. Partial quoting is not allowed.
 
-Only one active quote is allowed per RFQ at a time. Submitting a new quote for the same `rfqId` will automatically cancel the existing active quote before the new one is created.
+Only one active quote is allowed per RFQ at a time. Submitting a new quote for the same `rfqId` will automatically cancel the existing active quote before the new one is created. Two-sided quoting (providing simultaneous bid and ask for the same RFQ) is not supported — only the most recently submitted quote remains active.
 
 #### Rate Limit: 50 requests per 2 seconds
 

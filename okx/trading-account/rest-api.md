@@ -97,6 +97,9 @@ Response Example
  "uly": "",
  "instIdCode": 1000000000,
  "instCategory": "1",
+ "initPxLmtPct": "0.05",
+ "floatPxLmtPct": "0.03",
+ "maxPxLmtPct": "0.15",
  "upcChg": [
  {
  "param": "tickSz",
@@ -119,7 +122,7 @@ Response Example
 | seriesId | String | Series ID, e.g. `BTC-ABOVE-DAILY`. Only applicable to `EVENTS` |
 | instId | String | Instrument ID, e.g. `BTC-USD-SWAP` |
 | uly | String | Underlying, e.g. `BTC-USD` Only applicable to `MARGIN/FUTURES`/`SWAP`/`OPTION` |
-| groupId | String | Instrument trading fee group IDSpot:`1`: Spot USDT`2`: Spot USDC & Crypto`3`: Spot TRY`4`: Spot EUR`5`: Spot BRL`7`: Spot AED`8`: Spot AUD`9`: Spot USD`10`: Spot SGD`11`: Spot zero`12`: Spot group one`13`: Spot group two`14`: Spot group three`15`: Spot special ruleExpiry futures:`1`: Expiry futures crypto-margined`2`: Expiry futures USDT-margined`3`: Expiry futures USDC-margined`4`: Expiry futures premarket`5`: Expiry futures group one`6`: Expiry futures group twoPerpetual futures:`1`: Perpetual futures crypto-margined`2`: Perpetual futures USDT-margined`3`: Perpetual futures USDC-margined`4`: Perpetual futures group one`5`: Perpetual futures group two `6`: Stock perpetual futures Options:`1`: Options crypto-margined`2`: Options USDC-marginedinstType and groupId should be used together to determine a trading fee group. Users should use this endpoint together with fee rates endpoint to get the trading fee of a specific symbol. Some enum values may not apply to you; the actual return values shall prevail. |
+| groupId | String | Instrument trading fee group IDSpot:`3`: Spot TRY`5`: Spot BRL`7`: Spot AED`8`: Spot AUD`10`: Spot SGD`11`: Spot zero`12`: Spot group one`13`: Spot group two`14`: Spot group three`15`: Spot special rule`17`: Spot stablecoinExpiry futures:`5`: Expiry futures group one`6`: Expiry futures group two`8`: XPERP group two`10`: XPERP RWA group twoPerpetual futures:`4`: Perpetual futures group one`5`: Perpetual futures group two`6`: SWAP RWA group one`7`: SWAP RWA group twoOptions:`1`: Options crypto-marginedinstType and groupId should be used together to determine a trading fee group. Users should use this endpoint together with fee rates endpoint to get the trading fee of a specific symbol. Some enum values may not apply to you; the actual return values shall prevail. |
 | instFamily | String | Instrument family, e.g. `BTC-USD` Only applicable to `MARGIN/FUTURES`/`SWAP`/`OPTION` |
 | baseCcy | String | Base currency, e.g. `BTC` in`BTC-USDT` Only applicable to `SPOT`/`MARGIN` |
 | quoteCcy | String | Quote currency, e.g. `USDT` in `BTC-USDT` Only applicable to `SPOT`/`MARGIN` |
@@ -4546,6 +4549,8 @@ You can unfreeze by this endpoint once MMP is triggered.
 
 Only applicable to Option in Portfolio Margin mode, and MMP privilege is required.
 
+In the demo trading environment, MMP configurations may be periodically reset by the system. If your MMP status is unexpectedly reset in demo trading, please contact your BD manager or reach out to institutional@okx.com.
+
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
@@ -4607,6 +4612,8 @@ Market Maker Protection (MMP) is an automated mechanism for market makers to pul
 How to enable MMP?
 Please send an email to institutional@okx.com or contact your business development (BD) manager to apply for MMP. The initial threshold will be upon your request.
 
+MMP is configured individually per instrument family (`instFamily`). Enabling MMP for one instrument family does not** automatically extend to others. For example, setting up MMP for `BTC-USD` does not cover `ETH-USD` or `SOL-USD` — each must be configured separately via this endpoint.
+
 #### Rate Limit: 2 requests per 10 seconds
 
 #### Rate limit rule: User ID
@@ -4617,7 +4624,7 @@ Please send an email to institutional@okx.com or contact your business developme
 
 `POST /api/v5/account/mmp-config`
 
-Request Example
+**Request Example
 
 ```
 POST /api/v5/account/mmp-config

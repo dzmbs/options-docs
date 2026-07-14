@@ -1457,13 +1457,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-07-13T13:42:01.147282",
-    "duration_seconds": 204.713171,
+    "completed_at": "2026-07-14T12:28:58.298593",
+    "duration_seconds": 218.771703,
     "pages_total": 291,
     "pages_fetched": 291,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-07-13T13:42:01.147296",
+  "last_updated": "2026-07-14T12:28:58.298610",
   "source": "https://docs.derive.xyz"
 }
