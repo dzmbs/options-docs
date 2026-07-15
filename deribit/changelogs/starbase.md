@@ -6,6 +6,50 @@
 
 > Changes and announcements for the Deribit Starbase API.
 
+<Update label="Starbase Release 15.07.2026 — v1.2">
+  ## API Changes
+
+  The order entry SBE schema has been updated to version `9` (`semanticVersion` `1.2`).
+
+  ### Order Entry
+
+  New `OrderFlags` value (`NewOrderRequest`):
+
+  * `cancelOnDisconnect` — new order-level flag for cancel-on-disconnect handling
+
+  New `CancelReason` value:
+
+  * `QTY_TICK_SIZE_RESCALE` (17) — instrument `qtyTickSize` changed and the order's quantity is not exactly representable under the new tick
+
+  New `OrderRejectReason` value:
+
+  * `MEMBER_SPEED_BUMP_LIMIT_EXCEEDED` (29) — member has too many live speed-bumped orders
+
+  New `CancelOrderRejectReason` values:
+
+  * `TIME_IN_FORCE` (7) — cancel rejected based on the order's time in force
+  * `SPEED_BUMP_CONVERTED_TO_IOC` (8) — cancel rejected because the speed-bumped order was already converted to IOC
+
+  `OrderPlaced` (312) updated:
+
+  * New `correlationId` field — echoes the `correlationId` from the originating `NewOrderRequest`, aligning `OrderPlaced` with other order-entry response messages
+
+  ### FIX Drop Copy
+
+  New `ExecutionReport` fields:
+
+  * `TransferReason`
+  * `MmpGroupId` (tag `8001`)
+
+  New `OrdRejReason` (103) value:
+
+  * `69` — `MEMBER_SPEED_BUMP_LIMIT_EXCEEDED`
+
+  New `ExecType` (150) value:
+
+  * `I` — `ORDER_STATUS`
+</Update>
+
 <Update label="Announcement 03.07.2026">
   ## Announcement
 
