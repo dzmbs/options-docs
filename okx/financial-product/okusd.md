@@ -12,8 +12,6 @@ Retrieve your remaining daily OKUSD subscription quota and both fast and standar
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/finance/okusd/limits`
@@ -96,8 +94,6 @@ Subscribe USDT to receive OKUSD at a 1:1 rate with no subscription fee. OKUSD is
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/finance/okusd/subscribe`
@@ -160,8 +156,6 @@ Redeem OKUSD back to USDT. Choose between fast redemption (real-time settlement)
 #### Rate Limit: 1 request per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 

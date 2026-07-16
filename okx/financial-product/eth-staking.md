@@ -12,8 +12,6 @@ Stake to receive BETH for liquidity at 1:1 ratio and earn daily BETH rewards
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/finance/staking-defi/eth/product-info`
@@ -77,8 +75,6 @@ Only the assets in the funding account can be used.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/finance/staking-defi/eth/purchase`
@@ -139,8 +135,6 @@ Only the assets in the funding account can be used. If your BETH is in your trad
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/finance/staking-defi/eth/redeem`
@@ -199,8 +193,6 @@ code = `0` means your request has been successfully handled.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/finance/staking-defi/eth/cancel-redeem`
@@ -249,8 +241,6 @@ The balance represents the real-time total BETH holdings across the entire accou
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -316,8 +306,6 @@ Response Example
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 

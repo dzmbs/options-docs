@@ -10,8 +10,6 @@ Retrieves the list of counterparties that the user is permitted to trade with.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/rfq/counterparties`
@@ -81,8 +79,6 @@ To learn more, please visit [Support center > FAQ > Trading > Liquid marketplace
 #### Rate Limit: 5 requests per 2 seconds; 80 requests per 12 hours
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -325,8 +321,6 @@ Cancel an existing active RFQ that you have created previously.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/rfq/cancel-rfq`
@@ -405,8 +399,6 @@ Cancel one or multiple active RFQ(s) in a single batch. Maximum 100 RFQ orders c
 #### Rate Limit: 2 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -575,8 +567,6 @@ Cancels all active RFQs.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/rfq/cancel-all-rfqs`
@@ -639,8 +629,6 @@ Executes a Quote. It is only used by the creator of the RFQ
 #### Rate Limit: 2 requests per 3 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -791,8 +779,6 @@ Retrieve the products which makers want to quote and receive RFQs for, and the c
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/rfq/maker-instrument-settings`
@@ -899,8 +885,6 @@ Customize the products which makers want to quote and receive RFQs for, and the 
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -1043,8 +1027,6 @@ Reset the MMP status to be inactive.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/rfq/mmp-reset`
@@ -1108,8 +1090,6 @@ This endpoint is used to set MMP configure and only applicable to block trading 
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/rfq/mmp-config`
@@ -1171,8 +1151,6 @@ This endpoint is used to get MMP configure information and only applicable to bl
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/rfq/mmp-config`
@@ -1225,8 +1203,6 @@ Only one active quote is allowed per RFQ at a time. Submitting a new quote for t
 #### Rate Limit: 50 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -1406,8 +1382,6 @@ If a new `create-quote` for the same `rfqId` is processed before this cancel req
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/rfq/cancel-quote`
@@ -1487,8 +1461,6 @@ Cancel one or multiple active Quote(s) in a single batch. Maximum 100 quote orde
 #### Rate Limit: 2 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -1641,8 +1613,6 @@ Cancels all active Quotes.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/rfq/cancel-all-quotes`
@@ -1706,8 +1676,6 @@ Cancel all quotes after the countdown timeout.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/rfq/cancel-all-after`
@@ -1760,8 +1728,6 @@ Retrieves details of RFQs that the user is a counterparty to (either as the crea
 #### Rate Limit: 2 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1929,8 +1895,6 @@ Retrieve all Quotes that the user is a counterparty to (either as the creator or
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/rfq/quotes`
@@ -2057,8 +2021,6 @@ Retrieves the executed trades that the user is a counterparty to (either as the 
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 

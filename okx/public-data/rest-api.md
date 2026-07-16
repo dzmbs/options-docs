@@ -129,7 +129,7 @@ Response Example
 | listTime | String | Listing time, Unix timestamp format in milliseconds, e.g. `1597026383085` |
 | auctionEndTime | String | The end time of call auction, Unix timestamp format in milliseconds, e.g. `1597026383085` Only applicable to `SPOT` that are listed through call auctions, return "" in other cases (deprecated, use contTdSwTime) |
 | contTdSwTime | String | Continuous trading switch time. The switch time from call auction, prequote to continuous trading, Unix timestamp format in milliseconds. e.g. `1597026383085`. Only applicable to `SPOT`/`MARGIN` that are listed through call auction or prequote, return "" in other cases. |
-| preMktSwTime | String | The time premarket swap switched to normal swap, Unix timestamp format in milliseconds, e.g. `1597026383085`. Only applicable premarket `SWAP` |
+| preMktSwTime | String | The time a pre-market instrument switched to normal trading, Unix timestamp format in milliseconds, e.g. `1597026383085`. Only applicable to pre-market `SWAP` and pre-market X-Perp `FUTURES`. Populated when a pre-market X-Perp converts to a normal X-Perp |
 | openType | String | Open type `fix_price`: fix price opening`pre_quote`: pre-quote`call_auction`: call auction Only applicable to `SPOT`/`MARGIN`, return "" for all other business lines |
 | expTime | String | Expiry time Applicable to `SPOT`/`MARGIN`/`FUTURES`/`SWAP`/`OPTION`. For `FUTURES`/`OPTION`, it is natural delivery/exercise time. It is the instrument offline time when there is `SPOT/MARGIN/FUTURES/SWAP/` manual offline. Update once change. |
 | lever | String | Exchange-defined maximum leverage ceiling for this instrument. The actual leverage available to a specific account may be lower based on VIP tier and position size. Use GET /api/v5/account/leverage-info for the user's current configured leverage. Not applicable to `SPOT`, `OPTION` |
@@ -139,7 +139,7 @@ Response Example
 | ctType | String | Contract type`linear`: linear contract — margin, P&L, and settlement in the quote currency (e.g., USDT for BTC-USDT-SWAP).`inverse`: inverse contract — margin, P&L, and settlement in the base currency (e.g., BTC for BTC-USD-SWAP). For inverse contracts, P&L in USD terms is non-linear: the USD value of a fixed BTC gain changes with the BTC price. Only applicable to `FUTURES`/`SWAP` |
 | alias | String | Contract alias (deprecated — use expTime to obtain the delivery time, will be removed by the end of April 2026)`this_week``next_week``this_month``next_month``quarter``next_quarter``third_quarter``this_five_years`: current 5-year contract`next_five_years`: next 5-year contractOnly applicable to `FUTURES` |
 | state | String | Instrument status`live` `suspend``rebase`: can’t be traded during rebasing, only applicable to `SWAP``post_only`: only post-only orders are accepted; existing post-only orders can be amended and cancelled. Other order types (market, IOC, FOK, normal limit) are rejected. Only applicable to `SWAP``preopen`. e.g. There will be `preopen` before the Futures and Options new contracts state is live.`test`: Test pairs, can’t be traded`settling`: Settling, only applicable to `EVENTS` |
-| ruleType | String | Trading rule types`normal`: normal trading`pre_market`: pre-market trading`rebase_contract`: pre-market rebase contract`xperp`: perpetual-style futures, only applicable to certain `FUTURES` contracts |
+| ruleType | String | Trading rule types`normal`: normal trading`pre_market`: pre-market trading, including pre-market X-Perp `FUTURES``rebase_contract`: pre-market rebase contract`xperp`: perpetual-style futures, only applicable to certain `FUTURES` contracts. A pre-market X-Perp changes from `pre_market` to `xperp` after it converts to a normal X-Perp |
 | maxLmtSz | String | The maximum order quantity of a single limit order.If it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
 | maxMktSz | String | The maximum order quantity of a single market order.If it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `USDT`. |
 | maxLmtAmt | String | Max USD amount for a single limit order |
@@ -184,8 +184,6 @@ Retrieve the list of series for OKX prediction markets.
 #### Rate Limit: 10 requests per 2 seconds
 
 #### Rate limit rule: IP
-
-#### Permission: Public
 
 #### HTTP Request
 
@@ -249,8 +247,6 @@ Get events for a series in OKX prediction markets. Returns all event records, in
 
 #### Rate limit rule: IP
 
-#### Permission: Public
-
 #### HTTP Request
 
 `GET /api/v5/public/event-contract/events`
@@ -307,8 +303,6 @@ Get markets for events in OKX prediction markets. Return data in expTime and flo
 #### Rate Limit: 10 requests per 2 seconds
 
 #### Rate limit rule: IP
-
-#### Permission: Public
 
 #### HTTP Request
 

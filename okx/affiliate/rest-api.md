@@ -8,8 +8,6 @@ Aggregated affiliate performance metrics for a specified time period.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/affiliate/performance/summary`
@@ -94,8 +92,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/affiliate/invitee/detail`
@@ -166,8 +162,6 @@ Paginated invitee list with trading stats and KYC info.
 #### Rate Limit: 3 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -256,8 +250,6 @@ Paginated affiliate invite links with commission rates and stats.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/affiliate/link/list`
@@ -333,8 +325,6 @@ Co-inviter links where the authenticated user is the co-inviter.
 #### Rate Limit: 3 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -425,8 +415,6 @@ Paginated sub-affiliates under current user.
 #### Rate Limit: 3 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 

@@ -8,8 +8,6 @@ Returns available dual investment currency pairs.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/finance/sfp/dcd/currency-pair`
@@ -58,8 +56,6 @@ Return dual investment product list.
 #### Rate Limit: 1 request per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -144,8 +140,6 @@ Requests a real-time quote for a dual investment product. The quote has a TTL an
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/finance/sfp/dcd/quote`
@@ -215,8 +209,6 @@ Places a dual investment order using a valid quote.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/finance/sfp/dcd/trade`
@@ -269,8 +261,6 @@ Requests an early redemption quote for a live dual investment order. This is ste
 #### Rate Limit: 10 requests per 60 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -331,8 +321,6 @@ Confirms early redemption using a valid redeem quote. This is step 2 of the two-
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/finance/sfp/dcd/redeem`
@@ -386,8 +374,6 @@ Returns the current state of a dual investment order.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/finance/sfp/dcd/order-status`
@@ -434,8 +420,6 @@ Return dual investment history orders
 #### Rate Limit: 1 request per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 

@@ -10,8 +10,6 @@ The API endpoints of `DCA Trading` require authentication.
 
 #### Rate limit rule: User ID + Instrument ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/dca/create`
@@ -109,8 +107,6 @@ Response Example
 
 #### Rate Limit Rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/dca/amend-order-algo`
@@ -195,8 +191,6 @@ Response Example
 
 #### Rate Limit Rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/dca/stop`
@@ -253,8 +247,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate Limit Rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -371,8 +363,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate Limit Rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -492,8 +482,6 @@ Response Example
 
 #### Rate Limit Rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/tradingBot/dca/orders`
@@ -580,8 +568,6 @@ Response Example
 
 #### Rate Limit Rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/dca/orders/manual-buy`
@@ -649,8 +635,6 @@ Response Example
 
 #### Rate Limit Rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/dca/settings/reinvestment`
@@ -708,8 +692,6 @@ Response Example
 
 #### Rate Limit Rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/dca/settings/take-profit`
@@ -766,8 +748,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate Limit Rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -853,8 +833,6 @@ Response Example
 
 #### Rate Limit Rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/tradingBot/dca/cycle-list`
@@ -921,8 +899,6 @@ Response Example
 
 #### Rate Limit Rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/dca/margin/add`
@@ -977,8 +953,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate Limit Rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 

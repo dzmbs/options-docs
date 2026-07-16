@@ -8,8 +8,6 @@ Retrieve a list of all currencies available which are related to the current acc
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/asset/currencies`
@@ -133,8 +131,6 @@ Only asset information of a currency with a balance greater than 0 will be retur
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/asset/balances`
@@ -202,8 +198,6 @@ Retrieve the funding account balances of all the assets and the amount that is a
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -308,8 +302,6 @@ View account asset valuation
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/asset/asset-valuation`
@@ -390,8 +382,6 @@ The success or failure of the request does not necessarily reflect the actual tr
 #### Rate Limit: 2 requests per second
 
 #### Rate limit rule: User ID + Currency
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -512,8 +502,6 @@ Retrieve the transfer state data of the last 2 weeks.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/asset/transfer-state`
@@ -601,8 +589,6 @@ Query the billing record in the past month.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/asset/bills`
@@ -685,8 +671,6 @@ Query the billing records of all time since 1 February, 2021.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/asset/bills-history`
@@ -767,8 +751,6 @@ Retrieve the deposit addresses of currencies, including previously-used addresse
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -868,8 +850,6 @@ Websocket API is also available, refer to [Deposit info channel](/docs-v5/en/#fu
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -986,8 +966,6 @@ Bahamas entity users refer to https://www.okx.com/docs-v5/log_en/#2024-08-08-wit
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Withdraw
 
 #### HTTP Request
 
@@ -1362,8 +1340,6 @@ You can cancel normal withdrawal requests, but you cannot cancel withdrawal requ
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/asset/cancel-withdrawal`
@@ -1434,8 +1410,6 @@ Websocket API is also available, refer to [Withdrawal info channel](/docs-v5/en/
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1528,8 +1502,6 @@ Retrieve deposit's and withdrawal's detailed status and estimated complete time.
 #### Rate Limit: 1 request per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1661,8 +1633,6 @@ Apply for monthly statement in the past year.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `POST /api/v5/asset/monthly-statement`
@@ -1712,8 +1682,6 @@ Retrieve monthly statement in the past year.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/asset/monthly-statement`
@@ -1760,8 +1728,6 @@ Response Example
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1812,8 +1778,6 @@ Response Example
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1875,8 +1839,6 @@ Response Example
 #### Rate Limit: 1 request per 5 seconds
 
 #### Rate limit rule: Instrument ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -1963,8 +1925,6 @@ Only assets in the trading account supported convert.
 #### Rate Limit: 10 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 For the same side (buy/sell), there's a trading limit of 1 request per 5 seconds.
 
@@ -2119,8 +2079,6 @@ To display all the available fiat deposit payment methods
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/fiat/deposit-payment-methods`
@@ -2226,8 +2184,6 @@ To display all the available fiat withdrawal payment methods
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/fiat/withdrawal-payment-methods`
@@ -2331,8 +2287,6 @@ Only supported withdrawal of assets from funding account.
 
 #### Rate limit rule: User ID
 
-#### Permission: Withdraw
-
 #### HTTP Request
 
 `POST /api/v5/fiat/create-withdrawal`
@@ -2412,8 +2366,6 @@ Cancel a pending fiat withdrawal order, currently only applicable to TRY
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/fiat/cancel-withdrawal`
@@ -2468,8 +2420,6 @@ Get fiat withdrawal order history
 #### Rate Limit: 3 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -2555,8 +2505,6 @@ Get fiat withdraw order detail
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/fiat/withdrawal`
@@ -2627,8 +2575,6 @@ Get fiat deposit order history
 #### Rate Limit: 3 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -2714,8 +2660,6 @@ Get fiat deposit order detail
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/fiat/deposit`
@@ -2785,8 +2729,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/fiat/buy-sell/currencies`
@@ -2843,8 +2785,6 @@ Response Example
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -2927,8 +2867,6 @@ Response Example
 #### Rate Limit: 1 request per 5 seconds
 
 #### Rate limit rule: Instrument ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -3043,8 +2981,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/fiat/buy-sell/trade`
@@ -3134,8 +3070,6 @@ Response Example
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 

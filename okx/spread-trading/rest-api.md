@@ -8,8 +8,6 @@ Place a new order
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/sprd/order`
@@ -111,8 +109,6 @@ Cancel an incomplete order.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/sprd/cancel-order`
@@ -188,8 +184,6 @@ Cancel all pending orders.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/sprd/mass-cancel`
@@ -257,8 +251,6 @@ Amend an incomplete order.
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -328,8 +320,6 @@ Retrieve order details.
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -433,8 +423,6 @@ Retrieve all incomplete orders under the current account.
 #### Rate Limit: 10 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -540,8 +528,6 @@ Retrieve the completed order data for the last 21 days, and the incomplete order
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -650,8 +636,6 @@ Retrieve the completed order data for the last 3 months, including those placed 
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/sprd/orders-history-archive`
@@ -743,8 +727,6 @@ Retrieve historical transaction details for the last 7 days**. Results are retur
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -872,8 +854,6 @@ Retrieve all available spreads based on the request parameters.
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: IP
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1018,8 +998,6 @@ Retrieve the order book of the spread.
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: IP
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1174,8 +1152,6 @@ Retrieve the recent transactions of an instrument (at most 500 records per reque
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: IP
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1394,8 +1370,6 @@ Cancel all pending orders after the countdown timeout. Only applicable to spread
 #### Rate Limit: 1 request per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 

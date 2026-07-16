@@ -12,8 +12,6 @@ The algo order includes `trigger` order, `oco` order, `chase` order, `conditiona
 
 #### Rate limit rule (Options only): User ID + Instrument Family
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/trade/order-algo`
@@ -298,8 +296,6 @@ Cancel unfilled algo orders. A maximum of 10 orders can be canceled per request.
 
 #### Rate limit rule (Options only): User ID + Instrument Family
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/trade/cancel-algos`
@@ -389,8 +385,6 @@ Amend unfilled algo orders (Support Stop order and Trigger order only, not inclu
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID + Instrument ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -484,8 +478,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -656,8 +648,6 @@ Retrieve a list of untriggered Algo orders under the current account.
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -862,8 +852,6 @@ Retrieve a list of all algo orders under the current account in the last 3 month
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 

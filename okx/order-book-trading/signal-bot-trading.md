@@ -8,8 +8,6 @@ Create and customize your own signals while gaining access to a diverse selectio
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/signal/create-signal`
@@ -61,8 +59,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -118,8 +114,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -211,8 +205,6 @@ A maximum of 10 orders can be stopped per request.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/signal/stop-order-algo`
@@ -268,8 +260,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/signal/margin-balance`
@@ -321,8 +311,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -380,8 +368,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/signal/set-instruments`
@@ -434,8 +420,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -547,8 +531,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -664,8 +646,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/tradingBot/signal/orders-algo-history`
@@ -780,8 +760,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/tradingBot/signal/positions`
@@ -870,8 +848,6 @@ Retrieve the updated position data for the last 3 months. Return in reverse chro
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/tradingBot/signal/positions-history`
@@ -941,8 +917,6 @@ Close the position of an instrument via a market order.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/signal/close-position`
@@ -993,8 +967,6 @@ You can place an order only if you have sufficient funds.
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -1071,8 +1043,6 @@ Cancel an incomplete order.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/signal/cancel-sub-order`
@@ -1132,8 +1102,6 @@ Cancel order returns with sCode equal to 0. It is not strictly considered that t
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1239,8 +1207,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 

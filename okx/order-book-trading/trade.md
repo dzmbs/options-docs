@@ -14,8 +14,6 @@ You can place an order only if you have sufficient funds.
 
 #### Rate limit rule (Options only): User ID + Instrument Family
 
-#### Permission: Trade
-
 Rate limit of this endpoint will also be affected by the rules [Sub-account rate limit](/docs-v5/en/#overview-rate-limits-sub-account-rate-limit) and [Fill ratio based sub-account rate limit](/docs-v5/en/#overview-rate-limits-fill-ratio-based-sub-account-rate-limit).
 
 #### HTTP Request
@@ -276,8 +274,6 @@ Request parameters should be passed in the form of an array. Orders will be plac
 
 #### Rate limit rule (Options only): User ID + Instrument Family
 
-#### Permission: Trade
-
 Rate limit of this endpoint will also be affected by the rules [Sub-account rate limit](/docs-v5/en/#overview-rate-limits-sub-account-rate-limit) and [Fill ratio based sub-account rate limit](/docs-v5/en/#overview-rate-limits-fill-ratio-based-sub-account-rate-limit).
 
 Unlike other endpoints, the rate limit of this endpoint is determined by the number of orders. If there is only one order in the request, it will consume the rate limit of `Place order`.
@@ -448,8 +444,6 @@ Cancel an incomplete order.
 
 #### Rate limit rule (Options only): User ID + Instrument Family
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/trade/cancel-order`
@@ -537,8 +531,6 @@ Cancel incomplete orders in batches. Maximum 20 orders can be canceled per reque
 #### Rate limit rule (except Options): User ID + Instrument ID
 
 #### Rate limit rule (Options only): User ID + Instrument Family
-
-#### Permission: Trade
 
 Unlike other endpoints, the rate limit of this endpoint is determined by the number of orders. If there is only one order in the request, it will consume the rate limit of `Cancel order`.
 
@@ -647,8 +639,6 @@ Amend an incomplete order.
 #### Rate limit rule (except Options): User ID + Instrument ID
 
 #### Rate limit rule (Options only): User ID + Instrument Family
-
-#### Permission: Trade
 
 Rate limit of this endpoint will also be affected by the rules [Sub-account rate limit](/docs-v5/en/#overview-rate-limits-sub-account-rate-limit) and [Fill ratio based sub-account rate limit](/docs-v5/en/#overview-rate-limits-fill-ratio-based-sub-account-rate-limit).
 
@@ -778,8 +768,6 @@ Amend incomplete orders in batches. Maximum 20 orders can be amended per request
 #### Rate limit rule (except Options): User ID + Instrument ID
 
 #### Rate limit rule (Options only): User ID + Instrument Family
-
-#### Permission: Trade
 
 Rate limit of this endpoint will also be affected by the rules [Sub-account rate limit](/docs-v5/en/#overview-rate-limits-sub-account-rate-limit) and [Fill ratio based sub-account rate limit](/docs-v5/en/#overview-rate-limits-fill-ratio-based-sub-account-rate-limit).
 
@@ -925,8 +913,6 @@ Close the position of an instrument via a market order.
 
 #### Rate limit rule (Options only): User ID + Instrument Family
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/trade/close-position`
@@ -1012,8 +998,6 @@ Retrieve order details.
 #### Rate limit rule (except Options): User ID + Instrument ID
 
 #### Rate limit rule (Options only): User ID + Instrument Family
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1205,8 +1189,6 @@ Retrieve all incomplete orders under the current account.
 #### Rate Limit: 60 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1405,8 +1387,6 @@ The incomplete orders that have been canceled are only reserved for 2 hours.
 #### Rate Limit: 40 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1607,8 +1587,6 @@ Get completed orders which are placed in the last 3 months, including those plac
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1813,8 +1791,6 @@ Retrieve recently-filled transaction details in the last 3 day.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/trade/fills`
@@ -1944,8 +1920,6 @@ This endpoint can retrieve data from the last 3 months.
 #### Rate Limit: 10 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -2081,8 +2055,6 @@ Get list of small convertibles and mainstream currencies. Only applicable to the
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/trade/easy-convert-currency-list`
@@ -2162,8 +2134,6 @@ Convert small currencies to mainstream currencies.
 #### Rate Limit: 1 request per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -2255,8 +2225,6 @@ Get the history and status of easy convert trades in the past 7 days.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/trade/easy-convert-history`
@@ -2341,8 +2309,6 @@ Get list of debt currency data and repay currencies. Debt currencies include bot
 #### Rate Limit: 1 request per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -2429,8 +2395,6 @@ Only applicable to `Multi-currency margin`/`Portfolio margin`.
 #### Rate Limit: 1 request per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -2521,8 +2485,6 @@ Get the history and status of one-click repay trades in the past 7 days. Only ap
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/trade/one-click-repay-history`
@@ -2596,8 +2558,6 @@ Get list of debt currency data and repay currencies. Only applicable to `SPOT mo
 #### Rate Limit: 1 request per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -2684,8 +2644,6 @@ Trade one-click repay to repay debts. Only applicable to `SPOT mode`/`Multi-curr
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/trade/one-click-repay-v2`
@@ -2757,8 +2715,6 @@ Get the history and status of one-click repay trades in the past 7 days. Only ap
 #### Rate Limit: 1 request per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -2882,8 +2838,6 @@ Only applicable to Option in Portfolio Margin mode, and MMP privilege is require
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/trade/mass-cancel`
@@ -2935,8 +2889,6 @@ Cancel all pending orders after the countdown timeout. Applicable to all trading
 #### Rate Limit: 1 request per second
 
 #### Rate limit rule: User ID + tag
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -3073,8 +3025,6 @@ Only applicable to `Multi-currency margin mode`, and `Portfolio margin mode`.
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -3537,7 +3487,7 @@ Push Data Example
 | > pnl | String | Profit and loss (excluding the fee). applicable to orders which have a trade and aim to close position. It always is 0 in other conditions. For liquidation under cross margin mode, it will include liquidation penalties. |
 | > source | String | Order source`6`: The normal order triggered by the `trigger order``7`:The normal order triggered by the `TP/SL order` `13`: The normal order triggered by the algo order`25`:The normal order triggered by the `trailing stop order``34`: The normal order triggered by the chase order |
 | > cancelSource | String | Source of the order cancellation.Valid values and the corresponding meanings are:`0`: Order canceled by system`1`: Order canceled by user`2`: Order canceled: Pre reduce-only order canceled, due to insufficient margin in user position`3`: Order canceled: Risk cancellation was triggered. Pending order was canceled due to insufficient maintenance margin ratio and forced-liquidation risk.`4`: Order canceled: Borrowings of crypto reached hard cap, order was canceled by system.`6`: Order canceled: ADL order cancellation was triggered. Pending order was canceled due to a low margin ratio and forced-liquidation risk. `7`: Order canceled: Futures contract delivery. `9`: Order canceled: Insufficient balance after funding fees deducted. `10`: Order canceled: Option contract expiration.`13`: Order canceled: FOK order was canceled due to incompletely filled.`14`: Order canceled: IOC order was partially canceled due to incompletely filled.`15`: Order canceled: The order price is beyond the limit`17`: Order canceled: Close order was canceled, due to the position was already closed at market price.`20`: Cancel all after triggered`21`: Order canceled: The TP/SL order was canceled because the position had been closed`22` Order canceled: Due to a better price was available for the order in the same direction, the current operation reduce-only order was automatically canceled `23` Order canceled: Due to a better price was available for the order in the same direction, the existing reduce-only order was automatically canceled`27`: Order canceled: Price limit verification failed because the price difference between counterparties exceeds 5% `31`: The post-only order will take liquidity in taker orders `32`: Self trade prevention `33`: The order exceeds the maximum number of order matches per taker order`36`: Your TP limit order was canceled because the corresponding SL order was triggered. `37`: Your TP limit order was canceled because the corresponding SL order was canceled. `38`: You have canceled market maker protection (MMP) orders. `39`: Your order was canceled because market maker protection (MMP) was triggered. `42`: Your order was canceled because the difference between the initial and current best bid or ask prices reached the maximum chase difference.`43`: Order cancelled because the buy order price is higher than the index price or the sell order price is lower than the index price.`44`: Your order was canceled because your available balance of this crypto was insufficient for auto conversion. Auto conversion was triggered when the total collateralized liabilities for this crypto reached the platform’s risk control limit. `45`: Order cancelled because ELP order price verification failed`46`: delta reducing cancel orders |
-| > amendSource | String | Source of the order amendation. `1`: Order amended by user`2`: Order amended by user, but the order quantity is overriden by system due to reduce-only`3`: New order placed by user, but the order quantity is overriden by system due to reduce-only`4`: Order amended by system due to other pending orders`5`: Order modification due to changes in options px, pxVol, or pxUsd as a result of following variations. For example, when iv = 60, USD and px are anchored at iv = 60, the changes in USD or px lead to modification. |
+| > amendSource | String | Source of the order amendation. `1`: Order amended by user`2`: Order amended by user, but the order quantity is overriden by system due to reduce-only`4`: Order quantity amended by system due to reduce-only, including a new order placed by the user whose quantity is overriden by the system, and an existing pending order amended by the system due to other pending orders`5`: Order modification due to changes in options px, pxVol, or pxUsd as a result of following variations. For example, when iv = 60, USD and px are anchored at iv = 60, the changes in USD or px lead to modification. |
 | > category | String | Category `normal` `twap` `adl` `full_liquidation` `partial_liquidation``delivery` `ddh`: Delta dynamic hedge`auto_conversion` |
 | > isTpLimit | String | Whether it is TP limit order. true or false |
 | > uTime | String | Update time, Unix timestamp format in milliseconds, e.g. `1597026383085` |

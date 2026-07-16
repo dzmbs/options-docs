@@ -8,8 +8,6 @@ Only the assets in the funding account can be used for purchase. [More details](
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/finance/staking-defi/offers`
@@ -114,8 +112,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/finance/staking-defi/purchase`
@@ -200,8 +196,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/finance/staking-defi/redeem`
@@ -277,8 +271,6 @@ After cancelling, returning funds will go to the funding account.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/finance/staking-defi/cancel`
@@ -348,8 +340,6 @@ Response Example
 #### Rate Limit: 3 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -524,8 +514,6 @@ Response Example
 #### Rate Limit: 3 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 

@@ -8,8 +8,6 @@ Retrieve available instruments info of current account.
 
 #### Rate limit rule: User ID + Instrument Type
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/account/instruments`
@@ -135,7 +133,7 @@ Response Example
 | listTime | String | Listing time, Unix timestamp format in milliseconds, e.g. `1597026383085` |
 | auctionEndTime | String | The end time of call auction, Unix timestamp format in milliseconds, e.g. `1597026383085` Only applicable to `SPOT` that are listed through call auctions, return "" in other cases (deprecated, use contTdSwTime) |
 | contTdSwTime | String | Continuous trading switch time. The switch time from call auction, prequote to continuous trading, Unix timestamp format in milliseconds. e.g. `1597026383085`. Only applicable to `SPOT`/`MARGIN` that are listed through call auction or prequote, return "" in other cases. |
-| preMktSwTime | String | The time premarket swap switched to normal swap, Unix timestamp format in milliseconds, e.g. `1597026383085`. Only applicable premarket `SWAP` |
+| preMktSwTime | String | The time a pre-market instrument switched to normal trading, Unix timestamp format in milliseconds, e.g. `1597026383085`. Only applicable to pre-market `SWAP` and pre-market X-Perp `FUTURES`. Populated when a pre-market X-Perp converts to a normal X-Perp |
 | openType | String | Open type `fix_price`: fix price opening`pre_quote`: pre-quote`call_auction`: call auction Only applicable to `SPOT`/`MARGIN`, return "" for all other business lines |
 | elp | String | ELP maker permission`0`: ELP is not enabled for this symbol`1`: ELP is enabled for this symbol, but current users don't have permission to place ELP orders for it. `2`: ELP is enabled for this symbol, and current users have permission to place ELP orders for it. It doesn't mean there will be ELP liquidity when elp is `1/2`. |
 | expTime | String | Expiry time Applicable to `SPOT`/`MARGIN`/`FUTURES`/`SWAP`/`OPTION`. For `FUTURES`/`OPTION`, it is natural delivery/exercise time. It is the instrument offline time when there is `SPOT/MARGIN/FUTURES/SWAP/` manual offline. Update once change. |
@@ -145,7 +143,7 @@ Response Example
 | minSz | String | Minimum order sizeIf it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
 | ctType | String | Contract type`linear`: linear contract`inverse`: inverse contract Only applicable to `FUTURES`/`SWAP` |
 | state | String | Instrument status`live` `suspend``rebase`: can't be traded during rebasing, only applicable to `SWAP``post_only`: only post-only orders are accepted; existing post-only orders can be amended and cancelled. Other order types (market, IOC, FOK, normal limit) are rejected. Only applicable to `SWAP``preopen` e.g. Futures and options contracts rollover from generation to trading start; certain symbols before they go live`test`: Test pairs, can't be traded`settling`: Settling, only applicable to `EVENTS` |
-| ruleType | String | Trading rule types`normal`: normal trading`pre_market`: pre-market trading`rebase_contract`: pre-market rebase contract`xperp`: perpetual-style futures, only applicable to certain `FUTURES` contracts |
+| ruleType | String | Trading rule types`normal`: normal trading`pre_market`: pre-market trading, including pre-market X-Perp `FUTURES``rebase_contract`: pre-market rebase contract`xperp`: perpetual-style futures, only applicable to certain `FUTURES` contracts. A pre-market X-Perp changes from `pre_market` to `xperp` after it converts to a normal X-Perp |
 | posLmtAmt | String | Maximum position value (USD) for this instrument at the user level (shared across master and sub-accounts), based on the notional value of all same-direction open positions and resting orders. The effective user limit is max(posLmtAmt, oiUSD × posLmtPct). Applicable to `SWAP`/`FUTURES`. |
 | posLmtPct | String | Maximum position ratio (e.g., 30 for 30%) a user (shared across master and sub-accounts) may hold relative to the platform's current total position value. The effective user limit is max(posLmtAmt, oiUSD × posLmtPct). Applicable to `SWAP`/`FUTURES`. |
 | maxPlatOILmt | String | Platform-wide maximum position value (USD) for this instrument. If the platform total open interest (USD) reaches or exceeds this value, all users’ new opening orders for this instrument are rejected; otherwise, orders pass.Applicable to `SWAP`/`FUTURES` |
@@ -188,8 +186,6 @@ Interest-free quota and discount rates are public data and not displayed on the 
 #### Rate Limit: 10 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -465,8 +461,6 @@ Retrieve information on your positions. When the account is in `net` mode, `net`
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/account/positions`
@@ -671,8 +665,6 @@ Retrieve the updated position data for the last 3 months. Return in reverse chro
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/account/positions-history`
@@ -792,8 +784,6 @@ Obtain basic information about accounts and positions on the same time snapshot
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/account/account-position-risk`
@@ -902,8 +892,6 @@ Retrieve the bills of the account. The bill refers to all transaction records th
 #### Rate Limit: 5 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1046,8 +1034,6 @@ Retrieve the account’s bills. The bill refers to all transaction records that 
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/account/bills-archive`
@@ -1189,8 +1175,6 @@ Apply for bill data since 1 February, 2021 except for the current quarter.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `POST /api/v5/account/bills-history-archive`
@@ -1253,8 +1237,6 @@ Apply for bill data since 1 February, 2021 except for the current quarter.
 #### Rate Limit: 10 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1342,8 +1324,6 @@ Get all bill types, and the mapping of bill type and subType.
 
 #### Rate limit rule: UserId
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/account/subtypes`
@@ -1403,8 +1383,6 @@ Retrieve current account configuration.
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1523,8 +1501,6 @@ Portfolio margin mode: `FUTURES` and `SWAP` only support `net` mode
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/account/set-position-mode`
@@ -1606,8 +1582,6 @@ Please refer to the request examples on the right for each case.
 #### Rate limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -1790,8 +1764,6 @@ Under the Portfolio Margin account, the calculation of the maximum buy/sell amou
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/account/max-size`
@@ -1866,8 +1838,6 @@ Available balance for isolated margin positions and SPOT, available equity for c
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1949,8 +1919,6 @@ Increase or decrease the margin of the isolated position. Margin reduction may r
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -2039,8 +2007,6 @@ The value of the margin initially assigned to the isolated position must be grea
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/account/leverage-info`
@@ -2120,8 +2086,6 @@ Leverage cannot be enquired for the cross positions of Expiry Futures and Perpet
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/account/adjust-leverage-info`
@@ -2187,8 +2151,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -2288,8 +2250,6 @@ Response Example
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -2413,8 +2373,6 @@ Get the interest accrued data for the past year
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/account/interest-accrued`
@@ -2511,8 +2469,6 @@ Get the user's current leveraged currency borrowing market interest rate
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/account/interest-rate`
@@ -2581,8 +2537,6 @@ fee type selection is only effective for Spot.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/account/set-fee-type`
@@ -2631,8 +2585,6 @@ Set the display type of Greeks.
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -2697,8 +2649,6 @@ You can set the currency margin and futures/perpetual Isolated margin trading mo
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -2779,8 +2729,6 @@ Retrieve the maximum transferable amount from trading account to funding account
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/account/max-withdrawal`
@@ -2857,8 +2805,6 @@ Only applicable to Portfolio margin account
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/account/risk-state`
@@ -2918,8 +2864,6 @@ Response Example
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -3028,8 +2972,6 @@ Only applicable to `Spot mode` (enabled borrowing)
 
 #### Rate limit rule: Master Account User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/account/spot-manual-borrow-repay`
@@ -3102,8 +3044,6 @@ Only applicable to `Spot mode` (enabled borrowing)
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/account/set-auto-repay`
@@ -3167,8 +3107,6 @@ Retrieve the borrow/repay history under `Spot mode`
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -3242,8 +3180,6 @@ You can add up to 200 virtual positions and 200 virtual assets in one request.
 #### Rate Limit: 2 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -3670,8 +3606,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `POST /api/v5/account/position-builder-graph`
@@ -3773,8 +3707,6 @@ Set risk offset amount. This does not represent the actual spot risk offset amou
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/account/set-riskOffset-amt`
@@ -3828,8 +3760,6 @@ Retrieve a greeks list of all assets in the account.
 #### Rate Limit: 10 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -3915,8 +3845,6 @@ Retrieve cross position limitation of SWAP/FUTURES/OPTION under Portfolio margin
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/account/position-tiers`
@@ -3988,8 +3916,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/account/activate-option`
@@ -4030,8 +3956,6 @@ Only applicable to `Multi-currency margin` and `Portfolio margin`
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -4081,8 +4005,6 @@ If the user does not follow the required settings, they will receive an error me
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -4191,8 +4113,6 @@ Retrieve precheck information for account mode switching.
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -4382,8 +4302,6 @@ You need to set on the Web/App for the first set of every account mode. If users
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/account/set-account-level`
@@ -4430,8 +4348,6 @@ Response Example
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -4497,8 +4413,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/account/collateral-assets`
@@ -4554,8 +4468,6 @@ In the demo trading environment, MMP configurations may be periodically reset by
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -4617,8 +4529,6 @@ MMP is configured individually per instrument family (`instFamily`). Enabling MM
 #### Rate Limit: 2 requests per 10 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -4682,8 +4592,6 @@ Only applicable to Option in Portfolio Margin mode, and MMP privilege is require
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -5131,8 +5039,6 @@ Only applicable to USD-margined contract.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trading
-
 #### HTTP Request
 
 `POST /api/v5/account/set-settle-currency`
@@ -5179,8 +5085,6 @@ Response Example
 #### Rate limit: 1 request per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -5298,8 +5202,6 @@ All-or-nothing: if any currency in the request fails validation, the entire requ
 #### Rate Limit: Increase — 3 requests per user per day (resets at UTC 0:00). Reduce — no limit.
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 

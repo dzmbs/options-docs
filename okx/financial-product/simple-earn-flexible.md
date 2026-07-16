@@ -8,8 +8,6 @@ Simple earn flexible (saving) is earned by lending to leveraged trading users in
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/finance/savings/balance`
@@ -82,8 +80,6 @@ Only the assets in the funding account can be used for saving.
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -160,8 +156,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/finance/savings/set-lending-rate`
@@ -228,8 +222,6 @@ Return data in the past month.
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 

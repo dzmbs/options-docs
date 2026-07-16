@@ -11,8 +11,6 @@ The API endpoints of `Recurring buy` require authentication.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/recurring/order-algo`
@@ -103,8 +101,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/recurring/amend-order-algo`
@@ -162,8 +158,6 @@ A maximum of 10 orders can be stopped per request.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/recurring/stop-order-algo`
@@ -220,8 +214,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -338,8 +330,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/tradingBot/recurring/orders-algo-history`
@@ -451,8 +441,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -579,8 +567,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -899,8 +885,6 @@ Push Data Example:
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/recurring/amend-recurring-time`
@@ -963,8 +947,6 @@ Response Example
 
 #### Rate Limit Rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/recurring/amend-recurring-amount`
@@ -1017,8 +999,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate Limit Rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -1073,8 +1053,6 @@ Response Example
 
 #### Rate Limit Rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/recurring/pause`
@@ -1126,8 +1104,6 @@ Response Example
 
 #### Rate Limit Rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/recurring/restart`
@@ -1178,8 +1154,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate Limit Rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 

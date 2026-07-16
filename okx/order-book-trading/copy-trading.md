@@ -36,8 +36,6 @@ Returns reverse chronological order with `openTime`
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/copytrading/current-subpositions`
@@ -155,8 +153,6 @@ Returns reverse chronological order with `subPosId`.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/copytrading/subpositions-history`
@@ -269,8 +265,6 @@ Set TP/SL for the current lead position that are not closed.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/copytrading/algo-order`
@@ -333,8 +327,6 @@ It is required to pass subPosId which can get from [Get existing leading positio
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP request
 
 `POST /api/v5/copytrading/close-subposition`
@@ -390,8 +382,6 @@ Retrieve instruments that the lead trader has set.
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP request
 
@@ -450,8 +440,6 @@ All non-leading instruments can't have position or pending orders for the curren
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP request
 
 `POST /api/v5/copytrading/set-instruments`
@@ -509,8 +497,6 @@ The leading trader gets profits shared details for the last 3 months.
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP request
 
@@ -581,8 +567,6 @@ The leading trader gets the total amount of profit shared since joining the plat
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/copytrading/total-profit-sharing`
@@ -633,8 +617,6 @@ The unrealized profit sharing details will update once there copy position is cl
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP request
 
@@ -699,8 +681,6 @@ The leading trader gets the total unrealized amount of profit shared.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/copytrading/total-unrealized-profit-sharing`
@@ -747,8 +727,6 @@ It is used to amend profit sharing ratio.
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP request
 
@@ -800,8 +778,6 @@ Retrieve current account configuration related to copy/lead trading.
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP request
 
@@ -872,8 +848,6 @@ The first copy settings for the certain lead trader. You need to first copy sett
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP request
 
 `POST /api/v5/copytrading/first-copy-settings`
@@ -942,8 +916,6 @@ You need to use this endpoint to amend copy settings
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP request
 
@@ -1014,8 +986,6 @@ You need to use this endpoint to stop copy trading
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP request
 
 `POST /api/v5/copytrading/stop-copy-trading`
@@ -1068,8 +1038,6 @@ Retrieve the copy settings about certain lead trader.
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP request
 
@@ -1154,8 +1122,6 @@ Retrieve my lead traders.
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/copytrading/current-lead-traders`
@@ -1223,8 +1189,6 @@ Public endpoint. Retrieve copy trading parameter configuration information of co
 
 #### Rate limit rule: IP
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/copytrading/public-config`
@@ -1281,8 +1245,6 @@ Public endpoint. Retrieve lead trader ranks.
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: IP
-
-#### Permission: Read
 
 #### HTTP request
 
@@ -1391,8 +1353,6 @@ Public endpoint. Retrieve lead trader weekly pnl. Results are returned in counte
 
 #### Rate limit rule: IP
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/copytrading/public-weekly-pnl`
@@ -1447,8 +1407,6 @@ Public endpoint. Retrieve lead trader daily pnl. Results are returned in counter
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: IP
-
-#### Permission: Read
 
 #### HTTP request
 
@@ -1505,8 +1463,6 @@ Public endpoint. Key data related to lead trader performance.
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: IP
-
-#### Permission: Read
 
 #### HTTP request
 
@@ -1567,8 +1523,6 @@ Public endpoint. The most frequently traded crypto of this lead trader. Results 
 
 #### Rate limit rule: IP
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/copytrading/public-preference-currency`
@@ -1624,8 +1578,6 @@ Public endpoint. Get current leading positions of lead trader
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: IP
-
-#### Permission: Read
 
 #### HTTP request
 
@@ -1706,8 +1658,6 @@ Returns reverse chronological order with `subPosId`.
 
 #### Rate limit rule: IP
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/copytrading/public-subpositions-history`
@@ -1786,8 +1736,6 @@ Public endpoint. Retrieve copy trader coming from certain lead trader. Return ac
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: IP
-
-#### Permission: Read
 
 #### HTTP request
 

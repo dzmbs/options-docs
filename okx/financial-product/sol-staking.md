@@ -12,8 +12,6 @@ Stake SOL on Solana to receive OKSOL at a 1:1 ratio for liquidity
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/finance/staking-defi/sol/product-info`
@@ -64,8 +62,6 @@ Only the assets in the funding account can be used.
 #### Rate Limit: 2 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -127,8 +123,6 @@ Only the assets in the funding account can be used. If your OKSOL is in your tra
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/finance/staking-defi/sol/redeem`
@@ -188,8 +182,6 @@ The balance represents the real-time total OKSOL holdings across the entire acco
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -253,8 +245,6 @@ Response Example
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 

@@ -8,8 +8,6 @@ The response is restricted based on your request IP.
 
 #### Rate limit rule: IP
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/support/announcement-types`

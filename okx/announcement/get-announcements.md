@@ -20,8 +20,6 @@ For private endpoint, the response is restricted based on your country of reside
 
 #### Rate limit rule: User ID(Private) or IP(Public)
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/support/announcements`

@@ -8,8 +8,6 @@ Applies to master accounts only
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/users/subaccount/list`
@@ -101,8 +99,6 @@ Applies to master accounts only and master accounts API Key must be linked to IP
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP request
 
 `POST /api/v5/users/subaccount/create-subaccount`
@@ -184,8 +180,6 @@ Applies to master accounts only and master accounts API Key must be linked to IP
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP request
 
 `POST /api/v5/users/subaccount/apikey`
@@ -254,8 +248,6 @@ Applies to master accounts only
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/users/subaccount/apikey`
@@ -316,8 +308,6 @@ Applies to master accounts only and master accounts API Key must be linked to IP
 #### Rate limit：1 request per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP request
 
@@ -403,8 +393,6 @@ Applies to master accounts only and master accounts API Key must be linked to IP
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP request
 
 `POST /api/v5/users/subaccount/delete-apikey`
@@ -453,8 +441,6 @@ Query detailed balance info of Trading Account of a sub-account via the master a
 #### Rate limit：6 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP request
 
@@ -659,8 +645,6 @@ Query detailed balance info of Funding Account of a sub-account via the master a
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/asset/subaccount/balances`
@@ -731,8 +715,6 @@ Retrieve the maximum withdrawal information of a sub-account via the master acco
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/account/subaccount/max-withdrawal`
@@ -800,8 +782,6 @@ This endpoint is only available for master accounts. Transfer records are availa
 #### Rate limit：6 requests per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP request
 
@@ -880,8 +860,6 @@ Only applicable to the trading team's master account to getting transfer records
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP request
 
 `GET /api/v5/asset/subaccount/managed-subaccount-bills`
@@ -944,8 +922,6 @@ Only API keys with `Trade` privilege can call this endpoint.
 #### Rate limit：1 request per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP request
 
@@ -1032,8 +1008,6 @@ Set permission of transfer out for sub-account (only applicable to master accoun
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/users/subaccount/set-transfer-out`
@@ -1110,8 +1084,6 @@ The trading team uses this interface to view the list of sub-accounts currently 
 #### Rate limit：1 request per second
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP request
 

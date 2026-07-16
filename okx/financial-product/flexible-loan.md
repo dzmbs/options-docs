@@ -10,8 +10,6 @@ Get borrowable currencies
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/finance/flexible-loan/borrow-currencies`
@@ -68,8 +66,6 @@ Get collateral assets in funding account.
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -149,8 +145,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `POST /api/v5/finance/flexible-loan/max-loan`
@@ -224,8 +218,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/finance/flexible-loan/max-collateral-redeem-amount`
@@ -286,8 +278,6 @@ Response Example
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -351,8 +341,6 @@ code = `0` means your request has been accepted (It doesn't mean the request has
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -459,8 +447,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/finance/flexible-loan/loan-history`
@@ -532,8 +518,6 @@ Retrieves the interest accrual history for flexible loans over the past 30 days.
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 

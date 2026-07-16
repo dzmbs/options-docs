@@ -11,8 +11,6 @@ The API endpoints of `Grid Trading` require authentication.
 
 #### Rate limit rule: User ID + Instrument ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/grid/order-algo`
@@ -152,8 +150,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/grid/amend-algo-basic-param`
@@ -222,8 +218,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -324,8 +318,6 @@ A maximum of 10 orders can be stopped per request.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/grid/stop-order-algo`
@@ -391,8 +383,6 @@ Close position when the contract grid stop type is 'keep position'.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/grid/close-position`
@@ -450,8 +440,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/grid/cancel-close-order`
@@ -507,8 +495,6 @@ Response Example
 
 #### Rate limit rule: User ID + Instrument ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/grid/order-instant-trigger`
@@ -558,8 +544,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -732,8 +716,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -908,8 +890,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1107,8 +1087,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/tradingBot/grid/sub-orders`
@@ -1210,8 +1188,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/tradingBot/grid/positions`
@@ -1298,8 +1274,6 @@ Response Example
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/grid/withdraw-income`
@@ -1350,8 +1324,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -1404,8 +1376,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Trade
 
 #### HTTP Request
 
@@ -1462,8 +1432,6 @@ It is used to add investment and only applicable to contract gird.
 
 #### Rate limit rule: User ID
 
-#### Permission: Trade
-
 #### HTTP Request
 
 `POST /api/v5/tradingBot/grid/adjust-investment`
@@ -1515,8 +1483,6 @@ Authentication is not required for this public endpoint.
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: IP
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1595,8 +1561,6 @@ Authentication is not required for this public endpoint.
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate limit rule: IP
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -1689,8 +1653,6 @@ Authentication is not required for this public endpoint.
 
 #### Rate limit rule: IP
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/tradingBot/public/rsi-back-testing`
@@ -1743,8 +1705,6 @@ Maximum grid quantity can be retrieved from this endpoint. Minimum grid quantity
 
 #### Rate limit rule: IP
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/tradingBot/grid/grid-quantity`
@@ -1792,8 +1752,6 @@ Response Example
 #### Rate Limit: 20 requests per 2 seconds
 
 #### Rate Limit Rule: User ID + Instrument ID
-
-#### Permission: Trade
 
 #### HTTP Request
 

@@ -14,8 +14,6 @@ Retrieve product-level information for the specified stablecoin, including all c
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/finance/stable-rewards/product-info`
@@ -95,8 +93,6 @@ Retrieve the real-time Stable Rewards balance across the account (trading accoun
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/finance/stable-rewards/balance`
@@ -154,8 +150,6 @@ Retrieve the historical daily APY of the specified stablecoin. The returned rate
 #### Rate Limit: 6 requests per second
 
 #### Rate limit rule: IP
-
-#### Permission: Read
 
 #### HTTP Request
 
