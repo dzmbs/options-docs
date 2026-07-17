@@ -4,419 +4,419 @@
       "section_id": "overview",
       "title": "Overview",
       "hash": "bb88d99ce30036493a67f7b88affecf9713b0c1482d4b7a47173d356f687a3af",
-      "last_updated": "2026-07-16T12:34:35.655376"
+      "last_updated": "2026-07-17T12:22:43.613713"
     },
     "overview/api-resources-and-support.md": {
       "section_id": "overview-api-resources-and-support",
       "title": "API Resources and Support",
       "hash": "11956cd4b2590f06b8371d2d5bba8d27adc6a8765e2aa8c1b20f8517fe9ae232",
-      "last_updated": "2026-07-16T12:34:35.655876"
+      "last_updated": "2026-07-17T12:22:43.614124"
     },
     "overview/api-key-creation.md": {
       "section_id": "overview-api-key-creation",
       "title": "API key Creation",
       "hash": "d34d1a6f5a7c68ecd9ef7285bbbe9370cc24ba609fc56d131d8127a5d8708144",
-      "last_updated": "2026-07-16T12:34:35.656384"
+      "last_updated": "2026-07-17T12:22:43.614546"
     },
     "overview/rest-authentication.md": {
       "section_id": "overview-rest-authentication",
       "title": "REST Authentication",
       "hash": "2f8499c92a767e9c377b97f899af1b4e6e79bc3f97fd5f7074fca76c0eda6684",
-      "last_updated": "2026-07-16T12:34:35.656859"
+      "last_updated": "2026-07-17T12:22:43.615036"
     },
     "overview/websocket.md": {
       "section_id": "overview-websocket",
       "title": "WebSocket",
       "hash": "4aa3f5a71369b5b02856de7397463a852c52d135131191553b52f6da32a29f80",
-      "last_updated": "2026-07-16T12:34:35.659244"
+      "last_updated": "2026-07-17T12:22:43.617680"
     },
     "overview/account-mode.md": {
       "section_id": "overview-account-mode",
       "title": "Account mode",
       "hash": "a3b56f3bdc2ee93bc63fce0d55b2215694cfb1976384abd1802e968e6549538d",
-      "last_updated": "2026-07-16T12:34:35.659491"
+      "last_updated": "2026-07-17T12:22:43.617941"
     },
     "overview/production-trading-services.md": {
       "section_id": "overview-production-trading-services",
       "title": "Production Trading Services",
       "hash": "e0981ae4938529c8c74c104fc676ccc1c4bcaa0affa82ab3cbd33b1e9cf6b2ac",
-      "last_updated": "2026-07-16T12:34:35.659739"
+      "last_updated": "2026-07-17T12:22:43.618188"
     },
     "overview/demo-trading-services.md": {
       "section_id": "overview-demo-trading-services",
       "title": "Demo Trading Services",
       "hash": "3fd4161fc7582b7df88a97eae1e3e2922249aa2189a69b4c2a456b80c516f3f6",
-      "last_updated": "2026-07-16T12:34:35.660166"
+      "last_updated": "2026-07-17T12:22:43.618613"
     },
     "overview/general-info.md": {
       "section_id": "overview-general-info",
       "title": "General Info",
       "hash": "9cf17a559518fd8335cc943348f4ab3fb1d14a7827f3fd34deecd4f7c295df05",
-      "last_updated": "2026-07-16T12:34:35.660789"
+      "last_updated": "2026-07-17T12:22:43.619275"
     },
     "overview/transaction-timeouts.md": {
       "section_id": "overview-transaction-timeouts",
       "title": "Transaction Timeouts",
       "hash": "dfd396abb5eb00bafbb143d8f67c6fe3d5ed48b010f94c65650b37165c01fbe5",
-      "last_updated": "2026-07-16T12:34:35.661255"
+      "last_updated": "2026-07-17T12:22:43.619758"
     },
     "overview/rate-limits.md": {
       "section_id": "overview-rate-limits",
       "title": "Rate Limits",
       "hash": "71ec640716bfad027f4daacf2e4147503fb766d1a693ad75bc4d525617ab4bd9",
-      "last_updated": "2026-07-16T12:34:35.662731"
+      "last_updated": "2026-07-17T12:22:43.621254"
     },
     "overview/market-maker-program.md": {
       "section_id": "overview-market-maker-program",
       "title": "Market Maker Program",
       "hash": "751212b1942a9ca13c09d5d0384e5822eaa2dd0c7664e5b7bc96ce6f6316489f",
-      "last_updated": "2026-07-16T12:34:35.663012"
+      "last_updated": "2026-07-17T12:22:43.621530"
     },
     "overview/broker-program.md": {
       "section_id": "overview-broker-program",
       "title": "Broker Program",
       "hash": "b95e35c5157ff9982e0911aa3de804a2ed44e997b9b5a3808ce52a2f8351580b",
-      "last_updated": "2026-07-16T12:34:35.663275"
+      "last_updated": "2026-07-17T12:22:43.621771"
     },
     "trading-account/README.md": {
       "section_id": "trading-account",
       "title": "Trading Account",
       "hash": "9fe41d7d2220bcca7e75452af2af2f8262f3884a8a3b88832ed6cef850054e2c",
-      "last_updated": "2026-07-16T12:34:35.663467"
+      "last_updated": "2026-07-17T12:22:43.621981"
     },
     "trading-account/rest-api.md": {
       "section_id": "trading-account-rest-api",
       "title": "REST API",
       "hash": "cc0a59b178b43c8dadb23ef0db429b923ad954377507a372933e52d23836e030",
-      "last_updated": "2026-07-16T12:34:35.704907"
+      "last_updated": "2026-07-17T12:22:43.664886"
     },
     "trading-account/websocket.md": {
       "section_id": "trading-account-websocket",
       "title": "WebSocket",
       "hash": "2caa45a92dba336dfbf98f49fce514e71b5100ac3495cdbab54e2065dabacde1",
-      "last_updated": "2026-07-16T12:34:35.749232"
+      "last_updated": "2026-07-17T12:22:43.708926"
     },
     "order-book-trading/README.md": {
       "section_id": "order-book-trading",
       "title": "Order Book Trading",
       "hash": "15fd400d70fbd446b5e8562056791d3a1acea929ca24f8fbeeda1c62f0b70a95",
-      "last_updated": "2026-07-16T12:34:35.749500"
+      "last_updated": "2026-07-17T12:22:43.709171"
     },
     "order-book-trading/trade.md": {
       "section_id": "order-book-trading-trade",
       "title": "Trade",
       "hash": "6c306f0b772aa621a6ac05f17f2df3544d6a2858a8368ec0e6a270d399e5731a",
-      "last_updated": "2026-07-16T12:34:35.849864"
+      "last_updated": "2026-07-17T12:22:43.810903"
     },
     "order-book-trading/algo-trading.md": {
       "section_id": "order-book-trading-algo-trading",
       "title": "Algo Trading",
       "hash": "430b394f9a772029da90576beb4861330b15df4e9ee1b4031ee36a26f20921d6",
-      "last_updated": "2026-07-16T12:34:35.876942"
+      "last_updated": "2026-07-17T12:22:43.838566"
     },
     "order-book-trading/grid-trading.md": {
       "section_id": "order-book-trading-grid-trading",
       "title": "Grid Trading",
       "hash": "0b023ec042885cf2003a51bd36693ce533864cb11efe9ddf644cf809461dbbee",
-      "last_updated": "2026-07-16T12:34:35.954004"
+      "last_updated": "2026-07-17T12:22:43.919102"
     },
     "order-book-trading/dca-trading.md": {
       "section_id": "order-book-trading-dca-trading",
       "title": "DCA Trading",
       "hash": "4dd179733f6afe10f0661873d8b6426f30fa94f8075f2c4e1540cedd26b4ee8f",
-      "last_updated": "2026-07-16T12:34:35.968267"
+      "last_updated": "2026-07-17T12:22:43.934118"
     },
     "order-book-trading/signal-bot-trading.md": {
       "section_id": "order-book-trading-signal-bot-trading",
       "title": "Signal bot trading",
       "hash": "a93c5354001a16ab2d3c6643206b7370fff1b07e8800ccc8485ecef7d0472178",
-      "last_updated": "2026-07-16T12:34:35.996495"
+      "last_updated": "2026-07-17T12:22:43.960785"
     },
     "order-book-trading/recurring-buy.md": {
       "section_id": "order-book-trading-recurring-buy",
       "title": "Recurring Buy",
       "hash": "bc11a38c9fcc586c4a0427a2608d6979d293f80766befcee8e79a42d88fed199",
-      "last_updated": "2026-07-16T12:34:36.018358"
+      "last_updated": "2026-07-17T12:22:43.982560"
     },
     "order-book-trading/copy-trading.md": {
       "section_id": "order-book-trading-copy-trading",
       "title": "Copy Trading",
       "hash": "638802e4ec651ff9dda535dc827a2008692681075173d436ae2b341bf67f247c",
-      "last_updated": "2026-07-16T12:34:36.078360"
+      "last_updated": "2026-07-17T12:22:44.038245"
     },
     "order-book-trading/market-data.md": {
       "section_id": "order-book-trading-market-data",
       "title": "Market Data",
       "hash": "7a50eb124548db526cc9e94506797d1842fd6ccf03a92340c3979bcd60ea4b7d",
-      "last_updated": "2026-07-16T12:34:36.179138"
+      "last_updated": "2026-07-17T12:22:44.135381"
     },
     "order-book-trading/sbe-market-data.md": {
       "section_id": "order-book-trading-sbe-market-data",
       "title": "SBE Market Data",
       "hash": "a66ae24814de73f21ce31b66b216fbeed36c2ca1fa52162697f2f1abf3a892a2",
-      "last_updated": "2026-07-16T12:34:36.184896"
+      "last_updated": "2026-07-17T12:22:44.140576"
     },
     "block-trading/README.md": {
       "section_id": "block-trading",
       "title": "Block Trading",
       "hash": "449a11b383ae56a02396fdde3f74e1cc7dfebd861e6d395273e113eb5cfcc9f8",
-      "last_updated": "2026-07-16T12:34:36.185127"
+      "last_updated": "2026-07-17T12:22:44.140784"
     },
     "block-trading/block-trading-workflow.md": {
       "section_id": "block-trading-block-trading-workflow",
       "title": "Block Trading Workflow",
       "hash": "664ca45025da2f3ce255497b47c110dadc4e0c95714ec97e9dbf46c99abd304d",
-      "last_updated": "2026-07-16T12:34:36.185659"
+      "last_updated": "2026-07-17T12:22:44.141258"
     },
     "block-trading/rest-api.md": {
       "section_id": "block-trading-rest-api",
       "title": "REST API",
       "hash": "8f73a5bcccc510d247ef971f166dd10a16320f7f10001dcb45a08d58769c8ea5",
-      "last_updated": "2026-07-16T12:34:36.307282"
+      "last_updated": "2026-07-17T12:22:44.262142"
     },
     "block-trading/websocket-private-channel.md": {
       "section_id": "block-trading-websocket-private-channel",
       "title": "WebSocket Private Channel",
       "hash": "2d08b4bffa41e2586f68b978e26ec0448f43a932b81cf01c8b4b5f5fc6c42f53",
-      "last_updated": "2026-07-16T12:34:36.319212"
+      "last_updated": "2026-07-17T12:22:44.273674"
     },
     "block-trading/websocket-public-channel.md": {
       "section_id": "block-trading-websocket-public-channel",
       "title": "WebSocket Public Channel",
       "hash": "ca424b18db3c00b0d2e3b17ae53bc1353d9c756c044215fcd55a87919222b5f7",
-      "last_updated": "2026-07-16T12:34:36.325628"
+      "last_updated": "2026-07-17T12:22:44.280194"
     },
     "spread-trading/README.md": {
       "section_id": "spread-trading",
       "title": "Spread Trading",
       "hash": "ca5e7bc09bccaed76964e8bc13c1e03a98e3425b88b2495d3d04cd0c841fb50d",
-      "last_updated": "2026-07-16T12:34:36.325906"
+      "last_updated": "2026-07-17T12:22:44.280464"
     },
     "spread-trading/introduction.md": {
       "section_id": "spread-trading-introduction",
       "title": "Introduction",
       "hash": "495a6d583aa2a77ae92df1b81862bd23b2ac97ae44471f8c401607412ec1eb8f",
-      "last_updated": "2026-07-16T12:34:36.326345"
+      "last_updated": "2026-07-17T12:22:44.280874"
     },
     "spread-trading/comprehensive-api-workflow.md": {
       "section_id": "spread-trading-comprehensive-api-workflow",
       "title": "Comprehensive API Workflow",
       "hash": "ade72e4572d34960cbbfaeb477bc64a9c903cc16f71585f59deae6cc23f21330",
-      "last_updated": "2026-07-16T12:34:36.327107"
+      "last_updated": "2026-07-17T12:22:44.281559"
     },
     "spread-trading/rest-api.md": {
       "section_id": "spread-trading-rest-api",
       "title": "REST API",
       "hash": "8a08c07ace1c6fb57af29f9b661041dbcf3ccb135474b006aca7fda1f95d4216",
-      "last_updated": "2026-07-16T12:34:36.339783"
+      "last_updated": "2026-07-17T12:22:44.294828"
     },
     "spread-trading/websocket-trade-api.md": {
       "section_id": "spread-trading-websocket-trade-api",
       "title": "Websocket Trade API",
       "hash": "720df0226702ae14bada2fe7aadeb3b0d9fec1cf0813e04bdc88b85fd8e4b433",
-      "last_updated": "2026-07-16T12:34:36.344719"
+      "last_updated": "2026-07-17T12:22:44.299885"
     },
     "spread-trading/websocket-private-channel.md": {
       "section_id": "spread-trading-websocket-private-channel",
       "title": "WebSocket Private Channel",
       "hash": "0c01e900b079f185b4a453f6c0ad25c7193829db671c96fa4f7b64a20f33a11b",
-      "last_updated": "2026-07-16T12:34:36.349955"
+      "last_updated": "2026-07-17T12:22:44.305177"
     },
     "spread-trading/websocket-public-channel.md": {
       "section_id": "spread-trading-websocket-public-channel",
       "title": "WebSocket Public Channel",
       "hash": "9bbd21c04d37e89535abaf949477d54cd56e08660e7be4f678be626ff7baaa14",
-      "last_updated": "2026-07-16T12:34:36.360293"
+      "last_updated": "2026-07-17T12:22:44.315561"
     },
     "public-data/README.md": {
       "section_id": "public-data",
       "title": "Public Data",
       "hash": "f7f8656bc168e3285e3ca3d72dfa7f6b2504dcbb0cbc6ab57a454f6d74fdd27f",
-      "last_updated": "2026-07-16T12:34:36.360517"
+      "last_updated": "2026-07-17T12:22:44.315765"
     },
     "public-data/rest-api.md": {
       "section_id": "public-data-rest-api",
       "title": "REST API",
       "hash": "02dee1f2f897f5649e2c1f01b6cf3e40c4f5f6820580649e2affd55c09bbb695",
-      "last_updated": "2026-07-16T12:34:36.379210"
+      "last_updated": "2026-07-17T12:22:44.335762"
     },
     "public-data/websocket.md": {
       "section_id": "public-data-websocket",
       "title": "WebSocket",
       "hash": "664bc9bd92d5631efa02591d1a66523fe11c1e1a09bafc460137d9b098f14503",
-      "last_updated": "2026-07-16T12:34:36.453064"
+      "last_updated": "2026-07-17T12:22:44.407895"
     },
     "trading-statistics/README.md": {
       "section_id": "trading-statistics",
       "title": "Trading Statistics",
       "hash": "6fabcfcb6863911f9070de6a01455afd75332b18e48515e3fd385234c3cba32a",
-      "last_updated": "2026-07-16T12:34:36.453342"
+      "last_updated": "2026-07-17T12:22:44.408115"
     },
     "trading-statistics/rest-api.md": {
       "section_id": "trading-statistics-rest-api",
       "title": "REST API",
       "hash": "c67e6dc0fd6f5520bfabd4a1db33d26ac6acb28a8dcd256e3125c3e243b2cd66",
-      "last_updated": "2026-07-16T12:34:36.470170"
+      "last_updated": "2026-07-17T12:22:44.425354"
     },
     "funding-account/README.md": {
       "section_id": "funding-account",
       "title": "Funding Account",
       "hash": "e5cc5f03772e8ab2d8d0d455ce9b1a52b03978ac5cd2771ad78bc48a6d95e733",
-      "last_updated": "2026-07-16T12:34:36.470401"
+      "last_updated": "2026-07-17T12:22:44.425587"
     },
     "funding-account/rest-api.md": {
       "section_id": "funding-account-rest-api",
       "title": "REST API",
       "hash": "5ce04c8c3d1779769f9d214cff5ac45c1fc044b3a1ec6d4e441e920b774c0cde",
-      "last_updated": "2026-07-16T12:34:36.539395"
+      "last_updated": "2026-07-17T12:22:44.493813"
     },
     "funding-account/websocket.md": {
       "section_id": "funding-account-websocket",
       "title": "WebSocket",
       "hash": "bf22d888802ce002bacb1d2b8d4f88f6b10317abce9cd6d186f8188052ff8479",
-      "last_updated": "2026-07-16T12:34:36.543876"
+      "last_updated": "2026-07-17T12:22:44.498618"
     },
     "sub-account/README.md": {
       "section_id": "sub-account",
       "title": "Sub-account",
       "hash": "65e1328ae8ec5f6ceaf268aa77e4da55e52f96aa4a00b1c759437f36b3db4246",
-      "last_updated": "2026-07-16T12:34:36.544102"
+      "last_updated": "2026-07-17T12:22:44.498817"
     },
     "sub-account/rest-api.md": {
       "section_id": "sub-account-rest-api",
       "title": "REST API",
       "hash": "d32833628067b20c61e923b91b0508999e426c6bb271e045e4bebce1f0d57f83",
-      "last_updated": "2026-07-16T12:34:36.563972"
+      "last_updated": "2026-07-17T12:22:44.518034"
     },
     "financial-product/README.md": {
       "section_id": "financial-product",
       "title": "Financial Product",
       "hash": "ab56aefd32333ada9d7ed6bfb2f25723557bd6d472283e506e835f762a275046",
-      "last_updated": "2026-07-16T12:34:36.564215"
+      "last_updated": "2026-07-17T12:22:44.518253"
     },
     "financial-product/on-chain-earn.md": {
       "section_id": "financial-product-on-chain-earn",
       "title": "On-chain earn",
       "hash": "f9f0bcebd84cc19dd48c1bff27973f9d2924e1915cfde3e5c8d81a6cfafad9d5",
-      "last_updated": "2026-07-16T12:34:36.570805"
+      "last_updated": "2026-07-17T12:22:44.524931"
     },
     "financial-product/eth-staking.md": {
       "section_id": "financial-product-eth-staking",
       "title": "ETH staking",
       "hash": "5537644d56b049761c49a368c7a77d22abfb892cddf8413569ab48c7ea7af3e8",
-      "last_updated": "2026-07-16T12:34:36.575379"
+      "last_updated": "2026-07-17T12:22:44.529559"
     },
     "financial-product/sol-staking.md": {
       "section_id": "financial-product-sol-staking",
       "title": "SOL staking",
       "hash": "05bf42edf54df6a46c180981931c19420a523439a7edc0f6b63987f37d223109",
-      "last_updated": "2026-07-16T12:34:36.579051"
+      "last_updated": "2026-07-17T12:22:44.533570"
     },
     "financial-product/stable-rewards.md": {
       "section_id": "financial-product-stable-rewards",
       "title": "Stable Rewards",
       "hash": "aa268e3c2c56b5700366309efb69a8ca7333fec232417f469eb097cbc7359186",
-      "last_updated": "2026-07-16T12:34:36.580697"
+      "last_updated": "2026-07-17T12:22:44.535188"
     },
     "financial-product/okusd.md": {
       "section_id": "financial-product-okusd",
       "title": "OKUSD",
       "hash": "b48480ef93852837656d8cd9db8c312ce2a04500abb6016076a2d59fd0bdcea0",
-      "last_updated": "2026-07-16T12:34:36.583385"
+      "last_updated": "2026-07-17T12:22:44.538122"
     },
     "financial-product/simple-earn-flexible.md": {
       "section_id": "financial-product-simple-earn-flexible",
       "title": "Simple earn flexible",
       "hash": "7a988366877d52652221f89e750c60075f749771c9e7e80d8117cebc5e458763",
-      "last_updated": "2026-07-16T12:34:36.586969"
+      "last_updated": "2026-07-17T12:22:44.541935"
     },
     "financial-product/flexible-loan.md": {
       "section_id": "financial-product-flexible-loan",
       "title": "Flexible loan",
       "hash": "96aae600e4eb2ed7a06151ea54b53a2d86a1eafc21a3084f2d97b22f33f7f893",
-      "last_updated": "2026-07-16T12:34:36.594057"
+      "last_updated": "2026-07-17T12:22:44.549258"
     },
     "financial-product/dual-investment.md": {
       "section_id": "financial-product-dual-investment",
       "title": "Dual investment",
       "hash": "48488ce12f0931917e1f7021f4b726cddde33cac910731c9b75440dcda946cdf",
-      "last_updated": "2026-07-16T12:34:36.599485"
+      "last_updated": "2026-07-17T12:22:44.554777"
     },
     "affiliate/README.md": {
       "section_id": "affiliate",
       "title": "Affiliate",
       "hash": "086002e2144bb5ed9224efaf7a83dd93af582eb4d9d1b9aac24503c160484c6b",
-      "last_updated": "2026-07-16T12:34:36.599760"
+      "last_updated": "2026-07-17T12:22:44.555031"
     },
     "affiliate/rest-api.md": {
       "section_id": "affiliate-rest-api",
       "title": "REST API",
       "hash": "f18f1a7ff7b1e8fe6a77e1a7430ca53617afe87610df8b5484dd60e868250eac",
-      "last_updated": "2026-07-16T12:34:36.607604"
+      "last_updated": "2026-07-17T12:22:44.563260"
     },
     "status/README.md": {
       "section_id": "status",
       "title": "Status",
       "hash": "95fb7925aee5851a27f1776ba7cacbc45c3647b0a8e6ddb487ed981ae83c4fba",
-      "last_updated": "2026-07-16T12:34:36.607812"
+      "last_updated": "2026-07-17T12:22:44.563491"
     },
     "status/get-status.md": {
       "section_id": "status-get-status",
       "title": "GET / Status",
       "hash": "3c4329e70df8166d812c72dc128132bf93435597dfba84801d6fa55ca8785ea6",
-      "last_updated": "2026-07-16T12:34:36.608683"
+      "last_updated": "2026-07-17T12:22:44.564380"
     },
     "status/ws-status-channel.md": {
       "section_id": "status-ws-status-channel",
       "title": "WS / Status channel",
       "hash": "5e4076f0a013ea8c8cb730a2690807ccde7b5c8e4b2f47da012fec4a96a05b0d",
-      "last_updated": "2026-07-16T12:34:36.610316"
+      "last_updated": "2026-07-17T12:22:44.566136"
     },
     "announcement/README.md": {
       "section_id": "announcement",
       "title": "Announcement",
       "hash": "f9459f94af7c36ba7fbb6953d70e692c22a739ba7c10c5381012e7ce26267c55",
-      "last_updated": "2026-07-16T12:34:36.610530"
+      "last_updated": "2026-07-17T12:22:44.566319"
     },
     "announcement/get-announcements.md": {
       "section_id": "announcement-get-announcements",
       "title": "GET / Announcements",
       "hash": "018ed7dc31522a296775bb47d4a2759d7ddda6d32c1a049fb01c25832b6df5e4",
-      "last_updated": "2026-07-16T12:34:36.611713"
+      "last_updated": "2026-07-17T12:22:44.567576"
     },
     "announcement/get-announcement-types.md": {
       "section_id": "announcement-get-announcement-types",
       "title": "GET / Announcement types",
       "hash": "22bd95f4e0c9071cd5875ee9e46f2203662b3ce1258d3a51b3a3a7bc6059ba29",
-      "last_updated": "2026-07-16T12:34:36.612170"
+      "last_updated": "2026-07-17T12:22:44.568033"
     },
     "error-code/README.md": {
       "section_id": "error-code",
       "title": "Error Code",
       "hash": "8994578577309e89ac7e46a3e06ef0fefa774c5cae2c49bb1ff3376f7a795301",
-      "last_updated": "2026-07-16T12:34:36.612381"
+      "last_updated": "2026-07-17T12:22:44.568211"
     },
     "error-code/rest-api.md": {
       "section_id": "error-code-rest-api",
       "title": "REST API",
       "hash": "7886a737d76e872b052903c3c18e99028ae9b1f95c2923f26d1a78692061da1c",
-      "last_updated": "2026-07-16T12:34:36.629967"
+      "last_updated": "2026-07-17T12:22:44.586693"
     },
     "error-code/websocket.md": {
       "section_id": "error-code-websocket",
       "title": "WebSocket",
       "hash": "e58cdaa2b66751d00c29c00de979fc796e81da21cbcc8675dc6220c72bc0bfb7",
-      "last_updated": "2026-07-16T12:34:36.630701"
+      "last_updated": "2026-07-17T12:22:44.587411"
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-07-16T12:34:36.630705",
-    "duration_seconds": 1.69221,
+    "completed_at": "2026-07-17T12:22:44.587416",
+    "duration_seconds": 2.132943,
     "source_url": "https://www.okx.com/docs-v5/en/",
     "raw_html_bytes": 5139693,
     "sections_total": 68,
     "files_written": 68
   },
-  "last_updated": "2026-07-16T12:34:36.630712",
+  "last_updated": "2026-07-17T12:22:44.587423",
   "source": "https://www.okx.com/docs-v5/en/"
 }
