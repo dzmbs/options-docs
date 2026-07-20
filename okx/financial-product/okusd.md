@@ -243,3 +243,293 @@ Response Example (Standard Redemption)
 | state | String | Order status: `"processing"` / `"success"` / `"failed"` / `"cancelled"` |
 | estSettlementTime | String | Estimated settlement time, Unix timestamp format in milliseconds. Fast redemption: current time. Standard redemption: D+5 calendar days if submitted before UTC+8 16:00; D+6 calendar days if submitted at or after UTC+8 16:00 |
 | ts | String | Order creation time, Unix timestamp format in milliseconds, e.g. `1597026383085` |
+
+### GET / Get OKUSD Account
+
+Retrieve your current OKUSD balance and lifetime accrued yield. All balances are aggregated at the master-account level and shared across sub-accounts.
+
+#### Rate Limit: 2 requests per 2 seconds
+
+#### Rate limit rule: User ID
+
+#### Permission: Read
+
+#### HTTP Request
+
+`GET /api/v5/finance/okusd/account`
+
+Request Example
+
+```
+GET /api/v5/finance/okusd/account
+```
+
+#### Request Parameters
+
+None
+
+Response Example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [
+ {
+ "ccy": "OKUSD",
+ "amt": "10000.00000000",
+ "totalEarnAccrual": "123.45678900",
+ "ts": "1718500000000"
+ }
+ ]
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| ccy | String | Currency. Always `"OKUSD"` |
+| amt | String | Current OKUSD balance |
+| totalEarnAccrual | String | Cumulative yield accrued over the holding period, denominated in USDT |
+| ts | String | Server timestamp, Unix timestamp format in milliseconds, e.g. `1597026383085` |
+
+### GET / Get Subscription History
+
+Retrieve your OKUSD subscription order history. Results are returned in descending order by timestamp (newest first) and support time-range filtering.
+
+#### Rate Limit: 5 requests per 2 seconds
+
+#### Rate limit rule: User ID
+
+#### Permission: Read
+
+#### HTTP Request
+
+`GET /api/v5/finance/okusd/subscribe/history`
+
+Request Example
+
+```
+GET /api/v5/finance/okusd/subscribe/history?limit=2
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| limit | String | No | Number of results per page. Default `"100"`. Maximum `"100"` |
+| begin | String | No | Start time filter (order creation time `ts`, Unix ms, inclusive) |
+| end | String | No | End time filter (order creation time `ts`, Unix ms, inclusive) |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [
+ {
+ "ordId": "680012345678901234",
+ "clOrdId": "my-sub-001",
+ "ccy": "USDT",
+ "amt": "1000.00000000",
+ "settleCcy": "OKUSD",
+ "settleCcyAmt": "1000.00000000",
+ "status": "success",
+ "ts": "1718500000000"
+ }
+ ]
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| ordId | String | System-generated order ID |
+| clOrdId | String | Client-defined order ID (echoed back; empty string if not provided) |
+| ccy | String | Subscription currency. Always `"USDT"` |
+| amt | String | USDT amount subscribed |
+| settleCcy | String | Settlement currency. Always `"OKUSD"` |
+| settleCcyAmt | String | OKUSD amount credited (equal to `amt` at 1:1 rate) |
+| status | String | Terminal order status: `"success"` / `"failed"` |
+| ts | String | Order creation time, Unix timestamp format in milliseconds, e.g. `1597026383085` |
+
+### GET / Get Redemption History
+
+Retrieve your OKUSD redemption order history. Results are returned in descending order by timestamp (newest first) and support time-range filtering and redemption-type filtering.
+
+#### Rate Limit: 5 requests per 2 seconds
+
+#### Rate limit rule: User ID
+
+#### Permission: Read
+
+#### HTTP Request
+
+`GET /api/v5/finance/okusd/redeem/history`
+
+Request Example
+
+```
+GET /api/v5/finance/okusd/redeem/history?type=fast
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| limit | String | No | Number of results per page. Default `"100"`. Maximum `"100"` |
+| begin | String | No | Start time filter (order creation time `ts`, Unix ms, inclusive) |
+| end | String | No | End time filter (order creation time `ts`, Unix ms, inclusive) |
+| type | String | No | Redemption type filter: `"fast"` for fast redemption only; `"standard"` for standard redemption only. Defaults to standard redemption if not specified |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [
+ {
+ "ordId": "680012345678905678",
+ "clOrdId": "my-rdm-fast-001",
+ "ccy": "OKUSD",
+ "amt": "1000.00000000",
+ "fee": "1.00000000",
+ "settleCcy": "USDT",
+ "settleCcyAmt": "999.00000000",
+ "type": "fast",
+ "status": "success",
+ "estSettlementTime": "1718500010000",
+ "ts": "1718500000000"
+ }
+ ]
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| ordId | String | System-generated order ID |
+| clOrdId | String | Client-defined order ID (echoed back; empty string if not provided) |
+| ccy | String | Redemption currency. Always `"OKUSD"` |
+| amt | String | OKUSD amount redeemed |
+| fee | String | Fee charged in USDT, truncated (floor) to 8 decimal places |
+| settleCcy | String | Settlement currency. Always `"USDT"` |
+| settleCcyAmt | String | Net USDT amount credited (`amt - fee`, truncated to 8 decimal places) |
+| type | String | Redemption type: `"fast"` (real-time settlement) or `"standard"` (D+5/D+6 calendar days) |
+| status | String | Order status: `"pending"` / `"success"` / `"failed"` / `"canceled"` |
+| estSettlementTime | String | Estimated settlement time, Unix timestamp format in milliseconds. Empty string for settled fast redemption orders |
+| ts | String | Order creation time, Unix timestamp format in milliseconds, e.g. `1597026383085` |
+
+### GET / Get Rewards History
+
+Retrieve your daily OKUSD yield distribution history. Results are returned in descending order by timestamp (newest first).
+
+#### Rate Limit: 5 requests per 2 seconds
+
+#### Rate limit rule: User ID
+
+#### Permission: Read
+
+#### HTTP Request
+
+`GET /api/v5/finance/okusd/rewards/history`
+
+Request Example
+
+```
+GET /api/v5/finance/okusd/rewards/history?limit=7
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| limit | String | No | Number of results per page. Default `"30"`. Maximum `"100"` |
+| begin | String | No | Start time filter (`ts`, Unix ms, inclusive). Maximum query span is 6 months |
+| end | String | No | End time filter (`ts`, Unix ms, inclusive). Defaults to the current time if not provided |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [
+ {
+ "ccy": "USDT",
+ "earnAmt": "1.14246575",
+ "amt": "10000.00000000",
+ "apr": "0.0418",
+ "ts": "1718500000000"
+ }
+ ]
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| ccy | String | Yield currency. Always `"USDT"` |
+| earnAmt | String | USDT yield distributed in this event |
+| amt | String | Your USDT principal balance at the time of distribution |
+| apr | String | APR applied for this distribution, e.g. `"0.0418"` represents 4.18% |
+| ts | String | Distribution timestamp, Unix timestamp format in milliseconds, e.g. `1597026383085` |
+
+### GET / Get APR History
+
+Retrieve the historical APR snapshots for OKUSD. Results are returned in descending order by timestamp (newest first). This endpoint requires API Key authentication even though the data is product-level and not user-specific.
+
+#### Rate Limit: 5 requests per 2 seconds
+
+#### Rate limit rule: User ID
+
+#### Permission: Read
+
+#### HTTP Request
+
+`GET /api/v5/finance/okusd/rate/history`
+
+Request Example
+
+```
+GET /api/v5/finance/okusd/rate/history?limit=10
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| limit | String | No | Number of results per page. Default `"30"`. Maximum `"100"` |
+| begin | String | No | Start time filter (`ts`, Unix ms, inclusive). Maximum query span is 6 months |
+| end | String | No | End time filter (`ts`, Unix ms, inclusive). Defaults to the current time if not provided |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [
+ { "apr": "0.0418", "ts": "1718500000000" },
+ { "apr": "0.0395", "ts": "1718413600000" }
+ ]
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| apr | String | OKUSD APR at this snapshot, e.g. `"0.0418"` represents 4.18% |
+| ts | String | Snapshot timestamp, Unix timestamp format in milliseconds, e.g. `1597026383085` |

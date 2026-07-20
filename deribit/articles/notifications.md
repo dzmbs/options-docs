@@ -128,7 +128,7 @@ Many channels support different notification intervals to control the frequency 
 
 * **`raw`** - Immediate notifications for every change (order book only)
 * **`100ms`** - Notifications aggregated over 100 milliseconds
-* **`agg2`** - Notifications aggregated over 2 seconds
+* **`agg2`** - Dynamic value; can be changed by the technical team if needed, but by default no more often than 1 second
 
 <Note>
   The `raw` interval requires an authenticated connection. Unauthenticated users cannot subscribe to raw channels.

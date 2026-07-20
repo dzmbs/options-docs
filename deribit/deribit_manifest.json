@@ -972,8 +972,8 @@
     },
     "articles/notifications.md": {
       "source_url": "https://docs.deribit.com/articles/notifications.md",
-      "hash": "f669d9af14a2af065bc705a88e96e4dd1d94e8c0d3fce392f75d60f38b5901c9",
-      "last_updated": "2026-06-16T12:44:25.485877"
+      "hash": "1ae956ce95555deaec1979b77b7b6c399b484aab95b763b39b70c6bb58e5ba9c",
+      "last_updated": "2026-07-20T13:16:16.929305"
     },
     "articles/order-management-best-practices.md": {
       "source_url": "https://docs.deribit.com/articles/order-management-best-practices.md",
@@ -1417,13 +1417,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-07-19T12:08:19.799676",
-    "duration_seconds": 306.707107,
+    "completed_at": "2026-07-20T13:18:16.757725",
+    "duration_seconds": 403.214298,
     "pages_total": 283,
     "pages_fetched": 283,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-07-19T12:08:19.799692",
+  "last_updated": "2026-07-20T13:18:16.757742",
   "source": "https://docs.deribit.com"
 }
