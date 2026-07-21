@@ -455,25 +455,25 @@ operations:
                     the Unix epoch)
                   type: integer
                   example: 1536569522277
-                  x-parser-schema-id: <anonymous-schema-1117>
+                  x-parser-schema-id: <anonymous-schema-1141>
                 expiration_timestamp:
                   type: integer
                   example: 1536569522277
                   description: >-
                     The timestamp when the Block RFQ will expire (milliseconds
                     since the UNIX epoch)
-                  x-parser-schema-id: <anonymous-schema-1118>
+                  x-parser-schema-id: <anonymous-schema-1142>
                 block_rfq_id:
                   type: integer
                   description: ID of the Block RFQ
-                  x-parser-schema-id: <anonymous-schema-1119>
+                  x-parser-schema-id: <anonymous-schema-1143>
                 role:
                   description: Role of the user in Block RFQ
                   type: string
                   enum:
                     - taker
                     - maker
-                  x-parser-schema-id: <anonymous-schema-1120>
+                  x-parser-schema-id: <anonymous-schema-1144>
                 state:
                   description: State of the Block RFQ
                   type: string
@@ -482,27 +482,27 @@ operations:
                     - filled
                     - cancelled
                     - expired
-                  x-parser-schema-id: <anonymous-schema-1121>
+                  x-parser-schema-id: <anonymous-schema-1145>
                 taker_rating:
                   description: Rating of the taker
                   type: string
-                  x-parser-schema-id: <anonymous-schema-1122>
+                  x-parser-schema-id: <anonymous-schema-1146>
                 makers:
                   type: object
                   description: ''
                   properties: {}
                   additionalProperties: true
-                  x-parser-schema-id: <anonymous-schema-1123>
+                  x-parser-schema-id: <anonymous-schema-1147>
                 amount:
                   description: >-
                     This value multiplied by the ratio of a leg gives trade size
                     on that leg.
                   type: number
-                  x-parser-schema-id: <anonymous-schema-1124>
+                  x-parser-schema-id: <anonymous-schema-1148>
                 min_trade_amount:
                   description: Minimum amount for trading
                   type: number
-                  x-parser-schema-id: <anonymous-schema-1125>
+                  x-parser-schema-id: <anonymous-schema-1149>
                 asks:
                   type: array
                   items:
@@ -513,19 +513,19 @@ operations:
                         items:
                           type: string
                           description: Maker of the quote
-                          x-parser-schema-id: <anonymous-schema-1129>
-                        x-parser-schema-id: <anonymous-schema-1128>
+                          x-parser-schema-id: <anonymous-schema-1153>
+                        x-parser-schema-id: <anonymous-schema-1152>
                       price:
                         description: Price of a quote
                         type: number
-                        x-parser-schema-id: <anonymous-schema-1130>
+                        x-parser-schema-id: <anonymous-schema-1154>
                       last_update_timestamp:
                         type: integer
                         example: 1536569522277
                         description: >-
                           Timestamp of the last update of the quote
                           (milliseconds since the UNIX epoch)
-                        x-parser-schema-id: <anonymous-schema-1131>
+                        x-parser-schema-id: <anonymous-schema-1155>
                       execution_instruction:
                         type: string
                         description: >-
@@ -545,13 +545,13 @@ operations:
                         enum:
                           - any_part_of
                           - all_or_none
-                        x-parser-schema-id: <anonymous-schema-1132>
+                        x-parser-schema-id: <anonymous-schema-1156>
                       amount:
                         description: >-
                           This value multiplied by the ratio of a leg gives
                           trade size on that leg.
                         type: number
-                        x-parser-schema-id: <anonymous-schema-1133>
+                        x-parser-schema-id: <anonymous-schema-1157>
                       expires_at:
                         type: integer
                         example: 1745312540321
@@ -559,9 +559,9 @@ operations:
                           The timestamp when the quote expires (milliseconds
                           since the Unix epoch), equal to the earliest expiry of
                           placed quotes
-                        x-parser-schema-id: <anonymous-schema-1134>
-                    x-parser-schema-id: <anonymous-schema-1127>
-                  x-parser-schema-id: <anonymous-schema-1126>
+                        x-parser-schema-id: <anonymous-schema-1158>
+                    x-parser-schema-id: <anonymous-schema-1151>
+                  x-parser-schema-id: <anonymous-schema-1150>
                 bids:
                   type: array
                   items:
@@ -572,19 +572,19 @@ operations:
                         items:
                           type: string
                           description: Maker of the quote
-                          x-parser-schema-id: <anonymous-schema-1138>
-                        x-parser-schema-id: <anonymous-schema-1137>
+                          x-parser-schema-id: <anonymous-schema-1162>
+                        x-parser-schema-id: <anonymous-schema-1161>
                       price:
                         description: Price of a quote
                         type: number
-                        x-parser-schema-id: <anonymous-schema-1139>
+                        x-parser-schema-id: <anonymous-schema-1163>
                       last_update_timestamp:
                         type: integer
                         example: 1536569522277
                         description: >-
                           Timestamp of the last update of the quote
                           (milliseconds since the UNIX epoch)
-                        x-parser-schema-id: <anonymous-schema-1140>
+                        x-parser-schema-id: <anonymous-schema-1164>
                       execution_instruction:
                         type: string
                         description: >-
@@ -604,13 +604,13 @@ operations:
                         enum:
                           - any_part_of
                           - all_or_none
-                        x-parser-schema-id: <anonymous-schema-1141>
+                        x-parser-schema-id: <anonymous-schema-1165>
                       amount:
                         description: >-
                           This value multiplied by the ratio of a leg gives
                           trade size on that leg.
                         type: number
-                        x-parser-schema-id: <anonymous-schema-1142>
+                        x-parser-schema-id: <anonymous-schema-1166>
                       expires_at:
                         type: integer
                         example: 1745312540321
@@ -618,9 +618,9 @@ operations:
                           The timestamp when the quote expires (milliseconds
                           since the Unix epoch), equal to the earliest expiry of
                           placed quotes
-                        x-parser-schema-id: <anonymous-schema-1143>
-                    x-parser-schema-id: <anonymous-schema-1136>
-                  x-parser-schema-id: <anonymous-schema-1135>
+                        x-parser-schema-id: <anonymous-schema-1167>
+                    x-parser-schema-id: <anonymous-schema-1160>
+                  x-parser-schema-id: <anonymous-schema-1159>
                 legs:
                   type: object
                   description: ''
@@ -628,22 +628,22 @@ operations:
                     ratio:
                       description: Ratio of amount between legs
                       type: integer
-                      x-parser-schema-id: <anonymous-schema-1145>
+                      x-parser-schema-id: <anonymous-schema-1169>
                     instrument_name:
                       type: string
                       description: Unique instrument identifier
                       example: BTC-PERPETUAL
-                      x-parser-schema-id: <anonymous-schema-1146>
+                      x-parser-schema-id: <anonymous-schema-1170>
                     direction:
                       type: string
                       description: 'Direction: `buy`, or `sell`'
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-1147>
+                      x-parser-schema-id: <anonymous-schema-1171>
                   required: []
                   additionalProperties: false
-                  x-parser-schema-id: <anonymous-schema-1144>
+                  x-parser-schema-id: <anonymous-schema-1168>
                 hedge:
                   type: object
                   properties:
@@ -654,69 +654,69 @@ operations:
                         units. For options and linear futures it is the
                         underlying base currency coin.
                       type: integer
-                      x-parser-schema-id: <anonymous-schema-1149>
+                      x-parser-schema-id: <anonymous-schema-1173>
                     instrument_name:
                       type: string
                       description: Unique instrument identifier
                       example: BTC-PERPETUAL
-                      x-parser-schema-id: <anonymous-schema-1150>
+                      x-parser-schema-id: <anonymous-schema-1174>
                     direction:
                       type: string
                       description: 'Direction: `buy`, or `sell`'
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-1151>
+                      x-parser-schema-id: <anonymous-schema-1175>
                     price:
                       description: Price for a hedge leg
                       type: number
-                      x-parser-schema-id: <anonymous-schema-1152>
-                  x-parser-schema-id: <anonymous-schema-1148>
+                      x-parser-schema-id: <anonymous-schema-1176>
+                  x-parser-schema-id: <anonymous-schema-1172>
                 combo_id:
                   type: string
                   description: Unique combo identifier
                   example: BTC-FS-31DEC21-PERP
-                  x-parser-schema-id: <anonymous-schema-1153>
+                  x-parser-schema-id: <anonymous-schema-1177>
                 label:
                   type: string
                   description: User defined label for the Block RFQ (maximum 64 characters)
-                  x-parser-schema-id: <anonymous-schema-1154>
+                  x-parser-schema-id: <anonymous-schema-1178>
                 app_name:
                   description: >-
                     The name of the application that created the Block RFQ on
                     behalf of the user (optional, visible only to taker).
                   type: string
                   example: Example Application
-                  x-parser-schema-id: <anonymous-schema-1155>
+                  x-parser-schema-id: <anonymous-schema-1179>
                 mark_price:
                   description: The mark price for the instrument
                   type: number
-                  x-parser-schema-id: <anonymous-schema-1156>
+                  x-parser-schema-id: <anonymous-schema-1180>
                 disclosed:
                   description: >-
                     Indicates whether the RFQ was created as non-anonymous,
                     meaning taker and maker aliases are visible to
                     counterparties.
                   type: boolean
-                  x-parser-schema-id: <anonymous-schema-1157>
+                  x-parser-schema-id: <anonymous-schema-1181>
                 taker:
                   description: Taker alias. Present only when `disclosed` is `true`.
                   type: string
                   example: TAKER1
-                  x-parser-schema-id: <anonymous-schema-1158>
+                  x-parser-schema-id: <anonymous-schema-1182>
                 index_prices:
                   type: object
                   description: ''
                   properties: {}
                   additionalProperties: true
-                  x-parser-schema-id: <anonymous-schema-1159>
+                  x-parser-schema-id: <anonymous-schema-1183>
                 included_in_taker_rating:
                   description: >-
                     Indicates whether the RFQ is included in the taker's rating
                     calculation. Present only for closed RFQs created by the
                     requesting taker.
                   type: boolean
-                  x-parser-schema-id: <anonymous-schema-1160>
+                  x-parser-schema-id: <anonymous-schema-1184>
                 trades:
                   type: object
                   description: ''
@@ -727,11 +727,11 @@ operations:
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-1162>
+                      x-parser-schema-id: <anonymous-schema-1186>
                     price:
                       description: Price in base currency
                       type: number
-                      x-parser-schema-id: <anonymous-schema-1163>
+                      x-parser-schema-id: <anonymous-schema-1187>
                     amount:
                       description: >-
                         Trade amount. For options, linear futures, linear
@@ -739,11 +739,11 @@ operations:
                         underlying base currency coin. The inverse perpetuals
                         and inverse futures are denominated in USD units.
                       type: number
-                      x-parser-schema-id: <anonymous-schema-1164>
+                      x-parser-schema-id: <anonymous-schema-1188>
                     maker:
                       type: string
                       description: Alias of the maker (optional)
-                      x-parser-schema-id: <anonymous-schema-1165>
+                      x-parser-schema-id: <anonymous-schema-1189>
                     hedge_amount:
                       type: number
                       description: >-
@@ -751,10 +751,10 @@ operations:
                         perpetuals and spots the amount is denominated in the
                         underlying base currency coin. The inverse perpetuals
                         and inverse futures are denominated in USD units.
-                      x-parser-schema-id: <anonymous-schema-1166>
+                      x-parser-schema-id: <anonymous-schema-1190>
                   required: []
                   additionalProperties: false
-                  x-parser-schema-id: <anonymous-schema-1161>
+                  x-parser-schema-id: <anonymous-schema-1185>
                 trade_trigger:
                   description: >-
                     Present only if a trade trigger was placed by the taker and
@@ -770,29 +770,29 @@ operations:
                         - triggered
                         - untriggered
                         - cancelled
-                      x-parser-schema-id: <anonymous-schema-1168>
+                      x-parser-schema-id: <anonymous-schema-1192>
                     price:
                       description: Price of the trade trigger
                       type: number
-                      x-parser-schema-id: <anonymous-schema-1169>
+                      x-parser-schema-id: <anonymous-schema-1193>
                     direction:
                       description: Direction of the trade trigger
                       type: string
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-1170>
+                      x-parser-schema-id: <anonymous-schema-1194>
                     cancel_reason:
                       description: >-
                         Reason for cancellation, present only when state is
                         cancelled
                       type: string
-                      x-parser-schema-id: <anonymous-schema-1171>
+                      x-parser-schema-id: <anonymous-schema-1195>
                   required:
                     - state
                     - price
                     - direction
-                  x-parser-schema-id: <anonymous-schema-1167>
+                  x-parser-schema-id: <anonymous-schema-1191>
                 trade_allocations:
                   type: object
                   description: >-
@@ -805,7 +805,7 @@ operations:
                         User ID to allocate part of the RFQ amount. For brokers
                         the User ID is obstructed.
                       type: integer
-                      x-parser-schema-id: <anonymous-schema-1173>
+                      x-parser-schema-id: <anonymous-schema-1197>
                     client_info:
                       description: Client allocation info for brokers.
                       type: object
@@ -815,34 +815,34 @@ operations:
                             ID of a client; available to broker. Represents a
                             group of users under a common name.
                           type: integer
-                          x-parser-schema-id: <anonymous-schema-1175>
+                          x-parser-schema-id: <anonymous-schema-1199>
                         client_link_id:
                           description: >-
                             ID assigned to a single user in a client; available
                             to broker.
                           type: integer
-                          x-parser-schema-id: <anonymous-schema-1176>
+                          x-parser-schema-id: <anonymous-schema-1200>
                         name:
                           description: >-
                             Name of the linked user within the client; available
                             to broker.
                           type: string
-                          x-parser-schema-id: <anonymous-schema-1177>
-                      x-parser-schema-id: <anonymous-schema-1174>
+                          x-parser-schema-id: <anonymous-schema-1201>
+                      x-parser-schema-id: <anonymous-schema-1198>
                     amount:
                       description: Amount allocated to this user or client.
                       type: number
-                      x-parser-schema-id: <anonymous-schema-1178>
+                      x-parser-schema-id: <anonymous-schema-1202>
                   required: []
                   additionalProperties: false
-                  x-parser-schema-id: <anonymous-schema-1172>
+                  x-parser-schema-id: <anonymous-schema-1196>
               required: []
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-1116>
+              x-parser-schema-id: <anonymous-schema-1140>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-1115>
+          x-parser-schema-id: <anonymous-schema-1139>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -925,7 +925,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-1114>
+          x-parser-schema-id: <anonymous-schema-1138>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

@@ -8,7 +8,7 @@
 
 **Note - This method has distinct API rate limiting requirements:** Sustained rate: 1 request/second. To avoid rate limits, we recommend using either the REST requests for server-cached data or the WebSocket subscription to [instrument_state.{kind}.{currency}](https://docs.deribit.com/api-reference/subscription-channels/instrument-state-kind-currency) for real-time updates. For more information, see [Rate Limits](https://support.deribit.com/hc/en-us/articles/25944617523357-Rate-Limits).
 
-Results can be filtered by currency and instrument kind (future, option, etc.). Set the `expired` parameter to `true` to retrieve recently expired instruments instead of active ones. Each instrument includes the `underlying_type` field indicating whether the underlying asset is `equity`, `commodity`, or `crypto`.
+Results can be filtered by currency and instrument kind (future, option, etc.). Set the `expired` parameter to `true` to retrieve recently expired instruments instead of active ones. Each instrument includes the `underlying_type` field indicating the underlying asset class (such as `crypto`, `equity`, or `commodity`).
 
 [Try in API console](https://test.deribit.com/api_console?method=%2Fpublic%2Fget_instruments)
 
@@ -80,8 +80,8 @@ paths:
         Results can be filtered by currency and instrument kind (future, option,
         etc.). Set the `expired` parameter to `true` to retrieve recently
         expired instruments instead of active ones. Each instrument includes the
-        `underlying_type` field indicating whether the underlying asset is
-        `equity`, `commodity`, or `crypto`.
+        `underlying_type` field indicating the underlying asset class (such as
+        `crypto`, `equity`, or `commodity`).
 
 
         [Try in API
@@ -297,9 +297,18 @@ components:
         underlying_type:
           type: string
           enum:
+            - crypto
             - equity
             - commodity
-            - crypto
+            - preipo
+            - equity_etf
+            - crypto_index
+            - adr
+            - foreign_equity
+            - equity_index
+            - commodity_index
+            - commodity_etf
+            - otc
           description: The type of the underlying asset.
         state:
           $ref: '#/components/schemas/book_state'

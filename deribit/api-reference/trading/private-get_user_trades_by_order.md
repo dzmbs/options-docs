@@ -189,6 +189,13 @@ components:
           $ref: '#/components/schemas/instrument_name'
         timestamp:
           $ref: '#/components/schemas/trade_timestamp'
+        starbase_timestamp:
+          type: integer
+          description: >-
+            Optional field: timestamp of the match (trade) in
+            [Starbase](https://docs.deribit.com/starbase/overview), in
+            nanoseconds since the UNIX epoch (present only for trades matched in
+            Starbase)
         order_type:
           type: string
           enum:
@@ -212,6 +219,11 @@ components:
         matching_id:
           type: string
           description: Always `null`
+        starbase_match_id:
+          type: integer
+          description: >-
+            Optional field containing the Starbase match identifier (present
+            only for trades matched via Starbase)
         direction:
           $ref: '#/components/schemas/direction'
           description: Trade direction of the taker

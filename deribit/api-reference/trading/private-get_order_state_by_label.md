@@ -153,9 +153,9 @@ components:
         error:
           type: integer
       required:
-        - message
-        - error
         - jsonrpc
+        - error
+        - message
       type: object
     orders:
       items:
@@ -165,6 +165,12 @@ components:
       properties:
         order_id:
           $ref: '#/components/schemas/order_id'
+        starbase_order_id:
+          type: integer
+          example: 103148386170
+          description: >-
+            Raw Starbase order id, in Starbase's own (non currency-prefixed) id
+            namespace. Only present for orders matched on Starbase.
         order_state:
           $ref: '#/components/schemas/order_state'
         order_type:
@@ -189,6 +195,8 @@ components:
           $ref: '#/components/schemas/timestamp'
         last_update_timestamp:
           $ref: '#/components/schemas/timestamp'
+        starbase_last_update_timestamp:
+          $ref: '#/components/schemas/starbase_last_update_timestamp'
         direction:
           $ref: '#/components/schemas/direction'
         price:
@@ -385,6 +393,13 @@ components:
       example: 1536569522277
       type: integer
       description: The timestamp (milliseconds since the Unix epoch)
+    starbase_last_update_timestamp:
+      example: 1536569522277000000
+      type: integer
+      description: >-
+        The Starbase causal timestamp (nanoseconds since the Unix epoch) of the
+        last book update that affected this order. Present only for orders
+        placed in Starbase; not always available for direct access orders
     direction:
       enum:
         - buy

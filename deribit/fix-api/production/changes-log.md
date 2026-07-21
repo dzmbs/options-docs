@@ -134,7 +134,7 @@ Added RFQ API:
 ### Release 1.3.09
 
 * Added Sequence Reset(4)
-* Security List Request(x) added SubscriptionRequestType(263) - possibilty to get notifications about new or terminated instruments
+* Security List Request(x) added SubscriptionRequestType(263) - possibility to get notifications about new or terminated instruments
 * SecurityList (y): added SecurityStatus(965) in the notifications
 
 ### Release 1.3.08
@@ -194,7 +194,7 @@ Added RFQ API:
 * SecurityList (y): added UnderlyingSymbol(311)
 * SecurityList (y): added MinTradeVol(562)
 * User Request(BE): added parameter Currency(15), default is BTC
-* Order Mass Cancel Request(q): added  parameter Currency(15)
+* Order Mass Cancel Request(q): added parameter Currency(15)
 * added notification for StopLimit and StopMarket Orders. StopMarket orders has OrdType=S
 * Execution Report (8): added ContractMultiplier(231)
 * Execution Report (8): added ConditionTriggerMethod(5127)

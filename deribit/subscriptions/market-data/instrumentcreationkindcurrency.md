@@ -132,11 +132,11 @@ operations:
               type: object
               description: The actual notification data
               additionalProperties: true
-              x-parser-schema-id: <anonymous-schema-562>
+              x-parser-schema-id: <anonymous-schema-570>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-561>
+          x-parser-schema-id: <anonymous-schema-569>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -204,7 +204,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-560>
+          x-parser-schema-id: <anonymous-schema-568>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

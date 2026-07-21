@@ -53,7 +53,7 @@ For example:
 
 <b>ETH\_USD-14SEP22-2000-P</b> resembles an <b>ETH-USD</b> options contract that
 expires on 14 september 2022 with PUT strike price at 2000 USD. <b>BTC\_USD</b>
-trading pair is treated as a default trading pair and doesn't have qoute currency
+trading pair is treated as a default trading pair and doesn't have quote currency
 provided in its name.
 
 (\*) SecurityStatus is present only in notification messages for subscription by

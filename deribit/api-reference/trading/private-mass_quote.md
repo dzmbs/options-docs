@@ -460,6 +460,12 @@ components:
       properties:
         order_id:
           $ref: '#/components/schemas/order_id'
+        starbase_order_id:
+          type: integer
+          example: 103148386170
+          description: >-
+            Raw Starbase order id, in Starbase's own (non currency-prefixed) id
+            namespace. Only present for orders matched on Starbase.
         order_state:
           $ref: '#/components/schemas/order_state'
         order_type:
@@ -484,6 +490,8 @@ components:
           $ref: '#/components/schemas/timestamp'
         last_update_timestamp:
           $ref: '#/components/schemas/timestamp'
+        starbase_last_update_timestamp:
+          $ref: '#/components/schemas/starbase_last_update_timestamp'
         direction:
           $ref: '#/components/schemas/direction'
         price:
@@ -637,6 +645,13 @@ components:
           $ref: '#/components/schemas/instrument_name'
         timestamp:
           $ref: '#/components/schemas/trade_timestamp'
+        starbase_timestamp:
+          type: integer
+          description: >-
+            Optional field: timestamp of the match (trade) in
+            [Starbase](https://docs.deribit.com/starbase/overview), in
+            nanoseconds since the UNIX epoch (present only for trades matched in
+            Starbase)
         order_type:
           type: string
           enum:
@@ -660,6 +675,11 @@ components:
         matching_id:
           type: string
           description: Always `null`
+        starbase_match_id:
+          type: integer
+          description: >-
+            Optional field containing the Starbase match identifier (present
+            only for trades matched via Starbase)
         direction:
           $ref: '#/components/schemas/direction'
           description: Trade direction of the taker
@@ -885,6 +905,13 @@ components:
       example: 1536569522277
       type: integer
       description: The timestamp (milliseconds since the Unix epoch)
+    starbase_last_update_timestamp:
+      example: 1536569522277000000
+      type: integer
+      description: >-
+        The Starbase causal timestamp (nanoseconds since the Unix epoch) of the
+        last book update that affected this order. Present only for orders
+        placed in Starbase; not always available for direct access orders
     direction:
       enum:
         - buy

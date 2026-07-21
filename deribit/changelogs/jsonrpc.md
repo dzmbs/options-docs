@@ -6,7 +6,27 @@
 
 > Changes and announcements for the Deribit JSON-RPC API.
 
-<Update label="Release 27.06.2026">
+<Update label="Release 21.07.2026">
+  A new method [private/get\_currencies](https://docs.deribit.com/api-reference/account-management/private-get_currencies) has been added. It returns a list of cryptocurrencies available for the authenticated user's account.
+
+  The following fields have been added to the Trade and Order objects in order to support the Starbase migration:
+
+  **Trade object**
+
+  | Field                | Description                                                                                                    |
+  | -------------------- | -------------------------------------------------------------------------------------------------------------- |
+  | `starbase_match_id`  | The unique identifier for a match (trade) in Starbase.<br />Note: This is separate from the standard trade ID. |
+  | `starbase_timestamp` | The timestamp of the match (trade) in Starbase, provided in nanosecond precision.                              |
+
+  **Order object**
+
+  | Field                            | Description                                                                                             |
+  | -------------------------------- | ------------------------------------------------------------------------------------------------------- |
+  | `starbase_order_id`              | The unique identifier for an order in Starbase.<br />Note: This is separate from the standard order ID. |
+  | `starbase_last_update_timestamp` | The last-update timestamp of the order in Starbase, provided in nanosecond precision.                   |
+</Update>
+
+<Update label="Release 30.06.2026">
   The response of [private/get\_margins](https://docs.deribit.com/api-reference/trading/private-get_margins) now includes fee fields.
 
   The `underlying_type` field is now returned in [public/get\_instrument](https://docs.deribit.com/api-reference/market-data/public-get_instrument) and [public/get\_instruments](https://docs.deribit.com/api-reference/market-data/public-get_instruments).

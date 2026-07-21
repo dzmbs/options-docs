@@ -18,7 +18,7 @@ Place buy and/or sell orders on one or more instruments. This endpoint can only 
 | => => 299 | `QuoteEntryID`      | String            | Yes      | Identifier of the quote. It is echoed in the `Mass Quote Acknowledgement` (`b`).                                                        |
 | => => 55  | `Symbol`            | String            | Yes      | Common, "human understood" representation of the security, e.g., <b>BTC-28JUL17</b>, see instrument naming convention for more details. |
 | => => 132 | `BidPx`             | Price             | No       | Bid price. If no price is supplied, only the quantity is amended.                                                                       |
-| => => 133 | `OfferPx`           | Price             | No       | Offer  price. If no price is supplied, only the quantity is amended.                                                                    |
+| => => 133 | `OfferPx`           | Price             | No       | Offer price. If no price is supplied, only the quantity is amended.                                                                     |
 | => => 134 | `BidSize`           | Qty               | No       | Bid quantity in contracts. If no quantity is supplied, only the price is amended.                                                       |
 | => => 135 | `OfferSize`         | Qty               | No       | Offer quantity in contracts. If no quantity is supplied, only the price is amended.                                                     |
 | => => 18  | `ExecInst`          | MultipleCharValue | No       | Supports post-only and post-only-reject, see `NewOrderSingle` (`D`).                                                                    |

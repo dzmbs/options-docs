@@ -164,6 +164,7 @@ components:
         - bnb_usdc
         - doge_usdc
         - dot_usdc
+        - hype_usdc
         - link_usdc
         - ltc_usdc
         - near_usdc
@@ -245,6 +246,7 @@ components:
         - eurr_usdc
         - eth_usdc
         - ethdvol_usdc
+        - hype_usdc
         - link_usdc
         - ltc_usdc
         - near_usdc

@@ -143,6 +143,7 @@ operations:
                       - eurr_usdc
                       - eth_usdc
                       - ethdvol_usdc
+                      - hype_usdc
                       - link_usdc
                       - ltc_usdc
                       - near_usdc
@@ -227,6 +228,7 @@ operations:
                     - eurr_usdc
                     - eth_usdc
                     - ethdvol_usdc
+                    - hype_usdc
                     - link_usdc
                     - ltc_usdc
                     - near_usdc

@@ -6,6 +6,68 @@
 
 > Changes and announcements for the Deribit Starbase API.
 
+<Update label="Starbase Release 21.07.2026 — v1.3">
+  ## API Changes
+
+  The order entry SBE schema has been updated to version `11` (`semanticVersion` `1.3`).
+
+  Updated [SBE XMLs](https://statics.deribit.com/files/deribit-sbe-xmls.zip) and [Starbase SDK](https://statics.deribit.com/files/starbase-deribit-sdk.zip) `0.5.1` reflecting these changes have been uploaded and are available for download.
+
+  ### Order Entry
+
+  New messages for querying MMP freeze status:
+
+  * `GetMassQuoteMmpStatusRequest` (155) — request the MMP status for a given `mmpGroupId`
+  * `GetOrdersMmpStatusRequest` (156) — request the MMP status for a given underlying index (`currencyPairId`)
+  * `GetMassQuoteMmpStatusResponse` (280) — returns `mmpGroupId` and `frozenUntilTime` (optional, present only while frozen)
+  * `GetMassQuoteMmpStatusReject` (281) — rejects the request with a `reason`
+  * `GetOrdersMmpStatusResponse` (282) — returns the underlying index and `frozenUntilTime` (optional, present only while frozen)
+  * `GetOrdersMmpStatusReject` (283) — rejects the request with a `reason`
+
+  See [Querying MMP Status](/starbase/mmp#binary-api) for full message details.
+
+  New `MmpStatusRejectReason` enum, used by the reject messages above:
+
+  * `SYSTEM_ERROR` (0)
+  * `INVALID_MMP_GROUP` (1)
+
+  New `OrderFlags` value (`NewOrderRequest`):
+
+  * `resetMmp` — reset MMP for the order's `mmpGroupId` before processing it
+
+  ### Session Messages
+
+  New `RejectReason` value, used by the `Reject` (30) message:
+
+  * `MESSAGE_DISABLED` (5) — the message being submitted has been administratively disabled
+
+  The `Reject` (30) message and its `RejectReason` enum are now documented on the [Session Messages](/starbase/session-messages#reject-30) page.
+
+  ## Announcement
+
+  The IP and port layout of the SBE Order Entry Gateway was changed from:
+
+  | Gateway   | Side | Address                                                            | Port                               | Protocol | AWS Port                               |
+  | --------- | ---- | ------------------------------------------------------------------ | ---------------------------------- | -------- | -------------------------------------- |
+  | sbe-order | A    | 195.138.37.1<br />195.138.37.1<br />195.138.37.3<br />195.138.37.3 | 4210<br />4211<br />4212<br />4213 | TCP      | 34210<br />34211<br />34212<br />34213 |
+  | sbe-order | B    | 195.138.37.2<br />195.138.37.2<br />195.138.37.4<br />195.138.37.4 | 4210<br />4211<br />4212<br />4213 | TCP      | 44210<br />44211<br />44212<br />44213 |
+
+  to:
+
+  | Gateway            | Side | Address      | Port | Protocol | AWS Port |
+  | ------------------ | ---- | ------------ | ---- | -------- | -------- |
+  | sbe-order (BTC)    | A    | 195.138.37.1 | 4210 | TCP      | 34210    |
+  | sbe-order (ETH)    | A    | 195.138.37.3 | 4211 | TCP      | 34211    |
+  | sbe-order (Tier 2) | A    | 195.138.37.5 | 4212 | TCP      | 34212    |
+  | sbe-order (Tier 3) | A    | 195.138.37.7 | 4213 | TCP      | 34213    |
+  | sbe-order (BTC)    | B    | 195.138.37.2 | 4210 | TCP      | 44210    |
+  | sbe-order (ETH)    | B    | 195.138.37.4 | 4211 | TCP      | 44211    |
+  | sbe-order (Tier 2) | B    | 195.138.37.6 | 4212 | TCP      | 44212    |
+  | sbe-order (Tier 3) | B    | 195.138.37.8 | 4213 | TCP      | 44213    |
+
+  See the [Gateway Connectivity](/starbase/gateway-connectivity) page for full, up-to-date connection details.
+</Update>
+
 <Update label="Starbase Release 15.07.2026 — v1.2">
   ## API Changes
 

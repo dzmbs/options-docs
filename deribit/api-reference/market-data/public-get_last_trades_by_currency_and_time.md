@@ -217,6 +217,8 @@ components:
           $ref: '#/components/schemas/instrument_name'
         timestamp:
           $ref: '#/components/schemas/trade_timestamp'
+        starbase_timestamp:
+          $ref: '#/components/schemas/starbase_timestamp'
         direction:
           $ref: '#/components/schemas/direction'
           description: Trade direction of the taker
@@ -270,6 +272,11 @@ components:
           description: >-
             Optional field containing combo trade identifier if the trade is a
             combo trade
+        starbase_match_id:
+          type: integer
+          description: >-
+            Optional field containing the Starbase match identifier (present
+            only for trades matched via Starbase)
         block_rfq_id:
           type: integer
           description: ID of the Block RFQ - when trade was part of the Block RFQ
@@ -299,6 +306,12 @@ components:
       example: 1517329113791
       type: integer
       description: The timestamp of the trade (milliseconds since the UNIX epoch)
+    starbase_timestamp:
+      example: 1536569522277000000
+      type: integer
+      description: >-
+        The Starbase causal timestamp of the trade (nanoseconds since the Unix
+        epoch)
     direction:
       enum:
         - buy

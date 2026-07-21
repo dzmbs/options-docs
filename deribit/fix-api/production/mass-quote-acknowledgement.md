@@ -4,7 +4,7 @@
 
 # Mass Quote Acknowledgement(b)
 
-`Mass Quote Acknowledgement` (`b`) is a reply to a `Mass Quote` (`i`) message. The message contains orders, trades and possible errors resulting from  the `Mass Quote` (`i`) message. The `QuoteEntries` are not grouped by `QuoteSets` for performance reasons, only marked with `QuoteSetID`s.
+`Mass Quote Acknowledgement` (`b`) is a reply to a `Mass Quote` (`i`) message. The message contains orders, trades and possible errors resulting from the `Mass Quote` (`i`) message. The `QuoteEntries` are not grouped by `QuoteSets` for performance reasons, only marked with `QuoteSetID`s.
 
 | Tag     | Name                     | Type         | Required | Comments                                                                                                                                                                                                                                                                        |
 | ------- | ------------------------ | ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

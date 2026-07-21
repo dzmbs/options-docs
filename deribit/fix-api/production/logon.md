@@ -39,7 +39,7 @@ random number generator. We recommend at least 32 bytes, but the *nonce* can be
 up to 512 bytes.
 
 The `Password`(`554`) tag contains a base64 encoded SHA256 hash of the
-concatenation of the `RawData`(`96`) content and the cleint secret:
+concatenation of the `RawData`(`96`) content and the client secret:
 `base64(sha256(RawData ++ access_secret))`, here `++` denotes operation of the
 concatenation.
 

@@ -247,9 +247,18 @@ components:
         underlying_type:
           type: string
           enum:
+            - crypto
             - equity
             - commodity
-            - crypto
+            - preipo
+            - equity_etf
+            - crypto_index
+            - adr
+            - foreign_equity
+            - equity_index
+            - commodity_index
+            - commodity_etf
+            - otc
           description: The type of the underlying asset.
         state:
           $ref: '#/components/schemas/book_state'
