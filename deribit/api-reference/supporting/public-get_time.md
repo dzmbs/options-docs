@@ -114,8 +114,16 @@ components:
           example: 1517329113791
           description: Current timestamp (milliseconds since the UNIX epoch)
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [public/get_announcements](/api-reference/account-management/public-get_announcements.md)
+- [public/get_combos](/api-reference/combo-books/public-get_combos.md)
+- [public/get_combo_details](/api-reference/combo-books/public-get_combo_details.md)
+- [public/get_last_trades_by_instrument_and_time](/api-reference/market-data/public-get_last_trades_by_instrument_and_time.md)
+- [public/get_last_trades_by_currency_and_time](/api-reference/market-data/public-get_last_trades_by_currency_and_time.md)

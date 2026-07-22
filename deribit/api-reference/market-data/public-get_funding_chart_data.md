@@ -145,8 +145,8 @@ components:
             - data
             - interest_8h
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     timestamp:
       example: 1536569522277
@@ -165,3 +165,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [public/get_index_chart_data](/api-reference/market-data/public-get_index_chart_data.md)
+- [public/get_tradingview_chart_data](/api-reference/market-data/public-get_tradingview_chart_data.md)
+- [public/get_funding_rate_history](/api-reference/market-data/public-get_funding_rate_history.md)
+- [public/get_funding_rate_value](/api-reference/market-data/public-get_funding_rate_value.md)
+- [public/get_volatility_index_data](/api-reference/market-data/public-get_volatility_index_data.md)

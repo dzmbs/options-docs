@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Order Mass Cancel Report(r)
+# Order Mass Cancel Report(r) — Production FIX API
+
+> OrderMassCancelReport(r) is the server report confirming or rejecting a mass cancel operation on the Deribit production FIX API, with affected order counts.
 
 | Tag  | Name                     | Type   | Required | Comments                                                                                                                                                                                                                                                                                                             |
 | ---- | ------------------------ | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -17,3 +19,12 @@
 |      | Group `AffectedOrdGrp`   |        |          |                                                                                                                                                                                                                                                                                                                      |
 | 534  | `NoAffectedOrders`       | int    | No       | Optional field used to indicate the number of order identifiers for orders affected by the [`Order Mass Cancel Request`(`q`)](/fix-api/production/order-mass-cancel-request)                                                                                                                                         |
 | =>41 | `OrigClOrdID`            | String | No       | Required if `NoAffectedOrders`(`534`) > 0. Indicates the client order id of an order affected by the [`Order Mass Cancel Request`(`q`)](/fix-api/production/order-mass-cancel-request)                                                                                                                               |
+
+
+## Related topics
+
+- [Order Mass Cancel Request(q)](/fix-api/production/order-mass-cancel-request.md)
+- [FIX API Overview](/fix-api/production/overview.md)
+- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
+- [Execution Reports(8)](/fix-api/production/execution-reports.md)
+- [Quote Cancel(Z)](/fix-api/production/quote-cancel.md)

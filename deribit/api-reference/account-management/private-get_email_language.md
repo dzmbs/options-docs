@@ -119,8 +119,16 @@ components:
           example: en
           description: The abbreviation of the language
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [private/set_email_language](/api-reference/account-management/private-set_email_language.md)
+- [private/set_email_for_subaccount](/api-reference/account-management/private-set_email_for_subaccount.md)
+- [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)
+- [private/get_account_summary](/api-reference/account-management/private-get_account_summary.md)
+- [private/get_account_summaries](/api-reference/account-management/private-get_account_summaries.md)

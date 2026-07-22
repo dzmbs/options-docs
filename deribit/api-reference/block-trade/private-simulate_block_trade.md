@@ -175,8 +175,8 @@ components:
           type: boolean
           description: '`true` if block trade can be executed, `false` otherwise'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PrivateSimulateBlockTradeResponse:
@@ -193,3 +193,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [Block Trading](/articles/block-trading-api.md)
+- [private/approve_block_trade](/api-reference/block-trade/private-approve_block_trade.md)
+- [private/reject_block_trade](/api-reference/block-trade/private-reject_block_trade.md)
+- [private/execute_block_trade](/api-reference/block-trade/private-execute_block_trade.md)
+- [private/verify_block_trade](/api-reference/block-trade/private-verify_block_trade.md)

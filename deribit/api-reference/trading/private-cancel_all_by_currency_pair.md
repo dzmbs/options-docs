@@ -237,8 +237,8 @@ components:
           example: 7
           description: Total number of successfully cancelled orders
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PrivateCancelAllResponse:
@@ -256,3 +256,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/cancel_all_by_currency](/api-reference/trading/private-cancel_all_by_currency.md)
+- [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
+- [private/cancel_quotes](/api-reference/trading/private-cancel_quotes.md)
+- [Mass Cancel](/starbase/mass-cancel.md)
+- [private/cancel_all](/api-reference/trading/private-cancel_all.md)

@@ -4,7 +4,7 @@
 
 # JSON-RPC API Changelog
 
-> Changes and announcements for the Deribit JSON-RPC API.
+> Chronological release notes for the Deribit JSON-RPC API covering endpoint additions, breaking changes, new parameters, response fields, and fixes.
 
 <Update label="Release 21.07.2026">
   A new method [private/get\_currencies](https://docs.deribit.com/api-reference/account-management/private-get_currencies) has been added. It returns a list of cryptocurrencies available for the authenticated user's account.
@@ -288,3 +288,12 @@
 
   When the "tail" switch is on, the API console will automatically select the newest notification response.
 </Update>
+
+
+## Related topics
+
+- [FIX API Changelog](/changelogs/fix.md)
+- [Starbase API Changelog](/changelogs/starbase.md)
+- [Changes Log](/fix-api/production/changes-log.md)
+- [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
+- [public/get_time](/api-reference/supporting/public-get_time.md)

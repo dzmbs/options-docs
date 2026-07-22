@@ -4,7 +4,7 @@
 
 # Voice Broker Trading API
 
-> How voice brokers execute block trades on behalf of clients, and how clients approve and monitor those trades using the API.
+> How voice brokers submit block trades for clients on Deribit and how clients approve, reject, and monitor those trades via API endpoints and events.
 
 Voice Broker Trading enables a licensed broker to execute block trades on behalf of two client counterparties in a single API call — no signature exchange between clients is required. Trades are block trades and appear with `broker_name` and `broker_code` fields in each client's trade history.
 
@@ -257,3 +257,12 @@ Broker trades appear in regular block trade history. Filter by broker using the 
 
 * [`block_trade_confirmations`](/subscriptions/block-trade/block_trade_confirmations) — Real-time notifications for trade confirmation requests
 * `broker.trade_requests.{currency}` — Real-time updates for broker trade request state changes
+
+
+## Related topics
+
+- [private/get_broker_clients](/api-reference/block-trade/private-get_broker_clients.md)
+- [Block Trading](/articles/block-trading-api.md)
+- [Account Model](/starbase/account-model.md)
+- [private/get_broker_trades](/api-reference/block-trade/private-get_broker_trades.md)
+- [private/get_block_trade_requests](/api-reference/block-trade/private-get_block_trade_requests.md)

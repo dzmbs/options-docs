@@ -158,8 +158,16 @@ components:
           example: 7
           description: Total number of successfully cancelled quotes
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [private/cancel_block_rfq_quote](/api-reference/block-rfq/private-cancel_block_rfq_quote.md)
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [Rate Limits](/articles/rate-limits.md)
+- [private/cancel_block_rfq](/api-reference/block-rfq/private-cancel_block_rfq.md)
+- [private/cancel_block_rfq_trigger](/api-reference/block-rfq/private-cancel_block_rfq_trigger.md)

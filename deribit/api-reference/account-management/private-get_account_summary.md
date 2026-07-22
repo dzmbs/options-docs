@@ -514,8 +514,8 @@ components:
             - id
           type: object
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     rpl:
       example: 0.1
@@ -714,3 +714,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/get_account_summaries](/api-reference/account-management/private-get_account_summaries.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [private/get_email_language](/api-reference/account-management/private-get_email_language.md)

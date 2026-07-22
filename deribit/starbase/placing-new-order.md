@@ -4,7 +4,7 @@
 
 # Placing a New Order
 
-> Place new orders using the Starbase Binary API including NewOrderRequest, NewOrderResponse, and NewOrderReject messages.
+> Submit new orders via the Starbase Binary API — NewOrderRequest, NewOrderResponse, and NewOrderReject messages with supported order types and flags.
 
 ## Placing a new order
 
@@ -95,3 +95,12 @@ Reject generated in case a `NewOrderRequest` is unsuccessful.
 | 6     | instrumentId  | int64 | 8      | Numeric instrument ID                                                                                                           |
 | 7     | reason        | int8  | 1      | Rejection reason code. See [Rejection Reason Codes](/starbase/binary-api-reference#rejection-reason-codes) for possible values. |
 | 8     | details       | char  | 0-255  | ASCII-encoded string                                                                                                            |
+
+
+## Related topics
+
+- [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
+- [New Order Single(D)](/fix-api/production/new-order-single.md)
+- [REST Order Gateway Authentication](/starbase/rest-authentication.md)
+- [Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Creating a Starbase API Key](/starbase/creating-api-key.md)

@@ -117,8 +117,8 @@ components:
         result:
           $ref: '#/components/schemas/TickerNotification'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     TickerNotification:
       properties:
@@ -561,3 +561,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)
+- [API Usage Policy](/articles/api-usage-policy.md)
+- [incremental_ticker.(instrument_name) ](/subscriptions/market-data/incremental_tickerinstrument_name.md)
+- [ticker.(instrument_name).(interval) ](/subscriptions/market-data/tickerinstrument_nameinterval.md)

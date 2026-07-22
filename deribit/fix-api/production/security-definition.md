@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Security Definition(d)
+# Security Definition(d) — Production FIX API
+
+> SecurityDefinition(d) is the server response describing an instrument's contract terms and trading parameters on the Deribit production FIX API.
 
 The Security Definition `d` message is used for the following:
 
@@ -28,3 +30,12 @@ The Security Definition `d` message is used for the following:
 | 555   | `NoLegs`                     | int          | Yes      | Number of legs that make up the Security                                                                                                                                                                                 |
 | =>600 | `LegSymbol`                  | String       | No       | Non-combo instrument name                                                                                                                                                                                                |
 | =>623 | `LegRatioQty`                | int          | No       | Positive or negative adjusted to the strategy definition                                                                                                                                                                 |
+
+
+## Related topics
+
+- [Security Definition Request(c)](/fix-api/production/security-definition-request.md)
+- [FIX API Overview](/fix-api/production/overview.md)
+- [FIX API Changelog](/changelogs/fix.md)
+- [Changes Log](/fix-api/production/changes-log.md)
+- [Security List(y)](/fix-api/production/security-list.md)

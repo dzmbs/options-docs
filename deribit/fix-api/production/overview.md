@@ -2,9 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# FIX API Overview
+# Deribit Production FIX API Overview
 
-> Deribit FIX API is a subset of FIX version 4.4 for institutional trading. Learn about connection endpoints, message structure, and supported message types.
+> Deribit production FIX 4.4 subset overview covering endpoints, supported message types, and how the current live FIX gateway differs from the upcoming version.
 
 Deribit FIX API is a subset of FIX version 4.4, but also includes some tags from 5.0 version and several custom tags. Deribit uses the standard header and trailer structure for all messages. To enable the API, sign in and go to **Account > Security > API** Tab and use the checkbox. 'Client Secret' is the user's secret key provided by Deribit. **Important Note: Do not reveal to anybody your 'Client Secret', as it can be used to gain full control over your account.**
 
@@ -129,3 +129,12 @@ The FIX API supports the following message types organized by category:
 ### Changes Log
 
 * [Changes Log](/fix-api/production/changes-log) - Release history and changes
+
+
+## Related topics
+
+- [Welcome to Deribit API](/index.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)
+- [Logon(A)](/fix-api/production/logon.md)
+- [Logout(5)](/fix-api/production/logout.md)
+- [Sequence Reset(4)](/fix-api/production/sequence-reset.md)

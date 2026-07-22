@@ -92,3 +92,11 @@ components:
         the portfolio that operations are applied to.
 
 ````
+
+## Related topics
+
+- [Portfolio Management](/starbase/portfolio-management.md)
+- [Lock Portfolio](/api-reference/portfolio-management/lock-portfolio.md)
+- [private/simulate_portfolio](/api-reference/account-management/private-simulate_portfolio.md)
+- [user.portfolio.(currency) ](/subscriptions/user/userportfoliocurrency.md)
+- [Starbase API Changelog](/changelogs/starbase.md)

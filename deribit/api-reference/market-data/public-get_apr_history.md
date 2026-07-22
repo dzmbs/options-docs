@@ -181,8 +181,8 @@ components:
             - data
           type: object
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     continuation:
       example: xY7T6cutS3t2B9YtaDkE6TS379oKnkzTvmEDUnEUP2Msa9xKWNNaT
@@ -190,3 +190,11 @@ components:
       description: Continuation token for pagination.
 
 ````
+
+## Related topics
+
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [public/get_mark_price_history](/api-reference/market-data/public-get_mark_price_history.md)
+- [public/get_funding_rate_history](/api-reference/market-data/public-get_funding_rate_history.md)
+- [public/get_currencies](/api-reference/market-data/public-get_currencies.md)
+- [private/get_reward_eligibility](/api-reference/wallet/private-get_reward_eligibility.md)

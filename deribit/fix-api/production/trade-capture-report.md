@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# TradeCaptureReport(AE)
+# TradeCaptureReport(AE) — Production FIX API
+
+> TradeCaptureReport(AE) delivers executed trade details on the Deribit production FIX API in response to a TradeCaptureReportRequest or as unsolicited updates.
 
 Used to report trades between counterparties.
 
@@ -27,3 +29,12 @@ Used to report trades between counterparties.
 | `37`  | `OrderId`            | String       | Yes      | Unique identifier for Order as assigned by sell-side                                                                                   |
 | `12`  | `Commission`         | Amt          | Yes      | Commission deducted from the requesting party                                                                                          |
 | `479` | `CommCurrency`       | Currency     | Yes      | Specifies currency to be use for Commission `12`                                                                                       |
+
+
+## Related topics
+
+- [TradeCaptureReportRequest(AD)](/fix-api/production/trade-capture-report-request.md)
+- [FIX API Overview](/fix-api/production/overview.md)
+- [TradeCaptureReportRequestAck(AQ)](/fix-api/production/trade-capture-report-request-ack.md)
+- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
+- [FIX API Changelog](/changelogs/fix.md)

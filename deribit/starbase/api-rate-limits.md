@@ -4,6 +4,8 @@
 
 # API Rate Limits
 
+> Rate limiting rules for the Starbase order entry gateways — per-connection quotas, throttling behavior, and how limits differ from the main API.
+
 ## Overview
 
 Rate limits are applied per member, per gateway, and per quoting type (order entry or mass quoting). Each gateway enforces its limits independently; violating a rate limit on gateway A does not affect gateway B.
@@ -125,3 +127,12 @@ The rate limits described above are applied per member and per gateway, not per 
 ### Open Order Limits
 
 The number of orders and quotes active at any time is limited per member. The default is 2,000 and can be increased at the discretion of Deribit. Please reach out to Support if this limit is too low for your activities.
+
+
+## Related topics
+
+- [Order Management](/articles/order-management-best-practices.md)
+- [Underlying Tiers](/starbase/underlying-tiers.md)
+- [Mass Quotes](/starbase/mass-quotes.md)
+- [Rate Limits](/articles/rate-limits.md)
+- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)

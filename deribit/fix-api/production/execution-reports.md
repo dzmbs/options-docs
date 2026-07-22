@@ -2,7 +2,7 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Execution Reports(8)
+# Execution Reports(8) — Production FIX API
 
 > FIX Execution Reports provide order status updates and trade confirmations. Learn how to receive and interpret execution reports for order changes and fills.
 
@@ -59,3 +59,12 @@ Cancel/Replace responses
 | =>1364 | `FillPx`                 | Price               | No       | Price of this partial fill                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | =>1365 | `FillQty`                | Qty                 | No       | Quantity bought/sold on this partial fill                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | =>1443 | `FillLiquidityInd`       | int                 | No       | Indicator to identify whether this fill was a result of a liquidity provider providing or liquidity taker taking the liquidity.<p>Possible values:<ul><li>`1` = Added Liquidity,</li> <li>`2` = Removed Liquidity</li></ul> </p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+
+## Related topics
+
+- [Position Report(AP)](/fix-api/production/position-report.md)
+- [Order Mass Cancel Report(r)](/fix-api/production/order-mass-cancel-report.md)
+- [TradeCaptureReport(AE)](/fix-api/production/trade-capture-report.md)
+- [TradeCaptureReportRequest(AD)](/fix-api/production/trade-capture-report-request.md)
+- [TradeCaptureReportRequestAck(AQ)](/fix-api/production/trade-capture-report-request-ack.md)

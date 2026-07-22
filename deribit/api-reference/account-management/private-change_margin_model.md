@@ -220,8 +220,8 @@ components:
               - new_state
               - currency
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     currency:
       enum:
@@ -234,3 +234,11 @@ components:
       description: Currency, i.e `"BTC"`, `"ETH"`, `"USDC"`
 
 ````
+
+## Related topics
+
+- [Account Model](/starbase/account-model.md)
+- [Market Model](/starbase/market-model.md)
+- [private/simulate_portfolio](/api-reference/account-management/private-simulate_portfolio.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)

@@ -167,8 +167,8 @@ components:
           items:
             $ref: '#/components/schemas/access_log'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     access_log:
       properties:
@@ -252,3 +252,11 @@ components:
       description: The timestamp (milliseconds since the Unix epoch)
 
 ````
+
+## Related topics
+
+- [private/get_transaction_log](/api-reference/account-management/private-get_transaction_log.md)
+- [user.access_log ](/subscriptions/user/useraccess_log.md)
+- [private/toggle_subaccount_login](/api-reference/account-management/private-toggle_subaccount_login.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)
+- [Notifications](/articles/notifications.md)

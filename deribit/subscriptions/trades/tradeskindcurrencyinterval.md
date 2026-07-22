@@ -143,6 +143,12 @@ operations:
                       The timestamp of the trade (milliseconds since the UNIX
                       epoch)
                     required: true
+                  - name: starbase_timestamp
+                    type: integer
+                    description: >-
+                      The Starbase causal timestamp of the trade (nanoseconds
+                      since the Unix epoch)
+                    required: false
                   - name: direction
                     type: string
                     description: 'Direction: `buy`, or `sell`'
@@ -224,6 +230,12 @@ operations:
                       Optional field containing combo trade identifier if the
                       trade is a combo trade
                     required: false
+                  - name: starbase_match_id
+                    type: integer
+                    description: >-
+                      Optional field containing the Starbase match identifier
+                      (present only for trades matched via Starbase)
+                    required: false
                   - name: block_rfq_id
                     type: integer
                     description: ID of the Block RFQ - when trade was part of the Block RFQ
@@ -240,30 +252,37 @@ operations:
                 trade_id:
                   type: string
                   description: Unique (per currency) trade identifier
-                  x-parser-schema-id: <anonymous-schema-222>
+                  x-parser-schema-id: <anonymous-schema-224>
                 trade_seq:
                   description: The sequence number of the trade within instrument
                   type: integer
-                  x-parser-schema-id: <anonymous-schema-223>
+                  x-parser-schema-id: <anonymous-schema-225>
                 instrument_name:
                   type: string
                   description: Unique instrument identifier
                   example: BTC-PERPETUAL
-                  x-parser-schema-id: <anonymous-schema-224>
+                  x-parser-schema-id: <anonymous-schema-226>
                 timestamp:
                   description: >-
                     The timestamp of the trade (milliseconds since the UNIX
                     epoch)
                   example: 1517329113791
                   type: integer
-                  x-parser-schema-id: <anonymous-schema-225>
+                  x-parser-schema-id: <anonymous-schema-227>
+                starbase_timestamp:
+                  type: integer
+                  example: 1536569522277000000
+                  description: >-
+                    The Starbase causal timestamp of the trade (nanoseconds
+                    since the Unix epoch)
+                  x-parser-schema-id: <anonymous-schema-228>
                 direction:
                   type: string
                   description: 'Direction: `buy`, or `sell`'
                   enum:
                     - buy
                     - sell
-                  x-parser-schema-id: <anonymous-schema-226>
+                  x-parser-schema-id: <anonymous-schema-229>
                 tick_direction:
                   type: integer
                   enum:
@@ -274,32 +293,32 @@ operations:
                   description: >-
                     Direction of the "tick" (`0` = Plus Tick, `1` = Zero-Plus
                     Tick, `2` = Minus Tick, `3` = Zero-Minus Tick).
-                  x-parser-schema-id: <anonymous-schema-227>
+                  x-parser-schema-id: <anonymous-schema-230>
                 index_price:
                   type: number
                   description: Index Price at the moment of trade
-                  x-parser-schema-id: <anonymous-schema-228>
+                  x-parser-schema-id: <anonymous-schema-231>
                 price:
                   description: Price in base currency
                   type: number
-                  x-parser-schema-id: <anonymous-schema-229>
+                  x-parser-schema-id: <anonymous-schema-232>
                 amount:
                   type: number
                   description: >-
                     Trade amount. For perpetual and inverse futures the amount
                     is in USD units. For options and linear futures it is the
                     underlying base currency coin.
-                  x-parser-schema-id: <anonymous-schema-230>
+                  x-parser-schema-id: <anonymous-schema-233>
                 contracts:
                   type: number
                   description: >-
                     Trade size in contract units (optional, may be absent in
                     historical trades)
-                  x-parser-schema-id: <anonymous-schema-231>
+                  x-parser-schema-id: <anonymous-schema-234>
                 iv:
                   type: number
                   description: Option implied volatility for the price (Option only)
-                  x-parser-schema-id: <anonymous-schema-232>
+                  x-parser-schema-id: <anonymous-schema-235>
                 liquidation:
                   type: string
                   description: >-
@@ -311,37 +330,43 @@ operations:
                     - M
                     - T
                     - MT
-                  x-parser-schema-id: <anonymous-schema-233>
+                  x-parser-schema-id: <anonymous-schema-236>
                 mark_price:
                   type: number
                   description: Mark Price at the moment of trade
-                  x-parser-schema-id: <anonymous-schema-234>
+                  x-parser-schema-id: <anonymous-schema-237>
                 block_trade_id:
                   description: Block trade id - when trade was part of a block trade
                   type: string
                   example: '154'
-                  x-parser-schema-id: <anonymous-schema-235>
+                  x-parser-schema-id: <anonymous-schema-238>
                 block_trade_leg_count:
                   description: Block trade leg count - when trade was part of a block trade
                   type: integer
                   example: 3
-                  x-parser-schema-id: <anonymous-schema-236>
+                  x-parser-schema-id: <anonymous-schema-239>
                 combo_id:
                   type: string
                   description: >-
                     Optional field containing combo instrument name if the trade
                     is a combo trade
-                  x-parser-schema-id: <anonymous-schema-237>
+                  x-parser-schema-id: <anonymous-schema-240>
                 combo_trade_id:
                   type: string
                   description: >-
                     Optional field containing combo trade identifier if the
                     trade is a combo trade
-                  x-parser-schema-id: <anonymous-schema-238>
+                  x-parser-schema-id: <anonymous-schema-241>
+                starbase_match_id:
+                  type: integer
+                  description: >-
+                    Optional field containing the Starbase match identifier
+                    (present only for trades matched via Starbase)
+                  x-parser-schema-id: <anonymous-schema-242>
                 block_rfq_id:
                   type: integer
                   description: ID of the Block RFQ - when trade was part of the Block RFQ
-                  x-parser-schema-id: <anonymous-schema-239>
+                  x-parser-schema-id: <anonymous-schema-243>
               required:
                 - trade_id
                 - instrument_name
@@ -354,11 +379,11 @@ operations:
                 - amount
                 - mark_price
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-221>
+              x-parser-schema-id: <anonymous-schema-223>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-220>
+          x-parser-schema-id: <anonymous-schema-222>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -410,7 +435,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-219>
+          x-parser-schema-id: <anonymous-schema-221>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification
@@ -448,3 +473,11 @@ extensions:
 securitySchemes: []
 
 ````
+
+## Related topics
+
+- [user.trades.(kind).(currency).(interval) ](/subscriptions/user/usertradeskindcurrencyinterval.md)
+- [user.combo_trades.(kind).(currency).(interval) ](/subscriptions/user/usercombo_tradeskindcurrencyinterval.md)
+- [user.changes.(kind).(currency).(interval) ](/subscriptions/user/userchangeskindcurrencyinterval.md)
+- [user.orders.(kind).(currency).(interval) ](/subscriptions/user/userorderskindcurrencyinterval.md)
+- [Notifications](/articles/notifications.md)

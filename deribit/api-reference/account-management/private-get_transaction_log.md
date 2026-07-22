@@ -231,8 +231,8 @@ components:
             - continuation
             - logs
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     continuation_with_null:
       example: 429946
@@ -589,3 +589,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Rate Limits](/articles/rate-limits.md)
+- [private/get_access_log](/api-reference/account-management/private-get_access_log.md)
+- [private/get_deposits](/api-reference/wallet/private-get_deposits.md)
+- [private/get_withdrawals](/api-reference/wallet/private-get_withdrawals.md)

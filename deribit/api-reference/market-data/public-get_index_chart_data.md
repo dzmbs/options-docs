@@ -218,8 +218,8 @@ components:
             The data points are returned in chronological order, making them
             ready for direct use in charting libraries.
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PublicGetIndexChartDataResponse:
@@ -247,3 +247,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [public/get_funding_chart_data](/api-reference/market-data/public-get_funding_chart_data.md)
+- [public/get_tradingview_chart_data](/api-reference/market-data/public-get_tradingview_chart_data.md)
+- [public/get_volatility_index_data](/api-reference/market-data/public-get_volatility_index_data.md)
+- [public/get_index_price](/api-reference/market-data/public-get_index_price.md)

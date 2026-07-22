@@ -270,3 +270,11 @@ components:
         the portfolio that operations are applied to.
 
 ````
+
+## Related topics
+
+- [private/get_open_orders](/api-reference/trading/private-get_open_orders.md)
+- [private/get_open_orders_by_instrument](/api-reference/trading/private-get_open_orders_by_instrument.md)
+- [private/get_open_orders_by_currency](/api-reference/trading/private-get_open_orders_by_currency.md)
+- [private/get_open_orders_by_label](/api-reference/trading/private-get_open_orders_by_label.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)

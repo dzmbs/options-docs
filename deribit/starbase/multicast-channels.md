@@ -4,7 +4,7 @@
 
 # Multicast Channels
 
-> Starbase's lowest-latency market data API is its SBE Market Data Feed, which utilizes UDP and Multicast. Market data is disseminated over multiple channels, sharded by product type. Each channel has a twin for redudancy. Any consumer should listen to both, because the A and B feed have similar latency profiles. See the table below for all available channels.
+> Starbase SBE market data over UDP multicast — A and B redundant channels sharded by product type for low-latency market data feed consumption.
 
 <Info>
   **Multicast & networking support**: For detailed multicast or networking questions, contact [colo-support@coinbase.com](mailto:colo-support@coinbase.com).
@@ -93,3 +93,12 @@ Retransmit:
 | **Tier 2 Options and Option Combinations**        | Test | 195.138.37.139 | 4245 |
 | **Tier 3 Futures, Perpetuals and Future Spreads** | Test | 195.138.37.139 | 4246 |
 | **Equity perpetuals and pre-launch tokens**       | Test | 195.138.37.139 | 4247 |
+
+
+## Related topics
+
+- [Multicast Subscription Guide](/starbase/multicast-subscription-guide.md)
+- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Gateway Connectivity](/starbase/gateway-connectivity.md)
+- [Starbase API Changelog](/changelogs/starbase.md)
+- [Underlying Tiers](/starbase/underlying-tiers.md)

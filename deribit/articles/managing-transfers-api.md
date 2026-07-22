@@ -4,7 +4,7 @@
 
 # Managing Transfers
 
-> How to perform transfers between main account and subaccounts using API.
+> Transfer funds between the main account and subaccounts or to other Deribit users using the API, including two-step confirmation flows for security.
 
 <Warning>
   **Main Account Authorization Required**: You **MUST** authorize as the main account first before performing any transfers. This applies to all transfer types, including transfers from subaccount to subaccount. After main account authorization, you can use [`public/exchange_token`](/api-reference/authentication/public-exchange_token) or [`public/fork_token`](/api-reference/authentication/public-fork-token) to switch to a subaccount context if needed.
@@ -193,3 +193,12 @@ If you encounter issues with transfers:
 * **Invalid subaccount ID**: Verify that the destination subaccount ID is correct and belongs to your main account
 * **Authentication errors**: Make sure you're using a valid access token with appropriate permissions
 * **Transfer limits**: Check if there are any transfer limits or restrictions on your account
+
+
+## Related topics
+
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [private/get_transfers](/api-reference/wallet/private-get_transfers.md)
+- [private/submit_transfer_to_subaccount](/api-reference/wallet/private-submit_transfer_to_subaccount.md)
+- [private/submit_transfer_between_subaccounts](/api-reference/wallet/private-submit_transfer_between_subaccounts.md)
+- [private/cancel_transfer_by_id](/api-reference/wallet/private-cancel_transfer_by_id.md)

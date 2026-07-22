@@ -4,7 +4,7 @@
 
 # Managing Subaccounts
 
-> How to create, configure, and manage subaccounts using the Deribit API.
+> Create, rename, configure permissions, and manage Deribit subaccounts programmatically via API for team access control and portfolio segregation.
 
 Subaccounts allow you to organize trading activities, manage risk, and separate different strategies or clients under a single main account. This guide explains how to manage subaccounts programmatically using the Deribit API.
 
@@ -221,3 +221,12 @@ The subaccount ID (`id`) returned when creating a subaccount is required for all
 * [API Authentication Guide](/articles/authentication) - Authentication and token management
 * [Security Keys](/articles/security-keys) - Two-Factor Authentication for sensitive operations
 * [Creating API Key](/articles/creating-api-key) - Setting up API keys with appropriate scopes
+
+
+## Related topics
+
+- [private/remove_subaccount](/api-reference/account-management/private-remove_subaccount.md)
+- [private/create_subaccount](/api-reference/account-management/private-create_subaccount.md)
+- [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)
+- [private/change_subaccount_name](/api-reference/account-management/private-change_subaccount_name.md)
+- [private/get_subaccounts_details](/api-reference/account-management/private-get_subaccounts_details.md)

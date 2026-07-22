@@ -164,8 +164,8 @@ components:
             - estimated_delivery_price
           type: object
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PublicGetIndexPriceResponse:
@@ -176,3 +176,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [public/get_index_price_names](/api-reference/market-data/public-get_index_price_names.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [public/get_delivery_prices](/api-reference/market-data/public-get_delivery_prices.md)
+- [public/get_supported_index_names](/api-reference/market-data/public-get_supported_index_names.md)
+- [public/get_index_chart_data](/api-reference/market-data/public-get_index_chart_data.md)

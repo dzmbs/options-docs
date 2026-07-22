@@ -4,7 +4,7 @@
 
 # Self Match Prevention (SMP)
 
-> Self Match Prevention (SMP) functionality in Starbase API for preventing orders from matching with each other.
+> Prevent orders on the same Starbase account from matching each other — configure Self Match Prevention groups and choose the cancel behavior policy.
 
 ## Overview
 
@@ -108,3 +108,12 @@ When an order is cancelled due to self-match prevention, it will be indicated in
 | [`AmendOrderResponse`](/starbase/amending-order#amendorderresponse) | `cancelReason` (field 12)    | `1`   | `selfMatchPrevention` |
 | [`MassQuoteResponse`](/starbase/mass-quotes#massquoteresponse)      | `buyQuoteStatus` (field 18)  | `7`   | `CanceledBySelfMatch` |
 | [`MassQuoteResponse`](/starbase/mass-quotes#massquoteresponse)      | `sellQuoteStatus` (field 19) | `7`   | `CanceledBySelfMatch` |
+
+
+## Related topics
+
+- [API Usage Policy](/articles/api-usage-policy.md)
+- [Starbase API Overview](/starbase/overview.md)
+- [Speed Bumps](/starbase/speed-bumps.md)
+- [private/set_self_trading_config](/api-reference/account-management/private-set_self_trading_config.md)
+- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)

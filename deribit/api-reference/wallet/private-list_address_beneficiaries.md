@@ -246,8 +246,8 @@ components:
               example: 42
               description: Total number of results available
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     address_beneficiary_item:
       properties:
@@ -385,3 +385,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/save_address_beneficiary](/api-reference/wallet/private-save_address_beneficiary.md)
+- [private/get_address_beneficiary](/api-reference/wallet/private-get_address_beneficiary.md)
+- [private/delete_address_beneficiary](/api-reference/wallet/private-delete_address_beneficiary.md)
+- [private/add_to_address_book](/api-reference/wallet/private-add_to_address_book.md)
+- [private/update_in_address_book](/api-reference/wallet/private-update_in_address_book.md)

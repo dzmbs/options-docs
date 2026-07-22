@@ -4,7 +4,7 @@
 
 # Mass Cancel
 
-> Cancel multiple orders and quotes using the Starbase Binary API including MassCancelRequest, MassCancelResponse, MassCancelReject, and MassQuoteCancelRequest messages.
+> Cancel many orders and quotes at once with the Starbase Binary API via MassCancelRequest, MassCancelResponse, and MassQuoteCancelRequest messages.
 
 ### Mass Cancel Granularity
 
@@ -59,3 +59,12 @@ Reject generated in case a `MassCancelRequest` or `MassQuoteCancelRequest` is un
 | 3     | correlationId | int64 | 8      | Client-assigned ID                                                                                                              |
 | 4     | reason        | uint8 | 1      | Rejection reason code. See [Rejection Reason Codes](/starbase/binary-api-reference#rejection-reason-codes) for possible values. |
 | 5     | details       | char  | 0-255  | ASCII-encoded string                                                                                                            |
+
+
+## Related topics
+
+- [Mass Cancel](/api-reference/portfolio-management/mass-cancel.md)
+- [Portfolio Management](/starbase/portfolio-management.md)
+- [Order Mass Cancel Report(r)](/fix-api/production/order-mass-cancel-report.md)
+- [Order Mass Cancel Request(q)](/fix-api/production/order-mass-cancel-request.md)
+- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)

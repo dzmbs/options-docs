@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Security Status(f)
+# Security Status(f) — Production FIX API
+
+> SecurityStatus(f) is the server-pushed notification of trading status changes such as halt, resume, or settlement for a Deribit production FIX instrument.
 
 The `Security Status` (`f`) message provides for the ability to report changes
 in status to a security.
@@ -64,3 +66,12 @@ used to set or get the limits for Market Maker Protection (MMP) for a currency p
 
 * To set `MMProtection Limits`, the message must contain all fields. In reply to this message, the server sends [`MMProtection Limits Result/Reject` (`MR`)](/fix-api/production/mmprotection-limits-result).
 * To get current `MMProtection Limits`, the message must contain only `ProtectionRequestID` (`20114`) and `Currency` (`15`) fields (without all limits). In reply to this message, the server sends `MMProtection Limits (MM)` message with filled limits.
+
+
+## Related topics
+
+- [Security Status Request(e)](/fix-api/production/security-status-request.md)
+- [Security Definition(d)](/fix-api/production/security-definition.md)
+- [Security List(y)](/fix-api/production/security-list.md)
+- [Order Mass Status Request(AF)](/fix-api/production/order-mass-status-request.md)
+- [Security Definition Request(c)](/fix-api/production/security-definition-request.md)

@@ -4,7 +4,7 @@
 
 # Managing Deposits
 
-> How to generate deposit addresses, check deposit history and submit originator information for the Travel Rule using API.
+> Generate deposit addresses, check deposit status and history, and submit Travel Rule originator information using the Deribit deposit API endpoints.
 
 This section explains how to generate deposit addresses, check deposit history and submit originator information for the Travel Rule using API. Before calling any private method you must authenticate.
 
@@ -129,3 +129,12 @@ When submitting originator information, you need to provide:
 * **Verification required**: You must complete account [verification](https://support.deribit.com/hc/en-us/articles/360000123169) before you can generate deposit addresses.
 * **Multiple deposits in one transaction**: Sending multiple deposits in a single transaction may delay crediting.
 * **Travel Rule compliance**: Provide accurate originator details when prompted. Incomplete or incorrect information can lead to withdrawal locks.
+
+
+## Related topics
+
+- [private/get_deposits](/api-reference/wallet/private-get_deposits.md)
+- [private/create_deposit_address](/api-reference/wallet/private-create_deposit_address.md)
+- [private/get_current_deposit_address](/api-reference/wallet/private-get_current_deposit_address.md)
+- [private/remove_from_address_book](/api-reference/wallet/private-remove_from_address_book.md)
+- [private/set_clearance_originator](/api-reference/wallet/private-set_clearance_originator.md)

@@ -120,19 +120,13 @@ components:
         result:
           $ref: '#/components/schemas/order'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     order:
       properties:
         order_id:
           $ref: '#/components/schemas/order_id'
-        starbase_order_id:
-          type: integer
-          example: 103148386170
-          description: >-
-            Raw Starbase order id, in Starbase's own (non currency-prefixed) id
-            namespace. Only present for orders matched on Starbase.
         order_state:
           $ref: '#/components/schemas/order_state'
         order_type:
@@ -256,6 +250,12 @@ components:
           description: >-
             Id of the combo order that created this order (only present for
             orders that were created as legs of a combo order).
+        starbase_order_id:
+          type: integer
+          example: 103148386170
+          description: >-
+            Raw Starbase order id, in Starbase's own (non currency-prefixed) id
+            namespace. Only present for orders matched on Starbase.
         app_name:
           type: string
           example: Example Application
@@ -560,3 +560,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/cancel_quotes](/api-reference/trading/private-cancel_quotes.md)
+- [private/cancel_all](/api-reference/trading/private-cancel_all.md)
+- [private/cancel_withdrawal](/api-reference/wallet/private-cancel_withdrawal.md)
+- [private/cancel_by_label](/api-reference/trading/private-cancel_by_label.md)
+- [private/cancel_block_rfq](/api-reference/block-rfq/private-cancel_block_rfq.md)

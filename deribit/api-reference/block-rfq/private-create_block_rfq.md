@@ -248,8 +248,8 @@ components:
         result:
           $ref: '#/components/schemas/block_rfq'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     block_rfq:
       properties:
@@ -626,3 +626,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/cancel_block_rfq](/api-reference/block-rfq/private-cancel_block_rfq.md)
+- [private/get_block_rfq_makers](/api-reference/block-rfq/private-get_block_rfq_makers.md)
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [private/accept_block_rfq](/api-reference/block-rfq/private-accept_block_rfq.md)
+- [private/get_block_rfqs](/api-reference/block-rfq/private-get_block_rfqs.md)

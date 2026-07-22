@@ -4,7 +4,7 @@
 
 # Order Management
 
-> Efficient order management is crucial for high-performance trading on Deribit.
+> High-performance order management on Deribit — batching, cancel and replace flows, label usage, and avoiding rate limit throttling under load.
 
 This article explains how orders are processed through Deribit's system and outlines best practices to achieve the fastest and most reliable execution. We cover the order submission pipeline, internal queues, latency optimization, cancellation strategies, order editing vs. replacing, advanced order types (like OCO/OTO), and other tips for developers and institutional traders using the Deribit API. The goal is to help you manage orders effectively while minimizing latency and avoiding common pitfalls.
 
@@ -471,3 +471,12 @@ While not directly covered in the section above, remember Deribit has API rate l
 If you are deploying complex order logic (like OTOCO or high-frequency strategies), always test on `test.deribit.com` first. The API is virtually identical, and you can simulate scenarios (including partial fills, cancels, etc.) without risking real funds. This can also confirm that your understanding of the API calls (especially for linked orders) is correct. Please refer to Testnet related articles for more details.
 
 By incorporating the strategies and considerations discussed above, you can significantly improve your order management on Deribit. From reducing latency in order submission to utilizing advanced order types for automation, these best practices will help ensure your trading is efficient, robust, and aligned with how the Deribit platform works internally.
+
+
+## Related topics
+
+- [FIX API Overview](/fix-api/production/overview.md)
+- [private/buy](/api-reference/trading/private-buy.md)
+- [private/sell](/api-reference/trading/private-sell.md)
+- [private/edit](/api-reference/trading/private-edit.md)
+- [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)

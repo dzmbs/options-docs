@@ -105,3 +105,12 @@ Snapshots are made up of `Buy Put (21)`  and `Sell Put (21)`  messages. Each sna
 | Field | Name                  | Type  | Length | Description                        |
 | :---- | :-------------------- | :---- | :----- | :--------------------------------- |
 | 1     | activeInstrumentCount | int32 | 4      | Total number of active instruments |
+
+
+## Related topics
+
+- [public/get_order_book](/api-reference/market-data/public-get_order_book.md)
+- [public/get_order_book_by_instrument_id](/api-reference/market-data/public-get_order_book_by_instrument_id.md)
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [Notifications](/articles/notifications.md)
+- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)

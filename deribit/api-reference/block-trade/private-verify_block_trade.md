@@ -213,8 +213,8 @@ components:
           required:
             - signature
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     block_trade_signature:
       example: >-
@@ -240,3 +240,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/execute_block_trade](/api-reference/block-trade/private-execute_block_trade.md)
+- [Block Trading](/articles/block-trading-api.md)
+- [Rate Limits](/articles/rate-limits.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [private/simulate_block_trade](/api-reference/block-trade/private-simulate_block_trade.md)

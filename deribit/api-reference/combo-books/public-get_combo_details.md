@@ -115,8 +115,8 @@ components:
         result:
           $ref: '#/components/schemas/combo'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     combo:
       properties:
@@ -192,3 +192,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [public/get_combos](/api-reference/combo-books/public-get_combos.md)
+- [public/get_combo_ids](/api-reference/combo-books/public-get_combo_ids.md)
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [public/get_last_trades_by_instrument](/api-reference/market-data/public-get_last_trades_by_instrument.md)
+- [public/get_last_trades_by_currency](/api-reference/market-data/public-get_last_trades_by_currency.md)

@@ -4,7 +4,7 @@
 
 # FIX Drop Copy API
 
-> A consolidated private feed of orders and trades across Deribit.
+> Starbase FIX Drop Copy delivers a consolidated private feed of orders, trades, and executions across your Deribit account for downstream systems.
 
 ## Downloads
 
@@ -299,3 +299,12 @@ Sent after all replayed reports have been delivered.
 
   `END_EXEC_ID_TOO_LARGE` means `EndExecId` refers to an event that does not yet exist. Omit `EndExecId` to replay up to the current last fill event.
 </Note>
+
+
+## Related topics
+
+- [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Gateway Connectivity](/starbase/gateway-connectivity.md)
+- [Account Model](/starbase/account-model.md)
+- [Starbase API Changelog](/changelogs/starbase.md)

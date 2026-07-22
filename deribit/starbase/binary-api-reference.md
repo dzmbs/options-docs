@@ -4,7 +4,7 @@
 
 # Binary API Reference
 
-> Complete reference guide for the Starbase Binary API including order entry operations and market data.
+> Complete reference for the Starbase Binary API — SBE encoding, order entry messages, market data channels, and session lifecycle handling.
 
 ## Downloads
 
@@ -224,3 +224,12 @@ Used in:
 * [`OrderPlaced`](/starbase/unsolicited-events#orderplaced-312), `cancelReason` field
 * [`OrdersCanceled`](/starbase/unsolicited-events#orderscanceled-310), Field 3 (`cancelReason`)
 * [`MassQuoteOrdersPlaced`](/starbase/unsolicited-events#massquoteordersplaced-314), `cancelReason` field (per quote entry)
+
+
+## Related topics
+
+- [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [Starbase API Changelog](/changelogs/starbase.md)
+- [Multicast Retransmit Gateway](/starbase/retransmit-gateway.md)
+- [Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Reference Data](/starbase/reference-data.md)

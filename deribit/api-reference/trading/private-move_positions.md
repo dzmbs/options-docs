@@ -214,8 +214,8 @@ components:
         result:
           $ref: '#/components/schemas/position_move'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     position_move:
       properties:
@@ -291,3 +291,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [Moving Positions](/articles/moving-positions-api.md)
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [Rate Limits](/articles/rate-limits.md)
+- [private/get_position](/api-reference/account-management/private-get_position.md)
+- [private/get_positions](/api-reference/account-management/private-get_positions.md)

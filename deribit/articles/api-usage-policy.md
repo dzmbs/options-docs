@@ -4,7 +4,7 @@
 
 # API Usage Policy
 
-> Deribit is committed to providing a fast, reliable, and efficient trading platform for all users.
+> Deribit fair-use API policy outlines acceptable traffic patterns, throttling rules, and consequences of abuse to keep exchange infrastructure healthy.
 
 To maintain the integrity and performance of our system, we are introducing new guidelines for API usage. These guidelines are aimed at ensuring that all users have fair access to the platform without unnecessary strain on resources.
 
@@ -71,3 +71,12 @@ Unauthenticated API requests are used to access public information, such as mark
 Unauthenticated requests are more likely to result in an IP ban as we cannot contact the client behind them directly.
 
 If you have any questions or need assistance optimizing your API usage, please reach out to our support team.
+
+
+## Related topics
+
+- [Rate Limits](/articles/rate-limits.md)
+- [Accessing Historical Trades and Orders Using API](/articles/accessing-historical-trades-orders.md)
+- [Security Keys](/articles/security-keys.md)
+- [Underlying Tiers](/starbase/underlying-tiers.md)
+- [Self Match Prevention (SMP)](/starbase/smp.md)

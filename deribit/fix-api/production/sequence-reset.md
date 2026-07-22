@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Sequence Reset(4)
+# Sequence Reset(4) — Production FIX API
+
+> SequenceReset(4) repositions FIX sequence numbers on the Deribit production FIX session to recover from gaps or apply a graceful counterparty reset.
 
 The `Sequence Reset`(`4`) is to recover from an out-of-sequence condition, to
 reestablish a FIX session after a sequence loss. The `MsgSeqNum`(`34`) in the
@@ -29,3 +31,12 @@ equal to the current incoming sequence on the server.
 
 After sending the correct `Sequence Reset`(`4`), the client should start sending
 messages starting from the sequence number equal to the `NewSeqNo`(`36`) passed.
+
+
+## Related topics
+
+- [MMProtection Reset(MZ)](/fix-api/production/mmprotection-reset.md)
+- [FIX API Overview](/fix-api/production/overview.md)
+- [FIX API Changelog](/changelogs/fix.md)
+- [Logout(5)](/fix-api/production/logout.md)
+- [Resend Request(2)](/fix-api/production/resend-request.md)

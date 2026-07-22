@@ -168,8 +168,8 @@ components:
                     type: boolean
                     description: Indicates whether this account has maker scope.
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     user_id:
       example: 57874
@@ -177,3 +177,11 @@ components:
       description: Unique user identifier
 
 ````
+
+## Related topics
+
+- [private/get_block_rfqs](/api-reference/block-rfq/private-get_block_rfqs.md)
+- [private/get_block_rfq_quotes](/api-reference/block-rfq/private-get_block_rfq_quotes.md)
+- [private/get_block_rfq_makers](/api-reference/block-rfq/private-get_block_rfq_makers.md)
+- [private/create_block_rfq](/api-reference/block-rfq/private-create_block_rfq.md)
+- [private/cancel_block_rfq](/api-reference/block-rfq/private-cancel_block_rfq.md)

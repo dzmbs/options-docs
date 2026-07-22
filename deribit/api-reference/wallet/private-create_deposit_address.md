@@ -166,8 +166,8 @@ components:
             - type
           description: Object if address is created, null otherwise
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     timestamp:
       example: 1536569522277
@@ -200,3 +200,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [Managing Deposits](/articles/managing-deposits-api.md)
+- [private/get_current_deposit_address](/api-reference/wallet/private-get_current_deposit_address.md)
+- [private/get_deposits](/api-reference/wallet/private-get_deposits.md)
+- [private/set_clearance_originator](/api-reference/wallet/private-set_clearance_originator.md)
+- [private/list_custody_accounts](/api-reference/account-management/private-list_custody_accounts.md)

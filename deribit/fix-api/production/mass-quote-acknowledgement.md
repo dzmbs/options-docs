@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Mass Quote Acknowledgement(b)
+# Mass Quote Acknowledgement(b) — Production FIX API
+
+> MassQuoteAcknowledgement(b) is the server acknowledgement for a MassQuote submission on Deribit production FIX, with per-quote status and reject reasons.
 
 `Mass Quote Acknowledgement` (`b`) is a reply to a `Mass Quote` (`i`) message. The message contains orders, trades and possible errors resulting from the `Mass Quote` (`i`) message. The `QuoteEntries` are not grouped by `QuoteSets` for performance reasons, only marked with `QuoteSetID`s.
 
@@ -27,3 +29,12 @@
 | =>	135  | `OfferSize`              | Qty          | No       | Offer quantity in contracts.                                                                                                                                                                                                                                                    |
 | => 368  | `QuoteEntryRejectReason` | int          | No       | RPC error code, in case of an error.                                                                                                                                                                                                                                            |
 | =>	58   | `Text`                   | String       | No       | The error description, in case of an error.                                                                                                                                                                                                                                     |
+
+
+## Related topics
+
+- [Mass Quote(i)](/fix-api/production/mass-quote.md)
+- [FIX API Overview](/fix-api/production/overview.md)
+- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
+- [FIX API Changelog](/changelogs/fix.md)
+- [Quote Cancel(Z)](/fix-api/production/quote-cancel.md)

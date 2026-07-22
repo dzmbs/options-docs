@@ -4,7 +4,7 @@
 
 # Moving Positions
 
-> How to move positions between subaccounts using API.
+> Transfer open positions between Deribit subaccounts using the API, including required permissions, valuation, and settlement of moved contracts.
 
 This section explains how to move positions from one subaccount to another within the same main account using the API. Before calling any private method you must authenticate.
 
@@ -221,3 +221,12 @@ Here's an example of moving multiple positions across different instruments in t
 * [`private/get_positions`](https://docs.deribit.com/api-reference/account-management/private-get_positions) - Get current positions for an account
 * [`private/get_subaccounts`](https://docs.deribit.com/api-reference/account-management/private-get_subaccounts) - List all subaccounts under your main account
 * [`private/get_subaccounts_details`](https://docs.deribit.com/api-reference/account-management/private-get_subaccounts_details) - Get detailed information about subaccounts
+
+
+## Related topics
+
+- [private/move_positions](/api-reference/trading/private-move_positions.md)
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [Order Management](/articles/order-management-best-practices.md)
+- [Request For Positions(AN)](/fix-api/production/request-for-positions.md)
+- [private/get_position](/api-reference/account-management/private-get_position.md)

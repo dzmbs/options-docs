@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Changes Log
+# Changes Log — Production FIX API
+
+> Version-by-version changelog for the Deribit production FIX API covering tag additions, message updates, deprecations, and behavior notes.
 
 ### Release 17.02.2026
 
@@ -198,3 +200,12 @@ Added RFQ API:
 * added notification for StopLimit and StopMarket Orders. StopMarket orders has OrdType=S
 * Execution Report (8): added ContractMultiplier(231)
 * Execution Report (8): added ConditionTriggerMethod(5127)
+
+
+## Related topics
+
+- [Logout(5)](/fix-api/production/logout.md)
+- [Logon(A)](/fix-api/production/logon.md)
+- [FIX API Overview](/fix-api/production/overview.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)
+- [Security Status(f)](/fix-api/production/security-status.md)

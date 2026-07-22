@@ -4,7 +4,7 @@
 
 # Unsolicited Events
 
-> Unsolicited events in the Starbase Binary API including OrderFilled and MMPTrigger messages.
+> Server-initiated events on the Starbase Binary API — OrderFilled notifications and MMPTrigger messages that require no client request or ack.
 
 ## Unsolicited events
 
@@ -180,3 +180,12 @@ Event generated when an orders Market Maker Protection group is unfrozen, either
 | 2     | execId        | int64 | 8      | Exchange-assigned event ID                                                                            |
 | 3     | indexId       | int64 | 8      | Numeric [index ID](https://deribit-jy-patch1.mintlify.app/api-reference/market-data/list-instruments) |
 | 4     | correlationId | int64 | 8      | Client-assigned ID, or `0x8000000000000000` if unsolicited (timer elapsed)                            |
+
+
+## Related topics
+
+- [Speed Bumps](/starbase/speed-bumps.md)
+- [Binary API Reference](/starbase/binary-api-reference.md)
+- [Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)
+- [Cancelling an Order](/starbase/cancelling-order.md)

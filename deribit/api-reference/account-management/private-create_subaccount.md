@@ -252,8 +252,8 @@ components:
             - trading_products_details
             - referrals_count
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     portfolio:
       properties:
@@ -328,3 +328,11 @@ components:
       description: The account's balance reserved in other orders
 
 ````
+
+## Related topics
+
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [private/submit_transfer_to_subaccount](/api-reference/wallet/private-submit_transfer_to_subaccount.md)
+- [private/submit_transfer_between_subaccounts](/api-reference/wallet/private-submit_transfer_between_subaccounts.md)
+- [private/create_combo](/api-reference/combo-books/private-create_combo.md)
+- [private/remove_subaccount](/api-reference/account-management/private-remove_subaccount.md)

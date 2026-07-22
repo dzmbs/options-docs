@@ -4,7 +4,7 @@
 
 # Mass Quotes
 
-> Place multiple quotes using the Starbase Binary API including MassQuoteRequest, MassQuoteResponse, and MassQuoteReject messages.
+> Submit many two-sided quotes in one Starbase Binary API message with MassQuoteRequest, MassQuoteResponse, and MassQuoteReject message details.
 
 ## Placing multiple quotes
 
@@ -135,3 +135,12 @@ Reject generated in case a `MassQuoteRequest` is unsuccessful.
 | 5     | mmpGroupId    | int64 | 8      | Identifier of MMP group                                                                                                                                                                                               |
 | 6     | reason        | int8  | 1      | `0`=SystemError<br />`1`=InvalidMmpGroup<br />`2`=MmpGroupDisabled<br />`3`=MmpGroupFrozen<br />`4`=TooManyQuotes<br />`5`=InvalidInstrument<br />`6`=RateLimit<br />`7`=PortfolioLocked<br />`8`=DuplicateInstrument |
 | 7     | details       | char  | 0-255  | ASCII-encoded string                                                                                                                                                                                                  |
+
+
+## Related topics
+
+- [Mass Quote(i)](/fix-api/production/mass-quote.md)
+- [Speed Bumps](/starbase/speed-bumps.md)
+- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
+- [Mass Quote Acknowledgement(b)](/fix-api/production/mass-quote-acknowledgement.md)
+- [private/mass_quote](/api-reference/trading/private-mass_quote.md)

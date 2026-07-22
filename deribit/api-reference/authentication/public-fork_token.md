@@ -171,8 +171,16 @@ components:
             - refresh_token
             - scope
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [Authentication](/articles/authentication.md)
+- [Managing Transfers](/articles/managing-transfers-api.md)
+- [public/exchange_token](/api-reference/authentication/public-exchange_token.md)
+- [public/auth](/api-reference/authentication/public-auth.md)
+- [public/get_apr_history](/api-reference/market-data/public-get_apr_history.md)

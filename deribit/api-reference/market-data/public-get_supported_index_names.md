@@ -139,8 +139,16 @@ components:
             required:
               - name
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [public/get_index_price](/api-reference/market-data/public-get_index_price.md)
+- [public/get_index_price_names](/api-reference/market-data/public-get_index_price_names.md)
+- [public/get_volatility_index_data](/api-reference/market-data/public-get_volatility_index_data.md)
+- [public/get_index_chart_data](/api-reference/market-data/public-get_index_chart_data.md)
+- [public/get_currencies](/api-reference/market-data/public-get_currencies.md)

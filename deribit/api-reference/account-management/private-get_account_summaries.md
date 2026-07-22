@@ -713,8 +713,8 @@ components:
             - type
             - id
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     rpl:
       example: 0.1
@@ -798,3 +798,11 @@ components:
         document](https://support.deribit.com/hc/en-us/articles/25944617523357-Rate-Limits).
 
 ````
+
+## Related topics
+
+- [private/get_account_summary](/api-reference/account-management/private-get_account_summary.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [private/get_email_language](/api-reference/account-management/private-get_email_language.md)

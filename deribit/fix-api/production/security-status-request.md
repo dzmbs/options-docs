@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Security Status Request(e)
+# Security Status Request(e) — Production FIX API
+
+> SecurityStatusRequest(e) subscribes to trading status updates for an instrument on the Deribit production FIX API, covering halts, resumes, and settlement.
 
 This message provides for the ability to request the status of a security.
 
@@ -18,3 +20,12 @@ This message provides for the ability to request the status of a security.
 
 The server will respond with a [`Security Status` (`f`)](/fix-api/production/security-status)
 message.
+
+
+## Related topics
+
+- [Security Status(f)](/fix-api/production/security-status.md)
+- [Order Mass Status Request(AF)](/fix-api/production/order-mass-status-request.md)
+- [Security Definition Request(c)](/fix-api/production/security-definition-request.md)
+- [Security List Request(x)](/fix-api/production/security-list-request.md)
+- [Security List(y)](/fix-api/production/security-list.md)

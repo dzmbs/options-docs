@@ -167,8 +167,16 @@ components:
             - ok
           description: Result of method execution. `ok` in case of success
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [Self Match Prevention (SMP)](/starbase/smp.md)
+- [private/set_mmp_config](/api-reference/trading/private-set_mmp_config.md)
+- [private/set_disabled_trading_products](/api-reference/account-management/private-set_disabled_trading_products.md)
+- [Creating new API key](/articles/creating-api-key.md)
+- [private/get_mmp_config](/api-reference/trading/private-get_mmp_config.md)

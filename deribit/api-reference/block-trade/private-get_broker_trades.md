@@ -216,8 +216,8 @@ components:
               type: integer
               description: The next start ID for pagination.
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     block_trade:
       properties:
@@ -263,10 +263,9 @@ components:
         timestamp:
           $ref: '#/components/schemas/trade_timestamp'
         starbase_timestamp:
-          type: integer
+          $ref: '#/components/schemas/starbase_timestamp'
           description: >-
-            Optional field: timestamp of the match (trade) in
-            [Starbase](https://docs.deribit.com/starbase/overview), in
+            Optional field: the Starbase causal timestamp of the trade, in
             nanoseconds since the UNIX epoch (present only for trades matched in
             Starbase)
         order_type:
@@ -292,11 +291,6 @@ components:
         matching_id:
           type: string
           description: Always `null`
-        starbase_match_id:
-          type: integer
-          description: >-
-            Optional field containing the Starbase match identifier (present
-            only for trades matched via Starbase)
         direction:
           $ref: '#/components/schemas/direction'
           description: Trade direction of the taker
@@ -355,6 +349,8 @@ components:
           $ref: '#/components/schemas/order_state_in_user_trade'
         block_trade_id:
           $ref: '#/components/schemas/block_trade_id_in_result'
+        block_trade_leg_count:
+          $ref: '#/components/schemas/block_trade_leg_count'
         block_rfq_id:
           type: integer
           description: ID of the Block RFQ - when trade was part of the Block RFQ
@@ -388,7 +384,9 @@ components:
           description: >-
             Optional field containing leg trades if trade is a combo trade
             (present when querying for **only** combo trades and in
-            `combo_trades` events)
+            `combo_trades` events). Each leg trade has the same fields as a
+            top-level user trade, including `starbase_match_id` and
+            `starbase_timestamp` when matched via Starbase.
         combo_id:
           type: string
           description: >-
@@ -399,6 +397,11 @@ components:
           description: >-
             Optional field containing combo trade identifier if the trade is a
             combo trade
+        starbase_match_id:
+          type: integer
+          description: >-
+            Optional field containing the Starbase match identifier (present
+            only for trades matched via Starbase)
         quote_set_id:
           type: string
           description: >-
@@ -483,6 +486,12 @@ components:
       example: 1517329113791
       type: integer
       description: The timestamp of the trade (milliseconds since the UNIX epoch)
+    starbase_timestamp:
+      example: 1536569522277000000
+      type: integer
+      description: >-
+        The Starbase causal timestamp of the trade (nanoseconds since the Unix
+        epoch)
     direction:
       enum:
         - buy
@@ -523,6 +532,10 @@ components:
       example: '154'
       type: string
       description: Block trade id - when trade was part of a block trade
+    block_trade_leg_count:
+      example: 3
+      type: integer
+      description: Block trade leg count - when trade was part of a block trade
     profit_loss:
       type: number
       description: Profit and loss in base currency.
@@ -572,3 +585,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/get_broker_trade_requests](/api-reference/block-trade/private-get_broker_trade_requests.md)
+- [Voice Broker Trading API](/articles/voice-broker-trading-api.md)
+- [private/get_broker_clients](/api-reference/block-trade/private-get_broker_clients.md)
+- [private/get_block_trade_requests](/api-reference/block-trade/private-get_block_trade_requests.md)
+- [private/get_block_trades](/api-reference/block-trade/private-get_block_trades.md)

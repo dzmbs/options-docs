@@ -125,8 +125,8 @@ components:
         result:
           $ref: '#/components/schemas/order'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     ErrorMessageResponse:
       properties:
@@ -143,20 +143,14 @@ components:
         error:
           type: integer
       required:
-        - jsonrpc
         - error
         - message
+        - jsonrpc
       type: object
     order:
       properties:
         order_id:
           $ref: '#/components/schemas/order_id'
-        starbase_order_id:
-          type: integer
-          example: 103148386170
-          description: >-
-            Raw Starbase order id, in Starbase's own (non currency-prefixed) id
-            namespace. Only present for orders matched on Starbase.
         order_state:
           $ref: '#/components/schemas/order_state'
         order_type:
@@ -280,6 +274,12 @@ components:
           description: >-
             Id of the combo order that created this order (only present for
             orders that were created as legs of a combo order).
+        starbase_order_id:
+          type: integer
+          example: 103148386170
+          description: >-
+            Raw Starbase order id, in Starbase's own (non currency-prefixed) id
+            namespace. Only present for orders matched on Starbase.
         app_name:
           type: string
           example: Example Application
@@ -589,3 +589,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/get_order_state_by_label](/api-reference/trading/private-get_order_state_by_label.md)
+- [private/get_trigger_order_history](/api-reference/trading/private-get_trigger_order_history.md)
+- [private/get_open_orders](/api-reference/trading/private-get_open_orders.md)
+- [private/get_user_trades_by_order](/api-reference/trading/private-get_user_trades_by_order.md)
+- [private/get_open_orders_by_label](/api-reference/trading/private-get_open_orders_by_label.md)

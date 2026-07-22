@@ -4,7 +4,7 @@
 
 # Quickstart Guide
 
-> Welcome to the Deribit API! This guide will help you make your first API call in minutes.
+> Get started with the Deribit API — environment setup, first authenticated request, and key endpoints for placing your first order in minutes.
 
 Deribit provides three different interfaces to access the API:
 
@@ -214,3 +214,12 @@ Deribit provides three different interfaces to access the API:
     </Tabs>
   </Step>
 </Steps>
+
+
+## Related topics
+
+- [Welcome to Deribit API](/index.md)
+- [Multicast Subscription Guide](/starbase/multicast-subscription-guide.md)
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [Managing Transfers](/articles/managing-transfers-api.md)

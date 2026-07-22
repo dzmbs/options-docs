@@ -166,8 +166,8 @@ components:
         result:
           $ref: '#/components/schemas/api_key'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     api_key:
       properties:
@@ -279,3 +279,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/change_api_key_name](/api-reference/account-management/private-change_api_key_name.md)
+- [private/edit_api_key](/api-reference/account-management/private-edit_api_key.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [private/create_api_key](/api-reference/account-management/private-create_api_key.md)
+- [private/list_api_keys](/api-reference/account-management/private-list_api_keys.md)

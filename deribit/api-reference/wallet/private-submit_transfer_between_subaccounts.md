@@ -169,8 +169,8 @@ components:
         result:
           $ref: '#/components/schemas/transfer_item'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     transfer_item:
       properties:
@@ -269,3 +269,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [Managing Transfers](/articles/managing-transfers-api.md)
+- [private/submit_transfer_to_subaccount](/api-reference/wallet/private-submit_transfer_to_subaccount.md)
+- [private/submit_transfer_to_user](/api-reference/wallet/private-submit_transfer_to_user.md)
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [private/get_transfers](/api-reference/wallet/private-get_transfers.md)

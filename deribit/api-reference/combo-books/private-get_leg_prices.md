@@ -167,8 +167,8 @@ components:
                 that leg.
           type: object
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     leg_structure:
       items:
@@ -217,3 +217,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/add_block_rfq_quote](/api-reference/block-rfq/private-add_block_rfq_quote.md)
+- [private/get_block_rfq_quotes](/api-reference/block-rfq/private-get_block_rfq_quotes.md)
+- [private/get_block_rfqs](/api-reference/block-rfq/private-get_block_rfqs.md)
+- [public/get_block_rfq_trades](/api-reference/block-rfq/public-get_block_rfq_trades.md)
+- [private/get_block_trade](/api-reference/block-trade/private-get_block_trade.md)

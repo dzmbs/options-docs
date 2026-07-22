@@ -1042,3 +1042,11 @@ extensions:
 securitySchemes: []
 
 ````
+
+## Related topics
+
+- [Notifications](/articles/notifications.md)
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [public/get_book_summary_by_currency](/api-reference/market-data/public-get_book_summary_by_currency.md)
+- [incremental_ticker.(instrument_name) ](/subscriptions/market-data/incremental_tickerinstrument_name.md)

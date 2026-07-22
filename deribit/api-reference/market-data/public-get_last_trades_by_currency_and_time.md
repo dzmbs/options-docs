@@ -204,8 +204,8 @@ components:
             - trades
             - has_more
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     public_trade:
       properties:
@@ -219,6 +219,10 @@ components:
           $ref: '#/components/schemas/trade_timestamp'
         starbase_timestamp:
           $ref: '#/components/schemas/starbase_timestamp'
+          description: >-
+            Optional field: the Starbase causal timestamp of the trade, in
+            nanoseconds since the UNIX epoch (present only for trades matched in
+            Starbase)
         direction:
           $ref: '#/components/schemas/direction'
           description: Trade direction of the taker
@@ -369,3 +373,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [public/get_last_trades_by_currency](/api-reference/market-data/public-get_last_trades_by_currency.md)
+- [public/get_last_trades_by_instrument_and_time](/api-reference/market-data/public-get_last_trades_by_instrument_and_time.md)
+- [public/get_last_trades_by_instrument](/api-reference/market-data/public-get_last_trades_by_instrument.md)
+- [public/get_last_settlements_by_currency](/api-reference/market-data/public-get_last_settlements_by_currency.md)
+- [private/get_user_trades_by_currency_and_time](/api-reference/trading/private-get_user_trades_by_currency_and_time.md)

@@ -146,8 +146,8 @@ components:
         result:
           $ref: '#/components/schemas/address_beneficiary_item'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     address_beneficiary_item:
       properties:
@@ -293,3 +293,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [Managing Withdrawals](/articles/managing-withdrawals-api.md)
+- [private/delete_address_beneficiary](/api-reference/wallet/private-delete_address_beneficiary.md)
+- [private/save_address_beneficiary](/api-reference/wallet/private-save_address_beneficiary.md)
+- [private/list_address_beneficiaries](/api-reference/wallet/private-list_address_beneficiaries.md)
+- [private/get_address_book](/api-reference/wallet/private-get_address_book.md)

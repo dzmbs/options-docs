@@ -131,8 +131,8 @@ components:
               - timestamp
               - value
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PublicGetHistoricalVolatilityResponse:
@@ -164,3 +164,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [public/get_volatility_index_data](/api-reference/market-data/public-get_volatility_index_data.md)
+- [public/get_mark_price_history](/api-reference/market-data/public-get_mark_price_history.md)
+- [public/get_delivery_prices](/api-reference/market-data/public-get_delivery_prices.md)
+- [public/get_index_chart_data](/api-reference/market-data/public-get_index_chart_data.md)

@@ -137,8 +137,16 @@ components:
             - ok
           description: Result of method execution. `ok` in case of success
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [private/get_email_language](/api-reference/account-management/private-get_email_language.md)
+- [private/set_email_for_subaccount](/api-reference/account-management/private-set_email_for_subaccount.md)
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [private/get_account_summary](/api-reference/account-management/private-get_account_summary.md)
+- [private/get_account_summaries](/api-reference/account-management/private-get_account_summaries.md)

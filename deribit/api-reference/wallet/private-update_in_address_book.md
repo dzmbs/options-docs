@@ -274,8 +274,8 @@ components:
           example: ok
           description: ok
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PrivateUpdateInAddressBookResponse:
@@ -293,3 +293,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/get_address_book](/api-reference/wallet/private-get_address_book.md)
+- [private/remove_from_address_book](/api-reference/wallet/private-remove_from_address_book.md)
+- [private/add_to_address_book](/api-reference/wallet/private-add_to_address_book.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Managing Withdrawals](/articles/managing-withdrawals-api.md)

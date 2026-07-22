@@ -81,23 +81,23 @@ operations:
                     Currency on which account lock has changed, `ALL` if changed
                     for all currencies
                   example: BTC, ALL
-                  x-parser-schema-id: <anonymous-schema-1103>
+                  x-parser-schema-id: <anonymous-schema-1113>
                 locked:
                   type: boolean
                   description: >-
                     Value is set to 'true' when user account is locked in
                     currency
                   example: false
-                  x-parser-schema-id: <anonymous-schema-1104>
+                  x-parser-schema-id: <anonymous-schema-1114>
               required:
                 - currency
                 - locked
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-1102>
+              x-parser-schema-id: <anonymous-schema-1112>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-1101>
+          x-parser-schema-id: <anonymous-schema-1111>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -137,7 +137,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-1100>
+          x-parser-schema-id: <anonymous-schema-1110>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification
@@ -175,3 +175,11 @@ extensions:
 securitySchemes: []
 
 ````
+
+## Related topics
+
+- [private/get_user_locks](/api-reference/account-management/private-get_user_locks.md)
+- [Notifications](/articles/notifications.md)
+- [Order Management](/articles/order-management-best-practices.md)
+- [Lock Portfolio](/api-reference/portfolio-management/lock-portfolio.md)
+- [Voice Broker Trading API](/articles/voice-broker-trading-api.md)

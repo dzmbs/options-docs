@@ -114,8 +114,16 @@ components:
             - ok
           description: Result of method execution. `ok` in case of success
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [private/unsubscribe](/api-reference/subscription-management/private-unsubscribe.md)
+- [public/unsubscribe_all](/api-reference/subscription-management/public-unsubscribe_all.md)
+- [private/cancel_all](/api-reference/trading/private-cancel_all.md)
+- [private/cancel_all_by_currency](/api-reference/trading/private-cancel_all_by_currency.md)
+- [private/cancel_all_by_instrument](/api-reference/trading/private-cancel_all_by_instrument.md)

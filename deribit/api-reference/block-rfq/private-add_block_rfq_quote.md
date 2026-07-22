@@ -249,8 +249,8 @@ components:
         result:
           $ref: '#/components/schemas/block_rfq_quote'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     block_rfq_quote:
       properties:
@@ -418,3 +418,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/edit_block_rfq_quote](/api-reference/block-rfq/private-edit_block_rfq_quote.md)
+- [private/get_block_rfq_quotes](/api-reference/block-rfq/private-get_block_rfq_quotes.md)
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [Rate Limits](/articles/rate-limits.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)

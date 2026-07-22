@@ -106,6 +106,12 @@ operations:
                       The timestamp of the trade (milliseconds since the UNIX
                       epoch)
                     required: true
+                  - name: starbase_timestamp
+                    type: integer
+                    description: >-
+                      The Starbase causal timestamp of the trade (nanoseconds
+                      since the Unix epoch)
+                    required: false
                   - name: direction
                     type: string
                     description: 'Direction: `buy`, or `sell`'
@@ -187,6 +193,12 @@ operations:
                       Optional field containing combo trade identifier if the
                       trade is a combo trade
                     required: false
+                  - name: starbase_match_id
+                    type: integer
+                    description: >-
+                      Optional field containing the Starbase match identifier
+                      (present only for trades matched via Starbase)
+                    required: false
                   - name: block_rfq_id
                     type: integer
                     description: ID of the Block RFQ - when trade was part of the Block RFQ
@@ -219,13 +231,20 @@ operations:
                   example: 1517329113791
                   type: integer
                   x-parser-schema-id: <anonymous-schema-162>
+                starbase_timestamp:
+                  type: integer
+                  example: 1536569522277000000
+                  description: >-
+                    The Starbase causal timestamp of the trade (nanoseconds
+                    since the Unix epoch)
+                  x-parser-schema-id: <anonymous-schema-163>
                 direction:
                   type: string
                   description: 'Direction: `buy`, or `sell`'
                   enum:
                     - buy
                     - sell
-                  x-parser-schema-id: <anonymous-schema-163>
+                  x-parser-schema-id: <anonymous-schema-164>
                 tick_direction:
                   type: integer
                   enum:
@@ -236,32 +255,32 @@ operations:
                   description: >-
                     Direction of the "tick" (`0` = Plus Tick, `1` = Zero-Plus
                     Tick, `2` = Minus Tick, `3` = Zero-Minus Tick).
-                  x-parser-schema-id: <anonymous-schema-164>
+                  x-parser-schema-id: <anonymous-schema-165>
                 index_price:
                   type: number
                   description: Index Price at the moment of trade
-                  x-parser-schema-id: <anonymous-schema-165>
+                  x-parser-schema-id: <anonymous-schema-166>
                 price:
                   description: Price in base currency
                   type: number
-                  x-parser-schema-id: <anonymous-schema-166>
+                  x-parser-schema-id: <anonymous-schema-167>
                 amount:
                   type: number
                   description: >-
                     Trade amount. For perpetual and inverse futures the amount
                     is in USD units. For options and linear futures it is the
                     underlying base currency coin.
-                  x-parser-schema-id: <anonymous-schema-167>
+                  x-parser-schema-id: <anonymous-schema-168>
                 contracts:
                   type: number
                   description: >-
                     Trade size in contract units (optional, may be absent in
                     historical trades)
-                  x-parser-schema-id: <anonymous-schema-168>
+                  x-parser-schema-id: <anonymous-schema-169>
                 iv:
                   type: number
                   description: Option implied volatility for the price (Option only)
-                  x-parser-schema-id: <anonymous-schema-169>
+                  x-parser-schema-id: <anonymous-schema-170>
                 liquidation:
                   type: string
                   description: >-
@@ -273,37 +292,43 @@ operations:
                     - M
                     - T
                     - MT
-                  x-parser-schema-id: <anonymous-schema-170>
+                  x-parser-schema-id: <anonymous-schema-171>
                 mark_price:
                   type: number
                   description: Mark Price at the moment of trade
-                  x-parser-schema-id: <anonymous-schema-171>
+                  x-parser-schema-id: <anonymous-schema-172>
                 block_trade_id:
                   description: Block trade id - when trade was part of a block trade
                   type: string
                   example: '154'
-                  x-parser-schema-id: <anonymous-schema-172>
+                  x-parser-schema-id: <anonymous-schema-173>
                 block_trade_leg_count:
                   description: Block trade leg count - when trade was part of a block trade
                   type: integer
                   example: 3
-                  x-parser-schema-id: <anonymous-schema-173>
+                  x-parser-schema-id: <anonymous-schema-174>
                 combo_id:
                   type: string
                   description: >-
                     Optional field containing combo instrument name if the trade
                     is a combo trade
-                  x-parser-schema-id: <anonymous-schema-174>
+                  x-parser-schema-id: <anonymous-schema-175>
                 combo_trade_id:
                   type: string
                   description: >-
                     Optional field containing combo trade identifier if the
                     trade is a combo trade
-                  x-parser-schema-id: <anonymous-schema-175>
+                  x-parser-schema-id: <anonymous-schema-176>
+                starbase_match_id:
+                  type: integer
+                  description: >-
+                    Optional field containing the Starbase match identifier
+                    (present only for trades matched via Starbase)
+                  x-parser-schema-id: <anonymous-schema-177>
                 block_rfq_id:
                   type: integer
                   description: ID of the Block RFQ - when trade was part of the Block RFQ
-                  x-parser-schema-id: <anonymous-schema-176>
+                  x-parser-schema-id: <anonymous-schema-178>
               required:
                 - trade_id
                 - instrument_name
@@ -423,3 +448,11 @@ extensions:
 securitySchemes: []
 
 ````
+
+## Related topics
+
+- [user.trades.(instrument_name).(interval) ](/subscriptions/user/usertradesinstrument_nameinterval.md)
+- [user.combo_trades.(instrument_name).(interval) ](/subscriptions/user/usercombo_tradesinstrument_nameinterval.md)
+- [user.changes.(instrument_name).(interval) ](/subscriptions/user/userchangesinstrument_nameinterval.md)
+- [ticker.(instrument_name).(interval) ](/subscriptions/market-data/tickerinstrument_nameinterval.md)
+- [perpetual.(instrument_name).(interval) ](/subscriptions/market-data/perpetualinstrument_nameinterval.md)

@@ -4,7 +4,7 @@
 
 # Asymmetric API Keys
 
-> Asymmetric keys involve the use of two keys: a private key and a public key, which are different but cryptographically linked.
+> Asymmetric API keys use public and private key pairs to sign Deribit requests, offering stronger authentication and reduced credential exposure risk.
 
 **Asymmetric API keys** provide enhanced security compared to traditional symmetric API keys by using a **public-private key pair** instead of a shared secret. With asymmetric keys, you generate both keys locally, keep the **private key** secret on your system, and only share the **public key** with Deribit.
 
@@ -654,3 +654,12 @@ asyncio.get_event_loop().run_until_complete(call_api(msg))
 3. Update your applications to use the new key pair
 4. Test thoroughly
 5. Revoke the old API key once you've confirmed everything works
+
+
+## Related topics
+
+- [Creating new API key](/articles/creating-api-key.md)
+- [Authentication](/articles/authentication.md)
+- [private/create_api_key](/api-reference/account-management/private-create_api_key.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)
+- [private/enable_api_key](/api-reference/account-management/private-enable_api_key.md)

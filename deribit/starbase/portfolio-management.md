@@ -4,7 +4,7 @@
 
 # Portfolio Management
 
-> Portfolio-scoped controls for mass cancellation and direct-access order entry in Starbase.
+> Portfolio-scoped controls in Starbase — mass cancellation, direct-access order entry, and lock or unlock endpoints for risk operations workflows.
 
 The Starbase REST API exposes a set of portfolio-scoped management operations. All endpoints require authentication; the authenticated session determines which portfolio is acted upon.
 
@@ -56,3 +56,12 @@ Portfolio management complements but does not replace other Starbase risk featur
 | Mass Cancel (REST)                                                    | Portfolio, unfiltered         | Explicit client request via REST      |
 | [Portfolio lock](/starbase/portfolio-management#portfolio-lock-state) | Portfolio                     | Explicit client request via REST      |
 | [MMP](/starbase/mmp)                                                  | Underlying, MMP-tagged orders | Exposure limit breach                 |
+
+
+## Related topics
+
+- [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [private/simulate_portfolio](/api-reference/account-management/private-simulate_portfolio.md)
+- [Order Management](/articles/order-management-best-practices.md)
+- [Lock Portfolio](/api-reference/portfolio-management/lock-portfolio.md)
+- [Unlock Portfolio](/api-reference/portfolio-management/unlock-portfolio.md)

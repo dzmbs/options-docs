@@ -201,8 +201,8 @@ components:
           items:
             $ref: '#/components/schemas/expirations'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     expirations:
       properties:
@@ -259,3 +259,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Market Data Collection](/articles/market-data-collection-best-practices.md)
+- [public/get_instrument](/api-reference/market-data/public-get_instrument.md)
+- [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
+- [public/get_index_price](/api-reference/market-data/public-get_index_price.md)

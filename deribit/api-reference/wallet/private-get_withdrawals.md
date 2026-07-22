@@ -152,8 +152,8 @@ components:
             - data
             - count
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     withdrawal:
       properties:
@@ -267,3 +267,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [Managing Withdrawals](/articles/managing-withdrawals-api.md)
+- [private/cancel_withdrawal](/api-reference/wallet/private-cancel_withdrawal.md)
+- [private/get_address_book](/api-reference/wallet/private-get_address_book.md)
+- [private/get_address_beneficiary](/api-reference/wallet/private-get_address_beneficiary.md)
+- [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)

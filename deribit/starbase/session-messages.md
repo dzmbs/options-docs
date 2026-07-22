@@ -4,7 +4,7 @@
 
 # Session Messages
 
-> Session-level messages for establishing, maintaining, and terminating connections in the Starbase Binary API.
+> Session-level messages in the Starbase Binary API — login, heartbeat, logout, and error messages that manage the gateway connection lifecycle.
 
 ## Session Messages
 
@@ -99,3 +99,12 @@ The table below lists all possible values of the `reason` field.
 | `3`   | `INVALID_BLOCK_LENGTH` | Message block length does not match the template               |
 | `4`   | `INVALID_FIELD_VALUE`  | A field in the message contains an invalid value               |
 | `5`   | `MESSAGE_DISABLED`     | The message being submitted has been administratively disabled |
+
+
+## Related topics
+
+- [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [Starbase API Changelog](/changelogs/starbase.md)
+- [Logon(A)](/fix-api/production/logon.md)
+- [Cancelling an Order](/starbase/cancelling-order.md)
+- [Connection Management](/articles/connection-management-best-practices.md)

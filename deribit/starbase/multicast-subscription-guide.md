@@ -4,7 +4,7 @@
 
 # Multicast Subscription Guide
 
-> Steps required to subscribe to and unsubscribe from Starbase Multicast feeds.
+> Step-by-step procedure to subscribe and unsubscribe from Starbase UDP multicast market data feeds, including channel discovery and IGMP setup.
 
 <Info>
   **Multicast & networking support**: For detailed multicast or networking questions, contact [colo-support@coinbase.com](mailto:colo-support@coinbase.com).
@@ -59,3 +59,12 @@ To confirm the ASM tree is building correctly toward the RP:
 | `show ip mroute`                      | Check routing (verify outgoing interface is correct)   |
 | `show ip pim rp-hash <mcast-address>` | Confirm RP mapping (should return `195.138.37.160`)    |
 | `show ip mroute <mcast-address>`      | Check shared tree (\*, G) entry pointing toward the RP |
+
+
+## Related topics
+
+- [Multicast Retransmit Gateway](/starbase/retransmit-gateway.md)
+- [Market Data Collection](/articles/market-data-collection-best-practices.md)
+- [Multicast Channels](/starbase/multicast-channels.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)
+- [Security List Request(x)](/fix-api/production/security-list-request.md)

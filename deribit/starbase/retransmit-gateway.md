@@ -4,7 +4,7 @@
 
 # Multicast Retransmit Gateway
 
-> Reference for the UDP unicast retransmit service that lets clients recover missed incremental feed messages by sequence number.
+> Recover missed Starbase multicast messages via the UDP unicast retransmit service — request ranges by sequence number to fill incremental feed gaps.
 
 When a client detects a gap in the incremental multicast feed's sequence numbers, it can request the missing messages from the retransmit gateway. The client sends a UDP unicast `RetransmitRequest` to the gateway; the gateway serves cached SBE messages back via UDP unicast.
 
@@ -168,3 +168,12 @@ A request for a `beginSeqNum` that has been evicted receives `SEQ_TOO_LOW`.
 **Respect `retryDelayNanos`.** On any reject, wait at least the specified delay before retrying. For `OTHER_ERROR`, apply a backoff because the service may be warming up.
 
 **Retransmits are best-effort UDP.** Both the request and the response may be lost in transit. Implement a timeout and retry loop in your client. If no response arrives within your timeout, resend the request (subject to `retryDelayNanos` constraints).
+
+
+## Related topics
+
+- [Gateway Connectivity](/starbase/gateway-connectivity.md)
+- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Multicast Channels](/starbase/multicast-channels.md)
+- [Multicast Subscription Guide](/starbase/multicast-subscription-guide.md)
+- [Starbase API Overview](/starbase/overview.md)

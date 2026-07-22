@@ -171,8 +171,8 @@ components:
                 the next request. `NULL` when no continuation.
           description: Volatility index candles.
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PublicGetVolatilityIndexDataResponse:
@@ -207,3 +207,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [public/get_historical_volatility](/api-reference/market-data/public-get_historical_volatility.md)
+- [public/get_index_chart_data](/api-reference/market-data/public-get_index_chart_data.md)
+- [public/get_index_price](/api-reference/market-data/public-get_index_price.md)
+- [public/get_supported_index_names](/api-reference/market-data/public-get_supported_index_names.md)

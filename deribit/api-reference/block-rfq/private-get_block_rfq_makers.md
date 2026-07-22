@@ -134,8 +134,16 @@ components:
             type: string
           description: A list of available makers.
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [private/get_block_rfqs](/api-reference/block-rfq/private-get_block_rfqs.md)
+- [private/get_block_rfq_user_info](/api-reference/block-rfq/private-get_block_rfq_user_info.md)
+- [private/get_block_rfq_quotes](/api-reference/block-rfq/private-get_block_rfq_quotes.md)
+- [private/cancel_block_rfq](/api-reference/block-rfq/private-cancel_block_rfq.md)
+- [private/create_block_rfq](/api-reference/block-rfq/private-create_block_rfq.md)

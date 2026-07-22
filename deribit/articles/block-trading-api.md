@@ -4,7 +4,7 @@
 
 # Block Trading
 
-> How to execute block trades between two parties using API.
+> Negotiate and execute block trades between two counterparties on Deribit via API, including quote verification, approval, and settlement workflows.
 
 This section explains how to execute block trades between two parties using the API. Block trades allow for large trades to be executed off the order book at negotiated prices. Before calling any private method you must authenticate.
 
@@ -282,3 +282,12 @@ The restricted block trades feature limits the `block_trade:read` scope of the A
 * [`private/approve_block_trade`](/api-reference/block-trade/private-approve_block_trade) - Approve a pending block trade
 * [`private/reject_block_trade`](/api-reference/block-trade/private-reject_block_trade) - Reject a pending block trade
 * [`private/invalidate_block_trade_signature`](/api-reference/block-trade/private-invalidate_block_trade_signature) - Invalidate a block trade signature
+
+
+## Related topics
+
+- [Access Scope](/articles/access-scope.md)
+- [block_trade_confirmations ](/subscriptions/block-trade/block_trade_confirmations.md)
+- [private/get_block_trade](/api-reference/block-trade/private-get_block_trade.md)
+- [block_trade_confirmations.(currency) ](/subscriptions/block-trade/block_trade_confirmationscurrency.md)
+- [private/simulate_block_trade](/api-reference/block-trade/private-simulate_block_trade.md)

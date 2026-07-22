@@ -175,8 +175,8 @@ components:
             - settlements
           type: object
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     continuation:
       example: xY7T6cutS3t2B9YtaDkE6TS379oKnkzTvmEDUnEUP2Msa9xKWNNaT
@@ -287,3 +287,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/get_settlement_history_by_currency](/api-reference/trading/private-get_settlement_history_by_currency.md)
+- [private/get_order_history_by_instrument](/api-reference/trading/private-get_order_history_by_instrument.md)
+- [public/get_last_settlements_by_instrument](/api-reference/market-data/public-get_last_settlements_by_instrument.md)
+- [private/get_order_history_by_currency](/api-reference/trading/private-get_order_history_by_currency.md)
+- [public/get_last_settlements_by_currency](/api-reference/market-data/public-get_last_settlements_by_currency.md)

@@ -2,9 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Logon(A)
+# Logon(A) — Production FIX API
 
-> FIX Logon message initiates a FIX session with Deribit. Learn how to authenticate and establish a FIX connection with proper credentials and heartbeat configuration.
+> Logon(A) authenticates and establishes a session on the Deribit production FIX API, covering credentials, heartbeat interval, and cancel-on-disconnect setup.
 
 `Logon`(`A`) must be the first message sent by the client to initiate a session. If
 authentication succeeds, the exchange should echo the message back to the
@@ -58,3 +58,12 @@ When the login is successful, the server will echo back the request.
 
 If the login was not successful, the server will respond with a
 [`Logout`(`5`)](/fix-api/production/logout) message, and close the connection.
+
+
+## Related topics
+
+- [FIX API Changelog](/changelogs/fix.md)
+- [FIX API Overview](/fix-api/production/overview.md)
+- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
+- [Logout(5)](/fix-api/production/logout.md)
+- [Changes Log](/fix-api/production/changes-log.md)

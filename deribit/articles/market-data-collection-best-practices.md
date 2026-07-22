@@ -4,7 +4,7 @@
 
 # Market Data Collection
 
-> Efficient market data consumption is critical for algorithmic trading on Deribit.
+> Strategies for efficient Deribit market data ingestion — snapshots, incremental updates, throttling, and choosing the right channels per instrument.
 
 This article outlines how to get the most timely and reliable market data from Deribit's API, while minimizing latency and system load. We cover Deribit's market data architecture, choosing the right interface (WebSocket, FIX, or Multicast), raw vs. aggregated data streams, optimal subscription patterns, and connection management. Following these best practices will help ensure you receive price and order book updates as quickly as possible without overloading your systems or Deribit's.
 
@@ -178,3 +178,12 @@ By using the guidelines above, you can build a market data collection system tha
 * **Isolate connections** – Always use separate connections for market data vs. order execution. This isolation prevents data surges from delaying your trading. If using multiple connections on FIX, consider the 9010 tag to avoid duplicate reports.
 
 By following these best practices, you'll ensure you're getting the fastest possible market updates from Deribit in a reliable manner, positioning you to react quickly in the market while maintaining a stable system. Happy trading!
+
+
+## Related topics
+
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [private/subscribe](/api-reference/subscription-management/private-subscribe.md)
+- [public/subscribe](/api-reference/subscription-management/public-subscribe.md)
+- [Market Data Request(V)](/fix-api/production/market-data-request.md)
+- [Market Data Request Reject(Y)](/fix-api/production/market-data-request-reject.md)

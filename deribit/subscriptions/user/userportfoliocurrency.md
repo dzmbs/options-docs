@@ -383,12 +383,12 @@ operations:
                   type: string
                   description: The selected currency
                   example: ETH
-                  x-parser-schema-id: <anonymous-schema-314>
+                  x-parser-schema-id: <anonymous-schema-318>
                 equity:
                   type: number
                   description: The account's current equity
                   example: 2.6437733
-                  x-parser-schema-id: <anonymous-schema-315>
+                  x-parser-schema-id: <anonymous-schema-319>
                 maintenance_margin:
                   type: number
                   description: >-
@@ -397,7 +397,7 @@ operations:
                     each cross collateral currency's value to the given
                     currency, using each cross collateral currency's index.
                   example: 0.1334519
-                  x-parser-schema-id: <anonymous-schema-316>
+                  x-parser-schema-id: <anonymous-schema-320>
                 initial_margin:
                   type: number
                   description: >-
@@ -407,7 +407,7 @@ operations:
                     given currency, using each cross collateral currency's
                     index.
                   example: 0.379882
-                  x-parser-schema-id: <anonymous-schema-317>
+                  x-parser-schema-id: <anonymous-schema-321>
                 available_funds:
                   type: number
                   description: >-
@@ -417,21 +417,21 @@ operations:
                     given currency, using each cross collateral currency's
                     index.
                   example: 2.2638913
-                  x-parser-schema-id: <anonymous-schema-318>
+                  x-parser-schema-id: <anonymous-schema-322>
                 available_withdrawal_funds:
                   type: number
                   description: The account's available to withdrawal funds
                   example: 2.26
-                  x-parser-schema-id: <anonymous-schema-319>
+                  x-parser-schema-id: <anonymous-schema-323>
                 balance:
                   type: number
                   description: The account's balance
                   example: 3.4906363
-                  x-parser-schema-id: <anonymous-schema-320>
+                  x-parser-schema-id: <anonymous-schema-324>
                 fee_balance:
                   description: The account's fee balance (it can be used to pay for fees)
                   type: number
-                  x-parser-schema-id: <anonymous-schema-321>
+                  x-parser-schema-id: <anonymous-schema-325>
                 margin_balance:
                   type: number
                   description: >-
@@ -441,77 +441,77 @@ operations:
                     given currency, using each cross collateral currency's
                     index.
                   example: 2.25
-                  x-parser-schema-id: <anonymous-schema-322>
+                  x-parser-schema-id: <anonymous-schema-326>
                 session_upl:
                   description: Session unrealized profit and loss
                   type: number
                   example: 0.846863
-                  x-parser-schema-id: <anonymous-schema-323>
+                  x-parser-schema-id: <anonymous-schema-327>
                 session_rpl:
                   description: Session realized profit and loss
                   type: number
                   example: 0.1
-                  x-parser-schema-id: <anonymous-schema-324>
+                  x-parser-schema-id: <anonymous-schema-328>
                 total_pl:
                   type: number
                   description: Profit and loss
                   example: 0.02032221
-                  x-parser-schema-id: <anonymous-schema-325>
+                  x-parser-schema-id: <anonymous-schema-329>
                 options_pl:
                   type: number
                   description: Options profit and Loss
                   example: 0
-                  x-parser-schema-id: <anonymous-schema-326>
+                  x-parser-schema-id: <anonymous-schema-330>
                 options_session_rpl:
                   type: number
                   description: Options session realized profit and Loss
                   example: 0
-                  x-parser-schema-id: <anonymous-schema-327>
+                  x-parser-schema-id: <anonymous-schema-331>
                 options_session_upl:
                   type: number
                   description: Options session unrealized profit and Loss
                   example: 0
-                  x-parser-schema-id: <anonymous-schema-328>
+                  x-parser-schema-id: <anonymous-schema-332>
                 options_delta:
                   type: number
                   description: Options summary delta
                   example: 0
-                  x-parser-schema-id: <anonymous-schema-329>
+                  x-parser-schema-id: <anonymous-schema-333>
                 options_gamma:
                   type: number
                   description: Options summary gamma
                   example: 0
-                  x-parser-schema-id: <anonymous-schema-330>
+                  x-parser-schema-id: <anonymous-schema-334>
                 options_theta:
                   type: number
                   description: Options summary theta
                   example: 0
-                  x-parser-schema-id: <anonymous-schema-331>
+                  x-parser-schema-id: <anonymous-schema-335>
                 options_value:
                   type: number
                   description: Options value
                   example: 0
-                  x-parser-schema-id: <anonymous-schema-332>
+                  x-parser-schema-id: <anonymous-schema-336>
                 options_vega:
                   type: number
                   description: Options summary vega
                   example: 0
-                  x-parser-schema-id: <anonymous-schema-333>
+                  x-parser-schema-id: <anonymous-schema-337>
                 futures_pl:
                   type: number
                   description: Futures profit and Loss
                   example: 0
-                  x-parser-schema-id: <anonymous-schema-334>
+                  x-parser-schema-id: <anonymous-schema-338>
                 futures_session_rpl:
                   type: number
                   description: Futures session realized profit and Loss
                   example: 0
-                  x-parser-schema-id: <anonymous-schema-335>
+                  x-parser-schema-id: <anonymous-schema-339>
                 futures_session_upl:
                   type: number
                   description: Futures session unrealized profit and Loss
                   example: 0
-                  x-parser-schema-id: <anonymous-schema-336>
+                  x-parser-schema-id: <anonymous-schema-340>
                 delta_total:
                   description: >
                     The sum of position deltas. 
@@ -540,45 +540,45 @@ operations:
                     for more details.
                   example: 0.1334
                   type: number
-                  x-parser-schema-id: <anonymous-schema-337>
+                  x-parser-schema-id: <anonymous-schema-341>
                 delta_total_map:
                   type: object
                   description: Map of position sum's per index
-                  x-parser-schema-id: <anonymous-schema-338>
+                  x-parser-schema-id: <anonymous-schema-342>
                 options_gamma_map:
                   type: object
                   description: Map of options' gammas per index
-                  x-parser-schema-id: <anonymous-schema-339>
+                  x-parser-schema-id: <anonymous-schema-343>
                 options_theta_map:
                   type: object
                   description: Map of options' thetas per index
-                  x-parser-schema-id: <anonymous-schema-340>
+                  x-parser-schema-id: <anonymous-schema-344>
                 options_vega_map:
                   type: object
                   description: Map of options' vegas per index
-                  x-parser-schema-id: <anonymous-schema-341>
+                  x-parser-schema-id: <anonymous-schema-345>
                 projected_delta_total:
                   description: >-
                     The sum of position deltas without positions that will
                     expire during closest expiration
                   example: 0.1334
                   type: number
-                  x-parser-schema-id: <anonymous-schema-342>
+                  x-parser-schema-id: <anonymous-schema-346>
                 portfolio_margining_enabled:
                   type: boolean
                   description: When `true` portfolio margining is enabled for user
                   example: true
-                  x-parser-schema-id: <anonymous-schema-343>
+                  x-parser-schema-id: <anonymous-schema-347>
                 cross_collateral_enabled:
                   type: boolean
                   description: When `true` cross collateral is enabled for user
                   example: true
-                  x-parser-schema-id: <anonymous-schema-344>
+                  x-parser-schema-id: <anonymous-schema-348>
                 margin_model:
                   type: string
                   description: Name of user's currently enabled margin model
                   example: segregated_sm
-                  x-parser-schema-id: <anonymous-schema-345>
+                  x-parser-schema-id: <anonymous-schema-349>
                 total_equity_usd:
                   type: number
                   description: >-
@@ -586,7 +586,7 @@ operations:
                     total equity in all cross collateral currencies, expressed
                     in USD
                   example: 2.6437733
-                  x-parser-schema-id: <anonymous-schema-346>
+                  x-parser-schema-id: <anonymous-schema-350>
                 total_initial_margin_usd:
                   type: number
                   description: >-
@@ -594,7 +594,7 @@ operations:
                     total initial margin in all cross collateral currencies,
                     expressed in USD
                   example: 0.379882
-                  x-parser-schema-id: <anonymous-schema-347>
+                  x-parser-schema-id: <anonymous-schema-351>
                 total_maintenance_margin_usd:
                   type: number
                   description: >-
@@ -602,7 +602,7 @@ operations:
                     total maintenance margin in all cross collateral currencies,
                     expressed in USD
                   example: 0.1334519
-                  x-parser-schema-id: <anonymous-schema-348>
+                  x-parser-schema-id: <anonymous-schema-352>
                 total_margin_balance_usd:
                   type: number
                   description: >-
@@ -610,7 +610,7 @@ operations:
                     total margin balance in all cross collateral currencies,
                     expressed in USD
                   example: 2.25
-                  x-parser-schema-id: <anonymous-schema-349>
+                  x-parser-schema-id: <anonymous-schema-353>
                 total_delta_total_usd:
                   type: number
                   description: >-
@@ -618,7 +618,7 @@ operations:
                     total delta total in all cross collateral currencies,
                     expressed in USD
                   example: 1.8
-                  x-parser-schema-id: <anonymous-schema-350>
+                  x-parser-schema-id: <anonymous-schema-354>
                 projected_initial_margin:
                   description: >-
                     Projected initial margin. When cross collateral is enabled,
@@ -627,7 +627,7 @@ operations:
                     currency, using each cross collateral currency's index.
                   example: 1
                   type: number
-                  x-parser-schema-id: <anonymous-schema-351>
+                  x-parser-schema-id: <anonymous-schema-355>
                 projected_maintenance_margin:
                   description: >-
                     Projected maintenance margin. When cross collateral is
@@ -637,7 +637,7 @@ operations:
                     index.
                   example: 1
                   type: number
-                  x-parser-schema-id: <anonymous-schema-352>
+                  x-parser-schema-id: <anonymous-schema-356>
                 estimated_liquidation_ratio:
                   type: number
                   description: >-
@@ -647,7 +647,7 @@ operations:
                     liquidation price. Use estimated_liquidation_ratio_map
                     instead.
                   example: 0.0000234
-                  x-parser-schema-id: <anonymous-schema-353>
+                  x-parser-schema-id: <anonymous-schema-357>
                 estimated_liquidation_ratio_map:
                   type: object
                   description: >-
@@ -655,12 +655,12 @@ operations:
                     only for users with `segregated_sm` margin model.
                     Multiplying it by future position's market price returns its
                     estimated liquidation price.
-                  x-parser-schema-id: <anonymous-schema-354>
+                  x-parser-schema-id: <anonymous-schema-358>
                 additional_reserve:
                   description: The account's balance reserved in other orders
                   example: 0.3
                   type: number
-                  x-parser-schema-id: <anonymous-schema-355>
+                  x-parser-schema-id: <anonymous-schema-359>
               required:
                 - currency
                 - equity
@@ -694,11 +694,11 @@ operations:
                 - margin_model
                 - projected_maintenance_margin
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-313>
+              x-parser-schema-id: <anonymous-schema-317>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-312>
+          x-parser-schema-id: <anonymous-schema-316>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -784,7 +784,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-311>
+          x-parser-schema-id: <anonymous-schema-315>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification
@@ -822,3 +822,11 @@ extensions:
 securitySchemes: []
 
 ````
+
+## Related topics
+
+- [Notifications](/articles/notifications.md)
+- [user.trades.(kind).(currency).(interval) ](/subscriptions/user/usertradeskindcurrencyinterval.md)
+- [user.orders.(kind).(currency).(interval) ](/subscriptions/user/userorderskindcurrencyinterval.md)
+- [user.orders.(kind).(currency).raw ](/subscriptions/user/userorderskindcurrencyraw.md)
+- [user.changes.(kind).(currency).(interval) ](/subscriptions/user/userchangeskindcurrencyinterval.md)

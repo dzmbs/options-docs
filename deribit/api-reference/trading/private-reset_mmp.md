@@ -201,8 +201,16 @@ components:
             - ok
           description: Result of method execution. `ok` in case of success
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
+- [private/get_mmp_config](/api-reference/trading/private-get_mmp_config.md)
+- [user.mmp_trigger.(index_name) ](/subscriptions/user/usermmp_triggerindex_name.md)
+- [MMProtection Reset(MZ)](/fix-api/production/mmprotection-reset.md)
+- [private/set_mmp_config](/api-reference/trading/private-set_mmp_config.md)

@@ -154,8 +154,8 @@ components:
                 type: number
                 description: 8hour interest rate
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     price:
       type: number
@@ -196,3 +196,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [public/get_funding_rate_value](/api-reference/market-data/public-get_funding_rate_value.md)
+- [public/get_funding_chart_data](/api-reference/market-data/public-get_funding_chart_data.md)
+- [public/get_apr_history](/api-reference/market-data/public-get_apr_history.md)
+- [public/get_mark_price_history](/api-reference/market-data/public-get_mark_price_history.md)
+- [public/get_last_settlements_by_instrument](/api-reference/market-data/public-get_last_settlements_by_instrument.md)

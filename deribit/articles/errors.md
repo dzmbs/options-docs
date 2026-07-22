@@ -4,7 +4,7 @@
 
 # Error Codes
 
-> Complete reference for handling errors in the Deribit API.
+> Complete reference of Deribit API error codes, HTTP status meanings, and guidance on handling common failure scenarios in production client code.
 
 ## Error Response Format
 
@@ -665,3 +665,12 @@ if (errorMetrics.getErrorRate() > 1) {
   // Alert or throttle requests
 }
 ```
+
+
+## Related topics
+
+- [Security Keys](/articles/security-keys.md)
+- [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [Welcome to Deribit API](/index.md)
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)

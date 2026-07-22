@@ -4,7 +4,7 @@
 
 # Mass Quotes Specifications
 
-> Learn how to use Deribit's mass quote functionality to place multiple orders in a single request with reduced latency.
+> Use the Deribit mass quote API to submit many bid and ask pairs in a single request for lower latency during option and future market making.
 
 Deribit offers a **mass quote functionality** that allows users to place multiple orders (referred to as *quotes*) in a single request. Unlike traditional order entry, mass quotes do not require order IDs for subsequent amendments or cancellations. This significantly reduces latency by bypassing most of the platform's standard risk checks.
 
@@ -432,3 +432,12 @@ Mass quoting is fully supported via FIX, using dedicated message types that segr
 <Note>
   Standard FIX order messages (e.g. `New Order Single (D)`) **do not apply to quotes**.
 </Note>
+
+
+## Related topics
+
+- [private/mass_quote](/api-reference/trading/private-mass_quote.md)
+- [Mass Quote(i)](/fix-api/production/mass-quote.md)
+- [Mass Quotes](/starbase/mass-quotes.md)
+- [Mass Quote Acknowledgement(b)](/fix-api/production/mass-quote-acknowledgement.md)
+- [API Rate Limits](/starbase/api-rate-limits.md)

@@ -4,7 +4,7 @@
 
 # Gateway Connectivity
 
-> Information about gateway servers, connections, and credentials for Starbase API.
+> Starbase gateway endpoints, host lists, connection credentials, and network requirements for reaching the order entry and market data servers.
 
 ## Connectivity
 
@@ -87,3 +87,12 @@ This means you can connect to different gateway instances using the same API cre
 This is done to ensure many API Keys can be given out to a single Portfolio without Portfolio-level bottlenecks becoming an issue.
 
 For a consolidated view of all activity on a single Portfolio, the [FIX Drop Copy API](/starbase/fix-drop-copy-api) is available. Standard Deribit WebSocket APIs also work for orders placed through Starbase.
+
+
+## Related topics
+
+- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [REST Order Gateway Authentication](/starbase/rest-authentication.md)
+- [Starbase API Overview](/starbase/overview.md)
+- [API Rate Limits](/starbase/api-rate-limits.md)
+- [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)

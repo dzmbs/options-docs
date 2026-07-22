@@ -200,8 +200,8 @@ components:
             - records_total
             - data
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     date:
       example: '2019-11-24'
@@ -238,3 +238,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [public/get_index_price](/api-reference/market-data/public-get_index_price.md)
+- [public/get_mark_price_history](/api-reference/market-data/public-get_mark_price_history.md)
+- [public/get_index_price_names](/api-reference/market-data/public-get_index_price_names.md)
+- [public/get_last_settlements_by_instrument](/api-reference/market-data/public-get_last_settlements_by_instrument.md)

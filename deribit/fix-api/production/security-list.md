@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Security List(y)
+# Security List(y) — Production FIX API
+
+> SecurityList(y) is the server response containing the tradable instrument catalogue for the Deribit production FIX API, returned per SecurityListRequest.
 
 The `SecurityList`(`y`) message is used to return a list of securities that
 matches the criteria specified in a [`Security List Request`(`x`)](/fix-api/production/security-list-request).
@@ -59,3 +61,12 @@ provided in its name.
 (\*) SecurityStatus is present only in notification messages for subscription by
 SecurityListRequest with SubscriptionRequestType=1. The notifications for
 delivered, settlement, inactive, halted, or locked status contain only the status and symbol name.
+
+
+## Related topics
+
+- [Security List Request(x)](/fix-api/production/security-list-request.md)
+- [Security Definition(d)](/fix-api/production/security-definition.md)
+- [Security Status(f)](/fix-api/production/security-status.md)
+- [Security Definition Request(c)](/fix-api/production/security-definition-request.md)
+- [Security Status Request(e)](/fix-api/production/security-status-request.md)

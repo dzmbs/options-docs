@@ -4,7 +4,7 @@
 
 # Deribit Block RFQ API Walkthrough
 
-> Block RFQ (Request for Quote) is a feature that allows users to request quotes for large block trades from market makers.
+> Step-by-step Block RFQ API walkthrough for requesting quotes on large block trades from Deribit market makers and executing multi-leg strategies.
 
 This walkthrough provides a comprehensive guide to using the Block RFQ API.
 
@@ -259,3 +259,12 @@ See [Error Codes](/articles/errors) for a complete list of error codes.
 3. **Error Handling**: Implement proper error handling for rate limits and validation errors
 4. **Pre-Allocation**: Use pre-allocation to efficiently distribute large trades across accounts
 5. **MMP Configuration**: Configure MMP appropriately to protect against excessive quote fills
+
+
+## Related topics
+
+- [block_rfq.trades.(currency) ](/subscriptions/block-rfq/block_rfqtradescurrency.md)
+- [block_rfq.taker.(currency) ](/subscriptions/block-rfq/block_rfqtakercurrency.md)
+- [private/cancel_block_rfq](/api-reference/block-rfq/private-cancel_block_rfq.md)
+- [private/create_block_rfq](/api-reference/block-rfq/private-create_block_rfq.md)
+- [block_rfq.maker.quotes.(currency) ](/subscriptions/block-rfq/block_rfqmakerquotescurrency.md)

@@ -4,7 +4,7 @@
 
 # Security Keys
 
-> Some methods may require additional authorization using Security Keys (depending on the user's account configuration).
+> Hardware security keys and additional signing requirements for sensitive Deribit API methods like withdrawals, key management, and Travel Rule data.
 
 Certain API operations require additional security confirmation using **Security Keys**. This applies to sensitive operations such as **withdrawals**, **API key management**, and other security-related account actions. When your account has **Two-Factor Authentication (2FA)** enabled, you must provide a **TOTP (Time-based One-Time Password)** code to complete these operations via the API.
 
@@ -457,3 +457,12 @@ When there is an error related to **Security Key authorization**, the server ret
     </Card>
   </Tab>
 </Tabs>
+
+
+## Related topics
+
+- [private/list_api_keys](/api-reference/account-management/private-list_api_keys.md)
+- [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [private/disable_api_key](/api-reference/account-management/private-disable_api_key.md)
+- [private/edit_api_key](/api-reference/account-management/private-edit_api_key.md)
+- [Authentication](/articles/authentication.md)

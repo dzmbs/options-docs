@@ -163,8 +163,8 @@ components:
         result:
           $ref: '#/components/schemas/TickerNotificationWithBidsAndAsks'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     TickerNotificationWithBidsAndAsks:
       properties:
@@ -565,3 +565,11 @@ components:
       description: Volume in usd (futures only)
 
 ````
+
+## Related topics
+
+- [public/get_order_book](/api-reference/market-data/public-get_order_book.md)
+- [public/get_book_summary_by_instrument](/api-reference/market-data/public-get_book_summary_by_instrument.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [public/get_instrument](/api-reference/market-data/public-get_instrument.md)
+- [public/get_instruments](/api-reference/market-data/public-get_instruments.md)

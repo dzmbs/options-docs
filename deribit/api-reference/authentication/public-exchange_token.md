@@ -187,8 +187,16 @@ components:
             - refresh_token
             - scope
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [Authentication](/articles/authentication.md)
+- [Managing Transfers](/articles/managing-transfers-api.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [public/fork_token](/api-reference/authentication/public-fork_token.md)

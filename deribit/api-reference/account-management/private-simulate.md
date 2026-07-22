@@ -165,8 +165,8 @@ components:
           type: object
           description: Simulation details
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PrivatePmeSimulateResponse:
@@ -370,3 +370,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [private/simulate_portfolio](/api-reference/account-management/private-simulate_portfolio.md)
+- [private/simulate_block_trade](/api-reference/block-trade/private-simulate_block_trade.md)
+- [Block Trading](/articles/block-trading-api.md)
+- [private/cancel](/api-reference/trading/private-cancel.md)

@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Reject(3)
+# Reject(3) — Production FIX API
+
+> Reject(3) is the session-level reject sent by the Deribit production FIX server for malformed messages or protocol violations, with tag-level reason codes.
 
 The `Reject`(`3`) message should be issued when a message is received but cannot
 be properly processed due to a session-level or data structure rule violation.
@@ -18,3 +20,12 @@ decryption.
 | 372 | `RefMsgType`          | String | No       | The `MsgType`(`35`) of the FIX message being referenced                                                                                                     |
 | 373 | `SessionRejectReason` | int    | No       | Code to identity reason for rejection: <ul><li>`6` = Incorrect data format for value</li><li>`11` = Invalid `MsgType`(`35`)</li><li>`99` = Other</li> </ul> |
 | 58  | `Text`                | String | No       | Text string explaining the reason for rejection                                                                                                             |
+
+
+## Related topics
+
+- [Order Cancel Reject(9)](/fix-api/production/order-cancel-reject.md)
+- [Market Data Request Reject(Y)](/fix-api/production/market-data-request-reject.md)
+- [MMProtection Limits Result/Reject(MR)](/fix-api/production/mmprotection-limits-result.md)
+- [Mass Quote Acknowledgement(b)](/fix-api/production/mass-quote-acknowledgement.md)
+- [FIX API Overview](/fix-api/production/overview.md)

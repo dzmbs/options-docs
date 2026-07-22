@@ -342,8 +342,8 @@ components:
             - refresh_token
             - scope
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     api_key_features:
       items:
@@ -359,3 +359,11 @@ components:
         by Block Trade approval feature
 
 ````
+
+## Related topics
+
+- [Authentication](/articles/authentication.md)
+- [Access Scope](/articles/access-scope.md)
+- [Managing Transfers](/articles/managing-transfers-api.md)
+- [Creating new API key](/articles/creating-api-key.md)
+- [Asymmetric API Keys](/articles/asymmetric-api-keys.md)

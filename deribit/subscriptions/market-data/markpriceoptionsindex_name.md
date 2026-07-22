@@ -150,27 +150,27 @@ operations:
                   type: string
                   description: Unique instrument identifier
                   example: BTC-PERPETUAL
-                  x-parser-schema-id: <anonymous-schema-277>
+                  x-parser-schema-id: <anonymous-schema-281>
                 mark_price:
                   description: The mark price for the instrument
                   type: number
-                  x-parser-schema-id: <anonymous-schema-278>
+                  x-parser-schema-id: <anonymous-schema-282>
                 iv:
                   description: Value of the volatility of the underlying instrument
                   type: number
-                  x-parser-schema-id: <anonymous-schema-279>
+                  x-parser-schema-id: <anonymous-schema-283>
                 timestamp:
                   type: integer
                   example: 1536569522277
                   description: The timestamp (milliseconds since the Unix epoch)
-                  x-parser-schema-id: <anonymous-schema-280>
+                  x-parser-schema-id: <anonymous-schema-284>
               required: []
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-276>
+              x-parser-schema-id: <anonymous-schema-280>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-275>
+          x-parser-schema-id: <anonymous-schema-279>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -238,7 +238,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-274>
+          x-parser-schema-id: <anonymous-schema-278>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification
@@ -276,3 +276,11 @@ extensions:
 securitySchemes: []
 
 ````
+
+## Related topics
+
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [Notifications](/articles/notifications.md)
+- [public/get_mark_price_history](/api-reference/market-data/public-get_mark_price_history.md)
+- [public/get_index_price_names](/api-reference/market-data/public-get_index_price_names.md)
+- [Trades](/starbase/trades.md)

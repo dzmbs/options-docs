@@ -160,8 +160,8 @@ components:
         result:
           $ref: '#/components/schemas/block_rfq'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     block_rfq:
       properties:
@@ -509,3 +509,11 @@ components:
       description: 'Trade trigger state: `"untriggered"` or `"cancelled"`'
 
 ````
+
+## Related topics
+
+- [private/cancel_block_rfq_quote](/api-reference/block-rfq/private-cancel_block_rfq_quote.md)
+- [private/cancel_block_rfq_trigger](/api-reference/block-rfq/private-cancel_block_rfq_trigger.md)
+- [private/cancel_all_block_rfq_quotes](/api-reference/block-rfq/private-cancel_all_block_rfq_quotes.md)
+- [private/accept_block_rfq](/api-reference/block-rfq/private-accept_block_rfq.md)
+- [private/edit_block_rfq_quote](/api-reference/block-rfq/private-edit_block_rfq_quote.md)

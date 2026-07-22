@@ -132,11 +132,11 @@ operations:
               type: object
               description: The actual notification data
               additionalProperties: true
-              x-parser-schema-id: <anonymous-schema-570>
+              x-parser-schema-id: <anonymous-schema-578>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-569>
+          x-parser-schema-id: <anonymous-schema-577>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -204,7 +204,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-568>
+          x-parser-schema-id: <anonymous-schema-576>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification
@@ -242,3 +242,11 @@ extensions:
 securitySchemes: []
 
 ````
+
+## Related topics
+
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [instrument.state.(kind).(currency) ](/subscriptions/market-data/instrumentstatekindcurrency.md)
+- [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
+- [List Instruments](/api-reference/market-data/list-instruments.md)
+- [trades.(kind).(currency).(interval) ](/subscriptions/trades/tradeskindcurrencyinterval.md)

@@ -4,7 +4,7 @@
 
 # Cancelling an Order
 
-> Cancel orders using the Starbase Binary API including CancelOrderRequest, CancelOrderResponse, and CancelOrderReject messages.
+> Cancel a working order with the Starbase Binary API — CancelOrderRequest, CancelOrderResponse, and CancelOrderReject message flow and error codes.
 
 ## Cancelling an order
 
@@ -64,3 +64,12 @@ Reject generated in case a `CancelOrderRequest` is unsuccessful.
 | 6     | instrumentId  | int64 | 8      | Numeric instrument ID                                                                                                                                                                                                          |
 | 7     | reason        | int8  | 1      | `0`=Error<br />`1`=UnknownOrder<br />`2`=ClientPermissionError<br />`3`=NotAllowedByMarketState<br />`4`=CancelPending<br />`5`=InLiquidation<br />`6`=InvalidInstrument<br />`7`=TimeInForce<br />`8`=SpeedBumpConvertedToIoc |
 | 8     | details       | char  | 0-255  | ASCII-encoded string                                                                                                                                                                                                           |
+
+
+## Related topics
+
+- [Order Management](/articles/order-management-best-practices.md)
+- [Speed Bumps](/starbase/speed-bumps.md)
+- [Order Cancel/Replace Request(G)](/fix-api/production/order-cancel-replace.md)
+- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
+- [Market Maker Protection (MMP)](/starbase/mmp.md)

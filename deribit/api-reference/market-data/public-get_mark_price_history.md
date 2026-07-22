@@ -147,8 +147,8 @@ components:
             The inner values correspond to the timestamp in ms and the markprice
             itself.
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PublicGetMarkPriceHistoryResponse:
@@ -172,3 +172,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [public/get_funding_rate_history](/api-reference/market-data/public-get_funding_rate_history.md)
+- [public/get_apr_history](/api-reference/market-data/public-get_apr_history.md)
+- [public/get_index_price](/api-reference/market-data/public-get_index_price.md)
+- [public/get_delivery_prices](/api-reference/market-data/public-get_delivery_prices.md)
+- [public/get_index_price_names](/api-reference/market-data/public-get_index_price_names.md)

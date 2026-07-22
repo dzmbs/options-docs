@@ -166,8 +166,16 @@ components:
               - publication_timestamp
             type: object
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [announcements ](/subscriptions/announcements/announcements.md)
+- [private/set_announcement_as_read](/api-reference/account-management/private-set_announcement_as_read.md)
+- [public/get_announcements](/api-reference/account-management/public-get_announcements.md)
+- [Block Trading](/articles/block-trading-api.md)
+- [Starbase API Changelog](/changelogs/starbase.md)

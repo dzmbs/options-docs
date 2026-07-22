@@ -152,8 +152,8 @@ components:
             - data
             - count
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     deposit:
       properties:
@@ -278,3 +278,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [Managing Deposits](/articles/managing-deposits-api.md)
+- [private/get_current_deposit_address](/api-reference/wallet/private-get_current_deposit_address.md)
+- [private/create_deposit_address](/api-reference/wallet/private-create_deposit_address.md)
+- [private/get_transaction_log](/api-reference/account-management/private-get_transaction_log.md)
+- [private/get_address_book](/api-reference/wallet/private-get_address_book.md)

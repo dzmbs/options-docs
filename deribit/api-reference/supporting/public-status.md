@@ -128,8 +128,16 @@ components:
           required:
             - locked
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [public/auth](/api-reference/authentication/public-auth.md)
+- [public/get_tradingview_chart_data](/api-reference/market-data/public-get_tradingview_chart_data.md)
+- [Security Status(f)](/fix-api/production/security-status.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Security Status Request(e)](/fix-api/production/security-status-request.md)

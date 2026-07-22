@@ -151,8 +151,8 @@ components:
         result:
           $ref: '#/components/schemas/combo'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     combo:
       properties:
@@ -228,3 +228,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [Security Definition Request(c)](/fix-api/production/security-definition-request.md)
+- [private/create_block_rfq](/api-reference/block-rfq/private-create_block_rfq.md)
+- [private/create_subaccount](/api-reference/account-management/private-create_subaccount.md)
+- [private/create_deposit_address](/api-reference/wallet/private-create_deposit_address.md)
+- [private/create_api_key](/api-reference/account-management/private-create_api_key.md)

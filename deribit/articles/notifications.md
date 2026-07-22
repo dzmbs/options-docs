@@ -4,7 +4,7 @@
 
 # Notifications
 
-> API users can subscribe to certain types of notifications.
+> Subscribe to Deribit WebSocket notification channels for real-time order updates, trade fills, market data changes, and account events across sessions.
 
 This means that they will receive JSON-RPC notification-messages from the server when certain events occur, such as changes to the index price, changes to the order book for a certain instrument, or updates to user account information.
 
@@ -362,3 +362,12 @@ When a WebSocket connection is lost and re-established:
 <Warning>
   Subscribing to too many channels or using `raw` intervals for many instruments can overwhelm your connection and cause delays in processing other messages, including order execution confirmations.
 </Warning>
+
+
+## Related topics
+
+- [Execution Reports(8)](/fix-api/production/execution-reports.md)
+- [private/toggle_notifications_from_subaccount](/api-reference/account-management/private-toggle_notifications_from_subaccount.md)
+- [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)

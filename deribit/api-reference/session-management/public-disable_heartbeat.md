@@ -120,8 +120,16 @@ components:
             - ok
           description: Result of method execution. `ok` in case of success
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [public/set_heartbeat](/api-reference/session-management/public-set_heartbeat.md)
+- [Heartbeat(0)](/fix-api/production/heartbeat.md)
+- [private/disable_api_key](/api-reference/account-management/private-disable_api_key.md)
+- [private/disable_cancel_on_disconnect](/api-reference/session-management/private-disable_cancel_on_disconnect.md)
+- [private/enable_cancel_on_disconnect](/api-reference/session-management/private-enable_cancel_on_disconnect.md)

@@ -563,8 +563,8 @@ components:
               - interval
               - frozen_time
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     index_name:
       enum:
@@ -641,3 +641,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
+- [Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [private/get_mmp_config](/api-reference/trading/private-get_mmp_config.md)

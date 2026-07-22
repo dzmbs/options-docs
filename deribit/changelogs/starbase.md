@@ -4,7 +4,7 @@
 
 # Starbase API Changelog
 
-> Changes and announcements for the Deribit Starbase API.
+> Release notes for the Deribit Starbase binary and REST APIs covering new messages, protocol changes, performance updates, and compatibility notes.
 
 <Update label="Starbase Release 21.07.2026 — v1.3">
   ## API Changes
@@ -394,3 +394,12 @@
 
   Minor updates to the APIs can be expected as designs are adapted based on member feedback.
 </Update>
+
+
+## Related topics
+
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [FIX API Changelog](/changelogs/fix.md)
+- [Starbase API Overview](/starbase/overview.md)
+- [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)

@@ -144,8 +144,16 @@ components:
             - ok
           description: Result of method execution. `ok` in case of success
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [private/remove_api_key](/api-reference/account-management/private-remove_api_key.md)
+- [private/remove_from_address_book](/api-reference/wallet/private-remove_from_address_book.md)
+- [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)
+- [private/create_subaccount](/api-reference/account-management/private-create_subaccount.md)

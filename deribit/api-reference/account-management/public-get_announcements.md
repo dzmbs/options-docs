@@ -167,8 +167,8 @@ components:
               - publication_timestamp
             type: object
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PublicGetAnnouncementsResponse:
@@ -191,3 +191,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/get_new_announcements](/api-reference/account-management/private-get_new_announcements.md)
+- [public/get_combos](/api-reference/combo-books/public-get_combos.md)
+- [public/get_time](/api-reference/supporting/public-get_time.md)
+- [public/get_expirations](/api-reference/market-data/public-get_expirations.md)
+- [public/get_currencies](/api-reference/market-data/public-get_currencies.md)

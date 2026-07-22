@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# User Response(BF)
+# User Response(BF) — Production FIX API
+
+> UserResponse(BF) is the server response to a UserRequest on the Deribit production FIX API, reporting the current user status after processing.
 
 This message is used to respond to a [`USER REQUEST`(`BE`)](/fix-api/production/user-request)
 message, it reports the status of the user and user's account info.
@@ -23,3 +25,12 @@ message, it reports the status of the user and user's account info.
 | 100006 | `DeribitRealizedPl`            | float  | No       | Realized P/L of the user                                                                                                                                                                                                                                                                                                                                                                                                      |
 | 100011 | `DeribitTotalPl`               | float  | No       | Total P/L of the user                                                                                                                                                                                                                                                                                                                                                                                                         |
 | 100013 | `DeribitMarginBalance`         | float  | No       | Margin Balance                                                                                                                                                                                                                                                                                                                                                                                                                |
+
+
+## Related topics
+
+- [FIX API Overview](/fix-api/production/overview.md)
+- [User Request(BE)](/fix-api/production/user-request.md)
+- [Security Definition(d)](/fix-api/production/security-definition.md)
+- [Test Request(1)](/fix-api/production/test-request.md)
+- [Security List(y)](/fix-api/production/security-list.md)

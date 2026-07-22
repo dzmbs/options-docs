@@ -142,8 +142,8 @@ components:
           items:
             $ref: '#/components/schemas/currency_with_apr'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     currency_with_apr:
       properties:
@@ -229,3 +229,11 @@ components:
       type: object
 
 ````
+
+## Related topics
+
+- [public/get_expirations](/api-reference/market-data/public-get_expirations.md)
+- [public/get_combos](/api-reference/combo-books/public-get_combos.md)
+- [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
+- [public/get_instrument](/api-reference/market-data/public-get_instrument.md)
+- [public/get_book_summary_by_currency](/api-reference/market-data/public-get_book_summary_by_currency.md)

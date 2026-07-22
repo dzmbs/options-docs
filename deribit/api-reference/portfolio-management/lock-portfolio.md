@@ -93,3 +93,11 @@ components:
         the portfolio that operations are applied to.
 
 ````
+
+## Related topics
+
+- [Portfolio Management](/starbase/portfolio-management.md)
+- [user.lock ](/subscriptions/user/userlock.md)
+- [Notifications](/articles/notifications.md)
+- [Order Management](/articles/order-management-best-practices.md)
+- [private/get_user_locks](/api-reference/account-management/private-get_user_locks.md)

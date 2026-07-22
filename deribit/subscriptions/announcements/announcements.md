@@ -249,3 +249,11 @@ extensions:
 securitySchemes: []
 
 ````
+
+## Related topics
+
+- [public/get_announcements](/api-reference/account-management/public-get_announcements.md)
+- [private/get_new_announcements](/api-reference/account-management/private-get_new_announcements.md)
+- [private/set_announcement_as_read](/api-reference/account-management/private-set_announcement_as_read.md)
+- [Starbase API Changelog](/changelogs/starbase.md)
+- [Block Trading](/articles/block-trading-api.md)

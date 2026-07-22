@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# User Request(BE)
+# User Request(BE) — Production FIX API
+
+> UserRequest(BE) requests user status changes such as logging users in or out of the Deribit production FIX API session for account-level control.
 
 This message is used to request a report on a user's status and user account
 info.
@@ -19,3 +21,12 @@ info.
 ### Response
 
 The server will respond with a `User Response`(`BF`) message.
+
+
+## Related topics
+
+- [User Response(BF)](/fix-api/production/user-response.md)
+- [Request For Positions(AN)](/fix-api/production/request-for-positions.md)
+- [Test Request(1)](/fix-api/production/test-request.md)
+- [Resend Request(2)](/fix-api/production/resend-request.md)
+- [FIX API Overview](/fix-api/production/overview.md)

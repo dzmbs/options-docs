@@ -4,7 +4,7 @@
 
 # Creating a Starbase API Key
 
-> Learn how to create API keys for Starbase, including adding members and selecting Starbase-specific scopes.
+> Create Starbase API keys — add team members, pick Starbase-specific scopes, and generate the credentials required for gateway login and access.
 
 Starbase API keys are created through the **Starbase** section of the Account Panel (not the API section). The creation flow is otherwise the same as standard Deribit API keys, but with a different set of available scopes and a required member setup step.
 
@@ -116,3 +116,12 @@ Starbase API keys use a separate counter from standard Deribit API keys. Starbas
     Automatic order cancellation on connection loss
   </Card>
 </CardGroup>
+
+
+## Related topics
+
+- [Creating new API key](/articles/creating-api-key.md)
+- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Authentication](/articles/authentication.md)
+- [REST Order Gateway Authentication](/starbase/rest-authentication.md)
+- [private/enable_api_key](/api-reference/account-management/private-enable_api_key.md)

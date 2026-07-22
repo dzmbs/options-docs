@@ -146,8 +146,8 @@ components:
           example: ok
           description: ok
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PrivateDeleteAddressBeneficiaryResponse:
@@ -165,3 +165,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/save_address_beneficiary](/api-reference/wallet/private-save_address_beneficiary.md)
+- [private/get_address_beneficiary](/api-reference/wallet/private-get_address_beneficiary.md)
+- [private/list_address_beneficiaries](/api-reference/wallet/private-list_address_beneficiaries.md)
+- [private/get_address_book](/api-reference/wallet/private-get_address_book.md)
+- [private/update_in_address_book](/api-reference/wallet/private-update_in_address_book.md)

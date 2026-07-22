@@ -157,8 +157,16 @@ components:
           example: 7
           description: Total number of successfully cancelled orders
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [private/cancel_all_by_currency](/api-reference/trading/private-cancel_all_by_currency.md)
+- [private/cancel_all_by_instrument](/api-reference/trading/private-cancel_all_by_instrument.md)
+- [private/cancel_all_block_rfq_quotes](/api-reference/block-rfq/private-cancel_all_block_rfq_quotes.md)
+- [private/cancel_all_by_currency_pair](/api-reference/trading/private-cancel_all_by_currency_pair.md)
+- [private/cancel_all_by_kind_or_type](/api-reference/trading/private-cancel_all_by_kind_or_type.md)

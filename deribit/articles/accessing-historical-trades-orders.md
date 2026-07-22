@@ -4,7 +4,7 @@
 
 # Accessing Historical Trades and Orders Using API
 
-> Deribit API allows users to retrieve historical trade and order records by utilising the historical parameter.
+> Use the historical parameter on Deribit API endpoints to retrieve past trades and orders beyond the default lookback window for backfills and audits.
 
 ## Overview
 
@@ -120,3 +120,12 @@ To retrieve historical trades and orders, use `historical` parameter in your API
 <Note>
   When using `historical: true`, there may be a short delay for indexing before historical records become available. Recent records (with `historical: false`) are available immediately after execution.
 </Note>
+
+
+## Related topics
+
+- [private/get_order_history_by_instrument](/api-reference/trading/private-get_order_history_by_instrument.md)
+- [private/get_order_history_by_currency](/api-reference/trading/private-get_order_history_by_currency.md)
+- [private/get_user_trades_by_order](/api-reference/trading/private-get_user_trades_by_order.md)
+- [private/get_user_trades_by_currency](/api-reference/trading/private-get_user_trades_by_currency.md)
+- [private/get_user_trades_by_instrument](/api-reference/trading/private-get_user_trades_by_instrument.md)

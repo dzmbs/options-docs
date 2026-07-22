@@ -4,7 +4,7 @@
 
 # Rate Limits
 
-> To maintain fair and stable access to our API, Deribit uses a credit-based rate limiting system.
+> Credit-based rate limiting on the Deribit API — burst versus sustained caps, matching engine limits, and per-tier request allocations by account.
 
 <Warning>
   <Heading>Exchange-Wide Compliance (OTV & API Usage Policy)</Heading>
@@ -377,3 +377,12 @@ All requests **not listed below** are treated as **non-matching engine** request
 * [`order_cancel_replace_request`](https://docs.deribit.com/fix-api/production/order-cancel-replace)
 * [`mass_quote`](https://docs.deribit.com/fix-api/production/mass-quote)
 * [`quote_cancel`](https://docs.deribit.com/fix-api/production/quote-cancel)
+
+
+## Related topics
+
+- [Moving Positions](/articles/moving-positions-api.md)
+- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
+- [Order Management](/articles/order-management-best-practices.md)
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [API Rate Limits](/starbase/api-rate-limits.md)

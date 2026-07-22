@@ -154,19 +154,13 @@ components:
             $ref: '#/components/schemas/order'
           type: array
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     order:
       properties:
         order_id:
           $ref: '#/components/schemas/order_id'
-        starbase_order_id:
-          type: integer
-          example: 103148386170
-          description: >-
-            Raw Starbase order id, in Starbase's own (non currency-prefixed) id
-            namespace. Only present for orders matched on Starbase.
         order_state:
           $ref: '#/components/schemas/order_state'
         order_type:
@@ -290,6 +284,12 @@ components:
           description: >-
             Id of the combo order that created this order (only present for
             orders that were created as legs of a combo order).
+        starbase_order_id:
+          type: integer
+          example: 103148386170
+          description: >-
+            Raw Starbase order id, in Starbase's own (non currency-prefixed) id
+            namespace. Only present for orders matched on Starbase.
         app_name:
           type: string
           example: Example Application
@@ -597,3 +597,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/get_open_orders_by_instrument](/api-reference/trading/private-get_open_orders_by_instrument.md)
+- [private/get_open_orders_by_currency](/api-reference/trading/private-get_open_orders_by_currency.md)
+- [private/get_open_orders_by_label](/api-reference/trading/private-get_open_orders_by_label.md)
+- [Get Open Orders](/api-reference/trading/get-open-orders.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)

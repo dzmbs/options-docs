@@ -241,3 +241,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/list_api_keys](/api-reference/account-management/private-list_api_keys.md)
+- [private/get_reward_eligibility](/api-reference/wallet/private-get_reward_eligibility.md)
+- [private/get_account_summaries](/api-reference/account-management/private-get_account_summaries.md)
+- [Creating new API key](/articles/creating-api-key.md)
+- [private/get_transfers](/api-reference/wallet/private-get_transfers.md)

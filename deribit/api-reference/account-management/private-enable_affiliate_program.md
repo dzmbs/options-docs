@@ -132,8 +132,16 @@ components:
             - ok
           description: Result of method execution. `ok` in case of success
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [private/get_affiliate_program_info](/api-reference/account-management/private-get_affiliate_program_info.md)
+- [private/get_account_summaries](/api-reference/account-management/private-get_account_summaries.md)
+- [private/get_account_summary](/api-reference/account-management/private-get_account_summary.md)
+- [private/enable_api_key](/api-reference/account-management/private-enable_api_key.md)
+- [private/enable_cancel_on_disconnect](/api-reference/session-management/private-enable_cancel_on_disconnect.md)

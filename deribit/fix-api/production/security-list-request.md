@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Security List Request(x)
+# Security List Request(x) — Production FIX API
+
+> SecurityListRequest(x) requests the full list of tradable instruments from the Deribit production FIX API, filterable by underlying and product kind.
 
 The `SecurityListRequest`(`x`) message is used to return a list of securities
 (instruments) from the Deribit.
@@ -24,3 +26,12 @@ The `SecurityListRequest`(`x`) message is used to return a list of securities
 
 The server will respond with a [`Security List`(`y`)](/fix-api/production/security-list) message,
 where the `SecurityReq`(`320`) is equal to that of the request.
+
+
+## Related topics
+
+- [Security List(y)](/fix-api/production/security-list.md)
+- [Security Definition Request(c)](/fix-api/production/security-definition-request.md)
+- [Security Status Request(e)](/fix-api/production/security-status-request.md)
+- [Security Definition(d)](/fix-api/production/security-definition.md)
+- [Security Status(f)](/fix-api/production/security-status.md)

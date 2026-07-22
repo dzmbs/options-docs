@@ -196,8 +196,8 @@ components:
         result:
           $ref: '#/components/schemas/withdrawal'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     withdrawal:
       properties:
@@ -305,3 +305,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/cancel_withdrawal](/api-reference/wallet/private-cancel_withdrawal.md)
+- [private/get_withdrawals](/api-reference/wallet/private-get_withdrawals.md)
+- [Managing Withdrawals](/articles/managing-withdrawals-api.md)
+- [private/list_custody_accounts](/api-reference/account-management/private-list_custody_accounts.md)
+- [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)

@@ -136,8 +136,8 @@ components:
             enabled:
               $ref: '#/components/schemas/enabled_field'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     cod_scope:
       enum:
@@ -153,3 +153,11 @@ components:
       description: Current configuration status
 
 ````
+
+## Related topics
+
+- [private/disable_cancel_on_disconnect](/api-reference/session-management/private-disable_cancel_on_disconnect.md)
+- [private/enable_cancel_on_disconnect](/api-reference/session-management/private-enable_cancel_on_disconnect.md)
+- [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)
+- [private/logout](/api-reference/authentication/private-logout.md)
+- [private/mass_quote](/api-reference/trading/private-mass_quote.md)

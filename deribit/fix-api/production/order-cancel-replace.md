@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Order Cancel/Replace Request(G)
+# Order Cancel/Replace Request(G) — Production FIX API
+
+> OrderCancelReplaceRequest(G) modifies the price or quantity of a working order on the Deribit production FIX API without cancelling and resubmitting it.
 
 To change/edit the parameters of an existing order
 
@@ -37,3 +39,12 @@ orders by `OrigClOrdId` is noticeably faster.
 ### Response
 
 See `New Order Single`(`D`) response
+
+
+## Related topics
+
+- [Order Cancel Reject(9)](/fix-api/production/order-cancel-reject.md)
+- [Order Mass Cancel Request(q)](/fix-api/production/order-mass-cancel-request.md)
+- [FIX API Overview](/fix-api/production/overview.md)
+- [FIX API Changelog](/changelogs/fix.md)
+- [Order Mass Cancel Report(r)](/fix-api/production/order-mass-cancel-report.md)

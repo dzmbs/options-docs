@@ -4,7 +4,7 @@
 
 # Managing Withdrawals
 
-> How to manage withdrawal addresses, create withdrawals, and handle Travel Rule compliance using API.
+> Whitelist withdrawal addresses, create withdrawal requests, and handle Travel Rule compliance through Deribit API endpoints for crypto asset payouts.
 
 This section explains how to manage withdrawal addresses, create withdrawals, check withdrawal history, and handle Travel Rule compliance using API. Before calling any private method you must authenticate.
 
@@ -337,3 +337,12 @@ All withdrawal-related actions require approval with a security key with the sco
 * **Balance checks**: Ensure sufficient balance is available at both the request and confirmation stages, as the balance is checked twice.
 * **Transaction fees**: Be aware that on-chain fees may change between request and confirmation, which could cause rejection.
 * **XRP addresses**: For XRP addresses that require a tag, an additional field for the tag will be required.
+
+
+## Related topics
+
+- [private/get_withdrawals](/api-reference/wallet/private-get_withdrawals.md)
+- [private/cancel_withdrawal](/api-reference/wallet/private-cancel_withdrawal.md)
+- [private/withdraw](/api-reference/wallet/private-withdraw.md)
+- [private/add_to_address_book](/api-reference/wallet/private-add_to_address_book.md)
+- [private/get_address_book](/api-reference/wallet/private-get_address_book.md)

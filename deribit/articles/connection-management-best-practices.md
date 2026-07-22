@@ -4,7 +4,7 @@
 
 # Connection Management
 
-> Users can connect to the Deribit platform using either a connection-scoped or session-scoped authentication token.
+> Best practices for Deribit WebSocket connection lifecycle including heartbeats, session versus connection tokens, and reliable reconnect strategies.
 
 Each approach has different properties, lifespans, and limitations. Understanding how these scopes work helps ensure reliable connectivity, optimal use of WebSocket features, and compliance with platform limits such as the number of simultaneous connections or sessions per API key.
 
@@ -140,3 +140,12 @@ Upon initiating a session with the Logon (A) message, users have the option to e
 
 * **Tag 9001 - CancelOnDisconnect**: Boolean flag that controls session-level COD. Default is false (N). If not specified, the account's default setting is used.
 * **Tag 9003 - DontCancelOnDisconnect**: If set to Y, disables COD for the connection despite previous settings at logon or account level. Default is false (N).
+
+
+## Related topics
+
+- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
+- [Authentication](/articles/authentication.md)
+- [Market Data Collection](/articles/market-data-collection-best-practices.md)
+- [Access Scope](/articles/access-scope.md)

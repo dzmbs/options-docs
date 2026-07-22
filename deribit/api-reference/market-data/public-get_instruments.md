@@ -166,8 +166,8 @@ components:
           items:
             $ref: '#/components/schemas/instrument'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     instrument:
       properties:
@@ -509,3 +509,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [public/get_instrument](/api-reference/market-data/public-get_instrument.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)

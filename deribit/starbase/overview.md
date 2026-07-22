@@ -4,6 +4,8 @@
 
 # Starbase API Overview
 
+> High-level introduction to Deribit Starbase — the low-latency binary and FIX API stack, gateways, and how it differs from the main Deribit API.
+
 Starbase is Deribit's high-performance matching engine designed for institutional trading and market makers. Equipped with a **Simple Binary Encoding (SBE)** API, Starbase provides direct access to the matching engine with ultra-low latency, making it ideal for high-frequency trading applications.
 
 Standard Deribit WebSocket APIs (e.g. `private/get_user_trades_by_instrument`) also work for orders placed through Starbase. A **REST** API with utility endpoints such as an order purge or order snapshot will also be added.
@@ -55,3 +57,12 @@ Standard Deribit WebSocket APIs (e.g. `private/get_user_trades_by_instrument`) a
     * **Multiple gateway pairs**: Gateways are partitioned by underlying asset (BTC, ETH, Tier 2/3) to allow horizontal scaling.
   </Card>
 </CardGroup>
+
+
+## Related topics
+
+- [Starbase API Changelog](/changelogs/starbase.md)
+- [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [Underlying Tiers](/starbase/underlying-tiers.md)
+- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Speed Bumps](/starbase/speed-bumps.md)

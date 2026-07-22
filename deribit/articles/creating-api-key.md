@@ -4,7 +4,7 @@
 
 # Creating new API key
 
-> You can create new Deribit API key using front-end interface or by Deribit API.
+> Generate a new Deribit API key from the web interface or programmatically, including choosing scopes, IP restrictions, and secret handling tips.
 
 If you want to use the API, please head to [the Creating the API key using the API section](#creating-the-api-key-using-the-api).
 
@@ -178,3 +178,12 @@ You can test your new API key in the [Deribit API console](https://www.deribit.c
 ![API Console Link](https://support.deribit.com/hc/article_attachments/32629445455133)
 
 ![API Console Authentication](https://support.deribit.com/hc/article_attachments/32629429814045)
+
+
+## Related topics
+
+- [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [private/reset_api_key](/api-reference/account-management/private-reset_api_key.md)
+- [private/enable_api_key](/api-reference/account-management/private-enable_api_key.md)
+- [private/create_api_key](/api-reference/account-management/private-create_api_key.md)
+- [private/change_scope_in_api_key](/api-reference/account-management/private-change_scope_in_api_key.md)

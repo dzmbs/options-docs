@@ -4,7 +4,7 @@
 
 # Access Scope
 
-> When requesting an access token, users can specify the required access level (called scope) which defines what type of functionality they want to use, and whether requests will only read data or also modify it.
+> OAuth scope controls read and write access for Deribit API tokens, letting you set granular permission levels for account, trade, and wallet actions.
 
 Scopes are required and validated for `private` methods. If you only plan to use `public` methods, you can use the default scope values.
 
@@ -93,3 +93,12 @@ These parameters configure token behavior and security settings:
 
   **The user shouldn't assume that requested values are blindly accepted and should verify assigned scopes.**
 </Warning>
+
+
+## Related topics
+
+- [Creating new API key](/articles/creating-api-key.md)
+- [private/change_scope_in_api_key](/api-reference/account-management/private-change_scope_in_api_key.md)
+- [Authentication](/articles/authentication.md)
+- [private/edit_api_key](/api-reference/account-management/private-edit_api_key.md)
+- [private/create_api_key](/api-reference/account-management/private-create_api_key.md)

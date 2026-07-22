@@ -934,3 +934,11 @@ extensions:
 securitySchemes: []
 
 ````
+
+## Related topics
+
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [Notifications](/articles/notifications.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [ticker.(instrument_name).(interval) ](/subscriptions/market-data/tickerinstrument_nameinterval.md)
+- [public/ticker](/api-reference/market-data/public-ticker.md)

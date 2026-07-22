@@ -4,7 +4,7 @@
 
 # Market Maker Protection (MMP)
 
-> Market Maker Protection (MMP) in Starbase Binary API including configuration, reset operations, and MMP-tagged orders.
+> Configure and reset Market Maker Protection thresholds in the Starbase Binary API — tag orders as MMP and control freeze behavior for risk control.
 
 ## Overview
 
@@ -222,3 +222,12 @@ When MMP limits are breached, the Starbase Binary API sends unsolicited events t
 ## MMP Configuration
 
 MMP configuration is managed through the JSON-RPC API. To configure MMP settings, use the [`private/set_mmp_config`](/api-reference/trading/private-set_mmp_config) method. This method allows you to set MMP parameters including quantity limits, delta limits, vega limits, interval, frozen time, and maximum quote quantity (MQQ).
+
+
+## Related topics
+
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
+- [MMProtection Reset(MZ)](/fix-api/production/mmprotection-reset.md)
+- [MMProtection Limits Result/Reject(MR)](/fix-api/production/mmprotection-limits-result.md)
+- [private/reset_mmp](/api-reference/trading/private-reset_mmp.md)

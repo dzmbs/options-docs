@@ -117,8 +117,8 @@ components:
           items:
             $ref: '#/components/schemas/book_summary'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     book_summary:
       properties:
@@ -280,3 +280,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [public/get_book_summary_by_currency](/api-reference/market-data/public-get_book_summary_by_currency.md)
+- [public/get_order_book_by_instrument_id](/api-reference/market-data/public-get_order_book_by_instrument_id.md)
+- [public/get_order_book](/api-reference/market-data/public-get_order_book.md)
+- [public/get_combos](/api-reference/combo-books/public-get_combos.md)
+- [public/get_instrument](/api-reference/market-data/public-get_instrument.md)

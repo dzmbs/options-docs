@@ -289,8 +289,16 @@ components:
               - broker_code
               - links
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
+
+## Related topics
+
+- [Voice Broker Trading API](/articles/voice-broker-trading-api.md)
+- [private/get_broker_trades](/api-reference/block-trade/private-get_broker_trades.md)
+- [private/get_broker_trade_requests](/api-reference/block-trade/private-get_broker_trade_requests.md)
+- [private/get_block_trade_requests](/api-reference/block-trade/private-get_block_trade_requests.md)
+- [private/get_block_trades](/api-reference/block-trade/private-get_block_trades.md)

@@ -4,7 +4,7 @@
 
 # Reference Data
 
-> Reference data for the Starbase Binary API including InstrumentDefinition messages.
+> Instrument metadata for the Starbase Binary API — InstrumentDefinition messages with contract terms, tick sizes, and product identifier fields.
 
 ## Reference data
 
@@ -59,3 +59,12 @@ The table below outlines the content of field 13 (`flags`) of `InstrumentDefinit
 | ----- | ------------- | ----- | ------ | ------------------------------------------------------------------------ |
 | 1     | instrumentId  | int64 | 8      | Numeric instrument ID                                                    |
 | 2     | tradingStatus | int8  | 1      | `0`=Open `1`=Inactive `2`=Settlement `3`=Delivered `4`=Locked `5`=Halted |
+
+
+## Related topics
+
+- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Market Data Request(V)](/fix-api/production/market-data-request.md)
+- [Market Data Collection](/articles/market-data-collection-best-practices.md)
+- [Market Data Request Reject(Y)](/fix-api/production/market-data-request-reject.md)
+- [Market Data Incremental Refresh(X)](/fix-api/production/market-data-incremental.md)

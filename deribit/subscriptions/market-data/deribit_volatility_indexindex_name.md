@@ -148,28 +148,28 @@ operations:
                   type: integer
                   example: 1536569522277
                   description: The timestamp (milliseconds since the Unix epoch)
-                  x-parser-schema-id: <anonymous-schema-270>
+                  x-parser-schema-id: <anonymous-schema-274>
                 volatility:
                   description: Value of the corresponding volatility
                   type: number
-                  x-parser-schema-id: <anonymous-schema-271>
+                  x-parser-schema-id: <anonymous-schema-275>
                 index_name:
                   description: Index identifier supported for DVOL
                   type: string
                   enum:
                     - btc_usd
                     - eth_usd
-                  x-parser-schema-id: <anonymous-schema-272>
+                  x-parser-schema-id: <anonymous-schema-276>
               required:
                 - timestamp
                 - volatility
                 - index_name
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-269>
+              x-parser-schema-id: <anonymous-schema-273>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-268>
+          x-parser-schema-id: <anonymous-schema-272>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -210,7 +210,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-267>
+          x-parser-schema-id: <anonymous-schema-271>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification
@@ -248,3 +248,11 @@ extensions:
 securitySchemes: []
 
 ````
+
+## Related topics
+
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [Notifications](/articles/notifications.md)
+- [public/get_volatility_index_data](/api-reference/market-data/public-get_volatility_index_data.md)
+- [deribit_price_index.(index_name) ](/subscriptions/market-data/deribit_price_indexindex_name.md)
+- [deribit_price_statistics.(index_name) ](/subscriptions/market-data/deribit_price_statisticsindex_name.md)

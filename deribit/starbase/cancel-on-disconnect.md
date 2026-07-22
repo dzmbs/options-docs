@@ -4,6 +4,8 @@
 
 # Cancel on Disconnect
 
+> Automatically cancel working orders when a Starbase session drops — enable Cancel on Disconnect, configure it, and combine with heartbeats for safety.
+
 Cancel On Disconnect (CoD) is a risk management feature that automatically cancels tagged open orders when a connection to the Starbase gateway is lost or terminated. CoD helps prevent orders from remaining active after a client disconnection and reduces exposure to unintended positions.
 
 **CoD is opt-in per order — it is not enabled by default and is not a connection/session setting.** An order is covered only if it is explicitly tagged with the `cancelOnDisconnect` flag (`OrderFlags` bit 0). Orders submitted without the flag are not cancelled on disconnect and remain resting. CoD is **session-scoped**, meaning it cancels only the tagged orders associated with the specific disconnected session.
@@ -72,3 +74,12 @@ See [Gateway Connectivity](/starbase/gateway-connectivity) for more information 
 <Note>
   Once an order is tagged with CoD it cannot be exempted, and it will trigger regardless of how the session ends — abrupt disconnect, missing heartbeats, session displacement, or graceful logout. Orders that are not tagged are never auto-cancelled.
 </Note>
+
+
+## Related topics
+
+- [Connection Management](/articles/connection-management-best-practices.md)
+- [private/disable_cancel_on_disconnect](/api-reference/session-management/private-disable_cancel_on_disconnect.md)
+- [private/get_cancel_on_disconnect](/api-reference/session-management/private-get_cancel_on_disconnect.md)
+- [private/enable_cancel_on_disconnect](/api-reference/session-management/private-enable_cancel_on_disconnect.md)
+- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)

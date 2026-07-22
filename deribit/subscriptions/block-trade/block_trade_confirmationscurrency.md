@@ -173,13 +173,13 @@ operations:
                     Nonce that can be used to approve or reject pending block
                     trade.
                   example: bF1_gfgcsd
-                  x-parser-schema-id: <anonymous-schema-200>
+                  x-parser-schema-id: <anonymous-schema-202>
                 timestamp:
                   type: integer
                   description: >-
                     Timestamp that can be used to approve or reject pending
                     block trade.
-                  x-parser-schema-id: <anonymous-schema-201>
+                  x-parser-schema-id: <anonymous-schema-203>
                 trades:
                   type: object
                   description: ''
@@ -188,81 +188,81 @@ operations:
                       type: string
                       description: Unique instrument identifier
                       example: BTC-PERPETUAL
-                      x-parser-schema-id: <anonymous-schema-203>
+                      x-parser-schema-id: <anonymous-schema-205>
                     direction:
                       type: string
                       description: 'Direction: `buy`, or `sell`'
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-204>
+                      x-parser-schema-id: <anonymous-schema-206>
                     price:
                       description: Price in base currency
                       type: number
-                      x-parser-schema-id: <anonymous-schema-205>
+                      x-parser-schema-id: <anonymous-schema-207>
                     amount:
                       type: number
                       description: >-
                         Trade amount. For perpetual and inverse futures the
                         amount is in USD units. For options and linear futures
                         it is the underlying base currency coin.
-                      x-parser-schema-id: <anonymous-schema-206>
+                      x-parser-schema-id: <anonymous-schema-208>
                   required:
                     - instrument_name
                     - direction
                     - price
                     - amount
                   additionalProperties: false
-                  x-parser-schema-id: <anonymous-schema-202>
+                  x-parser-schema-id: <anonymous-schema-204>
                 app_name:
                   type: string
                   description: >-
                     The name of the application that executed the block trade on
                     behalf of the user (optional).
                   example: Example Application
-                  x-parser-schema-id: <anonymous-schema-207>
+                  x-parser-schema-id: <anonymous-schema-209>
                 username:
                   type: string
                   description: Username of the user who initiated the block trade.
                   example: Trader
-                  x-parser-schema-id: <anonymous-schema-208>
+                  x-parser-schema-id: <anonymous-schema-210>
                 role:
                   description: 'Trade role of the user: `maker` or `taker`'
                   type: string
                   enum:
                     - maker
                     - taker
-                  x-parser-schema-id: <anonymous-schema-209>
+                  x-parser-schema-id: <anonymous-schema-211>
                 user_id:
                   description: Unique user identifier
                   type: integer
                   example: 57874
-                  x-parser-schema-id: <anonymous-schema-210>
+                  x-parser-schema-id: <anonymous-schema-212>
                 broker_code:
                   type: string
                   description: Broker code associated with the broker block trade.
                   example: jpqYKgg1
-                  x-parser-schema-id: <anonymous-schema-211>
+                  x-parser-schema-id: <anonymous-schema-213>
                 broker_name:
                   type: string
                   description: Name of the broker associated with the block trade.
                   example: Test Broker
-                  x-parser-schema-id: <anonymous-schema-212>
+                  x-parser-schema-id: <anonymous-schema-214>
                 state:
                   type: object
                   description: State of the pending block trade for current user.
-                  x-parser-schema-id: <anonymous-schema-213>
+                  x-parser-schema-id: <anonymous-schema-215>
                 counterparty_state:
                   type: object
                   description: >-
                     State of the pending block trade for the other party
                     (optional).
-                  x-parser-schema-id: <anonymous-schema-214>
+                  x-parser-schema-id: <anonymous-schema-216>
                 combo_id:
                   type: string
                   description: Combo instrument identifier
                   example: BTC-CS-27JUN25-80000_85000
-                  x-parser-schema-id: <anonymous-schema-215>
+                  x-parser-schema-id: <anonymous-schema-217>
               required:
                 - nonce
                 - timestamp
@@ -272,11 +272,11 @@ operations:
                 - user_id
                 - state
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-199>
+              x-parser-schema-id: <anonymous-schema-201>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-198>
+          x-parser-schema-id: <anonymous-schema-200>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -330,7 +330,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-197>
+          x-parser-schema-id: <anonymous-schema-199>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification
@@ -368,3 +368,11 @@ extensions:
 securitySchemes: []
 
 ````
+
+## Related topics
+
+- [block_trade_confirmations ](/subscriptions/block-trade/block_trade_confirmations.md)
+- [block_rfq.trades.(currency) ](/subscriptions/block-rfq/block_rfqtradescurrency.md)
+- [Notifications](/articles/notifications.md)
+- [Block Trading](/articles/block-trading-api.md)
+- [Voice Broker Trading API](/articles/voice-broker-trading-api.md)

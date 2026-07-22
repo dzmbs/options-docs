@@ -193,3 +193,12 @@ Because SBE connections are session-scoped, use [FIX Drop Copy](/starbase/fix-dr
 * Subscribe to **both A and B** multicast feeds — they have similar latency profiles
 * Subscribe to both **Snapshot** and **Incremental** channels
 * Implement full order book reconstruction from L3 data
+
+
+## Related topics
+
+- [Order Management](/articles/order-management-best-practices.md)
+- [Security Keys](/articles/security-keys.md)
+- [Connection Management](/articles/connection-management-best-practices.md)
+- [Gateway Connectivity](/starbase/gateway-connectivity.md)
+- [Market Data Collection](/articles/market-data-collection-best-practices.md)

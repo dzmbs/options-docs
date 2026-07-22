@@ -185,8 +185,8 @@ components:
         result:
           $ref: '#/components/schemas/block_rfq_quote'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     block_rfq_quote:
       properties:
@@ -319,3 +319,11 @@ components:
       description: '`true` if the quote was edited, otherwise `false`.'
 
 ````
+
+## Related topics
+
+- [private/cancel_all_block_rfq_quotes](/api-reference/block-rfq/private-cancel_all_block_rfq_quotes.md)
+- [private/edit_block_rfq_quote](/api-reference/block-rfq/private-edit_block_rfq_quote.md)
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [Rate Limits](/articles/rate-limits.md)
+- [private/cancel_block_rfq](/api-reference/block-rfq/private-cancel_block_rfq.md)

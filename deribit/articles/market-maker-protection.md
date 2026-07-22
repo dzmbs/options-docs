@@ -4,7 +4,7 @@
 
 # Market Maker Protection (MMP) API Configuration
 
-> Deribit provides a suite of API methods for managing Market Maker Protection (MMP) settings.
+> Configure MMP thresholds, freeze times, and reset behavior for market maker order flow on Deribit via API to guard against toxic fills and runaways.
 
 Market Maker Protection (MMP) helps reduce exposure risk by automatically pausing quoting activity when certain limits are reached.
 
@@ -350,3 +350,12 @@ This field will be absent in all other cases, allowing clients to clearly distin
 ## FIX Configuration
 
 Please review the FIX specs here: [MMProtection Limits (MM)](/fix-api/production/mmprotection-limits)
+
+
+## Related topics
+
+- [Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [private/get_mmp_config](/api-reference/trading/private-get_mmp_config.md)
+- [MMProtection Limits (MM)](/fix-api/production/mmprotection-limits.md)
+- [private/get_mmp_status](/api-reference/trading/private-get_mmp_status.md)

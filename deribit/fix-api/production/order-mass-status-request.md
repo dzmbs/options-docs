@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Order Mass Status Request(AF)
+# Order Mass Status Request(AF) — Production FIX API
+
+> OrderMassStatusRequest(AF) requests the current status of many open orders in a single call on the Deribit production FIX API for efficient reconciliation.
 
 `Order Mass Status Request`(`AF`) message requests the status of currently open
 orders. The exchange should respond with a series of `Execution Reports`(`8`)
@@ -87,3 +89,12 @@ message:
 | 584 | `MassStatusReqID`   | String | Yes      | The `MassStatusReqID` from the request. (Only for the first message response to a `MassStatusReqType`=`7` request.)   |
 | 585 | `MassStatusReqType` | int    | Yes      | The `MassStatusReqType` from the request. (Only for the first message response to a `MassStatusReqType`=`7` request.) |
 | 911 | `TotNumReports`     | int    | Yes      | The total number of reports following this initial report                                                             |
+
+
+## Related topics
+
+- [FIX API Overview](/fix-api/production/overview.md)
+- [Order Mass Cancel Request(q)](/fix-api/production/order-mass-cancel-request.md)
+- [Mass Quote Acknowledgement(b)](/fix-api/production/mass-quote-acknowledgement.md)
+- [Security Status Request(e)](/fix-api/production/security-status-request.md)
+- [Order Mass Cancel Report(r)](/fix-api/production/order-mass-cancel-report.md)

@@ -4,7 +4,7 @@
 
 # Authentication
 
-> Deribit's API uses an OAuth 2.0 style authentication for all private API requests.
+> OAuth 2.0-style authentication for private Deribit API requests, covering access tokens, refresh tokens, scopes, and signature-based login flows.
 
 This means you must obtain an access token (and accompanying refresh token) using your API key credentials before calling private endpoints. Public API methods (market data, etc.) do not require authentication, but authenticated connections have higher rate limits and more features (raw event feed).
 
@@ -421,3 +421,12 @@ Finally, you can log out and invalidate tokens using [`private/logout`](/api-ref
 <Warning>
   Logging out with [`private/logout`](/api-reference/authentication/private-logout) does not trigger Cancel on Disconnect. Any outstanding orders or quotes will remain active unless explicitly canceled.
 </Warning>
+
+
+## Related topics
+
+- [Creating new API key](/articles/creating-api-key.md)
+- [REST Order Gateway Authentication](/starbase/rest-authentication.md)
+- [Error Codes](/articles/errors.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)
+- [Security Keys](/articles/security-keys.md)

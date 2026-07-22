@@ -4,7 +4,7 @@
 
 # REST Order Gateway Authentication
 
-> How to authenticate requests to the Starbase REST Order Gateway using Basic credentials.
+> Authenticate requests to the Starbase REST Order Gateway using HTTP Basic credentials, including API key handling and gateway session security.
 
 Every request to the REST Order Gateway must carry an `Authorization` header. There is no session or token layer — each request re-authenticates independently.
 
@@ -131,3 +131,12 @@ Treat every `401` as terminal for that request. Retry only after fixing the head
     Gateway addresses, ports, and connection rules
   </Card>
 </CardGroup>
+
+
+## Related topics
+
+- [Gateway Connectivity](/starbase/gateway-connectivity.md)
+- [Authentication](/articles/authentication.md)
+- [Order Management](/articles/order-management-best-practices.md)
+- [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)
+- [Creating a Starbase API Key](/starbase/creating-api-key.md)

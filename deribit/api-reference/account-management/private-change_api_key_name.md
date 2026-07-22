@@ -151,8 +151,8 @@ components:
         result:
           $ref: '#/components/schemas/api_key'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     api_key:
       properties:
@@ -256,3 +256,11 @@ components:
         by Block Trade approval feature
 
 ````
+
+## Related topics
+
+- [private/change_scope_in_api_key](/api-reference/account-management/private-change_scope_in_api_key.md)
+- [private/edit_api_key](/api-reference/account-management/private-edit_api_key.md)
+- [private/change_subaccount_name](/api-reference/account-management/private-change_subaccount_name.md)
+- [private/list_api_keys](/api-reference/account-management/private-list_api_keys.md)
+- [private/create_api_key](/api-reference/account-management/private-create_api_key.md)

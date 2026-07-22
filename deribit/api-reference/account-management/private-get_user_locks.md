@@ -152,8 +152,8 @@ components:
               - enabled
           type: array
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     currency:
       enum:
@@ -166,3 +166,11 @@ components:
       description: Currency, i.e `"BTC"`, `"ETH"`, `"USDC"`
 
 ````
+
+## Related topics
+
+- [private/get_block_rfq_user_info](/api-reference/block-rfq/private-get_block_rfq_user_info.md)
+- [private/get_user_trades_by_currency](/api-reference/trading/private-get_user_trades_by_currency.md)
+- [private/get_user_trades_by_instrument](/api-reference/trading/private-get_user_trades_by_instrument.md)
+- [private/get_user_trades_by_order](/api-reference/trading/private-get_user_trades_by_order.md)
+- [private/get_user_trades_by_instrument_and_time](/api-reference/trading/private-get_user_trades_by_instrument_and_time.md)

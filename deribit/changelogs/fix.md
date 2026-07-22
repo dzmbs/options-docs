@@ -4,7 +4,7 @@
 
 # FIX API Changelog
 
-> Changes and announcements for the Deribit FIX API.
+> Chronological release notes for the Deribit FIX API covering new tags, message changes, deprecations, session behavior updates, and bug fix history.
 
 <Update label="Release 27.06.2026">
   `Security List` (`y`): `UnderlyingSecurityType` (`310`) is now included in the response for all instruments. Possible values: `CRYPTO`, `COMMODITY`, `EQUITY`.
@@ -198,3 +198,12 @@
 <Update label="Release 17.01.2020">
   Added SecurityStatusRequest(e) request and SecurityStatus(f) response
 </Update>
+
+
+## Related topics
+
+- [Starbase API Changelog](/changelogs/starbase.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [FIX API Overview](/fix-api/production/overview.md)
+- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
+- [Changes Log](/fix-api/production/changes-log.md)

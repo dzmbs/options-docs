@@ -4,7 +4,7 @@
 
 # Account Model
 
-> Starbase has a slightly different market model from Deribit. Deribit has a system with main-accounts and sub-accounts. For order entry and drop copy, there is no difference between main-accounts and sub-accounts. Logical grouping of access scopes should be done on a business level. There are, however, two common exceptions: usage of a Prime Broker or a trading firm with silo-ed pods. For this reason, we are introducing two new concepts: 
+> How the Starbase account and subaccount hierarchy differs from the Deribit main platform for order entry, drop copy, and permission scoping.
 
 | Concept       | Description                                                        | Mapping to Deribit                                   |
 | ------------- | ------------------------------------------------------------------ | ---------------------------------------------------- |
@@ -39,3 +39,12 @@ A Member is a grouping of portfolios and can contain a mix of margin modes — f
 * **New positions**: Once a Standard Margin subaccount is scoped to a Member, no new options positions can be opened on it — whether the order is submitted via Starbase (Direct Access) or via websocket API.
 
 To trade options on a subaccount that belongs to a Member, switch that subaccount's margin mode to Segregated Portfolio Margin or Cross Portfolio Margin.
+
+
+## Related topics
+
+- [Starbase API Changelog](/changelogs/starbase.md)
+- [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [private/change_margin_model](/api-reference/account-management/private-change_margin_model.md)
+- [Market Model](/starbase/market-model.md)
+- [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)

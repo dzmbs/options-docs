@@ -153,8 +153,8 @@ components:
           items:
             $ref: '#/components/schemas/order_id_initial_margin_pair'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     order_id_initial_margin_pair:
       properties:
@@ -176,3 +176,11 @@ components:
       description: Unique order identifier
 
 ````
+
+## Related topics
+
+- [private/get_margins](/api-reference/trading/private-get_margins.md)
+- [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)
+- [private/get_subaccounts_details](/api-reference/account-management/private-get_subaccounts_details.md)
+- [private/get_position](/api-reference/account-management/private-get_position.md)
+- [private/get_positions](/api-reference/account-management/private-get_positions.md)

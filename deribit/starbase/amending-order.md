@@ -98,3 +98,12 @@ Reject generated in case an `AmendOrderRequest` is unsuccessful.
 | 6     | instrumentId  | int64 | 8      | Numeric instrument ID                                                                                                           |
 | 7     | reason        | int8  | 1      | Rejection reason code. See [Rejection Reason Codes](/starbase/binary-api-reference#rejection-reason-codes) for possible values. |
 | 8     | details       | char  | 0-255  | ASCII-encoded string                                                                                                            |
+
+
+## Related topics
+
+- [Order Cancel/Replace Request(G)](/fix-api/production/order-cancel-replace.md)
+- [Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)
+- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
+- [Order Management](/articles/order-management-best-practices.md)

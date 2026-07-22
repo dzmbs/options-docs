@@ -99,3 +99,12 @@ For speed bumped orders, the FIX gateway sends an `ExecutionReport (8)` for ever
 | Cancel/Replace speed bumped | `E` (Pending Replace)               | `0` (New) upon placement, or `1`/`2` if filled |
 
 See [Execution Reports](/fix-api/production/execution-reports) for the full field specifications including the `OrdStatus` values.
+
+
+## Related topics
+
+- [Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Starbase API Changelog](/changelogs/starbase.md)
+- [Self Match Prevention (SMP)](/starbase/smp.md)
+- [Mass Cancel](/starbase/mass-cancel.md)
+- [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)

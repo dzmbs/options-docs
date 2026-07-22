@@ -357,8 +357,8 @@ components:
                 in USD
           description: Portfolio margin simulation result
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     projected_initial_margin:
       example: 1
@@ -492,3 +492,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [private/pme/simulate](/api-reference/account-management/private-simulate.md)
+- [private/simulate_block_trade](/api-reference/block-trade/private-simulate_block_trade.md)
+- [Block Trading](/articles/block-trading-api.md)
+- [Portfolio Management](/starbase/portfolio-management.md)

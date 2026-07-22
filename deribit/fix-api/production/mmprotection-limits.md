@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# MMProtection Limits (MM)
+# MMProtection Limits (MM) — Production FIX API
+
+> MMProtectionLimits(MM) sets market maker protection thresholds such as quantity, delta, and frozen time on the Deribit production FIX API endpoint.
 
 **Important: manual admin action is necessary to activate Market Maker
 Protection (MMP) for an account.** The `MMProtection Limits (MM)` message can be
@@ -45,3 +47,12 @@ used to set or get the limits for Market Maker Protection (MMP) for a currency p
 
 * To set `MMProtection Limits`, the message must contain all fields. In reply to this message, the server sends [`MMProtection Limits Result/Reject` (`MR`)](/fix-api/production/mmprotection-limits-result).
 * To get current `MMProtection Limits`, the message must contain only `ProtectionRequestID` (`20114`) and `Currency` (`15`) fields (without all limits). In reply to this message, the server sends `MMProtection Limits (MM)` message with filled limits.
+
+
+## Related topics
+
+- [Security Status(f)](/fix-api/production/security-status.md)
+- [MMProtection Limits Result/Reject(MR)](/fix-api/production/mmprotection-limits-result.md)
+- [FIX API Overview](/fix-api/production/overview.md)
+- [FIX API Changelog](/changelogs/fix.md)
+- [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)

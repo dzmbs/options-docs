@@ -168,7 +168,7 @@ operations:
                   description: >-
                     Number of seconds remaining until the expiration of the
                     nearest expiring instrument
-                  x-parser-schema-id: <anonymous-schema-285>
+                  x-parser-schema-id: <anonymous-schema-289>
                 price:
                   type: number
                   description: >-
@@ -177,7 +177,7 @@ operations:
                     represents the calculated estimated ending price; otherwise,
                     it is the current index price.
                   example: 8247.27
-                  x-parser-schema-id: <anonymous-schema-286>
+                  x-parser-schema-id: <anonymous-schema-290>
                 is_estimated:
                   type: boolean
                   description: >-
@@ -185,29 +185,29 @@ operations:
                     `true`, the price represents a calculated estimated ending
                     price for expiration. When `false`, the price is the current
                     index price.
-                  x-parser-schema-id: <anonymous-schema-287>
+                  x-parser-schema-id: <anonymous-schema-291>
                 left_ticks:
                   type: number
                   description: >-
                     Number of time ticks remaining until expiration. This field
                     is only present when `is_estimated` is `true`.
-                  x-parser-schema-id: <anonymous-schema-288>
+                  x-parser-schema-id: <anonymous-schema-292>
                 total_ticks:
                   type: number
                   description: >-
                     Total number of time ticks for the expiration period. This
                     field is only present when `is_estimated` is `true`.
-                  x-parser-schema-id: <anonymous-schema-289>
+                  x-parser-schema-id: <anonymous-schema-293>
               required:
                 - seconds
                 - price
                 - is_estimated
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-284>
+              x-parser-schema-id: <anonymous-schema-288>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-283>
+          x-parser-schema-id: <anonymous-schema-287>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -248,7 +248,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-282>
+          x-parser-schema-id: <anonymous-schema-286>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification
@@ -286,3 +286,11 @@ extensions:
 securitySchemes: []
 
 ````
+
+## Related topics
+
+- [Notifications](/articles/notifications.md)
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [deribit_price_index.(index_name) ](/subscriptions/market-data/deribit_price_indexindex_name.md)
+- [public/get_index_price_names](/api-reference/market-data/public-get_index_price_names.md)
+- [deribit_price_ranking.(index_name) ](/subscriptions/market-data/deribit_price_rankingindex_name.md)

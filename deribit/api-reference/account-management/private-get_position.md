@@ -123,8 +123,8 @@ components:
         result:
           $ref: '#/components/schemas/position_with_elp'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     ErrorMessageResponse:
       properties:
@@ -141,9 +141,9 @@ components:
         error:
           type: integer
       required:
-        - jsonrpc
         - error
         - message
+        - jsonrpc
       type: object
     position_with_elp:
       allOf:
@@ -309,3 +309,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [private/get_positions](/api-reference/account-management/private-get_positions.md)
+- [Moving Positions](/articles/moving-positions-api.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [private/move_positions](/api-reference/trading/private-move_positions.md)

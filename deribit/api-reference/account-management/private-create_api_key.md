@@ -213,8 +213,8 @@ components:
         result:
           $ref: '#/components/schemas/api_key'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     api_key:
       properties:
@@ -326,3 +326,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [Creating new API key](/articles/creating-api-key.md)
+- [Managing Transfers](/articles/managing-transfers-api.md)
+- [private/remove_api_key](/api-reference/account-management/private-remove_api_key.md)
+- [private/disable_api_key](/api-reference/account-management/private-disable_api_key.md)
+- [private/list_api_keys](/api-reference/account-management/private-list_api_keys.md)

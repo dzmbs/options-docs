@@ -207,8 +207,8 @@ components:
               $ref: '#/components/schemas/block_rfq_trade_tape_continuation'
           type: object
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     trade_timestamp:
       example: 1517329113791
@@ -369,3 +369,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [block_rfq.trades.(currency) ](/subscriptions/block-rfq/block_rfqtradescurrency.md)
+- [public/get_trade_volumes](/api-reference/market-data/public-get_trade_volumes.md)
+- [public/get_last_trades_by_instrument](/api-reference/market-data/public-get_last_trades_by_instrument.md)
+- [public/get_last_trades_by_currency](/api-reference/market-data/public-get_last_trades_by_currency.md)
+- [public/get_last_trades_by_instrument_and_time](/api-reference/market-data/public-get_last_trades_by_instrument_and_time.md)

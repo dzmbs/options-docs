@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Security Definition Request(c)
+# Security Definition Request(c) — Production FIX API
+
+> SecurityDefinitionRequest(c) requests detailed contract definitions for one instrument on the Deribit production FIX API before market data subscription.
 
 Request a specific Security to be traded with the second party. The request
 security is defined as a multileg security made up of two or more instrument
@@ -29,3 +31,12 @@ end-points depending on `SecurityRequestType (321)` tag value).
 
 The server sends [`Security Definition (d)`](/fix-api/production/security-definition) message as
 a response, or rejects the request
+
+
+## Related topics
+
+- [Security Definition(d)](/fix-api/production/security-definition.md)
+- [FIX API Overview](/fix-api/production/overview.md)
+- [FIX API Changelog](/changelogs/fix.md)
+- [Changes Log](/fix-api/production/changes-log.md)
+- [Security List Request(x)](/fix-api/production/security-list-request.md)

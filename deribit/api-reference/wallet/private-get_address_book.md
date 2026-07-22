@@ -149,8 +149,8 @@ components:
           items:
             $ref: '#/components/schemas/address_book_item'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     address_book_item:
       properties:
@@ -321,3 +321,11 @@ components:
       description: Success response
 
 ````
+
+## Related topics
+
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Managing Withdrawals](/articles/managing-withdrawals-api.md)
+- [private/remove_from_address_book](/api-reference/wallet/private-remove_from_address_book.md)
+- [private/update_in_address_book](/api-reference/wallet/private-update_in_address_book.md)
+- [private/add_to_address_book](/api-reference/wallet/private-add_to_address_book.md)

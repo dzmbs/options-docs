@@ -4,7 +4,7 @@
 
 # Welcome to Deribit API
 
-> Deribit is a leading cryptocurrency derivatives exchange offering futures, perpetuals, and options trading. This documentation provides everything you need to integrate with our API and build powerful trading applications.
+> Deribit is a crypto derivatives exchange offering futures, options, and perpetuals — this documentation is your integration entry point for the API.
 
 <Info>
   Two versions of the API documentation are available. You can switch between them using the version selector button at the top of the page. Changes in the upcoming version will be available in the production version after the next release. For release notes and information about upcoming releases, visit the [Releases section](https://support.deribit.com/hc/en-us/sections/25944734788637-Releases).
@@ -109,3 +109,12 @@ Deribit provides three different interfaces to access the API:
     Get technical support, API assistance, or report bugs. Available via Telegram, email, or support portal.
   </Card>
 </CardGroup>
+
+
+## Related topics
+
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [deribit_price_index.(index_name) ](/subscriptions/market-data/deribit_price_indexindex_name.md)
+- [deribit_price_ranking.(index_name) ](/subscriptions/market-data/deribit_price_rankingindex_name.md)
+- [deribit_price_statistics.(index_name) ](/subscriptions/market-data/deribit_price_statisticsindex_name.md)
+- [deribit_volatility_index.(index_name) ](/subscriptions/market-data/deribit_volatility_indexindex_name.md)

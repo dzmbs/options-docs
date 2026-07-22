@@ -4,7 +4,7 @@
 
 # Trades
 
-> Trade messages for the Starbase Binary API including Trade Summary, Trade, and Block Trade messages.
+> Trade messages on the Starbase Binary API — Trade Summary, Trade, and Block Trade feeds with execution details and counterparty data for reporting.
 
 ## Trades
 
@@ -68,3 +68,12 @@ This message is sent for each individual trade in a block trade. Multiple `Block
 | 9     | impliedVolatility | double           | 8      | Implied volatility; absent (null value) for non-option instruments                                |
 | 10    | takerFlags        | uint32           | 4      | Attributes of the taker side; see flags table in [Trades](#trades) section above                  |
 | 11    | numberOfLegs      | uint16           | 2      | Total number of legs in the block trade structure                                                 |
+
+
+## Related topics
+
+- [block_trade_confirmations ](/subscriptions/block-trade/block_trade_confirmations.md)
+- [private/get_block_trade](/api-reference/block-trade/private-get_block_trade.md)
+- [private/execute_block_trade](/api-reference/block-trade/private-execute_block_trade.md)
+- [private/get_block_trades](/api-reference/block-trade/private-get_block_trades.md)
+- [private/approve_block_trade](/api-reference/block-trade/private-approve_block_trade.md)

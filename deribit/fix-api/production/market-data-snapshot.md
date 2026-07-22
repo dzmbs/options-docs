@@ -2,7 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Market Data Snapshot/Full Refresh(W)
+# Market Data Snapshot/Full Refresh(W) — Production FIX API
+
+> MarketDataSnapshotFullRefresh(W) delivers the initial full order book snapshot on the Deribit production FIX API before incremental updates begin streaming.
 
 `Market Data Snapshot/Full Refresh`(`W`) is used as the response to a
 [`Market Data Request`(`V`)](/fix-api/production/market-data-request) message.
@@ -41,3 +43,12 @@
 
 CurrentFunding and Funding8h are present only in `W` message, not in `X` message
 below.
+
+
+## Related topics
+
+- [Market Data Incremental Refresh(X)](/fix-api/production/market-data-incremental.md)
+- [Market Data Request(V)](/fix-api/production/market-data-request.md)
+- [FIX API Overview](/fix-api/production/overview.md)
+- [Starbase API Overview](/starbase/overview.md)
+- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)

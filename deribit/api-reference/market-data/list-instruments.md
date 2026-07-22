@@ -304,3 +304,11 @@ components:
           description: Block trade commission rate. May be `null` if not yet populated.
 
 ````
+
+## Related topics
+
+- [Security List(y)](/fix-api/production/security-list.md)
+- [Security List Request(x)](/fix-api/production/security-list-request.md)
+- [FIX API Overview](/fix-api/production/overview.md)
+- [private/cancel_all_by_instrument](/api-reference/trading/private-cancel_all_by_instrument.md)
+- [private/get_open_orders_by_instrument](/api-reference/trading/private-get_open_orders_by_instrument.md)
