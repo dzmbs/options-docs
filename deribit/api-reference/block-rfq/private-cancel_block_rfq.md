@@ -160,8 +160,8 @@ components:
         result:
           $ref: '#/components/schemas/block_rfq'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     block_rfq:
       properties:

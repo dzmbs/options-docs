@@ -166,8 +166,8 @@ components:
           items:
             $ref: '#/components/schemas/instrument'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     instrument:
       properties:

@@ -35,8 +35,8 @@ a response, or rejects the request
 
 ## Related topics
 
-- [Security Definition(d)](/fix-api/production/security-definition.md)
-- [FIX API Overview](/fix-api/production/overview.md)
-- [FIX API Changelog](/changelogs/fix.md)
-- [Changes Log](/fix-api/production/changes-log.md)
-- [Security List Request(x)](/fix-api/production/security-list-request.md)
+- [Security Definition(d) — Production FIX API](/fix-api/production/security-definition.md)
+- [Security List Request(x) — Production FIX API](/fix-api/production/security-list-request.md)
+- [Security Status Request(e) — Production FIX API](/fix-api/production/security-status-request.md)
+- [Security List(y) — Production FIX API](/fix-api/production/security-list.md)
+- [Security Status(f) — Production FIX API](/fix-api/production/security-status.md)

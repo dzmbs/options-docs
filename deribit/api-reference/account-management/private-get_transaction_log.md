@@ -231,8 +231,8 @@ components:
             - continuation
             - logs
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     continuation_with_null:
       example: 429946

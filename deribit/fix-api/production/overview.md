@@ -4,7 +4,7 @@
 
 # Deribit Production FIX API Overview
 
-> Deribit production FIX 4.4 subset overview covering endpoints, supported message types, and how the current live FIX gateway differs from the upcoming version.
+> Overview of the Deribit production FIX 4.4 subset covering endpoints, supported message types, and how the live FIX gateway differs from the upcoming one.
 
 Deribit FIX API is a subset of FIX version 4.4, but also includes some tags from 5.0 version and several custom tags. Deribit uses the standard header and trailer structure for all messages. To enable the API, sign in and go to **Account > Security > API** Tab and use the checkbox. 'Client Secret' is the user's secret key provided by Deribit. **Important Note: Do not reveal to anybody your 'Client Secret', as it can be used to gain full control over your account.**
 
@@ -133,8 +133,8 @@ The FIX API supports the following message types organized by category:
 
 ## Related topics
 
-- [Welcome to Deribit API](/index.md)
-- [Quickstart Guide](/articles/deribit-quickstart.md)
-- [Logon(A)](/fix-api/production/logon.md)
-- [Logout(5)](/fix-api/production/logout.md)
-- [Sequence Reset(4)](/fix-api/production/sequence-reset.md)
+- [Logon(A) — Production FIX API](/fix-api/production/logon.md)
+- [Logout(5) — Production FIX API](/fix-api/production/logout.md)
+- [Heartbeat(0) — Production FIX API](/fix-api/production/heartbeat.md)
+- [Reject(3) — Production FIX API](/fix-api/production/reject.md)
+- [Sequence Reset(4) — Production FIX API](/fix-api/production/sequence-reset.md)

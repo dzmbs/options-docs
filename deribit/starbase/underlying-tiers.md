@@ -19,6 +19,10 @@ Tier classification is based on the **base currency** of the underlying index. A
   PAXG is classified as **Tier 2** on Starbase, differing from its Tier 3 classification on Coinbase International Exchange.
 </Note>
 
+### Programmatic lookup
+
+The `product_group` field on [`public/get_instruments`](/api-reference/market-data/public-get_instruments) reports this same classification per instrument (values such as `BTC`, `ETH`, `TIER_2`, `TIER_3`), so you can drive gateway/channel routing from that field instead of hard-coding the tables below. Note that `product_group` is a per-instrument classification and does not exactly match the **product group** terminology used for [rate limit](/starbase/api-rate-limits#default-rate-limits) allocation — rate limits are allocated across five groups (BTC, ETH, Altcoin options, Other crypto, RWA), which further splits Tier 2/3 by whether the instrument is an option. Underlying Tier (this page) is the classification that determines gateway and multicast channel assignment.
+
 ## Tier 1
 
 The most liquid assets. Tier 1 instruments have dedicated multicast channels and the highest allocated rate limits.

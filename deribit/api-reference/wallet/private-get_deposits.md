@@ -152,8 +152,8 @@ components:
             - data
             - count
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     deposit:
       properties:

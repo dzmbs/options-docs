@@ -157,8 +157,8 @@ components:
           items:
             $ref: '#/components/schemas/position_with_elp'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     ErrorMessageResponse:
       properties:
@@ -175,9 +175,9 @@ components:
         error:
           type: integer
       required:
+        - jsonrpc
         - error
         - message
-        - jsonrpc
       type: object
     position_with_elp:
       allOf:

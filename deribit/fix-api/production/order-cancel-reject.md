@@ -46,8 +46,8 @@ means that the order has been cancelled by Market Maker Protection (MMP).
 
 ## Related topics
 
-- [Reject(3)](/fix-api/production/reject.md)
-- [Order Mass Cancel Report(r)](/fix-api/production/order-mass-cancel-report.md)
-- [Order Cancel/Replace Request(G)](/fix-api/production/order-cancel-replace.md)
-- [Order Mass Cancel Request(q)](/fix-api/production/order-mass-cancel-request.md)
-- [Market Data Request Reject(Y)](/fix-api/production/market-data-request-reject.md)
+- [Order Mass Cancel Request(q) — Production FIX API](/fix-api/production/order-mass-cancel-request.md)
+- [Order Mass Cancel Report(r) — Production FIX API](/fix-api/production/order-mass-cancel-report.md)
+- [Quote Cancel(Z) — Production FIX API](/fix-api/production/quote-cancel.md)
+- [Order Cancel/Replace Request(G) — Production FIX API](/fix-api/production/order-cancel-replace.md)
+- [Order Cancel Request(F) — Production FIX API](/fix-api/production/order-cancel-request.md)

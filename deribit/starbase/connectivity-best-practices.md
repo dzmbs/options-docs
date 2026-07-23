@@ -168,6 +168,9 @@ Because SBE connections are session-scoped, use [FIX Drop Copy](/starbase/fix-dr
 * A consolidated view of all activity across a single portfolio
 * Reconciliation across all gateways
 * Aggregated trade feed
+* Durable order/trade record-keeping — order history endpoints don't retroactively return rejected or zero-fill orders, so persist Execution Reports from Drop Copy as they arrive (see the note on rejected orders in [FIX Drop Copy](/starbase/fix-drop-copy-api))
+
+Trades placed through Starbase also appear on the standard WebSocket/FIX feeds, but **open Starbase orders do not** — those are only visible via Starbase FIX Drop Copy or an SBE session.
 
 ***
 

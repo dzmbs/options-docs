@@ -200,8 +200,8 @@ components:
             - records_total
             - data
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     date:
       example: '2019-11-24'

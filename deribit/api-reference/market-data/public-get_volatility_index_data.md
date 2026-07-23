@@ -171,8 +171,8 @@ components:
                 the next request. `NULL` when no continuation.
           description: Volatility index candles.
       required:
-        - result
         - jsonrpc
+        - result
       type: object
   responses:
     PublicGetVolatilityIndexDataResponse:

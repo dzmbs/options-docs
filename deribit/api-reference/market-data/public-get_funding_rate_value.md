@@ -139,8 +139,8 @@ components:
         result:
           type: number
       required:
-        - result
         - jsonrpc
+        - result
       type: object
   responses:
     PublicGetFundingRateValueResponse:

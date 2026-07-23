@@ -4,7 +4,7 @@
 
 # New Order Single(D) — Production FIX API
 
-> FIX New Order Single message submits new orders to Deribit exchange. Learn order types, parameters, and how to place limit, market, and advanced orders via FIX.
+> NewOrderSingle(D) submits new orders to the Deribit production FIX API — order types, parameters, and how to place limit, market, and advanced orders.
 
 The `NEW ORDER SINGLE`(`D`) is used by the client to submit new orders to the
 exchange.
@@ -90,8 +90,8 @@ Report`(`8`) message communicating whether the order was accepted or rejected.
 
 ## Related topics
 
-- [Order Mass Status Request(AF)](/fix-api/production/order-mass-status-request.md)
-- [FIX API Overview](/fix-api/production/overview.md)
-- [Placing a New Order](/starbase/placing-new-order.md)
-- [Mass Quote(i)](/fix-api/production/mass-quote.md)
-- [FIX API Changelog](/changelogs/fix.md)
+- [Order Cancel/Replace Request(G) — Production FIX API](/fix-api/production/order-cancel-replace.md)
+- [Order Cancel Reject(9) — Production FIX API](/fix-api/production/order-cancel-reject.md)
+- [Order Mass Status Request(AF) — Production FIX API](/fix-api/production/order-mass-status-request.md)
+- [Order Cancel Request(F) — Production FIX API](/fix-api/production/order-cancel-request.md)
+- [Order Mass Cancel Report(r) — Production FIX API](/fix-api/production/order-mass-cancel-report.md)

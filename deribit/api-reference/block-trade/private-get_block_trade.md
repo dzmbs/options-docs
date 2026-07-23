@@ -119,8 +119,8 @@ components:
         result:
           $ref: '#/components/schemas/block_trade'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     block_trade:
       properties:
@@ -510,5 +510,5 @@ components:
 - [private/get_block_trades](/api-reference/block-trade/private-get_block_trades.md)
 - [private/get_block_trade_requests](/api-reference/block-trade/private-get_block_trade_requests.md)
 - [Block Trading](/articles/block-trading-api.md)
-- [private/approve_block_trade](/api-reference/block-trade/private-approve_block_trade.md)
 - [private/reject_block_trade](/api-reference/block-trade/private-reject_block_trade.md)
+- [private/approve_block_trade](/api-reference/block-trade/private-approve_block_trade.md)

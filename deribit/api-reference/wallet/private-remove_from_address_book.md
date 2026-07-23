@@ -155,8 +155,8 @@ components:
           example: ok
           description: ok
       required:
-        - result
         - jsonrpc
+        - result
       type: object
   responses:
     PrivateRemoveFromAddressBookResponse:

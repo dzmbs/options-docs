@@ -202,8 +202,8 @@ components:
                 $ref: '#/components/schemas/quote_price'
               description: List of lowest price levels (one per candle)
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     chart_volume:
       type: number

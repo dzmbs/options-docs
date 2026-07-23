@@ -204,6 +204,6 @@
 
 - [Starbase API Changelog](/changelogs/starbase.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [FIX API Overview](/fix-api/production/overview.md)
-- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
-- [Changes Log](/fix-api/production/changes-log.md)
+- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
+- [Logon(A) — Production FIX API](/fix-api/production/logon.md)
+- [Logout(5) — Production FIX API](/fix-api/production/logout.md)

@@ -140,8 +140,8 @@ components:
             - ok
           description: Result of method execution. `ok` in case of success
       required:
-        - result
         - jsonrpc
+        - result
       type: object
 
 ````
@@ -150,6 +150,6 @@ components:
 
 - [private/enable_cancel_on_disconnect](/api-reference/session-management/private-enable_cancel_on_disconnect.md)
 - [public/disable_heartbeat](/api-reference/session-management/public-disable_heartbeat.md)
-- [Heartbeat(0)](/fix-api/production/heartbeat.md)
 - [Session Messages](/starbase/session-messages.md)
+- [Heartbeat(0) — Production FIX API](/fix-api/production/heartbeat.md)
 - [Connection Management](/articles/connection-management-best-practices.md)

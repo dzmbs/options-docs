@@ -246,8 +246,8 @@ components:
             - trade_trigger
             - block_trades
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     block_trade:
       properties:

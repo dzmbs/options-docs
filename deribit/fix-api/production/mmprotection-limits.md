@@ -51,8 +51,8 @@ used to set or get the limits for Market Maker Protection (MMP) for a currency p
 
 ## Related topics
 
-- [Security Status(f)](/fix-api/production/security-status.md)
-- [MMProtection Limits Result/Reject(MR)](/fix-api/production/mmprotection-limits-result.md)
-- [FIX API Overview](/fix-api/production/overview.md)
-- [FIX API Changelog](/changelogs/fix.md)
-- [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
+- [MMProtection Limits Result (MR) — Production FIX API](/fix-api/production/mmprotection-limits-result.md)
+- [Security Status(f) — Production FIX API](/fix-api/production/security-status.md)
+- [MMProtection Reset(MZ) — Production FIX API](/fix-api/production/mmprotection-reset.md)
+- [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)

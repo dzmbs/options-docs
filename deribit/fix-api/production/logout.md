@@ -22,8 +22,8 @@ orders will be cancelled at Logout.
 
 ## Related topics
 
-- [private/logout](/api-reference/authentication/private-logout.md)
-- [FIX API Overview](/fix-api/production/overview.md)
-- [Logon(A)](/fix-api/production/logon.md)
-- [Creating a Starbase API Key](/starbase/creating-api-key.md)
-- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Logon(A) — Production FIX API](/fix-api/production/logon.md)
+- [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [Heartbeat(0) — Production FIX API](/fix-api/production/heartbeat.md)
+- [Reject(3) — Production FIX API](/fix-api/production/reject.md)
+- [Sequence Reset(4) — Production FIX API](/fix-api/production/sequence-reset.md)

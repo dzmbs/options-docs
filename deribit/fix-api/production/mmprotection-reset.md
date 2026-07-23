@@ -26,8 +26,8 @@ The server sends `MMProtection Result (MR)` message as a response.
 
 ## Related topics
 
-- [FIX API Overview](/fix-api/production/overview.md)
-- [MMProtection Limits Result/Reject(MR)](/fix-api/production/mmprotection-limits-result.md)
-- [FIX API Changelog](/changelogs/fix.md)
-- [Changes Log](/fix-api/production/changes-log.md)
-- [MMProtection Limits (MM)](/fix-api/production/mmprotection-limits.md)
+- [MMProtection Limits Result (MR) — Production FIX API](/fix-api/production/mmprotection-limits-result.md)
+- [MMProtection Limits (MM) — Production FIX API](/fix-api/production/mmprotection-limits.md)
+- [Sequence Reset(4) — Production FIX API](/fix-api/production/sequence-reset.md)
+- [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)

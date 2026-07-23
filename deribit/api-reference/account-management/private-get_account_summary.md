@@ -514,8 +514,8 @@ components:
             - id
           type: object
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     rpl:
       example: 0.1

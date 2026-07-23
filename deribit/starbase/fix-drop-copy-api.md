@@ -65,6 +65,14 @@ def build_signature(secret: str) -> tuple[str, str]:
   Mass quotes (submitted via the SBE Mass Quote API) appear in the Drop Copy feed **only when they result in fills**. Unexecuted quotes are not included.
 </Note>
 
+<Warning>
+  **Old rejected and zero-fill orders cannot be recovered after the fact.** REST/WebSocket order history endpoints (e.g. `private/get_order_history_by_instrument`) only return orders that reached the book or filled — an IOC/FAK order that expired with zero fills, or any order that was hard-rejected synchronously (invalid params, insufficient margin, etc.), will not appear there, and there is no separate endpoint to retrieve them retroactively. To maintain a complete audit trail of every order outcome including rejects, persist Execution Reports from this Drop Copy feed as they arrive rather than relying on pulling history later. Note that synchronous hard rejects fail before an order is accepted, so they will not appear on Drop Copy either — track your own request/response pairs for those.
+</Warning>
+
+<Note>
+  Trades placed through Starbase are visible on both the standard WebSocket/FIX trade feeds and on Starbase FIX Drop Copy. **Open Starbase orders are different**: they are only visible via Starbase FIX Drop Copy (or an SBE order-entry session) — the standard Deribit WebSocket and Drop Copy ("Thunder DC") feeds do not surface open order state for orders placed through Starbase. See [Consolidated View: FIX Drop Copy](/starbase/connectivity-best-practices#consolidated-view-fix-drop-copy) for the reasoning.
+</Note>
+
 ## Open Order Snapshot on Connect
 
 When a new Drop Copy session is established, Starbase immediately sends Execution Reports for all currently open orders. These snapshot messages are sent automatically (no request is needed) and are marked with a snapshot indicator to distinguish them from live messages. This allows clients to synchronize their order state on connect without requesting an ER replay.
@@ -304,7 +312,7 @@ Sent after all replayed reports have been delivered.
 ## Related topics
 
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
-- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Gateway Connectivity](/starbase/gateway-connectivity.md)
+- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Account Model](/starbase/account-model.md)
 - [Starbase API Changelog](/changelogs/starbase.md)

@@ -25,16 +25,16 @@ This message is sent when a taker order matches against one or more maker/restin
 
 The table below outlines the content of field 7 (takerFlags) and field 8 (makerFlags) in Trade message:
 
-| Bit number (from last to first) | Name                    | Description           |
-| ------------------------------- | ----------------------- | --------------------- |
-| 1                               | isSell                  | `0`=Buy<br />`1`=Sell |
-| 2                               | Reserved for future use |                       |
-| 3                               | Reserved for future use |                       |
-| 4                               | Reserved for future use |                       |
-| 5                               | Reserved for future use |                       |
-| 6                               | Reserved for future use |                       |
-| 7                               | Reserved for future use |                       |
-| 8                               | Reserved for future use |                       |
+| Bit number (from last to first) | Name                    | Description                                      |
+| ------------------------------- | ----------------------- | ------------------------------------------------ |
+| 1                               | isSell                  | `0`=Buy<br />`1`=Sell                            |
+| 2                               | isLiquidation           | `0`=Not a liquidation<br />`1`=Liquidation trade |
+| 3                               | Reserved for future use |                                                  |
+| 4                               | Reserved for future use |                                                  |
+| 5                               | Reserved for future use |                                                  |
+| 6                               | Reserved for future use |                                                  |
+| 7                               | Reserved for future use |                                                  |
+| 8                               | Reserved for future use |                                                  |
 
 ### Trade (31)
 
@@ -76,4 +76,4 @@ This message is sent for each individual trade in a block trade. Multiple `Block
 - [private/get_block_trade](/api-reference/block-trade/private-get_block_trade.md)
 - [private/execute_block_trade](/api-reference/block-trade/private-execute_block_trade.md)
 - [private/get_block_trades](/api-reference/block-trade/private-get_block_trades.md)
-- [private/approve_block_trade](/api-reference/block-trade/private-approve_block_trade.md)
+- [private/reject_block_trade](/api-reference/block-trade/private-reject_block_trade.md)

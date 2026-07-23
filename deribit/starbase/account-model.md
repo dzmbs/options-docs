@@ -15,6 +15,10 @@
   Members can only be configured from a **main account**. Subaccounts cannot create or manage Members. Additionally, the Starbase section will only appear in your account panel once your account has been authorized by a Deribit admin.
 </Note>
 
+### Do subaccounts need to belong to a Member?
+
+Only subaccounts you intend to trade on Starbase need to belong to a Member. Starbase API key creation is scoped to a Member — see [Creating a Starbase API Key](/starbase/creating-api-key#front-end-interface) — so a subaccount that isn't added to any Member simply has no way to authenticate against Starbase gateways, and therefore has no Starbase rate limit allocation of its own. A subaccount left outside of every Member is unaffected by anything in this page; it continues to trade exclusively through the standard Deribit APIs under the main platform's own limits.
+
 ### Member limits
 
 Rate limits are allocated **per Member** and are shared across all API keys, sessions, and portfolios within that Member. Having more sessions or more portfolios does not increase your rate limits.

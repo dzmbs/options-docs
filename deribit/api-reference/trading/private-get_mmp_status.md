@@ -226,8 +226,8 @@ components:
               - frozen_until
               - mmp_group
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     index_name:
       enum:
@@ -307,4 +307,4 @@ components:
 - [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_mmp_config](/api-reference/trading/private-get_mmp_config.md)
-- [Security Status(f)](/fix-api/production/security-status.md)
+- [private/get_order_state](/api-reference/trading/private-get_order_state.md)

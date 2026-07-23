@@ -21,8 +21,8 @@ the initialization process.
 
 ## Related topics
 
-- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
-- [FIX API Overview](/fix-api/production/overview.md)
-- [Sequence Reset(4)](/fix-api/production/sequence-reset.md)
-- [Request For Positions(AN)](/fix-api/production/request-for-positions.md)
-- [Test Request(1)](/fix-api/production/test-request.md)
+- [Sequence Reset(4) — Production FIX API](/fix-api/production/sequence-reset.md)
+- [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [Request For Positions(AN) — Production FIX API](/fix-api/production/request-for-positions.md)
+- [User Request(BE) — Production FIX API](/fix-api/production/user-request.md)
+- [Test Request(1) — Production FIX API](/fix-api/production/test-request.md)

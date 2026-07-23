@@ -310,6 +310,6 @@ securitySchemes: []
 
 - [Notifications](/articles/notifications.md)
 - [private/get_access_log](/api-reference/account-management/private-get_access_log.md)
-- [Changes Log](/fix-api/production/changes-log.md)
 - [Access Scope](/articles/access-scope.md)
 - [private/get_transaction_log](/api-reference/account-management/private-get_transaction_log.md)
+- [public/auth](/api-reference/authentication/public-auth.md)

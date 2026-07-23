@@ -62,8 +62,8 @@ If the login was not successful, the server will respond with a
 
 ## Related topics
 
-- [FIX API Changelog](/changelogs/fix.md)
-- [FIX API Overview](/fix-api/production/overview.md)
-- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
-- [Logout(5)](/fix-api/production/logout.md)
-- [Changes Log](/fix-api/production/changes-log.md)
+- [Logout(5) — Production FIX API](/fix-api/production/logout.md)
+- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
+- [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [Heartbeat(0) — Production FIX API](/fix-api/production/heartbeat.md)
+- [User Request(BE) — Production FIX API](/fix-api/production/user-request.md)

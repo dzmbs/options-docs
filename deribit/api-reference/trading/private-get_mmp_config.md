@@ -379,8 +379,8 @@ components:
               - interval
               - frozen_time
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     index_name:
       enum:

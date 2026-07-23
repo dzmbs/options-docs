@@ -196,8 +196,8 @@ components:
         result:
           $ref: '#/components/schemas/withdrawal'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     withdrawal:
       properties:

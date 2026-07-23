@@ -357,5 +357,5 @@ Please review the FIX specs here: [MMProtection Limits (MM)](/fix-api/production
 - [Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
 - [private/get_mmp_config](/api-reference/trading/private-get_mmp_config.md)
-- [MMProtection Limits (MM)](/fix-api/production/mmprotection-limits.md)
 - [private/get_mmp_status](/api-reference/trading/private-get_mmp_status.md)
+- [MMProtection Limits (MM) — Production FIX API](/fix-api/production/mmprotection-limits.md)

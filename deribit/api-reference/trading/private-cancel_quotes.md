@@ -297,8 +297,8 @@ components:
           example: 3
           description: Total number of successfully cancelled quotes
       required:
-        - result
         - jsonrpc
+        - result
       type: object
   responses:
     PrivateCancelQuotesResponse:
@@ -312,8 +312,8 @@ components:
 
 ## Related topics
 
-- [Quote Cancel(Z)](/fix-api/production/quote-cancel.md)
 - [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
+- [Quote Cancel(Z) — Production FIX API](/fix-api/production/quote-cancel.md)
 - [Rate Limits](/articles/rate-limits.md)
 - [Order Management](/articles/order-management-best-practices.md)
 - [private/cancel](/api-reference/trading/private-cancel.md)

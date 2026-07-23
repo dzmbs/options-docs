@@ -35,8 +35,8 @@ messages starting from the sequence number equal to the `NewSeqNo`(`36`) passed.
 
 ## Related topics
 
-- [MMProtection Reset(MZ)](/fix-api/production/mmprotection-reset.md)
-- [FIX API Overview](/fix-api/production/overview.md)
-- [FIX API Changelog](/changelogs/fix.md)
-- [Logout(5)](/fix-api/production/logout.md)
-- [Resend Request(2)](/fix-api/production/resend-request.md)
+- [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
+- [MMProtection Reset(MZ) — Production FIX API](/fix-api/production/mmprotection-reset.md)
+- [Logout(5) — Production FIX API](/fix-api/production/logout.md)
+- [Resend Request(2) — Production FIX API](/fix-api/production/resend-request.md)

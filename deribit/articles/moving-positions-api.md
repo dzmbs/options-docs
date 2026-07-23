@@ -228,5 +228,5 @@ Here's an example of moving multiple positions across different instruments in t
 - [private/move_positions](/api-reference/trading/private-move_positions.md)
 - [Managing Subaccounts](/articles/managing-subaccounts-api.md)
 - [Order Management](/articles/order-management-best-practices.md)
-- [Request For Positions(AN)](/fix-api/production/request-for-positions.md)
 - [private/get_position](/api-reference/account-management/private-get_position.md)
+- [private/get_positions](/api-reference/account-management/private-get_positions.md)

@@ -182,9 +182,9 @@ components:
         error:
           type: integer
       required:
+        - jsonrpc
         - error
         - message
-        - jsonrpc
       type: object
 
 ````
@@ -195,4 +195,4 @@ components:
 - [Notifications](/articles/notifications.md)
 - [public/unsubscribe](/api-reference/subscription-management/public-unsubscribe.md)
 - [public/unsubscribe_all](/api-reference/subscription-management/public-unsubscribe_all.md)
-- [TradeCaptureReportRequest(AD)](/fix-api/production/trade-capture-report-request.md)
+- [TradeCaptureReportRequest(AD) — Production FIX API](/fix-api/production/trade-capture-report-request.md)

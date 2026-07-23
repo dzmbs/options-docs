@@ -24,8 +24,8 @@ message.
 
 ## Related topics
 
-- [Security Status(f)](/fix-api/production/security-status.md)
-- [Order Mass Status Request(AF)](/fix-api/production/order-mass-status-request.md)
-- [Security Definition Request(c)](/fix-api/production/security-definition-request.md)
-- [Security List Request(x)](/fix-api/production/security-list-request.md)
-- [Security List(y)](/fix-api/production/security-list.md)
+- [Security Status(f) — Production FIX API](/fix-api/production/security-status.md)
+- [Security List(y) — Production FIX API](/fix-api/production/security-list.md)
+- [Security Definition(d) — Production FIX API](/fix-api/production/security-definition.md)
+- [Order Mass Status Request(AF) — Production FIX API](/fix-api/production/order-mass-status-request.md)
+- [User Request(BE) — Production FIX API](/fix-api/production/user-request.md)

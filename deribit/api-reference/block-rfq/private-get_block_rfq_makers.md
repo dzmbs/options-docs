@@ -134,8 +134,8 @@ components:
             type: string
           description: A list of available makers.
       required:
-        - result
         - jsonrpc
+        - result
       type: object
 
 ````

@@ -32,8 +32,8 @@ an `Order Mass Cancel Report`(`r`).
 
 ## Related topics
 
-- [Order Mass Cancel Report(r)](/fix-api/production/order-mass-cancel-report.md)
-- [Order Mass Status Request(AF)](/fix-api/production/order-mass-status-request.md)
-- [Quote Cancel(Z)](/fix-api/production/quote-cancel.md)
-- [Order Cancel/Replace Request(G)](/fix-api/production/order-cancel-replace.md)
-- [Order Cancel Reject(9)](/fix-api/production/order-cancel-reject.md)
+- [Order Mass Cancel Report(r) — Production FIX API](/fix-api/production/order-mass-cancel-report.md)
+- [Order Cancel Request(F) — Production FIX API](/fix-api/production/order-cancel-request.md)
+- [Quote Cancel(Z) — Production FIX API](/fix-api/production/quote-cancel.md)
+- [Mass Quote(i) — Production FIX API](/fix-api/production/mass-quote.md)
+- [Order Mass Status Request(AF) — Production FIX API](/fix-api/production/order-mass-status-request.md)

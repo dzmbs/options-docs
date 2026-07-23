@@ -2,7 +2,7 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# MMProtection Limits Result/Reject(MR) — Production FIX API
+# MMProtection Limits Result (MR) — Production FIX API
 
 > MMProtectionLimitsResult(MR) is the server response with current MMP settings or a reject on the Deribit production FIX market maker protection endpoint.
 
@@ -21,8 +21,8 @@ to [`MMProtection Limits` (`MM`)](/fix-api/production/mmprotection-limits) or [`
 
 ## Related topics
 
-- [FIX API Overview](/fix-api/production/overview.md)
+- [MMProtection Reset(MZ) — Production FIX API](/fix-api/production/mmprotection-reset.md)
+- [MMProtection Limits (MM) — Production FIX API](/fix-api/production/mmprotection-limits.md)
+- [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
 - [FIX API Changelog](/changelogs/fix.md)
-- [Changes Log](/fix-api/production/changes-log.md)
-- [MMProtection Reset(MZ)](/fix-api/production/mmprotection-reset.md)
-- [MMProtection Limits (MM)](/fix-api/production/mmprotection-limits.md)

@@ -25,8 +25,8 @@ The server will respond with a `User Response`(`BF`) message.
 
 ## Related topics
 
-- [User Response(BF)](/fix-api/production/user-response.md)
-- [Request For Positions(AN)](/fix-api/production/request-for-positions.md)
-- [Test Request(1)](/fix-api/production/test-request.md)
-- [Resend Request(2)](/fix-api/production/resend-request.md)
-- [FIX API Overview](/fix-api/production/overview.md)
+- [User Response(BF) — Production FIX API](/fix-api/production/user-response.md)
+- [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [Order Cancel Request(F) — Production FIX API](/fix-api/production/order-cancel-request.md)
+- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
+- [Security Status Request(e) — Production FIX API](/fix-api/production/security-status-request.md)

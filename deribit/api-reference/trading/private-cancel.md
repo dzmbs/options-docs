@@ -120,8 +120,8 @@ components:
         result:
           $ref: '#/components/schemas/order'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     order:
       properties:
@@ -310,10 +310,36 @@ components:
         - cancelled
         - untriggered
         - triggered
+        - speed_bumped
       type: string
-      description: >-
+      description: >
         Order state: `"open"`, `"filled"`, `"rejected"`, `"cancelled"`,
-        `"untriggered"`
+        `"untriggered"`, `"speed_bumped"`
+
+
+        `"speed_bumped"` only applies to orders matched on
+        [Starbase](https://docs.deribit.com/starbase/overview),
+
+        including orders originating from websocket API that are routed there
+        for
+
+        matching. It is a transient sub-state of `"open"` for orders that
+        aggressively matched on placement
+
+        or edit. Such an order is held back and its trades are not executed
+        immediately; instead the order
+
+        is delayed by a short "speed bump" before it's re-submitted into the
+        order book. While speed bumped,
+
+        the order is not resting on any price level and therefore cannot be
+        matched against as a maker.
+
+        Once the speed bump expires, the order is placed back into the book and
+        can resume matching, after
+
+        which a further update reports its resulting state (e.g. `"open"`,
+        `"filled"` or `"cancelled"`).
     order_type:
       enum:
         - market

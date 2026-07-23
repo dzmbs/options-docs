@@ -176,8 +176,8 @@ components:
           items:
             $ref: '#/components/schemas/user_trade'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     user_trade:
       properties:

@@ -185,5 +185,5 @@ By following these best practices, you'll ensure you're getting the fastest poss
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
 - [private/subscribe](/api-reference/subscription-management/private-subscribe.md)
 - [public/subscribe](/api-reference/subscription-management/public-subscribe.md)
-- [Market Data Request(V)](/fix-api/production/market-data-request.md)
-- [Market Data Request Reject(Y)](/fix-api/production/market-data-request-reject.md)
+- [Market Data Request(V) — Production FIX API](/fix-api/production/market-data-request.md)
+- [Market Data Snapshot (W) — Production FIX API](/fix-api/production/market-data-snapshot.md)

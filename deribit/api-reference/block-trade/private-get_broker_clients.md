@@ -289,8 +289,8 @@ components:
               - broker_code
               - links
       required:
-        - result
         - jsonrpc
+        - result
       type: object
 
 ````

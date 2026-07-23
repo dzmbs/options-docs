@@ -64,7 +64,7 @@ The table below outlines the content of field 13 (`flags`) of `InstrumentDefinit
 ## Related topics
 
 - [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
-- [Market Data Request(V)](/fix-api/production/market-data-request.md)
 - [Market Data Collection](/articles/market-data-collection-best-practices.md)
-- [Market Data Request Reject(Y)](/fix-api/production/market-data-request-reject.md)
-- [Market Data Incremental Refresh(X)](/fix-api/production/market-data-incremental.md)
+- [public/get_funding_chart_data](/api-reference/market-data/public-get_funding_chart_data.md)
+- [public/get_index_chart_data](/api-reference/market-data/public-get_index_chart_data.md)
+- [public/get_volatility_index_data](/api-reference/market-data/public-get_volatility_index_data.md)

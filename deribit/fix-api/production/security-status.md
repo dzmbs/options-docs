@@ -70,8 +70,8 @@ used to set or get the limits for Market Maker Protection (MMP) for a currency p
 
 ## Related topics
 
-- [Security Status Request(e)](/fix-api/production/security-status-request.md)
-- [Security Definition(d)](/fix-api/production/security-definition.md)
-- [Security List(y)](/fix-api/production/security-list.md)
-- [Order Mass Status Request(AF)](/fix-api/production/order-mass-status-request.md)
-- [Security Definition Request(c)](/fix-api/production/security-definition-request.md)
+- [Security Status Request(e) — Production FIX API](/fix-api/production/security-status-request.md)
+- [Security List(y) — Production FIX API](/fix-api/production/security-list.md)
+- [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
+- [Security Definition(d) — Production FIX API](/fix-api/production/security-definition.md)

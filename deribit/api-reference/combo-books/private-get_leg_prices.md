@@ -167,8 +167,8 @@ components:
                 that leg.
           type: object
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     leg_structure:
       items:

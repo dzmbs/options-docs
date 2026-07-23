@@ -86,7 +86,7 @@ This means you can connect to different gateway instances using the same API cre
 
 This is done to ensure many API Keys can be given out to a single Portfolio without Portfolio-level bottlenecks becoming an issue.
 
-For a consolidated view of all activity on a single Portfolio, the [FIX Drop Copy API](/starbase/fix-drop-copy-api) is available. Standard Deribit WebSocket APIs also work for orders placed through Starbase.
+For a consolidated view of all activity on a single Portfolio, the [FIX Drop Copy API](/starbase/fix-drop-copy-api) is available. Standard Deribit WebSocket APIs (e.g. `private/get_user_trades_by_instrument`) work for trades placed through Starbase, but open orders are not visible via the WebSocket feed — use FIX Drop Copy or an SBE session to see open order state.
 
 
 ## Related topics

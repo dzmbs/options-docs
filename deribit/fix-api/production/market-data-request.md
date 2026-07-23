@@ -53,8 +53,8 @@ Data - Incremental Refresh`(`X`)](/fix-api/production/market-data-incremental) m
 
 ## Related topics
 
-- [Market Data Request Reject(Y)](/fix-api/production/market-data-request-reject.md)
-- [Market Data Incremental Refresh(X)](/fix-api/production/market-data-incremental.md)
-- [Security List Request(x)](/fix-api/production/security-list-request.md)
-- [Security Status Request(e)](/fix-api/production/security-status-request.md)
-- [Market Data Snapshot/Full Refresh(W)](/fix-api/production/market-data-snapshot.md)
+- [Market Data Request Reject(Y) — Production FIX API](/fix-api/production/market-data-request-reject.md)
+- [Market Data Snapshot (W) — Production FIX API](/fix-api/production/market-data-snapshot.md)
+- [Market Data Incremental Refresh(X) — Production FIX API](/fix-api/production/market-data-incremental.md)
+- [Security Definition Request(c) — Production FIX API](/fix-api/production/security-definition-request.md)
+- [Security List Request(x) — Production FIX API](/fix-api/production/security-list-request.md)

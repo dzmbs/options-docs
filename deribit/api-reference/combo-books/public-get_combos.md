@@ -125,8 +125,8 @@ components:
           items:
             $ref: '#/components/schemas/combo'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     combo:
       properties:
@@ -222,5 +222,5 @@ components:
 - [public/get_combo_ids](/api-reference/combo-books/public-get_combo_ids.md)
 - [public/get_combo_details](/api-reference/combo-books/public-get_combo_details.md)
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
-- [Security Definition Request(c)](/fix-api/production/security-definition-request.md)
+- [Security Definition Request(c) — Production FIX API](/fix-api/production/security-definition-request.md)
 - [public/get_index_price_names](/api-reference/market-data/public-get_index_price_names.md)

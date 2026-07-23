@@ -113,8 +113,8 @@ Deribit provides three different interfaces to access the API:
 
 ## Related topics
 
+- [Deribit Production FIX API Overview](/fix-api/production/overview.md)
 - [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
 - [deribit_price_index.(index_name) ](/subscriptions/market-data/deribit_price_indexindex_name.md)
 - [deribit_price_ranking.(index_name) ](/subscriptions/market-data/deribit_price_rankingindex_name.md)
 - [deribit_price_statistics.(index_name) ](/subscriptions/market-data/deribit_price_statisticsindex_name.md)
-- [deribit_volatility_index.(index_name) ](/subscriptions/market-data/deribit_volatility_indexindex_name.md)

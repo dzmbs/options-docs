@@ -357,8 +357,8 @@ components:
                 in USD
           description: Portfolio margin simulation result
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     projected_initial_margin:
       example: 1

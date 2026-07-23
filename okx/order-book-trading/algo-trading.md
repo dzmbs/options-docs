@@ -192,10 +192,15 @@ learn more about [Trigger Order](/help/11015447687437)
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | triggerPx | String | Yes | The price level that activates this algo order. Unit: same as `px` for the instrument. Which price feed is compared depends on `triggerPxType` (default: last trade price). Direction: for a sell stop-loss, trigger must be below orderPx; for a buy stop, above orderPx. Error codes 51046–51049 are returned for direction violations. |
-| orderPx | String | Yes | Price of the order submitted when `triggerPx` is reached. This is separate from `triggerPx` (which determines when the algo activates). Set to `-1` to submit a market order when triggered; set to a specific price to submit a limit order. |
-| advanceOrdType | String | No | Trigger order type`fok`: Fill-or-kill order`ioc`: Immediate-or-cancel orderDefault is "", limit or market (controlled by orderPx) |
+| orderPx | String | Conditional | Price of the order submitted when `triggerPx` is reached. This is separate from `triggerPx` (which determines when the algo activates). Set to `-1` to submit a market order when triggered; set to a specific price to submit a limit order. Not applicable when `advanceOrdType` is `chase` (a chase has no fixed price). |
+| advanceOrdType | String | No | Sub-order type for trigger orders.`fok`: Fill-or-kill order`ioc`: Immediate-or-cancel order`chase`: Chase limit order. Only applicable to FUTURES and SWAP.Default is "", limit or market (controlled by `orderPx`). |
+| advChaseParams | Array of objects | Conditional | Chase parameters. Required when `advanceOrdType` is `chase`. |
+| > chaseType | String | Conditional | Chase distance unit.`distance` (default): absolute price distance from the best bid/ask, in settlement currency.`ratio`: percentage. |
+| > chaseVal | String | Conditional | Chase value. When `chaseType` is `distance`, the distance from the best bid/ask in settlement currency; when `ratio`, `0.1` = 10%.Default `0` tracks the best bid/ask directly; a value `>0` sets a distance. |
+| > maxChaseType | String | Conditional | Maximum chase distance unit. `distance` or `ratio`. Must pair with `maxChaseVal`. |
+| > maxChaseVal | String | Conditional | Maximum chase distance value. Positive. Must pair with `maxChaseType`. The chase auto-cancels when its deviation reaches this value. |
 | triggerPxType | String | No | Trigger price type:`last`: triggers when any trade occurs at or beyond `triggerPx` — most responsive but vulnerable to brief price wicks in thin markets.`index`: triggers on the underlying multi-exchange composite index — stable, not affected by OKX-specific wicks.`mark`: triggers on OKX mark price — smoothed and wick-resistant; recommended for derivatives.`last` is the only option available for SPOT instruments. The default is `last`. |
-| attachAlgoOrds | Array of objects | No | Attached SL/TP orders infoApplicable to `Futures mode/Multi-currency margin/Portfolio margin` |
+| attachAlgoOrds | Array of objects | No | Attached SL/TP orders infoApplicable to `Futures mode/Multi-currency margin/Portfolio margin`Not applicable when `advanceOrdType` is `chase`. |
 | > attachAlgoClOrdId | String | No | Client-supplied Algo ID when placing order attaching TP/SL.A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters.It will be posted to algoClOrdId when placing TP/SL order once the general order is filled completely. |
 | > tpTriggerPx | String | No | Take-profit trigger priceIf you fill in this parameter, you should fill in the take-profit order price as well. |
 | > tpTriggerRatio | String | No | Take profit trigger ratio, 0.3 represents 30% Only applicable to FUTURES and SWAP. Only one of `tpTriggerPx` and `tpTriggerRatio` can be passed If the main order is a buy order, it must be greater than 0, and if the main order is a sell order, it must be between -1 and 0. |
@@ -443,6 +448,9 @@ Take Profit / Stop Loss Order**
 | > newCallbackRatio | String | Conditional | New callback ratio, e.g. `0.05` represents 5%.Either `newCallbackRatio` or `newCallbackSpread` can be passed. Only one can be passed.Only applicable when `ordType` = `move_order_stop` |
 | > newCallbackSpread | String | Conditional | New callback spread (price distance).Either `newCallbackRatio` or `newCallbackSpread` can be passed. Only one can be passed.Only applicable when `ordType` = `move_order_stop` |
 | > newActivePx | String | No | New activation price.Only applicable when `ordType` = `move_order_stop` |
+| advChaseParams | Array of objects | Conditional | Chase parameters to amend. Only for a pending trigger order with `advanceOrdType` `chase`. |
+| > newChaseVal | String | Conditional | New chase value. Non-negative, interpreted per the order's existing `chaseType`. It cannot cross the `0` ↔ non-`0` boundary of the original `chaseVal` — tracking the best bid/ask directly (`0`) and a distance offset (`>0`) are not interchangeable. |
+| > newMaxChaseVal | String | Conditional | New maximum chase distance value. Positive, interpreted per the existing `maxChaseType`. Only applicable when maximum chase is enabled. |
 
 Response Example
 
@@ -575,7 +583,8 @@ Response Example
 | instId | String | Instrument ID |
 | ccy | String | Margin currency Applicable to all `isolated` `MARGIN` orders and `cross` `MARGIN` orders in `Futures mode`, `FUTURES` and `SWAP` contracts. |
 | ordId | String | Latest order ID. It will be deprecated soon |
-| ordIdList | Array of strings | Order ID list. There will be multiple order IDs when there is TP/SL splitting order. |
+| ordIdList | Array of strings | Order ID list. There will be multiple order IDs when there is TP/SL splitting order. Empty for a trigger+chase (the spawned order is an algo — see `subAlgoIdList`). |
+| subAlgoIdList | Array of strings | `algoId`(s) of the algo order(s) spawned when the trigger fires. For `advanceOrdType` `chase`, holds the spawned chase order's `algoId` after the trigger fires; empty before then. Mirrors `ordIdList`, which records spawned regular orders. |
 | algoId | String | Algo ID |
 | clOrdId | String | Client Order ID as assigned by the client |
 | sz | String | Quantity to buy or sell |
@@ -596,7 +605,12 @@ Response Example
 | triggerPx | String | trigger price. |
 | triggerPxType | String | trigger price type. `last`: last price`index`: index price`mark`: mark price |
 | ordPx | String | Order price for the trigger order |
-| advanceOrdType | String | Trigger order type`fok`: Fill-or-kill order`ioc`: Immediate-or-cancel orderDefault is "", limit or market (controlled by orderPx) |
+| advanceOrdType | String | Sub-order type for trigger orders.`fok`: Fill-or-kill order`ioc`: Immediate-or-cancel order`chase`: Chase limit orderDefault is "". |
+| advChaseParams | Array of objects | Chase parameters. Present when `advanceOrdType` is `chase`. |
+| > chaseType | String | Chase distance unit. `distance` or `ratio`. |
+| > chaseVal | String | Chase value. `0` tracks the best bid/ask directly; `>0` is a distance. |
+| > maxChaseType | String | Maximum chase distance unit. `distance` or `ratio`. |
+| > maxChaseVal | String | Maximum chase distance value. |
 | actualSz | String | Actual order quantity |
 | actualPx | String | Actual order price |
 | tag | String | Order tag |
@@ -769,7 +783,8 @@ Response Example
 | instId | String | Instrument ID |
 | ccy | String | Margin currency Applicable to all `isolated` `MARGIN` orders and `cross` `MARGIN` orders in `Futures mode`, `FUTURES` and `SWAP` contracts. |
 | ordId | String | Latest order ID. It will be deprecated soon |
-| ordIdList | Array of strings | Order ID list. There will be multiple order IDs when there is TP/SL splitting order. |
+| ordIdList | Array of strings | Order ID list. There will be multiple order IDs when there is TP/SL splitting order. Empty for a trigger+chase (the spawned order is an algo — see `subAlgoIdList`). |
+| subAlgoIdList | Array of strings | `algoId`(s) of the algo order(s) spawned when the trigger fires. For `advanceOrdType` `chase`, holds the spawned chase order's `algoId` after the trigger fires; empty before then. Mirrors `ordIdList`, which records spawned regular orders. |
 | algoId | String | Algo ID |
 | clOrdId | String | Client Order ID as assigned by the client |
 | sz | String | Quantity to buy or sell |
@@ -790,7 +805,12 @@ Response Example
 | triggerPx | String | Trigger price |
 | triggerPxType | String | Trigger price type. `last`: last price`index`: index price`mark`: mark price |
 | ordPx | String | Order price for the trigger order |
-| advanceOrdType | String | Trigger order type |
+| advanceOrdType | String | Sub-order type for trigger orders.`fok`: Fill-or-kill order`ioc`: Immediate-or-cancel order`chase`: Chase limit orderDefault is "". |
+| advChaseParams | Array of objects | Chase parameters. Present when `advanceOrdType` is `chase`. |
+| > chaseType | String | Chase distance unit. `distance` or `ratio`. |
+| > chaseVal | String | Chase value. `0` tracks the best bid/ask directly; `>0` is a distance. |
+| > maxChaseType | String | Maximum chase distance unit. `distance` or `ratio`. |
+| > maxChaseVal | String | Maximum chase distance value. |
 | actualSz | String | Actual order quantity |
 | tag | String | Order tag |
 | actualPx | String | Actual order price |
@@ -977,7 +997,8 @@ Response Example
 | instId | String | Instrument ID |
 | ccy | String | Margin currency Applicable to all `isolated` `MARGIN` orders and `cross` `MARGIN` orders in `Futures mode`, `FUTURES` and `SWAP` contracts. |
 | ordId | String | Latest order ID. It will be deprecated soon |
-| ordIdList | Array of strings | Order ID list. There will be multiple order IDs when there is TP/SL splitting order. |
+| ordIdList | Array of strings | Order ID list. There will be multiple order IDs when there is TP/SL splitting order. Empty for a trigger+chase (the spawned order is an algo — see `subAlgoIdList`). |
+| subAlgoIdList | Array of strings | `algoId`(s) of the algo order(s) spawned when the trigger fires. For `advanceOrdType` `chase`, holds the spawned chase order's `algoId` after the trigger fires; empty before then. Mirrors `ordIdList`, which records spawned regular orders. |
 | algoId | String | Algo ID |
 | clOrdId | String | Client Order ID as assigned by the client |
 | sz | String | Quantity to buy or sell |
@@ -998,7 +1019,12 @@ Response Example
 | triggerPx | String | trigger price. |
 | triggerPxType | String | trigger price type. `last`: last price`index`: index price`mark`: mark price |
 | ordPx | String | Order price for the trigger order |
-| advanceOrdType | String | Trigger order type |
+| advanceOrdType | String | Sub-order type for trigger orders.`fok`: Fill-or-kill order`ioc`: Immediate-or-cancel order`chase`: Chase limit orderDefault is "". |
+| advChaseParams | Array of objects | Chase parameters. Present when `advanceOrdType` is `chase`. |
+| > chaseType | String | Chase distance unit. `distance` or `ratio`. |
+| > chaseVal | String | Chase value. `0` tracks the best bid/ask directly; `>0` is a distance. |
+| > maxChaseType | String | Maximum chase distance unit. `distance` or `ratio`. |
+| > maxChaseVal | String | Maximum chase distance value. |
 | actualSz | String | Actual order quantity |
 | actualPx | String | Actual order price |
 | tag | String | Order tag |
@@ -1315,7 +1341,8 @@ Push Data Example: single
 | > instId | String | Instrument ID |
 | > ccy | String | Margin currency Applicable to all `isolated` `MARGIN` orders and `cross` `MARGIN` orders in `Futures mode`, `FUTURES` and `SWAP` contracts. |
 | > ordId | String | Latest order ID, the order ID associated with the algo order. It will be deprecated soon |
-| > ordIdList | Array of strings | Order ID list. There will be multiple order IDs when there is TP/SL splitting order. |
+| > ordIdList | Array of strings | Order ID list. There will be multiple order IDs when there is TP/SL splitting order. Empty for a trigger+chase (the spawned order is an algo — see `subAlgoIdList`). |
+| > subAlgoIdList | Array of strings | `algoId`(s) of the algo order(s) spawned when the trigger fires. For `advanceOrdType` `chase`, holds the spawned chase order's `algoId` after the trigger fires; empty before then. Mirrors `ordIdList`, which records spawned regular orders. |
 | > algoId | String | Algo ID |
 | > clOrdId | String | Client Order ID as assigned by the client |
 | > sz | String | Quantity to buy or sell.`SPOT`/`MARGIN`: in the unit of currency.`FUTURES`/`SWAP`/`OPTION`: in the unit of contract. |
@@ -1335,7 +1362,12 @@ Push Data Example: single
 | > triggerPx | String | Trigger price |
 | > triggerPxType | String | Trigger price type. `last`: last price`index`: index price`mark`: mark price |
 | > ordPx | String | Order price for the trigger order |
-| > advanceOrdType | String | Trigger order type |
+| > advanceOrdType | String | Sub-order type for trigger orders.`fok`: Fill-or-kill order`ioc`: Immediate-or-cancel order`chase`: Chase limit orderDefault is "". |
+| > advChaseParams | Array of objects | Chase parameters. Present when `advanceOrdType` is `chase`. |
+| >> chaseType | String | Chase distance unit. `distance` or `ratio`. |
+| >> chaseVal | String | Chase value. `0` tracks the best bid/ask directly; `>0` is a distance. |
+| >> maxChaseType | String | Maximum chase distance unit. `distance` or `ratio`. |
+| >> maxChaseVal | String | Maximum chase distance value. |
 | > last | String | Last filled price while placing |
 | > actualSz | String | Actual order quantity |
 | > actualPx | String | Actual order price |

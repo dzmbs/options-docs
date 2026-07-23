@@ -179,8 +179,8 @@ components:
         result:
           $ref: '#/components/schemas/TickerNotificationWithBidsAndAsks'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     TickerNotificationWithBidsAndAsks:
       properties:

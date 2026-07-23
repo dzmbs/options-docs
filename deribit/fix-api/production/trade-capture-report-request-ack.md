@@ -25,8 +25,8 @@ The Trade Capture Request Ack message is used to:
 
 ## Related topics
 
-- [FIX API Overview](/fix-api/production/overview.md)
+- [TradeCaptureReportRequest(AD) — Production FIX API](/fix-api/production/trade-capture-report-request.md)
+- [TradeCaptureReport(AE) — Production FIX API](/fix-api/production/trade-capture-report.md)
+- [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
 - [FIX API Changelog](/changelogs/fix.md)
-- [Changes Log](/fix-api/production/changes-log.md)
-- [TradeCaptureReportRequest(AD)](/fix-api/production/trade-capture-report-request.md)
-- [TradeCaptureReport(AE)](/fix-api/production/trade-capture-report.md)

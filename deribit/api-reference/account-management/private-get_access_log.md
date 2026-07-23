@@ -167,8 +167,8 @@ components:
           items:
             $ref: '#/components/schemas/access_log'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     access_log:
       properties:

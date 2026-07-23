@@ -19,8 +19,8 @@ application. The opposing application responds with a
 
 ## Related topics
 
-- [FIX API Overview](/fix-api/production/overview.md)
-- [Request For Positions(AN)](/fix-api/production/request-for-positions.md)
-- [Welcome to Deribit API](/index.md)
-- [Resend Request(2)](/fix-api/production/resend-request.md)
-- [User Request(BE)](/fix-api/production/user-request.md)
+- [Heartbeat(0) — Production FIX API](/fix-api/production/heartbeat.md)
+- [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [Request For Positions(AN) — Production FIX API](/fix-api/production/request-for-positions.md)
+- [User Request(BE) — Production FIX API](/fix-api/production/user-request.md)
+- [Resend Request(2) — Production FIX API](/fix-api/production/resend-request.md)

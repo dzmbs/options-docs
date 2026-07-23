@@ -189,5 +189,5 @@ securitySchemes: []
 - [platform_state.public_methods_state ](/subscriptions/platform/platform_statepublic_methods_state.md)
 - [instrument.state.(kind).(currency) ](/subscriptions/market-data/instrumentstatekindcurrency.md)
 - [Notifications](/articles/notifications.md)
-- [Security Status Request(e)](/fix-api/production/security-status-request.md)
+- [Security Status Request(e) — Production FIX API](/fix-api/production/security-status-request.md)
 - [Order Management](/articles/order-management-best-practices.md)

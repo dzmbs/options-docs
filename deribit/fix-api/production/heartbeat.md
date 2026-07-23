@@ -26,8 +26,8 @@ request as confirmation.
 
 ## Related topics
 
-- [Logon(A)](/fix-api/production/logon.md)
-- [Test Request(1)](/fix-api/production/test-request.md)
-- [FIX API Overview](/fix-api/production/overview.md)
-- [public/set_heartbeat](/api-reference/session-management/public-set_heartbeat.md)
-- [public/disable_heartbeat](/api-reference/session-management/public-disable_heartbeat.md)
+- [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [Test Request(1) — Production FIX API](/fix-api/production/test-request.md)
+- [Logon(A) — Production FIX API](/fix-api/production/logon.md)
+- [Logout(5) — Production FIX API](/fix-api/production/logout.md)
+- [Reject(3) — Production FIX API](/fix-api/production/reject.md)
