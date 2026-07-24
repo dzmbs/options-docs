@@ -51,7 +51,7 @@ The API methods [`public/subscribe`](/api-reference/subscription-management/publ
 At the moment of subscription, a "channel" must be specified. The channel determines the type of events that will be received.
 
 <CardGroup cols={2}>
-  <Card title="Subscription Channels" icon="rss" href="/subscriptions">
+  <Card title="Subscription Channels" icon="rss" href="/subscriptions/platform/platform_state">
     Complete reference of all available subscription channels
   </Card>
 

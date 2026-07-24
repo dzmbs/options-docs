@@ -40,4 +40,4 @@ Each instrument also has an immediate underlying. For options, this will be the 
 - [Account Model](/starbase/account-model.md)
 - [private/change_margin_model](/api-reference/account-management/private-change_margin_model.md)
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
-- [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)
+- [private/delete_member](/api-reference/account-management/private-delete_member.md)

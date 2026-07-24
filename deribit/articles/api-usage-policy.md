@@ -40,7 +40,7 @@ These endpoints typically carry market information or user trading information. 
 * `/public/ticker`
 * `/private/get_open_orders`
 
-Full list of our websocket subscription coverage can be found here: [Subscription Channels](/subscriptions).
+Full list of our websocket subscription coverage can be found here: [Subscription Channels](/articles/notifications).
 
 Please note that we also have a limit of 500 channels per subscription.
 

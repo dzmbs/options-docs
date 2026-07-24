@@ -18,7 +18,7 @@ The typical use case is risk reduction: a single call clears the entire book acr
   Mass cancel via REST is always available and cannot be disabled by admin configuration.
 </Info>
 
-→ [`GET /api/v2/private/cancel_all`](/api/v2/private/cancel_all)
+→ [`GET /api/v2/private/cancel_all`](/api-reference/portfolio-management/mass-cancel)
 
 ## Portfolio Lock State
 
@@ -33,13 +33,13 @@ Locking a portfolio has two immediate effects:
 
 REST-submitted orders are not subject to the lock — only binary `DIRECT_ACCESS` order flow is gated.
 
-→ [`GET /api/v2/private/lock_portfolio`](/api/v2/private/lock_portfolio)
+→ [`GET /api/v2/private/lock_portfolio`](/api-reference/portfolio-management/lock-portfolio)
 
 ### Unlocking
 
 Unlocking restores normal acceptance of `DIRECT_ACCESS` order entry. Orders cancelled by the preceding lock are not reinstated; clients must resubmit any desired positions.
 
-→ [`GET /api/v2/private/unlock_portfolio`](/api/v2/private/unlock_portfolio)
+→ [`GET /api/v2/private/unlock_portfolio`](/api-reference/portfolio-management/unlock-portfolio)
 
 <Warning>
   After a lock, cancelled orders are gone permanently. Unlocking the portfolio does **not** restore them.

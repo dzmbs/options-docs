@@ -123,5 +123,5 @@ Starbase API keys use a separate counter from standard Deribit API keys. Starbas
 - [Creating new API key](/articles/creating-api-key.md)
 - [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Authentication](/articles/authentication.md)
-- [Account Model](/starbase/account-model.md)
 - [REST Order Gateway Authentication](/starbase/rest-authentication.md)
+- [Account Model](/starbase/account-model.md)

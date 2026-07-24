@@ -393,4 +393,4 @@ components:
 - [Moving Positions](/articles/moving-positions-api.md)
 - [private/remove_subaccount](/api-reference/account-management/private-remove_subaccount.md)
 - [private/change_subaccount_name](/api-reference/account-management/private-change_subaccount_name.md)
-- [private/toggle_subaccount_login](/api-reference/account-management/private-toggle_subaccount_login.md)
+- [private/get_members](/api-reference/account-management/private-get_members.md)

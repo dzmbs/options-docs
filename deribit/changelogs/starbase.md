@@ -187,7 +187,7 @@
 
   ### Rate Limits
 
-  The Starbase rate limit framework has been finalised. See the [rate limits article](/starbase/rate-limits) for a full explanation of the mechanics. Two important points:
+  The Starbase rate limit framework has been finalised. See the [rate limits article](/starbase/api-rate-limits) for a full explanation of the mechanics. Two important points:
 
   * Members receiving this announcement will likely receive a **Member Override**. Do not assume the default values in the article apply to you — treat them as illustrative examples. Please reach out to your account manager to confirm your production rate limits as of July 20th.
   * Rate limits are applied **per member, per gateway**. As each instrument is available through two gateways, not utilising both means not utilising your full rate limit allocation.

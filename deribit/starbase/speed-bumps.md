@@ -27,6 +27,24 @@ New orders and quotes will be speed bumped if they aggress. Cancellations will n
 | **Quote replaced to aggress** | Old quote removed and new quote made pending  | Old quote removed and new quote made pending  |
 | **Quote replaced to rest**    | Old quote removed and new quote added to book | Old quote removed and new quote added to book |
 
+The lifecycle of an aggressing order is: acknowledged immediately, held in the FIFO queue for the fixed speed bump duration, then released to the matching engine unchanged.
+
+```mermaid theme={null}
+sequenceDiagram
+    autonumber
+    participant M as Member
+    participant GW as Gateway
+    participant SB as Speed Bump (FIFO queue)
+    participant OB as Matching Engine
+    M->>GW: New aggressing order / quote
+    GW->>SB: Queue order (aggresses)
+    GW-->>M: Immediate ack (pending / queued)
+    Note over SB: Held for fixed duration (1-10 ms)
+    Note over M: Only the owner is told it is pending
+    SB->>OB: Released after speed bump (unchanged)
+    OB-->>M: Placed / fills
+```
+
 ## Mass Quotes
 
 Quotes can only be entered via `MassQuoteRequest`. Each quote in such a batch would be speed bumped individually, per side. This means that one side of the quote can immediately be added to the book, while the other side is pending.
@@ -52,6 +70,25 @@ Once the speed bump elapses:
 * **Order no longer matches** (opposing liquidity has since moved): a standard cancel confirmation is sent.
 
 If the order is already IOC — either submitted with IOC time-in-force or already converted by a prior cancel — a subsequent cancel request is rejected normally.
+
+```mermaid theme={null}
+sequenceDiagram
+    autonumber
+    participant M as Member
+    participant GW as Gateway
+    participant SB as Speed Bump (FIFO queue)
+    participant OB as Matching Engine
+    M->>GW: New aggressing order
+    GW->>SB: Queue order (aggresses)
+    GW-->>M: NewOrderResponse, orderState = 4 (queued)
+    M->>GW: Cancel (or MMP / CoD / portfolio lock)
+    GW-->>M: CancelOrderReject, reason = convertedToIOC
+    Note over SB: Order stays queued (orderState = 4), now IOC.<br/>Full speed bump still runs.
+    SB->>OB: Release as IOC when speed bump elapses
+    OB-->>M: OrderPlaced with fills (if it still matches)
+    OB-->>M: Cancel unfilled remainder
+    Note over M: If it no longer matches on release,<br/>a standard cancel confirmation is sent instead.
+```
 
 ### Cancel arriving before the order
 

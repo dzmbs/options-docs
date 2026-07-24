@@ -332,19 +332,19 @@ Response contains a new `access_token` (and a new `refresh_token`).
 
 ### Fork Token
 
-Session tokens can be "cloned" using the [`public/fork_token`](/api-reference/authentication/public-fork-token) method. This is an advanced feature to help manage multiple sessions. [`public/fork_token`](/api-reference/authentication/public-fork-token) takes a valid refresh token from an existing session-scoped token and generates a new access token for a new session (with a name you specify). In other words, it lets you fork an existing session into another session without re-supplying your client secret. This is only allowed for session-scoped tokens (you cannot fork a connection-only token).
+Session tokens can be "cloned" using the [`public/fork_token`](/api-reference/authentication/public-fork_token) method. This is an advanced feature to help manage multiple sessions. [`public/fork_token`](/api-reference/authentication/public-fork_token) takes a valid refresh token from an existing session-scoped token and generates a new access token for a new session (with a name you specify). In other words, it lets you fork an existing session into another session without re-supplying your client secret. This is only allowed for session-scoped tokens (you cannot fork a connection-only token).
 
 #### When to use fork token?
 
-Suppose you have an application already authenticated on one server and you want to spin up a second client (or a sub-service) using the same account and API key. Instead of storing the Client Secret or asking for credentials again, you can take the refresh token from the first session and call [`public/fork_token`](/api-reference/authentication/public-fork-token) to create a new session token for the second client. The new token will have the same scopes as the original (but tied to a different session name). Both sessions can operate concurrently under the same API key.
+Suppose you have an application already authenticated on one server and you want to spin up a second client (or a sub-service) using the same account and API key. Instead of storing the Client Secret or asking for credentials again, you can take the refresh token from the first session and call [`public/fork_token`](/api-reference/authentication/public-fork_token) to create a new session token for the second client. The new token will have the same scopes as the original (but tied to a different session name). Both sessions can operate concurrently under the same API key.
 
 ### Exchange Token
 
-[`public/exchange_token`](/api-reference/authentication/public-exchange-token) lets you turn a refresh token into a new access token for a different subaccount. A `subject_id` identifies the target subaccount, so this method is the standard way to switch between subaccounts without sending your Client Secret again. The resulting token keeps the same permissions unless you supply a scope override.
+[`public/exchange_token`](/api-reference/authentication/public-exchange_token) lets you turn a refresh token into a new access token for a different subaccount. A `subject_id` identifies the target subaccount, so this method is the standard way to switch between subaccounts without sending your Client Secret again. The resulting token keeps the same permissions unless you supply a scope override.
 
 #### When to use exchange token?
 
-You are authenticated on one subaccount and need to act on another subaccount with the same API key. Call [`public/exchange_token`](/api-reference/authentication/public-exchange-token) with:
+You are authenticated on one subaccount and need to act on another subaccount with the same API key. Call [`public/exchange_token`](/api-reference/authentication/public-exchange_token) with:
 
 * `refresh_token` from your current session
 * `subject_id` of the destination subaccount

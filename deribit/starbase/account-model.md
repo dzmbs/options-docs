@@ -47,8 +47,8 @@ To trade options on a subaccount that belongs to a Member, switch that subaccoun
 
 ## Related topics
 
+- [private/delete_member](/api-reference/account-management/private-delete_member.md)
+- [private/get_members](/api-reference/account-management/private-get_members.md)
+- [private/set_member](/api-reference/account-management/private-set_member.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
-- [private/change_margin_model](/api-reference/account-management/private-change_margin_model.md)
-- [Market Model](/starbase/market-model.md)
-- [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)

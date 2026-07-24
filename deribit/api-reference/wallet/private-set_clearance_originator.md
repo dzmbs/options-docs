@@ -270,4 +270,4 @@ components:
 - [Managing Deposits](/articles/managing-deposits-api.md)
 - [private/get_deposits](/api-reference/wallet/private-get_deposits.md)
 - [Quote Cancel(Z) — Production FIX API](/fix-api/production/quote-cancel.md)
-- [private/set_email_language](/api-reference/account-management/private-set_email_language.md)
+- [private/set_member](/api-reference/account-management/private-set_member.md)

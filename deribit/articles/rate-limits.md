@@ -11,7 +11,7 @@
 
   All API traffic—whether authenticated or public—**must follow Deribit's broader trading-integrity rules**, including the **Order-to-Volume (OTV) limits** and other anti-abuse protections. Violations can trigger immediate session disconnects, additional throttling, or stronger enforcement actions.
 
-  For full guidelines, please review our [API Usage Policy](/hc/en-us/articles/25944617449373#UUID-56019658-17b2-b28e-ee98-3335977015d2) (which also covers OTV thresholds and other exchange-abuse rules).
+  For full guidelines, please review our [API Usage Policy](/articles/api-usage-policy) (which also covers OTV thresholds and other exchange-abuse rules).
 </Warning>
 
 This system ensures efficient use of platform resources while accommodating different trading volumes.
@@ -31,7 +31,7 @@ Key elements of this system include:
 Credits are **replenished continuously at a fixed rate**, depending on your sub-account's tier. This refill acts like a **leaky bucket**: each second, a certain number of credits "drip" back into your sub-account's credit pool. You can think of this as a "credits per second" (CPS) refill rate.
 
 <Note>
-  Rate limits are applied [per sub-account](/hc/en-us/articles/25944616386973#UUID-038b9516-2490-c84d-c77a-c8e627bd7b18). Each sub-account has its own independent rate limit.
+  Rate limits are applied [per sub-account](https://www.deribit.com/hc/en-us/articles/25944616386973#UUID-038b9516-2490-c84d-c77a-c8e627bd7b18). Each sub-account has its own independent rate limit.
 </Note>
 
 * **Example**: If your refill rate is 20 credits/second, and each request costs 1 credit, you can sustainably send 20 requests per second without depleting your credits.
@@ -147,7 +147,7 @@ Each sub-account has an hourly updated rate limit, applicable across all books. 
 </Info>
 
 <Info>
-  Production and [Testnet environment](/document/preview/12390#UUID-f5f86659-ba8b-6f75-5208-2f751bee1531) operate **on separate, independently-tracked rate-limit pools**. **Limits are not shared** between environments—exceeding Testnet limits will not affect your Production credits, and vice-versa.
+  Production and [Testnet environment](https://test.deribit.com/) operate **on separate, independently-tracked rate-limit pools**. **Limits are not shared** between environments—exceeding Testnet limits will not affect your Production credits, and vice-versa.
 </Info>
 
 ## Checking current rate limits

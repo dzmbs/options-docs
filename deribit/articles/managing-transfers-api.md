@@ -7,7 +7,7 @@
 > Transfer funds between the main account and subaccounts or to other Deribit users using the API, including two-step confirmation flows for security.
 
 <Warning>
-  **Main Account Authorization Required**: You **MUST** authorize as the main account first before performing any transfers. This applies to all transfer types, including transfers from subaccount to subaccount. After main account authorization, you can use [`public/exchange_token`](/api-reference/authentication/public-exchange_token) or [`public/fork_token`](/api-reference/authentication/public-fork-token) to switch to a subaccount context if needed.
+  **Main Account Authorization Required**: You **MUST** authorize as the main account first before performing any transfers. This applies to all transfer types, including transfers from subaccount to subaccount. After main account authorization, you can use [`public/exchange_token`](/api-reference/authentication/public-exchange_token) or [`public/fork_token`](/api-reference/authentication/public-fork_token) to switch to a subaccount context if needed.
 </Warning>
 
 ## Step 1: Create an API key on the main account
@@ -41,7 +41,7 @@ This will return your `refresh_token`. **Important**: You are now authenticated 
 
 ## Step 2a: Switch to subaccount context (for subaccount-to-subaccount transfers)
 
-If you need to perform transfers **between subaccounts**, you must first authorize as the main account (Step 2), then switch to the subaccount context using [`public/exchange_token`](/api-reference/authentication/public-exchange_token) or [`public/fork_token`](/api-reference/authentication/public-fork-token).
+If you need to perform transfers **between subaccounts**, you must first authorize as the main account (Step 2), then switch to the subaccount context using [`public/exchange_token`](/api-reference/authentication/public-exchange_token) or [`public/fork_token`](/api-reference/authentication/public-fork_token).
 
 <Note>
   **Why switch to subaccount?** While transfers between subaccounts require main account authorization, switching to the subaccount context allows you to perform the transfer from the subaccount's perspective. This is the recommended approach for subaccount-to-subaccount transfers.
@@ -69,7 +69,7 @@ This returns a new `access_token` and `refresh_token` for the specified subaccou
 
 ### Using fork\_token (alternative)
 
-Alternatively, you can use [`public/fork_token`](/api-reference/authentication/public-fork-token) to create a new session token for the subaccount:
+Alternatively, you can use [`public/fork_token`](/api-reference/authentication/public-fork_token) to create a new session token for the subaccount:
 
 ```json theme={null}
 {
