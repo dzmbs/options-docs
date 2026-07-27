@@ -127,7 +127,7 @@ The frame length of all outbound messages to the client is rounded up to the nea
 
 ### Clock Synchronization
 
-Deribit exposes **PTP (Precision Time Protocol)** to clients colocated in LD4, allowing `sendTime` and `transactTime` (both nanoseconds since epoch) to be correlated against a client's own clock. Contact [colo-support@coinbase.com](mailto:colo-support@coinbase.com) for the PTP service agreement.
+Deribit exposes **PTP (Precision Time Protocol)** to clients colocated in LD4, allowing `sendTime` and `transactTime` (both nanoseconds since epoch) to be correlated against a client's own clock. Contact <a href="mailto:colo-support@coinbase.com" style={{ whiteSpace: "nowrap" }}>[colo-support@coinbase.com](mailto:colo-support@coinbase.com)</a> for the PTP service agreement.
 
 ### Usage Workflow
 
@@ -228,8 +228,8 @@ Used in:
 
 ## Related topics
 
+- [Connectivity Quickstart](/starbase/quickstart.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
 - [Multicast Retransmit Gateway](/starbase/retransmit-gateway.md)
 - [Market Maker Protection (MMP)](/starbase/mmp.md)
-- [Reference Data](/starbase/reference-data.md)

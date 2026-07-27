@@ -144,7 +144,7 @@ Upon initiating a session with the Logon (A) message, users have the option to e
 
 ## Related topics
 
-- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
 - [Authentication](/articles/authentication.md)
 - [Market Data Collection](/articles/market-data-collection-best-practices.md)

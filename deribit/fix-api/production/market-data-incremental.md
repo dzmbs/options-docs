@@ -42,8 +42,8 @@ Subscribe
 
 ## Related topics
 
-- [Market Data Snapshot (W) — Production FIX API](/fix-api/production/market-data-snapshot.md)
 - [Market Data Request(V) — Production FIX API](/fix-api/production/market-data-request.md)
+- [Market Data Snapshot (W) — Production FIX API](/fix-api/production/market-data-snapshot.md)
 - [Market Data Request Reject(Y) — Production FIX API](/fix-api/production/market-data-request-reject.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
 - [Changes Log — Production FIX API](/fix-api/production/changes-log.md)

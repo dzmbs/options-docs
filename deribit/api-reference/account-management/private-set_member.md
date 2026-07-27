@@ -287,8 +287,8 @@ components:
 
 ## Related topics
 
+- [Account Model](/starbase/account-model.md)
 - [private/delete_member](/api-reference/account-management/private-delete_member.md)
 - [private/get_members](/api-reference/account-management/private-get_members.md)
 - [private/set_email_language](/api-reference/account-management/private-set_email_language.md)
 - [private/set_clearance_originator](/api-reference/wallet/private-set_clearance_originator.md)
-- [private/set_mmp_config](/api-reference/trading/private-set_mmp_config.md)

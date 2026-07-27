@@ -7,7 +7,7 @@
 > Starbase SBE market data over UDP multicast — A and B redundant channels sharded by product type for low-latency market data feed consumption.
 
 <Info>
-  **Multicast & networking support**: For detailed multicast or networking questions, contact [colo-support@coinbase.com](mailto:colo-support@coinbase.com).
+  **Multicast & networking support**: For detailed multicast or networking questions, contact <a href="mailto:colo-support@coinbase.com" style={{ whiteSpace: "nowrap" }}>[colo-support@coinbase.com](mailto:colo-support@coinbase.com)</a>.
 </Info>
 
 <Warning>
@@ -20,7 +20,7 @@
 
 ## Cross-Connects & Non-Colocated Access
 
-Cross-connects are available in LD4. Deribit is running a cable-length equalization process so that latency does not depend on a client's rack placement within the data center. Contact [colo-support@coinbase.com](mailto:colo-support@coinbase.com) to arrange a cross-connect.
+Cross-connects are available in LD4. Deribit is running a cable-length equalization process so that latency does not depend on a client's rack placement within the data center. Contact <a href="mailto:colo-support@coinbase.com" style={{ whiteSpace: "nowrap" }}>[colo-support@coinbase.com](mailto:colo-support@coinbase.com)</a> to arrange a cross-connect.
 
 Clients who are not colocated or cross-connected can still receive multicast market data over AWS via the [Deribit AWS Multicast Service](https://support.deribit.com/hc/en-us/articles/25944617728285-Deribit-AWS-Multicast-Service-Instruction).
 
@@ -29,6 +29,7 @@ Clients who are not colocated or cross-connected can still receive multicast mar
 * Each gateway publishes market data from a **single event-loop thread**, so sequence numbers within a channel are strictly increasing and monotonic.
 * Updates are **batched**: a single UDP packet can contain multiple messages (see `messageCount` in the [packet header](/starbase/binary-api-reference#udp-messages)).
 * This is a **Level 3 (market-by-order)** feed — every matching engine event that affects the book is reflected here, including an order that is added and then immediately removed, which still produces both the add (`Buy Put`/`Sell Put`) and the subsequent `Order Delete` message. There is no separate Level 2 (aggregated price-level) feed on Starbase.
+* The multicast feed carries **order book events only**. Derived and reference statistics — including **open interest**, mark price, index price, funding, and 24-hour volume — are not published on Starbase. Retrieve these from the standard Deribit JSON-RPC API (for example, [`public/ticker`](/api-reference/market-data/public-ticker) or [`public/get_book_summary_by_instrument`](/api-reference/market-data/public-get_book_summary_by_instrument)).
 
 | Product Type                                      | Feed | Type        | IP Address   | Port |
 | ------------------------------------------------- | ---- | ----------- | ------------ | ---- |
@@ -74,7 +75,7 @@ Clients who are not colocated or cross-connected can still receive multicast mar
 |                                                   |      | Incremental | 224.0.12.221 | 4220 |
 |                                                   | Test | Snapshot    | 224.0.12.236 | 4230 |
 |                                                   |      | Incremental | 224.0.12.237 | 4220 |
-| **Equity perpetuals and pre-launch tokens**       | A    | Snapshot    | 224.0.12.206 | 4230 |
+| **RWA and pre-IPO perpetuals**                    | A    | Snapshot    | 224.0.12.206 | 4230 |
 |                                                   |      | Incremental | 224.0.12.207 | 4220 |
 |                                                   | B    | Snapshot    | 224.0.12.222 | 4230 |
 |                                                   |      | Incremental | 224.0.12.223 | 4220 |
@@ -92,13 +93,13 @@ Retransmit:
 | **Tier 2 Futures, Perpetuals and Future Spreads** | Test | 195.138.37.139 | 4244 |
 | **Tier 2 Options and Option Combinations**        | Test | 195.138.37.139 | 4245 |
 | **Tier 3 Futures, Perpetuals and Future Spreads** | Test | 195.138.37.139 | 4246 |
-| **Equity perpetuals and pre-launch tokens**       | Test | 195.138.37.139 | 4247 |
+| **RWA and pre-IPO perpetuals**                    | Test | 195.138.37.139 | 4247 |
 
 
 ## Related topics
 
 - [Multicast Subscription Guide](/starbase/multicast-subscription-guide.md)
-- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Gateway Connectivity](/starbase/gateway-connectivity.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
 - [Underlying Tiers](/starbase/underlying-tiers.md)

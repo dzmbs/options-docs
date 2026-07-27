@@ -312,4 +312,4 @@ components:
 - [private/get_withdrawals](/api-reference/wallet/private-get_withdrawals.md)
 - [Managing Withdrawals](/articles/managing-withdrawals-api.md)
 - [private/list_custody_accounts](/api-reference/account-management/private-list_custody_accounts.md)
-- [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)
+- [public/get_currencies](/api-reference/market-data/public-get_currencies.md)

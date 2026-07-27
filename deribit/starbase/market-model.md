@@ -39,5 +39,5 @@ Each instrument also has an immediate underlying. For options, this will be the 
 - [Starbase API Changelog](/changelogs/starbase.md)
 - [Account Model](/starbase/account-model.md)
 - [private/change_margin_model](/api-reference/account-management/private-change_margin_model.md)
+- [Connectivity Quickstart](/starbase/quickstart.md)
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
-- [private/delete_member](/api-reference/account-management/private-delete_member.md)

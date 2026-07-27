@@ -63,7 +63,7 @@ The table below outlines the content of field 13 (`flags`) of `InstrumentDefinit
 
 ## Related topics
 
-- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Market Data Collection](/articles/market-data-collection-best-practices.md)
 - [public/get_funding_chart_data](/api-reference/market-data/public-get_funding_chart_data.md)
 - [public/get_volatility_index_data](/api-reference/market-data/public-get_volatility_index_data.md)

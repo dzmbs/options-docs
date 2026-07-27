@@ -91,8 +91,8 @@ For a consolidated view of all activity on a single Portfolio, the [FIX Drop Cop
 
 ## Related topics
 
-- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Connectivity Quickstart](/starbase/quickstart.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [REST Order Gateway Authentication](/starbase/rest-authentication.md)
 - [Starbase API Overview](/starbase/overview.md)
 - [API Rate Limits](/starbase/api-rate-limits.md)
-- [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)

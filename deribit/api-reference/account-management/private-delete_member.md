@@ -225,8 +225,8 @@ components:
 
 ## Related topics
 
+- [Account Model](/starbase/account-model.md)
 - [private/set_member](/api-reference/account-management/private-set_member.md)
 - [private/get_members](/api-reference/account-management/private-get_members.md)
 - [private/delete_address_beneficiary](/api-reference/wallet/private-delete_address_beneficiary.md)
 - [Self Match Prevention (SMP)](/starbase/smp.md)
-- [Account Model](/starbase/account-model.md)

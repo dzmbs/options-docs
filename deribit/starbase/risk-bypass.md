@@ -27,8 +27,8 @@ Because the risk engine is bypassed for MMP-enabled orders and quotes, it is rec
 
 ## Related topics
 
+- [Connectivity Quickstart](/starbase/quickstart.md)
 - [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
 - [Order Management](/articles/order-management-best-practices.md)
 - [private/pme/simulate](/api-reference/account-management/private-simulate.md)
 - [Portfolio Management](/starbase/portfolio-management.md)
-- [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)

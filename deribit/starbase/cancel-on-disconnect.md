@@ -82,4 +82,4 @@ See [Gateway Connectivity](/starbase/gateway-connectivity) for more information 
 - [private/disable_cancel_on_disconnect](/api-reference/session-management/private-disable_cancel_on_disconnect.md)
 - [private/get_cancel_on_disconnect](/api-reference/session-management/private-get_cancel_on_disconnect.md)
 - [private/enable_cancel_on_disconnect](/api-reference/session-management/private-enable_cancel_on_disconnect.md)
-- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)

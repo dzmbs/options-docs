@@ -200,7 +200,7 @@
 
   We strongly recommend maintaining a primary and a secondary circuit. During switch maintenance or cable-length validations, we assume clients have redundant connectivity in place so that trading can continue uninterrupted.
 
-  Starbase is only available via hosted co-location, cross-connect or AWS PrivateLink. Downtime on a single circuit may require you to fall back to the WebSocket API. Please reach out to [colo-support@coinbase.com](mailto:colo-support@coinbase.com) or your technical account manager with any questions.
+  Starbase is only available via hosted co-location, cross-connect or AWS PrivateLink. Downtime on a single circuit may require you to fall back to the WebSocket API. Please reach out to <a href="mailto:colo-support@coinbase.com" style={{ whiteSpace: "nowrap" }}>[colo-support@coinbase.com](mailto:colo-support@coinbase.com)</a> or your technical account manager with any questions.
 </Update>
 
 <Update label="Starbase Release 06.05.2026 — v1.0">
@@ -303,12 +303,12 @@
   Nothing will change for the current production multicast feeds — they will continue as-is under all circumstances. To receive the new Starbase multicast feeds:
 
   1. **Deribit-hosted colo servers:** No changes needed. Send an IGMP join for the multicast feeds you want to consume.
-  2. **Cross-connected clients:** PIM configuration with an RP is required. For configuration details, contact [colo-support@coinbase.com](mailto:colo-support@coinbase.com).
+  2. **Cross-connected clients:** PIM configuration with an RP is required. For configuration details, contact <a href="mailto:colo-support@coinbase.com" style={{ whiteSpace: "nowrap" }}>[colo-support@coinbase.com](mailto:colo-support@coinbase.com)</a>.
   3. **Third-party clients (Beeks, UltraFX, LiquidityConnect, AWS):** Setup is in progress. You will be notified when connectivity is verified and ready.
 
   Since only AVAX/USDC and PAXG/USDC instruments have been migrated, not every multicast channel has market data flowing yet. To test connectivity, use channel `224.0.12.234`, which includes all AVAX options. All channels are listed on the [Multicast Channels](/starbase/multicast-channels) page. A [table mapping underlyings to tiers](/starbase/underlying-tiers) is also available.
 
-  For any questions or concerns, contact [colo-support@coinbase.com](mailto:colo-support@coinbase.com).
+  For any questions or concerns, contact <a href="mailto:colo-support@coinbase.com" style={{ whiteSpace: "nowrap" }}>[colo-support@coinbase.com](mailto:colo-support@coinbase.com)</a>.
 </Update>
 
 <Update label="Announcement 08.04.2026">
@@ -402,4 +402,4 @@
 - [FIX API Changelog](/changelogs/fix.md)
 - [Starbase API Overview](/starbase/overview.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
-- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)

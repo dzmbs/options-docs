@@ -15,7 +15,7 @@ Standard Deribit WebSocket APIs (e.g. `private/get_user_trades_by_instrument`) a
 </Info>
 
 <Info>
-  Starbase is accessible exclusively via **colocated cross-connect** at Deribit's data center or via **AWS Private Link** for clients connecting from AWS infrastructure. Internet connectivity is not supported. Contact [colo-support@coinbase.com](mailto:colo-support@coinbase.com) to arrange access.
+  Starbase is accessible exclusively through **hosted colocation** or a **cross-connect** in LD4, or through **AWS Private Link** for clients connecting from AWS infrastructure. Internet connectivity is not supported. Contact <a href="mailto:colo-support@coinbase.com" style={{ whiteSpace: "nowrap" }}>[colo-support@coinbase.com](mailto:colo-support@coinbase.com)</a> to arrange access.
 </Info>
 
 <Warning>
@@ -63,6 +63,6 @@ Standard Deribit WebSocket APIs (e.g. `private/get_user_trades_by_instrument`) a
 
 - [Starbase API Changelog](/changelogs/starbase.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Underlying Tiers](/starbase/underlying-tiers.md)
-- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Speed Bumps](/starbase/speed-bumps.md)

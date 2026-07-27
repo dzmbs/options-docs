@@ -12,8 +12,18 @@
 | **Member**    | Group of portfolios representing a trading participant             | Can span multiple subaccounts under one main account |
 
 <Note>
-  Members can only be configured from a **main account**. Subaccounts cannot create or manage Members. Additionally, the Starbase section will only appear in your account panel once your account has been authorized by a Deribit admin.
+  Members can only be configured from a **main account**. Subaccounts cannot create or manage Members. Additionally, the [Starbase section](https://www.deribit.com/account/BTC/starbase/api-keys) will only appear in your Account Panel once your account has been authorized by a Deribit admin.
 </Note>
+
+### Manage Members through JSON-RPC
+
+Authorized main accounts can manage their Starbase Members programmatically with the standard JSON-RPC API:
+
+* [`private/get_members`](/api-reference/account-management/private-get_members) — list the Members configured for the account
+* [`private/set_member`](/api-reference/account-management/private-set_member) — create a Member or update its name, assigned accounts, or active state
+* [`private/delete_member`](/api-reference/account-management/private-delete_member) — delete a Member
+
+`private/get_members` requires `account:read`. Creating, updating, or deleting a Member requires `account:read_write`, main-account authentication, and Direct Access trading to be enabled.
 
 ### Do subaccounts need to belong to a Member?
 
@@ -25,14 +35,13 @@ Rate limits are allocated **per Member** and are shared across all API keys, ses
 
 See the table below for the Member/Portfolio setup for the three major account types.
 
-| Use Case                      | Description                                                                                                                                                                                                                                                                                                                          |
-| :---------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Directly onboarded client** | These clients are set up with **exactly one Member** and will not be granted additional Members. All portfolios/sub-accounts fall under this single Member.                                                                                                                                                                          |
-| **Prime Broker clients**      | Clients of Prime Brokers can request their Prime Broker to set up their subaccounts as a single Member. This ensures that clients of a Prime Broker can trade completely independently of other clients of the same Prime Broker. Any new portfolios/sub-accounts will need to be added manually and by request of the Prime Broker. |
-| **Pod-based trading firms**   | Trading firms with multiple trading pods that act independently can request each pod to be set up as a Member. This allows pods to trade completely independently from other pods. Any new portfolio/sub-account will not immediately be part of a Member grouping.                                                                  |
+| Use Case                      | Description                                                                                                                                                                                                                    |
+| :---------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Directly onboarded client** | These clients use **exactly one Member**. Add every main-account and subaccount UID that needs Starbase access to this Member.                                                                                                 |
+| **Broker clients**            | Brokers can request separate Members for independent end clients. Multi-Member access must first be enabled by Deribit Support. After enablement, each new portfolio or subaccount must be assigned to the appropriate Member. |
 
 <Info>
-  Members should reflect genuine business-level separation — for example, competing trading desks or independent prime broker end-clients. Multi-member setups are not allocated higher rate limits than single-member setups. An example of a justified multi-member setup is a Prime Broker with two distinct, independent market makers as end clients.
+  The Account Panel may offer an option to add another Member even when the account is limited to one. Unless you are an enabled broker client, assign all UIDs that need Starbase access to the existing Member. Brokers that require multiple Members should contact <a href="mailto:support@deribit.com" style={{ whiteSpace: "nowrap" }}>[support@deribit.com](mailto:support@deribit.com)</a>. Multi-Member setups do not receive higher rate limits than single-Member setups.
 </Info>
 
 ### Members and margin mode

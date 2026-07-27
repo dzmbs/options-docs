@@ -6,10 +6,10 @@
 
 > Create Starbase API keys — add team members, pick Starbase-specific scopes, and generate the credentials required for gateway login and access.
 
-Starbase API keys are created through the **Starbase** section of the Account Panel (not the API section). The creation flow is otherwise the same as standard Deribit API keys, but with a different set of available scopes and a required member setup step.
+Starbase API keys are created through the [**Starbase section**](https://www.deribit.com/account/BTC/starbase/api-keys) of the Account Panel (not the API section). The creation flow is otherwise the same as standard Deribit API keys, but with a different set of available scopes and a required member setup step.
 
 <Warning>
-  The Starbase section is only visible after your account has been authorized by a Deribit admin. If you do not see it in the dropdown, contact [support@deribit.com](mailto:support@deribit.com).
+  The Starbase section is only visible after your account has been authorized by a Deribit admin. If you do not see the section, contact <a href="mailto:support@deribit.com" style={{ whiteSpace: "nowrap" }}>[support@deribit.com](mailto:support@deribit.com)</a>.
 </Warning>
 
 <Warning>
@@ -24,9 +24,9 @@ Starbase API keys are created through the **Starbase** section of the Account Pa
 
 <Steps>
   <Step title="Navigate to the Starbase Section">
-    Head to the **Starbase** tab inside the top right Account Panel.
+    Open the [**Starbase section**](https://www.deribit.com/account/BTC/starbase/api-keys) in the Account Panel.
 
-    The Starbase section is separate from the standard **API** section. Make sure you are in the correct tab.
+    The Starbase section is separate from the standard **API** section. Make sure you are in the correct section.
 
     <img src="https://mintcdn.com/deribit/tO0Fri3Xhug1I2Vk/starbase/starbase_tab.png?fit=max&auto=format&n=tO0Fri3Xhug1I2Vk&q=85&s=e3a4acdcc5ef7947f66e36ab782074fb" alt="Starbase Section" width="568" height="1154" data-path="starbase/starbase_tab.png" />
   </Step>
@@ -48,6 +48,10 @@ Starbase API keys are created through the **Starbase** section of the Account Pa
     <Note>
       A Member is a Starbase-specific concept that groups one or more portfolios (accounts/subaccounts) into a single trading participant. See [Account Model](/starbase/account-model) for a full explanation.
     </Note>
+
+    <Warning>
+      Most clients can configure only **one Member**. Add every main-account or subaccount UID that needs Starbase access to that Member. Broker clients that require separate Members for independent end clients must contact <a href="mailto:support@deribit.com" style={{ whiteSpace: "nowrap" }}>[support@deribit.com](mailto:support@deribit.com)</a> to have multi-Member access enabled. The panel may display an option to add another Member even when the account is not enabled to save it.
+    </Warning>
   </Step>
 
   <Step title="Create a New API Key">
@@ -121,7 +125,7 @@ Starbase API keys use a separate counter from standard Deribit API keys. Starbas
 ## Related topics
 
 - [Creating new API key](/articles/creating-api-key.md)
-- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Connectivity Quickstart](/starbase/quickstart.md)
 - [Authentication](/articles/authentication.md)
 - [REST Order Gateway Authentication](/starbase/rest-authentication.md)
-- [Account Model](/starbase/account-model.md)

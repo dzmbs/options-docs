@@ -133,6 +133,6 @@ The number of orders and quotes active at any time is limited per member. The de
 
 - [Order Management](/articles/order-management-best-practices.md)
 - [Underlying Tiers](/starbase/underlying-tiers.md)
+- [Connectivity Quickstart](/starbase/quickstart.md)
 - [Mass Quotes](/starbase/mass-quotes.md)
 - [Rate Limits](/articles/rate-limits.md)
-- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)

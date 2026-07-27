@@ -137,6 +137,6 @@ Treat every `401` as terminal for that request. Retry only after fixing the head
 
 - [Gateway Connectivity](/starbase/gateway-connectivity.md)
 - [Authentication](/articles/authentication.md)
+- [Connectivity Quickstart](/starbase/quickstart.md)
 - [Order Management](/articles/order-management-best-practices.md)
 - [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)
-- [Creating a Starbase API Key](/starbase/creating-api-key.md)

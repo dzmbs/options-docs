@@ -76,8 +76,8 @@ Tier assignments determine which multicast channel an instrument belongs to, so 
 
 ## Related topics
 
+- [Connectivity Quickstart](/starbase/quickstart.md)
 - [API Rate Limits](/starbase/api-rate-limits.md)
 - [Gateway Connectivity](/starbase/gateway-connectivity.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
-- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
-- [Rate Limits](/articles/rate-limits.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)

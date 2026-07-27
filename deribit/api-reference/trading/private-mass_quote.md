@@ -1164,4 +1164,4 @@ components:
 - [private/cancel_all](/api-reference/trading/private-cancel_all.md)
 - [private/cancel_all_by_instrument](/api-reference/trading/private-cancel_all_by_instrument.md)
 - [private/cancel_all_by_currency](/api-reference/trading/private-cancel_all_by_currency.md)
-- [private/cancel_all_by_kind_or_type](/api-reference/trading/private-cancel_all_by_kind_or_type.md)
+- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)

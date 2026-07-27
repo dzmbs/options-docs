@@ -313,6 +313,6 @@ Sent after all replayed reports have been delivered.
 
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
 - [Gateway Connectivity](/starbase/gateway-connectivity.md)
-- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Connectivity Quickstart](/starbase/quickstart.md)
 - [Account Model](/starbase/account-model.md)
-- [Starbase API Changelog](/changelogs/starbase.md)

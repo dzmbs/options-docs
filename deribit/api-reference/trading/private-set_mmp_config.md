@@ -646,6 +646,6 @@ components:
 
 - [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
 - [Market Maker Protection (MMP)](/starbase/mmp.md)
-- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_mmp_config](/api-reference/trading/private-get_mmp_config.md)
+- [private/set_self_trading_config](/api-reference/account-management/private-set_self_trading_config.md)

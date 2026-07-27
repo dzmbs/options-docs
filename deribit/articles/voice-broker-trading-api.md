@@ -263,6 +263,6 @@ Broker trades appear in regular block trade history. Filter by broker using the 
 
 - [private/get_broker_clients](/api-reference/block-trade/private-get_broker_clients.md)
 - [Block Trading](/articles/block-trading-api.md)
-- [Account Model](/starbase/account-model.md)
 - [private/get_broker_trades](/api-reference/block-trade/private-get_broker_trades.md)
 - [private/get_block_trade_requests](/api-reference/block-trade/private-get_block_trade_requests.md)
+- [private/get_broker_trade_requests](/api-reference/block-trade/private-get_broker_trade_requests.md)

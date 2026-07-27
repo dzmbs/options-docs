@@ -231,8 +231,8 @@ components:
 
 ## Related topics
 
+- [Account Model](/starbase/account-model.md)
 - [private/delete_member](/api-reference/account-management/private-delete_member.md)
 - [private/set_member](/api-reference/account-management/private-set_member.md)
 - [private/get_transfers](/api-reference/wallet/private-get_transfers.md)
 - [private/get_withdrawals](/api-reference/wallet/private-get_withdrawals.md)
-- [private/get_deposits](/api-reference/wallet/private-get_deposits.md)

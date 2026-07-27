@@ -202,5 +202,5 @@ components:
 - [public/subscribe](/api-reference/subscription-management/public-subscribe.md)
 - [Notifications](/articles/notifications.md)
 - [Rate Limits](/articles/rate-limits.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Voice Broker Trading API](/articles/voice-broker-trading-api.md)
-- [Connectivity & Best Practices](/starbase/connectivity-best-practices.md)

@@ -22,8 +22,8 @@
     },
     "api-reference/account-management/private-create_api_key.md": {
       "source_url": "https://docs.deribit.com/api-reference/account-management/private-create_api_key.md",
-      "hash": "c49465fceb296eb4a9d7ddc4d1304bbbbc78acfba357001e425cd1f0a1fade1e",
-      "last_updated": "2026-07-23T12:27:46.927542"
+      "hash": "870022b2f874d257926c7f5b30528300b8da6e1f0e2e877bffd84584d6d0c142",
+      "last_updated": "2026-07-27T13:42:33.201357"
     },
     "api-reference/account-management/private-create_subaccount.md": {
       "source_url": "https://docs.deribit.com/api-reference/account-management/private-create_subaccount.md",
@@ -32,8 +32,8 @@
     },
     "api-reference/account-management/private-delete_member.md": {
       "source_url": "https://docs.deribit.com/api-reference/account-management/private-delete_member.md",
-      "hash": "fc5043919dbb2efab82b37db92d61a11c0b52f403b0a3f77089d093d4b4fe8e9",
-      "last_updated": "2026-07-24T12:24:10.956578"
+      "hash": "4e18406cc8caa40d239cb45b28bae317932c481b03c6e5781e8dee150e7cc85e",
+      "last_updated": "2026-07-27T13:42:35.356134"
     },
     "api-reference/account-management/private-disable_api_key.md": {
       "source_url": "https://docs.deribit.com/api-reference/account-management/private-disable_api_key.md",
@@ -82,8 +82,8 @@
     },
     "api-reference/account-management/private-get_members.md": {
       "source_url": "https://docs.deribit.com/api-reference/account-management/private-get_members.md",
-      "hash": "943a099a379295687f83f6af1b1f2253923055cc38a74da297f2608aeebf5e10",
-      "last_updated": "2026-07-24T12:24:22.260243"
+      "hash": "e473545b266a224cae5f47941f6afd5ee7383d3655a96244fce317c42f9ec1b3",
+      "last_updated": "2026-07-27T13:42:47.691726"
     },
     "api-reference/account-management/private-get_new_announcements.md": {
       "source_url": "https://docs.deribit.com/api-reference/account-management/private-get_new_announcements.md",
@@ -127,8 +127,8 @@
     },
     "api-reference/account-management/private-list_custody_accounts.md": {
       "source_url": "https://docs.deribit.com/api-reference/account-management/private-list_custody_accounts.md",
-      "hash": "93f9f28828c2bfd3feb05a86d73eb64f39ff0663e4534892922fd4d887b1a8b6",
-      "last_updated": "2026-07-24T12:24:32.095271"
+      "hash": "97cda5b5bc4f7d3d5a35de9d9de6e00e1e55fd79c8ead2b07126265c0d0e4fbf",
+      "last_updated": "2026-07-27T13:42:58.209564"
     },
     "api-reference/account-management/private-remove_api_key.md": {
       "source_url": "https://docs.deribit.com/api-reference/account-management/private-remove_api_key.md",
@@ -167,8 +167,8 @@
     },
     "api-reference/account-management/private-set_member.md": {
       "source_url": "https://docs.deribit.com/api-reference/account-management/private-set_member.md",
-      "hash": "e335dd2b22a53eda0738b8a8191334a0da5fd4a7a826afad2d132c73c6a6b452",
-      "last_updated": "2026-07-24T12:24:42.882518"
+      "hash": "8bd59e5df4c05d9fb1a0aa172496ac4df63179b5a4c1f6fa4ddcf5d2abc3e359",
+      "last_updated": "2026-07-27T13:43:09.295291"
     },
     "api-reference/account-management/private-set_self_trading_config.md": {
       "source_url": "https://docs.deribit.com/api-reference/account-management/private-set_self_trading_config.md",
@@ -202,8 +202,8 @@
     },
     "api-reference/authentication/private-logout.md": {
       "source_url": "https://docs.deribit.com/api-reference/authentication/private-logout.md",
-      "hash": "6bfae822899bd29f0119c043d4aded4e748be72d1ff06d5a66bcb3f56c239465",
-      "last_updated": "2026-07-23T12:28:23.760305"
+      "hash": "d358dd93f0caccedb7cd6d146e4c0c75a3be61a3ccfeca7b0e3849379ee0376f",
+      "last_updated": "2026-07-27T13:43:17.699044"
     },
     "api-reference/authentication/public-auth.md": {
       "source_url": "https://docs.deribit.com/api-reference/authentication/public-auth.md",
@@ -522,8 +522,8 @@
     },
     "api-reference/market-data/public-ticker.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-ticker.md",
-      "hash": "557703a0cf3315032303336f7ff7d2f47b9938eb3c42c2e68aeffdca72556e5b",
-      "last_updated": "2026-07-23T12:30:01.421243"
+      "hash": "59effc2a55c2d6f5235d06d25e4d0ba834df611d161d358df63c7196f610b3d2",
+      "last_updated": "2026-07-27T13:44:25.589877"
     },
     "api-reference/portfolio-management/lock-portfolio.md": {
       "source_url": "https://docs.deribit.com/api-reference/portfolio-management/lock-portfolio.md",
@@ -567,8 +567,8 @@
     },
     "api-reference/subscription-management/private-subscribe.md": {
       "source_url": "https://docs.deribit.com/api-reference/subscription-management/private-subscribe.md",
-      "hash": "f66af01ed5c092efb5ad80cd65190ad494228b8a8f18d8408e2527bc72c942b6",
-      "last_updated": "2026-07-23T12:30:11.018979"
+      "hash": "c51f0c849ee9f73fd2804bfd1c080338fdfa5e20f565f78f7a01c5ed315b1280",
+      "last_updated": "2026-07-27T13:44:34.745812"
     },
     "api-reference/subscription-management/private-unsubscribe.md": {
       "source_url": "https://docs.deribit.com/api-reference/subscription-management/private-unsubscribe.md",
@@ -602,8 +602,8 @@
     },
     "api-reference/supporting/public-hello.md": {
       "source_url": "https://docs.deribit.com/api-reference/supporting/public-hello.md",
-      "hash": "bf950d96f68cd78e40a721f5129d3d791250a7c77ce8085164e33797856234e2",
-      "last_updated": "2026-07-23T12:30:17.472971"
+      "hash": "48d63dcd0ed64446cdb818eab18a35db1a914d1d5c2ef41dc1cdf9afd4abf737",
+      "last_updated": "2026-07-27T13:44:41.594119"
     },
     "api-reference/supporting/public-status.md": {
       "source_url": "https://docs.deribit.com/api-reference/supporting/public-status.md",
@@ -702,8 +702,8 @@
     },
     "api-reference/trading/private-get_open_orders_by_currency.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_open_orders_by_currency.md",
-      "hash": "3bc08c6ff9dd035635eb5980bb123464b8292998ed6ca5d35570941f6ed69f10",
-      "last_updated": "2026-07-24T12:26:51.608382"
+      "hash": "81e78bbd2954326dcea43a3956683a1d38c51178d19e7268e0db3ded40b8d1da",
+      "last_updated": "2026-07-27T13:45:03.607889"
     },
     "api-reference/trading/private-get_open_orders_by_instrument.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_open_orders_by_instrument.md",
@@ -747,8 +747,8 @@
     },
     "api-reference/trading/private-get_settlement_history_by_instrument.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_settlement_history_by_instrument.md",
-      "hash": "2d6de002c8870d3f4c581e44ad75424d9db59dbaf0184179c51515d0686af34e",
-      "last_updated": "2026-07-24T12:27:01.585658"
+      "hash": "e02f11cdc82cfe590aab211000d36ee7bd76b81111226b0de92fbc87d9da359e",
+      "last_updated": "2026-07-27T13:45:13.477047"
     },
     "api-reference/trading/private-get_trigger_order_history.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-get_trigger_order_history.md",
@@ -782,8 +782,8 @@
     },
     "api-reference/trading/private-mass_quote.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-mass_quote.md",
-      "hash": "d6cf9e15ae8f351b56bb65160206b82f64f385b1ca528c46e5e4b8dcecea97b1",
-      "last_updated": "2026-07-24T12:27:10.890788"
+      "hash": "3d806475ff18ca24ff9138acdd91964eb7776233ef067c94ac7fc8e301d260ce",
+      "last_updated": "2026-07-27T13:45:20.754819"
     },
     "api-reference/trading/private-move_positions.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-move_positions.md",
@@ -802,8 +802,8 @@
     },
     "api-reference/trading/private-set_mmp_config.md": {
       "source_url": "https://docs.deribit.com/api-reference/trading/private-set_mmp_config.md",
-      "hash": "0e86eb718119f3dd7fc70d2a0f02dd2f72b6dafa5a94f05315c06b14627ccc9a",
-      "last_updated": "2026-07-23T12:31:51.436393"
+      "hash": "c7c79d1a217078f8f69606bf98102999ba907225149a318c0faa2e69a2f0637e",
+      "last_updated": "2026-07-27T13:45:24.949148"
     },
     "api-reference/wallet/private-add_to_address_book.md": {
       "source_url": "https://docs.deribit.com/api-reference/wallet/private-add_to_address_book.md",
@@ -907,8 +907,8 @@
     },
     "api-reference/wallet/private-withdraw.md": {
       "source_url": "https://docs.deribit.com/api-reference/wallet/private-withdraw.md",
-      "hash": "15fc80915a9aca0080323b6995f3618a1249cba71ca3ba956433ebb74d6f9aff",
-      "last_updated": "2026-07-23T12:32:11.404752"
+      "hash": "774d6146ed2c041b8939e7ba51dad41a742ea829431324f68663ad32048c9fca",
+      "last_updated": "2026-07-27T13:45:49.553791"
     },
     "articles/access-scope.md": {
       "source_url": "https://docs.deribit.com/articles/access-scope.md",
@@ -947,8 +947,8 @@
     },
     "articles/connection-management-best-practices.md": {
       "source_url": "https://docs.deribit.com/articles/connection-management-best-practices.md",
-      "hash": "03e4500cf17d2414f1f6331e8a5210aa436c0054cecd490c413f717cec79ebd8",
-      "last_updated": "2026-07-22T12:48:09.000255"
+      "hash": "4d73fd8351729fff8db0630983e531ebf6512612675881069b205f28e81fcb98",
+      "last_updated": "2026-07-27T13:45:58.119561"
     },
     "articles/creating-api-key.md": {
       "source_url": "https://docs.deribit.com/articles/creating-api-key.md",
@@ -957,8 +957,8 @@
     },
     "articles/deribit-quickstart.md": {
       "source_url": "https://docs.deribit.com/articles/deribit-quickstart.md",
-      "hash": "66faaba169158e331af00ce3dfc86e2d1faa51f96a923b15573bb139801362da",
-      "last_updated": "2026-07-22T12:48:16.836212"
+      "hash": "630612d2adbf0d25aca8ff64f5d86e2df9ef93d1b710e5f70658d0bf72b4cb80",
+      "last_updated": "2026-07-27T13:45:59.819702"
     },
     "articles/errors.md": {
       "source_url": "https://docs.deribit.com/articles/errors.md",
@@ -1037,8 +1037,8 @@
     },
     "articles/voice-broker-trading-api.md": {
       "source_url": "https://docs.deribit.com/articles/voice-broker-trading-api.md",
-      "hash": "68470a6bcd91ab6d743cdd20619f64cb7bcf9a38bca86ad66a75f1ef376fc113",
-      "last_updated": "2026-07-22T12:48:33.936969"
+      "hash": "5364a9579ddcbc4a079fcebc2fa84e19e41d08e806a7f4172b0799e355c3ef29",
+      "last_updated": "2026-07-27T13:46:16.704856"
     },
     "changelogs/fix.md": {
       "source_url": "https://docs.deribit.com/changelogs/fix.md",
@@ -1052,8 +1052,8 @@
     },
     "changelogs/starbase.md": {
       "source_url": "https://docs.deribit.com/changelogs/starbase.md",
-      "hash": "abae360c6d4030c344f42596b08b1ab283c0fb4062e12ba8c4b8c89757372fc5",
-      "last_updated": "2026-07-24T12:28:35.508128"
+      "hash": "afe84cf2ed043be3fd18979ccf8eb85a9b2babc3709abf2f45562a58bf6b64eb",
+      "last_updated": "2026-07-27T13:46:20.166182"
     },
     "fix-api/production/changes-log.md": {
       "source_url": "https://docs.deribit.com/fix-api/production/changes-log.md",
@@ -1077,13 +1077,13 @@
     },
     "fix-api/production/logout.md": {
       "source_url": "https://docs.deribit.com/fix-api/production/logout.md",
-      "hash": "d2ad56918625e395ead692e9b40ad1ffe97008dfef4c06e22dcc3d605914e9dc",
-      "last_updated": "2026-07-24T12:28:57.798424"
+      "hash": "44adcef27fd3f1ea131d8799cfeaa5699e512c3fc58096518e190271e682522f",
+      "last_updated": "2026-07-27T13:46:24.579747"
     },
     "fix-api/production/market-data-incremental.md": {
       "source_url": "https://docs.deribit.com/fix-api/production/market-data-incremental.md",
-      "hash": "039e265b29e585f9e7ccac678cdf16587fd98a687afaa2098d0759492038dedd",
-      "last_updated": "2026-07-23T12:32:58.232209"
+      "hash": "47cd4b84ede989c6d6ccee6264faa45a9d68c48af9b9e044d7e942f92f4030d6",
+      "last_updated": "2026-07-27T13:46:25.468914"
     },
     "fix-api/production/market-data-request-reject.md": {
       "source_url": "https://docs.deribit.com/fix-api/production/market-data-request-reject.md",
@@ -1162,8 +1162,8 @@
     },
     "fix-api/production/overview.md": {
       "source_url": "https://docs.deribit.com/fix-api/production/overview.md",
-      "hash": "8f9f8605cc94782199e304e57a3c388c520ebf584832d6242d19a529bc644cfa",
-      "last_updated": "2026-07-24T12:29:16.157638"
+      "hash": "b55be484c566224f0f53b37ade60ce1e83ccc1b4400981b8e3a88250da63b28a",
+      "last_updated": "2026-07-27T13:46:42.091678"
     },
     "fix-api/production/position-report.md": {
       "source_url": "https://docs.deribit.com/fix-api/production/position-report.md",
@@ -1182,8 +1182,8 @@
     },
     "fix-api/production/request-for-positions.md": {
       "source_url": "https://docs.deribit.com/fix-api/production/request-for-positions.md",
-      "hash": "cc9c5961a6c5ba1fe860be44a084a37c01b94273e01116cc662103f0117eac4f",
-      "last_updated": "2026-07-24T12:29:20.398800"
+      "hash": "e5d4f9535b618ea81955777b0c56c4edec9f79daeea7365f8b6d2a319d9a1978",
+      "last_updated": "2026-07-27T13:46:55.365231"
     },
     "fix-api/production/resend-request.md": {
       "source_url": "https://docs.deribit.com/fix-api/production/resend-request.md",
@@ -1202,8 +1202,8 @@
     },
     "fix-api/production/security-list-request.md": {
       "source_url": "https://docs.deribit.com/fix-api/production/security-list-request.md",
-      "hash": "0bb0c5a8c95a8ad0a301f75b3e2669e87e319b5946d3c0f7d346068f3b983d9f",
-      "last_updated": "2026-07-24T12:29:24.530777"
+      "hash": "8c63b1b0c7964bf4b322e23a5f6be75a6806e911f8e97d13a883125030a71cc6",
+      "last_updated": "2026-07-27T13:46:59.136626"
     },
     "fix-api/production/security-list.md": {
       "source_url": "https://docs.deribit.com/fix-api/production/security-list.md",
@@ -1257,13 +1257,13 @@
     },
     "index.md": {
       "source_url": "https://docs.deribit.com/index.md",
-      "hash": "11730fe0a19cff7565f2df882f322fc460b64e3a09d2746ce99119c1e1b86ba9",
-      "last_updated": "2026-07-24T12:29:35.310941"
+      "hash": "be0620c26dadf0131fceb834df31e8ed2aec9af05eecab6d93cbe98c30d07760",
+      "last_updated": "2026-07-27T13:47:10.618974"
     },
     "starbase/account-model.md": {
       "source_url": "https://docs.deribit.com/starbase/account-model.md",
-      "hash": "715fc9f3342967d435cba77925971d931934005b2b64856d5e866f62f6fe1347",
-      "last_updated": "2026-07-24T12:29:36.679507"
+      "hash": "ba79d8e4df430fe90b1fefa9bb317f1c0a2800c9576252b9f4691583d0757da2",
+      "last_updated": "2026-07-27T13:47:11.482802"
     },
     "starbase/amending-order.md": {
       "source_url": "https://docs.deribit.com/starbase/amending-order.md",
@@ -1272,18 +1272,18 @@
     },
     "starbase/api-rate-limits.md": {
       "source_url": "https://docs.deribit.com/starbase/api-rate-limits.md",
-      "hash": "1b2bf945a3154b8f5af543b9622962781123a398eec3a1e691895bf30f6a5cff",
-      "last_updated": "2026-07-22T12:49:30.805659"
+      "hash": "c2098eba6bd662ec16d1988f974d3335f292f10bf92d7f2d34cabbc774d36bd6",
+      "last_updated": "2026-07-27T13:47:13.271125"
     },
     "starbase/binary-api-reference.md": {
       "source_url": "https://docs.deribit.com/starbase/binary-api-reference.md",
-      "hash": "030fa9995f7109614668d4abf6b0c9f7a11ade5930755ef148b3813f414ce865",
-      "last_updated": "2026-07-22T12:49:32.105152"
+      "hash": "0bc243018758fd4b69daa876c11ef933f9025e97c8194795b3fc82c0a1666a4e",
+      "last_updated": "2026-07-27T13:47:14.236605"
     },
     "starbase/cancel-on-disconnect.md": {
       "source_url": "https://docs.deribit.com/starbase/cancel-on-disconnect.md",
-      "hash": "bb7ffb867633c601376dc2dcaf8d6822ae555fe8f83e7c956932ab6bc6fbe323",
-      "last_updated": "2026-07-22T12:49:33.181928"
+      "hash": "8b7ec639778fdcbbac7e44b0dacb2a4640baf120dccf153b668e4ef0bbbaeac1",
+      "last_updated": "2026-07-27T13:47:15.118495"
     },
     "starbase/cancelling-order.md": {
       "source_url": "https://docs.deribit.com/starbase/cancelling-order.md",
@@ -1292,28 +1292,28 @@
     },
     "starbase/connectivity-best-practices.md": {
       "source_url": "https://docs.deribit.com/starbase/connectivity-best-practices.md",
-      "hash": "4fae1f95e9228f37c7558f0c6a39bf45d6beeba84930cb73687b6d096b5e517e",
-      "last_updated": "2026-07-23T12:33:38.358493"
+      "hash": "ca5a5e1cab7324f8aa8bec30ba4f55ade868afdbbdf01b6ae0b92e343e7261af",
+      "last_updated": "2026-07-27T13:47:16.878178"
     },
     "starbase/creating-api-key.md": {
       "source_url": "https://docs.deribit.com/starbase/creating-api-key.md",
-      "hash": "4ca163a0ea3d3ba3a9c0883d62450cc2e650205ae85d827f95f3e0877869695b",
-      "last_updated": "2026-07-24T12:29:43.741258"
+      "hash": "d6ec50429803802b4b1e6b117c92cd744cf4ab8c4cb43a43dea44c3ed1b84f47",
+      "last_updated": "2026-07-27T13:47:17.768206"
     },
     "starbase/fix-drop-copy-api.md": {
       "source_url": "https://docs.deribit.com/starbase/fix-drop-copy-api.md",
-      "hash": "2c9ac5f0049cf96acbcf7243802f8af3b872d133282b635ca22eaf97b2bae3ee",
-      "last_updated": "2026-07-23T12:33:40.235282"
+      "hash": "d2c4dc4854bb43268fe846327f38ea000831b9c5289d5afde148a01df88a8982",
+      "last_updated": "2026-07-27T13:47:18.777488"
     },
     "starbase/gateway-connectivity.md": {
       "source_url": "https://docs.deribit.com/starbase/gateway-connectivity.md",
-      "hash": "1b357d2e4abf35c7cbdac6cbd78ace8b912b4bcf3af7315668d2ca215fb44ca6",
-      "last_updated": "2026-07-23T12:33:41.266822"
+      "hash": "7759df60ff288e9ea194c08b0950d46782da917b7e873ca639837250bce63703",
+      "last_updated": "2026-07-27T13:47:19.648368"
     },
     "starbase/market-model.md": {
       "source_url": "https://docs.deribit.com/starbase/market-model.md",
-      "hash": "97859a754e2b987dc8ea78a9bea6ed1cf0c76311ae9a43653b5e867b17d72072",
-      "last_updated": "2026-07-24T12:29:46.732633"
+      "hash": "af1c149d95371e931ecc94ace64cfbe5f02d81e094bb68638e291bcf07c88c52",
+      "last_updated": "2026-07-27T13:47:20.532629"
     },
     "starbase/mass-cancel.md": {
       "source_url": "https://docs.deribit.com/starbase/mass-cancel.md",
@@ -1332,13 +1332,13 @@
     },
     "starbase/multicast-channels.md": {
       "source_url": "https://docs.deribit.com/starbase/multicast-channels.md",
-      "hash": "46477d5c302a6e28e39db4fdebf0645c7666bc0824d58adae6c56d3a9ddfe881",
-      "last_updated": "2026-07-22T12:49:44.400532"
+      "hash": "2af5964a2723b58a5ec6e67f765a9a0cc041a3ac45b1b3be40adf890c9c577bf",
+      "last_updated": "2026-07-27T13:47:24.009822"
     },
     "starbase/multicast-subscription-guide.md": {
       "source_url": "https://docs.deribit.com/starbase/multicast-subscription-guide.md",
-      "hash": "2bc5d92a8da8f54d175d254c8cbc4ddc1d34d3e80166b2486f8f14bb431e5317",
-      "last_updated": "2026-07-23T12:33:47.500802"
+      "hash": "7652263726285bef0a54eca96358aaec4e3eaf8adfadbccee0ae2f87eb2e1878",
+      "last_updated": "2026-07-27T13:47:24.888801"
     },
     "starbase/order-book-maintenance.md": {
       "source_url": "https://docs.deribit.com/starbase/order-book-maintenance.md",
@@ -1347,8 +1347,8 @@
     },
     "starbase/overview.md": {
       "source_url": "https://docs.deribit.com/starbase/overview.md",
-      "hash": "290f77df465b5f14c53edeac5fe6b2a3fd3e69ed4c50992dc5a9d1e5237924a7",
-      "last_updated": "2026-07-22T12:49:47.379044"
+      "hash": "0346da2a841e9498e886ae0dd6eeba2fd0686cf853525ca5570e7d3d08a54fce",
+      "last_updated": "2026-07-27T13:47:26.363697"
     },
     "starbase/placing-new-order.md": {
       "source_url": "https://docs.deribit.com/starbase/placing-new-order.md",
@@ -1360,25 +1360,30 @@
       "hash": "2811d0a37094ffdf630abe8df708bda69c3f78619af2aa41a398379505f11e40",
       "last_updated": "2026-07-24T12:29:57.947974"
     },
+    "starbase/quickstart.md": {
+      "source_url": "https://docs.deribit.com/starbase/quickstart.md",
+      "hash": "bf13bafb7e4d9615a691c147c58e5bb88d5214d4a802deb95f9d20dc49af6c8a",
+      "last_updated": "2026-07-27T13:47:30.247249"
+    },
     "starbase/reference-data.md": {
       "source_url": "https://docs.deribit.com/starbase/reference-data.md",
-      "hash": "19ab27fc7e8d6d946e6d5db5ab141de6c10a220cb3da2c2b05a3b1e36c7a189a",
-      "last_updated": "2026-07-24T12:29:58.906399"
+      "hash": "650bcfd7d45c0fe5a7289be7c55eeb312ede8ded11da5f9964d0bf9bbefd1ba9",
+      "last_updated": "2026-07-27T13:47:30.864590"
     },
     "starbase/rest-authentication.md": {
       "source_url": "https://docs.deribit.com/starbase/rest-authentication.md",
-      "hash": "31f0b5505dcf4b17973fa371fcc9951bd00690bd03e3013978bdc6e79bac816e",
-      "last_updated": "2026-07-22T12:49:51.607329"
+      "hash": "298b47950396a95998367d8316fd54dadcef38510982a250a312e62ac5996c9c",
+      "last_updated": "2026-07-27T13:47:31.892439"
     },
     "starbase/retransmit-gateway.md": {
       "source_url": "https://docs.deribit.com/starbase/retransmit-gateway.md",
-      "hash": "723ba835631ff50a014655ff5cd9b384bd22f6095702064fde1a9cd8034d2c01",
-      "last_updated": "2026-07-22T12:49:52.676876"
+      "hash": "a1f2af85899f2fb767cbbab9ac12715fea46ddc9db4d95599b5e64ae45475ecf",
+      "last_updated": "2026-07-27T13:47:32.817182"
     },
     "starbase/risk-bypass.md": {
       "source_url": "https://docs.deribit.com/starbase/risk-bypass.md",
-      "hash": "f8dbc62d651852415880413b91fc1f5a4dc2fa81525896e746305c00ea6a9ed4",
-      "last_updated": "2026-07-22T12:49:53.726922"
+      "hash": "8035bbcb7d9f61455f4f2f06da2ec33b5efb7179bbaac1c3d59546898a657601",
+      "last_updated": "2026-07-27T13:47:34.035308"
     },
     "starbase/session-messages.md": {
       "source_url": "https://docs.deribit.com/starbase/session-messages.md",
@@ -1402,8 +1407,8 @@
     },
     "starbase/underlying-tiers.md": {
       "source_url": "https://docs.deribit.com/starbase/underlying-tiers.md",
-      "hash": "afc1cc213539a5f833c9b5fe3c29ce52967538050a691a69deace4c54f6f385c",
-      "last_updated": "2026-07-23T12:34:09.990833"
+      "hash": "192711d308517fc88265757592e6e2ed1bd7fa124b6e8f988514f9ca4eb0f396",
+      "last_updated": "2026-07-27T13:47:39.393723"
     },
     "starbase/unsolicited-events.md": {
       "source_url": "https://docs.deribit.com/starbase/unsolicited-events.md",
@@ -1612,13 +1617,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-07-26T12:15:40.381249",
-    "duration_seconds": 398.891712,
-    "pages_total": 322,
-    "pages_fetched": 322,
+    "completed_at": "2026-07-27T13:48:57.906848",
+    "duration_seconds": 389.924644,
+    "pages_total": 323,
+    "pages_fetched": 323,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-07-26T12:15:40.381266",
+  "last_updated": "2026-07-27T13:48:57.906862",
   "source": "https://docs.deribit.com"
 }

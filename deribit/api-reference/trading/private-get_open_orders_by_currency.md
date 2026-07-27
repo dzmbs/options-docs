@@ -627,4 +627,4 @@ components:
 - [private/get_open_orders_by_label](/api-reference/trading/private-get_open_orders_by_label.md)
 - [private/get_open_orders_by_instrument](/api-reference/trading/private-get_open_orders_by_instrument.md)
 - [private/get_order_history_by_currency](/api-reference/trading/private-get_order_history_by_currency.md)
-- [private/get_subaccounts_details](/api-reference/account-management/private-get_subaccounts_details.md)
+- [Get Open Orders](/api-reference/trading/get-open-orders.md)
