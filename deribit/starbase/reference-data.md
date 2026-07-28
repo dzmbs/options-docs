@@ -16,6 +16,36 @@
   **Multicast is the recommended source for full reference data.** The Starbase REST API exposes a subset of instrument fields and does not include all attributes available in the SBE `InstrumentDefinition` message — for example, `minOrderQuantity` is not available via REST. Use the multicast reference data feed to obtain complete instrument definitions.
 </Note>
 
+## Reference data sources
+
+The Starbase and standard Deribit APIs expose overlapping, but not identical, instrument metadata:
+
+| Source                                                                                 | Access                                                                | Use it for                                                                                                                        |
+| -------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| SBE multicast `InstrumentDefinition`                                                   | Starbase private connectivity                                         | Authoritative Starbase order-entry units, minimum quantity, tick sizes, instrument type, status, and combo legs                   |
+| [Standard `public/get_instruments`](/api-reference/market-data/public-get_instruments) | Standard public JSON-RPC API; Starbase network access is not required | Standard instrument metadata including `contract_size`, `index_id`, and `product_group`                                           |
+| Starbase REST `get_instruments`                                                        | Starbase private connectivity                                         | `index_id`, `product_group`, and a subset of standard instrument metadata; fields such as `contract_size` may be absent or `null` |
+| FIX `SecurityList`                                                                     | Standard FIX session                                                  | FIX contract-based metadata including `ContractMultiplier`                                                                        |
+
+Do not assume that a field available through one interface is available through every other interface. In particular, use the multicast `InstrumentDefinition` when constructing or validating SBE order-entry messages.
+
+## Quantity units and contract size
+
+Starbase does not use contract counts or contract size for matching. All SBE order, quote, trade, and position quantities use Deribit's native **amount**:
+
+| `quantityAsset`                                        | Starbase amount unit |
+| ------------------------------------------------------ | -------------------- |
+| `USD`                                                  | Dollar value         |
+| The instrument's base currency, such as `BTC` or `ETH` | Number of coins      |
+
+Encode amounts directly as [`Decimal72`](/starbase/binary-api-reference#composite-types), determine whether the amount represents dollar value or coins from `quantityAsset`, and validate the value against `minOrderQuantity`.
+
+<Warning>
+  Do not derive a contract count before sending an SBE `quantity`, and do not copy a FIX `OrderQty` expressed in contracts into an SBE message. `contract_size` and FIX `ContractMultiplier` remain available for standard JSON-RPC and FIX workflows, but Starbase does not consume either value.
+</Warning>
+
+Starbase is designed as a closed system for latency-sensitive matching. Broker, clearing, and other account-management workflows remain on the standard Deribit APIs, so applications that use those workflows may still need the standard reference data in addition to the Starbase feed.
+
 ### InstrumentDefinition (10)
 
 | Field | Name                        | Type   | Length | Description                                                                        |
@@ -63,8 +93,8 @@ The table below outlines the content of field 13 (`flags`) of `InstrumentDefinit
 
 ## Related topics
 
+- [Binary API Reference](/starbase/binary-api-reference.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Starbase API Overview](/starbase/overview.md)
 - [Market Data Collection](/articles/market-data-collection-best-practices.md)
 - [public/get_funding_chart_data](/api-reference/market-data/public-get_funding_chart_data.md)
-- [public/get_volatility_index_data](/api-reference/market-data/public-get_volatility_index_data.md)
-- [public/get_index_chart_data](/api-reference/market-data/public-get_index_chart_data.md)

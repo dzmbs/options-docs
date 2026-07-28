@@ -10,6 +10,10 @@
 
 ### Test Environment
 
+<Warning>
+  **The test network does not mirror the production gateway topology.** Test uses a single A/B order-entry pair because the full production hardware footprint is not available in the test environment. Production retains A/B redundancy but is sharded into separate BTC, ETH, Tier 2, and Tier 3 gateway pairs. Build routing from the environment-specific tables below rather than reusing test addresses or connection assumptions in production.
+</Warning>
+
 | Gateway                    | Side | Address                                                | Port        | Protocol                      | AWS Port        |
 | -------------------------- | ---- | ------------------------------------------------------ | ----------- | ----------------------------- | --------------- |
 | sbe-order                  | A    | 195.138.37.137                                         | 4210        | TCP                           | 14210           |
@@ -86,7 +90,7 @@ This means you can connect to different gateway instances using the same API cre
 
 This is done to ensure many API Keys can be given out to a single Portfolio without Portfolio-level bottlenecks becoming an issue.
 
-For a consolidated view of all activity on a single Portfolio, the [FIX Drop Copy API](/starbase/fix-drop-copy-api) is available. Standard Deribit WebSocket APIs (e.g. `private/get_user_trades_by_instrument`) work for trades placed through Starbase, but open orders are not visible via the WebSocket feed — use FIX Drop Copy or an SBE session to see open order state.
+For a consolidated view of all activity on a single Portfolio, the [FIX Drop Copy API](/starbase/fix-drop-copy-api) is available. Standard Deribit WebSocket APIs (e.g. `private/get_user_trades_by_instrument`) work for trades placed through Starbase, but `private/get_open_orders*` and private order subscriptions do not return open Starbase orders. Use the Starbase REST order snapshot, FIX Drop Copy, or an SBE session to see open order state.
 
 
 ## Related topics

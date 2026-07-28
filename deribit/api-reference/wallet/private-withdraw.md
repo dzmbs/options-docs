@@ -308,8 +308,8 @@ components:
 
 ## Related topics
 
+- [Managing Withdrawals](/articles/managing-withdrawals-api.md)
 - [private/cancel_withdrawal](/api-reference/wallet/private-cancel_withdrawal.md)
 - [private/get_withdrawals](/api-reference/wallet/private-get_withdrawals.md)
-- [Managing Withdrawals](/articles/managing-withdrawals-api.md)
 - [private/list_custody_accounts](/api-reference/account-management/private-list_custody_accounts.md)
 - [public/get_currencies](/api-reference/market-data/public-get_currencies.md)

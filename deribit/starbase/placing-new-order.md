@@ -22,6 +22,10 @@ If the order aggresses and is subject to a speed bump, the `NewOrderResponse` is
   **Null values**: Some optional fields use `NULL_LONG` / `NULL_QUANTITY` (`0x8000000000000000L`) as a sentinel to indicate "not set". For example, set `displayAmount = NULL_QUANTITY` to place a non-iceberg order, or `limitPrice = NULL_LONG` for a market order.
 </Info>
 
+<Note>
+  **Quantity units**: Encode `quantity` as `Decimal72` in the instrument's `quantityAsset` and validate it against `minOrderQuantity` from the multicast `InstrumentDefinition`. Do not copy a FIX contract count directly into this field. See [Quantity units and contract size](/starbase/reference-data#quantity-units-and-contract-size).
+</Note>
+
 | Field | Name                  | Type      | Length | Description                                                                                                                                                                                                                                                                            |
 | ----- | --------------------- | --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1     | clientOrderId         | int64     | 8      | Required. Numeric client order ID. Unique per portfolio.                                                                                                                                                                                                                               |

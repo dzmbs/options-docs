@@ -29,6 +29,19 @@ Authorized main accounts can manage their Starbase Members programmatically with
 
 Only subaccounts you intend to trade on Starbase need to belong to a Member. Starbase API key creation is scoped to a Member — see [Creating a Starbase API Key](/starbase/creating-api-key#front-end-interface) — so a subaccount that isn't added to any Member simply has no way to authenticate against Starbase gateways, and therefore has no Starbase rate limit allocation of its own. A subaccount left outside of every Member is unaffected by anything in this page; it continues to trade exclusively through the standard Deribit APIs under the main platform's own limits.
 
+### Using standard APIs alongside Starbase
+
+Adding a portfolio to a Member enables Starbase access; it does not disable standard WebSocket or REST access for that portfolio. Orders submitted through either path affect the same portfolio balances, positions, margin, MMP, and SMP state, but the protocols are not interchangeable:
+
+* Starbase and standard Deribit API keys are separate.
+* Open Starbase orders and their lifecycle events are not available through the standard private WebSocket order feed. Use the originating SBE session or [FIX Drop Copy](/starbase/fix-drop-copy-api).
+* Trades and positions resulting from Starbase orders remain available through the standard private APIs.
+* Rate-limit allocations for Starbase are separate from the main platform's limits.
+
+<Warning>
+  **Mass quoting uses one operating mode per portfolio.** A portfolio can use either legacy JSON-RPC/FIX mass quoting or Starbase mass quoting, but not both concurrently. You can switch the portfolio between Legacy and Starbase mass-quote modes in real time through the API or Account Panel. Stop submission and reconcile resting quotes before switching modes.
+</Warning>
+
 ### Member limits
 
 Rate limits are allocated **per Member** and are shared across all API keys, sessions, and portfolios within that Member. Having more sessions or more portfolios does not increase your rate limits.

@@ -1160,8 +1160,8 @@ components:
 
 ## Related topics
 
+- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
+- [private/cancel_quotes](/api-reference/trading/private-cancel_quotes.md)
+- [private/get_order_state](/api-reference/trading/private-get_order_state.md)
 - [Rate Limits](/articles/rate-limits.md)
 - [private/cancel_all](/api-reference/trading/private-cancel_all.md)
-- [private/cancel_all_by_instrument](/api-reference/trading/private-cancel_all_by_instrument.md)
-- [private/cancel_all_by_currency](/api-reference/trading/private-cancel_all_by_currency.md)
-- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)

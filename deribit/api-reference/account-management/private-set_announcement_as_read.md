@@ -145,5 +145,5 @@ components:
 - [private/get_new_announcements](/api-reference/account-management/private-get_new_announcements.md)
 - [announcements ](/subscriptions/announcements/announcements.md)
 - [public/get_announcements](/api-reference/account-management/public-get_announcements.md)
+- [Starbase API Changelog](/changelogs/starbase.md)
 - [private/set_clearance_originator](/api-reference/wallet/private-set_clearance_originator.md)
-- [private/set_member](/api-reference/account-management/private-set_member.md)

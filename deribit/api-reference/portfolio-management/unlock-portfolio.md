@@ -34,7 +34,10 @@ tags:
   - name: Trading
     description: Authenticated trading endpoints scoped to the caller's portfolio.
   - name: Market Data
-    description: Public reference and market data endpoints. No authentication required.
+    description: >-
+      Unauthenticated Starbase reference and market data endpoints. No API
+      credentials are required, but the Starbase REST gateway is reachable only
+      through private Starbase connectivity.
 paths:
   /api/v2/private/unlock_portfolio:
     get:

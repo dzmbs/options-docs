@@ -10,7 +10,7 @@
 
 Assets are classified into three tiers based on their liquidity. Tier assignments follow [Coinbase International Exchange's perpetual futures tier classification](https://help.coinbase.com/en/international-exchange/perpetual-futures-basics/perpetual-futures-tiers) and determine:
 
-* **Rate limits** — see [API Rate API Rate Limits](/starbase/api-rate-limits)
+* **Rate limits** — see [API Rate Limits](/starbase/api-rate-limits)
 * **Multicast channel assignments** — see [Multicast Channels](/starbase/multicast-channels)
 
 Tier classification is based on the **base currency** of the underlying index. All underlyings sharing the same base currency belong to the same tier — for example, both `BTC_USD` and `BTC_USDC` are Tier 1.
@@ -21,7 +21,9 @@ Tier classification is based on the **base currency** of the underlying index. A
 
 ### Programmatic lookup
 
-The `product_group` field on [`public/get_instruments`](/api-reference/market-data/public-get_instruments) reports this same classification per instrument (values such as `BTC`, `ETH`, `TIER_2`, `TIER_3`), so you can drive gateway/channel routing from that field instead of hard-coding the tables below. Note that `product_group` is a per-instrument classification and does not exactly match the **product group** terminology used for [rate limit](/starbase/api-rate-limits#default-rate-limits) allocation — rate limits are allocated across five groups (BTC, ETH, Altcoin options, Other crypto, RWA), which further splits Tier 2/3 by whether the instrument is an option. Underlying Tier (this page) is the classification that determines gateway and multicast channel assignment.
+The `product_group` field on [`public/get_instruments`](/api-reference/market-data/public-get_instruments) reports this classification per instrument (values such as `BTC`, `ETH`, `TIER_2`, and `TIER_3`), so clients can drive gateway and channel routing from the live response instead of hard-coding the tables below. The field is documented on both the standard JSON-RPC and Starbase REST versions of the endpoint.
+
+`product_group` is a per-instrument routing classification and does not exactly match the **product group** terminology used for [rate-limit](/starbase/api-rate-limits#default-rate-limits) allocation. Rate limits use five groups (BTC, ETH, Altcoin options, Other crypto, and RWA), further splitting Tier 2/3 according to whether the instrument is an option. The underlying tier on this page determines gateway and multicast-channel assignment.
 
 ## Tier 1
 

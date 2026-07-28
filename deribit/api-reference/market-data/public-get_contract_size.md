@@ -131,6 +131,6 @@ components:
 
 - [public/get_instrument](/api-reference/market-data/public-get_instrument.md)
 - [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
+- [Reference Data](/starbase/reference-data.md)
 - [public/get_delivery_prices](/api-reference/market-data/public-get_delivery_prices.md)
 - [public/get_last_trades_by_instrument](/api-reference/market-data/public-get_last_trades_by_instrument.md)
-- [public/get_last_trades_by_instrument_and_time](/api-reference/market-data/public-get_last_trades_by_instrument_and_time.md)

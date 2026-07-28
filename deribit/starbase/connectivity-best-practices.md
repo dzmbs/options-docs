@@ -9,7 +9,7 @@
 Starbase is Deribit's high-performance matching engine and API for clients who are market making or deploying high-frequency strategies. The API provides lower-latency access through several protocols, including SBE order entry, SBE multicast market data, FIX Drop Copy, and REST. Deribit and Starbase are located in **LD4**.
 
 <Info>
-  **Existing Deribit APIs are unaffected.** Standard WebSocket and REST APIs continue to work for all instruments, but will not offer the same latency as the Starbase-native APIs.
+  **Existing Deribit APIs remain available.** Standard WebSocket and REST order entry continue to work for supported instruments, but they are not wire- or behavior-compatible with Starbase SBE. They use separate credentials and sessions, have different response semantics, and do not expose live open-order state for orders submitted through Starbase.
 </Info>
 
 <Note>
@@ -68,6 +68,21 @@ Starbase uses a **separate API key** from your standard Deribit API key. See [Cr
 | SBE — Retransmit      | Request retransmission of missed market data packets      |
 | FIX Drop Copy         | Consolidated account-wide order and trade feed            |
 | REST                  | Utility endpoints (order snapshot, purge, reference data) |
+
+### Compatibility with standard Deribit APIs
+
+“Existing APIs remain available” means clients can continue using the standard APIs alongside Starbase. It does not mean requests, responses, or private event streams are interchangeable.
+
+| Capability                       | Standard WebSocket / JSON-RPC                                             | Starbase                                                                               |
+| -------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Authentication                   | Standard Deribit API key                                                  | Separate Starbase API key                                                              |
+| Order entry                      | JSON-RPC methods                                                          | SBE order-entry messages                                                               |
+| Open Starbase order lifecycle    | Not returned by `private/get_open_orders*` or private order subscriptions | Originating SBE session, Starbase REST order snapshot, or Starbase FIX Drop Copy       |
+| Starbase trades and positions    | Available                                                                 | Available through SBE and FIX Drop Copy                                                |
+| Mass-quote validation            | Each side is validated independently                                      | The entire `MassQuoteRequest` is rejected if any quantity is invalid                   |
+| Reference and configuration APIs | Used for data such as derived statistics and MMP configuration            | SBE provides latency-sensitive trading and market data; REST provides a utility subset |
+
+Design each protocol as a separate adapter and reconcile them through exchange-assigned identifiers and trade/position records. See [Mass Quotes](/starbase/mass-quotes), [Reference Data](/starbase/reference-data), and [FIX Drop Copy](/starbase/fix-drop-copy-api) for the protocol-specific behavior.
 
 ### Recommended Production Architecture
 

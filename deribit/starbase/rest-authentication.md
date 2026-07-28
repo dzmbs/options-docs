@@ -139,4 +139,4 @@ Treat every `401` as terminal for that request. Retry only after fixing the head
 - [Authentication](/articles/authentication.md)
 - [Connectivity Quickstart](/starbase/quickstart.md)
 - [Order Management](/articles/order-management-best-practices.md)
-- [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)

@@ -4,7 +4,9 @@
 
 # List Instruments
 
-> Returns the list of tradeable instruments, optionally filtered by base currency, instrument kind, and expiration status. This endpoint is public — no authentication is required.
+> Returns the list of tradeable instruments, including `index_id` and `product_group`, optionally filtered by base currency, instrument kind, and expiration status.
+
+This endpoint requires no authentication, but it is served by the Starbase REST gateway and is reachable only through hosted colocation, a cross-connect, or AWS Private Link. The standard internet-accessible JSON-RPC `public/get_instruments` method also documents `index_id` and `product_group`; backend rollout of those fields may temporarily differ between the two endpoints.
 
 Filter semantics:
 - `currency` filters by the **base** currency of the instrument's currency pair (case-insensitive match).
@@ -37,7 +39,10 @@ tags:
   - name: Trading
     description: Authenticated trading endpoints scoped to the caller's portfolio.
   - name: Market Data
-    description: Public reference and market data endpoints. No authentication required.
+    description: >-
+      Unauthenticated Starbase reference and market data endpoints. No API
+      credentials are required, but the Starbase REST gateway is reachable only
+      through private Starbase connectivity.
 paths:
   /api/v2/public/get_instruments:
     get:
@@ -45,9 +50,17 @@ paths:
         - Market Data
       summary: List Instruments
       description: >-
-        Returns the list of tradeable instruments, optionally filtered by base
-        currency, instrument kind, and expiration status. This endpoint is
-        public — no authentication is required.
+        Returns the list of tradeable instruments, including `index_id` and
+        `product_group`, optionally filtered by base currency, instrument kind,
+        and expiration status.
+
+
+        This endpoint requires no authentication, but it is served by the
+        Starbase REST gateway and is reachable only through hosted colocation, a
+        cross-connect, or AWS Private Link. The standard internet-accessible
+        JSON-RPC `public/get_instruments` method also documents `index_id` and
+        `product_group`; backend rollout of those fields may temporarily differ
+        between the two endpoints.
 
 
         Filter semantics:
@@ -217,12 +230,18 @@ components:
             - option_combo
             - dated_future
           description: Instrument category.
+        index_id:
+          type: integer
+          format: int64
+          nullable: true
+          description: Numeric identifier for the index associated with the instrument.
         product_group:
           type: string
           nullable: true
           description: >-
-            Product grouping resolved from the base symbol of the instrument's
-            currency pair.
+            Starbase routing group resolved from the base symbol of the
+            instrument's currency pair (for example `BTC`, `ETH`, `TIER_2`, or
+            `TIER_3`).
           example: ETH
         base_currency:
           type: string

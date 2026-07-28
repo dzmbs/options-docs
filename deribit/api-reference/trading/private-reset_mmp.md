@@ -209,8 +209,8 @@ components:
 
 ## Related topics
 
+- [Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
+- [private/set_mmp_config](/api-reference/trading/private-set_mmp_config.md)
 - [private/get_mmp_config](/api-reference/trading/private-get_mmp_config.md)
 - [user.mmp_trigger.(index_name) ](/subscriptions/user/usermmp_triggerindex_name.md)
-- [private/set_mmp_config](/api-reference/trading/private-set_mmp_config.md)
-- [MMProtection Reset(MZ) — Production FIX API](/fix-api/production/mmprotection-reset.md)

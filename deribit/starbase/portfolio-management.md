@@ -60,8 +60,8 @@ Portfolio management complements but does not replace other Starbase risk featur
 
 ## Related topics
 
+- [Connectivity Quickstart](/starbase/quickstart.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
 - [private/simulate_portfolio](/api-reference/account-management/private-simulate_portfolio.md)
 - [Order Management](/articles/order-management-best-practices.md)
 - [Lock Portfolio](/api-reference/portfolio-management/lock-portfolio.md)
-- [Unlock Portfolio](/api-reference/portfolio-management/unlock-portfolio.md)

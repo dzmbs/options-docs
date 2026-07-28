@@ -98,8 +98,8 @@ Retransmit:
 
 ## Related topics
 
+- [Multicast Retransmit Gateway](/starbase/retransmit-gateway.md)
 - [Multicast Subscription Guide](/starbase/multicast-subscription-guide.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Gateway Connectivity](/starbase/gateway-connectivity.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
-- [Underlying Tiers](/starbase/underlying-tiers.md)

@@ -229,5 +229,5 @@ MMP configuration is managed through the JSON-RPC API. To configure MMP settings
 - [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
 - [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
 - [MMProtection Reset(MZ) — Production FIX API](/fix-api/production/mmprotection-reset.md)
-- [private/reset_mmp](/api-reference/trading/private-reset_mmp.md)
-- [private/get_mmp_status](/api-reference/trading/private-get_mmp_status.md)
+- [MMProtection Limits (MM) — Production FIX API](/fix-api/production/mmprotection-limits.md)
+- [MMProtection Limits Result (MR) — Production FIX API](/fix-api/production/mmprotection-limits-result.md)

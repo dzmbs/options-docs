@@ -513,7 +513,7 @@ components:
 ## Related topics
 
 - [public/get_instrument](/api-reference/market-data/public-get_instrument.md)
+- [public/get_order_book_by_instrument_id](/api-reference/market-data/public-get_order_book_by_instrument_id.md)
+- [public/get_order_book](/api-reference/market-data/public-get_order_book.md)
 - [Quickstart Guide](/articles/deribit-quickstart.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [Options Data Collection](/articles/options-data-collection-best-practices.md)
-- [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)

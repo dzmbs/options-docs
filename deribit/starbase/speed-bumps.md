@@ -27,7 +27,7 @@ New orders and quotes will be speed bumped if they aggress. Cancellations will n
 | **Quote replaced to aggress** | Old quote removed and new quote made pending  | Old quote removed and new quote made pending  |
 | **Quote replaced to rest**    | Old quote removed and new quote added to book | Old quote removed and new quote added to book |
 
-The lifecycle of an aggressing order is: acknowledged immediately, held in the FIFO queue for the fixed speed bump duration, then released to the matching engine unchanged.
+The lifecycle of an aggressing order is: accepted by the gateway, held in the FIFO queue for the fixed speed bump duration, then released to the matching engine unchanged. How acceptance is exposed to the client depends on the protocol. The SBE gateway reports the queued state immediately, while WebSocket, REST, and FIX hide this intermediate state.
 
 ```mermaid theme={null}
 sequenceDiagram
@@ -38,11 +38,11 @@ sequenceDiagram
     participant OB as Matching Engine
     M->>GW: New aggressing order / quote
     GW->>SB: Queue order (aggresses)
-    GW-->>M: Immediate ack (pending / queued)
+    Note over M,GW: SBE reports queued immediately.<br/>WebSocket and REST wait for the next state.
     Note over SB: Held for fixed duration (1-10 ms)
-    Note over M: Only the owner is told it is pending
     SB->>OB: Released after speed bump (unchanged)
-    OB-->>M: Placed / fills
+    OB-->>GW: Open / filled / cancelled
+    GW-->>M: Protocol response or event
 ```
 
 ## Mass Quotes
@@ -102,6 +102,8 @@ If a cancel reaches the matching engine before the order it targets (for example
 
 **Event-driven release**: The speed bump is not a precise hardware timer. Pending orders are checked for release on every incoming message. In practice this means the delay is very close to the configured duration, but may be marginally longer during quiet periods. This has no effect on execution outcomes — any message that would allow the order to release would itself have triggered the evaluation.
 
+**WebSocket and REST visibility**: A speed bump is exposed as additional response latency, not as an order-state transition. A request does not return `order_state = "speed_bumped"`; it waits until the order reaches another state such as `open`, `filled`, or `cancelled`. The intermediate state is also suppressed from `users.changes.*.*` notifications. A speed-bumped order may temporarily appear with `order_state = "speed_bumped"` when querying open orders.
+
 ## Self Match Prevention and Speed Bumps
 
 When a self-match is detected on a taker order that is currently speed-bumped and was submitted via the SBE gateway, the SMP mode is overridden to `CANCEL_MAKER` regardless of the value in the request. Orders submitted via the WebSocket API may use `CANCEL_TAKER` regardless of speed-bump state.
@@ -128,14 +130,9 @@ When a new order or quote aggresses and is speed bumped, the gateway immediately
 
 ### FIX Gateway
 
-For speed bumped orders, the FIX gateway sends an `ExecutionReport (8)` for every state transition, including the queued state.
+The FIX gateway suppresses the queued speed-bump state. It does not send an `ExecutionReport (8)` with `OrdStatus = A` (Pending New) or `OrdStatus = E` (Pending Replace) for this transition. The first report reflects the next externally visible state, such as New (`0`), Partially Filled (`1`), Filled (`2`), or Canceled (`4`).
 
-| Event                       | First ExecutionReport (`OrdStatus`) | Second ExecutionReport (`OrdStatus`)           |
-| --------------------------- | ----------------------------------- | ---------------------------------------------- |
-| New order speed bumped      | `A` (Pending New)                   | `0` (New) upon placement, or `1`/`2` if filled |
-| Cancel/Replace speed bumped | `E` (Pending Replace)               | `0` (New) upon placement, or `1`/`2` if filled |
-
-See [Execution Reports](/fix-api/production/execution-reports) for the full field specifications including the `OrdStatus` values.
+See [Execution Reports](/fix-api/production/execution-reports) for the full field specifications.
 
 
 ## Related topics
@@ -143,5 +140,5 @@ See [Execution Reports](/fix-api/production/execution-reports) for the full fiel
 - [Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
 - [Self Match Prevention (SMP)](/starbase/smp.md)
+- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
 - [Mass Cancel](/starbase/mass-cancel.md)
-- [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)

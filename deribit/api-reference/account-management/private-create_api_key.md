@@ -329,8 +329,8 @@ components:
 
 ## Related topics
 
+- [Asymmetric API Keys](/articles/asymmetric-api-keys.md)
 - [Creating new API key](/articles/creating-api-key.md)
 - [Connectivity Quickstart](/starbase/quickstart.md)
 - [Managing Transfers](/articles/managing-transfers-api.md)
 - [private/remove_api_key](/api-reference/account-management/private-remove_api_key.md)
-- [private/disable_api_key](/api-reference/account-management/private-disable_api_key.md)

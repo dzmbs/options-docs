@@ -647,7 +647,7 @@ Response Example
 | px | String | Trade price |
 | sz | String | Trade quantity For spot trading, the unit is base currencyFor `FUTURES`/`SWAP`/`OPTION`, the unit is contract. |
 | side | String | Trade side of taker `buy` `sell` |
-| source | String | Order source `0`: normal order `1`: Enhanced Liquidity Program order |
+| source | String | Order source `0`: normal order `1`: RPI order |
 | ts | String | Trade time, Unix timestamp format in milliseconds, e.g. `1597026383085`. |
 
 Up to 500 most recent historical public transaction data can be retrieved.
@@ -1627,7 +1627,9 @@ Use `books` for 400 depth levels, `books5` for 5 depth levels, `bbo-tbt` tick-by
 
 - `books`: 400 depth levels will be pushed in the initial full snapshot. Incremental data will be pushed every 100 ms for the changes in the order book during that period of time.
 
-- `books-elp`: only push ELP orders. 400 depth levels will be pushed in the initial full snapshot. Incremental data will be pushed every 100 ms for the changes in the order book during that period of time.
+- `books-elp`: (Deprecated; use `books-rpi`) only push ELP orders. 400 depth levels will be pushed in the initial full snapshot. Incremental data will be pushed every 100 ms for the changes in the order book during that period of time.
+
+- `books-rpi`: consolidated organic and RPI depth. 400 depth levels will be pushed in the initial full snapshot. Incremental data will be pushed every 100 ms. No `checksum`; sequencing relies on `seqId`/`prevSeqId`. Each `asks`/`bids` element is `[price, totalQty, nonRpiQty, count]`. Supersedes `books-elp`.
 
 - `books5`: 5 depth levels snapshot will be pushed in the initial push. Snapshot data will be pushed every 100 ms when there are changes in the 5 depth levels snapshot.
 
@@ -1637,7 +1639,7 @@ Use `books` for 400 depth levels, `books5` for 5 depth levels, `bbo-tbt` tick-by
 
 - `books50-l2-tbt`: 50 depth levels will be pushed in the initial full snapshot. Incremental data will be pushed every 10 ms for the changes in the order book during that period of time.
 
-- The push sequence for order book channels within the same connection and trading symbols is fixed as: bbo-tbt -> books-l2-tbt -> books50-l2-tbt -> books -> books-elp -> books5.
+- The push sequence for order book channels within the same connection and trading symbols is fixed as: bbo-tbt -> books-l2-tbt -> books50-l2-tbt -> books -> books-elp -> books-rpi -> books5.
 
 - Users can not simultaneously subscribe to `books-l2-tbt` and `books50-l2-tbt/books` channels for the same trading symbol.
 

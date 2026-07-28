@@ -160,8 +160,8 @@ components:
 
 ## Related topics
 
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [public/get_index_price](/api-reference/market-data/public-get_index_price.md)
 - [public/get_supported_index_names](/api-reference/market-data/public-get_supported_index_names.md)
 - [public/get_index_chart_data](/api-reference/market-data/public-get_index_chart_data.md)
 - [public/get_delivery_prices](/api-reference/market-data/public-get_delivery_prices.md)
-- [public/get_mark_price_history](/api-reference/market-data/public-get_mark_price_history.md)

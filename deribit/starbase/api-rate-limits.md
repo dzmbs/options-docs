@@ -112,6 +112,14 @@ Each gateway consists of two independent gateways (A and B). Both gateways enfor
 
 Rate limit allocations are reviewed periodically. The contribution of trading members is assessed to ensure their performance aligns with allocated rate limits. Rate limits are not adjusted automatically and only change with prior notice.
 
+### Change notifications
+
+* Changes to default limits, token costs, or rate-limit behavior are recorded in the [Starbase Changelog](/changelogs/starbase).
+* Member-specific allocation changes are communicated to the affected member before they take effect. Confirm your production allocation with your Account Manager rather than assuming that the defaults on this page apply.
+* Changes to underlying tiers follow the separate [Tier Change Policy](/starbase/underlying-tiers#tier-change-policy).
+
+Review the changelog and the upcoming documentation version before deploying a new schema or changing production capacity assumptions.
+
 ## Other Limits
 
 ### API Key Limits
@@ -131,8 +139,8 @@ The number of orders and quotes active at any time is limited per member. The de
 
 ## Related topics
 
+- [Rate Limits](/articles/rate-limits.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Order Management](/articles/order-management-best-practices.md)
 - [Underlying Tiers](/starbase/underlying-tiers.md)
 - [Connectivity Quickstart](/starbase/quickstart.md)
-- [Mass Quotes](/starbase/mass-quotes.md)
-- [Rate Limits](/articles/rate-limits.md)

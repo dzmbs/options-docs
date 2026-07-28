@@ -427,6 +427,6 @@ Finally, you can log out and invalidate tokens using [`private/logout`](/api-ref
 
 - [Creating new API key](/articles/creating-api-key.md)
 - [REST Order Gateway Authentication](/starbase/rest-authentication.md)
+- [Asymmetric API Keys](/articles/asymmetric-api-keys.md)
 - [Error Codes](/articles/errors.md)
 - [Quickstart Guide](/articles/deribit-quickstart.md)
-- [Security Keys](/articles/security-keys.md)

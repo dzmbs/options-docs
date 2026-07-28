@@ -8,11 +8,15 @@
 
 Starbase is Deribit's high-performance matching engine designed for institutional trading and market makers. Equipped with a **Simple Binary Encoding (SBE)** API, Starbase provides direct access to the matching engine with ultra-low latency, making it ideal for high-frequency trading applications.
 
-Standard Deribit WebSocket APIs (e.g. `private/get_user_trades_by_instrument`) also work for orders placed through Starbase. A **REST** API with utility endpoints such as an order purge or order snapshot will also be added.
+Starbase and the standard Deribit APIs are separate order-entry protocols with different credentials, sessions, responses, and order-state visibility. Trades and positions resulting from Starbase orders are available through the standard WebSocket API, but standard JSON-RPC `private/get_open_orders*` methods and private order subscriptions do not return open Starbase orders or their lifecycle updates. Use an SBE order-entry session, the Starbase REST order snapshot, or [FIX Drop Copy](/starbase/fix-drop-copy-api) for Starbase order state. The Starbase **REST** gateway also provides utility endpoints such as portfolio-wide cancellation.
 
 <Info>
   Two versions of the API documentation are available. You can switch between them using the version selector button at the top of the page. Changes in the upcoming version will be available in the production version after the next release. For release notes and information about upcoming releases, see the [Starbase Changelog](/changelogs/starbase).
 </Info>
+
+<Card title="Starbase Changelog" icon="clock-rotate-left" href="/changelogs/starbase">
+  Review dated schema releases, gateway changes, rollout announcements, and compatibility notes before upgrading or deploying to production.
+</Card>
 
 <Info>
   Starbase is accessible exclusively through **hosted colocation** or a **cross-connect** in LD4, or through **AWS Private Link** for clients connecting from AWS infrastructure. Internet connectivity is not supported. Contact <a href="mailto:colo-support@coinbase.com" style={{ whiteSpace: "nowrap" }}>[colo-support@coinbase.com](mailto:colo-support@coinbase.com)</a> to arrange access.
@@ -58,11 +62,23 @@ Standard Deribit WebSocket APIs (e.g. `private/get_user_trades_by_instrument`) a
   </Card>
 </CardGroup>
 
+## Integration resources
+
+<CardGroup cols={2}>
+  <Card title="Connectivity Quickstart" icon="rocket" href="/starbase/quickstart">
+    Validate network access, sessions, market data, recovery, and production readiness.
+  </Card>
+
+  <Card title="Reference Data" icon="database" href="/starbase/reference-data">
+    Identify the authoritative source for instrument units, tick sizes, tiers, and other metadata.
+  </Card>
+</CardGroup>
+
 
 ## Related topics
 
 - [Starbase API Changelog](/changelogs/starbase.md)
+- [Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [Connectivity Quickstart](/starbase/quickstart.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
-- [Underlying Tiers](/starbase/underlying-tiers.md)
-- [Speed Bumps](/starbase/speed-bumps.md)

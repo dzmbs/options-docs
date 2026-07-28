@@ -111,6 +111,6 @@ Snapshots are made up of `Buy Put (21)`  and `Sell Put (21)`  messages. Each sna
 
 - [public/get_order_book](/api-reference/market-data/public-get_order_book.md)
 - [public/get_order_book_by_instrument_id](/api-reference/market-data/public-get_order_book_by_instrument_id.md)
+- [Order Management](/articles/order-management-best-practices.md)
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
 - [Notifications](/articles/notifications.md)
-- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)

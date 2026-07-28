@@ -22,6 +22,12 @@
   **Quote quantity validation is all-or-nothing**: If any quote entry in a `MassQuoteRequest` contains an invalid `buyAmount` or `sellAmount`, the **entire request is rejected** and a `MassQuoteReject` (232) is returned — no quotes in the message are processed. This differs from the JSON-RPC mass quote system, where each side is validated independently and one side may succeed while the other fails.
 </Warning>
 
+<Warning>
+  **One mass-quote operating mode per portfolio**: A portfolio cannot use legacy JSON-RPC/FIX mass quoting and Starbase mass quoting concurrently. Mass-quote updates replace the resting quote, so accepting both paths at the same time could produce inconsistent quote state. Select either **Legacy** or **Starbase** mass-quote mode for the portfolio.
+</Warning>
+
+The operating mode can be switched in real time through the API or Account Panel. Before switching, stop quote submission on the current path and reconcile or cancel its resting quotes. Mass-quote enablement remains separate from regular order-entry access.
+
 <Info>
   **Rate limiting and cancels**: Setting a quote's `bidQty` or `askQty` to `0` cancels that side. A `MassQuoteRequest` where **all** quantities are zero is treated as a cancel: it consumes tokens from the mass quote bucket but is never rejected due to rate limits, even when throttled. Any message containing at least one non-zero quantity is subject to normal rate limiting. See [API Rate Limits](/starbase/api-rate-limits) for details.
 </Info>

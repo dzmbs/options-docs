@@ -220,6 +220,6 @@ Deribit provides three different interfaces to access the API:
 
 - [Welcome to Deribit API](/index.md)
 - [Connectivity Quickstart](/starbase/quickstart.md)
+- [Starbase API Overview](/starbase/overview.md)
 - [Multicast Subscription Guide](/starbase/multicast-subscription-guide.md)
 - [Managing Subaccounts](/articles/managing-subaccounts-api.md)
-- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)

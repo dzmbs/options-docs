@@ -181,8 +181,8 @@ Send network and multicast issues to <a href="mailto:colo-support@coinbase.com" 
 
 ## Related topics
 
+- [Starbase API Overview](/starbase/overview.md)
 - [Quickstart Guide](/articles/deribit-quickstart.md)
 - [Gateway Connectivity](/starbase/gateway-connectivity.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Welcome to Deribit API](/index.md)
-- [Starbase API Overview](/starbase/overview.md)

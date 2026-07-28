@@ -58,6 +58,7 @@ Response Example
  "ctValCcy": "",
  "contTdSwTime": "1704876947000",
  "elp": "0",
+ "rpi": "0",
  "expTime": "",
  "futureSettlement": false,
  "groupId": "4",
@@ -136,6 +137,7 @@ Response Example
 | preMktSwTime | String | The time a pre-market instrument switched to normal trading, Unix timestamp format in milliseconds, e.g. `1597026383085`. Only applicable to pre-market `SWAP` and pre-market X-Perp `FUTURES`. Populated when a pre-market X-Perp converts to a normal X-Perp |
 | openType | String | Open type `fix_price`: fix price opening`pre_quote`: pre-quote`call_auction`: call auction Only applicable to `SPOT`/`MARGIN`, return "" for all other business lines |
 | elp | String | ELP maker permission`0`: ELP is not enabled for this symbol`1`: ELP is enabled for this symbol, but current users don't have permission to place ELP orders for it. `2`: ELP is enabled for this symbol, and current users have permission to place ELP orders for it. It doesn't mean there will be ELP liquidity when elp is `1/2`. |
+| rpi | String | RPI maker permission.`0`: not enabled for this instrument`1`: enabled, but the current user has no permission to place RPI orders`2`: enabled and permittedA `1`/`2` value does not imply RPI liquidity is present.`elp` remains accepted as an alias until October 31, 2026. |
 | expTime | String | Expiry time Applicable to `SPOT`/`MARGIN`/`FUTURES`/`SWAP`/`OPTION`. For `FUTURES`/`OPTION`, it is natural delivery/exercise time. It is the instrument offline time when there is `SPOT/MARGIN/FUTURES/SWAP/` manual offline. Update once change. |
 | lever | String | Max Leverage, Not applicable to `SPOT`, `OPTION` |
 | tickSz | String | Tick size, e.g. `0.0001`.For `OPTION`/`EVENTS`, it is the minimum tickSz among tick band. Use "Get instrument tick bands" endpoint with the corresponding `instType` for accurate tickSz per price range. |
@@ -2304,6 +2306,7 @@ Response Example
  "feeGroup": [
  {
  "elpMaker": "-0.0008",
+ "rpiMaker": "-0.0008",
  "groupId": "1",
  "maker": "-0.0008",
  "taker": "-0.001"
@@ -2337,6 +2340,7 @@ Response Example
 | > maker | String | Maker feeK2 parameter for `EVENTS` maker fee formula: `K2 × C × (P × (1-P))` (C = number of contracts, P = price) |
 | > groupId | String | Instrument trading fee group IDinstType and groupId should be used together to determine a trading fee group. Users should use this endpoint together with instruments endpoint to get the trading fee of a specific symbol. |
 | > elpMaker | String | ELP Maker effective fee rate. Returns `""` if ELP is not applicable to the instrument. |
+| > rpiMaker | String | RPI maker effective fee rate. Returns `""` if RPI is not applicable to the instrument.`elpMaker` remains accepted as an alias until October 31, 2026. |
 | delivery | String | Delivery fee rate |
 | exercise | String | Fee rate for exercising the option |
 | instType | String | Instrument type |
