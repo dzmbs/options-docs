@@ -121,7 +121,7 @@ Starbase rate limits are applied **per Member, per gateway, and per quoting type
 
 Before production:
 
-* Estimate steady-state and burst order rates by product group.
+* Estimate steady-state and burst order rates by product tier.
 * Separate single-order traffic from [mass-quote](/starbase/mass-quotes) traffic.
 * Use both A and B gateways where appropriate.
 * Confirm the number of API keys and active orders required.

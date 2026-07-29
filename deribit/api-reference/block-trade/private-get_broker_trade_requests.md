@@ -252,8 +252,8 @@ components:
                   Nonce for approving or rejecting the broker block trade
                   request.
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````

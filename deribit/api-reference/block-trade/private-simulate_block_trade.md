@@ -175,8 +175,8 @@ components:
           type: boolean
           description: '`true` if block trade can be executed, `false` otherwise'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PrivateSimulateBlockTradeResponse:

@@ -226,8 +226,8 @@ components:
               - frozen_until
               - mmp_group
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     index_name:
       enum:

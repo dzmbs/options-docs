@@ -108,8 +108,8 @@ components:
           required:
             - contract_size
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     contract_size:
       example: 10

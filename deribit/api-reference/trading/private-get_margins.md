@@ -177,8 +177,8 @@ components:
             - max_price
           type: object
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     min_price:
       type: number

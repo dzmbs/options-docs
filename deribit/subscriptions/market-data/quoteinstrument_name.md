@@ -225,6 +225,6 @@ securitySchemes: []
 
 - [Notifications](/articles/notifications.md)
 - [user.trades.(instrument_name).(interval) ](/subscriptions/user/usertradesinstrument_nameinterval.md)
+- [book.(instrument_name).(interval) ](/subscriptions/orderbook/bookinstrument_nameinterval.md)
+- [book.(instrument_name).(group).(depth).(interval) ](/subscriptions/orderbook/bookinstrument_namegroupdepthinterval.md)
 - [private/cancel_quotes](/api-reference/trading/private-cancel_quotes.md)
-- [Mass Quotes](/starbase/mass-quotes.md)
-- [private/cancel_all_by_instrument](/api-reference/trading/private-cancel_all_by_instrument.md)

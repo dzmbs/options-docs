@@ -174,8 +174,8 @@ components:
           items:
             $ref: '#/components/schemas/pending_block_trade'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     pending_block_trade:
       properties:

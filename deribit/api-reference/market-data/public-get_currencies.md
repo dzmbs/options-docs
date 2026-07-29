@@ -142,8 +142,8 @@ components:
           items:
             $ref: '#/components/schemas/currency_with_apr'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     currency_with_apr:
       properties:

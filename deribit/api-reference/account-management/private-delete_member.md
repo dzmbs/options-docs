@@ -145,8 +145,8 @@ components:
         result:
           $ref: '#/components/schemas/members_list'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     members_list:
       properties:

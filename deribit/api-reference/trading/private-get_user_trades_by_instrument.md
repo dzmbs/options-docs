@@ -229,8 +229,8 @@ components:
             - trades
             - has_more
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     user_trade:
       properties:
@@ -248,6 +248,19 @@ components:
             Optional field: the Starbase causal timestamp of the trade, in
             nanoseconds since the UNIX epoch (present only for trades matched in
             Starbase)
+        starbase_order_id:
+          type: integer
+          example: 103148386170
+          description: >-
+            Raw Starbase order id of the user's order, in Starbase's own (non
+            currency-prefixed) id namespace (present only for trades matched in
+            Starbase)
+        starbase_client_order_id:
+          type: string
+          description: >-
+            Client order id of the user's own order (maker or taker side) as
+            sent to Starbase; for self-trades this is the taker order's client
+            order id (present only for trades matched in Starbase)
         order_type:
           type: string
           enum:
@@ -255,6 +268,8 @@ components:
             - market
             - liquidation
           description: 'Order type: `"limit`, `"market"`, or `"liquidation"`'
+        original_order_type:
+          $ref: '#/components/schemas/original_order_type'
         advanced:
           type: string
           enum:
@@ -365,8 +380,9 @@ components:
             Optional field containing leg trades if trade is a combo trade
             (present when querying for **only** combo trades and in
             `combo_trades` events). Each leg trade has the same fields as a
-            top-level user trade, including `starbase_match_id` and
-            `starbase_timestamp` when matched via Starbase.
+            top-level user trade, including `starbase_match_id`,
+            `starbase_order_id`, `starbase_client_order_id`, and
+            `starbase_timestamp` when matched in Starbase.
         combo_id:
           type: string
           description: >-
@@ -468,6 +484,15 @@ components:
       description: >-
         The Starbase causal timestamp of the trade (nanoseconds since the Unix
         epoch)
+    original_order_type:
+      enum:
+        - market
+        - market_limit
+      type: string
+      description: >-
+        Original API order type when an order is represented internally as a
+        limit order. For example, Starbase market orders use `"limit"` as
+        `order_type` with `"market"` in this optional field.
     direction:
       enum:
         - buy

@@ -22,7 +22,7 @@ Voice Broker Trading enables a licensed broker to execute block trades on behalf
 
 [**`private/get_broker_clients`**](/api-reference/block-trade/private-get_broker_clients) — Scope: `block_trade:read`
 
-Returns all clients registered under the broker account. Use this endpoint to look up the `client_id` and `client_link_id` values required by other broker methods such as [`private/execute_broker_trade`](/api-reference/block-trade/private-execute_broker_trade).
+Returns all clients registered under the broker account. Use this endpoint to look up the `client_id` and `client_link_id` values required by other broker methods such as `private/execute_broker_trade`.
 
 Each client record contains:
 
@@ -44,7 +44,7 @@ Call this endpoint without parameters to retrieve all clients, locate the client
 
 ## Broker: Execute a Trade
 
-[**`private/execute_broker_trade`**](/api-reference/block-trade/private-execute_broker_trade) — Scope: `block_trade:read_write`
+**`private/execute_broker_trade`** — Scope: `block_trade:read_write`
 
 Submits both sides in one call. `direction` is always from the **maker's perspective**.
 
@@ -122,7 +122,7 @@ Side `state.value`: `initial` → `approved` / `rejected`. The trade executes on
 
 ## Broker: Cancel a Pending Trade
 
-[**`private/cancel_broker_trade_request`**](/api-reference/block-trade/private-cancel_broker_trade_request) — Scope: `block_trade:read_write`
+**`private/cancel_broker_trade_request`** — Scope: `block_trade:read_write`
 
 Cancels a pending trade using the `nonce` and `timestamp` from the execute response.
 
@@ -241,8 +241,8 @@ Broker trades appear in regular block trade history. Filter by broker using the 
 **Broker**
 
 * [`private/get_broker_clients`](/api-reference/block-trade/private-get_broker_clients) — List registered clients and their link IDs
-* [`private/execute_broker_trade`](/api-reference/block-trade/private-execute_broker_trade) — Submit a block trade on behalf of two clients
-* [`private/cancel_broker_trade_request`](/api-reference/block-trade/private-cancel_broker_trade_request) — Cancel a pending trade request
+* `private/execute_broker_trade` — Submit a block trade on behalf of two clients
+* `private/cancel_broker_trade_request` — Cancel a pending trade request
 * [`private/get_broker_trade_requests`](/api-reference/block-trade/private-get_broker_trade_requests) — List pending and recently settled trade requests
 * [`private/get_broker_trades`](/api-reference/block-trade/private-get_broker_trades) — Broker's completed trade history
 

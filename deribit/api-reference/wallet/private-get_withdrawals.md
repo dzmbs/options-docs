@@ -152,8 +152,8 @@ components:
             - data
             - count
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     withdrawal:
       properties:

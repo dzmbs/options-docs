@@ -202,8 +202,8 @@ components:
               $ref: '#/components/schemas/continuation'
           type: object
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     block_rfq:
       properties:

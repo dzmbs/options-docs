@@ -157,8 +157,8 @@ components:
             - ok
           description: Result of method execution. `ok` in case of success
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````

@@ -158,6 +158,21 @@ operations:
                           The Starbase causal timestamp of the trade
                           (nanoseconds since the Unix epoch)
                         required: false
+                      - name: starbase_order_id
+                        type: integer
+                        description: >-
+                          Raw Starbase order id of the user's order, in
+                          Starbase's own (non currency-prefixed) id namespace
+                          (present only for trades matched in Starbase)
+                        required: false
+                      - name: starbase_client_order_id
+                        type: string
+                        description: >-
+                          Client order id of the user's own order (maker or
+                          taker side) as sent to Starbase; for self-trades this
+                          is the taker order's client order id (present only for
+                          trades matched in Starbase)
+                        required: false
                       - name: order_type
                         type: string
                         description: 'Order type: `"limit`, `"market"`, or `"liquidation"`'
@@ -165,6 +180,17 @@ operations:
                           - limit
                           - market
                           - liquidation
+                        required: false
+                      - name: original_order_type
+                        type: string
+                        description: >-
+                          Original API order type when an order is represented
+                          internally as a limit order. For example, Starbase
+                          market orders use `"limit"` as `order_type` with
+                          `"market"` in this optional field.
+                        enumValues:
+                          - market
+                          - market_limit
                         required: false
                       - name: advanced
                         type: string
@@ -351,8 +377,9 @@ operations:
                           combo trade (present when querying for **only** combo
                           trades and in `combo_trades` events). Each leg trade
                           has the same fields as a top-level user trade,
-                          including `starbase_match_id` and `starbase_timestamp`
-                          when matched via Starbase.
+                          including `starbase_match_id`, `starbase_order_id`,
+                          `starbase_client_order_id`, and `starbase_timestamp`
+                          when matched in Starbase.
                         required: false
                       - name: combo_id
                         type: string
@@ -442,17 +469,9 @@ operations:
                         required: true
                       - name: order_state
                         type: string
-                        description: >
+                        description: >-
                           Order state: `"open"`, `"filled"`, `"rejected"`,
-                          `"cancelled"`, `"untriggered"`, `"speed_bumped"`
-
-
-                          `"speed_bumped"` appears on orders on instruments
-                          which have a speed bump configured, see
-
-                          [Speed
-                          Bumps](https://docs.deribit.com/starbase/speed-bumps)
-                          for an explanation.
+                          `"cancelled"`, `"untriggered"`
                         enumValues:
                           - open
                           - filled
@@ -460,7 +479,6 @@ operations:
                           - cancelled
                           - untriggered
                           - triggered
-                          - speed_bumped
                         required: true
                       - name: order_type
                         type: string
@@ -479,7 +497,11 @@ operations:
                         required: true
                       - name: original_order_type
                         type: string
-                        description: Original order type. Optional field
+                        description: >-
+                          Original API order type when an order is represented
+                          internally as a limit order. For example, Starbase
+                          market orders use `"limit"` as `order_type` with
+                          `"market"` in this optional field.
                         enumValues:
                           - market
                           - market_limit
@@ -526,8 +548,17 @@ operations:
                         description: >-
                           The Starbase causal timestamp (nanoseconds since the
                           Unix epoch) of the last book update that affected this
-                          order. Present only for orders placed in Starbase; not
-                          always available for direct access orders
+                          order. Present only for orders placed in Starbase,
+                          including combo leg order updates; not always
+                          available for direct access orders
+                        required: false
+                      - name: starbase_client_order_id
+                        type: string
+                        description: >-
+                          Client order id sent to Starbase when the order was
+                          placed (present only for orders placed in Starbase;
+                          combo legs inherit the parent combo order's client
+                          order id)
                         required: false
                       - name: direction
                         type: string
@@ -741,7 +772,8 @@ operations:
                         description: >-
                           Raw Starbase order id, in Starbase's own (non
                           currency-prefixed) id namespace. Only present for
-                          orders matched on Starbase.
+                          orders placed in Starbase. Combo leg orders expose the
+                          parent combo order's Starbase order id.
                         required: false
                       - name: app_name
                         type: string
@@ -771,7 +803,11 @@ operations:
                           (the oco order linked to this order was closed),
                           `"oto_primary_closed"` (the oto primary order that was
                           going to trigger this order was cancelled),
-                          `"settlement"` (closed because of a settlement)
+                          `"settlement"` (closed because of a settlement event,
+                          e.g. good-til-day orders are cancelled when an
+                          instrument enters the daily settlement). Note: orders
+                          cancelled because an instrument expired (delivery)
+                          currently do not include a `cancel_reason` field.
                         enumValues:
                           - user_request
                           - autoliquidation
@@ -966,7 +1002,7 @@ operations:
                   type: string
                   description: Unique instrument identifier
                   example: BTC-PERPETUAL
-                  x-parser-schema-id: <anonymous-schema-968>
+                  x-parser-schema-id: <anonymous-schema-988>
                 trades:
                   type: object
                   description: ''
@@ -974,30 +1010,46 @@ operations:
                     trade_id:
                       type: string
                       description: Unique (per currency) trade identifier
-                      x-parser-schema-id: <anonymous-schema-970>
+                      x-parser-schema-id: <anonymous-schema-990>
                     trade_seq:
                       description: The sequence number of the trade within instrument
                       type: integer
-                      x-parser-schema-id: <anonymous-schema-971>
+                      x-parser-schema-id: <anonymous-schema-991>
                     instrument_name:
                       type: string
                       description: Unique instrument identifier
                       example: BTC-PERPETUAL
-                      x-parser-schema-id: <anonymous-schema-972>
+                      x-parser-schema-id: <anonymous-schema-992>
                     timestamp:
                       description: >-
                         The timestamp of the trade (milliseconds since the UNIX
                         epoch)
                       example: 1517329113791
                       type: integer
-                      x-parser-schema-id: <anonymous-schema-973>
+                      x-parser-schema-id: <anonymous-schema-993>
                     starbase_timestamp:
                       type: integer
                       example: 1536569522277000000
                       description: >-
                         The Starbase causal timestamp of the trade (nanoseconds
                         since the Unix epoch)
-                      x-parser-schema-id: <anonymous-schema-974>
+                      x-parser-schema-id: <anonymous-schema-994>
+                    starbase_order_id:
+                      type: integer
+                      description: >-
+                        Raw Starbase order id of the user's order, in Starbase's
+                        own (non currency-prefixed) id namespace (present only
+                        for trades matched in Starbase)
+                      example: 103148386170
+                      x-parser-schema-id: <anonymous-schema-995>
+                    starbase_client_order_id:
+                      type: string
+                      description: >-
+                        Client order id of the user's own order (maker or taker
+                        side) as sent to Starbase; for self-trades this is the
+                        taker order's client order id (present only for trades
+                        matched in Starbase)
+                      x-parser-schema-id: <anonymous-schema-996>
                     order_type:
                       type: string
                       description: 'Order type: `"limit`, `"market"`, or `"liquidation"`'
@@ -1005,7 +1057,18 @@ operations:
                         - limit
                         - market
                         - liquidation
-                      x-parser-schema-id: <anonymous-schema-975>
+                      x-parser-schema-id: <anonymous-schema-997>
+                    original_order_type:
+                      type: string
+                      description: >-
+                        Original API order type when an order is represented
+                        internally as a limit order. For example, Starbase
+                        market orders use `"limit"` as `order_type` with
+                        `"market"` in this optional field.
+                      enum:
+                        - market
+                        - market_limit
+                      x-parser-schema-id: <anonymous-schema-998>
                     advanced:
                       type: string
                       description: >-
@@ -1014,24 +1077,24 @@ operations:
                       enum:
                         - usd
                         - implv
-                      x-parser-schema-id: <anonymous-schema-976>
+                      x-parser-schema-id: <anonymous-schema-999>
                     order_id:
                       type: string
                       description: >-
                         Id of the user order (maker or taker), i.e. subscriber's
                         order id that took part in the trade
-                      x-parser-schema-id: <anonymous-schema-977>
+                      x-parser-schema-id: <anonymous-schema-1000>
                     matching_id:
                       type: string
                       description: Always `null`
-                      x-parser-schema-id: <anonymous-schema-978>
+                      x-parser-schema-id: <anonymous-schema-1001>
                     direction:
                       type: string
                       description: 'Direction: `buy`, or `sell`'
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-979>
+                      x-parser-schema-id: <anonymous-schema-1002>
                     tick_direction:
                       type: integer
                       enum:
@@ -1043,38 +1106,38 @@ operations:
                         Direction of the "tick" (`0` = Plus Tick, `1` =
                         Zero-Plus Tick, `2` = Minus Tick, `3` = Zero-Minus
                         Tick).
-                      x-parser-schema-id: <anonymous-schema-980>
+                      x-parser-schema-id: <anonymous-schema-1003>
                     index_price:
                       type: number
                       description: Index Price at the moment of trade
-                      x-parser-schema-id: <anonymous-schema-981>
+                      x-parser-schema-id: <anonymous-schema-1004>
                     price:
                       description: Price in base currency
                       type: number
-                      x-parser-schema-id: <anonymous-schema-982>
+                      x-parser-schema-id: <anonymous-schema-1005>
                     amount:
                       type: number
                       description: >-
                         Trade amount. For perpetual and inverse futures the
                         amount is in USD units. For options and linear futures
                         it is the underlying base currency coin.
-                      x-parser-schema-id: <anonymous-schema-983>
+                      x-parser-schema-id: <anonymous-schema-1006>
                     contracts:
                       type: number
                       description: >-
                         Trade size in contract units (optional, may be absent in
                         historical trades)
-                      x-parser-schema-id: <anonymous-schema-984>
+                      x-parser-schema-id: <anonymous-schema-1007>
                     iv:
                       type: number
                       description: Option implied volatility for the price (Option only)
-                      x-parser-schema-id: <anonymous-schema-985>
+                      x-parser-schema-id: <anonymous-schema-1008>
                     underlying_price:
                       type: number
                       description: >-
                         Underlying price for implied volatility calculations
                         (Options only)
-                      x-parser-schema-id: <anonymous-schema-986>
+                      x-parser-schema-id: <anonymous-schema-1009>
                     liquidation:
                       type: string
                       description: >-
@@ -1086,7 +1149,7 @@ operations:
                         - M
                         - T
                         - MT
-                      x-parser-schema-id: <anonymous-schema-987>
+                      x-parser-schema-id: <anonymous-schema-1010>
                     liquidity:
                       type: string
                       description: >-
@@ -1095,11 +1158,11 @@ operations:
                       enum:
                         - M
                         - T
-                      x-parser-schema-id: <anonymous-schema-988>
+                      x-parser-schema-id: <anonymous-schema-1011>
                     fee:
                       type: number
                       description: User's fee in units of the specified `fee_currency`
-                      x-parser-schema-id: <anonymous-schema-989>
+                      x-parser-schema-id: <anonymous-schema-1012>
                     fee_currency:
                       type: string
                       description: Currency, i.e `"BTC"`, `"ETH"`, `"USDC"`
@@ -1109,13 +1172,13 @@ operations:
                         - USDC
                         - USDT
                         - EURR
-                      x-parser-schema-id: <anonymous-schema-990>
+                      x-parser-schema-id: <anonymous-schema-1013>
                     label:
                       type: string
                       description: >-
                         User defined label (presented only when previously set
                         for order by user)
-                      x-parser-schema-id: <anonymous-schema-991>
+                      x-parser-schema-id: <anonymous-schema-1014>
                     state:
                       type: string
                       description: >-
@@ -1129,62 +1192,62 @@ operations:
                         - cancelled
                         - untriggered
                         - archive
-                      x-parser-schema-id: <anonymous-schema-992>
+                      x-parser-schema-id: <anonymous-schema-1015>
                     block_trade_id:
                       description: Block trade id - when trade was part of a block trade
                       type: string
                       example: '154'
-                      x-parser-schema-id: <anonymous-schema-993>
+                      x-parser-schema-id: <anonymous-schema-1016>
                     block_trade_leg_count:
                       description: >-
                         Block trade leg count - when trade was part of a block
                         trade
                       type: integer
                       example: 3
-                      x-parser-schema-id: <anonymous-schema-994>
+                      x-parser-schema-id: <anonymous-schema-1017>
                     block_rfq_id:
                       type: integer
                       description: >-
                         ID of the Block RFQ - when trade was part of the Block
                         RFQ
-                      x-parser-schema-id: <anonymous-schema-995>
+                      x-parser-schema-id: <anonymous-schema-1018>
                     block_rfq_quote_id:
                       type: integer
                       description: >-
                         ID of the Block RFQ quote - when trade was part of the
                         Block RFQ
-                      x-parser-schema-id: <anonymous-schema-996>
+                      x-parser-schema-id: <anonymous-schema-1019>
                     reduce_only:
                       type: string
                       description: '`true` if user order is reduce-only'
-                      x-parser-schema-id: <anonymous-schema-997>
+                      x-parser-schema-id: <anonymous-schema-1020>
                     post_only:
                       type: string
                       description: '`true` if user order is post-only'
-                      x-parser-schema-id: <anonymous-schema-998>
+                      x-parser-schema-id: <anonymous-schema-1021>
                     mmp:
                       type: boolean
                       description: '`true` if user order is MMP'
-                      x-parser-schema-id: <anonymous-schema-999>
+                      x-parser-schema-id: <anonymous-schema-1022>
                     risk_reducing:
                       type: boolean
                       description: >-
                         `true` if user order is marked by the platform as a risk
                         reducing order (can apply only to orders placed by PM
                         users)
-                      x-parser-schema-id: <anonymous-schema-1000>
+                      x-parser-schema-id: <anonymous-schema-1023>
                     api:
                       type: boolean
                       description: '`true` if user order was created with API'
-                      x-parser-schema-id: <anonymous-schema-1001>
+                      x-parser-schema-id: <anonymous-schema-1024>
                     profit_loss:
                       type: number
                       description: Profit and loss in base currency.
-                      x-parser-schema-id: <anonymous-schema-1002>
+                      x-parser-schema-id: <anonymous-schema-1025>
                     mark_price:
                       type: number
                       description: Mark Price at the moment of trade
-                      x-parser-schema-id: <anonymous-schema-1003>
+                      x-parser-schema-id: <anonymous-schema-1026>
                     legs:
                       type: array
                       description: >-
@@ -1192,39 +1255,40 @@ operations:
                         trade (present when querying for **only** combo trades
                         and in `combo_trades` events). Each leg trade has the
                         same fields as a top-level user trade, including
-                        `starbase_match_id` and `starbase_timestamp` when
-                        matched via Starbase.
-                      x-parser-schema-id: <anonymous-schema-1004>
+                        `starbase_match_id`, `starbase_order_id`,
+                        `starbase_client_order_id`, and `starbase_timestamp`
+                        when matched in Starbase.
+                      x-parser-schema-id: <anonymous-schema-1027>
                     combo_id:
                       type: string
                       description: >-
                         Optional field containing combo instrument name if the
                         trade is a combo trade
-                      x-parser-schema-id: <anonymous-schema-1005>
+                      x-parser-schema-id: <anonymous-schema-1028>
                     combo_trade_id:
                       type: string
                       description: >-
                         Optional field containing combo trade identifier if the
                         trade is a combo trade
-                      x-parser-schema-id: <anonymous-schema-1006>
+                      x-parser-schema-id: <anonymous-schema-1029>
                     starbase_match_id:
                       type: integer
                       description: >-
                         Optional field containing the Starbase match identifier
                         (present only for trades matched via Starbase)
-                      x-parser-schema-id: <anonymous-schema-1007>
+                      x-parser-schema-id: <anonymous-schema-1030>
                     quote_set_id:
                       type: string
                       description: >-
                         QuoteSet of the user order (optional, present only for
                         orders placed with `private/mass_quote`)
-                      x-parser-schema-id: <anonymous-schema-1008>
+                      x-parser-schema-id: <anonymous-schema-1031>
                     quote_id:
                       type: string
                       description: >-
                         QuoteID of the user order (optional, present only for
                         orders placed with `private/mass_quote`)
-                      x-parser-schema-id: <anonymous-schema-1009>
+                      x-parser-schema-id: <anonymous-schema-1032>
                     trade_allocations:
                       type: object
                       description: >-
@@ -1238,15 +1302,15 @@ operations:
                             User ID to which part of the trade is allocated. For
                             brokers the User ID is obstructed.
                           type: integer
-                          x-parser-schema-id: <anonymous-schema-1011>
+                          x-parser-schema-id: <anonymous-schema-1034>
                         amount:
                           description: Amount allocated to this user.
                           type: number
-                          x-parser-schema-id: <anonymous-schema-1012>
+                          x-parser-schema-id: <anonymous-schema-1035>
                         fee:
                           description: Fee for the allocated part of the trade.
                           type: number
-                          x-parser-schema-id: <anonymous-schema-1013>
+                          x-parser-schema-id: <anonymous-schema-1036>
                         client_info:
                           description: Optional client allocation info for brokers.
                           type: object
@@ -1256,25 +1320,25 @@ operations:
                                 ID of a client; available to broker. Represents
                                 a group of users under a common name.
                               type: integer
-                              x-parser-schema-id: <anonymous-schema-1015>
+                              x-parser-schema-id: <anonymous-schema-1038>
                             client_link_id:
                               description: >-
                                 ID assigned to a single user in a client;
                                 available to broker.
                               type: integer
-                              x-parser-schema-id: <anonymous-schema-1016>
+                              x-parser-schema-id: <anonymous-schema-1039>
                             name:
                               description: >-
                                 Name of the linked user within the client;
                                 available to broker.
                               type: string
-                              x-parser-schema-id: <anonymous-schema-1017>
-                          x-parser-schema-id: <anonymous-schema-1014>
+                              x-parser-schema-id: <anonymous-schema-1040>
+                          x-parser-schema-id: <anonymous-schema-1037>
                       required:
                         - amount
                         - fee
                       additionalProperties: false
-                      x-parser-schema-id: <anonymous-schema-1010>
+                      x-parser-schema-id: <anonymous-schema-1033>
                   required:
                     - trade_id
                     - trade_seq
@@ -1292,7 +1356,7 @@ operations:
                     - state
                     - mark_price
                   additionalProperties: false
-                  x-parser-schema-id: <anonymous-schema-969>
+                  x-parser-schema-id: <anonymous-schema-989>
                 orders:
                   type: object
                   description: ''
@@ -1301,20 +1365,12 @@ operations:
                       description: Unique order identifier
                       type: string
                       example: ETH-100234
-                      x-parser-schema-id: <anonymous-schema-1019>
+                      x-parser-schema-id: <anonymous-schema-1042>
                     order_state:
                       type: string
-                      description: >
+                      description: >-
                         Order state: `"open"`, `"filled"`, `"rejected"`,
-                        `"cancelled"`, `"untriggered"`, `"speed_bumped"`
-
-
-                        `"speed_bumped"` appears on orders on instruments which
-                        have a speed bump configured, see
-
-                        [Speed
-                        Bumps](https://docs.deribit.com/starbase/speed-bumps)
-                        for an explanation.
+                        `"cancelled"`, `"untriggered"`
                       enum:
                         - open
                         - filled
@@ -1322,8 +1378,7 @@ operations:
                         - cancelled
                         - untriggered
                         - triggered
-                        - speed_bumped
-                      x-parser-schema-id: <anonymous-schema-1020>
+                      x-parser-schema-id: <anonymous-schema-1043>
                     order_type:
                       type: string
                       description: >-
@@ -1338,14 +1393,18 @@ operations:
                         - take_market
                         - take_limit
                         - trailing_stop
-                      x-parser-schema-id: <anonymous-schema-1021>
+                      x-parser-schema-id: <anonymous-schema-1044>
                     original_order_type:
                       type: string
-                      description: Original order type. Optional field
+                      description: >-
+                        Original API order type when an order is represented
+                        internally as a limit order. For example, Starbase
+                        market orders use `"limit"` as `order_type` with
+                        `"market"` in this optional field.
                       enum:
                         - market
                         - market_limit
-                      x-parser-schema-id: <anonymous-schema-1022>
+                      x-parser-schema-id: <anonymous-schema-1045>
                     time_in_force:
                       type: string
                       description: >-
@@ -1357,90 +1416,99 @@ operations:
                         - good_til_day
                         - fill_or_kill
                         - immediate_or_cancel
-                      x-parser-schema-id: <anonymous-schema-1023>
+                      x-parser-schema-id: <anonymous-schema-1046>
                     is_rebalance:
                       type: boolean
                       description: >-
                         Optional (only for spot). `true` if order was
                         automatically created during cross-collateral balance
                         restoration
-                      x-parser-schema-id: <anonymous-schema-1024>
+                      x-parser-schema-id: <anonymous-schema-1047>
                     is_liquidation:
                       type: boolean
                       description: >-
                         Optional (not added for spot). `true` if order was
                         automatically created during liquidation
-                      x-parser-schema-id: <anonymous-schema-1025>
+                      x-parser-schema-id: <anonymous-schema-1048>
                     instrument_name:
                       type: string
                       description: Unique instrument identifier
                       example: BTC-PERPETUAL
-                      x-parser-schema-id: <anonymous-schema-1026>
+                      x-parser-schema-id: <anonymous-schema-1049>
                     creation_timestamp:
                       type: integer
                       example: 1536569522277
                       description: The timestamp (milliseconds since the Unix epoch)
-                      x-parser-schema-id: <anonymous-schema-1027>
+                      x-parser-schema-id: <anonymous-schema-1050>
                     last_update_timestamp:
                       type: integer
                       example: 1536569522277
                       description: The timestamp (milliseconds since the Unix epoch)
-                      x-parser-schema-id: <anonymous-schema-1028>
+                      x-parser-schema-id: <anonymous-schema-1051>
                     starbase_last_update_timestamp:
                       type: integer
                       example: 1536569522277000000
                       description: >-
                         The Starbase causal timestamp (nanoseconds since the
                         Unix epoch) of the last book update that affected this
-                        order. Present only for orders placed in Starbase; not
-                        always available for direct access orders
-                      x-parser-schema-id: <anonymous-schema-1029>
+                        order. Present only for orders placed in Starbase,
+                        including combo leg order updates; not always available
+                        for direct access orders
+                      x-parser-schema-id: <anonymous-schema-1052>
+                    starbase_client_order_id:
+                      type: string
+                      description: >-
+                        Client order id sent to Starbase when the order was
+                        placed (present only for orders placed in Starbase;
+                        combo legs inherit the parent combo order's client order
+                        id)
+                      x-parser-schema-id: <anonymous-schema-1053>
                     direction:
                       type: string
                       description: 'Direction: `buy`, or `sell`'
                       enum:
                         - buy
                         - sell
-                      x-parser-schema-id: <anonymous-schema-1030>
+                      x-parser-schema-id: <anonymous-schema-1054>
                     price:
                       description: >-
                         Price in base currency or "market_price" in case of open
                         trigger market orders
-                      x-parser-schema-id: <anonymous-schema-1031>
+                      x-parser-schema-id: <anonymous-schema-1055>
                     label:
                       type: string
                       description: User defined label (up to 64 characters)
-                      x-parser-schema-id: <anonymous-schema-1032>
+                      x-parser-schema-id: <anonymous-schema-1056>
                     post_only:
                       type: boolean
                       description: '`true` for post-only orders only'
-                      x-parser-schema-id: <anonymous-schema-1033>
+                      x-parser-schema-id: <anonymous-schema-1057>
                     reject_post_only:
                       description: >-
                         `true` if order has `reject_post_only` flag (field is
                         present only when `post_only` is `true`)
                       type: boolean
-                      x-parser-schema-id: <anonymous-schema-1034>
+                      x-parser-schema-id: <anonymous-schema-1058>
                     reduce_only:
                       type: boolean
                       description: >-
                         Optional (not added for spot). '`true` for reduce-only
                         orders only'
-                      x-parser-schema-id: <anonymous-schema-1035>
+                      x-parser-schema-id: <anonymous-schema-1059>
                     api:
                       type: boolean
                       description: '`true` if created with API'
-                      x-parser-schema-id: <anonymous-schema-1036>
+                      x-parser-schema-id: <anonymous-schema-1060>
                     web:
                       type: boolean
                       description: '`true` if created via Deribit frontend (optional)'
-                      x-parser-schema-id: <anonymous-schema-1037>
+                      x-parser-schema-id: <anonymous-schema-1061>
                     mobile:
                       type: boolean
                       description: >-
                         Optional field with value `true` added only when created
                         with Mobile Application
-                      x-parser-schema-id: <anonymous-schema-1038>
+                      x-parser-schema-id: <anonymous-schema-1062>
                     refresh_amount:
                       type: number
                       description: >-
@@ -1448,13 +1516,13 @@ operations:
                         order display amount will be refreshed to that value
                         after match consuming actual display amount. Absent for
                         other types of orders
-                      x-parser-schema-id: <anonymous-schema-1039>
+                      x-parser-schema-id: <anonymous-schema-1063>
                     display_amount:
                       type: number
                       description: >-
                         The actual display amount of iceberg order. Absent for
                         other types of orders.
-                      x-parser-schema-id: <anonymous-schema-1040>
+                      x-parser-schema-id: <anonymous-schema-1064>
                     amount:
                       type: number
                       description: >-
@@ -1462,13 +1530,13 @@ operations:
                         and inverse futures the amount is in USD units. For
                         options and linear futures it is the underlying base
                         currency coin.
-                      x-parser-schema-id: <anonymous-schema-1041>
+                      x-parser-schema-id: <anonymous-schema-1065>
                     contracts:
                       type: number
                       description: >-
                         It represents the order size in contract units.
                         (Optional, may be absent in historical data).
-                      x-parser-schema-id: <anonymous-schema-1042>
+                      x-parser-schema-id: <anonymous-schema-1066>
                     filled_amount:
                       type: number
                       description: >-
@@ -1476,11 +1544,11 @@ operations:
                         the filled_amount is in USD units, for options - in
                         units or corresponding cryptocurrency contracts, e.g.,
                         BTC or ETH.
-                      x-parser-schema-id: <anonymous-schema-1043>
+                      x-parser-schema-id: <anonymous-schema-1067>
                     average_price:
                       type: number
                       description: Average fill price of the order
-                      x-parser-schema-id: <anonymous-schema-1044>
+                      x-parser-schema-id: <anonymous-schema-1068>
                     advanced:
                       type: string
                       description: >
@@ -1489,21 +1557,21 @@ operations:
                       enum:
                         - usd
                         - implv
-                      x-parser-schema-id: <anonymous-schema-1045>
+                      x-parser-schema-id: <anonymous-schema-1069>
                     implv:
                       type: number
                       description: >-
                         Implied volatility in percent. (Only if
                         `advanced="implv"`)
-                      x-parser-schema-id: <anonymous-schema-1046>
+                      x-parser-schema-id: <anonymous-schema-1070>
                     usd:
                       type: number
                       description: Option price in USD (Only if `advanced="usd"`)
-                      x-parser-schema-id: <anonymous-schema-1047>
+                      x-parser-schema-id: <anonymous-schema-1071>
                     triggered:
                       type: boolean
                       description: Whether the trigger order has been triggered
-                      x-parser-schema-id: <anonymous-schema-1048>
+                      x-parser-schema-id: <anonymous-schema-1072>
                     trigger:
                       type: string
                       description: >-
@@ -1513,87 +1581,87 @@ operations:
                         - index_price
                         - mark_price
                         - last_price
-                      x-parser-schema-id: <anonymous-schema-1049>
+                      x-parser-schema-id: <anonymous-schema-1073>
                     trigger_price:
                       type: number
                       description: Trigger price (Only for future trigger orders)
-                      x-parser-schema-id: <anonymous-schema-1050>
+                      x-parser-schema-id: <anonymous-schema-1074>
                     trigger_offset:
                       type: number
                       description: >-
                         The maximum deviation from the price peak beyond which
                         the order will be triggered (Only for trailing trigger
                         orders)
-                      x-parser-schema-id: <anonymous-schema-1051>
+                      x-parser-schema-id: <anonymous-schema-1075>
                     trigger_reference_price:
                       type: number
                       description: >-
                         The price of the given trigger at the time when the
                         order was placed (Only for trailing trigger orders)
-                      x-parser-schema-id: <anonymous-schema-1052>
+                      x-parser-schema-id: <anonymous-schema-1076>
                     block_trade:
                       description: >-
                         `true` if order made from block_trade trade, added only
                         in that case.
                       type: boolean
                       example: true
-                      x-parser-schema-id: <anonymous-schema-1053>
+                      x-parser-schema-id: <anonymous-schema-1077>
                     mmp:
                       type: boolean
                       description: '`true` if the order is a MMP order, otherwise `false`.'
-                      x-parser-schema-id: <anonymous-schema-1054>
+                      x-parser-schema-id: <anonymous-schema-1078>
                     risk_reducing:
                       type: boolean
                       description: >-
                         `true` if the order is marked by the platform as a risk
                         reducing order (can apply only to orders placed by PM
                         users), otherwise `false`.
-                      x-parser-schema-id: <anonymous-schema-1055>
+                      x-parser-schema-id: <anonymous-schema-1079>
                     replaced:
                       type: boolean
                       description: >-
                         `true` if the order was edited (by user or - in case of
                         advanced options orders - by pricing engine), otherwise
                         `false`.
-                      x-parser-schema-id: <anonymous-schema-1056>
+                      x-parser-schema-id: <anonymous-schema-1080>
                     auto_replaced:
                       type: boolean
                       description: >-
                         Options, advanced orders only - `true` if last
                         modification of the order was performed by the pricing
                         engine, otherwise `false`.
-                      x-parser-schema-id: <anonymous-schema-1057>
+                      x-parser-schema-id: <anonymous-schema-1081>
                     quote:
                       type: boolean
                       description: If order is a quote. Present only if true.
-                      x-parser-schema-id: <anonymous-schema-1058>
+                      x-parser-schema-id: <anonymous-schema-1082>
                     mmp_group:
                       type: string
                       description: >-
                         Name of the MMP group supplied in the
                         `private/mass_quote` request. Only present for quote
                         orders.
-                      x-parser-schema-id: <anonymous-schema-1059>
+                      x-parser-schema-id: <anonymous-schema-1083>
                     quote_set_id:
                       type: string
                       description: >-
                         Identifier of the QuoteSet supplied in the
                         `private/mass_quote` request. Only present for quote
                         orders.
-                      x-parser-schema-id: <anonymous-schema-1060>
+                      x-parser-schema-id: <anonymous-schema-1084>
                     quote_id:
                       type: string
                       description: >-
                         The same QuoteID as supplied in the `private/mass_quote`
                         request. Only present for quote orders.
-                      x-parser-schema-id: <anonymous-schema-1061>
+                      x-parser-schema-id: <anonymous-schema-1085>
                     trigger_order_id:
                       type: string
                       description: >-
                         Id of the trigger order that created the order (Only for
                         orders that were created by triggered orders).
                       example: SLIB-370
-                      x-parser-schema-id: <anonymous-schema-1062>
+                      x-parser-schema-id: <anonymous-schema-1086>
                     combo_order_id:
                       type: string
                       description: >-
@@ -1601,27 +1669,28 @@ operations:
                         present for orders that were created as legs of a combo
                         order).
                       example: '103148386169'
-                      x-parser-schema-id: <anonymous-schema-1063>
+                      x-parser-schema-id: <anonymous-schema-1087>
                     starbase_order_id:
                       type: integer
                       description: >-
                         Raw Starbase order id, in Starbase's own (non
                         currency-prefixed) id namespace. Only present for orders
-                        matched on Starbase.
+                        placed in Starbase. Combo leg orders expose the parent
+                        combo order's Starbase order id.
                       example: 103148386170
-                      x-parser-schema-id: <anonymous-schema-1064>
+                      x-parser-schema-id: <anonymous-schema-1088>
                     app_name:
                       type: string
                       description: >-
                         The name of the application that placed the order on
                         behalf of the user (optional).
                       example: Example Application
-                      x-parser-schema-id: <anonymous-schema-1065>
+                      x-parser-schema-id: <anonymous-schema-1089>
                     mmp_cancelled:
                       type: boolean
                       description: '`true` if order was cancelled by mmp trigger (optional)'
                       example: true
-                      x-parser-schema-id: <anonymous-schema-1066>
+                      x-parser-schema-id: <anonymous-schema-1090>
                     cancel_reason:
                       type: string
                       description: >-
@@ -1638,7 +1707,11 @@ operations:
                         oco order linked to this order was closed),
                         `"oto_primary_closed"` (the oto primary order that was
                         going to trigger this order was cancelled),
-                        `"settlement"` (closed because of a settlement)
+                        `"settlement"` (closed because of a settlement event,
+                        e.g. good-til-day orders are cancelled when an
+                        instrument enters the daily settlement). Note: orders
+                        cancelled because an instrument expired (delivery)
+                        currently do not include a `cancel_reason` field.
                       enum:
                         - user_request
                         - autoliquidation
@@ -1653,7 +1726,7 @@ operations:
                         - oco_other_closed
                         - oto_primary_closed
                         - settlement
-                      x-parser-schema-id: <anonymous-schema-1067>
+                      x-parser-schema-id: <anonymous-schema-1091>
                     oto_order_ids:
                       type: object
                       description: >-
@@ -1661,7 +1734,7 @@ operations:
                         order is filled
                       properties: {}
                       additionalProperties: true
-                      x-parser-schema-id: <anonymous-schema-1068>
+                      x-parser-schema-id: <anonymous-schema-1092>
                     trigger_fill_condition:
                       description: >-
                         <p>The fill condition of the linked order (Only for
@@ -1681,30 +1754,30 @@ operations:
                         - first_hit
                         - complete_fill
                         - incremental
-                      x-parser-schema-id: <anonymous-schema-1069>
+                      x-parser-schema-id: <anonymous-schema-1093>
                     oco_ref:
                       type: string
                       description: >-
                         Unique reference that identifies a one_cancels_others
                         (OCO) pair.
-                      x-parser-schema-id: <anonymous-schema-1070>
+                      x-parser-schema-id: <anonymous-schema-1094>
                     primary_order_id:
                       description: Unique order identifier
                       type: string
                       example: ETH-100234
-                      x-parser-schema-id: <anonymous-schema-1071>
+                      x-parser-schema-id: <anonymous-schema-1095>
                     is_secondary_oto:
                       type: boolean
                       description: >-
                         `true` if the order is an order that can be triggered by
                         another order, otherwise not present.
-                      x-parser-schema-id: <anonymous-schema-1072>
+                      x-parser-schema-id: <anonymous-schema-1096>
                     is_primary_otoco:
                       type: boolean
                       description: >-
                         `true` if the order is an order that can trigger an OCO
                         pair, otherwise not present.
-                      x-parser-schema-id: <anonymous-schema-1073>
+                      x-parser-schema-id: <anonymous-schema-1097>
                   required:
                     - order_id
                     - order_state
@@ -1719,7 +1792,7 @@ operations:
                     - post_only
                     - api
                   additionalProperties: false
-                  x-parser-schema-id: <anonymous-schema-1018>
+                  x-parser-schema-id: <anonymous-schema-1041>
                 position:
                   type: object
                   description: ''
@@ -1728,7 +1801,7 @@ operations:
                       type: string
                       description: Unique instrument identifier
                       example: BTC-PERPETUAL
-                      x-parser-schema-id: <anonymous-schema-1075>
+                      x-parser-schema-id: <anonymous-schema-1099>
                     kind:
                       type: string
                       description: >-
@@ -1740,11 +1813,11 @@ operations:
                         - spot
                         - future_combo
                         - option_combo
-                      x-parser-schema-id: <anonymous-schema-1076>
+                      x-parser-schema-id: <anonymous-schema-1100>
                     average_price:
                       type: number
                       description: Average price of trades that built this position
-                      x-parser-schema-id: <anonymous-schema-1077>
+                      x-parser-schema-id: <anonymous-schema-1101>
                     direction:
                       type: string
                       description: 'Direction: `buy`, `sell` or `zero`'
@@ -1752,92 +1825,92 @@ operations:
                         - buy
                         - sell
                         - zero
-                      x-parser-schema-id: <anonymous-schema-1078>
+                      x-parser-schema-id: <anonymous-schema-1102>
                     mark_price:
                       type: number
                       description: Current mark price for position's instrument
-                      x-parser-schema-id: <anonymous-schema-1079>
+                      x-parser-schema-id: <anonymous-schema-1103>
                     delta:
                       type: number
                       description: Delta parameter
-                      x-parser-schema-id: <anonymous-schema-1080>
+                      x-parser-schema-id: <anonymous-schema-1104>
                     gamma:
                       type: number
                       description: Only for options, Gamma parameter
-                      x-parser-schema-id: <anonymous-schema-1081>
+                      x-parser-schema-id: <anonymous-schema-1105>
                     vega:
                       type: number
                       description: Only for options, Vega parameter
-                      x-parser-schema-id: <anonymous-schema-1082>
+                      x-parser-schema-id: <anonymous-schema-1106>
                     theta:
                       type: number
                       description: Only for options, Theta parameter
-                      x-parser-schema-id: <anonymous-schema-1083>
+                      x-parser-schema-id: <anonymous-schema-1107>
                     index_price:
                       type: number
                       description: Current index price
-                      x-parser-schema-id: <anonymous-schema-1084>
+                      x-parser-schema-id: <anonymous-schema-1108>
                     initial_margin:
                       type: number
                       description: Initial margin
-                      x-parser-schema-id: <anonymous-schema-1085>
+                      x-parser-schema-id: <anonymous-schema-1109>
                     maintenance_margin:
                       type: number
                       description: Maintenance margin
-                      x-parser-schema-id: <anonymous-schema-1086>
+                      x-parser-schema-id: <anonymous-schema-1110>
                     settlement_price:
                       type: number
                       description: >-
                         Optional (not added for spot). Last settlement price for
                         position's instrument 0 if instrument wasn't settled yet
-                      x-parser-schema-id: <anonymous-schema-1087>
+                      x-parser-schema-id: <anonymous-schema-1111>
                     total_profit_loss:
                       type: number
                       description: Profit or loss from position
-                      x-parser-schema-id: <anonymous-schema-1088>
+                      x-parser-schema-id: <anonymous-schema-1112>
                     floating_profit_loss:
                       type: number
                       description: Floating profit or loss
-                      x-parser-schema-id: <anonymous-schema-1089>
+                      x-parser-schema-id: <anonymous-schema-1113>
                     realized_profit_loss:
                       type: number
                       description: Realized profit or loss
-                      x-parser-schema-id: <anonymous-schema-1090>
+                      x-parser-schema-id: <anonymous-schema-1114>
                     size:
                       type: number
                       description: >-
                         Position size for futures size in quote currency (e.g.
                         USD), for options size is in base currency (e.g. BTC)
-                      x-parser-schema-id: <anonymous-schema-1091>
+                      x-parser-schema-id: <anonymous-schema-1115>
                     size_currency:
                       type: number
                       description: Only for futures, position size in base currency
-                      x-parser-schema-id: <anonymous-schema-1092>
+                      x-parser-schema-id: <anonymous-schema-1116>
                     average_price_usd:
                       type: number
                       description: Only for options, average price in USD
-                      x-parser-schema-id: <anonymous-schema-1093>
+                      x-parser-schema-id: <anonymous-schema-1117>
                     floating_profit_loss_usd:
                       type: number
                       description: Only for options, floating profit or loss in USD
-                      x-parser-schema-id: <anonymous-schema-1094>
+                      x-parser-schema-id: <anonymous-schema-1118>
                     leverage:
                       type: integer
                       description: Current available leverage for future position
-                      x-parser-schema-id: <anonymous-schema-1095>
+                      x-parser-schema-id: <anonymous-schema-1119>
                     realized_funding:
                       type: number
                       description: >-
                         Realized Funding in current session included in session
                         realized profit or loss, only for positions of perpetual
                         instruments
-                      x-parser-schema-id: <anonymous-schema-1096>
+                      x-parser-schema-id: <anonymous-schema-1120>
                     interest_value:
                       type: number
                       description: >-
                         Value used to calculate `realized_funding` (perpetual
                         only)
-                      x-parser-schema-id: <anonymous-schema-1097>
+                      x-parser-schema-id: <anonymous-schema-1121>
                   required:
                     - instrument_name
                     - kind
@@ -1854,14 +1927,14 @@ operations:
                     - realized_profit_loss
                     - size
                   additionalProperties: false
-                  x-parser-schema-id: <anonymous-schema-1074>
+                  x-parser-schema-id: <anonymous-schema-1098>
               required: []
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-967>
+              x-parser-schema-id: <anonymous-schema-987>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-966>
+          x-parser-schema-id: <anonymous-schema-986>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -1971,7 +2044,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-965>
+          x-parser-schema-id: <anonymous-schema-985>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

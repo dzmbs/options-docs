@@ -139,8 +139,8 @@ components:
             - type
           description: Object if address is created, null otherwise
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     timestamp:
       example: 1536569522277

@@ -139,8 +139,8 @@ components:
         result:
           $ref: '#/components/schemas/transfer_item'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     transfer_item:
       properties:

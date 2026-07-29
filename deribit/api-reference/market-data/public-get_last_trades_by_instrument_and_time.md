@@ -173,8 +173,8 @@ components:
             - trades
             - has_more
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     public_trade:
       properties:

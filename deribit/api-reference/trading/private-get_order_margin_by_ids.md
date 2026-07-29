@@ -153,8 +153,8 @@ components:
           items:
             $ref: '#/components/schemas/order_id_initial_margin_pair'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     order_id_initial_margin_pair:
       properties:

@@ -141,8 +141,8 @@ components:
         result:
           $ref: '#/components/schemas/api_key'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     api_key:
       properties:

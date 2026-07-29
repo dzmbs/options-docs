@@ -154,8 +154,8 @@ components:
                 type: number
                 description: 8hour interest rate
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     price:
       type: number

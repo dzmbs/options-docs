@@ -23,7 +23,7 @@ Tier classification is based on the **base currency** of the underlying index. A
 
 The `product_group` field on [`public/get_instruments`](/api-reference/market-data/public-get_instruments) reports this classification per instrument (values such as `BTC`, `ETH`, `TIER_2`, and `TIER_3`), so clients can drive gateway and channel routing from the live response instead of hard-coding the tables below. The field is documented on both the standard JSON-RPC and Starbase REST versions of the endpoint.
 
-`product_group` is a per-instrument routing classification and does not exactly match the **product group** terminology used for [rate-limit](/starbase/api-rate-limits#default-rate-limits) allocation. Rate limits use five groups (BTC, ETH, Altcoin options, Other crypto, and RWA), further splitting Tier 2/3 according to whether the instrument is an option. The underlying tier on this page determines gateway and multicast-channel assignment.
+`product_group` is a per-instrument routing classification used for gateway and multicast-channel assignment. [Rate-limit](/starbase/api-rate-limits#default-rate-limits) overrides use five product tiers (BTC, ETH, Tier 2, Tier 3, and RWA + Pre-IPO). Within a product tier, options and futures share the same rate-limit buckets.
 
 ## Tier 1
 
@@ -80,6 +80,6 @@ Tier assignments determine which multicast channel an instrument belongs to, so 
 
 - [Connectivity Quickstart](/starbase/quickstart.md)
 - [API Rate Limits](/starbase/api-rate-limits.md)
+- [public/get_instrument](/api-reference/market-data/public-get_instrument.md)
+- [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
 - [Gateway Connectivity](/starbase/gateway-connectivity.md)
-- [Starbase API Changelog](/changelogs/starbase.md)
-- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)

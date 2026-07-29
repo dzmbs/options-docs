@@ -55,7 +55,7 @@ A `MassQuoteRequest` that contains any non-zero quantity is subject to normal ra
 
 The table below shows the default rate limits. These defaults apply to all members unless overridden. See [Underlying Tiers](/starbase/underlying-tiers) for the full tier classification.
 
-All five product groups share the same defaults:
+All five product tiers share the same defaults:
 
 |                         | Orders | Mass Quotes |
 | :---------------------- | :----- | :---------- |
@@ -65,34 +65,34 @@ All five product groups share the same defaults:
 | **Steady** (messages/s) | 50     | 10          |
 
 <Info>
-  Mass quotes have separate, lower rate limits than orders. Option market makers should use mass quotes for quoting—mass quotes are lighter on the system and are allocated accordingly. High order rate limits will **not** be given out for quoting options. For quoting perpetuals, dated futures, and future spreads, higher order or mass quote rate limits can be granted based on the preference of the market maker.
+  Mass quotes have separate, lower rate limits than orders. Option market makers should use mass quotes for quoting—mass quotes are lighter on the system and are allocated accordingly. Within a product tier, options and futures share the same rate-limit buckets; there are no separate options vs futures allocations. High order rate-limit overrides are generally not granted for option-quoting strategies. For strategies quoting perpetuals, dated futures, and future spreads, higher order or mass quote rate limits can be granted based on the preference of the market maker.
 </Info>
 
 ### Per-Member Overrides
 
-Rate limits can be increased on a per-member basis at the discretion of Deribit, based on current or expected contribution to liquidity. Overrides are configured per product group and quoting type independently.
+Rate limits can be increased on a per-member basis at the discretion of Deribit, based on current or expected contribution to liquidity. Overrides are configured per product tier and quoting type independently.
 
 The following tables illustrate an example override:
 
 **Bucket parameters** — R in tokens/ms, B in max tokens
 
-| Product Group   | Orders R | Orders B | MQ R | MQ B |
-| :-------------- | :------- | :------- | :--- | :--- |
-| BTC             | 1k       | 1m       | 1k   | 1m   |
-| ETH             | 500      | 500k     | 300k | 500k |
-| Altcoin options | 100      | 300k     | 40   | 300k |
-| Other crypto    | 100      | 100k     | 20   | 20k  |
-| RWA             | 100      | 100k     | 20   | 20k  |
+| Product Tier  | Orders R | Orders B | MQ R | MQ B |
+| :------------ | :------- | :------- | :--- | :--- |
+| BTC           | 400      | 400k     | 200  | 200k |
+| ETH           | 400      | 400k     | 200  | 200k |
+| Tier 2        | 100      | 300k     | 40   | 300k |
+| Tier 3        | 100      | 100k     | 20   | 20k  |
+| RWA + Pre-IPO | 100      | 100k     | 20   | 20k  |
 
 **Rate limits** — burst in messages, steady in messages/s
 
-| Product Group   | Orders Burst | Orders Steady | MQ Burst | MQ Steady |
-| :-------------- | :----------- | :------------ | :------- | :-------- |
-| BTC             | 500          | 500           | 500      | 500       |
-| ETH             | 250          | 250           | 250      | 150       |
-| Altcoin options | 150          | 50            | 150      | 20        |
-| Other crypto    | 50           | 50            | 10       | 10        |
-| RWA             | 50           | 50            | 10       | 10        |
+| Product Tier  | Orders Burst | Orders Steady | MQ Burst | MQ Steady |
+| :------------ | :----------- | :------------ | :------- | :-------- |
+| BTC           | 200          | 200           | 100      | 100       |
+| ETH           | 200          | 200           | 100      | 100       |
+| Tier 2        | 150          | 50            | 150      | 20        |
+| Tier 3        | 50           | 50            | 10       | 10        |
+| RWA + Pre-IPO | 50           | 50            | 10       | 10        |
 
 Rate limits are assigned based on the technical needs of the strategy. In practice, the majority of Starbase's total capacity is allocated to market makers who provide continuous two-way liquidity across many instruments. The spread of the instruments quoted influences the allocation: quoting a perpetual future at a bid-ask spread of less than 1 basis point will receive a much larger rate limit allocation than a dated future trading at a spread of 10 basis points.
 

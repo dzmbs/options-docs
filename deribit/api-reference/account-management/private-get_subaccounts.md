@@ -291,8 +291,8 @@ components:
               - system_name
               - id
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     ErrorMessageResponse:
       properties:
@@ -309,9 +309,9 @@ components:
         error:
           type: integer
       required:
+        - message
         - jsonrpc
         - error
-        - message
       type: object
     portfolio:
       properties:

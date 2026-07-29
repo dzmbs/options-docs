@@ -13,6 +13,8 @@ The `asks` and `bids` fields are both lists of `[price, amount]` pairs.
 - `price`: price level, rounded according to `group` (USD per BTC)
 - `amount`: total amount at that price level
 
+For Starbase-routed instruments, the published price levels include accepted mass-quote liquidity.
+
 **Units:** For perpetual and inverse futures the amount is in USD units. For options and linear futures it is in the underlying base currency coin.
 
 
@@ -38,6 +40,10 @@ description: >
   - `price`: price level, rounded according to `group` (USD per BTC)
 
   - `amount`: total amount at that price level
+
+
+  For Starbase-routed instruments, the published price levels include accepted
+  mass-quote liquidity.
 
 
   **Units:** For perpetual and inverse futures the amount is in USD units. For

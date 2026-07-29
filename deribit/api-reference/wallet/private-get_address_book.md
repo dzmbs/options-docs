@@ -149,8 +149,8 @@ components:
           items:
             $ref: '#/components/schemas/address_book_item'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     address_book_item:
       properties:

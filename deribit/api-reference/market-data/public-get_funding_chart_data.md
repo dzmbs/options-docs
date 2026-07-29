@@ -145,8 +145,8 @@ components:
             - data
             - interest_8h
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     timestamp:
       example: 1536569522277

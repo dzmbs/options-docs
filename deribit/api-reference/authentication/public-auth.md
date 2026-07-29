@@ -342,8 +342,8 @@ components:
             - refresh_token
             - scope
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     api_key_features:
       items:

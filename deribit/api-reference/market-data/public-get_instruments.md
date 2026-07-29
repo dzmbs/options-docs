@@ -166,8 +166,8 @@ components:
           items:
             $ref: '#/components/schemas/instrument'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     instrument:
       properties:
@@ -341,7 +341,9 @@ components:
           example: ETH
           description: >-
             Product group classification for the instrument's base currency
-            (e.g. BTC, ETH, TIER_2).
+            (e.g. BTC, ETH, TIER_2). Determines gateway and multicast channel
+            assignment — see [Underlying
+            Tiers](https://docs.deribit.com/starbase/underlying-tiers).
         is_csr:
           type: boolean
           description: >-

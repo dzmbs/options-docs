@@ -167,8 +167,8 @@ components:
             - ok
           description: Result of method execution. `ok` in case of success
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     OkResponse:
@@ -193,4 +193,4 @@ components:
 - [private/get_block_trade_requests](/api-reference/block-trade/private-get_block_trade_requests.md)
 - [Voice Broker Trading API](/articles/voice-broker-trading-api.md)
 - [private/approve_block_trade](/api-reference/block-trade/private-approve_block_trade.md)
-- [private/execute_block_trade](/api-reference/block-trade/private-execute_block_trade.md)
+- [private/simulate_block_trade](/api-reference/block-trade/private-simulate_block_trade.md)

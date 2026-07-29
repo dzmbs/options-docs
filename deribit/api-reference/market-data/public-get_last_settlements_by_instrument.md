@@ -4,7 +4,9 @@
 
 # public/get_last_settlements_by_instrument
 
-> Retrieves historical settlement, delivery, and bankruptcy events for a specific instrument. Settlements occur when futures or options contracts expire and are settled at the delivery price.
+> Retrieves historical settlement, delivery, and bankruptcy events for a specific instrument.
+
+**Settlement vs. delivery:** Settlement is a daily event (at 08:00 UTC) for futures and perpetual positions that converts unrealized profit and loss into realized profit and loss. Option positions do not settle. Delivery is a one-time event that occurs when a futures or options contract expires — any remaining open position is closed at the delivery price. Delivery does not apply to perpetual or spot instruments. Both events take place at 08:00 UTC, which is why they are sometimes conflated.
 
 Results can be filtered by settlement type and timestamp. Use pagination parameters (`count` and `continuation`) to retrieve large settlement histories. This method is useful for tracking settlement history for a specific instrument.
 
@@ -64,8 +66,17 @@ paths:
         - Public
       description: >+
         Retrieves historical settlement, delivery, and bankruptcy events for a
-        specific instrument. Settlements occur when futures or options contracts
-        expire and are settled at the delivery price.
+        specific instrument.
+
+
+        **Settlement vs. delivery:** Settlement is a daily event (at 08:00 UTC)
+        for futures and perpetual positions that converts unrealized profit and
+        loss into realized profit and loss. Option positions do not settle.
+        Delivery is a one-time event that occurs when a futures or options
+        contract expires — any remaining open position is closed at the delivery
+        price. Delivery does not apply to perpetual or spot instruments. Both
+        events take place at 08:00 UTC, which is why they are sometimes
+        conflated.
 
 
         Results can be filtered by settlement type and timestamp. Use pagination
@@ -151,7 +162,13 @@ components:
         - delivery
         - bankruptcy
       type: string
-      description: The type of settlement. `settlement`, `delivery` or `bankruptcy`.
+      description: >-
+        The type of settlement event. `settlement`: daily settlement of futures
+        and perpetual positions at 08:00 UTC, converting unrealized profit and
+        loss into realized profit and loss (option positions do not settle).
+        `delivery`: one-time expiration of a futures or options contract at
+        08:00 UTC, closing any remaining open position at the delivery price
+        (does not apply to perpetual or spot instruments). `bankruptcy`.
     timestamp:
       example: 1536569522277
       type: integer
@@ -179,8 +196,8 @@ components:
             - settlements
           type: object
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     continuation:
       example: xY7T6cutS3t2B9YtaDkE6TS379oKnkzTvmEDUnEUP2Msa9xKWNNaT

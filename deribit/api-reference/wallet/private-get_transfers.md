@@ -151,8 +151,8 @@ components:
             - data
             - count
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     transfer_item:
       properties:

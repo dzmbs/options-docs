@@ -83,10 +83,10 @@ These scopes explicitly deny access to specific functionality, useful for creati
 
 These parameters configure token behavior and security settings:
 
-| Parameter        | Description                                                                       |
-| ---------------- | --------------------------------------------------------------------------------- |
-| *expires:NUMBER* | Set token expiration time to `NUMBER` seconds.                                    |
-| *ip:ADDR*        | Restrict token usage to specific IPv4 address. Use `*` to allow all IP addresses. |
+| Parameter        | Description                                                                                                                                   |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| *expires:NUMBER* | Set token expiration time to `NUMBER` seconds.                                                                                                |
+| *ip:ADDR*        | Restrict token usage to a specific IPv4 address or CIDR range (e.g. `ip:192.0.2.10` or `ip:192.0.2.0/24`). Use `*` to allow all IP addresses. |
 
 <Warning>
   **⚠️ NOTICE:** Depending on choosing an authentication method (`grant type`) some scopes could be narrowed by the server or limited by user API key configured scope, e.g. when `grant_type = client_credentials` and `scope = wallet:read_write` could be modified by the server as `scope = wallet:read`.

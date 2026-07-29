@@ -12,6 +12,8 @@
 
 Each notification includes a `change_id`. Every message except the first also contains `prev_change_id`. If `prev_change_id` equals the `change_id` of the previous message, it indicates that no messages were missed.
 
+For Starbase-routed instruments, the published price levels include accepted mass-quote liquidity.
+
 **Depth:** This channel delivers the complete order book with no depth restriction. If you need a depth-limited, price-grouped snapshot, use `book.{instrument_name}.{group}.{depth}.{interval}` instead.
 
 **Units:** For perpetuals and futures, `amount` is in USD units. For options, `amount` is in the corresponding cryptocurrency contracts (e.g., BTC or ETH).
@@ -41,6 +43,10 @@ description: >
   Each notification includes a `change_id`. Every message except the first also
   contains `prev_change_id`. If `prev_change_id` equals the `change_id` of the
   previous message, it indicates that no messages were missed.
+
+
+  For Starbase-routed instruments, the published price levels include accepted
+  mass-quote liquidity.
 
 
   **Depth:** This channel delivers the complete order book with no depth

@@ -149,8 +149,8 @@ components:
             - order
             - trades
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     order:
       properties:
@@ -182,6 +182,12 @@ components:
           $ref: '#/components/schemas/timestamp'
         starbase_last_update_timestamp:
           $ref: '#/components/schemas/starbase_last_update_timestamp'
+        starbase_client_order_id:
+          type: string
+          description: >-
+            Client order id sent to Starbase when the order was placed (present
+            only for orders placed in Starbase; combo legs inherit the parent
+            combo order's client order id)
         direction:
           $ref: '#/components/schemas/direction'
         price:
@@ -284,7 +290,8 @@ components:
           example: 103148386170
           description: >-
             Raw Starbase order id, in Starbase's own (non currency-prefixed) id
-            namespace. Only present for orders matched on Starbase.
+            namespace. Only present for orders placed in Starbase. Combo leg
+            orders expose the parent combo order's Starbase order id.
         app_name:
           type: string
           example: Example Application
@@ -347,6 +354,19 @@ components:
             Optional field: the Starbase causal timestamp of the trade, in
             nanoseconds since the UNIX epoch (present only for trades matched in
             Starbase)
+        starbase_order_id:
+          type: integer
+          example: 103148386170
+          description: >-
+            Raw Starbase order id of the user's order, in Starbase's own (non
+            currency-prefixed) id namespace (present only for trades matched in
+            Starbase)
+        starbase_client_order_id:
+          type: string
+          description: >-
+            Client order id of the user's own order (maker or taker side) as
+            sent to Starbase; for self-trades this is the taker order's client
+            order id (present only for trades matched in Starbase)
         order_type:
           type: string
           enum:
@@ -354,6 +374,8 @@ components:
             - market
             - liquidation
           description: 'Order type: `"limit`, `"market"`, or `"liquidation"`'
+        original_order_type:
+          $ref: '#/components/schemas/original_order_type'
         advanced:
           type: string
           enum:
@@ -464,8 +486,9 @@ components:
             Optional field containing leg trades if trade is a combo trade
             (present when querying for **only** combo trades and in
             `combo_trades` events). Each leg trade has the same fields as a
-            top-level user trade, including `starbase_match_id` and
-            `starbase_timestamp` when matched via Starbase.
+            top-level user trade, including `starbase_match_id`,
+            `starbase_order_id`, `starbase_client_order_id`, and
+            `starbase_timestamp` when matched in Starbase.
         combo_id:
           type: string
           description: >-
@@ -563,18 +586,10 @@ components:
         - cancelled
         - untriggered
         - triggered
-        - speed_bumped
       type: string
-      description: >
+      description: >-
         Order state: `"open"`, `"filled"`, `"rejected"`, `"cancelled"`,
-        `"untriggered"`, `"speed_bumped"`
-
-
-        `"speed_bumped"` appears on orders on instruments which have a speed
-        bump configured, see
-
-        [Speed Bumps](https://docs.deribit.com/starbase/speed-bumps) for an
-        explanation.
+        `"untriggered"`
     order_type:
       enum:
         - market
@@ -593,7 +608,10 @@ components:
         - market
         - market_limit
       type: string
-      description: Original order type. Optional field
+      description: >-
+        Original API order type when an order is represented internally as a
+        limit order. For example, Starbase market orders use `"limit"` as
+        `order_type` with `"market"` in this optional field.
     time_in_force:
       enum:
         - good_til_cancelled
@@ -614,7 +632,8 @@ components:
       description: >-
         The Starbase causal timestamp (nanoseconds since the Unix epoch) of the
         last book update that affected this order. Present only for orders
-        placed in Starbase; not always available for direct access orders
+        placed in Starbase, including combo leg order updates; not always
+        available for direct access orders
     direction:
       enum:
         - buy
@@ -756,7 +775,10 @@ components:
         `"oco_other_closed"` (the oco order linked to this order was closed),
         `"oto_primary_closed"` (the oto primary order that was going to trigger
         this order was cancelled), `"settlement"` (closed because of a
-        settlement)
+        settlement event, e.g. good-til-day orders are cancelled when an
+        instrument enters the daily settlement). Note: orders cancelled because
+        an instrument expired (delivery) currently do not include a
+        `cancel_reason` field.
     trigger_fill_condition:
       enum:
         - first_hit

@@ -130,8 +130,8 @@ components:
           required:
             - version
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````
