@@ -4,14 +4,14 @@
 
 # FIX API Changelog
 
-> Chronological release notes for the Deribit FIX API covering new tags, message changes, deprecations, session behavior updates, and bug fix history.
+> Release notes for the Deribit FIX API covering new tags, message changes, session behavior updates, and backward-compatibility announcements.
 
 <Update label="Release 27.06.2026">
   `Security List` (`y`): `UnderlyingSecurityType` (`310`) is now included in the response for all instruments. Possible values: `CRYPTO`, `COMMODITY`, `EQUITY`.
 </Update>
 
 <Update label="Release 17.02.2026">
-  `Execution Reports` (`8`): added nonmandatory tag `CashOrderQty` (`152`) to differentiate value based orders from quantity based orders. For value based orders (BTC & ETH inverse futures and perpetuals where the order size is specified as a USD amount), both `OrderQty`(`38`) and `CashOrderQty`(`152`) are present and equal. For quantity based orders, `CashOrderQty` is absent
+  `Execution Reports` (`8`): added nonmandatory tag `CashOrderQty` (`152`) to differentiate value based orders from quantity based orders. For value based orders (BTC & ETH inverse futures and perpetuals where the order size is specified as a USD amount), both `OrderQty` (`38`) and `CashOrderQty` (`152`) are present and equal. For quantity based orders, `CashOrderQty` is absent.
 </Update>
 
 <Update label="Release 07.10.2025">
@@ -24,9 +24,8 @@
 </Update>
 
 <Update label="Release 10.06.2025">
-  `MaxShow(210)` is replaced with `DisplayQty(1138)`. The iceberg orders cannot be fully invisible anymore. Setting the `DisplayQty (1138)` = 0 is interpreted as no hidden volume, i.e. the full order quantity is displayed to the market. Omitting the field gives the same result.
-
-  `Execution Reports` (`8`): added nonmandatory tag `RefreshQty` (`1088`)
+  * `MaxShow` (`210`) is replaced with `DisplayQty` (`1138`). The iceberg orders cannot be fully invisible anymore. Setting `DisplayQty` (`1138`) = 0 is interpreted as no hidden volume, i.e. the full order quantity is displayed to the market. Omitting the field gives the same result.
+  * `Execution Reports` (`8`): added nonmandatory tag `RefreshQty` (`1088`).
 </Update>
 
 <Update label="Release 06.03.2025">
@@ -34,51 +33,44 @@
 </Update>
 
 <Update label="Release 04.02.2025">
-  `Order Cancel/Replace Request` (`G`): removed support of undocumented tag `MaxShow` (`210`) in compliance with WS/REST API
+  * `Order Cancel/Replace Request` (`G`): removed support of undocumented tag `MaxShow` (`210`) in compliance with the WS/REST API.
+  * `Order Mass Status Request` (`AF`): added the `History` (`10`) value of the `MassStatusReqType` (`585`) tag for retrieving history of orders that have been partially or fully filled; added optional tags `OrderHistoryIncludeUnfilled` (`9037`), `OrderHistoryOffset` (`9039`) and `TotNumReports` (`911`).
+</Update>
+
+<Update label="Release 03.09.2024">
+  `New Order Single` (`D`) and `Order Cancel/Replace Request` (`G`) once again support `QtyType=Units`, allowing the `OrderQty` to be sent in units (amount) instead of contracts.
 </Update>
 
 <Update label="Release 08.08.2024">
-  `Order Mass Cancel Request` (`q`): added `FreezeQuotes` (`9031`) tag
+  `Order Mass Cancel Request` (`q`): added `FreezeQuotes` (`9031`) tag.
 </Update>
 
 <Update label="Release 03.07.2024">
-  `Mass Quote Acknowledgement` (`b`): added more values of `QuoteEntryStatus` (`1167`)
-
-  `MMProtection Limits` (`MM`): added `ProtectionVegaLimit` (`20118`)
+  * `Mass Quote Acknowledgement` (`b`): added more values of `QuoteEntryStatus` (`1167`): `18 = Canceled by MM`, `19 = Replaced`, `20 = Filled`, `21 = Open`, `22 = Closed`, `23 = Triggered`, `24 = Untriggered`, `25 = Unknown`.
+  * `MMProtection Limits` (`MM`): added `ProtectionVegaLimit` (`20118`).
 </Update>
 
 <Update label="Release 04.06.2024">
-  `New Order Single` (`D`): added nonmandatory tag `ValidUntilTime` (`62`)
-
-  `Order Cancel/Replace Request` (`G`): added nonmandatory tag `ValidUntilTime` (`62`)
-
-  `Mass Quote` (`i`): added nonmandatory tag `ValidUntilTime` (`62`)
-
-  `Execution Reports` (`8`): added nonmandatory tags `IsLiquidation` (`9034`), `IsRebalance` (`9035`), `IsRiskReducing` (`9036`)
-
-  `SecurityListRequest` (`x`): added `Currency`, `SecurityType`, `SecondaryCurrency`
+  * `New Order Single` (`D`): added nonmandatory tag `ValidUntilTime` (`62`).
+  * `Order Cancel/Replace Request` (`G`): added nonmandatory tag `ValidUntilTime` (`62`).
+  * `Mass Quote` (`i`): added nonmandatory tag `ValidUntilTime` (`62`).
+  * `Execution Reports` (`8`): added nonmandatory tags `IsLiquidation` (`9034`), `IsRebalance` (`9035`) and `IsRiskReducing` (`9036`).
+  * `SecurityListRequest` (`x`): added `Currency`, `SecurityType` and `SecondaryCurrency`.
 </Update>
 
 <Update label="Release 09.03.2024">
-  `SecurityStatusRequest` (`e`): added subscription
-
-  `SecurityStatus` (`f`): added Text field
-
-  Changed scope for `MMProtection Limits` (`MM`) from `account` to `trade`
+  * `SecurityStatusRequest` (`e`): added subscription.
+  * `SecurityStatus` (`f`): added `Text` field.
+  * Changed scope for `MMProtection Limits` (`MM`) from `account` to `trade`.
 </Update>
 
 <Update label="Release 13.02.2024">
-  Added `Mass Quote` (`i`)
-
-  Added `Mass Quote Acknowledgement` (`b`)
-
-  `Execution Reports` (`8`): added nonmandatory tags `MMPGroup` (`9019`), `QuoteSetID` (`302`), `QuoteID` (`117`), `QuoteEntryID` (`299`) related to Mass Quoting
-
-  Added `Quote Cancel` (`Z`)
-
-  `Mass Cancel Report` (`r`): added one more type for `MassCancelRequestType`,  added optional field `QuoteCancelType` for mass cancel reports generated by `Quote Cancel` (`Z`), `ClOrdID` is not required tag anymore
-
-  `MMProtection Reset` (`MZ`), `MMProtection Limits` (`MM`) -- added optional `MMPGroup`.
+  * Added `Mass Quote` (`i`).
+  * Added `Mass Quote Acknowledgement` (`b`).
+  * `Execution Reports` (`8`): added nonmandatory tags `MMPGroup` (`9019`), `QuoteSetID` (`302`), `QuoteID` (`117`) and `QuoteEntryID` (`299`) related to Mass Quoting.
+  * Added `Quote Cancel` (`Z`).
+  * `Mass Cancel Report` (`r`): added one more type for `MassCancelRequestType`; added an optional field `QuoteCancelType` for mass cancel reports generated by `Quote Cancel` (`Z`); `ClOrdID` is no longer a required tag.
+  * `MMProtection Reset` (`MZ`) and `MMProtection Limits` (`MM`): added optional `MMPGroup`.
 </Update>
 
 <Update label="Release 12.12.2023">
@@ -86,117 +78,103 @@
 </Update>
 
 <Update label="Release 02.11.2023">
-  `User Request`(`BE`): added `CROSS` as currency
+  `User Request` (`BE`): added `CROSS` as currency.
 </Update>
 
 <Update label="Release 27.09.2023">
-  DeribitLiquidation is hidden from the public for the first hour after the trade (to prevent abusing).
+  `DeribitLiquidation` is hidden from the public for the first hour after the trade (to prevent abusing).
 </Update>
 
 <Update label="Release 06.07.2023">
-  changed `MMProtectionLimits` and `MMProtectionReset` to work with currency pair instead of a single currency.
+  Changed `MMProtectionLimits` and `MMProtectionReset` to work with a currency pair instead of a single currency.
 </Update>
 
 <Update label="Release 13.06.2023">
-  added fields NoTickRules(1205), StartTickPriceRange(1206), TickIncrement(1208) to the instrument for tick size steps
-
-  added option DisplayIncrementSteps(9018) to `Logon` and `Security List Request`(`x`) so the client can enable receiving the above mentioned new fields in the instrument
+  * Added fields `NoTickRules` (`1205`), `StartTickPriceRange` (`1206`) and `TickIncrement` (`1208`) to the instrument for tick size steps.
+  * Added option `DisplayIncrementSteps` (`9018`) to `Logon` and `Security List Request` (`x`) so the client can enable receiving the above-mentioned new fields in the instrument.
 </Update>
 
 <Update label="Release 09.06.2023">
-  added the following messages: TradeCaptureReportRequest (AD), TradeCaptureReportRequestAck (AQ), and TradeCaptureReport (AE). Clients can now utilize these to subscribe for receiving reports on their own trades.
+  Added the following messages: `TradeCaptureReportRequest` (`AD`), `TradeCaptureReportRequestAck` (`AQ`) and `TradeCaptureReport` (`AE`). Clients can now utilize these to subscribe for receiving reports on their own trades.
 </Update>
 
 <Update label="Release 21.03.2023">
-  added possibility to search closed orders by ClOrdID or DeribitLabel via OrderMassStatusRequest
-
-  incremental refresh for indices now has 1 entry instead of 2
-
-  BTC-DVOL, ETH-DVOL are renamed in compliance with other indices: BTCDVOL\_USDC-DERIBIT-INDEX, ETHDVOL\_USDC-DERIBIT-INDEX
+  * Added the possibility to search closed orders by `ClOrdID` or `DeribitLabel` via `OrderMassStatusRequest`.
+  * Incremental refresh for indices now has 1 entry instead of 2.
+  * BTC-DVOL and ETH-DVOL are renamed in compliance with other indices: `BTCDVOL_USDC-DERIBIT-INDEX`, `ETHDVOL_USDC-DERIBIT-INDEX`.
 </Update>
 
 <Update label="Release 16.02.2023">
-  SecurityList (y): added new value FXSPOT of SecurityType for currency exchange spot market.
-
-  SecurityList (y): added PriceQuoteCurrency (1524)
+  * `SecurityList` (`y`): added new value `FXSPOT` of `SecurityType` for the currency exchange spot market.
+  * `SecurityList` (`y`): added `PriceQuoteCurrency` (`1524`).
 </Update>
 
 <Update label="Release 13.10.2022">
-  Documentation alignment
+  Documentation alignment.
 </Update>
 
 <Update label="Release 30.03.2022">
-  Added combo API:
-
-  * added Security Definition Request (c)
-  * added Security Definition (d)
-
-  Added RFQ API:
-
-  * added Quote Request (R)
-  * added Quote Request Reject (AG)
-  * added Quote Status Report (AI)
-  * added RFQ Request (AH)
+  * Added `Security Definition Request` (`c`).
+  * Added `Security Definition` (`d`).
+  * Added `Quote Request` (`R`).
+  * Added `Quote Request Reject` (`AG`).
+  * Added `Quote Status Report` (`AI`).
+  * Added `RFQ Request` (`AH`).
 </Update>
 
 <Update label="Release 21.12.2021">
-  MarketData Request (V) added DeribitShowBlockTradeId (9012)
-
-  MarketData (W) and (X): added TrdMatchID(880) as blocktrade ID
+  * `MarketData Request` (`V`): added `DeribitShowBlockTradeId` (`9012`).
+  * `MarketData` (`W`) and (`X`): added `TrdMatchID` (`880`) as block trade ID.
 </Update>
 
 <Update label="Release 13.10.2021">
-  MarketData Request (V): added DeribitSkipBlockTrades (9011)
+  `MarketData Request` (`V`): added `DeribitSkipBlockTrades` (`9011`).
 </Update>
 
 <Update label="Release 10.08.2021">
-  added possibility to use client's ClOrdID and DeribitLabel in Order Cancel Request(F), Order Mass Cancel Request(q) and Order Cancel/Replace Request(G) without exchange generated OrigClOrdID (equivalent of REST/WS cancel\_by\_label etc)
+  Added the possibility to use the client's `ClOrdID` and `DeribitLabel` in `Order Cancel Request` (`F`), `Order Mass Cancel Request` (`q`) and `Order Cancel/Replace Request` (`G`) without an exchange-generated `OrigClOrdID` (equivalent of REST/WS `cancel_by_label` etc.).
 </Update>
 
 <Update label="Release 14.07.2021">
-  Added Sequence Reset(4)
-
-  Security List Request(x) added SubscriptionRequestType(263) - possibility to get notifications about new or terminated instruments
-
-  SecurityList (y): added SecurityStatus(965) in the notifications
+  * Added `Sequence Reset` (`4`).
+  * `Security List Request` (`x`): added `SubscriptionRequestType` (`263`) — the possibility to get notifications about new or terminated instruments.
+  * `SecurityList` (`y`): added `SecurityStatus` (`965`) in the notifications.
 </Update>
 
 <Update label="Release 18.03.2021">
-  Logon(A): Added custom tag ConnectionOnlyExecutionReports(9010)
+  `Logon` (`A`): added custom tag `ConnectionOnlyExecutionReports` (`9010`).
 </Update>
 
 <Update label="Release 01.03.2021">
-  Order Cancel/Replace Request (G): adjusted behavior for MMP orders when DeribitMMProtection (9008) flag is not specified
+  `Order Cancel/Replace Request` (`G`): adjusted behavior for MMP orders when the `DeribitMMProtection` (`9008`) flag is not specified.
 </Update>
 
 <Update label="Release 11.12.2020">
-  SecurityList (y): added Deribit Volatility Index instruments: BTC-VIX, ETH-VIX
-
-  MarketData Request (V): added requests for Deribit Volatility Index
+  * `SecurityList` (`y`): added Deribit Volatility Index instruments: BTC-VIX, ETH-VIX.
+  * `MarketData Request` (`V`): added requests for the Deribit Volatility Index.
 </Update>
 
 <Update label="Release 22.06.2020">
-  Added MMProtection Limits (MM)
-
-  Added MMProtection Limits Result/Reject (MR)
-
-  Added MMProtection Reset (MZ)
-
-  New Order Single (D): added nonmandatory DeribitMMProtection (9008)
-
-  Order Cancel/Replace Request (G): added nonmandatory DeribitMMProtection (9008)
-
-  Execution Reports (8): added nonmandatory DeribitMMProtection (9008)
+  * Added `MMProtection Limits` (`MM`).
+  * Added `MMProtection Limits Result/Reject` (`MR`).
+  * Added `MMProtection Reset` (`MZ`).
+  * `New Order Single` (`D`): added nonmandatory `DeribitMMProtection` (`9008`).
+  * `Order Cancel/Replace Request` (`G`): added nonmandatory `DeribitMMProtection` (`9008`).
+  * `Execution Reports` (`8`): added nonmandatory `DeribitMMProtection` (`9008`).
 </Update>
 
 <Update label="Release 21.05.2020">
-  Logon(A): Added custom tag DeribitSequential(9007)
+  * `Logon` (`A`): added custom tag `DeribitSequential` (`9007`).
+  * `Execution Reports` (`8`): added `SecondaryExecID`, which is the ID of the last change of the order.
+</Update>
 
-  Execution Reports (8): added SecondaryExecID which is ID of the last change of the order
+<Update label="Release 26.03.2020">
+  * FIX parameter `9003` `DontCancelOnDisconnect` has been added to disable 'Cancel On Disconnect' actions.
+  * A `Security Status Request` has been added, with a response message of `Security Status`.
 </Update>
 
 <Update label="Release 17.01.2020">
-  Added SecurityStatusRequest(e) request and SecurityStatus(f) response
+  Added `SecurityStatusRequest` (`e`) request and `SecurityStatus` (`f`) response.
 </Update>
 
 
@@ -204,6 +182,6 @@
 
 - [Starbase API Changelog](/changelogs/starbase.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
 - [Logon(A) — Production FIX API](/fix-api/production/logon.md)
 - [Logout(5) — Production FIX API](/fix-api/production/logout.md)
+- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)

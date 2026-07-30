@@ -164,8 +164,8 @@ components:
             - estimated_delivery_price
           type: object
       required:
-        - result
         - jsonrpc
+        - result
       type: object
   responses:
     PublicGetIndexPriceResponse:

@@ -21,7 +21,7 @@ Each MMP configuration contains the following key parameters:
   MMP groups exist but apply only to Mass Quotes Specifications. For standard order-based quoting, MMP configuration is defined per index.
 </Note>
 
-All configuration parameters support up to 4 decimal places of precision. Each limit is monitored independently. If any one is breached, all MMP-tagged orders are canceled, and a freeze is applied according configured `frozen_time`.
+All configuration parameters support up to 4 decimal places of precision. Each limit is monitored independently. If any one is breached, all MMP-tagged orders are canceled, and a freeze is applied according to the configured `frozen_time`.
 
 For comprehensive details on MMP configuration and management, refer to the Deribit API Documentation.
 

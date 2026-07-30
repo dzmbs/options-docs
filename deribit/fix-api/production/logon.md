@@ -63,7 +63,7 @@ If the login was not successful, the server will respond with a
 ## Related topics
 
 - [Logout(5) — Production FIX API](/fix-api/production/logout.md)
-- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
 - [Heartbeat(0) — Production FIX API](/fix-api/production/heartbeat.md)
 - [User Request(BE) — Production FIX API](/fix-api/production/user-request.md)
+- [Execution Reports(8) — Production FIX API](/fix-api/production/execution-reports.md)

@@ -30,4 +30,4 @@ The server sends `MMProtection Result (MR)` message as a response.
 - [MMProtection Limits (MM) — Production FIX API](/fix-api/production/mmprotection-limits.md)
 - [Sequence Reset(4) — Production FIX API](/fix-api/production/sequence-reset.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
+- [FIX API Changelog](/changelogs/fix.md)

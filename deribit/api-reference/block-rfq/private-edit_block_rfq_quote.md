@@ -222,8 +222,8 @@ components:
         result:
           $ref: '#/components/schemas/block_rfq_quote'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     block_rfq_quote:
       properties:

@@ -4,7 +4,7 @@
 
 # Multicast Channels
 
-> Starbase SBE market data over UDP multicast — A and B redundant channels sharded by product type for low-latency market data feed consumption.
+> Starbase SBE Market Data Feed multicast channels over UDP — channel assignments sharded by product type with A/B twins for redundancy and low latency.
 
 <Info>
   **Multicast & networking support**: For detailed multicast or networking questions, contact <a href="mailto:colo-support@coinbase.com" style={{ whiteSpace: "nowrap" }}>[colo-support@coinbase.com](mailto:colo-support@coinbase.com)</a>.

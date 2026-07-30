@@ -144,8 +144,8 @@ components:
             - ok
           description: Result of method execution. `ok` in case of success
       required:
-        - result
         - jsonrpc
+        - result
       type: object
 
 ````

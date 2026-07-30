@@ -136,8 +136,8 @@ components:
             enabled:
               $ref: '#/components/schemas/enabled_field'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     cod_scope:
       enum:

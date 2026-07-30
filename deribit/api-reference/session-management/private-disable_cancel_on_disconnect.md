@@ -145,8 +145,8 @@ components:
             - ok
           description: Result of method execution. `ok` in case of success
       required:
-        - result
         - jsonrpc
+        - result
       type: object
 
 ````
@@ -156,5 +156,5 @@ components:
 - [private/get_cancel_on_disconnect](/api-reference/session-management/private-get_cancel_on_disconnect.md)
 - [private/enable_cancel_on_disconnect](/api-reference/session-management/private-enable_cancel_on_disconnect.md)
 - [Logout(5) — Production FIX API](/fix-api/production/logout.md)
+- [FIX API Changelog](/changelogs/fix.md)
 - [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)
-- [Connection Management](/articles/connection-management-best-practices.md)

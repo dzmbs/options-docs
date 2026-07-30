@@ -155,8 +155,8 @@ components:
             - eligibility_status
             - apr_sma7
       required:
-        - result
         - jsonrpc
+        - result
       type: object
 
 ````

@@ -322,7 +322,7 @@ securitySchemes: []
 ## Related topics
 
 - [Notifications](/articles/notifications.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [deribit_price_index.(index_name) ](/subscriptions/market-data/deribit_price_indexindex_name.md)
 - [deribit_price_statistics.(index_name) ](/subscriptions/market-data/deribit_price_statisticsindex_name.md)
 - [public/get_index_price_names](/api-reference/market-data/public-get_index_price_names.md)
-- [estimated_expiration_price.(index_name) ](/subscriptions/market-data/estimated_expiration_priceindex_name.md)

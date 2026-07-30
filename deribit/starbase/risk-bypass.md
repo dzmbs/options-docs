@@ -15,7 +15,7 @@ To explain further, please see the following sequence of events:
 3. Alice enters double-sided quotes for each BTC\_USD option order book or \~1600 orders
 4. Bob sends an order that fills Alice for 9 BTC
 5. Bob sends a second order that fills Alice for 10 BTC
-6. Alice's MMP is triggered an atomically cancels all her orders
+6. Alice's MMP is triggered and atomically cancels all her orders
 7. Starbase prevents Alice from re-entering the market for 1 second
 8. Deribit's margin engine recalculates IM based on Alice's fills and communicates this to Starbase
 9. After 1 second, Alice is free to re-enter the market

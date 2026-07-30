@@ -167,8 +167,8 @@ components:
           items:
             $ref: '#/components/schemas/access_log'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     access_log:
       properties:
@@ -255,8 +255,8 @@ components:
 
 ## Related topics
 
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_transaction_log](/api-reference/account-management/private-get_transaction_log.md)
 - [user.access_log ](/subscriptions/user/useraccess_log.md)
 - [private/toggle_subaccount_login](/api-reference/account-management/private-toggle_subaccount_login.md)
 - [Quickstart Guide](/articles/deribit-quickstart.md)
-- [Notifications](/articles/notifications.md)

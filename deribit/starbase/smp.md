@@ -35,12 +35,6 @@ SMP uses three components to control order matching:
       Orders submitted via the WebSocket API may use `CANCEL_TAKER` regardless of speed-bump state.
     </Warning>
 
-    <Warning>
-      **Speed-bumped orders always use CANCEL\_MAKER on the SBE gateway.** When a taker order submitted via the SBE gateway is speed-bumped, the SMP mode is overridden to `CANCEL_MAKER` regardless of the value in the request. This is consistent with standard market practice for speed-bumped orders.
-
-      Orders submitted via the WebSocket API may use `CANCEL_TAKER` regardless of speed-bump state.
-    </Warning>
-
     <Note>
       **SMP Mode Selection**: When a self-match is detected, the SMP mode from the **aggressing order** (the incoming order) will be used to determine which order is cancelled.
     </Note>
@@ -116,4 +110,4 @@ When an order is cancelled due to self-match prevention, it will be indicated in
 - [Starbase API Overview](/starbase/overview.md)
 - [Speed Bumps](/starbase/speed-bumps.md)
 - [private/set_self_trading_config](/api-reference/account-management/private-set_self_trading_config.md)
-- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)

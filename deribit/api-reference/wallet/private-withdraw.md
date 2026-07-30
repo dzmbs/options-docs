@@ -196,8 +196,8 @@ components:
         result:
           $ref: '#/components/schemas/withdrawal'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     withdrawal:
       properties:
@@ -309,7 +309,7 @@ components:
 ## Related topics
 
 - [Managing Withdrawals](/articles/managing-withdrawals-api.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/cancel_withdrawal](/api-reference/wallet/private-cancel_withdrawal.md)
 - [private/get_withdrawals](/api-reference/wallet/private-get_withdrawals.md)
 - [private/list_custody_accounts](/api-reference/account-management/private-list_custody_accounts.md)
-- [public/get_currencies](/api-reference/market-data/public-get_currencies.md)

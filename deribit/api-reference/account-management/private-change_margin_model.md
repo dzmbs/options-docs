@@ -220,8 +220,8 @@ components:
               - new_state
               - currency
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     currency:
       enum:
@@ -237,8 +237,8 @@ components:
 
 ## Related topics
 
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Account Model](/starbase/account-model.md)
 - [Market Model](/starbase/market-model.md)
 - [private/simulate_portfolio](/api-reference/account-management/private-simulate_portfolio.md)
-- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)

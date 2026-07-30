@@ -20,7 +20,7 @@ Event generated when one or more resting orders are filled by a taker order. Thi
 
 | Field | Name               | Type      | Length | Description                                                                                                                                               |
 | ----- | ------------------ | --------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1     | transactTime       | int64     | 8      | Nanoseconds since echo. Time of entry into the order book                                                                                                 |
+| 1     | transactTime       | int64     | 8      | Nanoseconds since epoch. Time of entry into the order book                                                                                                |
 | 2     | execId             | int64     | 8      | Exchange-assigned event ID                                                                                                                                |
 | 3     | blockLengthOfFills | uint16    | 2      | 60 (bytes)                                                                                                                                                |
 | 4     | numberOfFills      | uint16    | 2      | Indicates the length of the following repeating group containing all immediate fills when the order was submitted                                         |
@@ -109,33 +109,46 @@ Unsolicited event sent when a speed-bumped order completes the speed bump period
 
 ### MassQuoteOrdersPlaced (314)
 
-Unsolicited event sent when one or more speed-bumped quote sides complete the speed bump period and are entered into the book. Sent to the session that originally submitted the `MassQuoteRequest`.
+Unsolicited event sent when one or more speed-bumped quote sides complete the speed bump period and are entered into the book. Sent to the session that originally submitted the `MassQuoteRequest`. Each placed side is reported as an entry in the `orders` repeating group (with `status` and `cancelReason`). When a side was converted to IOC during the bump, infer that from `status` / `cancelReason` — there is no separate `timeInForce` field. See [Speed Bumps — Mass quotes](/starbase/speed-bumps#mass-quotes--message-flow).
 
-| Field | Name                | Type      | Length | Description                                                                                                                                                               |
-| ----- | ------------------- | --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1     | transactTime        | int64     | 8      | Nanoseconds since epoch. Time of entry into the order book                                                                                                                |
-| 2     | execId              | int64     | 8      | Exchange-assigned event ID                                                                                                                                                |
-| 3     | quoteId             | int64     | 8      | Numeric client quote ID from the originating `MassQuoteRequest`                                                                                                           |
-| 4     | mmpGroupId          | int64     | 8      | Identifier of MMP group                                                                                                                                                   |
-| 5     | blockLengthOfQuotes | uint16    | 2      | 44 (bytes)                                                                                                                                                                |
-| 6     | numberOfQuotes      | uint16    | 2      | Number of placed quote entries in this message                                                                                                                            |
-| ->7   | instrumentId        | int64     | 8      | Numeric instrument ID                                                                                                                                                     |
-| ->8   | buyOrderId          | int64     | 8      | Numeric exchange assigned order ID for buy side, or `0` if not placed                                                                                                     |
-| ->9   | sellOrderId         | int64     | 8      | Numeric exchange assigned order ID for sell side, or `0` if not placed                                                                                                    |
-| ->10  | buyPrice            | Price9    | 8      | Limit price of buy side                                                                                                                                                   |
-| ->11  | sellPrice           | Price9    | 8      | Limit price of sell side                                                                                                                                                  |
-| ->12  | buyAmount           | Decimal72 | 9      | Remaining buy amount                                                                                                                                                      |
-| ->13  | sellAmount          | Decimal72 | 9      | Remaining sell amount                                                                                                                                                     |
-| ->14  | buyQuoteStatus      | int8      | 1      | `0`=Inactive<br />`1`=Unmodified<br />`2`=QuantityReduced<br />`3`=Updated<br />`4`=Filled<br />`5`=CanceledByRequest<br />`6`=CanceledByMmp<br />`7`=CanceledBySelfMatch |
-| ->15  | sellQuoteStatus     | int8      | 1      | Refer to buyQuoteStatus for possible values                                                                                                                               |
+| Field | Name                | Type      | Length | Description                                                                   |
+| ----- | ------------------- | --------- | ------ | ----------------------------------------------------------------------------- |
+| 1     | transactTime        | int64     | 8      | Nanoseconds since epoch. Time of entry into the order book                    |
+| 2     | execId              | int64     | 8      | Exchange-assigned event ID                                                    |
+| 3     | mmpGroupId          | int64     | 8      | Identifier of MMP group                                                       |
+| 4     | blockLengthOfOrders | uint16    | 2      | Bytes per entry in the orders repeating group                                 |
+| 5     | numberOfOrders      | uint16    | 2      | Number of placed quote-side orders in this message                            |
+| ->6   | clientOrderId       | int64     | 8      | Numeric client order ID                                                       |
+| ->7   | orderId             | int64     | 8      | Numeric exchange assigned order ID                                            |
+| ->8   | instrumentId        | int64     | 8      | Numeric instrument ID                                                         |
+| ->9   | price               | Price9    | 8      | Limit price                                                                   |
+| ->10  | quantity            | Decimal72 | 9      | Quantity                                                                      |
+| ->11  | totalFilled         | Decimal72 | 9      | Total quantity filled upon book entry. `0` if no immediate fills              |
+| ->12  | visibleQty          | Decimal72 | 9      | Amount currently visible in market data                                       |
+| ->13  | side                | int8      | 1      | `1`=BUY<br />`-1`=SELL                                                        |
+| ->14  | status              | int8      | 1      | `1`=Active<br />`2`=Filled<br />`3`=Cancelled<br />`4`=Queued                 |
+| ->15  | cancelReason        | int8      | 1      | See [Cancel Reason Codes](/starbase/binary-api-reference#cancel-reason-codes) |
+| 16    | blockLengthOfFills  | uint16    | 2      | Bytes per entry in the fills repeating group                                  |
+| 17    | numberOfFills       | uint16    | 2      | Number of fills. `0` if no immediate fills                                    |
+| ->18  | matchId             | int64     | 8      | Transaction ID representing match                                             |
+| ->19  | orderId             | int64     | 8      | Order ID that received the fill                                               |
+| ->20  | fillPrice           | Price9    | 8      | Price of fill                                                                 |
+| ->21  | fillQty             | Decimal72 | 9      | Quantity of fill                                                              |
+| 22    | blockLengthOfLegs   | uint16    | 2      | Bytes per entry in the legs repeating group                                   |
+| 23    | numberOfLegs        | uint16    | 2      | Non-zero for trades on combo instruments only                                 |
+| ->24  | matchId             | int64     | 8      | Transaction ID representing match                                             |
+| ->25  | instrumentId        | int64     | 8      | Numeric instrument ID                                                         |
+| ->26  | legPrice            | Price9    | 8      | Price of this leg in the combo instrument                                     |
+| ->27  | legQty              | Decimal72 | 9      | Quantity of this leg in the combo instrument                                  |
+| ->28  | legSide             | int8      | 1      | `1`=BUY<br />`-1`=SELL                                                        |
 
 ### MassQuoteMmpTriggered (320)
 
-Event generated when a mass quote Market Maker Protection limit is triggered. Followed by one or more OrderCanceled messages..
+Event generated when a mass quote Market Maker Protection limit is triggered. Followed by one or more OrderCanceled messages.
 
 | Field | Name          | Type   | Length | Description                                                                     |
 | ----- | ------------- | ------ | ------ | ------------------------------------------------------------------------------- |
-| 1     | transactTime  | int64  | 8      | Nanoseconds since echo. Time of trigger in the order book                       |
+| 1     | transactTime  | int64  | 8      | Nanoseconds since epoch. Time of trigger in the order book                      |
 | 2     | execId        | int64  | 8      | Exchange-assigned event ID                                                      |
 | 3     | mmpGroupId    | int64  | 8      | Identifier of MMP group                                                         |
 | 4     | frozenUntil   | int64  | 8      | Nanoseconds since epoch                                                         |
@@ -146,18 +159,18 @@ Event generated when a mass quote Market Maker Protection limit is triggered. Fo
 
 ### OrdersMmpTriggered (322)
 
-Event generated when an orders Market Maker Protection limit is triggered. Followed by one or OrderCanceled messages.
+Event generated when an orders Market Maker Protection limit is triggered. Followed by one or more OrderCanceled messages.
 
-| Field | Name          | Type   | Length | Description                                                                                           |
-| ----- | ------------- | ------ | ------ | ----------------------------------------------------------------------------------------------------- |
-| 1     | transactTime  | int64  | 8      | Nanoseconds since echo. Time of trigger in the order book                                             |
-| 2     | execId        | int64  | 8      | Exchange-assigned event ID                                                                            |
-| 3     | indexId       | int64  | 8      | Numeric [index ID](https://deribit-jy-patch1.mintlify.app/api-reference/market-data/list-instruments) |
-| 4     | frozenUntil   | int64  | 8      | Nanoseconds since epoch                                                                               |
-| 5     | quantityLevel | double | 8      | The total traded quantity, within a given interval, at the time of the trigger                        |
-| 6     | vegaLevel     | double | 8      | The change in vega exposure within a given interval, at the time of the trigger                       |
-| 7     | deltaLevel    | double | 8      | The change in delta within a given interval                                                           |
-| 8     | trigger       | int8   | 1      | 0=quantity<br />1=delta<br />2=vega                                                                   |
+| Field | Name          | Type   | Length | Description                                                                                                                                                                                      |
+| ----- | ------------- | ------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1     | transactTime  | int64  | 8      | Nanoseconds since epoch. Time of trigger in the order book                                                                                                                                       |
+| 2     | execId        | int64  | 8      | Exchange-assigned event ID                                                                                                                                                                       |
+| 3     | indexId       | int64  | 8      | Underlying [index](/starbase/market-model#index) ID — same as `index_id` on [`public/get_instruments`](/api-reference/market-data/public-get_instruments) and `currencyPairId` in the SBE schema |
+| 4     | frozenUntil   | int64  | 8      | Nanoseconds since epoch                                                                                                                                                                          |
+| 5     | quantityLevel | double | 8      | The total traded quantity, within a given interval, at the time of the trigger                                                                                                                   |
+| 6     | vegaLevel     | double | 8      | The change in vega exposure within a given interval, at the time of the trigger                                                                                                                  |
+| 7     | deltaLevel    | double | 8      | The change in delta within a given interval                                                                                                                                                      |
+| 8     | trigger       | int8   | 1      | 0=quantity<br />1=delta<br />2=vega                                                                                                                                                              |
 
 ### MassQuoteMmpUnfrozen (324)
 
@@ -174,12 +187,12 @@ Event generated when a mass quote Market Maker Protection group is unfrozen, eit
 
 Event generated when an orders Market Maker Protection group is unfrozen, either in response to a reset request or because the `frozenUntil` timer elapsed.
 
-| Field | Name          | Type  | Length | Description                                                                                           |
-| ----- | ------------- | ----- | ------ | ----------------------------------------------------------------------------------------------------- |
-| 1     | transactTime  | int64 | 8      | Nanoseconds since epoch. Time of trigger in the order book                                            |
-| 2     | execId        | int64 | 8      | Exchange-assigned event ID                                                                            |
-| 3     | indexId       | int64 | 8      | Numeric [index ID](https://deribit-jy-patch1.mintlify.app/api-reference/market-data/list-instruments) |
-| 4     | correlationId | int64 | 8      | Client-assigned ID, or `0x8000000000000000` if unsolicited (timer elapsed)                            |
+| Field | Name          | Type  | Length | Description                                                                                                                                                                                      |
+| ----- | ------------- | ----- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1     | transactTime  | int64 | 8      | Nanoseconds since epoch. Time of trigger in the order book                                                                                                                                       |
+| 2     | execId        | int64 | 8      | Exchange-assigned event ID                                                                                                                                                                       |
+| 3     | indexId       | int64 | 8      | Underlying [index](/starbase/market-model#index) ID — same as `index_id` on [`public/get_instruments`](/api-reference/market-data/public-get_instruments) and `currencyPairId` in the SBE schema |
+| 4     | correlationId | int64 | 8      | Client-assigned ID, or `0x8000000000000000` if unsolicited (timer elapsed)                                                                                                                       |
 
 
 ## Related topics

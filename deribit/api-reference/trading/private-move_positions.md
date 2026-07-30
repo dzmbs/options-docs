@@ -214,8 +214,8 @@ components:
         result:
           $ref: '#/components/schemas/position_move'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     position_move:
       properties:
@@ -296,6 +296,6 @@ components:
 
 - [Moving Positions](/articles/moving-positions-api.md)
 - [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Rate Limits](/articles/rate-limits.md)
 - [private/get_position](/api-reference/account-management/private-get_position.md)
-- [private/get_positions](/api-reference/account-management/private-get_positions.md)

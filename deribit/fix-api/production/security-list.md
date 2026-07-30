@@ -54,7 +54,7 @@ instrument isn't perpetual) and strike price(if the contract is an option).
 For example:
 
 <b>ETH\_USD-14SEP22-2000-P</b> resembles an <b>ETH-USD</b> options contract that
-expires on 14 september 2022 with PUT strike price at 2000 USD. <b>BTC\_USD</b>
+expires on 14 September 2022 with PUT strike price at 2000 USD. <b>BTC\_USD</b>
 trading pair is treated as a default trading pair and doesn't have quote currency
 provided in its name.
 
@@ -67,6 +67,6 @@ delivered, settlement, inactive, halted, or locked status contain only the statu
 
 - [Security List Request(x) — Production FIX API](/fix-api/production/security-list-request.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
 - [Security Definition Request(c) — Production FIX API](/fix-api/production/security-definition-request.md)
 - [Security Definition(d) — Production FIX API](/fix-api/production/security-definition.md)
+- [Security Status(f) — Production FIX API](/fix-api/production/security-status.md)

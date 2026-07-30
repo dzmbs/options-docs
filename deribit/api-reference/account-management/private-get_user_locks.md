@@ -152,8 +152,8 @@ components:
               - enabled
           type: array
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     currency:
       enum:

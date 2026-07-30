@@ -132,8 +132,8 @@ components:
           items:
             $ref: '#/components/schemas/trades_volumes'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     trades_volumes:
       properties:
@@ -207,8 +207,8 @@ components:
 
 ## Related topics
 
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [public/get_block_rfq_trades](/api-reference/block-rfq/public-get_block_rfq_trades.md)
 - [public/get_last_trades_by_currency](/api-reference/market-data/public-get_last_trades_by_currency.md)
 - [public/get_last_trades_by_instrument](/api-reference/market-data/public-get_last_trades_by_instrument.md)
 - [public/get_last_trades_by_currency_and_time](/api-reference/market-data/public-get_last_trades_by_currency_and_time.md)
-- [public/get_last_trades_by_instrument_and_time](/api-reference/market-data/public-get_last_trades_by_instrument_and_time.md)

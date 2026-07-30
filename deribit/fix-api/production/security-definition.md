@@ -36,6 +36,6 @@ The Security Definition `d` message is used for the following:
 
 - [Security Definition Request(c) — Production FIX API](/fix-api/production/security-definition-request.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
 - [Security List(y) — Production FIX API](/fix-api/production/security-list.md)
 - [Security Status(f) — Production FIX API](/fix-api/production/security-status.md)
+- [Security List Request(x) — Production FIX API](/fix-api/production/security-list-request.md)

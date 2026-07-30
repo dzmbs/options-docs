@@ -8,8 +8,6 @@
 
 Results can be filtered by currency, time range, and transaction type. Use the `continuation` parameter for pagination when retrieving large transaction histories. To retrieve transactions for a specific subaccount, use the `subaccount_id` parameter.
 
-Trade entries executed in Starbase include `starbase_match_id`, `starbase_order_id`, and `starbase_timestamp`.
-
 When an option expires out of the money, the transaction log type is `expiry`. As there is nothing to settle into futures in this case, this remains the only entry in the transaction log for that expiration.
 
 **History Limit:** This API method has **no time limit** - users can query transaction history back to account creation. Note that the CSV export feature available on the website is year-limited to 2023. 
@@ -82,10 +80,6 @@ paths:
         Use the `continuation` parameter for pagination when retrieving large
         transaction histories. To retrieve transactions for a specific
         subaccount, use the `subaccount_id` parameter.
-
-
-        Trade entries executed in Starbase include `starbase_match_id`,
-        `starbase_order_id`, and `starbase_timestamp`.
 
 
         When an option expires out of the money, the transaction log type is
@@ -237,8 +231,8 @@ components:
             - continuation
             - logs
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     continuation_with_null:
       example: 429946
@@ -349,16 +343,13 @@ components:
           description: The IP address from which the trade was initiated
         starbase_match_id:
           type: integer
-          description: Starbase match id for `trade` entries executed in Starbase
+          description: Starbase match id for trades executed in Starbase
         starbase_order_id:
           type: integer
           example: 103148386170
-          description: >-
-            Raw Starbase order id for `trade` entries associated with orders
-            placed in Starbase
+          description: Starbase order id for orders placed in Starbase
         starbase_timestamp:
           $ref: '#/components/schemas/starbase_timestamp'
-          description: Starbase causal timestamp for `trade` entries executed in Starbase
         session_rpl:
           $ref: '#/components/schemas/rpl'
         session_upl:

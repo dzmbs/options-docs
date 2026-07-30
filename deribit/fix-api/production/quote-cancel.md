@@ -37,7 +37,7 @@ The message is equivalent of the `private/cancel_quotes` and shares the same sem
 ## Related topics
 
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
 - [Order Mass Cancel Report(r) — Production FIX API](/fix-api/production/order-mass-cancel-report.md)
 - [Mass Quote(i) — Production FIX API](/fix-api/production/mass-quote.md)
 - [Order Mass Cancel Request(q) — Production FIX API](/fix-api/production/order-mass-cancel-request.md)
+- [Order Cancel Request(F) — Production FIX API](/fix-api/production/order-cancel-request.md)

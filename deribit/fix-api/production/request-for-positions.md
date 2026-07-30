@@ -28,6 +28,6 @@ message.
 
 - [Position Report(AP) — Production FIX API](/fix-api/production/position-report.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
 - [User Request(BE) — Production FIX API](/fix-api/production/user-request.md)
 - [Test Request(1) — Production FIX API](/fix-api/production/test-request.md)
+- [Resend Request(2) — Production FIX API](/fix-api/production/resend-request.md)

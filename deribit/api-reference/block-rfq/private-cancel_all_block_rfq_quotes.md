@@ -158,8 +158,8 @@ components:
           example: 7
           description: Total number of successfully cancelled quotes
       required:
-        - result
         - jsonrpc
+        - result
       type: object
 
 ````

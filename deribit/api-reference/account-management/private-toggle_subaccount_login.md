@@ -157,8 +157,8 @@ components:
             - ok
           description: Result of method execution. `ok` in case of success
       required:
-        - result
         - jsonrpc
+        - result
       type: object
 
 ````
@@ -167,6 +167,6 @@ components:
 
 - [Managing Subaccounts](/articles/managing-subaccounts-api.md)
 - [private/toggle_notifications_from_subaccount](/api-reference/account-management/private-toggle_notifications_from_subaccount.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/set_email_for_subaccount](/api-reference/account-management/private-set_email_for_subaccount.md)
 - [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)
-- [private/create_subaccount](/api-reference/account-management/private-create_subaccount.md)

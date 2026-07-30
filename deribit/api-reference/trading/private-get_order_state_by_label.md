@@ -135,8 +135,8 @@ components:
         result:
           $ref: '#/components/schemas/orders'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     ErrorMessageResponse:
       properties:
@@ -153,9 +153,9 @@ components:
         error:
           type: integer
       required:
-        - message
-        - jsonrpc
         - error
+        - jsonrpc
+        - message
       type: object
     orders:
       items:
@@ -165,6 +165,12 @@ components:
       properties:
         order_id:
           $ref: '#/components/schemas/order_id'
+        starbase_order_id:
+          type: integer
+          example: 103148386170
+          description: >-
+            Raw Starbase order id, in Starbase's own (non currency-prefixed) id
+            namespace. Only present for orders matched on Starbase.
         order_state:
           $ref: '#/components/schemas/order_state'
         order_type:
@@ -191,12 +197,6 @@ components:
           $ref: '#/components/schemas/timestamp'
         starbase_last_update_timestamp:
           $ref: '#/components/schemas/starbase_last_update_timestamp'
-        starbase_client_order_id:
-          type: string
-          description: >-
-            Client order id sent to Starbase when the order was placed (present
-            only for orders placed in Starbase; combo legs inherit the parent
-            combo order's client order id)
         direction:
           $ref: '#/components/schemas/direction'
         price:
@@ -294,13 +294,6 @@ components:
           description: >-
             Id of the combo order that created this order (only present for
             orders that were created as legs of a combo order).
-        starbase_order_id:
-          type: integer
-          example: 103148386170
-          description: >-
-            Raw Starbase order id, in Starbase's own (non currency-prefixed) id
-            namespace. Only present for orders placed in Starbase. Combo leg
-            orders expose the parent combo order's Starbase order id.
         app_name:
           type: string
           example: Example Application
@@ -381,10 +374,7 @@ components:
         - market
         - market_limit
       type: string
-      description: >-
-        Original API order type when an order is represented internally as a
-        limit order. For example, Starbase market orders use `"limit"` as
-        `order_type` with `"market"` in this optional field.
+      description: Original order type. Optional field
     time_in_force:
       enum:
         - good_til_cancelled
@@ -409,8 +399,7 @@ components:
       description: >-
         The Starbase causal timestamp (nanoseconds since the Unix epoch) of the
         last book update that affected this order. Present only for orders
-        placed in Starbase, including combo leg order updates; not always
-        available for direct access orders
+        placed in Starbase; not always available for direct access orders
     direction:
       enum:
         - buy
@@ -552,10 +541,7 @@ components:
         `"oco_other_closed"` (the oco order linked to this order was closed),
         `"oto_primary_closed"` (the oto primary order that was going to trigger
         this order was cancelled), `"settlement"` (closed because of a
-        settlement event, e.g. good-til-day orders are cancelled when an
-        instrument enters the daily settlement). Note: orders cancelled because
-        an instrument expired (delivery) currently do not include a
-        `cancel_reason` field.
+        settlement)
     trigger_fill_condition:
       enum:
         - first_hit
@@ -626,6 +612,6 @@ components:
 
 - [private/get_open_orders_by_label](/api-reference/trading/private-get_open_orders_by_label.md)
 - [private/get_order_state](/api-reference/trading/private-get_order_state.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_trigger_order_history](/api-reference/trading/private-get_trigger_order_history.md)
 - [private/edit_by_label](/api-reference/trading/private-edit_by_label.md)
-- [private/get_block_rfq_quotes](/api-reference/block-rfq/private-get_block_rfq_quotes.md)

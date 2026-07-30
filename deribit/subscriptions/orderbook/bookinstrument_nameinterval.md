@@ -322,6 +322,6 @@ securitySchemes: []
 
 - [Notifications](/articles/notifications.md)
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [book.(instrument_name).(group).(depth).(interval) ](/subscriptions/orderbook/bookinstrument_namegroupdepthinterval.md)
 - [ticker.(instrument_name).(interval) ](/subscriptions/market-data/tickerinstrument_nameinterval.md)
-- [trades.(instrument_name).(interval) ](/subscriptions/trades/tradesinstrument_nameinterval.md)

@@ -201,8 +201,8 @@ components:
             - ok
           description: Result of method execution. `ok` in case of success
       required:
-        - result
         - jsonrpc
+        - result
       type: object
 
 ````
@@ -212,5 +212,5 @@ components:
 - [Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
 - [private/set_mmp_config](/api-reference/trading/private-set_mmp_config.md)
-- [private/get_mmp_config](/api-reference/trading/private-get_mmp_config.md)
 - [user.mmp_trigger.(index_name) ](/subscriptions/user/usermmp_triggerindex_name.md)
+- [private/get_mmp_config](/api-reference/trading/private-get_mmp_config.md)

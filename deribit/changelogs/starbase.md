@@ -6,6 +6,23 @@
 
 > Release notes for the Deribit Starbase binary and REST APIs covering new messages, protocol changes, performance updates, and compatibility notes.
 
+<Update label="Announcement 30.07.2026">
+  ## Announcement
+
+  ### Revised Go-Live Schedule
+
+  During testing over the last few days, we discovered several gaps in Starbase's pre-trade risk module. A go-live with these gaps, however small, would create unacceptable platform risk. The gaps do not affect the current Production environment because all orders still pass through existing risk modules. When the [direct access gateways](/starbase/gateway-connectivity) are enabled, these risk modules would be bypassed. We are confident we can close these gaps, but it involves a few code changes and a scheduled maintenance. This scheduled maintenance will be on **August 11th at 9AM UTC**, instead of the previously announced August 4th. We will enable the direct access gateways immediately after the scheduled maintenance.
+
+  We had planned to enable [speed bumps](/starbase/speed-bumps) on production on Thursday, July 30th. We have also decided to push this back from July 30th to **August 4th**. Enabling the speed bump ahead of the direct access gateway go-live allows us time to monitor, and a week is adequate. Another postponement also allows time to adjust to the recent API changes announced on Sunday.
+
+  To summarize:
+
+  * **Speed bump enablement** is moved from Thursday, 30th of July between 9 and 11 AM UTC to **Tuesday, 4th of August between 9 and 11 AM UTC**
+  * **Direct access gateway go-live** is moved from Tuesday, 4th of August 9AM UTC to **Tuesday, 11th of August 9AM UTC**
+
+  We sincerely apologize for the additional delay. We feel this is the prudent decision to guarantee stability and market quality throughout this transition. Please reach out to your technical account manager with any questions.
+</Update>
+
 <Update label="Announcement 28.07.2026">
   ## Announcement
 

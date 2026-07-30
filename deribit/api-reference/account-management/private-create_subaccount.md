@@ -252,8 +252,8 @@ components:
             - trading_products_details
             - referrals_count
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     portfolio:
       properties:

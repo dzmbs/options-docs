@@ -150,8 +150,8 @@ components:
           items:
             $ref: '#/components/schemas/book_summary'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     book_summary:
       properties:
@@ -321,7 +321,7 @@ components:
 ## Related topics
 
 - [public/get_book_summary_by_instrument](/api-reference/market-data/public-get_book_summary_by_instrument.md)
-- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [public/get_combos](/api-reference/combo-books/public-get_combos.md)
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
 - [public/get_combo_ids](/api-reference/combo-books/public-get_combo_ids.md)
-- [public/get_instrument](/api-reference/market-data/public-get_instrument.md)

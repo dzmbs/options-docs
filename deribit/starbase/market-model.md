@@ -31,7 +31,7 @@ Each Instrument is linked to an Index. The Index is the top-level underlying use
 
 ### Underlying
 
-Each instrument also has an immediate underlying. For options, this will be the associated tradeable or synthetic futures. For futures, this will be the index. The Underlying visibile in the Instrument Definition Message as a text field in the Instrument Definition message.
+Each instrument also has an immediate underlying. For options, this will be the associated tradeable or synthetic futures. For futures, this will be the index. The Underlying visible in the Instrument Definition Message as a text field in the Instrument Definition message.
 
 
 ## Related topics

@@ -168,8 +168,8 @@ components:
                     type: boolean
                     description: Indicates whether this account has maker scope.
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     user_id:
       example: 57874

@@ -166,5 +166,5 @@ securitySchemes: []
 - [platform_state ](/subscriptions/platform/platform_state.md)
 - [Notifications](/articles/notifications.md)
 - [instrument.state.(kind).(currency) ](/subscriptions/market-data/instrumentstatekindcurrency.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [public/get_combos](/api-reference/combo-books/public-get_combos.md)
-- [public/get_combo_ids](/api-reference/combo-books/public-get_combo_ids.md)

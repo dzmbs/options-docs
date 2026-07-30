@@ -55,4 +55,4 @@ used to set or get the limits for Market Maker Protection (MMP) for a currency p
 - [Security Status(f) — Production FIX API](/fix-api/production/security-status.md)
 - [MMProtection Reset(MZ) — Production FIX API](/fix-api/production/mmprotection-reset.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
+- [FIX API Changelog](/changelogs/fix.md)

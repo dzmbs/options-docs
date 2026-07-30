@@ -12,7 +12,7 @@ Mass cancels are scoped to an instrument or underlying currency pair and per sid
 
 Because Starbase applies a speed bump to aggressive orders, individual cancel requests can reach the matching engine ahead of incoming aggressor orders. This makes fine-grained cancellation with regular `CancelOrderRequest` messages practical without requiring a broader mass cancel.
 
-Mass cancels are aligned with single cancels in their treatment of speed-bumped orders: both **immediately cancel** pending orders without converting them to IOC. A pending order that is mass-cancelled is removed before it enters the book and will not match. See [Cancelling Pending Orders](/starbase/speed-bumps#cancelling-pending-orders) for full details.
+Mass cancels are aligned with single cancels in their treatment of speed-bumped orders: both **convert** pending orders to IOC rather than removing them immediately. When the speed bump expires, the order attempts to fill as IOC and any unfilled remainder is cancelled. See [Cancelling Pending Orders](/starbase/speed-bumps#cancelling-pending-orders) for full details.
 
 ### MassCancelRequest (140)
 

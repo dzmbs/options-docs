@@ -7,7 +7,7 @@
 > FIX Market Data Request subscribes to order book data and market updates. Learn how to request snapshots and incremental updates via FIX.
 
 `Market Data Request`(`V`) can be used to request market data in snapshot or the
-incremental form. Deribit uses his message for order book requests and its
+incremental form. Deribit uses this message for order book requests and its
 change notification.
 
 ### Arguments

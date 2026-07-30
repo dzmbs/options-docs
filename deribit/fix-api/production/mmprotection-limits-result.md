@@ -24,5 +24,5 @@ to [`MMProtection Limits` (`MM`)](/fix-api/production/mmprotection-limits) or [`
 - [MMProtection Reset(MZ) — Production FIX API](/fix-api/production/mmprotection-reset.md)
 - [MMProtection Limits (MM) — Production FIX API](/fix-api/production/mmprotection-limits.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
 - [FIX API Changelog](/changelogs/fix.md)
+- [Security Status(f) — Production FIX API](/fix-api/production/security-status.md)

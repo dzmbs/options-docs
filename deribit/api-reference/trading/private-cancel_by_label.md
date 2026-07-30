@@ -143,8 +143,8 @@ components:
           example: 7
           description: Total number of successfully cancelled orders
       required:
-        - result
         - jsonrpc
+        - result
       type: object
   responses:
     PrivateCancelAllResponse:
@@ -166,7 +166,7 @@ components:
 ## Related topics
 
 - [Rate Limits](/articles/rate-limits.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
 - [Order Management](/articles/order-management-best-practices.md)
 - [private/cancel_block_rfq_quote](/api-reference/block-rfq/private-cancel_block_rfq_quote.md)
-- [private/edit_by_label](/api-reference/trading/private-edit_by_label.md)

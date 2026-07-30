@@ -167,8 +167,8 @@ components:
               - publication_timestamp
             type: object
       required:
-        - result
         - jsonrpc
+        - result
       type: object
   responses:
     PublicGetAnnouncementsResponse:

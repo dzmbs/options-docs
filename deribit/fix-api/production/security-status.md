@@ -73,5 +73,5 @@ used to set or get the limits for Market Maker Protection (MMP) for a currency p
 - [Security Status Request(e) — Production FIX API](/fix-api/production/security-status-request.md)
 - [Security List(y) — Production FIX API](/fix-api/production/security-list.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
 - [Security Definition(d) — Production FIX API](/fix-api/production/security-definition.md)
+- [Order Mass Status Request(AF) — Production FIX API](/fix-api/production/order-mass-status-request.md)

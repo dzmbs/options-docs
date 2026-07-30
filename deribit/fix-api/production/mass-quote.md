@@ -49,7 +49,7 @@ MassQuote
      BidSize=5.0
 ```
 
-In reply to `Mass Quote` (`i`), the server sends  `Mass Quote Acknowledgement` (`b`) message as well as corresponding `Execution Report`-s (`8`). The reports and acknowledgement are send asynchronously and via different queues, so the precedence of acknowledgement message is not guaranteed.
+In reply to `Mass Quote` (`i`), the server sends `Mass Quote Acknowledgement` (`b`) message as well as corresponding `Execution Report`-s (`8`). The reports and acknowledgement are sent asynchronously and via different queues, so the precedence of acknowledgement message is not guaranteed.
 
 
 ## Related topics
@@ -57,5 +57,5 @@ In reply to `Mass Quote` (`i`), the server sends  `Mass Quote Acknowledgement` (
 - [Mass Quote Acknowledgement(b) — Production FIX API](/fix-api/production/mass-quote-acknowledgement.md)
 - [Quote Cancel(Z) — Production FIX API](/fix-api/production/quote-cancel.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
 - [Order Mass Cancel Report(r) — Production FIX API](/fix-api/production/order-mass-cancel-report.md)
+- [Order Mass Cancel Request(q) — Production FIX API](/fix-api/production/order-mass-cancel-request.md)

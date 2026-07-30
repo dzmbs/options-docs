@@ -280,7 +280,7 @@ securitySchemes: []
 ## Related topics
 
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Notifications](/articles/notifications.md)
 - [public/get_mark_price_history](/api-reference/market-data/public-get_mark_price_history.md)
-- [public/get_index_price_names](/api-reference/market-data/public-get_index_price_names.md)
 - [Trades](/starbase/trades.md)

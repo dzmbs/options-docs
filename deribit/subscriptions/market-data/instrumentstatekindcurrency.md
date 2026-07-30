@@ -183,7 +183,7 @@ operations:
                   type: integer
                   example: 1536569522277
                   description: The timestamp (milliseconds since the Unix epoch)
-                  x-parser-schema-id: <anonymous-schema-596>
+                  x-parser-schema-id: <anonymous-schema-588>
                 state:
                   description: >
                     The state of the order book. Represents the current
@@ -237,19 +237,19 @@ operations:
                     - locked
                     - halted
                     - archivized
-                  x-parser-schema-id: <anonymous-schema-597>
+                  x-parser-schema-id: <anonymous-schema-589>
                 instrument_name:
                   type: string
                   description: Unique instrument identifier
                   example: BTC-PERPETUAL
-                  x-parser-schema-id: <anonymous-schema-598>
+                  x-parser-schema-id: <anonymous-schema-590>
               required: []
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-595>
+              x-parser-schema-id: <anonymous-schema-587>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-594>
+          x-parser-schema-id: <anonymous-schema-586>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -290,7 +290,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-593>
+          x-parser-schema-id: <anonymous-schema-585>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

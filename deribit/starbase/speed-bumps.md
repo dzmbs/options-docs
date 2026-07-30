@@ -47,11 +47,18 @@ sequenceDiagram
 
 ## Mass Quotes
 
-Quotes can only be entered via `MassQuoteRequest`. Each quote in such a batch would be speed bumped individually, per side. This means that one side of the quote can immediately be added to the book, while the other side is pending.
+Quotes can only be entered via `MassQuoteRequest`. Each quote in such a batch is speed bumped individually, per side. One side of a quote can be added to the book immediately while the other side remains pending.
+
+## Member Speed Bump Limit
+
+Each speed bump configuration enforces a maximum number of **live speed-bumped orders per member**. The limit is scoped to the member (not per portfolio), and is configured alongside the speed bump delay and queue capacity.
+
+* Orders and quotes submitted without a member (for example Thunder or retail flow) do **not** count toward the limit and are exempt.
+* Exceeding the limit rejects the new order or quote with `MEMBER_SPEED_BUMP_LIMIT_EXCEEDED` (SBE reject reason `29`; FIX `OrdRejReason` `69`).
 
 ## Cancelling Pending Orders
 
-Cancelling a speed-bumped order **converts it to IOC** rather than removing it immediately. When the speed bump period expires, the order enters the book with an IOC time-in-force and attempts to fill against available liquidity. Any unfilled remainder is cancelled automatically.
+Cancelling a speed-bumped order or quote **converts it to IOC** rather than removing it immediately. When the speed bump period expires, it enters the book as IOC, attempts to fill, and any unfilled remainder is cancelled.
 
 The following triggers all produce this IOC conversion:
 
@@ -60,16 +67,20 @@ The following triggers all produce this IOC conversion:
 * Cancel on Disconnect (CoD)
 * User-initiated portfolio lock
 
-### Message flow
+IOC conversion is intentional for MMP and portfolio lock: hard-cancelling pending aggressors would let clients use those triggers to pull speed-bumped orders. Clients that need to avoid unintended fills during an MMP freeze should use post-only order types. See [MMP and speed bumps](#mmp-and-speed-bumps) below.
 
-The exchange responds to the cancel immediately with a `CancelOrderReject` carrying reason `convertedToIOC`. The order remains in the queue with `orderState = 4` (queued).
+`OrderPlaced` and `MassQuoteOrdersPlaced` do **not** carry a separate `timeInForce` field. Infer the IOC conversion from the subsequent status and `cancelReason` (typically `TIME_IN_FORCE` on a partial fill or cancel, or `Filled` if the IOC fully fills).
+
+### Orders — message flow
+
+For a single-order cancel, the exchange responds immediately with a `CancelOrderReject` carrying reason `SpeedBumpConvertedToIoc` (`8`). The order remains queued (`orderState = 4`).
 
 Once the speed bump elapses:
 
-* **Order still matches**: an `OrderPlaced` message is sent with any fills, followed by a cancellation of the unfilled remainder.
-* **Order no longer matches** (opposing liquidity has since moved): a standard cancel confirmation is sent.
+* **Still matches**: `OrderPlaced` with any fills, then cancellation of the unfilled remainder (`cancelReason = TIME_IN_FORCE`).
+* **No longer matches**: a standard cancel confirmation is sent.
 
-If the order is already IOC — either submitted with IOC time-in-force or already converted by a prior cancel — a subsequent cancel request is rejected normally.
+If the order is already IOC — submitted as IOC or already converted — a subsequent cancel is rejected with `TimeInForce` (`7`).
 
 ```mermaid theme={null}
 sequenceDiagram
@@ -82,17 +93,45 @@ sequenceDiagram
     GW->>SB: Queue order (aggresses)
     GW-->>M: NewOrderResponse, orderState = 4 (queued)
     M->>GW: Cancel (or MMP / CoD / portfolio lock)
-    GW-->>M: CancelOrderReject, reason = convertedToIOC
+    GW-->>M: CancelOrderReject, reason = SpeedBumpConvertedToIoc
     Note over SB: Order stays queued (orderState = 4), now IOC.<br/>Full speed bump still runs.
     SB->>OB: Release as IOC when speed bump elapses
     OB-->>M: OrderPlaced with fills (if it still matches)
-    OB-->>M: Cancel unfilled remainder
+    OB-->>M: Cancel unfilled remainder (cancelReason = TIME_IN_FORCE)
     Note over M: If it no longer matches on release,<br/>a standard cancel confirmation is sent instead.
+```
+
+### Mass quotes — message flow
+
+Mass quotes are always submitted as GTC; there is no client-specified quote expiry. When a queued quote side is converted to IOC (cancel, MMP, CoD, or portfolio lock), the SBE flow is:
+
+1. Immediate `MassQuoteResponse` with `bidStatus` / `askStatus` = `8` (Queued) for the speed-bumped side(s).
+2. After the bump: `MassQuoteOrdersPlaced` with `status` and `cancelReason` set as applicable — for example `Filled`, or a cancel with `cancelReason = TIME_IN_FORCE` (possibly after a partial fill).
+
+```mermaid theme={null}
+sequenceDiagram
+    autonumber
+    participant M as Member
+    participant GW as Gateway
+    participant SB as Speed Bump (FIFO queue)
+    participant OB as Matching Engine
+    M->>GW: MassQuoteRequest (aggressing side)
+    GW->>SB: Queue quote side
+    GW-->>M: MassQuoteResponse, status = 8 (Queued)
+    Note over SB: Cancel / MMP / CoD / portfolio lock<br/>converts queued side to IOC
+    SB->>OB: Release as IOC when speed bump elapses
+    OB-->>M: MassQuoteOrdersPlaced (Filled, or cancelReason = TIME_IN_FORCE)
 ```
 
 ### Cancel arriving before the order
 
-If a cancel reaches the matching engine before the order it targets (for example, when the order is still awaiting its risk check in the pre-trade risk (PTR) layer), the order is also treated as **IOC** upon release, matching the behavior above.
+If a cancel reaches the matching engine before the order it targets (for example while the order is still awaiting its risk check in the pre-trade risk layer), the order is also treated as **IOC** upon release.
+
+### MMP and speed bumps
+
+When MMP triggers, resting MMP orders are cancelled and the group is frozen, but any speed-bumped aggressor already in the queue is converted to IOC and can still trade when released — including during the freeze interval. That means MMP trade limits (quantity / delta / vega) can be exceeded by a fill from a previously queued order.
+
+Use post-only attributes if you need to avoid this path. The same IOC conversion applies to portfolio lock.
 
 ## Additional Behavior
 
@@ -120,11 +159,11 @@ To guarantee that trading members aiming to provide passive liquidity are not en
 
 When a new order or quote aggresses and is speed bumped, the gateway immediately acknowledges the request with a queued status. A follow-up unsolicited message is sent once the speed bump period expires and the order or quote is entered into the book.
 
-| Event                         | Immediate response                                                          | Follow-up unsolicited message |
-| ----------------------------- | --------------------------------------------------------------------------- | ----------------------------- |
-| New order speed bumped        | `NewOrderResponse (200)` with `orderState = 4` (queued)                     | `OrderPlaced`                 |
-| Amend causes order to aggress | `AmendOrderResponse (210)` with `orderState = 4` (queued)                   | `OrderPlaced`                 |
-| Quote side speed bumped       | `MassQuoteResponse (230)` with `quoteStatus = 8` (Queued) per affected side | `MassQuoteOrdersPlaced`       |
+| Event                         | Immediate response                                                                        | Follow-up unsolicited message |
+| ----------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------- |
+| New order speed bumped        | `NewOrderResponse (200)` with `orderState = 4` (queued)                                   | `OrderPlaced`                 |
+| Amend causes order to aggress | `AmendOrderResponse (210)` with `orderState = 4` (queued)                                 | `OrderPlaced`                 |
+| Quote side speed bumped       | `MassQuoteResponse (230)` with `bidStatus` / `askStatus` = `8` (Queued) per affected side | `MassQuoteOrdersPlaced`       |
 
 `OrderPlaced` includes a fills repeating group (`numberOfFills > 0`) when the order matches immediately upon book entry. See [Unsolicited Events](/starbase/unsolicited-events) for the full message specifications.
 
@@ -137,8 +176,8 @@ See [Execution Reports](/fix-api/production/execution-reports) for the full fiel
 
 ## Related topics
 
-- [Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
-- [Self Match Prevention (SMP)](/starbase/smp.md)
-- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
+- [Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Mass Cancel](/starbase/mass-cancel.md)
+- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
+- [Self Match Prevention (SMP)](/starbase/smp.md)

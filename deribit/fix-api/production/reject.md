@@ -18,7 +18,7 @@ decryption.
 | --- | --------------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 45  | `RefSeqNum`           | SeqNum | Yes      | `MsgSeqNum`(`34`) of the rejected message                                                                                                                   |
 | 372 | `RefMsgType`          | String | No       | The `MsgType`(`35`) of the FIX message being referenced                                                                                                     |
-| 373 | `SessionRejectReason` | int    | No       | Code to identity reason for rejection: <ul><li>`6` = Incorrect data format for value</li><li>`11` = Invalid `MsgType`(`35`)</li><li>`99` = Other</li> </ul> |
+| 373 | `SessionRejectReason` | int    | No       | Code to identify reason for rejection: <ul><li>`6` = Incorrect data format for value</li><li>`11` = Invalid `MsgType`(`35`)</li><li>`99` = Other</li> </ul> |
 | 58  | `Text`                | String | No       | Text string explaining the reason for rejection                                                                                                             |
 
 
@@ -27,5 +27,5 @@ decryption.
 - [Order Cancel Reject(9) — Production FIX API](/fix-api/production/order-cancel-reject.md)
 - [Market Data Request Reject(Y) — Production FIX API](/fix-api/production/market-data-request-reject.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
 - [Mass Quote Acknowledgement(b) — Production FIX API](/fix-api/production/mass-quote-acknowledgement.md)
+- [Security Definition Request(c) — Production FIX API](/fix-api/production/security-definition-request.md)

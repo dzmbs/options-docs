@@ -826,7 +826,7 @@ securitySchemes: []
 ## Related topics
 
 - [Notifications](/articles/notifications.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [user.trades.(kind).(currency).(interval) ](/subscriptions/user/usertradeskindcurrencyinterval.md)
 - [user.orders.(kind).(currency).(interval) ](/subscriptions/user/userorderskindcurrencyinterval.md)
 - [user.orders.(kind).(currency).raw ](/subscriptions/user/userorderskindcurrencyraw.md)
-- [user.changes.(kind).(currency).(interval) ](/subscriptions/user/userchangeskindcurrencyinterval.md)

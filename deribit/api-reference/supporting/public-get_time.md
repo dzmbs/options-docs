@@ -114,8 +114,8 @@ components:
           example: 1517329113791
           description: Current timestamp (milliseconds since the UNIX epoch)
       required:
-        - result
         - jsonrpc
+        - result
       type: object
 
 ````

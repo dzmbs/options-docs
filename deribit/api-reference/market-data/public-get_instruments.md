@@ -166,8 +166,8 @@ components:
           items:
             $ref: '#/components/schemas/instrument'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     instrument:
       properties:
@@ -262,6 +262,12 @@ components:
           type: integer
           example: 1
           description: Contract size for instrument.
+        lot_size:
+          type: number
+          example: 10
+          description: >-
+            Lot size for instrument, used as the unit for fee lot counting.
+            Defaults to `contract_size` when not configured.
         maker_commission:
           type: number
           example: 0.0001
@@ -341,9 +347,7 @@ components:
           example: ETH
           description: >-
             Product group classification for the instrument's base currency
-            (e.g. BTC, ETH, TIER_2). Determines gateway and multicast channel
-            assignment — see [Underlying
-            Tiers](https://docs.deribit.com/starbase/underlying-tiers).
+            (e.g. BTC, ETH, TIER_2).
         is_csr:
           type: boolean
           description: >-
@@ -469,6 +473,7 @@ components:
                     creation_timestamp: 1664524802000
                     counter_currency: USD
                     contract_size: 10
+                    lot_size: 10
                     block_trade_tick_size: 0.01
                     block_trade_min_trade_amount: 200000
                     block_trade_commission: 0.00025
@@ -498,6 +503,7 @@ components:
                     creation_timestamp: 1534167754000
                     counter_currency: USD
                     contract_size: 10
+                    lot_size: 10
                     block_trade_tick_size: 0.01
                     block_trade_min_trade_amount: 200000
                     block_trade_commission: 0.00025
@@ -517,5 +523,5 @@ components:
 - [public/get_instrument](/api-reference/market-data/public-get_instrument.md)
 - [public/get_order_book_by_instrument_id](/api-reference/market-data/public-get_order_book_by_instrument_id.md)
 - [public/get_order_book](/api-reference/market-data/public-get_order_book.md)
-- [Quickstart Guide](/articles/deribit-quickstart.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)

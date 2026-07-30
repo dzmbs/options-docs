@@ -48,11 +48,7 @@ For more information on quotes:
 </Note>
 
 <Note>
-  **Speed-bumped orders**: When an MMP trigger cancels an order that is currently speed-bumped, the order is converted to IOC rather than removed immediately. It will attempt to fill when the speed bump expires; any unfilled remainder is then cancelled. See [Speed Bumps — Cancelling Pending Orders](/starbase/speed-bumps#cancelling-pending-orders) for the full message flow.
-</Note>
-
-<Note>
-  **Speed-bumped orders**: When an MMP trigger cancels an order that is currently speed-bumped, the order is converted to IOC rather than removed immediately. It will attempt to fill when the speed bump expires; any unfilled remainder is then cancelled. See [Speed Bumps — Cancelling Pending Orders](/starbase/speed-bumps#cancelling-pending-orders) for the full message flow.
+  **Speed-bumped orders**: When an MMP trigger cancels an order or quote that is currently speed-bumped, it is converted to IOC rather than removed immediately. It can still fill when the speed bump expires — including while the MMP group is frozen — so MMP trade limits may be exceeded by that exit fill. Use post-only attributes to avoid this path. See [Speed Bumps — MMP and speed bumps](/starbase/speed-bumps#mmp-and-speed-bumps) for details.
 </Note>
 
 ## MMP Group IDs in Starbase
@@ -107,7 +103,7 @@ If your MMP protection has been triggered and quoting is frozen for a given inde
 </Info>
 
 <Note>
-  The minimum `fozen_time` is 1 second. Unfreezing is not possible until 1 second after an MMP trigger. This is to allow the risk engine time to process the sequence of trades that caused the trigger.
+  The minimum `frozen_time` is 1 second. Unfreezing is not possible until 1 second after an MMP trigger. This is to allow the risk engine time to process the sequence of trades that caused the trigger.
 </Note>
 
 ### Manual Reset Methods

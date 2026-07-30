@@ -196,26 +196,26 @@ These rejection reason codes are used in the following reject messages:
 
 The `cancelReason` field uses a single enumeration across all contexts, indicating why an order was (partially) canceled.
 
-| Value | Name                      | Description                                                                                                |
-| ----- | ------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `0`   | `UNKNOWN`                 |                                                                                                            |
-| `1`   | `SELF_MATCH_PREVENTION`   | Canceled due to self-match prevention                                                                      |
-| `2`   | `TIME_IN_FORCE`           | Canceled because time-in-force condition was not met                                                       |
-| `3`   | `ADMIN`                   | Canceled by exchange administration                                                                        |
-| `4`   | `MM_PROTECTION`           | Canceled because MMP was triggered                                                                         |
-| `5`   | `LIQUIDATION`             | Canceled as part of a liquidation                                                                          |
-| `6`   | `MARKET_STATE_TRANSITION` |                                                                                                            |
-| `7`   | `CLIENT_DISCONNECT`       |                                                                                                            |
-| `8`   | `REDUCE_ONLY`             |                                                                                                            |
-| `9`   | `DELIVERED`               | Instrument status changed to `DELIVERED`                                                                   |
-| `10`  | `SETTLEMENT`              | Instrument entered settlement                                                                              |
-| `11`  | `BOOK_DEACTIVATED`        | Instrument status changed to `INACTIVE`                                                                    |
-| `12`  | `BY_REQUEST`              | Canceled in response to a client mass cancel request or MMP reset                                          |
-| `13`  | `RISK_CHECK_TIMED_OUT`    |                                                                                                            |
-| `14`  | `MMP_GROUP_DELETED`       |                                                                                                            |
-| `15`  | `PORTFOLIO_LOCKED`        | Order canceled because the portfolio is locked                                                             |
-| `16`  | `POST_ONLY`               | Post-only order would have crossed                                                                         |
-| `17`  | `QTY_TICK_SIZE_RESCALE`   | Instrument `qtyTickSize` changed and this order's quantity is not exactly representable under the new tick |
+| Value | Name                      | Description                                                                                                                                                                                           |
+| ----- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `0`   | `UNKNOWN`                 |                                                                                                                                                                                                       |
+| `1`   | `SELF_MATCH_PREVENTION`   | Canceled due to self-match prevention                                                                                                                                                                 |
+| `2`   | `TIME_IN_FORCE`           | Canceled because time-in-force condition was not met                                                                                                                                                  |
+| `3`   | `ADMIN`                   | Canceled by exchange administration                                                                                                                                                                   |
+| `4`   | `MM_PROTECTION`           | Canceled because MMP was triggered                                                                                                                                                                    |
+| `5`   | `LIQUIDATION`             | Canceled as part of a liquidation                                                                                                                                                                     |
+| `6`   | `MARKET_STATE_TRANSITION` |                                                                                                                                                                                                       |
+| `7`   | `CLIENT_DISCONNECT`       |                                                                                                                                                                                                       |
+| `8`   | `REDUCE_ONLY`             | The portfolio is restricted to reduce-only trading and the order would have increased a position. Reduce-only is a portfolio-level restriction applied by Deribit — it cannot be set per order in SBE |
+| `9`   | `DELIVERED`               | Instrument status changed to `DELIVERED`                                                                                                                                                              |
+| `10`  | `SETTLEMENT`              | Instrument entered settlement                                                                                                                                                                         |
+| `11`  | `BOOK_DEACTIVATED`        | Instrument status changed to `INACTIVE`                                                                                                                                                               |
+| `12`  | `BY_REQUEST`              | Canceled in response to a client mass cancel request or MMP reset                                                                                                                                     |
+| `13`  | `RISK_CHECK_TIMED_OUT`    |                                                                                                                                                                                                       |
+| `14`  | `MMP_GROUP_DELETED`       |                                                                                                                                                                                                       |
+| `15`  | `PORTFOLIO_LOCKED`        | Order canceled because the portfolio is locked                                                                                                                                                        |
+| `16`  | `POST_ONLY`               | Post-only order would have crossed                                                                                                                                                                    |
+| `17`  | `QTY_TICK_SIZE_RESCALE`   | Instrument `qtyTickSize` changed and this order's quantity is not exactly representable under the new tick                                                                                            |
 
 Used in:
 

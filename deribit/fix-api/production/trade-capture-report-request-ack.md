@@ -25,8 +25,8 @@ The Trade Capture Request Ack message is used to:
 
 ## Related topics
 
+- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
 - [TradeCaptureReportRequest(AD) — Production FIX API](/fix-api/production/trade-capture-report-request.md)
 - [TradeCaptureReport(AE) — Production FIX API](/fix-api/production/trade-capture-report.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Changes Log — Production FIX API](/fix-api/production/changes-log.md)
 - [FIX API Changelog](/changelogs/fix.md)

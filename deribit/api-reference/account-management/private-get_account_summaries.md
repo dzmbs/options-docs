@@ -713,8 +713,8 @@ components:
             - type
             - id
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     rpl:
       example: 0.1

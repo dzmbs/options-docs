@@ -8,7 +8,11 @@
 
 Cancel On Disconnect (CoD) is a risk management feature that automatically cancels tagged open orders when a connection to the Starbase gateway is lost or terminated. CoD helps prevent orders from remaining active after a client disconnection and reduces exposure to unintended positions.
 
-**CoD is opt-in per order — it is not enabled by default and is not a connection/session setting.** An order is covered only if it is explicitly tagged with the `cancelOnDisconnect` flag (`OrderFlags` bit 0). Orders submitted without the flag are not cancelled on disconnect and remain resting. CoD is **session-scoped**, meaning it cancels only the tagged orders associated with the specific disconnected session.
+**CoD is opt-in per order — it is not enabled by default and is not a connection/session setting.** An order is covered only if it is explicitly tagged with the `cancelOnDisconnect` flag (`OrderFlags` bit 0). This applies to quotes too: `MassQuoteRequest` sets the same flag per quote side in `bidFlags`/`askFlags`. Orders submitted without the flag are not cancelled on disconnect and remain resting. CoD is **session-scoped**, meaning it cancels only the tagged orders associated with the specific disconnected session.
+
+<Note>
+  **Upcoming: session-level CoD**. A logon-time CoD option is planned. Once enabled for a session, it covers every order and quote submitted on that session — both `NewOrderRequest` and `MassQuoteRequest` — without per-order tagging. The per-order `cancelOnDisconnect` flag remains available.
+</Note>
 
 ## Session Model
 

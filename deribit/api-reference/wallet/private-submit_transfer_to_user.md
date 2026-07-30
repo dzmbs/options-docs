@@ -139,8 +139,8 @@ components:
         result:
           $ref: '#/components/schemas/transfer_item'
       required:
-        - result
         - jsonrpc
+        - result
       type: object
     transfer_item:
       properties:
@@ -246,4 +246,4 @@ components:
 - [private/submit_transfer_between_subaccounts](/api-reference/wallet/private-submit_transfer_between_subaccounts.md)
 - [Managing Transfers](/articles/managing-transfers-api.md)
 - [private/get_transfers](/api-reference/wallet/private-get_transfers.md)
-- [private/cancel_transfer_by_id](/api-reference/wallet/private-cancel_transfer_by_id.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
