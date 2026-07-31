@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-06-22T17:27:16.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # API Broker
 
 Individual traders and community partners can earn "broker" fees when generating trading volumes!

@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-02-11T18:59:33.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Get Funding Rate History
 
 ### Method Name

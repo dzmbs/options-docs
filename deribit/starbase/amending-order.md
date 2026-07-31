@@ -16,6 +16,19 @@
   **Event Scoping**: An SBE connection only receives events about orders submitted through that same connection.
 </Info>
 
+### Pending amend limit
+
+The number of **unacknowledged amend (replace) requests per order** is capped. An amend counts as pending from the time the exchange receives it until its `AmendOrderResponse` or `AmendOrderReject` is generated:
+
+| Order type               | Max pending amends |
+| ------------------------ | ------------------ |
+| Normal orders            | 4                  |
+| OCO / reduce-only orders | 1                  |
+
+Once the cap is reached, any further amend on that order — the 5th for a normal order, the 2nd for an OCO or reduce-only order — is rejected with [`AmendOrderReject`](#amendorderreject-212) reason `19` ([`TOO_MANY_PENDING_REPLACES`](/starbase/binary-api-reference#rejection-reason-codes)) until one of the pending amends is acknowledged.
+
+This cap applies per order, not per session or connection: it is independent of the [gateway rate limits](/starbase/api-rate-limits) and is not a gateway-side concurrency limit. OCO and per-order reduce-only orders originate on the other Deribit APIs (see [Placing a New Order](/starbase/placing-new-order#neworderrequest-100)); the tighter cap applies to those orders regardless of which API amends them.
+
 ### AmendOrderRequest (110)
 
 Request to change the modifiable fields of an existing order.
@@ -106,6 +119,6 @@ Reject generated in case an `AmendOrderRequest` is unsuccessful.
 
 - [Order Cancel/Replace Request(G) — Production FIX API](/fix-api/production/order-cancel-replace.md)
 - [Market Maker Protection (MMP)](/starbase/mmp.md)
+- [API Rate Limits](/starbase/api-rate-limits.md)
 - [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)
 - [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
-- [Order Management](/articles/order-management-best-practices.md)

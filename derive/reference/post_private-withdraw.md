@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-06-08T06:07:10.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Withdraw
 
 Withdraw an asset to wallet.<br /><br />See `public/withdraw_debug` for debugging invalid signature issues or go to guides in Documentation.

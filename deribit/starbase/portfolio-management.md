@@ -6,7 +6,7 @@
 
 > Portfolio-scoped controls in Starbase — mass cancellation, direct-access order entry, and lock or unlock endpoints for risk operations workflows.
 
-The Starbase REST API exposes a set of portfolio-scoped management operations. All endpoints require authentication; the authenticated session determines which portfolio is acted upon.
+The Starbase REST API exposes a set of portfolio-scoped management operations. All endpoints require authentication; the authenticated session determines which portfolio is acted upon. Any Starbase API key belonging to a direct-access-enabled portfolio can call these endpoints — the REST gateway does not currently enforce API key scopes (see [Creating a Starbase API Key](/starbase/creating-api-key#front-end-interface)).
 
 ## Mass Cancel
 
@@ -60,8 +60,8 @@ Portfolio management complements but does not replace other Starbase risk featur
 
 ## Related topics
 
-- [Connectivity Quickstart](/starbase/quickstart.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [Connectivity Quickstart](/starbase/quickstart.md)
+- [REST Order Gateway Authentication](/starbase/rest-authentication.md)
 - [private/simulate_portfolio](/api-reference/account-management/private-simulate_portfolio.md)
 - [Order Management](/articles/order-management-best-practices.md)
-- [Lock Portfolio](/api-reference/portfolio-management/lock-portfolio.md)

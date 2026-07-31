@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-06-08T06:07:10.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Get Spot Feed History
 
 Get spot feed history by currency<br /><br />DEPRECATION NOTICE: This RPC is deprecated in favor of get_index_chart_data and get_tradingview_chart_data

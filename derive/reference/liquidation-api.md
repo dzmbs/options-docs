@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-02-05T15:44:25.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Liquidation API
 
 > You may liquidate accounts directly via the UI: <https://app.derive.xyz/liquidations>. The below guide covers programmatic liquidations via the API and is meant for more advanced users

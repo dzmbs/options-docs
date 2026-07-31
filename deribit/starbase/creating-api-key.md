@@ -66,6 +66,10 @@ Starbase API keys are created through the [**Starbase section**](https://www.der
     | **REST**            | Access REST endpoints (portfolio management, cancel all, etc.)                                                             |
 
     <Note>
+      Scopes are not currently enforced on the REST gateway: any Starbase API key belonging to a direct-access-enabled portfolio can call every Starbase REST endpoint (order entry and portfolio management, including `cancel_all`, `lock_portfolio`, and `unlock_portfolio`), regardless of the scopes selected here. Scope-based restrictions may be introduced in the future, so select the scopes that match the key's intended use.
+    </Note>
+
+    <Note>
       Multicast market data and the retransmit API are unauthenticated — no API key or scope is required to subscribe to them.
     </Note>
 

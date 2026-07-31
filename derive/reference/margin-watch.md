@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-01-29T07:04:02.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Margin Watch
 
 ### Channel Name Schema

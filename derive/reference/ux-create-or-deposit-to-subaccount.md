@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-02-05T15:41:10.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Create Subaccount and Deposit
 
 This is the preferred / no-code method for integrating with the Derive exchange.

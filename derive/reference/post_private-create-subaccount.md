@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-06-08T06:07:10.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Create Subaccount
 
 Create a new subaccount under a given wallet, and deposit an asset into that subaccount.<br /><br />See `public/create_subaccount_debug` for debugging invalid signature issues or go to guides in Documentation.

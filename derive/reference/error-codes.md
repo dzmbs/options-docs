@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-03-09T22:32:45.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Error Codes
 
 |   Code | Message                                                                                                                                                | Description                                                                                                                                                                             |

@@ -18,6 +18,10 @@
   **Duplicate quote handling**: When a client sends the same quote twice (identical price, amount, and instrument), Starbase **preserves** the bid and ask priorities.
 </Info>
 
+<Tip>
+  **Lowest-latency quoting**: Mass quotes are always MMP-enforced and therefore use the [MMP risk bypass](/starbase/risk-bypass) — the lowest-latency method for market access, which skips the pre-trade risk engine. For single orders, set the `MMP` flag to get the same treatment. Most integrating clients should prefer this path.
+</Tip>
+
 <Warning>
   **Quote quantity validation is all-or-nothing**: If any quote entry in a `MassQuoteRequest` contains an invalid `buyAmount` or `sellAmount`, the **entire request is rejected** and a `MassQuoteReject` (232) is returned — no quotes in the message are processed. This differs from the JSON-RPC mass quote system, where each side is validated independently and one side may succeed while the other fails.
 </Warning>

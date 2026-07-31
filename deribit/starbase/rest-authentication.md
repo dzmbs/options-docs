@@ -107,8 +107,8 @@ Treat every `401` as terminal for that request. Retry only after fixing the head
     Concatenate `clientId:clientSecret` with a colon separator, then base64-encode the result. Send that encoded string after `Basic `.
   </Step>
 
-  <Step title="Obtain a REST Order Entry API key">
-    Your API key must have the **REST Order Entry** scope. See [Creating a Starbase API Key](/starbase/creating-api-key) for steps.
+  <Step title="Obtain a Starbase API key">
+    Any Starbase API key belonging to a direct-access-enabled portfolio can authenticate to the REST Order Gateway. The gateway does not currently enforce API key scopes — a key with any scope can call every REST endpoint, including portfolio management endpoints such as `cancel_all`. Select the **REST** scope when creating the key anyway, as scope enforcement may be introduced in the future. See [Creating a Starbase API Key](/starbase/creating-api-key) for steps.
   </Step>
 </Steps>
 
@@ -116,7 +116,7 @@ Treat every `401` as terminal for that request. Retry only after fixing the head
 
 <CardGroup cols={2}>
   <Card title="Creating a Starbase API Key" icon="key" href="/starbase/creating-api-key">
-    Generate credentials with the REST Order Entry scope
+    Generate credentials for the REST Order Gateway
   </Card>
 
   <Card title="Placing a New Order" icon="arrow-up-right" href="/starbase/placing-new-order">

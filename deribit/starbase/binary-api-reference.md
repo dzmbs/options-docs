@@ -149,38 +149,38 @@ When an order expires (e.g., a day order at the close of a trading day or when a
 
 Reject messages in the Starbase Binary API include a `reason` field that indicates why the request was rejected. The following table lists all possible rejection reason codes:
 
-| Value | Name                               | Description                                                                                                                 |
-| ----- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `0`   | `SYSTEM_ERROR`                     |                                                                                                                             |
-| `1`   | `INVALID_INSTRUMENT`               |                                                                                                                             |
-| `2`   | `INVALID_FIELD`                    |                                                                                                                             |
-| `3`   | `INSUFFICIENT_MARGIN`              |                                                                                                                             |
-| `4`   | `DUPLICATE_CLIENT_ORDER_ID`        |                                                                                                                             |
-| `5`   | `INVALID_QUANTITY`                 |                                                                                                                             |
-| `6`   | `INVALID_PRICE`                    |                                                                                                                             |
-| `7`   | `NOT_ALLOWED_BY_MARKET_STATE`      |                                                                                                                             |
-| `8`   | `POST_ONLY`                        |                                                                                                                             |
-| `9`   | `TOO_MANY_OPEN_ORDERS`             | Exceeded max open orders for instrument/side                                                                                |
-| `10`  | `PERMISSION_ERROR`                 |                                                                                                                             |
-| `11`  | `PORTFOLIO_NOT_FOUND`              |                                                                                                                             |
-| `12`  | `ORDER_NOT_FOUND`                  | For replaces and engine responses                                                                                           |
-| `13`  | `MMP_NOT_CONFIGURED`               |                                                                                                                             |
-| `14`  | `MMP_MAX_QUOTE_QTY_EXCEEDED`       |                                                                                                                             |
-| `15`  | `MMP_GROUP_FROZEN`                 |                                                                                                                             |
-| `16`  | `INVALID_MARGIN_MODE`              | E.g. an options order or quote submitted against a Standard Margin (SM) portfolio, which does not support options positions |
-| `17`  | `IN_LIQUIDATION`                   | Portfolio is in liquidation                                                                                                 |
-| `18`  | `RISK_CHECK_TIMED_OUT`             |                                                                                                                             |
-| `19`  | `TOO_MANY_PENDING_REPLACES`        |                                                                                                                             |
-| `20`  | `ICEBERG_NOT_ALLOWED`              |                                                                                                                             |
-| `21`  | `INVALID_ALLOCATIONS`              | Block trade error                                                                                                           |
-| `22`  | `PRICE_TOO_HIGH`                   | Price exceeds upper price band limit                                                                                        |
-| `23`  | `PRICE_TOO_LOW`                    | Price exceeds lower price band limit                                                                                        |
-| `24`  | `PRICE_BAND_UNAVAILABLE`           | No price band or mark price available                                                                                       |
-| `25`  | `RATE_LIMIT`                       | Gateway rate limit exceeded                                                                                                 |
-| `26`  | `PORTFOLIO_LOCKED`                 | Portfolio is locked                                                                                                         |
-| `27`  | `POSITION_LIMIT_EXCEEDED`          | Future or options position size limit exceeded                                                                              |
-| `28`  | `ORDER_SIZE_LIMIT_EXCEEDED`        | Open order aggregate size limit exceeded                                                                                    |
-| `29`  | `MEMBER_SPEED_BUMP_LIMIT_EXCEEDED` | Member has too many live speed-bumped orders                                                                                |
+| Value | Name                               | Description                                                                                                                                                                                |
+| ----- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `0`   | `SYSTEM_ERROR`                     |                                                                                                                                                                                            |
+| `1`   | `INVALID_INSTRUMENT`               |                                                                                                                                                                                            |
+| `2`   | `INVALID_FIELD`                    |                                                                                                                                                                                            |
+| `3`   | `INSUFFICIENT_MARGIN`              |                                                                                                                                                                                            |
+| `4`   | `DUPLICATE_CLIENT_ORDER_ID`        |                                                                                                                                                                                            |
+| `5`   | `INVALID_QUANTITY`                 |                                                                                                                                                                                            |
+| `6`   | `INVALID_PRICE`                    |                                                                                                                                                                                            |
+| `7`   | `NOT_ALLOWED_BY_MARKET_STATE`      |                                                                                                                                                                                            |
+| `8`   | `POST_ONLY`                        |                                                                                                                                                                                            |
+| `9`   | `TOO_MANY_OPEN_ORDERS`             | Exceeded max open orders for instrument/side                                                                                                                                               |
+| `10`  | `PERMISSION_ERROR`                 |                                                                                                                                                                                            |
+| `11`  | `PORTFOLIO_NOT_FOUND`              |                                                                                                                                                                                            |
+| `12`  | `ORDER_NOT_FOUND`                  | For replaces and engine responses                                                                                                                                                          |
+| `13`  | `MMP_NOT_CONFIGURED`               |                                                                                                                                                                                            |
+| `14`  | `MMP_MAX_QUOTE_QTY_EXCEEDED`       |                                                                                                                                                                                            |
+| `15`  | `MMP_GROUP_FROZEN`                 |                                                                                                                                                                                            |
+| `16`  | `INVALID_MARGIN_MODE`              | E.g. an options order or quote submitted against a Standard Margin (SM) portfolio, which does not support options positions                                                                |
+| `17`  | `IN_LIQUIDATION`                   | Portfolio is in liquidation                                                                                                                                                                |
+| `18`  | `RISK_CHECK_TIMED_OUT`             |                                                                                                                                                                                            |
+| `19`  | `TOO_MANY_PENDING_REPLACES`        | Exceeded the per-order cap on unacknowledged amends: max 4 pending amends per order, 1 for OCO / reduce-only orders. See [Amending an Order](/starbase/amending-order#pending-amend-limit) |
+| `20`  | `ICEBERG_NOT_ALLOWED`              |                                                                                                                                                                                            |
+| `21`  | `INVALID_ALLOCATIONS`              | Block trade error                                                                                                                                                                          |
+| `22`  | `PRICE_TOO_HIGH`                   | Price exceeds upper price band limit                                                                                                                                                       |
+| `23`  | `PRICE_TOO_LOW`                    | Price exceeds lower price band limit                                                                                                                                                       |
+| `24`  | `PRICE_BAND_UNAVAILABLE`           | No price band or mark price available                                                                                                                                                      |
+| `25`  | `RATE_LIMIT`                       | Gateway rate limit exceeded                                                                                                                                                                |
+| `26`  | `PORTFOLIO_LOCKED`                 | Portfolio is locked                                                                                                                                                                        |
+| `27`  | `POSITION_LIMIT_EXCEEDED`          | Future or options position size limit exceeded                                                                                                                                             |
+| `28`  | `ORDER_SIZE_LIMIT_EXCEEDED`        | Open order aggregate size limit exceeded                                                                                                                                                   |
+| `29`  | `MEMBER_SPEED_BUMP_LIMIT_EXCEEDED` | Member has too many live speed-bumped orders                                                                                                                                               |
 
 These rejection reason codes are used in the following reject messages:
 

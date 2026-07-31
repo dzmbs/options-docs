@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-04-10T17:52:07.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Send Rfq
 
 ### Method Name

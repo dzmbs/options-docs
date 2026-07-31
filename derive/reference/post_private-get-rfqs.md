@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-06-08T06:07:10.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Get Rfqs
 
 Retrieves a list of RFQs matching filter criteria. Takers can use this to get their open RFQs, RFQ history, etc.

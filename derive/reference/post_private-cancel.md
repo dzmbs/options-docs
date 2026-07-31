@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-06-08T06:07:10.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Cancel
 
 Cancel a single order.<br /><br />Other `private/cancel_*` routes are available through both REST and WebSocket.

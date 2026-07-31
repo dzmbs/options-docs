@@ -55,6 +55,10 @@ A `MassQuoteRequest` that contains any non-zero quantity is subject to normal ra
 
 The table below shows the default rate limits. These defaults apply to all members unless overridden. See [Underlying Tiers](/starbase/underlying-tiers) for the full tier classification.
 
+<Warning>
+  **Default limits are a baseline, not a ceiling.** Per-member overrides are common — any firm that represents a large part of the market will typically receive higher limits than the defaults. Do not assume the defaults apply to your firm, regardless of size; confirm your actual allocation with your Account Manager before sizing infrastructure or strategies around these numbers.
+</Warning>
+
 All five product tiers share the same defaults:
 
 |                         | Orders | Mass Quotes |
@@ -70,7 +74,7 @@ All five product tiers share the same defaults:
 
 ### Per-Member Overrides
 
-Rate limits can be increased on a per-member basis at the discretion of Deribit, based on current or expected contribution to liquidity. Overrides are configured per product tier and quoting type independently.
+Rate limits can be increased on a per-member basis at the discretion of Deribit, based on current or expected contribution to liquidity. In practice, firms that constitute a large part of the market receive overrides above the defaults. Overrides are configured per product tier and quoting type independently.
 
 The following tables illustrate an example override:
 
@@ -135,6 +139,10 @@ The rate limits described above are applied per member and per gateway, not per 
 ### Open Order Limits
 
 The number of orders and quotes active at any time is limited per member. The default is 2,000 and can be increased at the discretion of Deribit. Please reach out to Support if this limit is too low for your activities.
+
+### Pending Amend Limits
+
+Separate from gateway rate limits, each order can have at most **4 unacknowledged amend (replace) requests** in flight at once — **1 for OCO / reduce-only orders**. Once the cap is reached, further amends on that order are rejected with `TOO_MANY_PENDING_REPLACES` until a pending amend is acknowledged. This cap applies per order rather than per connection and is independent of the gateway rate limit buckets. See [Amending an Order](/starbase/amending-order#pending-amend-limit).
 
 
 ## Related topics

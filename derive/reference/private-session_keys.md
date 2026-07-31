@@ -1,3 +1,9 @@
+---
+updatedAt: 2025-10-13T20:00:22.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Session Keys
 
 ### Method Name

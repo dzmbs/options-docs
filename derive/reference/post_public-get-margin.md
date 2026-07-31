@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-06-08T06:07:10.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Get Margin
 
 Calculates margin for a given portfolio and (optionally) a simulated state change.<br />Does not take into account open orders margin requirements.public/withdraw_debug

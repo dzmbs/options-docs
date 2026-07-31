@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-06-08T06:07:10.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Get All Currencies
 
 Get all active currencies with their spot price, spot price 24hrs ago.<br /><br />For real-time updates, recommend using channels -> ticker or orderbook.

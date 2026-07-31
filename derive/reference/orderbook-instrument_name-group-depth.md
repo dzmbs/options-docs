@@ -1,3 +1,9 @@
+---
+updatedAt: 2025-11-04T02:09:41.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Orderbook (Instrument Name) (Group) (Depth)
 
 ### Channel Name Schema

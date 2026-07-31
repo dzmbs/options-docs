@@ -12,6 +12,10 @@
   **Fill Limits**: The maximum number of fills on a single order is **2000 fills for single-leg instruments** and **400 fills for combo instruments**.
 </Info>
 
+<Tip>
+  **Lowest-latency order entry**: Set the `MMP` flag (field 10, bit 4) so the order uses the [MMP risk bypass](/starbase/risk-bypass) — the lowest-latency method for market access, which skips the pre-trade risk engine. Most integrating clients should prefer this path for all order entry.
+</Tip>
+
 ### NewOrderRequest (100)
 
 Request to place a new order sent by the client. The order will belong to the portfolio with which the connection was authenticated. Will be followed by a `NewOrderResponse` in case the order placement is successful or by a `NewOrderReject` in case the order placement is unsuccessful. Any immediate fills will be added to the `NewOrderResponse` and will NOT be sent in an `OrderFilled`. Any consecutive unsolicited change to the order (including fills) will be sent in an `OrderFilled`.
@@ -111,4 +115,4 @@ Reject generated in case a `NewOrderRequest` is unsuccessful.
 - [New Order Single(D) — Production FIX API](/fix-api/production/new-order-single.md)
 - [REST Order Gateway Authentication](/starbase/rest-authentication.md)
 - [Market Maker Protection (MMP)](/starbase/mmp.md)
-- [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [Amending an Order](/starbase/amending-order.md)

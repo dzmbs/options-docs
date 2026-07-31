@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-02-05T21:47:19.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Transfer Positions
 
 ### Method Name

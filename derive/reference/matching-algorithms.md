@@ -1,3 +1,9 @@
+---
+updatedAt: 2025-09-29T21:17:56.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Matching Algorithms
 
 Derive supports both FIFO (a.k.a. price/time) and pro-rata matching algorithms, as well as "blends" thereof (e.g. a % of the order being matched FIFO and a % pro-rata).

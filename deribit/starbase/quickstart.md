@@ -115,6 +115,10 @@ On test, verify the complete lifecycle before requesting production access:
 
 Before production, also review behavior that can change order acceptance or timing: [speed bumps](/starbase/speed-bumps), [Market Maker Protection](/starbase/mmp), [Self Match Prevention](/starbase/smp), and [risk bypass](/starbase/risk-bypass).
 
+<Tip>
+  Utilizing the [MMP risk bypass](/starbase/risk-bypass) is the lowest-latency method for market access and the recommended default for most integrating clients. It works for both orders and mass quotes, reduces load on Deribit's risk and margin engines, and is unaffected by the ongoing pre-trade risk testing.
+</Tip>
+
 ## 8. Review Capacity
 
 Starbase rate limits are applied **per Member, per gateway, and per quoting type**. API keys and sessions within the same Member do not each receive a fresh allocation.

@@ -20,15 +20,26 @@ To explain further, please see the following sequence of events:
 8. Deribit's margin engine recalculates IM based on Alice's fills and communicates this to Starbase
 9. After 1 second, Alice is free to re-enter the market
 
-## Best-practice for low-latency order entry
+## Recommended: MMP risk bypass for order entry
 
-Because the risk engine is bypassed for MMP-enabled orders and quotes, it is recommended that any latency-sensitive strategy utilized MMP and MMP groups for all order entry and quoting. Additionally, utilizing the MMP system reduces strain on Deribit's margin engine and Starbase's risk engine.
+Utilizing the MMP risk bypass is the **lowest-latency method for market access** in Starbase. MMP-enabled flow goes straight from the gateway to the matching engine, so no order-entry path that passes through the risk module can be faster.
+
+This works for both orders and mass quotes:
+
+* **Orders** — set the `MMP` flag (field 10, bit 4) on [`NewOrderRequest`](/starbase/placing-new-order#neworderrequest-100) to tag the order for the default MMP group
+* **Mass quotes** — MMP is always enforced for quotes via their MMP group, so mass quoting uses the bypass by default
+
+Most clients integrating with Starbase should prefer this path for all order entry and quoting:
+
+* **Lowest latency** — the risk engine is not on the critical path for MMP-enabled flow
+* **Reduced system load** — bypassing the risk module reduces strain on Starbase's risk engine and Deribit's margin engine
+* **Isolation from pre-trade risk testing** — while pre-trade risk checks are being tested and rolled out, MMP-enabled flow bypasses the risk module entirely, so order acceptance and latency behavior on this path are unaffected by that work
 
 
 ## Related topics
 
 - [Connectivity Quickstart](/starbase/quickstart.md)
+- [Placing a New Order](/starbase/placing-new-order.md)
+- [Mass Quotes](/starbase/mass-quotes.md)
+- [Starbase API Overview](/starbase/overview.md)
 - [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
-- [Order Management](/articles/order-management-best-practices.md)
-- [private/pme/simulate](/api-reference/account-management/private-simulate.md)
-- [Portfolio Management](/starbase/portfolio-management.md)

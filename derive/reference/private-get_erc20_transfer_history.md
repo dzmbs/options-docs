@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-02-24T21:30:28.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Get Erc20 Transfer History
 
 ### Method Name

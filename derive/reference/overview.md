@@ -1,3 +1,9 @@
+---
+updatedAt: 2025-09-29T21:10:03.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Introduction
 
 Derive is a self-custodial, high performance crypto trading platform for options, perpetuals and spot trading.

@@ -62,6 +62,10 @@ Starbase and the standard Deribit APIs are separate order-entry protocols with d
   </Card>
 </CardGroup>
 
+<Tip>
+  **Recommended order-entry path:** Utilizing the [MMP risk bypass](/starbase/risk-bypass) is the lowest-latency method for market access in Starbase. It works for both orders (via the `MMP` flag) and mass quotes (MMP-enforced by default), reduces load on the risk and margin engines, and most integrating clients should prefer it for all order entry and quoting.
+</Tip>
+
 ## Integration resources
 
 <CardGroup cols={2}>

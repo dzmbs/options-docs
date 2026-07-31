@@ -1,3 +1,9 @@
+---
+updatedAt: 2025-09-29T21:19:11.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Validate Invite Code
 
 ### Method Name

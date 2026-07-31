@@ -100,7 +100,7 @@ components:
 ## Related topics
 
 - [Portfolio Management](/starbase/portfolio-management.md)
+- [Creating a Starbase API Key](/starbase/creating-api-key.md)
 - [user.lock ](/subscriptions/user/userlock.md)
 - [Notifications](/articles/notifications.md)
 - [Order Management](/articles/order-management-best-practices.md)
-- [private/get_user_locks](/api-reference/account-management/private-get_user_locks.md)

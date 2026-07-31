@@ -1,3 +1,9 @@
+---
+updatedAt: 2026-01-28T21:18:47.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Session Keys
 
 A session key is simply an Ethereum wallet. Account owners can give other Ethereum wallets temporary access to their accounts via session keys. Any Ethereum wallet can be registered as a session key.

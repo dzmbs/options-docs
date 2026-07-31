@@ -1,3 +1,9 @@
+---
+updatedAt: 2025-09-29T21:12:32.000Z
+---
+
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+
 # Get Points
 
 ### Method Name
