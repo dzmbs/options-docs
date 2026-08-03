@@ -148,6 +148,18 @@ Block RFQs can be in one of the following states:
 * `cancelled` - The RFQ was canceled by the taker
 * `expired` - The RFQ expired without being filled
 
+## Identifiers
+
+A Block RFQ involves three distinct identifiers. They are not interchangeable — use each for the purpose it was designed for.
+
+| Field                | Represents                                                   | Lifetime                                                                                                           | Where it appears                                                                                           |
+| -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| `block_rfq_id`       | The RFQ **request** (the negotiation)                        | Exists from the moment the taker creates the RFQ, throughout quoting, viewing, editing, cancelling, and acceptance | RFQ creation, quote add/edit/cancel, quote lookups, taker/maker RFQ subscriptions                          |
+| `block_trade_id`     | The **executed block trade** produced when the RFQ is filled | Only exists after the RFQ transitions to `filled`                                                                  | Trade notifications, trade history endpoints, per-leg trades on `user.trades.{instrument_name}.{interval}` |
+| `block_rfq_quote_id` | A single maker quote against an RFQ                          | Exists from `add_block_rfq_quote` until the quote is cancelled, replaced, or filled                                | Quote endpoints and, on the **maker side only**, the resulting trade notification                          |
+
+When a quote is accepted, the multi-leg RFQ generates a **separate trade notification for each leg** on that leg's `user.trades.{instrument_name}.{interval}` channel. Each of those trades carries the same `block_rfq_id` and `block_trade_id`, letting you group all legs of the same execution.
+
 ## Taker Rating
 
 Deribit tracks how reliably takers fill the RFQs they create. This **taker rating** is exposed on the `taker_rating` field of a Block RFQ and is visible to makers when they decide whether to quote.

@@ -138,7 +138,7 @@ Response Example
 | minSz | String | Minimum order size. Order size must satisfy both: sz ≥ `minSz` AND sz is a multiple of `lotSz`.If it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
 | ctType | String | Contract type`linear`: linear contract — margin, P&L, and settlement in the quote currency (e.g., USDT for BTC-USDT-SWAP).`inverse`: inverse contract — margin, P&L, and settlement in the base currency (e.g., BTC for BTC-USD-SWAP). For inverse contracts, P&L in USD terms is non-linear: the USD value of a fixed BTC gain changes with the BTC price. Only applicable to `FUTURES`/`SWAP` |
 | alias | String | Contract alias (deprecated — use expTime to obtain the delivery time, will be removed by the end of April 2026)`this_week``next_week``this_month``next_month``quarter``next_quarter``third_quarter``this_five_years`: current 5-year contract`next_five_years`: next 5-year contractOnly applicable to `FUTURES` |
-| state | String | Instrument status`live` `suspend``rebase`: can’t be traded during rebasing, only applicable to `SWAP``post_only`: only post-only orders are accepted; existing post-only orders can be amended and cancelled. Other order types (market, IOC, FOK, normal limit) are rejected. Only applicable to `SWAP``preopen`. e.g. There will be `preopen` before the Futures and Options new contracts state is live.`test`: Test pairs, can’t be traded`settling`: Settling, only applicable to `EVENTS` |
+| state | String | Instrument status`live` `suspend``rebase`: can’t be traded during rebasing`post_only`: only post-only orders are accepted; existing post-only orders can be amended and cancelled. Other order types (market, IOC, FOK, normal limit) are rejected.`preopen`. e.g. There will be `preopen` before the Futures and Options new contracts state is live.`test`: Test pairs, can’t be traded`settling`: Settling, only applicable to `EVENTS` |
 | ruleType | String | Trading rule types`normal`: normal trading`pre_market`: pre-market trading, including pre-market X-Perp `FUTURES``rebase_contract`: pre-market rebase contract`xperp`: perpetual-style futures, only applicable to certain `FUTURES` contracts. A pre-market X-Perp changes from `pre_market` to `xperp` after it converts to a normal X-Perp |
 | maxLmtSz | String | The maximum order quantity of a single limit order.If it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
 | maxMktSz | String | The maximum order quantity of a single market order.If it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `USDT`. |
@@ -375,7 +375,7 @@ Response Example
 
 ### Get estimated delivery/exercise price
 
-Retrieve the estimated delivery price which will only have a return value one hour before the delivery/exercise.
+Retrieve the estimated delivery price which will only have a return value 30 minutes before the delivery/exercise.
 
 #### Rate Limit: 10 requests per 2 seconds
 
@@ -530,7 +530,7 @@ Response Example
 
 ### Get estimated future settlement price
 
-Retrieve the estimated settlement price which will only have a return value one hour before the settlement.
+Retrieve the estimated settlement price which will only have a return value 30 minutes before the settlement.
 
 #### Rate Limit: 10 requests per 2 seconds
 

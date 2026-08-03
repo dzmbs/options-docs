@@ -144,7 +144,7 @@ Response Example
 | lotSz | String | Lot sizeIf it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
 | minSz | String | Minimum order sizeIf it is a derivatives contract, the value is the number of contracts.If it is `SPOT`/`MARGIN`, the value is the quantity in `base currency`. |
 | ctType | String | Contract type`linear`: linear contract`inverse`: inverse contract Only applicable to `FUTURES`/`SWAP` |
-| state | String | Instrument status`live` `suspend``rebase`: can't be traded during rebasing, only applicable to `SWAP``post_only`: only post-only orders are accepted; existing post-only orders can be amended and cancelled. Other order types (market, IOC, FOK, normal limit) are rejected. Only applicable to `SWAP``preopen` e.g. Futures and options contracts rollover from generation to trading start; certain symbols before they go live`test`: Test pairs, can't be traded`settling`: Settling, only applicable to `EVENTS` |
+| state | String | Instrument status`live` `suspend``rebase`: can't be traded during rebasing`post_only`: only post-only orders are accepted; existing post-only orders can be amended and cancelled. Other order types (market, IOC, FOK, normal limit) are rejected.`preopen` e.g. Futures and options contracts rollover from generation to trading start; certain symbols before they go live`test`: Test pairs, can't be traded`settling`: Settling, only applicable to `EVENTS` |
 | ruleType | String | Trading rule types`normal`: normal trading`pre_market`: pre-market trading, including pre-market X-Perp `FUTURES``rebase_contract`: pre-market rebase contract`xperp`: perpetual-style futures, only applicable to certain `FUTURES` contracts. A pre-market X-Perp changes from `pre_market` to `xperp` after it converts to a normal X-Perp |
 | posLmtAmt | String | Maximum position value (USD) for this instrument at the user level (shared across master and sub-accounts), based on the notional value of all same-direction open positions and resting orders. The effective user limit is max(posLmtAmt, oiUSD × posLmtPct). Applicable to `SWAP`/`FUTURES`. |
 | posLmtPct | String | Maximum position ratio (e.g., 30 for 30%) a user (shared across master and sub-accounts) may hold relative to the platform's current total position value. The effective user limit is max(posLmtAmt, oiUSD × posLmtPct). Applicable to `SWAP`/`FUTURES`. |
@@ -4792,13 +4792,6 @@ Response example:failure
  "data": []
 }
 
-// TradeFi positions are not supported.
-{
- "code": "70004",
- "msg": "Invalid instrument ID XAG-USDT-SWAP",
- "data": []
-}
-
 ```
 
 #### Response parameters
@@ -4840,7 +4833,7 @@ For source account, a maximum of fifteen move position requests can be triggered
 The maximum number of legs per move position request is 30.
 No move position fee will be charged at this time.
 Moving positions is not supported in margin trading now.
-TradeFi positions are not supported.
+TradeFi positions (including equity perps/XPerp) are supported.
 The move position price is determined by the TWAP (Time-Weighted Average Price) of the mark price over the past 60 minutes, using the closing mark price per minute. If the symbol is newly listed and a 60-minute TWAP is unavailable, the move position will be rejected with error code 70065
 The move position will share the same price limit as those in the order book. The move position will fail if the 60-minute mark price TWAP is outside of the price limit.
 For the source account, move positions must be conducted in a reduce-only manner. You must choose the opposite side of your current position and specify a size equal to or smaller than your existing position size. The system will also process move position requests in a best-effort reduce-only manner.

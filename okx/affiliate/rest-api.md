@@ -99,7 +99,7 @@ Response Example
 Request sample
 
 ```
-GET /api/v5/affiliate/invitee/detail?uid=11111111
+GET /api/v5/affiliate/invitee/detail?uid=11111111&periodType=last_30d
 ```
 
 #### Request Parameters
@@ -107,6 +107,7 @@ GET /api/v5/affiliate/invitee/detail?uid=11111111
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | uid | String | Yes | UID of the invitee. Only applicable to the UID of invitee master account. The data returned covers invitee master account and invitee sub-accounts. |
+| periodType | String | No | Stats window for `volPeriod`.`last_7d``last_30d``this_month``last_month``total``today``this_week`When omitted, `volPeriod` is not returned. `custom` is not supported on this endpoint; `custom` or any unknown value returns `51000`. |
 
 Returned results
 
@@ -129,7 +130,8 @@ Returned results
  "region": "Vietnam",
  "totalCommission": "0",
  "volMonth": "0",
- "totalVol": "0"
+ "totalVol": "0",
+ "volPeriod": "1234.56"
  }
  ]
 }
@@ -150,6 +152,7 @@ Returned results
 | wdAmt | String | Accumulated amount of withdrawal in USDTIf user has not withdrawn, 0 will be returned |
 | volMonth | String | Accumulated Trading volume in the current month in USDTIf user has not traded, 0 will be returned |
 | totalVol | String | Lifetime accumulated trading volume in USDTIf user has not traded, 0 will be returned |
+| volPeriod | String | Trading volume within the selected `periodType` window, unit in `USDT`. Only returned when `periodType` is supplied in the request; omitted otherwise. If the user has not traded in the window, `0` is returned. |
 | accFee | String | Accumulated Amount of trading fee in USDTIf there is no any fee, 0 will be returned |
 | kycTime | String | KYC2 verification time. Unix timestamp in millisecond format and the precision is in dayIf user has not passed KYC2, "" will be returned |
 | region | String | User country or region. e.g. "United Kingdom" |
@@ -188,10 +191,15 @@ GET /api/v5/affiliate/invitee/list?page=1&kycStatus=verified
 | orderDir | String | No | Sort direction.`asc``desc`The default is `desc`. |
 | kycStatus | String | No | KYC status.`unverified``verified` (passed at least KYC2) |
 | subAffiliateUid | String | No | Filter invitees under a specific sub-affiliate (external UID). |
+| uid | String | No | External user UIDs for exact match — the same UID returned as `uid` in the response. Single UID or up to 100 UIDs, comma-separated, e.g. `835449167911924693,835449167911924700`. Unknown UIDs are silently skipped; if none resolve, an empty page is returned (never the full list). |
+| joinTimeBegin | String | Conditional | Filter lower bound on `joinTime` (the relationship-established time), Unix timestamp in millisecond format. Inclusive. Required when `joinTimeEnd` is supplied; the two must be sent together. Independent of the `periodType` / `begin` / `end` stats window. |
+| joinTimeEnd | String | Conditional | Filter upper bound on `joinTime` (the relationship-established time), Unix timestamp in millisecond format. Inclusive. Required when `joinTimeBegin` is supplied; the two must be sent together. Independent of the `periodType` / `begin` / `end` stats window. |
 
 When `periodType=custom`, supply both `begin` and `end`. Supplying only one returns `50014`.
 
 For all other `periodType` values, server-defined windows are used and any `begin` / `end` passed alongside are ignored. The window between `begin` and `end` must not exceed 90 days. `begin` cannot be earlier than 180 days from now.
+
+Supply both `joinTimeBegin` and `joinTimeEnd` or neither. `joinTimeBegin` equal to `joinTimeEnd` is a valid single-point range. The `joinTimeBegin` / `joinTimeEnd` span must not exceed 90 days, and `joinTimeBegin` cannot be earlier than 180 days from now.
 
 Response Example
 

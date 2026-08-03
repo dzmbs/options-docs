@@ -276,8 +276,8 @@ components:
 
 ## Related topics
 
-- [private/reject_block_trade](/api-reference/block-trade/private-reject_block_trade.md)
 - [private/approve_block_trade](/api-reference/block-trade/private-approve_block_trade.md)
+- [private/reject_block_trade](/api-reference/block-trade/private-reject_block_trade.md)
 - [Voice Broker Trading API](/articles/voice-broker-trading-api.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_block_trades](/api-reference/block-trade/private-get_block_trades.md)

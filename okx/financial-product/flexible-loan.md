@@ -61,7 +61,7 @@ Response Example
 
 ### GET / Collateral assets
 
-Get collateral assets in funding account.
+Get the collateral assets currently held under your existing flexible loan order(s) (funding account assets only). This endpoint queries the collateral held against an order — it does not return the full list of assets that are generally eligible to be used as collateral when no order exists.
 
 #### Rate Limit: 5 requests per 2 seconds
 
