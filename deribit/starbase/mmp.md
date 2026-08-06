@@ -2,9 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Market Maker Protection (MMP)
+# Starbase Market Maker Protection (MMP)
 
-> Configure and reset Market Maker Protection thresholds in the Starbase Binary API — tag orders as MMP and control freeze behavior for risk control.
+> Configure and reset Starbase Market Maker Protection thresholds, tag orders as MMP, and understand the per subaccount and base/quote pair MMP scope.
 
 ## Overview
 
@@ -29,6 +29,10 @@ The Starbase Binary API provides the following MMP capabilities:
 ## MMP-Tagged Orders
 
 Orders placed via the Starbase Binary API can be tagged with MMP flags to participate in Market Maker Protection. When MMP limits are breached, all orders within the same underlying with the MMP flag enabled are automatically canceled.
+
+<Note>
+  **MMP scope**: Order MMP applies **per subaccount (portfolio) and per base/quote pair** (index). Mass-quote MMP is scoped differently — quotes are protected through an explicit `mmpGroupId` that you reference in every `MassQuoteRequest`. See [MMP Group IDs in Starbase](#mmp-group-ids-in-starbase) below.
+</Note>
 
 For details on how to enable MMP for individual orders, refer to the order entry documentation:
 
@@ -206,8 +210,8 @@ The table below lists all possible values of the `reason` field used by `GetMass
 
 When MMP limits are breached, the Starbase Binary API sends unsolicited events to notify you of the trigger and provide details about canceled orders.
 
-* [**MassQuoteMmpTriggered (320)**](/starbase/unsolicited-events#massquotempptriggered-320): Event generated when a mass quote Market Maker Protection limit is triggered. This event is sent for MMP groups used in mass quotes.
-* [**OrdersMmpTriggered (322)**](/starbase/unsolicited-events#ordersmpptriggered-322): Event generated when an orders Market Maker Protection limit is triggered. This event is sent for standard orders (not mass quotes) when MMP limits are breached at the index level.
+* [**MassQuoteMmpTriggered (320)**](/starbase/unsolicited-events#massquotemmptriggered-320): Event generated when a mass quote Market Maker Protection limit is triggered. This event is sent for MMP groups used in mass quotes.
+* [**OrdersMmpTriggered (322)**](/starbase/unsolicited-events#ordersmmptriggered-322): Event generated when an orders Market Maker Protection limit is triggered. This event is sent for standard orders (not mass quotes) when MMP limits are breached at the index level.
 * [**MassQuoteMmpUnfrozen (324)**](/starbase/unsolicited-events#massquotemmpunfrozen-324): Event generated when a mass quote MMP group is unfrozen, either via a reset request or because the `frozenUntil` timer elapsed.
 * [**OrdersMmpUnfrozen (326)**](/starbase/unsolicited-events#ordersmmpunfrozen-326): Event generated when an orders MMP group is unfrozen, either via a reset request or because the `frozenUntil` timer elapsed.
 
@@ -222,8 +226,8 @@ MMP configuration is managed through the JSON-RPC API. To configure MMP settings
 
 ## Related topics
 
-- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
 - [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
-- [MMProtection Reset(MZ) — Production FIX API](/fix-api/production/mmprotection-reset.md)
-- [MMProtection Limits (MM) — Production FIX API](/fix-api/production/mmprotection-limits.md)
-- [MMProtection Limits Result (MR) — Production FIX API](/fix-api/production/mmprotection-limits-result.md)
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [Speed Bumps](/starbase/speed-bumps.md)
+- [Risk Bypass](/starbase/risk-bypass.md)

@@ -219,7 +219,7 @@ Deribit provides three different interfaces to access the API:
 ## Related topics
 
 - [Welcome to Deribit API](/index.md)
-- [Connectivity Quickstart](/starbase/quickstart.md)
+- [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Starbase API Overview](/starbase/overview.md)
 - [Multicast Subscription Guide](/starbase/multicast-subscription-guide.md)
 - [Managing Subaccounts](/articles/managing-subaccounts-api.md)

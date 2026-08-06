@@ -2,9 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Reference Data
+# Starbase Reference Data and Instrument Definitions
 
-> Instrument metadata for the Starbase Binary API — InstrumentDefinition messages with contract terms, tick sizes, and product identifier fields.
+> Instrument metadata for the Starbase Binary API, including InstrumentDefinition fields, index and mark price sources, and quantityExponent snapshot behavior.
 
 ## Reference data
 
@@ -28,6 +28,17 @@ The Starbase and standard Deribit APIs expose overlapping, but not identical, in
 | FIX `SecurityList`                                                                     | Standard FIX session                                                  | FIX contract-based metadata including `ContractMultiplier`                                                                        |
 
 Do not assume that a field available through one interface is available through every other interface. In particular, use the multicast `InstrumentDefinition` when constructing or validating SBE order-entry messages.
+
+## Index prices and derived statistics
+
+Index prices are **not available via Starbase multicast**. The SBE market data schema defines an `InstrumentInfo` (14) message carrying `indexPrice` and `markPrice` (and an `InstrumentRef` (15) message carrying funding data), but these messages are **not published** on the feeds. The same applies to mark price, funding rates, and open interest — none of them are distributed on Starbase.
+
+Retrieve these values from the standard Deribit API instead:
+
+| Data                               | Sources                                                                                                                                                                                                                         |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Index price                        | `deribit_price_index.{index_name}` WebSocket channel, [`public/get_index_price`](/api-reference/market-data/public-get_index_price), or `ticker.{instrument}.{interval}`                                                        |
+| Mark price, funding, open interest | `ticker.{instrument}.{interval}` WebSocket channel, [`public/ticker`](/api-reference/market-data/public-ticker), or [`public/get_book_summary_by_instrument`](/api-reference/market-data/public-get_book_summary_by_instrument) |
 
 ## Quantity units and contract size
 
@@ -81,6 +92,10 @@ The table below outlines the content of field 13 (`flags`) of `InstrumentDefinit
 | 1             | isPutOption | Set if the option is a put         |
 | 2             | isPerpetual | Set if the instrument is perpetual |
 
+<Note>
+  `quantityExponent` (field 11) is available via the **multicast snapshot only** — it is not present in `get_instruments` on any API. It derives from the instrument's quantity tick size: a tick of `1` maps to `0`, `0.1` to `-1`, `0.01` to `-2`, and so on.
+</Note>
+
 ***
 
 ### InstrumentStatusUpdate (16)
@@ -93,8 +108,8 @@ The table below outlines the content of field 13 (`flags`) of `InstrumentDefinit
 
 ## Related topics
 
+- [Market Model](/starbase/market-model.md)
+- [Security Definition Request(c) — Production FIX API](/fix-api/production/security-definition-request.md)
+- [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Binary API Reference](/starbase/binary-api-reference.md)
-- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
-- [Starbase API Overview](/starbase/overview.md)
-- [Market Data Collection](/articles/market-data-collection-best-practices.md)
-- [public/get_funding_chart_data](/api-reference/market-data/public-get_funding_chart_data.md)
+- [Security Definition(d) — Production FIX API](/fix-api/production/security-definition.md)

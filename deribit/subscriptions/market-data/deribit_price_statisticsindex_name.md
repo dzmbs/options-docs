@@ -378,8 +378,8 @@ securitySchemes: []
 
 ## Related topics
 
+- [Starbase Reference Data and Instrument Definitions](/starbase/reference-data.md)
 - [deribit_price_index.(index_name) ](/subscriptions/market-data/deribit_price_indexindex_name.md)
 - [deribit_price_ranking.(index_name) ](/subscriptions/market-data/deribit_price_rankingindex_name.md)
 - [public/get_index_price_names](/api-reference/market-data/public-get_index_price_names.md)
 - [estimated_expiration_price.(index_name) ](/subscriptions/market-data/estimated_expiration_priceindex_name.md)
-- [deribit_volatility_index.(index_name) ](/subscriptions/market-data/deribit_volatility_indexindex_name.md)

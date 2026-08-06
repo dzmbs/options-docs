@@ -4,7 +4,7 @@
 
 # Creating a Starbase API Key
 
-> Create Starbase API keys — add team members, pick Starbase-specific scopes, and generate the credentials required for gateway login and access.
+> Create Starbase API keys, add team members, pick Starbase-specific scopes, and resolve the No active member error before connecting to a gateway.
 
 Starbase API keys are created through the [**Starbase section**](https://www.deribit.com/account/BTC/starbase/api-keys) of the Account Panel (not the API section). The creation flow is otherwise the same as standard Deribit API keys, but with a different set of available scopes and a required member setup step.
 
@@ -15,6 +15,10 @@ Starbase API keys are created through the [**Starbase section**](https://www.der
 <Warning>
   Before creating a Starbase API key, you must first add at least one member. Only main accounts can configure members. API key creation is scoped to a member.
 </Warning>
+
+<Note>
+  **"No active member" error**: If key creation fails with a "No active member" error, the account you are creating the key for does not belong to an active Member. Add the account to a Member first — Members are managed exclusively at the **main-account** level — then create the key while switched into the subaccount UID that will use it. Every subaccount that trades on Starbase needs a Member; without one, the subaccount has no way to authenticate to Starbase.
+</Note>
 
 <Note>
   Starbase API key management is a sensitive operation. If your account has Two-Factor Authentication (2FA) enabled, you will be prompted for a security key confirmation. See [Security Keys](/articles/security-keys) for details.
@@ -95,7 +99,9 @@ Starbase API keys are created through the [**Starbase section**](https://www.der
 
 Each subaccount can have up to **8 Starbase API keys**. Because each gateway connection requires its own API key, plan your key allocation based on the number of gateway connections you intend to maintain.
 
-Starbase API keys use a separate counter from standard Deribit API keys. Starbase API keys do not count toward your standard API key quota, and standard API keys do not count toward your Starbase quota.
+Each API key can hold **one connection per gateway** — with 4 gateway pairs, that is up to 8 simultaneous connections per key. Reconnecting the same key to the same gateway terminates the existing session. See [Gateway Connectivity](/starbase/gateway-connectivity#api-keys) for the full connection rules.
+
+Starbase API keys use a separate counter from standard Deribit API keys. Starbase API keys do not count toward your standard API key quota, and standard API keys do not count toward your Starbase quota. A standard Deribit API key cannot authenticate to Starbase — a separate Starbase key is always required.
 
 ## Next steps
 
@@ -130,6 +136,6 @@ Starbase API keys use a separate counter from standard Deribit API keys. Starbas
 
 - [Creating new API key](/articles/creating-api-key.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
-- [Connectivity Quickstart](/starbase/quickstart.md)
+- [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Authentication](/articles/authentication.md)
 - [REST Order Gateway Authentication](/starbase/rest-authentication.md)

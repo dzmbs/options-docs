@@ -156,5 +156,5 @@ Reject generated in case a `MassQuoteRequest` is unsuccessful.
 - [Speed Bumps](/starbase/speed-bumps.md)
 - [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
 - [private/mass_quote](/api-reference/trading/private-mass_quote.md)
-- [Mass Cancel](/starbase/mass-cancel.md)
 - [Mass Quote(i) — Production FIX API](/fix-api/production/mass-quote.md)
+- [Mass Quote Acknowledgement(b) — Production FIX API](/fix-api/production/mass-quote-acknowledgement.md)

@@ -2,9 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Mass Cancel
+# Starbase Mass Cancel Messages
 
-> Cancel many orders and quotes at once with the Starbase Binary API via MassCancelRequest, MassCancelResponse, and MassQuoteCancelRequest messages.
+> Cancel many Starbase orders and quotes at once using MassCancelRequest, MassQuoteCancelRequest, and the currency_pair_id sourced from InstrumentDefinition.
 
 ### Mass Cancel Granularity
 
@@ -18,13 +18,13 @@ Mass cancels are aligned with single cancels in their treatment of speed-bumped 
 
 Request to cancel all orders and quotes submitted via the binary SBE order gateway that meet the specified criteria.
 
-| Field | Name          | Type  | Length | Description                                                                                                                                                                                                   |
-| ----- | ------------- | ----- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1     | correlationId | int64 | 8      | Client-assigned ID                                                                                                                                                                                            |
-| 2     | indexId       | int64 | 8      | Underlying index ID. Omit to match all currency pairs. `0` matches no currency pair and results in zero cancellations.                                                                                        |
-| 3     | instrumentId  | int64 | 8      | Instrument ID. To cancel orders for a specific instrument, pass that instrument's ID. To cancel across all instruments, pass `null` (not `0`). At least one of `indexId` or `instrumentId` must be specified. |
-| 4     | productType   | int8  | 1      | `0`=ALL (ignore this filter)<br />`1`=Options<br />`2`=Futures (includes Perpetuals)<br />`3`=Combo Futures<br />`4`=Combo Options<br />`5`=Spot                                                              |
-| 5     | side          | int8  | 1      | `0`=Both (ignore this filter)<br />`1`=BUY<br />`-1`=SELL                                                                                                                                                     |
+| Field | Name          | Type  | Length | Description                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ----- | ------------- | ----- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | correlationId | int64 | 8      | Client-assigned ID                                                                                                                                                                                                                                                                                                                                                                                                              |
+| 2     | indexId       | int64 | 8      | Underlying index ID (`currencyPairId` in the SBE schema). Omit to match all currency pairs. `0` matches no currency pair and results in zero cancellations. Take this value from `indexId` in the multicast [`InstrumentDefinition` (10)](/starbase/reference-data#instrumentdefinition-10) message — it is the same identifier as `index_id` in [`public/get_instruments`](/api-reference/market-data/public-get_instruments). |
+| 3     | instrumentId  | int64 | 8      | Instrument ID. To cancel orders for a specific instrument, pass that instrument's ID. To cancel across all instruments, pass `null` (not `0`). At least one of `indexId` or `instrumentId` must be specified.                                                                                                                                                                                                                   |
+| 4     | productType   | int8  | 1      | `0`=ALL (ignore this filter)<br />`1`=Options<br />`2`=Futures (includes Perpetuals)<br />`3`=Combo Futures<br />`4`=Combo Options<br />`5`=Spot                                                                                                                                                                                                                                                                                |
+| 5     | side          | int8  | 1      | `0`=Both (ignore this filter)<br />`1`=BUY<br />`-1`=SELL                                                                                                                                                                                                                                                                                                                                                                       |
 
 ### MassQuoteCancelRequest (145)
 
@@ -63,8 +63,8 @@ Reject generated in case a `MassCancelRequest` or `MassQuoteCancelRequest` is un
 
 ## Related topics
 
+- [Mass Quotes](/starbase/mass-quotes.md)
 - [Mass Cancel](/api-reference/portfolio-management/mass-cancel.md)
-- [Portfolio Management](/starbase/portfolio-management.md)
-- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
-- [Order Mass Cancel Report(r) — Production FIX API](/fix-api/production/order-mass-cancel-report.md)
-- [Order Mass Cancel Request(q) — Production FIX API](/fix-api/production/order-mass-cancel-request.md)
+- [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Starbase API Changelog](/changelogs/starbase.md)
+- [Speed Bumps](/starbase/speed-bumps.md)

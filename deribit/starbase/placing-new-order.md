@@ -13,7 +13,7 @@
 </Info>
 
 <Tip>
-  **Lowest-latency order entry**: Set the `MMP` flag (field 10, bit 4) so the order uses the [MMP risk bypass](/starbase/risk-bypass) — the lowest-latency method for market access, which skips the pre-trade risk engine. Most integrating clients should prefer this path for all order entry.
+  **Lowest-latency order entry**: Set the `MMP` flag (field 10, bit 4) so the order uses the [MMP risk bypass](/starbase/risk-bypass) — the lowest-latency method for market access, which skips the pre-trade risk engine. The bypass applies whether the order makes or takes. Most integrating clients should prefer this path for all order entry.
 </Tip>
 
 ### NewOrderRequest (100)
@@ -46,16 +46,16 @@ If the order aggresses and is subject to a speed bump, the `NewOrderResponse` is
 
 The table below outlines the content of field 10 (flags) of `NewOrderRequest`.
 
-| Bit number (from last to first) | Name                    | Description                                                                                                                                                                                                   |
-| ------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0                               | cancelOnDisconnect      | Order-level cancel-on-disconnect flag.                                                                                                                                                                        |
-| 1                               | postOnly                | Enables post-only that amends the order price to the best bid/ask if it would be immediately executable. The amended price is then validated against price limits. Mutually exclusive with `postOnlyReject` . |
-| 2                               | postOnlyReject          | Enables post-only that rejects the order if it would be immediately executable. Mutually exclusive with `postOnly`.                                                                                           |
-| 3                               | marketLimit             | Set `limitPrice` based on the top-of-book instead of the price band.                                                                                                                                          |
-| 4                               | MMP                     | The order will be subject to the default Market Maker Protection group                                                                                                                                        |
-| 5                               | resetMmp                | Unfreeze orders MMP group                                                                                                                                                                                     |
-| 6                               | Reserved for future use |                                                                                                                                                                                                               |
-| 7                               | Reserved for future use |                                                                                                                                                                                                               |
+| Bit number (from last to first) | Name                    | Description                                                                                                                                                                                                  |
+| ------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0                               | cancelOnDisconnect      | Order-level cancel-on-disconnect flag.                                                                                                                                                                       |
+| 1                               | postOnly                | Enables post-only that amends the order price to the best bid/ask if it would be immediately executable. The amended price is then validated against price limits. Mutually exclusive with `postOnlyReject`. |
+| 2                               | postOnlyReject          | Enables post-only that rejects the order if it would be immediately executable. Mutually exclusive with `postOnly`.                                                                                          |
+| 3                               | marketLimit             | Set `limitPrice` based on the top-of-book instead of the price band.                                                                                                                                         |
+| 4                               | MMP                     | The order will be subject to the default Market Maker Protection group                                                                                                                                       |
+| 5                               | resetMmp                | Unfreeze orders MMP group                                                                                                                                                                                    |
+| 6                               | Reserved for future use |                                                                                                                                                                                                              |
+| 7                               | Reserved for future use |                                                                                                                                                                                                              |
 
 <Note>
   **No reduce-only flag**: reduce-only cannot be set per order in SBE. It exists only as a portfolio-level restriction applied by Deribit, reported as [`cancelReason = 8`](/starbase/binary-api-reference#cancel-reason-codes) (`REDUCE_ONLY`) when an order would increase a position. Per-order reduce-only is available on the JSON-RPC ([`private/buy`](/api-reference/trading/private-buy), `reduce_only`) and FIX ([`NewOrderSingle`](/fix-api/production/new-order-single), `ExecInst = E`) APIs.
@@ -114,5 +114,5 @@ Reject generated in case a `NewOrderRequest` is unsuccessful.
 - [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
 - [New Order Single(D) — Production FIX API](/fix-api/production/new-order-single.md)
 - [REST Order Gateway Authentication](/starbase/rest-authentication.md)
-- [Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Amending an Order](/starbase/amending-order.md)

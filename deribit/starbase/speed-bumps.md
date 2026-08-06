@@ -8,7 +8,7 @@
 
 ## Overview
 
-Speed Bumps will apply to all instruments, except the top 5 crypto perpetuals by volume (BTC, ETH, SOL, XRP, and HYPE, including BTC/ETH inverse perps). All other instruments (options, dated futures, other perps, and related multi-leg instruments) will have a fixed-length speed bump, configured to be in the 1-10 millisecond range. Any aggressive order or quote, that is, an order or quote that would immediately match, will be made pending by a fixed duration before being entered into the order book. No other member except the owner of the order or quote is informed that this order or quote is pending. Pending orders and quotes are stored in a FIFO queue. Any jitter on speed bump timing will not cause pending orders or quotes to overtake each other.
+Speed bumps apply to all instruments, except the top 5 crypto perpetuals by volume (currently BTC, ETH, SOL, XRP, and HYPE, including BTC/ETH inverse perps). The list of exempt instruments is reviewed quarterly and may change over time. All other instruments (options, dated futures, other perps, and related multi-leg instruments) have a fixed-length speed bump of 10 milliseconds. Any aggressive order or quote, that is, an order or quote that would immediately match, is made pending for the fixed 10-millisecond duration before being entered into the order book. No other member except the owner of the order or quote is informed that this order or quote is pending. Pending orders and quotes are stored in a FIFO queue. Any jitter on speed bump timing will not cause pending orders or quotes to overtake each other.
 
 ## Purpose
 
@@ -16,9 +16,11 @@ In the presence of a speed bump, any liquidity providing member has a fixed peri
 
 As Deribit's market will go from a sub-second latency exchange to a sub-millisecond exchange, we have deemed it necessary to protect our option market makers with a speed bump to make sure our liquidity can transition and deepen.
 
+The speed bump is considered a permanent feature of the market, particularly for options.
+
 ## How Speed Bumps Work
 
-New orders and quotes will be speed bumped if they aggress. Cancellations will never be speed bumped. For amendments, see the table below:
+The speed bump applies to anything entering the order book that would immediately match: new orders, quotes, and edits that cause an order or quote to aggress. Cancellations are never speed bumped. Trades that do not go through the order book, such as block trades and position moves, are never speed bumped. For amendments, see the table below:
 
 |                               | **Resting**                                   | **Pending**                                   |
 | ----------------------------- | --------------------------------------------- | --------------------------------------------- |
@@ -39,7 +41,7 @@ sequenceDiagram
     M->>GW: New aggressing order / quote
     GW->>SB: Queue order (aggresses)
     Note over M,GW: SBE reports queued immediately.<br/>WebSocket and REST wait for the next state.
-    Note over SB: Held for fixed duration (1-10 ms)
+    Note over SB: Held for fixed duration (10 ms)
     SB->>OB: Released after speed bump (unchanged)
     OB-->>GW: Open / filled / cancelled
     GW-->>M: Protocol response or event
@@ -137,6 +139,8 @@ Use post-only attributes if you need to avoid this path. The same IOC conversion
 
 **Applies to all API interfaces**: The speed bump applies regardless of which gateway or protocol is used. Orders and quotes submitted via the SBE gateway, REST API, or FIX gateway are all subject to the same speed bump.
 
+**Applies to all members**: The speed bump is applied uniformly to every member. No member is exempt on the basis of size, volume, or latency profile.
+
 **Full duration always runs**: The speed bump duration is always served in full based on market conditions at the time of submission. If the opposing liquidity that triggered the speed bump is cancelled before the bumped order is released, the order still completes its full bump period before entering the book. The matching engine does not re-evaluate pending orders when the order book changes.
 
 **Event-driven release**: The speed bump is not a precise hardware timer. Pending orders are checked for release on every incoming message. In practice this means the delay is very close to the configured duration, but may be marginally longer during quiet periods. This has no effect on execution outcomes — any message that would allow the order to release would itself have triggered the evaluation.
@@ -177,7 +181,7 @@ See [Execution Reports](/fix-api/production/execution-reports) for the full fiel
 ## Related topics
 
 - [Starbase API Changelog](/changelogs/starbase.md)
-- [Market Maker Protection (MMP)](/starbase/mmp.md)
-- [Mass Cancel](/starbase/mass-cancel.md)
-- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
-- [Self Match Prevention (SMP)](/starbase/smp.md)
+- [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Starbase Mass Cancel Messages](/starbase/mass-cancel.md)
+- [Starbase FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
+- [Risk Bypass](/starbase/risk-bypass.md)

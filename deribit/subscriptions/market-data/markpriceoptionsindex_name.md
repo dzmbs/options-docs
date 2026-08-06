@@ -283,4 +283,4 @@ securitySchemes: []
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Notifications](/articles/notifications.md)
 - [public/get_mark_price_history](/api-reference/market-data/public-get_mark_price_history.md)
-- [Trades](/starbase/trades.md)
+- [Starbase Reference Data and Instrument Definitions](/starbase/reference-data.md)

@@ -653,4 +653,4 @@ components:
 - [private/cancel_block_rfq](/api-reference/block-rfq/private-cancel_block_rfq.md)
 - [private/get_block_rfqs](/api-reference/block-rfq/private-get_block_rfqs.md)
 - [private/create_block_rfq](/api-reference/block-rfq/private-create_block_rfq.md)
-- [private/get_block_rfq_quotes](/api-reference/block-rfq/private-get_block_rfq_quotes.md)
+- [private/add_block_rfq_quote](/api-reference/block-rfq/private-add_block_rfq_quote.md)

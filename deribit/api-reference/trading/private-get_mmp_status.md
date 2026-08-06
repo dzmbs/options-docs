@@ -303,7 +303,7 @@ components:
 
 ## Related topics
 
-- [Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_mmp_config](/api-reference/trading/private-get_mmp_config.md)

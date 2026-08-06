@@ -322,6 +322,6 @@ components:
 
 - [public/get_book_summary_by_instrument](/api-reference/market-data/public-get_book_summary_by_instrument.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [public/get_combos](/api-reference/combo-books/public-get_combos.md)
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [public/get_combos](/api-reference/combo-books/public-get_combos.md)
 - [public/get_combo_ids](/api-reference/combo-books/public-get_combo_ids.md)

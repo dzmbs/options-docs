@@ -350,7 +350,7 @@ securitySchemes: []
 ## Related topics
 
 - [Notifications](/articles/notifications.md)
+- [Starbase Reference Data and Instrument Definitions](/starbase/reference-data.md)
+- [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [deribit_price_ranking.(index_name) ](/subscriptions/market-data/deribit_price_rankingindex_name.md)
 - [deribit_price_statistics.(index_name) ](/subscriptions/market-data/deribit_price_statisticsindex_name.md)
-- [public/get_index_price](/api-reference/market-data/public-get_index_price.md)
-- [public/get_index_price_names](/api-reference/market-data/public-get_index_price_names.md)

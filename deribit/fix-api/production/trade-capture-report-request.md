@@ -20,7 +20,7 @@ on the trade capture report request.
 ## Related topics
 
 - [TradeCaptureReportRequestAck(AQ) — Production FIX API](/fix-api/production/trade-capture-report-request-ack.md)
-- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
+- [Starbase FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
 - [TradeCaptureReport(AE) — Production FIX API](/fix-api/production/trade-capture-report.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
 - [FIX API Changelog](/changelogs/fix.md)

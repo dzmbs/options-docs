@@ -241,5 +241,5 @@ rather than assuming one call is exhaustive.
 - [Market Data Collection](/articles/market-data-collection-best-practices.md)
 - [private/subscribe](/api-reference/subscription-management/private-subscribe.md)
 - [public/subscribe](/api-reference/subscription-management/public-subscribe.md)
-- [Reference Data](/starbase/reference-data.md)
 - [markprice.options.(index_name) ](/subscriptions/market-data/markpriceoptionsindex_name.md)
+- [Starbase Reference Data and Instrument Definitions](/starbase/reference-data.md)

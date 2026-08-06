@@ -448,7 +448,7 @@
 ## Related topics
 
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Starbase API Rate Limits](/starbase/api-rate-limits.md)
 - [FIX API Changelog](/changelogs/fix.md)
 - [Starbase API Overview](/starbase/overview.md)
-- [Creating a Starbase API Key](/starbase/creating-api-key.md)
-- [Connectivity Quickstart](/starbase/quickstart.md)
+- [Starbase Connectivity Quickstart](/starbase/quickstart.md)

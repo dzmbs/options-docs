@@ -92,8 +92,8 @@ components:
 
 ## Related topics
 
-- [Mass Cancel](/starbase/mass-cancel.md)
 - [Portfolio Management](/starbase/portfolio-management.md)
+- [Starbase Mass Cancel Messages](/starbase/mass-cancel.md)
 - [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
 - [Order Mass Cancel Report(r) — Production FIX API](/fix-api/production/order-mass-cancel-report.md)
 - [Order Mass Cancel Request(q) — Production FIX API](/fix-api/production/order-mass-cancel-request.md)

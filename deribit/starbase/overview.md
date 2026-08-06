@@ -4,7 +4,7 @@
 
 # Starbase API Overview
 
-> High-level introduction to Deribit Starbase — the low-latency binary and FIX API stack, gateways, and how it differs from the main Deribit API.
+> Introduction to Deribit Starbase covering the low-latency binary and FIX API stack, gateway architecture, product scope, and migration from Thunder SBE.
 
 Starbase is Deribit's high-performance matching engine designed for institutional trading and market makers. Equipped with a **Simple Binary Encoding (SBE)** API, Starbase provides direct access to the matching engine with ultra-low latency, making it ideal for high-frequency trading applications.
 
@@ -34,7 +34,7 @@ Starbase and the standard Deribit APIs are separate order-entry protocols with d
 
     * **Order Entry**: Place, amend, and cancel orders with minimal latency. Supports single orders, [mass quotes](/articles/mass-quotes-specifications) (up to 15 double-sided quotes), and mass cancellation.
     * **Market Maker Protection (MMP)**: Built-in protection against adverse selection. See [Market Maker Protection](/articles/market-maker-protection) for details.
-    * **Self Match Prevention (SMP):** A highly flexible system to avoid matching order internally.
+    * **Self Match Prevention (SMP):** A highly flexible system to avoid matching orders internally.
   </Card>
 
   <Card title="Multicast Market Data" icon="network-wired" href="/starbase/multicast-channels">
@@ -66,6 +66,11 @@ Starbase and the standard Deribit APIs are separate order-entry protocols with d
   **Recommended order-entry path:** Utilizing the [MMP risk bypass](/starbase/risk-bypass) is the lowest-latency method for market access in Starbase. It works for both orders (via the `MMP` flag) and mass quotes (MMP-enforced by default), reduces load on the risk and margin engines, and most integrating clients should prefer it for all order entry and quoting.
 </Tip>
 
+## Scope and migration
+
+* **No spot trading on Starbase.** Spot order books are not available on Starbase; spot trading will migrate to a brokered solution via Coinbase Exchange (CBE). Existing spot APIs remain unchanged in the meantime — see the [spot announcement](/changelogs/starbase) for details.
+* **Standard APIs are not going away.** The standard WebSocket API will be supported indefinitely. The legacy Thunder SBE feed is scheduled for deprecation at the end of 2026.
+
 ## Integration resources
 
 <CardGroup cols={2}>
@@ -81,8 +86,8 @@ Starbase and the standard Deribit APIs are separate order-entry protocols with d
 
 ## Related topics
 
+- [Starbase API Rate Limits](/starbase/api-rate-limits.md)
+- [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
-- [Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
-- [Connectivity Quickstart](/starbase/quickstart.md)
-- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)

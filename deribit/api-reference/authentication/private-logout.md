@@ -192,5 +192,5 @@ paths:
 - [Authentication](/articles/authentication.md)
 - [private/enable_cancel_on_disconnect](/api-reference/session-management/private-enable_cancel_on_disconnect.md)
 - [Logout(5) — Production FIX API](/fix-api/production/logout.md)
-- [Session Messages](/starbase/session-messages.md)
+- [Starbase Session Messages](/starbase/session-messages.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)

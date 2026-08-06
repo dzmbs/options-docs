@@ -180,7 +180,7 @@ components:
 ## Related topics
 
 - [public/get_index_price_names](/api-reference/market-data/public-get_index_price_names.md)
+- [Starbase Reference Data and Instrument Definitions](/starbase/reference-data.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [public/get_delivery_prices](/api-reference/market-data/public-get_delivery_prices.md)
-- [public/get_supported_index_names](/api-reference/market-data/public-get_supported_index_names.md)
-- [public/get_index_chart_data](/api-reference/market-data/public-get_index_chart_data.md)

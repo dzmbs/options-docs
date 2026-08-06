@@ -2,9 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Unsolicited Events
+# Starbase Unsolicited Events
 
-> Server-initiated events on the Starbase Binary API — OrderFilled notifications and MMPTrigger messages that require no client request or ack.
+> Server-initiated Starbase Binary API events including OrderFilled fills, MMPTrigger notifications, and liquidation cancels delivered on the originating gateway.
 
 ## Unsolicited events
 
@@ -71,6 +71,10 @@ Event generated when one or more orders and/or quotes submitted via this binary 
 | ->9   | totalFilled         | Decimal72 | 9      | Filled quantity of canceled order                                             |
 | ->10  | cancelReason        | int8      | 1      | See [Cancel Reason Codes](/starbase/binary-api-reference#cancel-reason-codes) |
 | ->11  | flags               | uint8     | 1      | `1`=isQuote                                                                   |
+
+<Note>
+  **Liquidation cancels**: Orders cancelled by liquidation arrive on the gateway where the order was originally placed — consistent with [event scoping](/starbase/gateway-connectivity#connecting-to-multiple-gateways), they are not broadcast to your other sessions. Monitor `OrdersCanceled` with `cancelReason = 5` (`LIQUIDATION`) on every order-entry session to detect them.
+</Note>
 
 ### OrderPlaced (312)
 
@@ -198,7 +202,7 @@ Event generated when an orders Market Maker Protection group is unfrozen, either
 ## Related topics
 
 - [Speed Bumps](/starbase/speed-bumps.md)
+- [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Starbase FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
 - [Binary API Reference](/starbase/binary-api-reference.md)
-- [Market Maker Protection (MMP)](/starbase/mmp.md)
-- [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)
 - [Cancelling an Order](/starbase/cancelling-order.md)

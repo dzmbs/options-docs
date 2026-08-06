@@ -61,7 +61,7 @@ Portfolio management complements but does not replace other Starbase risk featur
 ## Related topics
 
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
-- [Connectivity Quickstart](/starbase/quickstart.md)
 - [REST Order Gateway Authentication](/starbase/rest-authentication.md)
+- [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [private/simulate_portfolio](/api-reference/account-management/private-simulate_portfolio.md)
 - [Order Management](/articles/order-management-best-practices.md)

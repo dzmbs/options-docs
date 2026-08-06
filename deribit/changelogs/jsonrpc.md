@@ -212,7 +212,7 @@
 
     In the previous version, the `scope` parameter wasn't available. As of this release, if no scope is provided, the associated `refresh_token` and `access_token` will be invalidated. When the `scope` parameter is provided to [public/exchange\_token](https://docs.deribit.com/api-reference/authentication/public-exchange_token), the created token will no longer include the `mainaccount` scope.
 
-    This affects all implementation relying on the previous behaviour and may lead to unexpected session terminations if not updated accordingly.
+    This affects all implementations relying on the previous behaviour and may lead to unexpected session terminations if not updated accordingly.
 
     We recommend explicitly providing a session scope, along with any other required scopes, to both [public/auth](https://docs.deribit.com/api-reference/authentication/public-auth) and [public/exchange\_token](https://docs.deribit.com/api-reference/authentication/public-exchange_token).
 
@@ -692,5 +692,5 @@
 
 - [FIX API Changelog](/changelogs/fix.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
-- [API Rate Limits](/starbase/api-rate-limits.md)
+- [Starbase API Rate Limits](/starbase/api-rate-limits.md)
 - [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)

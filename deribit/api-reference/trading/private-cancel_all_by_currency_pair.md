@@ -263,4 +263,4 @@ components:
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
 - [private/cancel_quotes](/api-reference/trading/private-cancel_quotes.md)
-- [Mass Cancel](/starbase/mass-cancel.md)
+- [Starbase Mass Cancel Messages](/starbase/mass-cancel.md)

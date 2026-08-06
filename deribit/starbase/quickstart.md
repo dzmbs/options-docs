@@ -2,9 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Connectivity Quickstart
+# Starbase Connectivity Quickstart
 
-> Plan and validate Starbase network access, connect to the test gateways and market data feeds, and prepare a resilient production deployment.
+> Plan Starbase network access, resolve No active member errors, connect to test gateways and multicast feeds, and prepare a resilient production deployment.
 
 This quickstart takes you from network planning to a validated Starbase connection. It focuses on connectivity and session readiness; message schemas and order workflows are covered in the [Binary API Reference](/starbase/binary-api-reference).
 
@@ -24,6 +24,10 @@ The Starbase matching engine and its gateways run in **Equinix LD4 in London**. 
 
 A server in Tokyo or another remote region cannot match the round-trip latency of LD4 colocation because every order must reach the matching engine in London.
 
+<Note>
+  **Scope**: Starbase is for derivatives only — spot trading is not available on Starbase and will migrate to a brokered solution via Coinbase Exchange (existing spot APIs remain unchanged). The standard WebSocket API is supported indefinitely alongside Starbase; the legacy Thunder SBE feed is scheduled for deprecation at the end of 2026. See [Scope and migration](/starbase/overview#scope-and-migration).
+</Note>
+
 For detailed trade-offs and cost categories, see [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices#deployment-options).
 
 ## 2. Request Starbase Access
@@ -42,11 +46,21 @@ Before connecting:
 
 ## 3. Create a Starbase API Key
 
-Create the key from the [Starbase section](https://www.deribit.com/account/BTC/starbase/api-keys) of the **main account**. Select the Member and portfolio permissions required by the trading application.
+Create the key from the [Starbase section](https://www.deribit.com/account/BTC/starbase/api-keys) of the Account Panel. Members are configured on the **main account**, but the key itself is created while switched into the subaccount UID that will use it. Select the Member and portfolio permissions required by the trading application.
 
 See [Creating a Starbase API Key](/starbase/creating-api-key) for the full UI and API workflow.
 
 Keep credentials out of source code, logs, packet captures, and support tickets. Store them in your organization's secret-management system.
+
+<Warning>
+  **"No active member" error**: Key creation fails if the target account does not belong to an active Member. Add the account to a Member first — Members are managed at the **main-account level only** — then create the key while switched into the subaccount UID. Every subaccount that trades on Starbase needs a Member; without one there is no Starbase authentication for that subaccount.
+</Warning>
+
+Key and session limits to plan around:
+
+* Up to **8 Starbase API keys per subaccount** (separate from the standard Deribit key quota; standard keys cannot authenticate to Starbase).
+* **One connection per gateway per key** — up to 8 connections across the 4 gateway pairs with a single key.
+* Reconnecting the same key to the same gateway **terminates the existing session**.
 
 ## 4. Prepare the Client
 
@@ -66,6 +80,10 @@ Then implement:
 * [Snapshot plus incremental L3 order-book reconstruction](/starbase/order-book-maintenance)
 
 Use **IPv4**. SBE order entry uses TCP, multicast market data uses UDP, and REST utility endpoints use HTTPS. FIX Drop Copy and multicast traffic are not TLS-encrypted because they are available only on private connectivity.
+
+<Note>
+  **No index or mark prices on Starbase.** The multicast feed carries order book events and reference data only. Index price, mark price, funding rates, and open interest are not published — retrieve them from the standard API (`deribit_price_index.{index_name}`, [`public/get_index_price`](/api-reference/market-data/public-get_index_price), or `ticker.{instrument}.{interval}`). See [Reference Data](/starbase/reference-data#index-prices-and-derived-statistics). Note also that `quantityExponent` is available via the multicast snapshot only — it is not present in `get_instruments`.
+</Note>
 
 ## 5. Validate Test Connectivity
 
@@ -105,15 +123,26 @@ On test, verify the complete lifecycle before requesting production access:
 * Confirm lifecycle events and fills on [FIX Drop Copy](/starbase/fix-drop-copy-api).
 * Confirm trades through the standard private WebSocket API.
 * Confirm that open Starbase orders do **not** appear in the web UI or private WebSocket order feed.
+* Reconcile orders across feeds: `starbase_order_id` on the standard APIs maps to `OrderID` (Tag 37) on Drop Copy, and fills deduplicate on the `(starbase_match_id, starbase_order_id)` tuple. See [Reconciliation Across APIs](/starbase/fix-drop-copy-api#reconciliation-across-apis).
+* Simulate a Drop Copy gap and recover it: detect the gap via `MsgSeqNum` (34), then replay fills with `EventResendRequest` (F3) and block trades with `TradeCaptureReportRequest` (AD).
 * Disconnect a session and verify [Cancel on Disconnect](/starbase/cancel-on-disconnect) behavior.
 * Reconnect, rebuild state, and resubmit only after reviewing current market conditions.
 * Exercise A/B failover without losing the local view of orders or the book.
+
+<Info>
+  **Reconciliation essentials**:
+
+  * FIX Drop Copy is configured **per Member** — one session delivers the full Member feed for all subaccounts; filter on `portfolioId` for per-portfolio separation.
+  * `ClOrdID` is **FIX-only**. To track a client order ID on WebSocket notifications, send it in the `deribitLabel` field.
+  * Liquidation cancels arrive on the gateway where the order was placed — monitor `OrdersCanceled` with `cancelReason = 5` on every session.
+  * Persist Drop Copy Execution Reports as they arrive; rejected and zero-fill orders cannot be retrieved from order history later.
+</Info>
 
 <Warning>
   Cancel on Disconnect is always enabled and session-scoped. Orders from a disconnected session are cancelled immediately and are not restored when the session reconnects.
 </Warning>
 
-Before production, also review behavior that can change order acceptance or timing: [speed bumps](/starbase/speed-bumps), [Market Maker Protection](/starbase/mmp), [Self Match Prevention](/starbase/smp), and [risk bypass](/starbase/risk-bypass).
+Before production, also review behavior that can change order acceptance or timing: [speed bumps](/starbase/speed-bumps), [Market Maker Protection](/starbase/mmp), [Self Match Prevention](/starbase/smp), and [risk bypass](/starbase/risk-bypass). Note the MMP scoping difference: order MMP applies **per subaccount and base/quote pair**, while mass-quote MMP works through an explicit `mmpGroupId` referenced on every `MassQuoteRequest`.
 
 <Tip>
   Utilizing the [MMP risk bypass](/starbase/risk-bypass) is the lowest-latency method for market access and the recommended default for most integrating clients. It works for both orders and mass quotes, reduces load on Deribit's risk and margin engines, and is unaffected by the ongoing pre-trade risk testing.
@@ -125,13 +154,14 @@ Starbase rate limits are applied **per Member, per gateway, and per quoting type
 
 Before production:
 
-* Estimate steady-state and burst order rates by product tier.
-* Separate single-order traffic from [mass-quote](/starbase/mass-quotes) traffic.
-* Use both A and B gateways where appropriate.
+* Estimate steady-state and burst order rates by product tier. Burst and steady-state rates are identical under the defaults; per-member overrides can decouple them.
+* Separate single-order traffic from [mass-quote](/starbase/mass-quotes) traffic. Within a product tier, options and futures share the same buckets.
+* Use both A and B gateways where appropriate. Multiple keys or sessions do **not** multiply limits — the independent A and B buckets (an effective 2x per pair) are the only scaling factor.
+* Remember that cancels are never rejected for rate limits but do consume tokens: standard cancels cost the same as a new order, mass-quote cancels 1/20th, and mass cancels nothing.
 * Confirm the number of API keys and active orders required.
 * Discuss non-default allocations with your Account Manager.
 
-See [API Rate Limits](/starbase/api-rate-limits) for bucket behavior, defaults, and other limits.
+See [API Rate Limits](/starbase/api-rate-limits) for bucket behavior, defaults, and other limits — including the `get_open_orders` REST endpoint, which is capped at 1 request per minute per IP and intended as a recovery tool rather than a live order feed.
 
 ## 9. Prepare for Production
 
@@ -186,7 +216,7 @@ Send network and multicast issues to <a href="mailto:colo-support@coinbase.com" 
 ## Related topics
 
 - [Starbase API Overview](/starbase/overview.md)
-- [Quickstart Guide](/articles/deribit-quickstart.md)
 - [Gateway Connectivity](/starbase/gateway-connectivity.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
-- [Welcome to Deribit API](/index.md)
+- [Starbase API Changelog](/changelogs/starbase.md)

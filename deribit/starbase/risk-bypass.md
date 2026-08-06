@@ -29,6 +29,8 @@ This works for both orders and mass quotes:
 * **Orders** — set the `MMP` flag (field 10, bit 4) on [`NewOrderRequest`](/starbase/placing-new-order#neworderrequest-100) to tag the order for the default MMP group
 * **Mass quotes** — MMP is always enforced for quotes via their MMP group, so mass quoting uses the bypass by default
 
+The bypass applies to any MMP-tagged order, whether the order makes or takes — it is not restricted to resting, liquidity-providing flow. An MMP-tagged order that aggresses skips the risk module exactly like a quote does. This is independent of the [speed bump](/starbase/speed-bumps): on speed-bumped instruments, an aggressing order is still made pending for the speed bump duration, regardless of MMP tagging.
+
 Most clients integrating with Starbase should prefer this path for all order entry and quoting:
 
 * **Lowest latency** — the risk engine is not on the critical path for MMP-enabled flow
@@ -38,8 +40,8 @@ Most clients integrating with Starbase should prefer this path for all order ent
 
 ## Related topics
 
-- [Connectivity Quickstart](/starbase/quickstart.md)
 - [Placing a New Order](/starbase/placing-new-order.md)
+- [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Mass Quotes](/starbase/mass-quotes.md)
 - [Starbase API Overview](/starbase/overview.md)
-- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
+- [Starbase FIX Drop Copy API](/starbase/fix-drop-copy-api.md)

@@ -64,7 +64,7 @@ To confirm the ASM tree is building correctly toward the RP:
 ## Related topics
 
 - [Multicast Retransmit Gateway](/starbase/retransmit-gateway.md)
-- [Connectivity Quickstart](/starbase/quickstart.md)
+- [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Market Data Collection](/articles/market-data-collection-best-practices.md)
 - [Multicast Channels](/starbase/multicast-channels.md)
 - [Quickstart Guide](/articles/deribit-quickstart.md)

@@ -184,4 +184,4 @@
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Logon(A) — Production FIX API](/fix-api/production/logon.md)
 - [Logout(5) — Production FIX API](/fix-api/production/logout.md)
-- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
+- [Reject(3) — Production FIX API](/fix-api/production/reject.md)

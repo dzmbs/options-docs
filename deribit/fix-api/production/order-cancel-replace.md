@@ -14,7 +14,7 @@ orders by `OrigClOrdId` is noticeably faster.
 
 #### IMPORTANT:
 
-* to change the order using `ClOrdID` or `DeribitLabel`, this must be the only existing order with such `ClOrdID` or `DeribitLabel`.  Multiple orders with the same `ClOrdID` or `DeribitLabel` won't be amended that way.
+* to change the order using `ClOrdID` or `DeribitLabel`, this must be the only existing order with such `ClOrdID` or `DeribitLabel`. Multiple orders with the same `ClOrdID` or `DeribitLabel` won't be amended that way.
 * when possible it is recommended to use faster `OrigClOrdId`
 
 ### Arguments

@@ -2,9 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# FIX Drop Copy API
+# Starbase FIX Drop Copy API
 
-> Starbase FIX Drop Copy delivers a consolidated private feed of orders, trades, and executions across your Deribit account for downstream systems.
+> Starbase FIX Drop Copy delivers a per-Member feed of orders, trades, and executions, with reconciliation guidance for ID mapping, dedup, and gap replay.
 
 ## Downloads
 
@@ -18,6 +18,10 @@ The FIX Drop Copy API provides a complete record of orders and trades. It uses t
 
 <Note>
   The FIX Drop Copy gateway is designed for **direct access users**: clients placing orders through one of the Starbase order entry gateways. Non-direct users (e.g. orders placed via the Web UI or WebSocket API) are not supported.
+</Note>
+
+<Note>
+  **Drop Copy is configured per Member.** A single Drop Copy session receives the full Member feed — order and trade activity for **all** portfolios (subaccounts) assigned to that Member, across all gateways and API keys. If you need per-portfolio separation, filter the feed on the account identifier (`portfolioId`, carried in Tag 1 `Account`).
 </Note>
 
 ## Connection and Authentication
@@ -255,6 +259,12 @@ Sent for each non-order book trade (block trade, position move), both proactivel
 
 ## Fill Execution Report Replay
 
+Detect gaps in the Drop Copy feed from the standard FIX `MsgSeqNum` (34) sequence numbers on incoming messages. After a gap or reconnect, recover state as follows:
+
+* **Open orders** — resynchronize from the [open order snapshot](#open-order-snapshot-on-connect) sent automatically on connect.
+* **Fills** — request a replay with `EventResendRequest` (F3), below.
+* **Block trades and position moves** — request a replay with [`TradeCaptureReportRequest` (AD)](#tradecapturereportrequest-ad).
+
 The Drop Copy connection supports on-demand replay of **fill** Execution Reports (`150=1 or 150=2`) using two message types. Non-fill Execution Reports (`150=0/4/5`) are not replayed; use the [open order snapshot](#open-order-snapshot-on-connect) to recover order state after a reconnect. Fill reports are retained for **24 hours**.
 
 ExecIDs are sequential integers assigned per member and track fill events only. The typical flow is to first request the current last fill ExecID as a baseline, then request a replay starting from that point.
@@ -317,11 +327,35 @@ Sent after all replayed reports have been delivered.
   `END_EXEC_ID_TOO_LARGE` means `EndExecId` refers to an event that does not yet exist. Omit `EndExecId` to replay up to the current last fill event.
 </Note>
 
+## Reconciliation Across APIs
+
+Use the following identifiers to reconcile Drop Copy against SBE sessions and the standard WebSocket/REST APIs.
+
+### Mapping orders
+
+The exchange-assigned order ID is the same value on every feed:
+
+| Feed                    | Field                                                                   |
+| ----------------------- | ----------------------------------------------------------------------- |
+| SBE order entry         | `orderId` (int64) on responses and unsolicited events                   |
+| FIX Drop Copy           | `OrderID` (Tag 37)                                                      |
+| Standard WebSocket/REST | `starbase_order_id` on orders, user trades, and transaction log entries |
+
+To map an order seen on the standard APIs to its Drop Copy records, match `starbase_order_id` to Tag 37.
+
+### Deduplicating fills: ExecID vs TrdMatchID
+
+`ExecID` (Tag 17) identifies an **event**, and one event can contain multiple fills. `TrdMatchID` (Tag 880) identifies a single **fill** and is globally unique. When deduplicating fills across feeds, use the tuple `(starbase_match_id, starbase_order_id)` — `starbase_match_id` on the standard APIs corresponds to `TrdMatchID` (Tag 880) on Drop Copy.
+
+### End-to-end client order IDs
+
+`ClOrdID` (Tag 11) is **FIX-only** — it does not propagate to the standard WebSocket API. To track a client order ID end-to-end on WebSocket notifications, send the value in the `deribitLabel` field and read it back from the order/trade payloads there. Within SBE itself, use the numeric `clientOrderId` and the per-connection `correlationId` for request/response matching.
+
 
 ## Related topics
 
-- [Creating a Starbase API Key](/starbase/creating-api-key.md)
-- [Gateway Connectivity](/starbase/gateway-connectivity.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
-- [Connectivity Quickstart](/starbase/quickstart.md)
+- [Starbase Connectivity Quickstart](/starbase/quickstart.md)
+- [Creating a Starbase API Key](/starbase/creating-api-key.md)
 - [Starbase API Overview](/starbase/overview.md)
+- [Starbase API Changelog](/changelogs/starbase.md)

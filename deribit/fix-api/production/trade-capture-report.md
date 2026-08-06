@@ -35,6 +35,6 @@ Used to report trades between counterparties.
 
 - [TradeCaptureReportRequest(AD) — Production FIX API](/fix-api/production/trade-capture-report-request.md)
 - [TradeCaptureReportRequestAck(AQ) — Production FIX API](/fix-api/production/trade-capture-report-request-ack.md)
-- [FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
+- [Starbase FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
 - [FIX API Changelog](/changelogs/fix.md)

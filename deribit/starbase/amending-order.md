@@ -52,7 +52,7 @@ The table below outlines the content of field 7 (flags) of `AmendOrderRequest`.
 | Bit number (from last to first) | Name                    | Description                                                                                                                                                                                                       |
 | ------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1                               | postOnly                | Enables post-only that amends the order to the best bid/ask if the edit would make it immediately executable. The amended price is then validated against price limits. Mutually exclusive with `postOnlyReject`. |
-| 2                               | postOnlyReject          | Enables post-only that rejects the edit if it would make the order immediately executable. The original order remains in the book unchanged. Mutually exclusive with `postOnly` .                                 |
+| 2                               | postOnlyReject          | Enables post-only that rejects the edit if it would make the order immediately executable. The original order remains in the book unchanged. Mutually exclusive with `postOnly`.                                  |
 | 3                               | Reserved for future use |                                                                                                                                                                                                                   |
 | 4                               | Reserved for future use |                                                                                                                                                                                                                   |
 | 5                               | Reserved for future use |                                                                                                                                                                                                                   |
@@ -118,7 +118,7 @@ Reject generated in case an `AmendOrderRequest` is unsuccessful.
 ## Related topics
 
 - [Order Cancel/Replace Request(G) — Production FIX API](/fix-api/production/order-cancel-replace.md)
-- [Market Maker Protection (MMP)](/starbase/mmp.md)
-- [API Rate Limits](/starbase/api-rate-limits.md)
+- [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Starbase API Rate Limits](/starbase/api-rate-limits.md)
 - [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)
 - [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)

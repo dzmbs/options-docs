@@ -385,4 +385,4 @@ All requests **not listed below** are treated as **non-matching engine** request
 - [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
 - [Order Management](/articles/order-management-best-practices.md)
 - [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
-- [API Rate Limits](/starbase/api-rate-limits.md)
+- [Starbase API Rate Limits](/starbase/api-rate-limits.md)

@@ -2,9 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Session Messages
+# Starbase Session Messages
 
-> Session-level messages in the Starbase Binary API — login, heartbeat, logout, and error messages that manage the gateway connection lifecycle.
+> Session-level messages in the Starbase Binary API covering logon with schemaVersion negotiation, heartbeat, logout, and gateway connection lifecycle rejects.
 
 ## Session Messages
 
@@ -14,19 +14,25 @@ Session messages manage the lifecycle of a TCP connection to a Starbase gateway,
 
 First message sent by client after establishing TCP connection.
 
-| Field | Name        | Type | Length | Description                                                                  |
-| ----- | ----------- | ---- | ------ | ---------------------------------------------------------------------------- |
-| 1     | username    | char | 16     | Client username                                                              |
-| 2     | password    | char | 48     | Client password                                                              |
-| 3     | resetSeqNum | int8 | 1      | `0`=no (do not reset sequence numbers)<br />`1`=yes (reset sequence numbers) |
+| Field | Name          | Type   | Length | Description                                                                                                                      |
+| ----- | ------------- | ------ | ------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | username      | char   | 16     | Client username                                                                                                                  |
+| 2     | password      | char   | 48     | Client password                                                                                                                  |
+| 3     | resetSeqNum   | int8   | 1      | `0`=no (do not reset sequence numbers)<br />`1`=yes (reset sequence numbers)                                                     |
+| 4     | schemaVersion | uint16 | 2      | Client-negotiated SBE schema (protocol) version. Optional; added in schema version `12`. See the version negotiation note below. |
 
 ### LogonResponse (2)
 
 Response to `LogonRequest` on successful logon.
 
-| Field | Name                     | Type  | Length | Description                                                                        |
-| ----- | ------------------------ | ----- | ------ | ---------------------------------------------------------------------------------- |
-| 1     | heartbeatIntervalSeconds | int32 | 4      | Interval in seconds at which the server expects heartbeat messages from the client |
+| Field | Name                     | Type   | Length | Description                                                                                 |
+| ----- | ------------------------ | ------ | ------ | ------------------------------------------------------------------------------------------- |
+| 1     | heartbeatIntervalSeconds | int32  | 4      | Interval in seconds at which the server expects heartbeat messages from the client          |
+| 2     | schemaVersion            | uint16 | 2      | Echoes the schema (protocol) version accepted by the gateway. Added in schema version `12`. |
+
+<Note>
+  **Schema version negotiation** (schema version `12` and later): `schemaVersion` on `LogonRequest` acts as a gate — it determines whether new messages and new versions of existing messages are sent to the client. A value outside the gateway's accepted range is rejected at logon. The gateway echoes the accepted version in `LogonResponse`.
+</Note>
 
 ### LogoutRequest (4)
 
@@ -103,8 +109,8 @@ The table below lists all possible values of the `reason` field.
 
 ## Related topics
 
+- [Starbase Mass Cancel Messages](/starbase/mass-cancel.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
-- [Starbase API Changelog](/changelogs/starbase.md)
-- [Logon(A) — Production FIX API](/fix-api/production/logon.md)
 - [Cancelling an Order](/starbase/cancelling-order.md)
-- [Connection Management](/articles/connection-management-best-practices.md)
+- [Starbase FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
+- [Starbase Connectivity Quickstart](/starbase/quickstart.md)

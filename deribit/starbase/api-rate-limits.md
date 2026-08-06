@@ -2,9 +2,9 @@
 > Fetch the complete documentation index at: https://docs.deribit.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# API Rate Limits
+# Starbase API Rate Limits
 
-> Rate limiting rules for the Starbase order entry gateways — per-connection quotas, throttling behavior, and how limits differ from the main API.
+> Rate limiting rules for the Starbase order entry gateways. Covers per-subaccount key quotas, burst-equals-refill defaults, and gateway throttling behavior.
 
 ## Overview
 
@@ -68,6 +68,8 @@ All five product tiers share the same defaults:
 | **Burst** (messages)    | 50     | 10          |
 | **Steady** (messages/s) | 50     | 10          |
 
+By default, the burst rate and the steady-state refill rate are identical. Custom per-member overrides can decouple the two — for example, a Tier 2 override may allow a burst of 150 messages with a steady refill of only 50 messages/s (see the example override below).
+
 <Info>
   Mass quotes have separate, lower rate limits than orders. Option market makers should use mass quotes for quoting—mass quotes are lighter on the system and are allocated accordingly. Within a product tier, options and futures share the same rate-limit buckets; there are no separate options vs futures allocations. High order rate-limit overrides are generally not granted for option-quoting strategies. For strategies quoting perpetuals, dated futures, and future spreads, higher order or mass quote rate limits can be granted based on the preference of the market maker.
 </Info>
@@ -128,9 +130,9 @@ Review the changelog and the upcoming documentation version before deploying a n
 
 ### API Key Limits
 
-Each member has a default limit of 8 API keys, allowing 8 connections per gateway. This limit can be increased at the discretion of Deribit. Please reach out to Support if this limit is too low for your activities.
+Each subaccount can have up to **8 Starbase API keys** by default. This limit can be increased at the discretion of Deribit. Please reach out to Support if this limit is too low for your activities.
 
-Each API key can hold exactly **one session per gateway** (see [Gateway Connectivity](/starbase/gateway-connectivity#api-keys)). There is no separate cap on the number of simultaneous clients/sessions beyond the API key limit above — each additional key can open its own set of gateway connections.
+Each API key can hold exactly **one session per gateway** (see [Gateway Connectivity](/starbase/gateway-connectivity#api-keys)) — with 4 gateway pairs, one key can hold up to 8 simultaneous connections. Reconnecting the same key to the same gateway terminates the existing session. There is no separate cap on the number of simultaneous clients/sessions beyond the API key limit above — each additional key can open its own set of gateway connections.
 
 ### IP-Based Limits
 
@@ -148,7 +150,7 @@ Separate from gateway rate limits, each order can have at most **4 unacknowledge
 ## Related topics
 
 - [Rate Limits](/articles/rate-limits.md)
+- [Starbase Connectivity Quickstart](/starbase/quickstart.md)
+- [Multicast Retransmit Gateway](/starbase/retransmit-gateway.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
-- [Order Management](/articles/order-management-best-practices.md)
-- [Underlying Tiers](/starbase/underlying-tiers.md)
-- [Connectivity Quickstart](/starbase/quickstart.md)
+- [Account Model](/starbase/account-model.md)
