@@ -18,7 +18,7 @@ Used to report trades between counterparties.
 | 1003  | `TradeId`            | String       | Yes      | The unique ID assigned to the trade                                                                                                    |
 | 1040  | `SecondaryTradeId`   | String       | No       | Block Trade ID or Combo Trade ID                                                                                                       |
 | 75    | `TradeDate`          | LocalMktDate | Yes      | Indicates date of trade referenced in this message in YYYYMMDD format.                                                                 |
-| 60    | `TransactTime`       | UTCTimestamp | Yes      | Time of execution/order creation (expressed in UTC (Universal Time Coordinated, also known as "GMT")                                   |
+| 60    | `TransactTime`       | UTCTimestamp | Yes      | Time of execution/order creation (expressed in UTC (Universal Time Coordinated, also known as "GMT"))                                  |
 | 555   | `NoLegs`             | NumInGroup   | No       | Number of legs. Identifies a Multi-leg Execution if present and non-zero.                                                              |
 | `600` | `LegSymbol`          | String       | No       | Multileg instrument's individual security's Symbol.                                                                                    |
 | `687` | `LegQty`             | Qty          | Yes      | Quantity of the leg                                                                                                                    |

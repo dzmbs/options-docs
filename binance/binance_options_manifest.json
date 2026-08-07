@@ -352,13 +352,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-08-06T13:00:17.295496",
-    "duration_seconds": 91.406696,
+    "completed_at": "2026-08-07T11:50:58.758381",
+    "duration_seconds": 90.340916,
     "pages_total": 70,
     "pages_fetched": 70,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-08-06T13:00:17.295511",
+  "last_updated": "2026-08-07T11:50:58.758399",
   "source": "https://developers.binance.com/docs/derivatives/options-trading"
 }

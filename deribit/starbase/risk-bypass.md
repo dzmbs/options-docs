@@ -6,7 +6,7 @@
 
 > How privileged Starbase sessions can bypass pre-trade risk checks for certain low-latency workflows — configuration, scope, and eligibility requirements.
 
-Starbase allows MMP orders and quotes to bypass the risk engine. Starbase can be assured that any single execution in the matching engine cannot lead to more than twice the Max Quote Quantity to be traded. A hold on initial margin is imposed on each Portfolio based on the Max Quote Quantity of each MMP Group. Together, this means, that the total immediate risk exposure of a portfolio is bounded by MMP and sufficient margin is already taken to cover this risk exposure. When processing orders and quotes, Starbase does not need to risk-check these in-flight and as such these orders and quotes go straight from the gateway to the matching engine, bypassing the risk module.
+Starbase allows MMP orders and quotes to bypass the risk engine. Starbase can be assured that any single execution in the matching engine cannot lead to more than twice the Max Quote Quantity to be traded. A hold on initial margin is imposed on each Portfolio based on the Max Quote Quantity of each MMP Group. Together, this means that the total immediate risk exposure of a portfolio is bounded by MMP and sufficient margin is already taken to cover this risk exposure. When processing orders and quotes, Starbase does not need to risk-check these in-flight and as such these orders and quotes go straight from the gateway to the matching engine, bypassing the risk module.
 
 To explain further, please see the following sequence of events:
 

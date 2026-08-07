@@ -6,6 +6,29 @@
 
 > Release notes for the Deribit Starbase binary and REST APIs covering new messages, protocol changes, performance updates, and compatibility notes.
 
+<Update label="Starbase Release 07.08.2026">
+  ## API Changes
+
+  ### Market Data
+
+  The market data SBE schema has been updated. Index prices, mark prices, price bands, funding, and open interest are now published on the multicast feeds.
+
+  New message:
+
+  * `IndexInfo` (12) — index price per currency pair (`indexId` = `currencyPairId`), shared across the pair's instruments. Sent when an index price changes, and at the start of every snapshot cycle (one per known index price on the channel, batched into as few packets as fit)
+
+  Updated messages:
+
+  * `InstrumentInfo` (14) — `indexPrice` removed (now carried by `IndexInfo`); `markPrice` moved from field `40` to field `32`. Now carries `minSellPrice`, `maxBuyPrice`, and `markPrice`
+  * `InstrumentRef` (15) — new optional `openInterest` field (double)
+
+  **Breaking change for market data decoders:** `InstrumentInfo` (14) changed on the wire, so decoders generated from the previous market data schema — including Starbase SDK `0.5.1` — fail to decode template 14. Regenerate your SBE codecs from the updated XML or update to the latest SDK. The market data schema `version`/`semanticVersion` remains `1`/`1.0`, so this change is not signalled via the message header `version` field.
+
+  See [Reference Data](/starbase/reference-data#index-prices-and-derived-statistics) for full message details.
+
+  Updated [SBE XMLs](https://statics.deribit.com/files/deribit-sbe-xmls.zip) reflecting these changes have been uploaded and are available for download.
+</Update>
+
 <Update label="Announcement 30.07.2026">
   ## Announcement
 

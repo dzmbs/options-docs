@@ -107,8 +107,8 @@
     },
     "reference/institutional-trading-rewards-program.md": {
       "source_url": "https://docs.derive.xyz/reference/institutional-trading-rewards-program",
-      "hash": "bacdcdd1e0289b6f49ee89bdda201439c263b84feb63a428203166dabb9656c3",
-      "last_updated": "2026-07-31T13:08:05.100911"
+      "hash": "f78a5fe4fa8a34e2519a8e664c0584a1a271a3269a759af892e9b70d35814fd2",
+      "last_updated": "2026-08-07T11:57:11.124210"
     },
     "reference/matching-algorithms.md": {
       "source_url": "https://docs.derive.xyz/reference/matching-algorithms",
@@ -1457,13 +1457,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-08-06T13:11:25.240738",
-    "duration_seconds": 224.201306,
+    "completed_at": "2026-08-07T12:00:38.112837",
+    "duration_seconds": 222.807171,
     "pages_total": 291,
     "pages_fetched": 291,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-08-06T13:11:25.240752",
+  "last_updated": "2026-08-07T12:00:38.112855",
   "source": "https://docs.derive.xyz"
 }

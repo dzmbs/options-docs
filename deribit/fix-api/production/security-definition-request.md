@@ -9,7 +9,7 @@
 Request a specific Security to be traded with the second party. The request
 security is defined as a multileg security made up of two or more instrument
 legs. Also it can be used to query a list of combo-instrument securities offered
-by a trading parties. (this method is FIX equivalent of `private/create_combo`,
+by trading parties. (this method is FIX equivalent of `private/create_combo`,
 `public/get_combo_ids` and `private/get_combo_details` request for WS/HTTPS
 end-points depending on `SecurityRequestType (321)` tag value).
 

@@ -230,6 +230,6 @@ Used in:
 
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
-- [Starbase API Changelog](/changelogs/starbase.md)
 - [Multicast Retransmit Gateway](/starbase/retransmit-gateway.md)
 - [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
+- [Starbase Reference Data and Instrument Definitions](/starbase/reference-data.md)

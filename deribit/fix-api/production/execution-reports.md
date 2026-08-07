@@ -6,8 +6,6 @@
 
 > FIX Execution Reports provide order status updates and trade confirmations. Learn how to receive and interpret execution reports for order changes and fills.
 
-about order changes
-
 ### Notification
 
 The report `Execution Reports`(`8`) is similar to New Order Single or

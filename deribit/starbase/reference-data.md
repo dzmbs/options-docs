@@ -31,9 +31,17 @@ Do not assume that a field available through one interface is available through 
 
 ## Index prices and derived statistics
 
-Index prices are **not available via Starbase multicast**. The SBE market data schema defines an `InstrumentInfo` (14) message carrying `indexPrice` and `markPrice` (and an `InstrumentRef` (15) message carrying funding data), but these messages are **not published** on the feeds. The same applies to mark price, funding rates, and open interest — none of them are distributed on Starbase.
+Index prices, mark prices, price bands, funding, and open interest are published on the multicast feeds via three dedicated messages:
 
-Retrieve these values from the standard Deribit API instead:
+| Message               | Contents                                                                | Update frequency      |
+| --------------------- | ----------------------------------------------------------------------- | --------------------- |
+| `IndexInfo` (12)      | Index price per currency pair, shared across the pair's instruments     | On index price change |
+| `InstrumentInfo` (14) | Price band (`minSellPrice`/`maxBuyPrice`) and mark price per instrument | Frequently            |
+| `InstrumentRef` (15)  | Funding, settlement/delivery prices, and open interest per instrument   | Less frequently       |
+
+On the snapshot channel, every cycle starts with `IndexInfo` messages — one for each known index price on the channel, batched into as few packets as fit — so snapshot joiners receive current index prices before the per-instrument sequences.
+
+These values are also available from the standard Deribit API:
 
 | Data                               | Sources                                                                                                                                                                                                                         |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -98,6 +106,40 @@ The table below outlines the content of field 13 (`flags`) of `InstrumentDefinit
 
 ***
 
+### IndexInfo (12)
+
+Sent when an index price changes, and at the start of every snapshot cycle (one per known index price on the channel, batched into as few packets as fit). The index price is per currency pair and is shared across the pair's instruments.
+
+| Field | Name       | Type  | Length | Description                  |
+| ----- | ---------- | ----- | ------ | ---------------------------- |
+| 1     | indexId    | int64 | 8      | Currency pair ID             |
+| 2     | indexPrice | int64 | 8      | Index price mantissa (×10⁻⁹) |
+
+### InstrumentInfo (14)
+
+Frequently updated per-instrument fields.
+
+| Field | Name         | Type  | Length | Description                                           |
+| ----- | ------------ | ----- | ------ | ----------------------------------------------------- |
+| 1     | instrumentId | int64 | 8      | Numeric instrument ID                                 |
+| 2     | minSellPrice | int64 | 8      | Lower price band: minimum sell price mantissa (×10⁻⁹) |
+| 3     | maxBuyPrice  | int64 | 8      | Upper price band: maximum buy price mantissa (×10⁻⁹)  |
+| 4     | markPrice    | int64 | 8      | Mark price mantissa (×10⁻⁹)                           |
+
+### InstrumentRef (15)
+
+Less frequently updated per-instrument fields. All value fields are optional — a field carries its null value when not applicable to the instrument (for example, funding fields on dated futures).
+
+| Field | Name                   | Type   | Length | Description                                         |
+| ----- | ---------------------- | ------ | ------ | --------------------------------------------------- |
+| 1     | instrumentId           | int64  | 8      | Numeric instrument ID                               |
+| 2     | currentFunding         | double | 8      | Current funding rate (optional)                     |
+| 3     | funding8h              | double | 8      | 8-hour funding rate (optional)                      |
+| 4     | estimatedDeliveryPrice | int64  | 8      | Estimated delivery price mantissa (×10⁻⁹); optional |
+| 5     | deliveryPrice          | int64  | 8      | Delivery price mantissa (×10⁻⁹); optional           |
+| 6     | settlementPrice        | int64  | 8      | Settlement price mantissa (×10⁻⁹); optional         |
+| 7     | openInterest           | double | 8      | Open interest (optional)                            |
+
 ### InstrumentStatusUpdate (16)
 
 | Field | Name          | Type  | Length | Description                                                              |
@@ -110,6 +152,6 @@ The table below outlines the content of field 13 (`flags`) of `InstrumentDefinit
 
 - [Market Model](/starbase/market-model.md)
 - [Security Definition Request(c) — Production FIX API](/fix-api/production/security-definition-request.md)
+- [Maintaining the order book](/starbase/order-book-maintenance.md)
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Binary API Reference](/starbase/binary-api-reference.md)
-- [Security Definition(d) — Production FIX API](/fix-api/production/security-definition.md)

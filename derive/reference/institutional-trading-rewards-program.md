@@ -1,5 +1,5 @@
 ---
-updatedAt: 2026-06-30T17:34:31.000Z
+updatedAt: 2026-08-06T19:56:28.000Z
 ---
 
 Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
@@ -43,7 +43,7 @@ From the epoch roll on June 30th 00:00 UTC -- 1M DRV rewards are distributed to 
    * HYPE 25%
    * Alts, incl. ZEC/XRP/CC/XAUT: 25%
 3. Per pool breakdown:
-   |                              | Options OB  | Options RFQ | Perps       |
+   |                              | Options RFQ | Options OB  | Perps       |
    | ---------------------------- | ----------- | ----------- | ----------- |
    | ETH/BTC/SOL                  | 100,000 DRV | 200,000 DRV | 200,000 DRV |
    | HYPE                         | 50,000 DRV  | 100,000 DRV | 100,000 DRV |

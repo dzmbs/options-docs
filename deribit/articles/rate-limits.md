@@ -68,7 +68,7 @@ This is the **upper bound** of your available credit pool. You cannot accumulate
   These limits are enforced using the same credit-based system as other methods, but with different cost and credit pool configurations.
 
   <Note>
-    **Weekly Usage Limit for [`private/move_positions`](https://docs.deribit.com/api-reference/trading/private-move_positions)**: In addition to the per-minute rate limit, there is a limit of **100 move\_position uses per week (168 hours)**.
+    **Weekly Usage Limit for [`private/move_positions`](https://docs.deribit.com/api-reference/trading/private-move_positions)**: In addition to the per-minute rate limit, there is a limit of **100 move\_positions uses per week (168 hours)**.
   </Note>
 </Info>
 

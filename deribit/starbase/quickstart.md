@@ -82,7 +82,7 @@ Then implement:
 Use **IPv4**. SBE order entry uses TCP, multicast market data uses UDP, and REST utility endpoints use HTTPS. FIX Drop Copy and multicast traffic are not TLS-encrypted because they are available only on private connectivity.
 
 <Note>
-  **No index or mark prices on Starbase.** The multicast feed carries order book events and reference data only. Index price, mark price, funding rates, and open interest are not published — retrieve them from the standard API (`deribit_price_index.{index_name}`, [`public/get_index_price`](/api-reference/market-data/public-get_index_price), or `ticker.{instrument}.{interval}`). See [Reference Data](/starbase/reference-data#index-prices-and-derived-statistics). Note also that `quantityExponent` is available via the multicast snapshot only — it is not present in `get_instruments`.
+  **Index and mark prices are published on the multicast feed.** Index prices are distributed per currency pair via `IndexInfo` (12), mark price and price bands via `InstrumentInfo` (14), and funding rates and open interest via `InstrumentRef` (15). They are also available from the standard API (`deribit_price_index.{index_name}`, [`public/get_index_price`](/api-reference/market-data/public-get_index_price), or `ticker.{instrument}.{interval}`). See [Reference Data](/starbase/reference-data#index-prices-and-derived-statistics). Note also that `quantityExponent` is available via the multicast snapshot only — it is not present in `get_instruments`.
 </Note>
 
 ## 5. Validate Test Connectivity

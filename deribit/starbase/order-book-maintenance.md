@@ -82,7 +82,7 @@ This message is sent when a sell order is fully executed or cancelled.
 
 ## Snapshot messages
 
-Snapshots are made up of `Buy Put (21)` and `Sell Put (21)` messages. Each snapshot for an instrument starts with `SnapshotHeader (100)` and ends with `SnapshotTrailer (101)`. After all snapshots have been sent, an `EndOfCycle (119)` message is sent.
+Each snapshot cycle starts with `IndexInfo (12)` messages — one for each known index price on the channel, batched into as few packets as fit. Each snapshot for an instrument then starts with `SnapshotHeader (100)`, followed by the instrument's `InstrumentDefinition (10)`, `InstrumentInfo (14)`, and the order book as `Buy Put (20)` and `Sell Put (21)` messages, and ends with `SnapshotTrailer (101)`. After all snapshots have been sent, an `EndOfCycle (119)` message is sent.
 
 ### SnapshotHeader (100)
 
