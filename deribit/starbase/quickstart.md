@@ -25,7 +25,7 @@ The Starbase matching engine and its gateways run in **Equinix LD4 in London**. 
 A server in Tokyo or another remote region cannot match the round-trip latency of LD4 colocation because every order must reach the matching engine in London.
 
 <Note>
-  **Scope**: Starbase is for derivatives only — spot trading is not available on Starbase and will migrate to a brokered solution via Coinbase Exchange (existing spot APIs remain unchanged). The standard WebSocket API is supported indefinitely alongside Starbase; the legacy Thunder SBE feed is scheduled for deprecation at the end of 2026. See [Scope and migration](/starbase/overview#scope-and-migration).
+  **Scope**: Starbase is for derivatives only — spot trading is not available on Starbase and will migrate to a brokered solution via Coinbase Exchange (existing spot APIs remain unchanged). The standard WebSocket API is supported indefinitely alongside Starbase; the legacy SBE feed is scheduled for deprecation at the end of 2026. See [Scope and migration](/starbase/overview#scope-and-migration).
 </Note>
 
 For detailed trade-offs and cost categories, see [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices#deployment-options).

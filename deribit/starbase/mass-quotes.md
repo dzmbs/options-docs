@@ -27,6 +27,10 @@
 </Warning>
 
 <Warning>
+  **Member portfolios cannot use the legacy mass quotes API**: Once a portfolio is added to a Starbase [Member](/starbase/account-model), legacy mass quoting is blocked for that portfolio — [`private/mass_quote`](/api-reference/trading/private-mass_quote) over JSON-RPC/WebSocket and mass quoting over the FIX API no longer work. Mass quotes for Member portfolios must be submitted through the Starbase Binary API. Regular order entry through the standard APIs is unaffected.
+</Warning>
+
+<Warning>
   **One mass-quote operating mode per portfolio**: A portfolio cannot use legacy JSON-RPC/FIX mass quoting and Starbase mass quoting concurrently. Mass-quote updates replace the resting quote, so accepting both paths at the same time could produce inconsistent quote state. Select either **Legacy** or **Starbase** mass-quote mode for the portfolio.
 </Warning>
 

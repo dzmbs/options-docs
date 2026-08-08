@@ -66,7 +66,7 @@ Unnecessary usage of these endpoints may result in stricter rate limits.
 
 ### 5. Unauthenticated Requests
 
-Unauthenticated API requests are used to access public information, such as market data, without requiring a user account. We prefer users making authenticated request to our platform even for publicly available information. For this reason our policy is more strict on unauthenticated users.
+Unauthenticated API requests are used to access public information, such as market data, without requiring a user account. We prefer users making authenticated requests to our platform even for publicly available information. For this reason our policy is more strict on unauthenticated users.
 
 Unauthenticated requests are more likely to result in an IP ban as we cannot contact the client behind them directly.
 

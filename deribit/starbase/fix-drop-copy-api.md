@@ -74,7 +74,7 @@ def build_signature(secret: str) -> tuple[str, str]:
 </Warning>
 
 <Note>
-  Trades placed through Starbase are visible on both the standard WebSocket/FIX trade feeds and on Starbase FIX Drop Copy. **Open Starbase orders are different**: they are only visible via Starbase FIX Drop Copy (or an SBE order-entry session) — the standard Deribit WebSocket and Drop Copy ("Thunder DC") feeds do not surface open order state for orders placed through Starbase. See [Consolidated View: FIX Drop Copy](/starbase/connectivity-best-practices#consolidated-view-fix-drop-copy) for the reasoning.
+  Trades placed through Starbase are visible on both the standard WebSocket/FIX trade feeds and on Starbase FIX Drop Copy. **Open Starbase orders are different**: they are only visible via Starbase FIX Drop Copy (or an SBE order-entry session) — the standard Deribit WebSocket and FIX feeds do not surface open order state for orders placed through Starbase. See [Consolidated View: FIX Drop Copy](/starbase/connectivity-best-practices#consolidated-view-fix-drop-copy) for the reasoning.
 </Note>
 
 ## Open Order Snapshot on Connect

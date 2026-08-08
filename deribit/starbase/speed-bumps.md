@@ -55,7 +55,7 @@ Quotes can only be entered via `MassQuoteRequest`. Each quote in such a batch is
 
 Each speed bump configuration enforces a maximum number of **live speed-bumped orders per member**. The limit is scoped to the member (not per portfolio), and is configured alongside the speed bump delay and queue capacity.
 
-* Orders and quotes submitted without a member (for example Thunder or retail flow) do **not** count toward the limit and are exempt.
+* Orders and quotes submitted without a member (for example JSON-RPC or retail flow) do **not** count toward the limit and are exempt.
 * Exceeding the limit rejects the new order or quote with `MEMBER_SPEED_BUMP_LIMIT_EXCEEDED` (SBE reject reason `29`; FIX `OrdRejReason` `69`).
 
 ## Cancelling Pending Orders

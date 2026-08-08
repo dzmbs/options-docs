@@ -184,4 +184,4 @@
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Logon(A) — Production FIX API](/fix-api/production/logon.md)
 - [Logout(5) — Production FIX API](/fix-api/production/logout.md)
-- [Heartbeat(0) — Production FIX API](/fix-api/production/heartbeat.md)
+- [Reject(3) — Production FIX API](/fix-api/production/reject.md)

@@ -8,7 +8,7 @@
 
 The `Quote Cancel` (`Z`) message is used by an originator of quotes to cancel his quotes and related orders.
 
-The Quote Cancel message supports cancelation of:
+The Quote Cancel message supports cancellation of:
 
 * All quotes
 * Quotes for a specific symbol
@@ -17,7 +17,7 @@ The Quote Cancel message supports cancelation of:
 * By base Currency of the instruments
 * By Delta range
 
-The canceling is accomplished by indicating the type of cancelation in the `QuoteCancelType` (`298`) field and optional additional parameters.
+The canceling is accomplished by indicating the type of cancellation in the `QuoteCancelType` (`298`) field and optional additional parameters.
 
 The message is equivalent of the `private/cancel_quotes` and shares the same semantic, so it is quite different from the other exchanges. The same as the Websockets "alter-ego" it is acknowledged only via list (possibly empty) of cancelled orders, namely as the `Order Mass Cancel Report` (`r`) with `ClOrdID` equal to the `QuoteMsgID` of the request, with the affected order IDs and subsequent `Execution Report` (`8`)-s for each individual cancelled order if there are any.
 

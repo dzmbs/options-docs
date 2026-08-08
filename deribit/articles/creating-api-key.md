@@ -9,7 +9,7 @@
 If you want to use the API, please head to [the Creating the API key using the API section](#creating-the-api-key-using-the-api).
 
 <Warning>
-  Please note your first API key has to be created using front-end interface.
+  Please note your first API key has to be created using the front-end interface.
 </Warning>
 
 ## Front-end interface

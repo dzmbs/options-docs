@@ -4,7 +4,7 @@
 
 # Starbase API Overview
 
-> Introduction to Deribit Starbase covering the low-latency binary and FIX API stack, gateway architecture, product scope, and migration from Thunder SBE.
+> Introduction to Deribit Starbase covering the low-latency binary and FIX API stack, gateway architecture, product scope, and migration from legacy SBE.
 
 Starbase is Deribit's high-performance matching engine designed for institutional trading and market makers. Equipped with a **Simple Binary Encoding (SBE)** API, Starbase provides direct access to the matching engine with ultra-low latency, making it ideal for high-frequency trading applications.
 
@@ -69,7 +69,7 @@ Starbase and the standard Deribit APIs are separate order-entry protocols with d
 ## Scope and migration
 
 * **No spot trading on Starbase.** Spot order books are not available on Starbase; spot trading will migrate to a brokered solution via Coinbase Exchange (CBE). Existing spot APIs remain unchanged in the meantime — see the [spot announcement](/changelogs/starbase) for details.
-* **Standard APIs are not going away.** The standard WebSocket API will be supported indefinitely. The legacy Thunder SBE feed is scheduled for deprecation at the end of 2026.
+* **Standard APIs are not going away.** The standard WebSocket API will be supported indefinitely. The legacy SBE feed is scheduled for deprecation at the end of 2026. One exception: portfolios added to a [Member](/starbase/account-model) can no longer use the legacy mass quotes API and must quote through the [Starbase Binary API](/starbase/mass-quotes) — all other standard API access, including regular order entry, is unaffected.
 
 ## Integration resources
 

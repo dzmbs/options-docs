@@ -28,7 +28,7 @@ processing a cancel request.
 | Tag | Name          | Type         | Required | Comments                                                                                                                                                                                      |
 | --- | ------------- | ------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 52  | `SendingTime` | UTCTimestamp | Yes      | Time of message transmission expressed in UTC                                                                                                                                                 |
-| 11  | `ClOrdID`     | String       | No       | Deribit replaces this field with the own value assigned by the server (it is not the client id from [`New Order Single`(`D`)](/fix-api/production/new-order-single))                          |
+| 11  | `ClOrdID`     | String       | No       | Deribit replaces this field with its own value assigned by the server (it is not the client id from [`New Order Single`(`D`)](/fix-api/production/new-order-single))                          |
 | 41  | `OrigClOrdId` | String       | No       | The original value assigned by the client in the [`New Order Single`(`D`)](/fix-api/production/new-order-single) message                                                                      |
 | 150 | `ExecType`    | char         | No       | Describes the specific Execution Report. <p>Possible values:</p> <ul><li>`4` = Cancelled,</li> <li>`6` = Pending Cancel</li></ul>                                                             |
 | 39  | `OrdStatus`   | char         | Yes      | For trade – order status.<p>Possible values:</p><ul><li>`0` = New,</li> <li>`1` = Partially filled,</li>  <li>`4` = Cancelled,</li><li>`6` = Pending cancel,</li><li>`8` = Rejected</li></ul> |
@@ -40,8 +40,8 @@ cancelled order as another Execution Report with Text="notification" and all
 details about the cancelled order. <p> **MMP orders:** if the Market Maker
 Protection (MMP) order was cancelled by user request the `DeribitMMProtection
 (9008)` flag is removed from the notification Execution Report. Presence of the
-`DeribitMMProtection (9008)` flag in the Execution Report with status "cancelled"</p>
-means that the order has been cancelled by Market Maker Protection (MMP).
+`DeribitMMProtection (9008)` flag in the Execution Report with status "cancelled"
+means that the order has been cancelled by Market Maker Protection (MMP).</p>
 
 
 ## Related topics

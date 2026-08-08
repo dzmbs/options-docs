@@ -39,6 +39,10 @@ Adding a portfolio to a Member enables Starbase access; it does not disable stan
 * Rate-limit allocations for Starbase are separate from the main platform's limits.
 
 <Warning>
+  **Mass quoting is the exception.** Adding a portfolio to a Member blocks the legacy mass quotes API for that portfolio — [`private/mass_quote`](/api-reference/trading/private-mass_quote) over JSON-RPC/WebSocket and mass quoting over the FIX API stop working. Mass quotes for Member portfolios must be submitted through the [Starbase Binary API](/starbase/mass-quotes).
+</Warning>
+
+<Warning>
   **Mass quoting uses one operating mode per portfolio.** A portfolio can use either legacy JSON-RPC/FIX mass quoting or Starbase mass quoting, but not both concurrently. You can switch the portfolio between Legacy and Starbase mass-quote modes in real time through the API or Account Panel. Stop submission and reconcile resting quotes before switching modes.
 </Warning>
 
