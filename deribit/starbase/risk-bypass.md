@@ -40,8 +40,8 @@ Most clients integrating with Starbase should prefer this path for all order ent
 
 ## Related topics
 
+- [Production Readiness Checklist](/starbase/production-readiness-checklist.md)
 - [Placing a New Order](/starbase/placing-new-order.md)
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
+- [Starbase API Changelog](/changelogs/starbase.md)
 - [Mass Quotes](/starbase/mass-quotes.md)
-- [Starbase API Overview](/starbase/overview.md)
-- [Starbase FIX Drop Copy API](/starbase/fix-drop-copy-api.md)

@@ -6,6 +6,16 @@
 
 > Release notes for the Deribit Starbase binary and REST APIs covering new messages, protocol changes, performance updates, and compatibility notes.
 
+<Update label="Announcement 09.08.2026">
+  ## Announcement
+
+  ### Client Checklist for the August 11th Go-Live
+
+  Ahead of the direct access (SBE order entry) gateway go-live on **Tuesday, 11th of August** — immediately after the scheduled maintenance at 9:00 AM UTC — we have published a [production readiness checklist](/starbase/production-readiness-checklist) for clients already onboarded to Starbase.
+
+  The checklist covers Member setup, API key scopes for SBE order entry, the MMP risk bypass for the lowest-latency order path, the latest SBE XML versions, and logon and heartbeat testing on the production gateways. Please work through it before Tuesday and reach out to your technical account manager with any questions.
+</Update>
+
 <Update label="Starbase Bugfix 07.08.2026">
   ## Bugfix
 

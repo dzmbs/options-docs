@@ -146,4 +146,4 @@ components:
 - [announcements ](/subscriptions/announcements/announcements.md)
 - [public/get_announcements](/api-reference/account-management/public-get_announcements.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
-- [private/set_clearance_originator](/api-reference/wallet/private-set_clearance_originator.md)
+- [Production Readiness Checklist](/starbase/production-readiness-checklist.md)

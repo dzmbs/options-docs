@@ -45,7 +45,7 @@ Example FIX logon message
 | 554   | Password     | Client Secret (API Secret)                                                    |
 | 96    | RawData      | `raw_data` as generated below                                                 |
 | 58    | Text         | `signature` as generated below                                                |
-| 25001 | Messages     | `TRADES_ONLY`<br />`ORDERS_AND_TRADES`<br />`ALL_EVENTS `- Enabled by default |
+| 25001 | Messages     | `TRADES_ONLY`<br />`ORDERS_AND_TRADES`<br />`ALL_EVENTS` - Enabled by default |
 
 ```python theme={null}
 import base64

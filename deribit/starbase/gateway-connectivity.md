@@ -99,4 +99,4 @@ For a consolidated view of all activity on a single Portfolio, the [FIX Drop Cop
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [REST Order Gateway Authentication](/starbase/rest-authentication.md)
 - [Starbase API Overview](/starbase/overview.md)
-- [Starbase API Rate Limits](/starbase/api-rate-limits.md)
+- [Production Readiness Checklist](/starbase/production-readiness-checklist.md)

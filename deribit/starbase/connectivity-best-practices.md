@@ -293,7 +293,7 @@ For persistent network or multicast issues, send this information to <a href="ma
 ## Related topics
 
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
+- [Production Readiness Checklist](/starbase/production-readiness-checklist.md)
 - [Order Management](/articles/order-management-best-practices.md)
 - [API Usage Policy](/articles/api-usage-policy.md)
 - [Market Data Collection](/articles/market-data-collection-best-practices.md)
-- [Connection Management](/articles/connection-management-best-practices.md)

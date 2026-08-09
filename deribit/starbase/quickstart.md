@@ -195,6 +195,10 @@ Send network and multicast issues to <a href="mailto:colo-support@coinbase.com" 
 ## Next Steps
 
 <CardGroup cols={2}>
+  <Card title="Production Readiness Checklist" icon="list-check" href="/starbase/production-readiness-checklist">
+    Verify Member setup, API key scopes, MMP risk bypass, SBE XMLs, and logon before the order entry go-live.
+  </Card>
+
   <Card title="Infrastructure & Best Practices" icon="server" href="/starbase/connectivity-best-practices">
     Review deployment costs, gateway architecture, failover, and protocol selection.
   </Card>
