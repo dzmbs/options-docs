@@ -26,7 +26,7 @@ All configuration parameters support up to 4 decimal places of precision. Each l
 For comprehensive details on MMP configuration and management, refer to the Deribit API Documentation.
 
 <Tip>
-  MMP Settings can also be configured inside Account settings page
+  MMP Settings can also be configured inside Account settings page.
 
   ![MMP Settings](https://support.deribit.com/hc/article_attachments/32089943152925)
 </Tip>
@@ -169,7 +169,7 @@ Direction matters: buying +5 delta and selling −5 delta cancels out if within 
 
   Net Transaction Delta = Delta - Mark Price.
 
-  In the rest of this document, "delta" actually refers to net transaction delta
+  In the rest of this document, "delta" actually refers to net transaction delta.
 </Note>
 
 ### vega\_limit
@@ -195,7 +195,7 @@ Specifies the MMP group used for Mass Quotes. If left empty (omitted), the metho
 </Note>
 
 <Warning>
-  MMP groups are a feature dedicated to Mass Quotes and are not available for regular order flow. For details on how to use MMP groups with Mass Quotes, see Mass Quotes Specifications
+  MMP groups are a feature dedicated to Mass Quotes and are not available for regular order flow. For details on how to use MMP groups with Mass Quotes, see Mass Quotes Specifications.
 </Warning>
 
 ### block\_rfq

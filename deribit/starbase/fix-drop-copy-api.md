@@ -9,8 +9,11 @@
 ## Downloads
 
 <CardGroup cols={1}>
-  <Card title="FIX Specification XML" icon="file-code" href="http://statics.deribit.com/files/FIX50.xml">
-    FIX 5.0 SP2 specification file for the Drop Copy API
+  <Card title="FIX Specification XML" icon="file-code">
+    FIX 5.0 SP2 specification file for the Drop Copy API.
+
+    * [Production](/specifications/FIX50.xml)
+    * [Testnet](/specifications/FIX50.xml)
   </Card>
 </CardGroup>
 

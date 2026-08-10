@@ -32,7 +32,7 @@ change notification.
 When requesting a subscription (`SubscriptionRequestType`=1), the only supported
 combinations are:
 
-* `MDUpdateType`=1, `MarketDepth`=0. This will result a [`Market Data - Snapshot`(`W`)](/fix-api/production/market-data-snapshot) with the whole order book, followed by incremental updates (X messages) through the whole order book depth.
+* `MDUpdateType`=1, `MarketDepth`=0. This will result in a [`Market Data - Snapshot`(`W`)](/fix-api/production/market-data-snapshot) with the whole order book, followed by incremental updates (X messages) through the whole order book depth.
 * `MDUpdateType`=0, `MarketDepth`=(1,10,20). This results in [`Market Data - Full Refresh`(`W`)](/fix-api/production/market-data-snapshot) messages, containing the entire specified order book depth. Valid values for `MarketDepth` are 1, 10, 20.
 
 If multiple instrument symbols are specified then the system responds with

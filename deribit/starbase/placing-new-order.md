@@ -115,4 +115,4 @@ Reject generated in case a `NewOrderRequest` is unsuccessful.
 - [New Order Single(D) — Production FIX API](/fix-api/production/new-order-single.md)
 - [REST Order Gateway Authentication](/starbase/rest-authentication.md)
 - [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
-- [Amending an Order](/starbase/amending-order.md)
+- [Creating a Starbase API Key](/starbase/creating-api-key.md)

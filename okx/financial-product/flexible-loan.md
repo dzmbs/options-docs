@@ -320,6 +320,8 @@ print(result)
 | collateralAmt | String | Yes | Collateral amount |
 | ordId | String | No | Order ID of your flexible loan.If `ordId` is not passed, system will assume it is acting against the existing order with the earliest order start time.If there are no existing orders, system will return error `51063` |
 
+For an E-Mode order, an `add` request must use the collateral currency recorded for that order's E-Mode pair. Otherwise, the system returns error `51785`.
+
 Response Example
 
 ```
@@ -335,6 +337,165 @@ Response Example
 #### Response Parameters
 
 code = `0` means your request has been accepted (It doesn't mean the request has been successfully handled.)
+
+### POST / Borrow
+
+#### Rate Limit: 2 requests per 2 seconds
+
+#### Rate limit rule: User ID
+
+#### HTTP Request
+
+`POST /api/v5/finance/flexible-loan/borrow`
+
+Creates a Flexible Loan order or adds a borrow amount to an existing active order.
+
+Request Example
+
+```
+POST /api/v5/finance/flexible-loan/borrow
+body
+{
+ "loanData": {"ccy": "USDT", "amt": "1000"},
+ "collateralData": [{"ccy": "BTC", "amt": "0.02"}],
+ "eMode": "0",
+ "clOrdId": "my-borrow-001"
+}
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| ordId | String | No | Existing order ID. Omit it to create an order. |
+| loanData | Object | Yes | Borrow currency and amount. |
+| > ccy | String | Yes | Borrow currency. |
+| > amt | String | Yes | Borrow amount. When `ordId` is provided, this is the additional amount. |
+| collateralData | Array of objects | Conditional | Collateral assets. Required with 1–10 entries when creating an order; optional when adding to an order to add collateral together with the borrow. |
+| > ccy | String | Yes | Collateral currency. |
+| > amt | String | Yes | Collateral amount. |
+| eMode | String | Conditional | `0`: disabled (default); `1`: enabled. Accepted only when creating an order. Every collateral/borrow pair must be supported by the E-Mode info endpoint. |
+| clOrdId | String | Yes | Client-supplied ID. The idempotency key is scoped to the UID and endpoint path. It is retained for 60 seconds; a completed duplicate returns `51016`, and an in-flight duplicate returns `51784`. |
+
+When `ordId` is provided, `eMode` must not be provided; E-Mode status is fixed at order creation. `collateralData` is optional and adds collateral to the existing order. For an E-Mode order, the added collateral must comply with the order's E-Mode pair.
+
+Response Example
+
+```
+{
+ "code": "0",
+ "data": [{"ordId": "680234819012345678", "eMode": "0", "clOrdId": "my-borrow-001"}],
+ "msg": ""
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| ordId | String | Created order ID, or the order ID to which the borrow was added. |
+| eMode | String | E-Mode status of the order. |
+| clOrdId | String | Client-supplied ID echoed from the request. |
+
+### POST / Repay
+
+#### Rate Limit: 2 requests per 2 seconds
+
+#### Rate limit rule: User ID
+
+#### HTTP Request
+
+`POST /api/v5/finance/flexible-loan/repay`
+
+Repays part or all of an order's outstanding borrow amount. Settlement is asynchronous; a successful response means the request was accepted. Use the Loan info endpoint to confirm the final result.
+
+Request Example
+
+```
+POST /api/v5/finance/flexible-loan/repay
+body
+{
+ "ordId": "680234819012345678",
+ "ccy": "USDT",
+ "amt": "1000",
+ "clOrdId": "my-repay-001"
+}
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| ordId | String | Yes | Order ID to repay. |
+| ccy | String | Yes | Repayment currency. It must match the order's borrow currency. |
+| amt | String | Yes | Repayment amount. Repaying the entire outstanding balance closes the order. |
+| clOrdId | String | Yes | Client-supplied idempotency key, scoped to the UID and endpoint path. It is retained for 60 seconds; a completed duplicate returns `51016`, and an in-flight duplicate returns `51784`. |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "data": [{"ordId": "680234819012345678", "ccy": "USDT", "amt": "1000", "clOrdId": "my-repay-001"}],
+ "msg": ""
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| ordId | String | Order ID. |
+| ccy | String | Repaid currency. |
+| amt | String | Requested repayment amount, echoed from the request. |
+| clOrdId | String | Client-supplied ID echoed from the request. |
+
+### GET / E-Mode info
+
+#### Rate Limit: 5 requests per 2 seconds
+
+#### Rate limit rule: IP
+
+#### Permission: Read
+
+#### HTTP Request
+
+`GET /api/v5/finance/flexible-loan/emode-info`
+
+Request Example
+
+```
+GET /api/v5/finance/flexible-loan/emode-info
+```
+
+#### Request Parameters
+
+None.
+
+Returns all currently valid collateral and borrow currency pairs eligible for E-Mode. This endpoint does not require authentication.
+
+Response Example
+
+```
+{
+ "code": "0",
+ "data": [
+ {"collateralCcy": "USDC", "borrowCcy": "USDT"},
+ {"collateralCcy": "WBTC", "borrowCcy": "BTC"}
+ ],
+ "msg": ""
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| collateralCcy | String | Collateral currency eligible for E-Mode. |
+| borrowCcy | String | Borrow currency eligible with `collateralCcy`. |
 
 ### GET / Loan info
 

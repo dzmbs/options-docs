@@ -191,7 +191,7 @@ If you decrease the order's quantity or keep the price the same, an edit will no
 
 ### Partial fill considerations
 
-Editing preserves the history of any fills. If an order was partially filled before the edit, those fills remain accounted. The cumulative filled amount stays the same, and the remaining size is simply adjusted based on the new total quantity.
+Editing preserves the history of any fills. If an order was partially filled before the edit, those fills remain accounted for. The cumulative filled amount stays the same, and the remaining size is simply adjusted based on the new total quantity.
 
 For example, suppose you had an order for 200 units, and 100 were filled, leaving 100 unfilled. If you edit the order to increase the total amount to 400, the filled 100 remains part of the order's history, and the remaining quantity is updated to 300. The previous fills are not "reset" when editing an order.
 

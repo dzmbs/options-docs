@@ -148,7 +148,7 @@ Unsolicited event sent when one or more speed-bumped quote sides complete the sp
 
 ### MassQuoteMmpTriggered (320)
 
-Event generated when a mass quote Market Maker Protection limit is triggered. Followed by one or more OrderCanceled messages.
+Event generated when a mass quote Market Maker Protection limit is triggered. Followed by one or more OrdersCanceled messages.
 
 | Field | Name          | Type   | Length | Description                                                                     |
 | ----- | ------------- | ------ | ------ | ------------------------------------------------------------------------------- |
@@ -163,7 +163,7 @@ Event generated when a mass quote Market Maker Protection limit is triggered. Fo
 
 ### OrdersMmpTriggered (322)
 
-Event generated when an orders Market Maker Protection limit is triggered. Followed by one or more OrderCanceled messages.
+Event generated when an orders Market Maker Protection limit is triggered. Followed by one or more OrdersCanceled messages.
 
 | Field | Name          | Type   | Length | Description                                                                                                                                                                                      |
 | ----- | ------------- | ------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

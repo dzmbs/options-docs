@@ -252,8 +252,6 @@ Retrieve your current OKUSD balance and lifetime accrued yield. All balances are
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/finance/okusd/account`
@@ -302,8 +300,6 @@ Retrieve your OKUSD subscription order history. Results are returned in descendi
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -365,8 +361,6 @@ Retrieve your OKUSD redemption order history. Results are returned in descending
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 
@@ -436,8 +430,6 @@ Retrieve your daily OKUSD yield distribution history. Results are returned in de
 
 #### Rate limit rule: User ID
 
-#### Permission: Read
-
 #### HTTP Request
 
 `GET /api/v5/finance/okusd/rewards/history`
@@ -492,8 +484,6 @@ Retrieve the historical APR snapshots for OKUSD. Results are returned in descend
 #### Rate Limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
-
-#### Permission: Read
 
 #### HTTP Request
 

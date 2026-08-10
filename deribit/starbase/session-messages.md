@@ -14,12 +14,13 @@ Session messages manage the lifecycle of a TCP connection to a Starbase gateway,
 
 First message sent by client after establishing TCP connection.
 
-| Field | Name          | Type   | Length | Description                                                                                                                      |
-| ----- | ------------- | ------ | ------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| 1     | username      | char   | 16     | Client username                                                                                                                  |
-| 2     | password      | char   | 48     | Client password                                                                                                                  |
-| 3     | resetSeqNum   | int8   | 1      | `0`=no (do not reset sequence numbers)<br />`1`=yes (reset sequence numbers)                                                     |
-| 4     | schemaVersion | uint16 | 2      | Client-negotiated SBE schema (protocol) version. Optional; added in schema version `12`. See the version negotiation note below. |
+| Field | Name               | Type   | Length | Description                                                                                                                                                                                                                                                             |
+| ----- | ------------------ | ------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | username           | char   | 16     | Client username                                                                                                                                                                                                                                                         |
+| 2     | password           | char   | 48     | Client password                                                                                                                                                                                                                                                         |
+| 3     | resetSeqNum        | int8   | 1      | `0`=no (do not reset sequence numbers)<br />`1`=yes (reset sequence numbers)                                                                                                                                                                                            |
+| 4     | schemaVersion      | uint16 | 2      | Client-negotiated SBE schema (protocol) version. Optional; added in schema version `12`. See the version negotiation note below.                                                                                                                                        |
+| 5     | cancelOnDisconnect | int8   | 1      | Session-wide cancel-on-disconnect opt-in: `0`=no — each order and quote carries its own per-message flag<br />`1`=yes — every order and quote submitted on this session is covered. Optional. See [Session-level CoD](/starbase/cancel-on-disconnect#session-level-cod) |
 
 ### LogonResponse (2)
 
@@ -110,7 +111,7 @@ The table below lists all possible values of the `reason` field.
 ## Related topics
 
 - [Starbase Mass Cancel Messages](/starbase/mass-cancel.md)
+- [Starbase API Changelog](/changelogs/starbase.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
 - [Cancelling an Order](/starbase/cancelling-order.md)
 - [Starbase FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
-- [Starbase Connectivity Quickstart](/starbase/quickstart.md)

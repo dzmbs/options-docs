@@ -106,6 +106,15 @@ The table below outlines the content of field 13 (`flags`) of `InstrumentDefinit
 
 ***
 
+### IndexDefinition (11)
+
+Sent at the start of the snapshot cycle, followed by `IndexInfo`.
+
+| Field | Name    | Type  | Length | Description      |
+| :---- | :------ | :---- | :----- | :--------------- |
+| 1     | indexId | int64 | 8      | Currency pair ID |
+| 2     | name    | char  | 128    | Name of index    |
+
 ### IndexInfo (12)
 
 Sent when an index price changes, and at the start of every snapshot cycle (one per known index price on the channel, batched into as few packets as fit). The index price is per currency pair and is shared across the pair's instruments.
@@ -153,5 +162,5 @@ Less frequently updated per-instrument fields. All value fields are optional —
 - [Market Model](/starbase/market-model.md)
 - [Security Definition Request(c) — Production FIX API](/fix-api/production/security-definition-request.md)
 - [Maintaining the order book](/starbase/order-book-maintenance.md)
-- [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Binary API Reference](/starbase/binary-api-reference.md)
+- [Starbase Connectivity Quickstart](/starbase/quickstart.md)

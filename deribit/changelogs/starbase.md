@@ -16,6 +16,20 @@
   The checklist covers Member setup, API key scopes for SBE order entry, the MMP risk bypass for the lowest-latency order path, the latest SBE XML versions, and logon and heartbeat testing on the production gateways. Please work through it before Tuesday and reach out to your technical account manager with any questions.
 </Update>
 
+<Update label="Starbase Release 07.08.2026 — v1.5">
+  ## API Changes
+
+  The order entry SBE schema has been updated to version `13` (`semanticVersion` `1.5`).
+
+  ### Session Messages
+
+  Session-wide cancel-on-disconnect opt-in at logon:
+
+  * `LogonRequest` (1) — new optional `cancelOnDisconnect` field: when set, the gateway applies cancel-on-disconnect to every `NewOrderRequest` and mass-quote leg submitted on the session, so resting liquidity is pulled if the client disconnects. The session value is a floor, not an override — an individual order cannot opt out once the session has opted in. If absent, each order and quote leg carries its own per-message `cancelOnDisconnect` flag
+
+  See [Session-level CoD](/starbase/cancel-on-disconnect#session-level-cod) for full details on cancel-on-disconnect handling.
+</Update>
+
 <Update label="Starbase Bugfix 07.08.2026">
   ## Bugfix
 
@@ -32,6 +46,21 @@
   **Action required:** re-download the [SBE XMLs](https://statics.deribit.com/files/deribit-sbe-xmls.zip) and regenerate your SBE codecs (or update to the latest SDK).
 
   See [Reference Data](/starbase/reference-data#index-prices-and-derived-statistics) for full message details.
+</Update>
+
+<Update label="Starbase Release 04.08.2026 — v1.4">
+  ## API Changes
+
+  The order entry SBE schema has been updated to version `12` (`semanticVersion` `1.4`).
+
+  ### Session Messages
+
+  Explicit schema version negotiation at logon:
+
+  * `LogonRequest` (1) — new optional `schemaVersion` field: the SBE schema (protocol) version the client wants to use. It acts as a gate, determining whether new messages and new versions of existing messages are sent to the client. A value outside the gateway's accepted range is rejected at logon
+  * `LogonResponse` (2) — new `schemaVersion` field echoing the schema version accepted by the gateway
+
+  See [Session Messages](/starbase/session-messages#logonrequest-1) for full message details.
 </Update>
 
 <Update label="Announcement 30.07.2026">

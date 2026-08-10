@@ -250,7 +250,7 @@ On success, the server returns an `access_token` and `refresh_token`, the same a
 
 ### Python Example
 
-You can also use the following Python code to automatically generate the signature and complete the authentication process on test environment:
+You can also use the following Python code to automatically generate the signature and complete the authentication process on the test environment:
 
 ```python theme={null}
 import datetime

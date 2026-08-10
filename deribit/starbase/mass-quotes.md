@@ -88,7 +88,7 @@ The table below outlines the content of fields 13/14 (`bidFlags`/`askFlags`, typ
 | 7                               | Reserved for future use |                                                                                                                                                                                                              |
 
 <Note>
-  **Upcoming: session-level cancel-on-disconnect**. A logon-time CoD option is planned. Once enabled for a session, it covers every order and quote submitted on that session — both `NewOrderRequest` and `MassQuoteRequest` — with no need to tag each side individually. The per-side `cancelOnDisconnect` flag remains available.
+  **Session-level cancel-on-disconnect**: setting `cancelOnDisconnect` on [`LogonRequest`](/starbase/session-messages#logonrequest-1) covers every order and quote submitted on that session — both `NewOrderRequest` and `MassQuoteRequest` — with no need to tag each side individually. The per-side `cancelOnDisconnect` flag remains available. See [Session-level CoD](/starbase/cancel-on-disconnect#session-level-cod).
 </Note>
 
 ### MassQuoteResponse (230)

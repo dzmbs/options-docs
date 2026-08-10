@@ -150,4 +150,4 @@ components:
 - [public/status](/api-reference/supporting/public-status.md)
 - [public/test](/api-reference/supporting/public-test.md)
 - [public/unsubscribe](/api-reference/subscription-management/public-unsubscribe.md)
-- [public/auth](/api-reference/authentication/public-auth.md)
+- [public/ticker](/api-reference/market-data/public-ticker.md)

@@ -6,7 +6,20 @@
 
 > Overview of the Deribit production FIX 4.4 subset covering endpoints, supported message types, and how the live FIX gateway differs from the upcoming one.
 
-Deribit FIX API is a subset of FIX version 4.4, but also includes some tags from 5.0 version and several custom tags. Deribit uses the standard header and trailer structure for all messages. To enable the API, sign in and go to **Account > Security > API** Tab and use the checkbox. 'Client Secret' is the user's secret key provided by Deribit. **Important Note: Do not reveal to anybody your 'Client Secret', as it can be used to gain full control over your account.**
+Deribit FIX API is a subset of FIX version 4.4. It also includes some tags from FIX 5.0 and several Deribit custom tags. Deribit uses the standard FIX header and trailer structure for all messages.
+
+## Before you start
+
+Complete these steps before opening a FIX session:
+
+1. Sign in to your account and go to **Account > Security > API**. Enable API access with the checkbox on that page.
+2. Create an API key on the same page. The `Client ID` becomes your FIX `Username`(`553`) and the `Client Secret` is used to derive the `Password`(`554`) sent in [`Logon`(`A`)](/fix-api/production/logon).
+3. Choose an environment and endpoint from [Connection endpoints](#connection-endpoints) below. Use `fix-test.deribit.com` for integration testing before switching to `fix.deribit.com`.
+4. Authenticate by sending a [`Logon`(`A`)](/fix-api/production/logon) message. See that page for how to build `RawData`(`96`) and `Password`(`554`).
+
+<Warning>
+  Do not share your `Client Secret`. Anyone with the secret can derive a valid `Password`(`554`) and gain full control over your account.
+</Warning>
 
 <Warning>
   **IMPORTANT ANNOUNCEMENT**
@@ -46,16 +59,16 @@ Each request message can include:
 
 Responses sent by the server will at least include:
 
-| Tag | Name           | Type         | Comments                                                                                                                                                                                                                                          |
-| --- | -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 8   | `BeginString`  | String       | Identifies beginning of new message and protocol version. Must always be first in the message                                                                                                                                                     |
-| 9   | `BodyLength`   | Length       | Message length in bytes, not including fields `BeginString`(`8`), `BodyLength`(`9`) and `CheckSum`(`10`). Please refer to [FIX specification](https://www.fixtrading.org/standards/tagvalue-online/#fix-tagvalue-message-syntax) for more details |
-| 35  | `MsgType`      | String       | The type of the message. See below for available types                                                                                                                                                                                            |
-| 49  | `SenderCompID` | String       | Constant value: `DERIBITSERVER`                                                                                                                                                                                                                   |
-| 56  | `TargetCompID` | String       | A user defined client name                                                                                                                                                                                                                        |
-| 34  | `MsgSeqNum`    | SeqNum       | A server-chosen sequence number for the message                                                                                                                                                                                                   |
-| 52  | `SendingTime`  | UTCTimestamp | The time the request is sent. This field is ignored by the server                                                                                                                                                                                 |
-| 10  | `CheckSum`     | String       | The checksum of all preceding messages. Please refer to [FIX specification](https://www.fixtrading.org/standards/tagvalue-online/#fix-tagvalue-message-syntax) Annex A for more details                                                           |
+| Tag | Name           | Type         | Comments                                                                                                                                                                                                                                                                                                                                |
+| --- | -------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 8   | `BeginString`  | String       | Identifies beginning of new message and protocol version. Must always be first in the message                                                                                                                                                                                                                                           |
+| 9   | `BodyLength`   | Length       | Message length in bytes, not including fields `BeginString`(`8`), `BodyLength`(`9`) and `CheckSum`(`10`). Please refer to [FIX specification](https://www.fixtrading.org/standards/tagvalue-online/#fix-tagvalue-message-syntax) for more details                                                                                       |
+| 35  | `MsgType`      | String       | The type of the message. See below for available types                                                                                                                                                                                                                                                                                  |
+| 49  | `SenderCompID` | String       | Constant value: `DERIBITSERVER`                                                                                                                                                                                                                                                                                                         |
+| 56  | `TargetCompID` | String       | A user defined client name                                                                                                                                                                                                                                                                                                              |
+| 34  | `MsgSeqNum`    | SeqNum       | A server-chosen sequence number for the message                                                                                                                                                                                                                                                                                         |
+| 52  | `SendingTime`  | UTCTimestamp | The time Deribit transmitted this response. For [Execution Reports](/fix-api/production/execution-reports), compare against `TransactTime` (60), which is when the transaction represented by the report occurred on the exchange. The difference is the interval between the exchange event and the report being sent to your session. |
+| 10  | `CheckSum`     | String       | The checksum of all preceding messages. Please refer to [FIX specification](https://www.fixtrading.org/standards/tagvalue-online/#fix-tagvalue-message-syntax) Annex A for more details                                                                                                                                                 |
 
 ## Message Types
 
@@ -135,6 +148,6 @@ The FIX API supports the following message types organized by category:
 
 - [Logon(A) — Production FIX API](/fix-api/production/logon.md)
 - [Logout(5) — Production FIX API](/fix-api/production/logout.md)
-- [Reject(3) — Production FIX API](/fix-api/production/reject.md)
 - [Heartbeat(0) — Production FIX API](/fix-api/production/heartbeat.md)
+- [Reject(3) — Production FIX API](/fix-api/production/reject.md)
 - [Sequence Reset(4) — Production FIX API](/fix-api/production/sequence-reset.md)

@@ -24,7 +24,7 @@ This message can be used in two ways: to request status of all your open orders,
 or to request the status of a single order(This also applies to closed orders).
 
 To request the status of all orders, choose a random `MassStatusRequestId`, and
-set `MassStatusReqType=7`. The server will respond with a series of `Execution Reports`(`8`) messages, where the first message contains `MassStatusReqType=7`
+set `MassStatusReqType=7`. The server will respond with a series of `Execution Reports`(`8`) messages, where the first message contains `MassStatusReqType=7`.
 
 *To request the status of a specific order*: set `MassStatusReqType=1`, and set
 `MassStatusReqId` to the order ID. Please keep in mind this message also applies

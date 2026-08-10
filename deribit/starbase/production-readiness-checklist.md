@@ -52,10 +52,16 @@ This checklist is for clients already onboarded to Starbase. Work through the st
     Download the current integration resources and regenerate your SBE codecs (or update to the latest SDK):
 
     * [SBE XML schemas](https://statics.deribit.com/files/deribit-sbe-xmls.zip)
-    * [Starbase SDK](https://statics.deribit.com/files/starbase-deribit-sdk.zip)
+    * [Order entry SDK](/starbase/starbase-deribit-order-sdk-13.0.zip)
+    * [Market data SDK](/starbase/starbase-deribit-md-sdk-1.0.zip)
 
     <Info>
-      As of **9 August 2026**, the latest schema versions are: **order entry** schema `version` **12** (`semanticVersion` **1.4**) and **market data** schema `version` **1** (`semanticVersion` **1.0**). The `version` and `semanticVersion` attributes are at the top of each XML file — check them against your local copies.
+      As of **[7 August 2026](/changelogs/starbase#starbase-release-07-08-2026-—-v1-5)**, the latest schema versions are:
+
+      * **Order entry** — schema `version` **13** (`semanticVersion` **1.5**)
+      * **Market data** — schema `version` **1** (`semanticVersion` **1.0**)
+
+      The `version` and `semanticVersion` attributes are at the top of each XML file — check them against your local copies.
     </Info>
 
     Note that reference data is published on the multicast market data feeds, and your integration should be comfortable consuming it from there:

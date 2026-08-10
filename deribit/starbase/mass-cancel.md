@@ -67,4 +67,4 @@ Reject generated in case a `MassCancelRequest` or `MassQuoteCancelRequest` is un
 - [Mass Cancel](/api-reference/portfolio-management/mass-cancel.md)
 - [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
-- [Speed Bumps](/starbase/speed-bumps.md)
+- [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)

@@ -112,7 +112,7 @@ When a bucket is full, new orders, amends, and mass quotes containing non-zero q
 
 ## Gateway Redundancy
 
-Each gateway consists of two independent gateways (A and B). Both gateways enforce identical and independent rate limits. This design encourages clients to load balance across both gateways without requiring the gateways to synchronize rate limit state.
+Each gateway pair consists of two independent gateways (A and B). Both gateways enforce identical and independent rate limits. This design encourages clients to load balance across both gateways without requiring the gateways to synchronize rate limit state.
 
 ## Review Schedule
 

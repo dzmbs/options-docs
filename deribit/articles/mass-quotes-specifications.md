@@ -130,7 +130,7 @@ MMP groups let market makers define custom protection rules – such as quantity
 <Tip>
   ![MMP Group Configuration](https://support.deribit.com/hc/article_attachments/30061881791005)
 
-  MMP groups can be also accessed using [Account settings page](/articles/creating-api-key)
+  MMP groups can be also accessed using [Account settings page](/articles/creating-api-key).
 </Tip>
 
 ### Group Limits and Usage
@@ -396,7 +396,7 @@ Method [private/cancel\_quotes](https://docs.deribit.com/#private-cancel_quotes)
 <Note>
   ### Segregated Pathway
 
-  Standard order endpoints such as [private/buy](https://docs.deribit.com/#private-buy), [private/sell](https://docs.deribit.com/#private-sell), or [private/edit](https://docs.deribit.com/#private/edit) **do not apply to quotes**. This separation ensures performance and risk control for market makers.
+  Standard order endpoints such as [private/buy](https://docs.deribit.com/#private-buy), [private/sell](https://docs.deribit.com/#private-sell), or [private/edit](https://docs.deribit.com/#private-edit) **do not apply to quotes**. This separation ensures performance and risk control for market makers.
 </Note>
 
 ## FIX Logic

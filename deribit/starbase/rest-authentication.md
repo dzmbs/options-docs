@@ -6,6 +6,17 @@
 
 > Authenticate requests to the Starbase REST Order Gateway using HTTP Basic credentials, including API key handling and gateway session security.
 
+## Downloads
+
+<CardGroup cols={1}>
+  <Card title="OpenAPI Specification" icon="file-code">
+    OpenAPI 3.0 specification for the Starbase REST API. Latest version: 2.0
+
+    * [Production](/specifications/starbase_rest_openapi.json)
+    * [Testnet](/specifications/starbase_rest_openapi.json)
+  </Card>
+</CardGroup>
+
 Every request to the REST Order Gateway must carry an `Authorization` header. There is no session or token layer — each request re-authenticates independently.
 
 ## Authorization Header Format
@@ -138,5 +149,5 @@ Treat every `401` as terminal for that request. Retry only after fixing the head
 - [Gateway Connectivity](/starbase/gateway-connectivity.md)
 - [Authentication](/articles/authentication.md)
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
-- [Order Management](/articles/order-management-best-practices.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
+- [Order Management](/articles/order-management-best-practices.md)

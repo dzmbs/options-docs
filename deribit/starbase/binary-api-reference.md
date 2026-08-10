@@ -8,19 +8,44 @@
 
 ## Downloads
 
-<CardGroup cols={3}>
-  <Card title="SBE XMLs" icon="file-code" href="https://statics.deribit.com/files/deribit-sbe-xmls.zip">
-    Schema definitions for SBE market data and order entry
+<CardGroup cols={2}>
+  <Card title="SBE Order API XML" icon="file-code">
+    Schema definition for SBE order entry.
+
+    * [Production](/specifications/deribit-sbe-xmls/deribit-sbe-order-api.xml) — latest version: 13 (semantic version 1.5)
+    * [Testnet](/specifications/deribit-sbe-xmls/deribit-sbe-order-api-testnet.xml) — latest version: 13 (semantic version 1.5)
   </Card>
 
-  <Card title="Starbase SDK" icon="box" href="https://statics.deribit.com/files/starbase-deribit-sdk.zip">
-    Client SDK for integrating with Starbase
+  <Card title="SBE Market Data API XML" icon="file-code">
+    Schema definition for SBE market data.
+
+    * [Production](/specifications/deribit-sbe-xmls/deribit-sbe-market-data-api.xml) — latest version: 1 (semantic version 1.0)
+    * [Testnet](/specifications/deribit-sbe-xmls/deribit-sbe-market-data-api-testnet.xml) — latest version: 1 (semantic version 1.0)
+  </Card>
+
+  <Card title="Starbase SDKs" icon="box">
+    Client SDKs for integrating with Starbase, built from the latest schemas.
+
+    * [Order entry SDK](/starbase/starbase-deribit-order-sdk-13.0.zip) — schema version 13 (semantic version 1.5)
+    * [Market data SDK](/starbase/starbase-deribit-md-sdk-1.0.zip) — schema version 1 (semantic version 1.0)
   </Card>
 
   <Card title="Market Data PCAP" icon="wave-square" href="http://statics.deribit.com/files/starbase-market-data.pcap">
     Sample packet capture for market data
   </Card>
 </CardGroup>
+
+## Historical XMLs
+
+Previous versions of the SBE Order API schema. Each XML is the final state of that semantic version.
+
+| Semantic version | Schema version | Release date                                                          | Download                                                                                                     |
+| ---------------- | -------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| 1.0              | 1              | [2026-05-06](/changelogs/starbase#starbase-release-06-05-2026-—-v1-0) | [deribit-sbe-order-api-v1.0.xml](/specifications/deribit-sbe-xmls/historical/deribit-sbe-order-api-v1.0.xml) |
+| 1.1              | 7              | [2026-06-26](/changelogs/starbase#starbase-release-26-06-2026-—-v1-1) | [deribit-sbe-order-api-v1.1.xml](/specifications/deribit-sbe-xmls/historical/deribit-sbe-order-api-v1.1.xml) |
+| 1.2              | 9              | [2026-07-15](/changelogs/starbase#starbase-release-15-07-2026-—-v1-2) | [deribit-sbe-order-api-v1.2.xml](/specifications/deribit-sbe-xmls/historical/deribit-sbe-order-api-v1.2.xml) |
+| 1.3              | 11             | [2026-07-21](/changelogs/starbase#starbase-release-21-07-2026-—-v1-3) | [deribit-sbe-order-api-v1.3.xml](/specifications/deribit-sbe-xmls/historical/deribit-sbe-order-api-v1.3.xml) |
+| 1.4              | 12             | [2026-08-04](/changelogs/starbase#starbase-release-04-08-2026-—-v1-4) | [deribit-sbe-order-api-v1.4.xml](/specifications/deribit-sbe-xmls/historical/deribit-sbe-order-api-v1.4.xml) |
 
 # What is SBE?
 

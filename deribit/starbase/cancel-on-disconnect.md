@@ -8,11 +8,13 @@
 
 Cancel On Disconnect (CoD) is a risk management feature that automatically cancels tagged open orders when a connection to the Starbase gateway is lost or terminated. CoD helps prevent orders from remaining active after a client disconnection and reduces exposure to unintended positions.
 
-**CoD is opt-in per order — it is not enabled by default and is not a connection/session setting.** An order is covered only if it is explicitly tagged with the `cancelOnDisconnect` flag (`OrderFlags` bit 0). This applies to quotes too: `MassQuoteRequest` sets the same flag per quote side in `bidFlags`/`askFlags`. Orders submitted without the flag are not cancelled on disconnect and remain resting. CoD is **session-scoped**, meaning it cancels only the tagged orders associated with the specific disconnected session.
+**CoD is opt-in — per order or per session — and is never enabled by default.** An order is covered if it is explicitly tagged with the `cancelOnDisconnect` flag (`OrderFlags` bit 0) or if it was submitted on a session that opted in at logon (see [Session-level CoD](#session-level-cod)). Per-order tagging applies to quotes too: `MassQuoteRequest` sets the same flag per quote side in `bidFlags`/`askFlags`. Orders that are neither tagged nor covered by a session opt-in are not cancelled on disconnect and remain resting. CoD is **session-scoped**, meaning it cancels only the covered orders associated with the specific disconnected session.
 
-<Note>
-  **Upcoming: session-level CoD**. A logon-time CoD option is planned. Once enabled for a session, it covers every order and quote submitted on that session — both `NewOrderRequest` and `MassQuoteRequest` — without per-order tagging. The per-order `cancelOnDisconnect` flag remains available.
-</Note>
+## Session-level CoD
+
+The optional `cancelOnDisconnect` field on [`LogonRequest`](/starbase/session-messages#logonrequest-1) opts the entire session into CoD at logon. When set, the gateway applies CoD to every order and quote submitted on that session — both `NewOrderRequest` and `MassQuoteRequest` — with no need to tag each one individually.
+
+The session value is a floor, not an override: an individual order cannot opt out once the session has opted in. If the field is absent (or `0`), each order and quote side carries its own per-message `cancelOnDisconnect` flag.
 
 ## Session Model
 
