@@ -6,7 +6,7 @@
 
 > TestRequest(1) solicits a Heartbeat response from the counterparty to verify the Deribit production FIX session is responsive during idle connection periods.
 
-The Test `Request`(`1`) message forces a heartbeat from the opposing
+The `Test Request`(`1`) message forces a heartbeat from the opposing
 application. The opposing application responds with a
 [`Heartbeat`(`0`)](/fix-api/production/heartbeat) containing the `TestReqID`(`112`).
 

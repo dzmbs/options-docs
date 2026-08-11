@@ -246,8 +246,8 @@ components:
               example: 42
               description: Total number of results available
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     address_beneficiary_item:
       properties:

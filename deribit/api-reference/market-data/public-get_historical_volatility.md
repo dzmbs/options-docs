@@ -131,8 +131,8 @@ components:
               - timestamp
               - value
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PublicGetHistoricalVolatilityResponse:

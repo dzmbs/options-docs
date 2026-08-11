@@ -61,8 +61,8 @@ Cancel/Replace responses
 
 ## Related topics
 
-- [Order Cancel Reject(9) — Production FIX API](/fix-api/production/order-cancel-reject.md)
 - [Logon(A) — Production FIX API](/fix-api/production/logon.md)
+- [Order Cancel Reject(9) — Production FIX API](/fix-api/production/order-cancel-reject.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
 - [TradeCaptureReport(AE) — Production FIX API](/fix-api/production/trade-capture-report.md)
 - [Order Mass Status Request(AF) — Production FIX API](/fix-api/production/order-mass-status-request.md)

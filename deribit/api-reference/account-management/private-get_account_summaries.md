@@ -144,10 +144,7 @@ components:
                       margin_balance: 302.62729214
                       futures_session_rpl: -0.03258105
                       options_session_rpl: 0
-                      estimated_liquidation_ratio_map:
-                        btc_usd: 0.1009872222854525
                       session_upl: 0.05271555
-                      estimated_liquidation_ratio: 0.10098722
                       options_gamma_map:
                         btc_usd: 0.00001
                       options_vega: 0.0858
@@ -270,8 +267,6 @@ components:
                       options_delta: 0
                       equity: 100
                       projected_initial_margin: 0.0002
-                      estimated_liquidation_ratio_map:
-                        eth_usd: 0
                       spot_reserve: 0.0002
                       cross_collateral_enabled: false
                       available_withdrawal_funds: 99.999597
@@ -280,7 +275,6 @@ components:
                       maintenance_margin: 0
                       options_theta_map: {}
                       additional_reserve: 0
-                      estimated_liquidation_ratio: 0
                       options_pl: 0
                       options_session_rpl: 0
                       options_vega: 0
@@ -521,8 +515,6 @@ components:
                       this aggregated value is calculated by converting the sum
                       of each cross collateral currency's value to the given
                       currency, using each cross collateral currency's index.
-                  estimated_liquidation_ratio:
-                    $ref: '#/components/schemas/estimated_liquidation_ratio'
                   options_delta:
                     example: 0
                     type: number
@@ -713,8 +705,8 @@ components:
             - type
             - id
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     rpl:
       example: 0.1
@@ -765,16 +757,6 @@ components:
       description: >-
         The sum of position deltas without positions that will expire during
         closest expiration
-    estimated_liquidation_ratio:
-      example: 0.0000234
-      type: number
-      description: >-
-        Estimated Liquidation Ratio is returned only for users without portfolio
-        margining enabled. Multiplying it by future position's market price
-        returns its estimated liquidation price. When cross collateral is
-        enabled, this aggregated value is calculated by converting the sum of
-        each cross collateral currency's value to the given currency, using each
-        cross collateral currency's index.
     projected_initial_margin:
       example: 1
       type: number

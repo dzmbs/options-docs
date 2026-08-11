@@ -228,5 +228,5 @@ components:
 - [Account Model](/starbase/account-model.md)
 - [Production Readiness Checklist](/starbase/production-readiness-checklist.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
+- [private/delete_address_beneficiary](/api-reference/wallet/private-delete_address_beneficiary.md)
 - [private/set_member](/api-reference/account-management/private-set_member.md)
-- [private/get_members](/api-reference/account-management/private-get_members.md)

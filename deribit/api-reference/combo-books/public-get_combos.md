@@ -125,8 +125,8 @@ components:
           items:
             $ref: '#/components/schemas/combo'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     combo:
       properties:

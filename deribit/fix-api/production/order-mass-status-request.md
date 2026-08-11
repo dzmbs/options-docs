@@ -21,7 +21,7 @@ messages detailing orders.
 | 55   | `Symbol`              | String | Required if `MassStatusReqIDType` is 1 or 2 and `Currency` is missing | If Currency is not specified, to search the order by DeribitLabel or ClOrdID                                                                       |
 
 This message can be used in two ways: to request status of all your open orders,
-or to request the status of a single order(This also applies to closed orders).
+or to request the status of a single order (This also applies to closed orders).
 
 To request the status of all orders, choose a random `MassStatusRequestId`, and
 set `MassStatusReqType=7`. The server will respond with a series of `Execution Reports`(`8`) messages, where the first message contains `MassStatusReqType=7`.

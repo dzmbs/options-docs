@@ -248,5 +248,5 @@ securitySchemes: []
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [instrument.state.(kind).(currency) ](/subscriptions/market-data/instrumentstatekindcurrency.md)
-- [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
 - [trades.(kind).(currency).(interval) ](/subscriptions/trades/tradeskindcurrencyinterval.md)
+- [public/get_instruments](/api-reference/market-data/public-get_instruments.md)

@@ -274,8 +274,8 @@ components:
           example: ok
           description: ok
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PrivateUpdateInAddressBookResponse:

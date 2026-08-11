@@ -165,8 +165,8 @@ components:
           type: object
           description: Simulation details
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
   responses:
     PrivatePmeSimulateResponse:

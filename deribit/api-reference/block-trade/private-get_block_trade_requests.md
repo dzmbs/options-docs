@@ -174,8 +174,8 @@ components:
           items:
             $ref: '#/components/schemas/pending_block_trade'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     pending_block_trade:
       properties:
@@ -280,4 +280,4 @@ components:
 - [private/approve_block_trade](/api-reference/block-trade/private-approve_block_trade.md)
 - [Voice Broker Trading API](/articles/voice-broker-trading-api.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [private/get_block_trades](/api-reference/block-trade/private-get_block_trades.md)
+- [private/get_block_trade](/api-reference/block-trade/private-get_block_trade.md)

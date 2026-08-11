@@ -117,8 +117,8 @@ components:
           items:
             $ref: '#/components/schemas/book_summary'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     book_summary:
       properties:

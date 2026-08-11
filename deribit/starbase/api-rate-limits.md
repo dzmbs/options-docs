@@ -134,9 +134,9 @@ Each subaccount can have up to **8 Starbase API keys** by default. This limit ca
 
 Each API key can hold exactly **one session per gateway** (see [Gateway Connectivity](/starbase/gateway-connectivity#api-keys)) — with 4 gateway pairs, one key can hold up to 8 simultaneous connections. Reconnecting the same key to the same gateway terminates the existing session. There is no separate cap on the number of simultaneous clients/sessions beyond the API key limit above — each additional key can open its own set of gateway connections.
 
-### IP-Based Limits
+### REST Gateway Limits
 
-The rate limits described above are applied per member and per gateway, not per IP address. The only IP-based limit is on the REST `get_open_orders` endpoint, which is capped at **1 request per minute per IP**. There is no limit on the number of IP addresses a member can whitelist.
+The rate limits described above are applied per member and per gateway, not per IP address. Starbase REST endpoints are rate-limited **per portfolio, per endpoint** — for example, `get_open_orders` is capped at **1 request per minute per portfolio**, and exceeding the limit returns HTTP 429. There is no limit on the number of IP addresses a member can whitelist.
 
 ### Open Order Limits
 

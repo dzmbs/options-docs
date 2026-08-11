@@ -465,19 +465,13 @@ components:
             - order
             - trades
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     order:
       properties:
         order_id:
           $ref: '#/components/schemas/order_id'
-        starbase_order_id:
-          type: integer
-          example: 103148386170
-          description: >-
-            Raw Starbase order id, in Starbase's own (non currency-prefixed) id
-            namespace. Only present for orders matched on Starbase.
         order_state:
           $ref: '#/components/schemas/order_state'
         order_type:
@@ -504,6 +498,13 @@ components:
           $ref: '#/components/schemas/timestamp'
         starbase_last_update_timestamp:
           $ref: '#/components/schemas/starbase_last_update_timestamp'
+        starbase_client_order_id:
+          type: string
+          description: >-
+            Client order id of an order submitted directly to
+            [Starbase](https://docs.deribit.com/starbase/overview) via direct
+            access; not returned for orders placed through the Deribit API
+            (combo legs inherit the parent combo order's client order id)
         direction:
           $ref: '#/components/schemas/direction'
         price:
@@ -601,6 +602,13 @@ components:
           description: >-
             Id of the combo order that created this order (only present for
             orders that were created as legs of a combo order).
+        starbase_order_id:
+          type: integer
+          example: 103148386170
+          description: >-
+            Raw Starbase order id, in Starbase's own (non currency-prefixed) id
+            namespace. Only present for orders placed in Starbase. Combo leg
+            orders expose the parent combo order's Starbase order id.
         app_name:
           type: string
           example: Example Application
@@ -658,12 +666,26 @@ components:
         timestamp:
           $ref: '#/components/schemas/trade_timestamp'
         starbase_timestamp:
-          type: integer
+          $ref: '#/components/schemas/starbase_timestamp'
           description: >-
-            Optional field: timestamp of the match (trade) in
-            [Starbase](https://docs.deribit.com/starbase/overview), in
+            Optional field: the Starbase causal timestamp of the trade, in
             nanoseconds since the UNIX epoch (present only for trades matched in
             Starbase)
+        starbase_order_id:
+          type: integer
+          example: 103148386170
+          description: >-
+            Raw Starbase order id of the user's order, in Starbase's own (non
+            currency-prefixed) id namespace (present only for trades matched in
+            Starbase)
+        starbase_client_order_id:
+          type: string
+          description: >-
+            Client order id of the user's own order (maker or taker side)
+            submitted directly to
+            [Starbase](https://docs.deribit.com/starbase/overview) via direct
+            access; not returned for orders placed through the Deribit API; for
+            self-trades this is the taker order's client order id
         order_type:
           type: string
           enum:
@@ -671,6 +693,8 @@ components:
             - market
             - liquidation
           description: 'Order type: `"limit`, `"market"`, or `"liquidation"`'
+        original_order_type:
+          $ref: '#/components/schemas/original_order_type'
         advanced:
           type: string
           enum:
@@ -687,20 +711,6 @@ components:
         matching_id:
           type: string
           description: Always `null`
-        starbase_match_id:
-          type: integer
-          description: >-
-            Optional field containing the Starbase match identifier (present
-            only for trades matched via Starbase)
-        starbase_order_id:
-          type: integer
-          description: >-
-            Optional field: the id in
-            [Starbase](https://docs.deribit.com/starbase/overview) of the user's
-            own order (maker or taker side) that took part in the trade; for
-            self-trades this is always the taker order's id, and for combo legs
-            it is the parent combo order's id (present only for trades matched
-            in Starbase)
         direction:
           $ref: '#/components/schemas/direction'
           description: Trade direction of the taker
@@ -759,6 +769,8 @@ components:
           $ref: '#/components/schemas/order_state_in_user_trade'
         block_trade_id:
           $ref: '#/components/schemas/block_trade_id_in_result'
+        block_trade_leg_count:
+          $ref: '#/components/schemas/block_trade_leg_count'
         block_rfq_id:
           type: integer
           description: ID of the Block RFQ - when trade was part of the Block RFQ
@@ -792,7 +804,12 @@ components:
           description: >-
             Optional field containing leg trades if trade is a combo trade
             (present when querying for **only** combo trades and in
-            `combo_trades` events)
+            `combo_trades` events). Each leg trade has the same fields as a
+            top-level user trade, including `starbase_match_id`,
+            `starbase_order_id`, and `starbase_timestamp` when matched in
+            Starbase, and `starbase_client_order_id` for orders submitted via
+            [Starbase](https://docs.deribit.com/starbase/overview) direct
+            access.
         combo_id:
           type: string
           description: >-
@@ -803,6 +820,11 @@ components:
           description: >-
             Optional field containing combo trade identifier if the trade is a
             combo trade
+        starbase_match_id:
+          type: integer
+          description: >-
+            Optional field containing the Starbase match identifier (present
+            only for trades matched via Starbase)
         quote_set_id:
           type: string
           description: >-
@@ -907,7 +929,10 @@ components:
         - market
         - market_limit
       type: string
-      description: Original order type. Optional field
+      description: >-
+        Original API order type when an order is represented internally as a
+        limit order. For example, Starbase market orders use `"limit"` as
+        `order_type` with `"market"` in this optional field.
     time_in_force:
       enum:
         - good_til_cancelled
@@ -928,7 +953,8 @@ components:
       description: >-
         The Starbase causal timestamp (nanoseconds since the Unix epoch) of the
         last book update that affected this order. Present only for orders
-        placed in Starbase; not always available for direct access orders
+        placed in Starbase, including combo leg order updates; not always
+        available for direct access orders
     direction:
       enum:
         - buy
@@ -1053,7 +1079,10 @@ components:
         `"oco_other_closed"` (the oco order linked to this order was closed),
         `"oto_primary_closed"` (the oto primary order that was going to trigger
         this order was cancelled), `"settlement"` (closed because of a
-        settlement)
+        settlement event, e.g. good-til-day orders are cancelled when an
+        instrument enters the daily settlement). Note: orders cancelled because
+        an instrument expired (delivery) currently do not include a
+        `cancel_reason` field.
     trigger_fill_condition:
       enum:
         - first_hit
@@ -1088,6 +1117,12 @@ components:
       example: 1517329113791
       type: integer
       description: The timestamp of the trade (milliseconds since the UNIX epoch)
+    starbase_timestamp:
+      example: 1536569522277000000
+      type: integer
+      description: >-
+        The Starbase causal timestamp of the trade (nanoseconds since the Unix
+        epoch)
     tick_direction:
       enum:
         - 0
@@ -1131,6 +1166,10 @@ components:
       example: '154'
       type: string
       description: Block trade id - when trade was part of a block trade
+    block_trade_leg_count:
+      example: 3
+      type: integer
+      description: Block trade leg count - when trade was part of a block trade
     profit_loss:
       type: number
       description: Profit and loss in base currency.

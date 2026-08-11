@@ -66,7 +66,7 @@ Key and session limits to plan around:
 
 Download the integration resources:
 
-* [SBE XML schemas](https://statics.deribit.com/files/deribit-sbe-xmls.zip) — schema definitions for order entry and market data
+* SBE XML schemas — schema definitions for [order entry](/specifications/deribit-sbe-xmls/deribit-sbe-order-api.xml) and [market data](/specifications/deribit-sbe-xmls/deribit-sbe-market-data-api.xml)
 * [Order entry SDK](/starbase/starbase-deribit-order-sdk-13.0.zip) — client SDK for the SBE order entry API (schema version 13, semantic version 1.5)
 * [Market data SDK](/starbase/starbase-deribit-md-sdk-1.0.zip) — client SDK for the SBE market data API (schema version 1, semantic version 1.0)
 * [Market data PCAP](http://statics.deribit.com/files/starbase-market-data.pcap) — sample multicast packet capture
@@ -162,7 +162,7 @@ Before production:
 * Confirm the number of API keys and active orders required.
 * Discuss non-default allocations with your Account Manager.
 
-See [API Rate Limits](/starbase/api-rate-limits) for bucket behavior, defaults, and other limits — including the `get_open_orders` REST endpoint, which is capped at 1 request per minute per IP and intended as a recovery tool rather than a live order feed.
+See [API Rate Limits](/starbase/api-rate-limits) for bucket behavior, defaults, and other limits — including the `get_open_orders` REST endpoint, which is capped at 1 request per minute per portfolio and intended as a recovery tool rather than a live order feed.
 
 ## 9. Prepare for Production
 

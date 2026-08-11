@@ -187,8 +187,8 @@ components:
             - refresh_token
             - scope
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
 
 ````

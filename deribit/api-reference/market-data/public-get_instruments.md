@@ -166,8 +166,8 @@ components:
           items:
             $ref: '#/components/schemas/instrument'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     instrument:
       properties:
@@ -338,22 +338,36 @@ components:
             instrument.
         index_id:
           type: integer
-          example: 2000033
+          example: 1000004
           description: >-
-            Internal numeric identifier for the price index associated with this
-            instrument.
+            Numeric identifier of the price index used by this instrument.
+            Derived from the index currency pair, so all instruments sharing the
+            same `price_index` also share the same `index_id`.
         product_group:
           type: string
-          example: ETH
+          enum:
+            - BTC
+            - ETH
+            - TIER_2
+            - TIER_3
+          example: BTC
           description: >-
-            Product group classification for the instrument's base currency
-            (e.g. BTC, ETH, TIER_2).
+            Product group classification of the instrument's base currency.
+            Determines gateway and multicast channel assignment — see
+            [Underlying
+            Tiers](https://docs.deribit.com/starbase/underlying-tiers).
         is_csr:
           type: boolean
           description: >-
             Optional (only for spot). When `true`, orders on this instrument are
             routed to Coinbase Exchange (CBE) for matching instead of the native
             Deribit matching engine.
+        is_cbe_routed:
+          type: boolean
+          description: >-
+            Optional (only for spot). Equivalent to `is_csr`. When `true`,
+            orders on this instrument are routed to Coinbase Exchange (CBE) for
+            matching instead of the native Deribit matching engine.
       required:
         - kind
         - base_currency
@@ -367,6 +381,8 @@ components:
         - expiration_timestamp
         - contract_size
         - price_index
+        - index_id
+        - product_group
         - underlying_type
       type: object
     instrument_name:
@@ -480,7 +496,7 @@ components:
                     base_currency: BTC
                     state: open
                     qty_tick_size: 10
-                    index_id: 1000001
+                    index_id: 1000033
                     product_group: BTC
                     underlying_type: crypto
                   - tick_size: 0.5
@@ -510,7 +526,7 @@ components:
                     base_currency: BTC
                     state: open
                     qty_tick_size: 10
-                    index_id: 1000002
+                    index_id: 1000033
                     product_group: BTC
                     underlying_type: crypto
               description: Response example

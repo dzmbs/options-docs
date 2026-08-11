@@ -133,8 +133,8 @@ components:
         result:
           $ref: '#/components/schemas/withdrawal'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     withdrawal:
       properties:

@@ -12,8 +12,8 @@
   <Card title="SBE Order API XML" icon="file-code">
     Schema definition for SBE order entry.
 
-    * [Production](/specifications/deribit-sbe-xmls/deribit-sbe-order-api.xml) — latest version: 13 (semantic version 1.5)
-    * [Testnet](/specifications/deribit-sbe-xmls/deribit-sbe-order-api-testnet.xml) — latest version: 13 (semantic version 1.5)
+    * [Production](/specifications/deribit-sbe-xmls/deribit-sbe-order-api.xml) — latest version: 14 (semantic version 1.5)
+    * [Testnet](/specifications/deribit-sbe-xmls/deribit-sbe-order-api-testnet.xml) — latest version: 14 (semantic version 1.5)
   </Card>
 
   <Card title="SBE Market Data API XML" icon="file-code">
@@ -69,16 +69,16 @@ Messages are sent over TCP connections and can be bidirectional - clients send r
 
 Each message starts with the following 32-byte header:
 
-| Field | Name                | Type   | Length | Description                                                                     |
-| ----- | ------------------- | ------ | ------ | ------------------------------------------------------------------------------- |
-| 1     | protocolId          | uint8  | 1      | Constant (= `0xDB`)                                                             |
-| 2     | flags               | uint8  | 1      | Bitset of flags:<br />`0x01` = resend                                           |
-| 3     | messageLength       | uint16 | 2      | Total length of message including this header and body                          |
-| 4     | messageTypeId       | uint16 | 2      | Message type ID (e.g., `100` for `NewOrderRequest`)                             |
-| 5     | version             | uint16 | 2      | Message version number                                                          |
-| 6     | sequenceNum         | int64  | 8      | Message sequence number                                                         |
-| 7     | lastProcessedSeqNum | int64  | 8      | Sequence number of last message received from client when this message was sent |
-| 8     | sendTime            | int64  | 8      | Time when this message was sent in nanoseconds since epoch                      |
+| Field | Name                | Type   | Length | Description                                                                                                                                                                                                                                                             |
+| ----- | ------------------- | ------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | protocolId          | uint8  | 1      | Constant (= `0xDB`)                                                                                                                                                                                                                                                     |
+| 2     | flags               | uint8  | 1      | Bitset of flags:<br />`0x01` = resend                                                                                                                                                                                                                                   |
+| 3     | messageLength       | uint16 | 2      | Total length of message including this header and body                                                                                                                                                                                                                  |
+| 4     | messageTypeId       | uint16 | 2      | Message type ID (e.g., `100` for `NewOrderRequest`)                                                                                                                                                                                                                     |
+| 5     | version             | uint16 | 2      | Per-message version stamp: the newest schema version at which this message type last changed, capped at the schema version negotiated at logon. May be lower than the negotiated version — see [schema version negotiation](/starbase/session-messages#logonresponse-2) |
+| 6     | sequenceNum         | int64  | 8      | Message sequence number                                                                                                                                                                                                                                                 |
+| 7     | lastProcessedSeqNum | int64  | 8      | Sequence number of last message received from client when this message was sent                                                                                                                                                                                         |
+| 8     | sendTime            | int64  | 8      | Time when this message was sent in nanoseconds since epoch                                                                                                                                                                                                              |
 
 ### UDP messages
 

@@ -108,8 +108,8 @@ components:
           required:
             - contract_size
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     contract_size:
       example: 10
@@ -132,5 +132,5 @@ components:
 - [public/get_instrument](/api-reference/market-data/public-get_instrument.md)
 - [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
 - [Starbase Reference Data and Instrument Definitions](/starbase/reference-data.md)
-- [public/get_last_trades_by_instrument](/api-reference/market-data/public-get_last_trades_by_instrument.md)
 - [public/get_delivery_prices](/api-reference/market-data/public-get_delivery_prices.md)
+- [public/get_last_trades_by_instrument](/api-reference/market-data/public-get_last_trades_by_instrument.md)

@@ -26,13 +26,20 @@ First message sent by client after establishing TCP connection.
 
 Response to `LogonRequest` on successful logon.
 
-| Field | Name                     | Type   | Length | Description                                                                                 |
-| ----- | ------------------------ | ------ | ------ | ------------------------------------------------------------------------------------------- |
-| 1     | heartbeatIntervalSeconds | int32  | 4      | Interval in seconds at which the server expects heartbeat messages from the client          |
-| 2     | schemaVersion            | uint16 | 2      | Echoes the schema (protocol) version accepted by the gateway. Added in schema version `12`. |
+| Field | Name                     | Type   | Length | Description                                                                                                                                                                                |
+| ----- | ------------------------ | ------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1     | heartbeatIntervalSeconds | int32  | 4      | Interval in seconds at which the server expects heartbeat messages from the client                                                                                                         |
+| 2     | schemaVersion            | uint16 | 2      | Echoes the schema (protocol) version accepted by the gateway — the authoritative negotiated version for the session. Added in schema version `12`. See the version negotiation note below. |
 
 <Note>
   **Schema version negotiation** (schema version `12` and later): `schemaVersion` on `LogonRequest` acts as a gate — it determines whether new messages and new versions of existing messages are sent to the client. A value outside the gateway's accepted range is rejected at logon. The gateway echoes the accepted version in `LogonResponse`.
+
+  There are two version numbers on the wire, and they are not equal:
+
+  * **Session ceiling** — the `schemaVersion` sent at logon: the highest schema version the client can accept. One number per session, echoed back in `LogonResponse.schemaVersion`. This is the authoritative negotiated version for the session.
+  * **Per-message stamp** — the `version` field in the header of each message the gateway sends: the newest schema version at which that particular message last changed, never above the session ceiling. If a message did not change between schema versions, its stamp is not bumped.
+
+  For example, after negotiating version `14`, `LogonResponse` arrives with header `version = 12` because `LogonResponse` has not changed since version `12`. This is expected — always read the negotiated version from the `schemaVersion` field, never from per-message header stamps.
 </Note>
 
 ### LogoutRequest (4)
@@ -106,6 +113,7 @@ The table below lists all possible values of the `reason` field.
 | `3`   | `INVALID_BLOCK_LENGTH` | Message block length does not match the template               |
 | `4`   | `INVALID_FIELD_VALUE`  | A field in the message contains an invalid value               |
 | `5`   | `MESSAGE_DISABLED`     | The message being submitted has been administratively disabled |
+| `6`   | `GATEWAY_NOT_ACTIVE`   | The target gateway is not active                               |
 
 
 ## Related topics

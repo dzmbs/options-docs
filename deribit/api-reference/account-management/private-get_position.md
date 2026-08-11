@@ -121,10 +121,10 @@ components:
           type: integer
           description: The id that was sent in the request
         result:
-          $ref: '#/components/schemas/position_with_elp'
+          $ref: '#/components/schemas/position_with_open_orders_margin'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     ErrorMessageResponse:
       properties:
@@ -141,22 +141,25 @@ components:
         error:
           type: integer
       required:
+        - message
         - error
         - jsonrpc
-        - message
       type: object
-    position_with_elp:
+    position_with_open_orders_margin:
       allOf:
         - $ref: '#/components/schemas/position'
         - properties:
             estimated_liquidation_price:
               type: number
+              nullable: true
               description: >-
-                Estimated liquidation price, added only for futures, for users
-                with `segregated_sm` margin model
+                [DEPRECATED] Estimated liquidation price, present only for
+                futures positions and always `null` — the value is no longer
+                computed. The Estimated Liquidation Price (ELP) remains
+                available via the Position Builder API.
             open_orders_margin:
               type: number
-              description: Open orders margin
+              description: Open orders margin, present only for future positions
           required:
             - estimated_liquidation_price
             - open_orders_margin
@@ -283,7 +286,7 @@ components:
                   average_price: 0
                   delta: 0
                   direction: buy
-                  estimated_liquidation_price: 0
+                  estimated_liquidation_price: null
                   floating_profit_loss: 0
                   index_price: 3555.86
                   initial_margin: 0

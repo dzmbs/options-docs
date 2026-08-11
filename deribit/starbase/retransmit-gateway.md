@@ -12,6 +12,10 @@ When a client detects a gap in the incremental multicast feed's sequence numbers
   See [Multicast Channels](/starbase/multicast-channels) for the list of available feeds and their addresses. See [Multicast Subscription Guide](/starbase/multicast-subscription-guide) for connection setup.
 </Info>
 
+<Note>
+  Retransmit addresses and ports for both environments, including AWS Private Link endpoints, are listed in [Gateway Connectivity](/starbase/gateway-connectivity). Clients connecting over AWS Private Link use **TCP** retransmit on the listed AWS ports; direct cross-connect and colocation clients use the UDP unicast protocol described on this page.
+</Note>
+
 ***
 
 ## Wire Protocol
@@ -176,4 +180,4 @@ A request for a `beginSeqNum` that has been evicted receives `SEQ_TOO_LOW`.
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Multicast Channels](/starbase/multicast-channels.md)
-- [Multicast Subscription Guide](/starbase/multicast-subscription-guide.md)
+- [Starbase API Changelog](/changelogs/starbase.md)

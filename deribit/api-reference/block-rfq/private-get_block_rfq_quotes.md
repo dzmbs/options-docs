@@ -183,8 +183,8 @@ components:
           items:
             $ref: '#/components/schemas/block_rfq_quote'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     block_rfq_quote:
       properties:

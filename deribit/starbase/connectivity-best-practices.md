@@ -259,7 +259,7 @@ Trades placed through Starbase also appear on the standard WebSocket/FIX feeds, 
 * Use **SBE order entry** for the lowest-latency placement, amendment, and cancellation path.
 * Use **SBE multicast market data** for the lowest-latency L3 book.
 * Use **FIX Drop Copy** for consolidated order lifecycle events, fills, and durable reconciliation. Persist events as they arrive: rejected and zero-fill orders cannot always be recovered later from order-history endpoints.
-* Use **REST** for utility and recovery workflows, not as the primary execution or live order-state path. In particular, `get_open_orders` is limited to one request per minute per IP.
+* Use **REST** for utility and recovery workflows, not as the primary execution or live order-state path. In particular, `get_open_orders` is limited to one request per minute per portfolio.
 * Use the standard **WebSocket API** where its additional latency is acceptable or for data not yet available in the Starbase feed. Do not rely on it for open Starbase order updates.
 
 ### Access and Capacity Planning

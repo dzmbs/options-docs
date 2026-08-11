@@ -6,6 +6,40 @@
 
 > Release notes for the Deribit Starbase binary and REST APIs covering new messages, protocol changes, performance updates, and compatibility notes.
 
+<Update label="Starbase Release 11.08.2026">
+  ## API Changes
+
+  The following changes go live with the direct access (SBE order entry) gateway go-live on **Tuesday, 11th of August**.
+
+  ### FIX Drop Copy
+
+  Per-portfolio scoping of a Drop Copy session:
+
+  * New optional `PortfolioScopeOnly` field (Tag `25002`) on the logon message: `Y` scopes the session to the single portfolio (subaccount) the logon credentials belong to — the gateway filters out events for the Member's other subaccounts server-side, including the open order snapshot on connect. `N` or omitted keeps the default full per-Member feed. Every Execution Report and Trade Capture Report identifies its portfolio in Tag 1 `Account` (the `portfolioId`)
+
+  See [Scoping a Session to One Portfolio](/starbase/fix-drop-copy-api#scoping-a-session-to-one-portfolio-25002) for full details.
+
+  ### Market Data
+
+  TCP retransmit for clients connecting over AWS Private Link:
+
+  * The market data retransmit service is available over **TCP** on the AWS ports listed in [Gateway Connectivity](/starbase/gateway-connectivity) — `34240–34247` (A-side) and `24240–24247` (B-side). Direct cross-connect and colocation clients continue to use the UDP unicast protocol described on the [Retransmit Gateway](/starbase/retransmit-gateway) page. On the test environment, retransmit over AWS is not yet available
+
+  ### Session Messages
+
+  The order entry SBE schema has been updated to version `14` (`semanticVersion` remains `1.5`), on both production and testnet:
+
+  * `Reject` (30) — new reason code `GATEWAY_NOT_ACTIVE` (6): the target gateway is not active
+
+  See [Reject](/starbase/session-messages#reject-30) for the full list of reject reason codes.
+
+  Session-wide cancel-on-disconnect, announced with schema version `13` (`semanticVersion` `1.5`) on 07.08.2026, is live with the gateway go-live:
+
+  * `LogonRequest` (1) — the optional `cancelOnDisconnect` field opts the entire session into CoD: the gateway applies cancel-on-disconnect to every `NewOrderRequest` and mass-quote leg submitted on the session, so resting liquidity is pulled if the client disconnects. The session value is a floor, not an override — an individual order cannot opt out once the session has opted in
+
+  See [Session-level CoD](/starbase/cancel-on-disconnect#session-level-cod) for full details on cancel-on-disconnect handling.
+</Update>
+
 <Update label="Announcement 09.08.2026">
   ## Announcement
 
@@ -43,7 +77,7 @@
 
   The schema `version`/`semanticVersion` remains `1`/`1.0`.
 
-  **Action required:** re-download the [SBE XMLs](https://statics.deribit.com/files/deribit-sbe-xmls.zip) and regenerate your SBE codecs (or update to the latest SDK).
+  **Action required:** re-download the SBE XMLs ([order entry](/specifications/deribit-sbe-xmls/deribit-sbe-order-api.xml), [market data](/specifications/deribit-sbe-xmls/deribit-sbe-market-data-api.xml)) and regenerate your SBE codecs (or update to the latest SDK).
 
   See [Reference Data](/starbase/reference-data#index-prices-and-derived-statistics) for full message details.
 </Update>
@@ -117,7 +151,7 @@
 
   The order entry SBE schema has been updated to version `11` (`semanticVersion` `1.3`).
 
-  Updated [SBE XMLs](https://statics.deribit.com/files/deribit-sbe-xmls.zip) and [Starbase SDK](https://statics.deribit.com/files/starbase-deribit-sdk.zip) `0.5.1` reflecting these changes have been uploaded and are available for download.
+  Updated SBE XMLs ([order entry](/specifications/deribit-sbe-xmls/deribit-sbe-order-api.xml), [market data](/specifications/deribit-sbe-xmls/deribit-sbe-market-data-api.xml)) and [Starbase SDK](/starbase/binary-api-reference#downloads) `0.5.1` reflecting these changes have been uploaded and are available for download.
 
   ### Order Entry
 
@@ -443,7 +477,7 @@
 
   ### SDK and specifications
 
-  The latest [SDK](https://statics.deribit.com/files/starbase-deribit-sdk.zip) is available for download. XML schemas for the SBE APIs are included with the SDK release.
+  The latest [SDK](/starbase/binary-api-reference#downloads) is available for download. XML schemas for the SBE APIs are included with the SDK release.
 
   Starbase remains on track to go live on Deribit's production environment for all derivatives in the first half of July.
 </Update>

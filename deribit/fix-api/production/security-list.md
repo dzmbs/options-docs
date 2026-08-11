@@ -48,8 +48,8 @@ matches the criteria specified in a [`Security List Request`(`x`)](/fix-api/prod
 ### Instrument Naming convention
 
 Based on the naming convention, instrument name consists of base currency, quote
-currency(called together a currency pair), contract expiration date (if the
-instrument isn't perpetual) and strike price(if the contract is an option).
+currency (called together a currency pair), contract expiration date (if the
+instrument isn't perpetual) and strike price (if the contract is an option).
 
 For example:
 

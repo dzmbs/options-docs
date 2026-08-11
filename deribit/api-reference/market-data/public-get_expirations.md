@@ -201,8 +201,8 @@ components:
           items:
             $ref: '#/components/schemas/expirations'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     expirations:
       properties:

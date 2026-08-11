@@ -220,8 +220,8 @@ components:
               - new_state
               - currency
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     currency:
       enum:

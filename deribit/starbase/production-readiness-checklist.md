@@ -51,14 +51,15 @@ This checklist is for clients already onboarded to Starbase. Work through the st
   <Step title="Update to the Latest SBE XMLs">
     Download the current integration resources and regenerate your SBE codecs (or update to the latest SDK):
 
-    * [SBE XML schemas](https://statics.deribit.com/files/deribit-sbe-xmls.zip)
+    * [SBE order entry XML](/specifications/deribit-sbe-xmls/deribit-sbe-order-api.xml)
+    * [SBE market data XML](/specifications/deribit-sbe-xmls/deribit-sbe-market-data-api.xml)
     * [Order entry SDK](/starbase/starbase-deribit-order-sdk-13.0.zip)
     * [Market data SDK](/starbase/starbase-deribit-md-sdk-1.0.zip)
 
     <Info>
-      As of **[7 August 2026](/changelogs/starbase#starbase-release-07-08-2026-—-v1-5)**, the latest schema versions are:
+      As of **[11 August 2026](/changelogs/starbase#starbase-release-11-08-2026)**, the latest schema versions are:
 
-      * **Order entry** — schema `version` **13** (`semanticVersion` **1.5**)
+      * **Order entry** — schema `version` **14** (`semanticVersion` **1.5**)
       * **Market data** — schema `version` **1** (`semanticVersion` **1.0**)
 
       The `version` and `semanticVersion` attributes are at the top of each XML file — check them against your local copies.
@@ -90,11 +91,11 @@ This checklist is for clients already onboarded to Starbase. Work through the st
   <Step title="Know Where to Find Fees, Open Orders, and Order History">
     Starbase order state is distributed differently from the standard Deribit APIs. Before go-live, make sure your reconciliation and reporting pull each data type from the right place:
 
-    | Data              | Where to get it                                                                                                                                                                                                                                                                                                            |
-    | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | **Open orders**   | The originating SBE session, [FIX Drop Copy](/starbase/fix-drop-copy-api), or the Starbase REST `GET /api/v2/private/get_open_orders` snapshot (capped at 1 request per minute per IP — a recovery tool, not a live feed). Open Starbase orders do **not** appear in the web UI or the standard WebSocket/FIX order feeds. |
-    | **Order history** | Standard [`private/get_order_history_*`](/api-reference/trading/private-get_order_history_by_currency) endpoints return only orders that reached the book or filled. Rejected and zero-fill orders cannot be retrieved retroactively — persist FIX Drop Copy Execution Reports as they arrive.                             |
-    | **Fees**          | Trades executed on Starbase appear on the standard private trade feeds, which include per-trade `fee` and `fee_currency` fields — for example [`private/get_user_trades_by_currency`](/api-reference/trading/private-get_user_trades_by_currency).                                                                         |
+    | Data              | Where to get it                                                                                                                                                                                                                                                                                                                   |
+    | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | **Open orders**   | The originating SBE session, [FIX Drop Copy](/starbase/fix-drop-copy-api), or the Starbase REST `GET /api/v2/private/get_open_orders` snapshot (capped at 1 request per minute per portfolio — a recovery tool, not a live feed). Open Starbase orders do **not** appear in the web UI or the standard WebSocket/FIX order feeds. |
+    | **Order history** | Standard [`private/get_order_history_*`](/api-reference/trading/private-get_order_history_by_currency) endpoints return only orders that reached the book or filled. Rejected and zero-fill orders cannot be retrieved retroactively — persist FIX Drop Copy Execution Reports as they arrive.                                    |
+    | **Fees**          | Trades executed on Starbase appear on the standard private trade feeds, which include per-trade `fee` and `fee_currency` fields — for example [`private/get_user_trades_by_currency`](/api-reference/trading/private-get_user_trades_by_currency).                                                                                |
 
     <Tip>
       If you need to adjust your Member setup quickly around go-live, [`private/set_member`](/api-reference/account-management/private-set_member), [`private/delete_member`](/api-reference/account-management/private-delete_member), and [`private/get_members`](/api-reference/account-management/private-get_members) are available on the standard JSON-RPC API and in the Starbase tab of the Account Panel.
@@ -136,4 +137,4 @@ If anything on this list is not working as expected:
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Starbase API Overview](/starbase/overview.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
-- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [REST Order Gateway Authentication](/starbase/rest-authentication.md)

@@ -257,10 +257,6 @@ tradeQuoteCcy
 For users in specific countries and regions, this parameter must be filled out for a successful order. Otherwise, the system will use the quote currency of instId as the default value, then error code 51000 will occur.
 The value provided must be one of the enumerated values from tradeQuoteCcyList, which can be obtained from the endpoint Get instruments (GET /api/v5/account/instruments).
 
-Rate limit of orders tagged as rpiTakerAccess:true
-- 50 orders per 2 seconds per User ID per instrument ID.
-- This rate limit is shared in Place order/Place multiple orders endpoints in REST/WebSocket
-
 ### POST / Place multiple orders
 
 Place orders in batches. Maximum 20 orders can be placed per request.
@@ -430,10 +426,6 @@ In the `Portfolio Margin` account mode, either all orders are accepted by the sy
 clOrdId
 clOrdId is a user-defined unique ID used to identify the order. It will be included in the response parameters if you have specified during order submission, and can be used as a request parameter to the endpoints to query, cancel and amend orders.
 clOrdId must be unique among all pending orders and the current request.
-
-Rate limit of orders tagged as rpiTakerAccess:true
-- 50 orders per 2 seconds per User ID per instrument ID.
-- This rate limit is shared in Place order/Place multiple orders endpoints in REST/WebSocket
 
 ### POST / Cancel order
 
@@ -4017,12 +4009,6 @@ There are three STP modes. The STP mode is always taken based on the configurati
 
 3. Cancel Both: Both taker and maker orders are canceled to prevent self-trading. If the user's own maker order is lower in the order book priority, the taker order is partially filled. Then, the remaining quantity of the taker order and the first maker order are canceled. FOK orders are not supported in this mode.
 
-Rate limit of orders tagged as rpiTakerAccess:true
-
-- 50 orders per 2 seconds per User ID per instrument ID.
-
-- This rate limit is shared in Place order/Place multiple orders endpoints in REST/WebSocket
-
 ### WS / Place multiple orders
 
 Place orders in a batch. Maximum 20 orders can be placed per request
@@ -4246,12 +4232,6 @@ clOrdId
 clOrdId is a user-defined unique ID used to identify the order. It will be included in the response parameters if you have specified during order submission, and can be used as a request parameter to the endpoints to query, cancel and amend orders.
 
 clOrdId must be unique among all pending orders and the current request.
-
-Rate limit of orders tagged as rpiTakerAccess:true
-
-- 50 orders per 2 seconds per User ID per instrument ID.
-
-- This rate limit is shared in Place order/Place multiple orders endpoints in REST/WebSocket
 
 ### WS / Cancel order
 

@@ -246,8 +246,8 @@ components:
             - trades
             - has_more
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     user_trade:
       properties:
@@ -260,12 +260,26 @@ components:
         timestamp:
           $ref: '#/components/schemas/trade_timestamp'
         starbase_timestamp:
-          type: integer
+          $ref: '#/components/schemas/starbase_timestamp'
           description: >-
-            Optional field: timestamp of the match (trade) in
-            [Starbase](https://docs.deribit.com/starbase/overview), in
+            Optional field: the Starbase causal timestamp of the trade, in
             nanoseconds since the UNIX epoch (present only for trades matched in
             Starbase)
+        starbase_order_id:
+          type: integer
+          example: 103148386170
+          description: >-
+            Raw Starbase order id of the user's order, in Starbase's own (non
+            currency-prefixed) id namespace (present only for trades matched in
+            Starbase)
+        starbase_client_order_id:
+          type: string
+          description: >-
+            Client order id of the user's own order (maker or taker side)
+            submitted directly to
+            [Starbase](https://docs.deribit.com/starbase/overview) via direct
+            access; not returned for orders placed through the Deribit API; for
+            self-trades this is the taker order's client order id
         order_type:
           type: string
           enum:
@@ -273,6 +287,8 @@ components:
             - market
             - liquidation
           description: 'Order type: `"limit`, `"market"`, or `"liquidation"`'
+        original_order_type:
+          $ref: '#/components/schemas/original_order_type'
         advanced:
           type: string
           enum:
@@ -289,20 +305,6 @@ components:
         matching_id:
           type: string
           description: Always `null`
-        starbase_match_id:
-          type: integer
-          description: >-
-            Optional field containing the Starbase match identifier (present
-            only for trades matched via Starbase)
-        starbase_order_id:
-          type: integer
-          description: >-
-            Optional field: the id in
-            [Starbase](https://docs.deribit.com/starbase/overview) of the user's
-            own order (maker or taker side) that took part in the trade; for
-            self-trades this is always the taker order's id, and for combo legs
-            it is the parent combo order's id (present only for trades matched
-            in Starbase)
         direction:
           $ref: '#/components/schemas/direction'
           description: Trade direction of the taker
@@ -361,6 +363,8 @@ components:
           $ref: '#/components/schemas/order_state_in_user_trade'
         block_trade_id:
           $ref: '#/components/schemas/block_trade_id_in_result'
+        block_trade_leg_count:
+          $ref: '#/components/schemas/block_trade_leg_count'
         block_rfq_id:
           type: integer
           description: ID of the Block RFQ - when trade was part of the Block RFQ
@@ -394,7 +398,12 @@ components:
           description: >-
             Optional field containing leg trades if trade is a combo trade
             (present when querying for **only** combo trades and in
-            `combo_trades` events)
+            `combo_trades` events). Each leg trade has the same fields as a
+            top-level user trade, including `starbase_match_id`,
+            `starbase_order_id`, and `starbase_timestamp` when matched in
+            Starbase, and `starbase_client_order_id` for orders submitted via
+            [Starbase](https://docs.deribit.com/starbase/overview) direct
+            access.
         combo_id:
           type: string
           description: >-
@@ -405,6 +414,11 @@ components:
           description: >-
             Optional field containing combo trade identifier if the trade is a
             combo trade
+        starbase_match_id:
+          type: integer
+          description: >-
+            Optional field containing the Starbase match identifier (present
+            only for trades matched via Starbase)
         quote_set_id:
           type: string
           description: >-
@@ -489,6 +503,21 @@ components:
       example: 1517329113791
       type: integer
       description: The timestamp of the trade (milliseconds since the UNIX epoch)
+    starbase_timestamp:
+      example: 1536569522277000000
+      type: integer
+      description: >-
+        The Starbase causal timestamp of the trade (nanoseconds since the Unix
+        epoch)
+    original_order_type:
+      enum:
+        - market
+        - market_limit
+      type: string
+      description: >-
+        Original API order type when an order is represented internally as a
+        limit order. For example, Starbase market orders use `"limit"` as
+        `order_type` with `"market"` in this optional field.
     direction:
       enum:
         - buy
@@ -529,6 +558,10 @@ components:
       example: '154'
       type: string
       description: Block trade id - when trade was part of a block trade
+    block_trade_leg_count:
+      example: 3
+      type: integer
+      description: Block trade leg count - when trade was part of a block trade
     profit_loss:
       type: number
       description: Profit and loss in base currency.

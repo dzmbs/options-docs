@@ -146,8 +146,8 @@ components:
         result:
           $ref: '#/components/schemas/address_beneficiary_item'
       required:
-        - jsonrpc
         - result
+        - jsonrpc
       type: object
     address_beneficiary_item:
       properties:

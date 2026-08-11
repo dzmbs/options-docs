@@ -14,39 +14,39 @@
   **The test network does not mirror the production gateway topology.** Test uses a single A/B order-entry pair because the full production hardware footprint is not available in the test environment. Production retains A/B redundancy but is sharded into separate BTC, ETH, Tier 2, and Tier 3 gateway pairs. Build routing from the environment-specific tables below rather than reusing test addresses or connection assumptions in production.
 </Warning>
 
-| Gateway                    | Side | Address                                                | Port        | Protocol                      | AWS Port        |
-| -------------------------- | ---- | ------------------------------------------------------ | ----------- | ----------------------------- | --------------- |
-| sbe-order                  | A    | 195.138.37.137                                         | 4210        | TCP                           | 14210           |
-| sbe-order                  | B    | 195.138.37.138                                         | 4210        | TCP                           | 24210           |
-| fix-drop-copy              | A    | 195.138.37.139                                         | 4130        | TCP                           | 14130           |
-| sbe-marketdata-retransmit  | A    | 195.138.37.139                                         | 4240 – 4247 | UDP Unicast<br />+ UDP Return |                 |
-| sbe-marketdata-incremental | A    | [See Multicast Channels](/starbase/multicast-channels) | 4220        | UDP Multicast                 | Multicast Relay |
-| sbe-marketdata-snapshot    | A    | [See Multicast Channels](/starbase/multicast-channels) | 4230        | UDP Multicast                 | Multicast Relay |
-| REST                       | A    | 195.138.37.137                                         | 4410        | HTTPS                         | 14410           |
-| REST                       | B    | 195.138.37.138                                         | 4410        | HTTPS                         | 24410           |
+| Gateway                    | Side | Address                                                | Port        | Protocol                      | AWS Port          |
+| -------------------------- | ---- | ------------------------------------------------------ | ----------- | ----------------------------- | ----------------- |
+| sbe-order                  | A    | 195.138.37.137                                         | 4210        | TCP                           | 14210             |
+| sbe-order                  | B    | 195.138.37.138                                         | 4210        | TCP                           | 24210             |
+| fix-drop-copy              | A    | 195.138.37.139                                         | 4130        | TCP                           | 14130             |
+| sbe-marketdata-retransmit  | A    | 195.138.37.139                                         | 4240 – 4247 | UDP Unicast<br />+ UDP Return | Not yet available |
+| sbe-marketdata-incremental | A    | [See Multicast Channels](/starbase/multicast-channels) | 4220        | UDP Multicast                 | Multicast Relay   |
+| sbe-marketdata-snapshot    | A    | [See Multicast Channels](/starbase/multicast-channels) | 4230        | UDP Multicast                 | Multicast Relay   |
+| REST                       | A    | 195.138.37.137                                         | 4410        | HTTPS                         | 14410             |
+| REST                       | B    | 195.138.37.138                                         | 4410        | HTTPS                         | 24410             |
 
 ### Production Environment
 
-| Gateway                    | Side | Address                                                | Port        | Protocol                      | AWS Port        |
-| -------------------------- | ---- | ------------------------------------------------------ | ----------- | ----------------------------- | --------------- |
-| sbe-order (BTC)            | A    | 195.138.37.1                                           | 4210        | TCP                           | 34210           |
-| sbe-order (ETH)            | A    | 195.138.37.3                                           | 4211        | TCP                           | 34211           |
-| sbe-order (Tier 2)         | A    | 195.138.37.5                                           | 4212        | TCP                           | 34212           |
-| sbe-order (Tier 3)         | A    | 195.138.37.7                                           | 4213        | TCP                           | 34213           |
-| sbe-order (BTC)            | B    | 195.138.37.2                                           | 4210        | TCP                           | 44210           |
-| sbe-order (ETH)            | B    | 195.138.37.4                                           | 4211        | TCP                           | 44211           |
-| sbe-order (Tier 2)         | B    | 195.138.37.6                                           | 4212        | TCP                           | 44212           |
-| sbe-order (Tier 3)         | B    | 195.138.37.8                                           | 4213        | TCP                           | 44213           |
-| fix-drop-copy              | A    | 195.138.37.7                                           | 4130        | TCP                           | 34130           |
-| fix-drop-copy              | B    | 195.138.37.8                                           | 4130        | TCP                           | 44130           |
-| sbe-marketdata-retransmit  | A    | 195.138.37.9                                           | 4240 – 4247 | UDP Unicast<br />+ UDP Return |                 |
-| sbe-marketdata-retransmit  | B    | 195.138.37.10                                          | 4240 – 4247 | UDP Unicast<br />+ UDP Return |                 |
-| sbe-marketdata-incremental | A    | [See Multicast Channels](/starbase/multicast-channels) | 4220        | UDP Multicast                 | Multicast Relay |
-| sbe-marketdata-incremental | B    | [See Multicast Channels](/starbase/multicast-channels) | 4220        | UDP Multicast                 | Multicast Relay |
-| sbe-marketdata-snapshot    | A    | [See Multicast Channels](/starbase/multicast-channels) | 4230        | UDP Multicast                 | Multicast Relay |
-| sbe-marketdata-snapshot    | B    | [See Multicast Channels](/starbase/multicast-channels) | 4230        | UDP Multicast                 | Multicast Relay |
-| REST                       | A    | 195.138.37.5                                           | 4410        | HTTPS                         | 34410           |
-| REST                       | B    | 195.138.37.6                                           | 4410        | HTTPS                         | 44410           |
+| Gateway                    | Side | Address                                                | Port        | Protocol                      | AWS Port            |
+| -------------------------- | ---- | ------------------------------------------------------ | ----------- | ----------------------------- | ------------------- |
+| sbe-order (BTC)            | A    | 195.138.37.1                                           | 4210        | TCP                           | 34210               |
+| sbe-order (ETH)            | A    | 195.138.37.3                                           | 4211        | TCP                           | 34211               |
+| sbe-order (Tier 2)         | A    | 195.138.37.5                                           | 4212        | TCP                           | 34212               |
+| sbe-order (Tier 3)         | A    | 195.138.37.7                                           | 4213        | TCP                           | 34213               |
+| sbe-order (BTC)            | B    | 195.138.37.2                                           | 4210        | TCP                           | 44210               |
+| sbe-order (ETH)            | B    | 195.138.37.4                                           | 4211        | TCP                           | 44211               |
+| sbe-order (Tier 2)         | B    | 195.138.37.6                                           | 4212        | TCP                           | 44212               |
+| sbe-order (Tier 3)         | B    | 195.138.37.8                                           | 4213        | TCP                           | 44213               |
+| fix-drop-copy              | A    | 195.138.37.7                                           | 4130        | TCP                           | 34130               |
+| fix-drop-copy              | B    | 195.138.37.8                                           | 4130        | TCP                           | 44130               |
+| sbe-marketdata-retransmit  | A    | 195.138.37.9                                           | 4240 – 4247 | UDP Unicast<br />+ UDP Return | 34240 – 34247 (TCP) |
+| sbe-marketdata-retransmit  | B    | 195.138.37.10                                          | 4240 – 4247 | UDP Unicast<br />+ UDP Return | 24240 – 24247 (TCP) |
+| sbe-marketdata-incremental | A    | [See Multicast Channels](/starbase/multicast-channels) | 4220        | UDP Multicast                 | Multicast Relay     |
+| sbe-marketdata-incremental | B    | [See Multicast Channels](/starbase/multicast-channels) | 4220        | UDP Multicast                 | Multicast Relay     |
+| sbe-marketdata-snapshot    | A    | [See Multicast Channels](/starbase/multicast-channels) | 4230        | UDP Multicast                 | Multicast Relay     |
+| sbe-marketdata-snapshot    | B    | [See Multicast Channels](/starbase/multicast-channels) | 4230        | UDP Multicast                 | Multicast Relay     |
+| REST                       | A    | 195.138.37.5                                           | 4410        | HTTPS                         | 34410               |
+| REST                       | B    | 195.138.37.6                                           | 4410        | HTTPS                         | 44410               |
 
 ## Gateway Architecture
 
@@ -98,5 +98,5 @@ For a consolidated view of all activity on a single Portfolio, the [FIX Drop Cop
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [REST Order Gateway Authentication](/starbase/rest-authentication.md)
+- [Multicast Retransmit Gateway](/starbase/retransmit-gateway.md)
 - [Starbase API Overview](/starbase/overview.md)
-- [Production Readiness Checklist](/starbase/production-readiness-checklist.md)
