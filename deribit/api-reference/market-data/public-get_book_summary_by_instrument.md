@@ -283,8 +283,8 @@ components:
 
 ## Related topics
 
-- [public/get_book_summary_by_currency](/api-reference/market-data/public-get_book_summary_by_currency.md)
-- [public/get_order_book_by_instrument_id](/api-reference/market-data/public-get_order_book_by_instrument_id.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Starbase Reference Data and Instrument Definitions](/starbase/reference-data.md)
-- [public/get_order_book](/api-reference/market-data/public-get_order_book.md)
+- [Multicast Channels](/starbase/multicast-channels.md)
+- [public/get_book_summary_by_currency](/api-reference/market-data/public-get_book_summary_by_currency.md)
+- [public/get_order_book_by_instrument_id](/api-reference/market-data/public-get_order_book_by_instrument_id.md)

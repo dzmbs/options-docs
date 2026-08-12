@@ -464,5 +464,5 @@ components:
 - [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
 - [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [private/set_mmp_config](/api-reference/trading/private-set_mmp_config.md)
-- [private/get_mmp_status](/api-reference/trading/private-get_mmp_status.md)
+- [Risk Bypass](/starbase/risk-bypass.md)
+- [Production Readiness Checklist](/starbase/production-readiness-checklist.md)

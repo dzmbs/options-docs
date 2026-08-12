@@ -67,7 +67,7 @@ Key and session limits to plan around:
 Download the integration resources:
 
 * SBE XML schemas — schema definitions for [order entry](/specifications/deribit-sbe-xmls/deribit-sbe-order-api.xml) and [market data](/specifications/deribit-sbe-xmls/deribit-sbe-market-data-api.xml)
-* [Order entry SDK](/starbase/starbase-deribit-order-sdk-13.0.zip) — client SDK for the SBE order entry API (schema version 13, semantic version 1.5)
+* [Order entry SDK](/starbase/starbase-deribit-order-sdk-14.0.zip) — client SDK for the SBE order entry API (schema version 14, semantic version 1.5)
 * [Market data SDK](/starbase/starbase-deribit-md-sdk-1.0.zip) — client SDK for the SBE market data API (schema version 1, semantic version 1.0)
 * [Market data PCAP](http://statics.deribit.com/files/starbase-market-data.pcap) — sample multicast packet capture
 

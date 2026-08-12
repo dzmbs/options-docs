@@ -426,8 +426,8 @@ securitySchemes: []
 
 ## Related topics
 
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [Notifications](/articles/notifications.md)
 - [block_rfq.maker.(currency) ](/subscriptions/block-rfq/block_rfqmakercurrency.md)
 - [block_rfq.taker.(currency) ](/subscriptions/block-rfq/block_rfqtakercurrency.md)
 - [public/get_block_rfq_trades](/api-reference/block-rfq/public-get_block_rfq_trades.md)
-- [block_rfq.maker.quotes.(currency) ](/subscriptions/block-rfq/block_rfqmakerquotescurrency.md)
-- [private/accept_block_rfq](/api-reference/block-rfq/private-accept_block_rfq.md)

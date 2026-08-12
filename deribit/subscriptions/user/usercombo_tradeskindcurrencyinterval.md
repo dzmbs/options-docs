@@ -933,8 +933,8 @@ securitySchemes: []
 
 ## Related topics
 
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
 - [user.trades.(kind).(currency).(interval) ](/subscriptions/user/usertradeskindcurrencyinterval.md)
 - [user.changes.(kind).(currency).(interval) ](/subscriptions/user/userchangeskindcurrencyinterval.md)
 - [trades.(kind).(currency).(interval) ](/subscriptions/trades/tradeskindcurrencyinterval.md)
 - [user.orders.(kind).(currency).(interval) ](/subscriptions/user/userorderskindcurrencyinterval.md)
-- [user.combo_trades.(instrument_name).(interval) ](/subscriptions/user/usercombo_tradesinstrument_nameinterval.md)

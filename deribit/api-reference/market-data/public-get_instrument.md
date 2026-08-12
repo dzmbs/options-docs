@@ -467,7 +467,7 @@ components:
 ## Related topics
 
 - [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [public/get_order_book_by_instrument_id](/api-reference/market-data/public-get_order_book_by_instrument_id.md)
 - [public/get_order_book](/api-reference/market-data/public-get_order_book.md)
-- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Quickstart Guide](/articles/deribit-quickstart.md)

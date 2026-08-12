@@ -1029,8 +1029,8 @@ components:
 
 ## Related topics
 
-- [private/edit_api_key](/api-reference/account-management/private-edit_api_key.md)
-- [private/edit_by_label](/api-reference/trading/private-edit_by_label.md)
-- [private/edit_block_rfq_quote](/api-reference/block-rfq/private-edit_block_rfq_quote.md)
 - [Rate Limits](/articles/rate-limits.md)
 - [Order Management](/articles/order-management-best-practices.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
+- [private/edit_api_key](/api-reference/account-management/private-edit_api_key.md)

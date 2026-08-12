@@ -2034,8 +2034,8 @@ securitySchemes: []
 
 ## Related topics
 
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [user.trades.(kind).(currency).(interval) ](/subscriptions/user/usertradeskindcurrencyinterval.md)
 - [user.orders.(kind).(currency).(interval) ](/subscriptions/user/userorderskindcurrencyinterval.md)
 - [user.combo_trades.(kind).(currency).(interval) ](/subscriptions/user/usercombo_tradeskindcurrencyinterval.md)
 - [trades.(kind).(currency).(interval) ](/subscriptions/trades/tradeskindcurrencyinterval.md)
-- [user.changes.(instrument_name).(interval) ](/subscriptions/user/userchangesinstrument_nameinterval.md)

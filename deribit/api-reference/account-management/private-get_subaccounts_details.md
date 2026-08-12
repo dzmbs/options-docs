@@ -771,8 +771,8 @@ components:
 
 ## Related topics
 
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [Moving Positions](/articles/moving-positions-api.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)
-- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
 - [private/create_subaccount](/api-reference/account-management/private-create_subaccount.md)
-- [private/get_positions](/api-reference/account-management/private-get_positions.md)

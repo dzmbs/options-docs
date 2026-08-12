@@ -607,8 +607,8 @@ components:
 
 ## Related topics
 
-- [private/get_order_state_by_label](/api-reference/trading/private-get_order_state_by_label.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [private/get_order_state_by_label](/api-reference/trading/private-get_order_state_by_label.md)
 - [private/get_trigger_order_history](/api-reference/trading/private-get_trigger_order_history.md)
 - [private/get_open_orders](/api-reference/trading/private-get_open_orders.md)
 - [private/get_user_trades_by_order](/api-reference/trading/private-get_user_trades_by_order.md)

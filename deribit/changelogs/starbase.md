@@ -33,6 +33,8 @@
 
   See [Reject](/starbase/session-messages#reject-30) for the full list of reject reason codes.
 
+  The updated [order entry SDK](/starbase/binary-api-reference#downloads) `14.0`, built from schema version `14`, has been uploaded and is available for download.
+
   Session-wide cancel-on-disconnect, announced with schema version `13` (`semanticVersion` `1.5`) on 07.08.2026, is live with the gateway go-live:
 
   * `LogonRequest` (1) — the optional `cancelOnDisconnect` field opts the entire session into CoD: the gateway applies cancel-on-disconnect to every `NewOrderRequest` and mass-quote leg submitted on the session, so resting liquidity is pulled if the client disconnects. The session value is a floor, not an override — an individual order cannot opt out once the session has opted in

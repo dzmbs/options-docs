@@ -69,7 +69,7 @@ Reject generated in case a `CancelOrderRequest` is unsuccessful.
 ## Related topics
 
 - [Order Management](/articles/order-management-best-practices.md)
+- [Rate Limits](/articles/rate-limits.md)
+- [Starbase API Changelog](/changelogs/starbase.md)
 - [Speed Bumps](/starbase/speed-bumps.md)
 - [Order Cancel/Replace Request(G) — Production FIX API](/fix-api/production/order-cancel-replace.md)
-- [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
-- [Rate Limits](/articles/rate-limits.md)

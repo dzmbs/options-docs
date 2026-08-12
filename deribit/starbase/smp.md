@@ -71,9 +71,9 @@ SMP uses three components to control order matching:
   </Tab>
 </Tabs>
 
-### Order from different systems
+### Orders from different systems
 
-Orders originating from the Websocket API, User Interface or other non-Starbase origin will have the SMP Token set based on the table below. To avoid matching with these orders when utilizing Starbase APIs, the same SMP Tokens should be used.
+Orders originating from the WebSocket API, User Interface or other non-Starbase origin will have the SMP Token set based on the table below. To avoid matching with these orders when utilizing Starbase APIs, the same SMP Tokens should be used.
 
 | Setting                                              | SMP Token Value                                |
 | ---------------------------------------------------- | ---------------------------------------------- |

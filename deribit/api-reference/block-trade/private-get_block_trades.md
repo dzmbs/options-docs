@@ -581,7 +581,7 @@ components:
 ## Related topics
 
 - [private/get_block_trade](/api-reference/block-trade/private-get_block_trade.md)
-- [private/get_block_trade_requests](/api-reference/block-trade/private-get_block_trade_requests.md)
 - [Block Trading](/articles/block-trading-api.md)
+- [Voice Broker Trading API](/articles/voice-broker-trading-api.md)
+- [private/get_block_trade_requests](/api-reference/block-trade/private-get_block_trade_requests.md)
 - [private/reject_block_trade](/api-reference/block-trade/private-reject_block_trade.md)
-- [private/approve_block_trade](/api-reference/block-trade/private-approve_block_trade.md)

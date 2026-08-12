@@ -19,7 +19,7 @@
 </Info>
 
 <Tip>
-  **Lowest-latency quoting**: Mass quotes are always MMP-enforced and therefore use the [MMP risk bypass](/starbase/risk-bypass) — the lowest-latency method for market access, which skips the pre-trade risk engine. For single orders, set the `MMP` flag to get the same treatment. Most integrating clients should prefer this path.
+  **Lowest-latency quoting**: Mass quotes are always MMP-enforced and therefore use the [MMP risk bypass](/starbase/risk-bypass) — the lowest-latency method for market access, which skips the pre-trade risk engine. For single orders, set the `MMP` flag to get the same treatment. Most integrating clients should prefer this path. The bypass requires the MMP group's **Quantity Limit ≤ Max Quote Quantity**.
 </Tip>
 
 <Warning>

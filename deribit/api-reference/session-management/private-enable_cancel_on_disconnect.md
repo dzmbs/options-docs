@@ -173,8 +173,8 @@ components:
 
 ## Related topics
 
+- [private/mass_quote](/api-reference/trading/private-mass_quote.md)
 - [private/get_cancel_on_disconnect](/api-reference/session-management/private-get_cancel_on_disconnect.md)
 - [private/disable_cancel_on_disconnect](/api-reference/session-management/private-disable_cancel_on_disconnect.md)
-- [private/mass_quote](/api-reference/trading/private-mass_quote.md)
 - [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)
 - [private/logout](/api-reference/authentication/private-logout.md)

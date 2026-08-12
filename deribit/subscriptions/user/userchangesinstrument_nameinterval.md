@@ -1997,8 +1997,8 @@ securitySchemes: []
 
 ## Related topics
 
+- [Notifications](/articles/notifications.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [user.changes.(kind).(currency).(interval) ](/subscriptions/user/userchangeskindcurrencyinterval.md)
 - [book.(instrument_name).(interval) ](/subscriptions/orderbook/bookinstrument_nameinterval.md)
 - [ticker.(instrument_name).(interval) ](/subscriptions/market-data/tickerinstrument_nameinterval.md)
-- [user.orders.(instrument_name).(interval) ](/subscriptions/user/userordersinstrument_nameinterval.md)
-- [user.trades.(instrument_name).(interval) ](/subscriptions/user/usertradesinstrument_nameinterval.md)

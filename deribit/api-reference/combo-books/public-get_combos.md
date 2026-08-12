@@ -219,8 +219,8 @@ components:
 
 ## Related topics
 
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [public/get_combo_ids](/api-reference/combo-books/public-get_combo_ids.md)
 - [public/get_combo_details](/api-reference/combo-books/public-get_combo_details.md)
-- [Options Data Collection](/articles/options-data-collection-best-practices.md)
 - [Security Definition Request(c) — Production FIX API](/fix-api/production/security-definition-request.md)
-- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)

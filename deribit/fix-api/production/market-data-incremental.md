@@ -8,7 +8,7 @@
 
 `Market Data – Incremental Refresh`(`X`) message is used for incremental updates
 in case of [`Market Data Request`(`V`)](/fix-api/production/market-data-request) for Snapshot +
-Subscribe
+Subscribe.
 
 ### Arguments
 

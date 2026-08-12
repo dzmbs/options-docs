@@ -351,7 +351,7 @@ securitySchemes: []
 ## Related topics
 
 - [block_trade_confirmations.(currency) ](/subscriptions/block-trade/block_trade_confirmationscurrency.md)
-- [Block Trading](/articles/block-trading-api.md)
 - [Voice Broker Trading API](/articles/voice-broker-trading-api.md)
 - [Notifications](/articles/notifications.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Block Trading](/articles/block-trading-api.md)

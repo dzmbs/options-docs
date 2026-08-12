@@ -870,8 +870,8 @@ securitySchemes: []
 
 ## Related topics
 
-- [user.combo_trades.(instrument_name).(interval) ](/subscriptions/user/usercombo_tradesinstrument_nameinterval.md)
-- [user.changes.(instrument_name).(interval) ](/subscriptions/user/userchangesinstrument_nameinterval.md)
 - [user.trades.(kind).(currency).(interval) ](/subscriptions/user/usertradeskindcurrencyinterval.md)
-- [trades.(instrument_name).(interval) ](/subscriptions/trades/tradesinstrument_nameinterval.md)
-- [user.orders.(instrument_name).(interval) ](/subscriptions/user/userordersinstrument_nameinterval.md)
+- [Notifications](/articles/notifications.md)
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [block_rfq.maker.(currency) ](/subscriptions/block-rfq/block_rfqmakercurrency.md)
+- [user.combo_trades.(instrument_name).(interval) ](/subscriptions/user/usercombo_tradesinstrument_nameinterval.md)

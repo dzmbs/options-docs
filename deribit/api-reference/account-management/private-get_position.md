@@ -316,7 +316,7 @@ components:
 ## Related topics
 
 - [private/get_positions](/api-reference/account-management/private-get_positions.md)
-- [Moving Positions](/articles/moving-positions-api.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Moving Positions](/articles/moving-positions-api.md)
 - [Managing Subaccounts](/articles/managing-subaccounts-api.md)
 - [private/move_positions](/api-reference/trading/private-move_positions.md)

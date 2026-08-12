@@ -634,8 +634,8 @@ components:
 
 ## Related topics
 
+- [Accessing Historical Trades and Orders Using API](/articles/accessing-historical-trades-orders.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
 - [private/get_user_trades_by_currency_and_time](/api-reference/trading/private-get_user_trades_by_currency_and_time.md)
 - [private/get_user_trades_by_order](/api-reference/trading/private-get_user_trades_by_order.md)
-- [private/get_user_trades_by_instrument](/api-reference/trading/private-get_user_trades_by_instrument.md)
-- [private/get_user_trades_by_instrument_and_time](/api-reference/trading/private-get_user_trades_by_instrument_and_time.md)
-- [Accessing Historical Trades and Orders Using API](/articles/accessing-historical-trades-orders.md)

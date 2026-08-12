@@ -578,8 +578,8 @@ components:
 
 ## Related topics
 
+- [Rate Limits](/articles/rate-limits.md)
+- [Order Management](/articles/order-management-best-practices.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/cancel_quotes](/api-reference/trading/private-cancel_quotes.md)
 - [private/cancel_all](/api-reference/trading/private-cancel_all.md)
-- [private/cancel_withdrawal](/api-reference/wallet/private-cancel_withdrawal.md)
-- [private/cancel_by_label](/api-reference/trading/private-cancel_by_label.md)
-- [private/cancel_block_rfq](/api-reference/block-rfq/private-cancel_block_rfq.md)

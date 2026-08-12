@@ -178,6 +178,6 @@ A request for a `beginSeqNum` that has been evicted receives `SEQ_TOO_LOW`.
 
 - [Gateway Connectivity](/starbase/gateway-connectivity.md)
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
-- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Multicast Channels](/starbase/multicast-channels.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Starbase API Changelog](/changelogs/starbase.md)

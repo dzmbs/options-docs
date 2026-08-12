@@ -977,8 +977,8 @@ securitySchemes: []
 
 ## Related topics
 
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [user.orders.(kind).(currency).raw ](/subscriptions/user/userorderskindcurrencyraw.md)
 - [user.orders.(instrument_name).(interval) ](/subscriptions/user/userordersinstrument_nameinterval.md)
 - [user.changes.(instrument_name).(interval) ](/subscriptions/user/userchangesinstrument_nameinterval.md)
 - [user.trades.(instrument_name).(interval) ](/subscriptions/user/usertradesinstrument_nameinterval.md)
-- [user.combo_trades.(instrument_name).(interval) ](/subscriptions/user/usercombo_tradesinstrument_nameinterval.md)

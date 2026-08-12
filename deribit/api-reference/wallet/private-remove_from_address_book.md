@@ -177,8 +177,8 @@ components:
 
 ## Related topics
 
+- [Managing Withdrawals](/articles/managing-withdrawals-api.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_address_book](/api-reference/wallet/private-get_address_book.md)
 - [private/add_to_address_book](/api-reference/wallet/private-add_to_address_book.md)
 - [private/update_in_address_book](/api-reference/wallet/private-update_in_address_book.md)
-- [Managing Withdrawals](/articles/managing-withdrawals-api.md)
-- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)

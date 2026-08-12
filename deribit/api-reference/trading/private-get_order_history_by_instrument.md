@@ -653,8 +653,8 @@ components:
 
 ## Related topics
 
+- [Accessing Historical Trades and Orders Using API](/articles/accessing-historical-trades-orders.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Starbase FIX Drop Copy API](/starbase/fix-drop-copy-api.md)
 - [private/get_trigger_order_history](/api-reference/trading/private-get_trigger_order_history.md)
 - [private/get_order_history_by_currency](/api-reference/trading/private-get_order_history_by_currency.md)
-- [private/get_settlement_history_by_instrument](/api-reference/trading/private-get_settlement_history_by_instrument.md)
-- [private/get_open_orders_by_instrument](/api-reference/trading/private-get_open_orders_by_instrument.md)
-- [Accessing Historical Trades and Orders Using API](/articles/accessing-historical-trades-orders.md)

@@ -7,7 +7,7 @@
 > MarketDataRequestReject(Y) is the Deribit production FIX API server response when a MarketDataRequest is refused, listing reject reason codes and remediation.
 
 If a [`Market Data Request`(`V`)](/fix-api/production/market-data-request) message is not
-accepted, the exchange responds with a `Market Data Request Reject`(`Y`) message
+accepted, the exchange responds with a `Market Data Request Reject`(`Y`) message.
 
 ### Arguments
 

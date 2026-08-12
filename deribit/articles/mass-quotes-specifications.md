@@ -437,7 +437,7 @@ Mass quoting is fully supported via FIX, using dedicated message types that segr
 ## Related topics
 
 - [private/mass_quote](/api-reference/trading/private-mass_quote.md)
-- [Mass Quote(i) — Production FIX API](/fix-api/production/mass-quote.md)
-- [Mass Quotes](/starbase/mass-quotes.md)
+- [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
 - [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
-- [Speed Bumps](/starbase/speed-bumps.md)
+- [Rate Limits](/articles/rate-limits.md)
+- [private/get_mmp_status](/api-reference/trading/private-get_mmp_status.md)

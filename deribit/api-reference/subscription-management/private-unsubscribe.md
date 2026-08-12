@@ -191,8 +191,8 @@ components:
 
 ## Related topics
 
-- [private/unsubscribe_all](/api-reference/subscription-management/private-unsubscribe_all.md)
 - [Notifications](/articles/notifications.md)
+- [private/unsubscribe_all](/api-reference/subscription-management/private-unsubscribe_all.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [public/unsubscribe](/api-reference/subscription-management/public-unsubscribe.md)
 - [public/unsubscribe_all](/api-reference/subscription-management/public-unsubscribe_all.md)

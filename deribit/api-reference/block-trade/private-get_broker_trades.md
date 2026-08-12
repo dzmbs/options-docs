@@ -617,8 +617,8 @@ components:
 
 ## Related topics
 
-- [private/get_broker_trade_requests](/api-reference/block-trade/private-get_broker_trade_requests.md)
 - [Voice Broker Trading API](/articles/voice-broker-trading-api.md)
+- [private/get_broker_trade_requests](/api-reference/block-trade/private-get_broker_trade_requests.md)
 - [private/get_broker_clients](/api-reference/block-trade/private-get_broker_clients.md)
 - [private/get_block_trade_requests](/api-reference/block-trade/private-get_block_trade_requests.md)
 - [private/get_block_trades](/api-reference/block-trade/private-get_block_trades.md)

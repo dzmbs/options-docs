@@ -243,8 +243,8 @@ components:
 
 ## Related topics
 
+- [Managing Transfers](/articles/managing-transfers-api.md)
 - [private/submit_transfer_between_subaccounts](/api-reference/wallet/private-submit_transfer_between_subaccounts.md)
 - [private/submit_transfer_to_user](/api-reference/wallet/private-submit_transfer_to_user.md)
-- [Managing Transfers](/articles/managing-transfers-api.md)
 - [private/get_transfers](/api-reference/wallet/private-get_transfers.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)

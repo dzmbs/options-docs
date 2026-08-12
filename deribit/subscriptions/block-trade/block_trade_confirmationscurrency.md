@@ -371,8 +371,8 @@ securitySchemes: []
 
 ## Related topics
 
+- [Notifications](/articles/notifications.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [block_trade_confirmations ](/subscriptions/block-trade/block_trade_confirmations.md)
 - [block_rfq.trades.(currency) ](/subscriptions/block-rfq/block_rfqtradescurrency.md)
-- [Notifications](/articles/notifications.md)
 - [Block Trading](/articles/block-trading-api.md)
-- [Voice Broker Trading API](/articles/voice-broker-trading-api.md)

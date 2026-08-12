@@ -453,6 +453,6 @@ securitySchemes: []
 
 - [user.trades.(instrument_name).(interval) ](/subscriptions/user/usertradesinstrument_nameinterval.md)
 - [user.combo_trades.(instrument_name).(interval) ](/subscriptions/user/usercombo_tradesinstrument_nameinterval.md)
-- [user.changes.(instrument_name).(interval) ](/subscriptions/user/userchangesinstrument_nameinterval.md)
-- [ticker.(instrument_name).(interval) ](/subscriptions/market-data/tickerinstrument_nameinterval.md)
-- [perpetual.(instrument_name).(interval) ](/subscriptions/market-data/perpetualinstrument_nameinterval.md)
+- [user.trades.(kind).(currency).(interval) ](/subscriptions/user/usertradeskindcurrencyinterval.md)
+- [Notifications](/articles/notifications.md)
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)

@@ -410,8 +410,8 @@ components:
 
 ## Related topics
 
-- [private/get_address_book](/api-reference/wallet/private-get_address_book.md)
-- [private/remove_from_address_book](/api-reference/wallet/private-remove_from_address_book.md)
-- [private/update_in_address_book](/api-reference/wallet/private-update_in_address_book.md)
 - [Managing Withdrawals](/articles/managing-withdrawals-api.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Managing Deposits](/articles/managing-deposits-api.md)
+- [private/get_address_book](/api-reference/wallet/private-get_address_book.md)
+- [private/remove_from_address_book](/api-reference/wallet/private-remove_from_address_book.md)

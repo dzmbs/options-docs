@@ -390,7 +390,7 @@ components:
 ## Related topics
 
 - [Managing Subaccounts](/articles/managing-subaccounts-api.md)
-- [private/get_subaccounts_details](/api-reference/account-management/private-get_subaccounts_details.md)
 - [Moving Positions](/articles/moving-positions-api.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [private/get_subaccounts_details](/api-reference/account-management/private-get_subaccounts_details.md)
 - [private/remove_subaccount](/api-reference/account-management/private-remove_subaccount.md)

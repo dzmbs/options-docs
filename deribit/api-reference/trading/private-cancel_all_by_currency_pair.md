@@ -259,8 +259,8 @@ components:
 
 ## Related topics
 
-- [private/cancel_all_by_currency](/api-reference/trading/private-cancel_all_by_currency.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
+- [private/cancel_all_by_currency](/api-reference/trading/private-cancel_all_by_currency.md)
 - [private/cancel_quotes](/api-reference/trading/private-cancel_quotes.md)
 - [Starbase Mass Cancel Messages](/starbase/mass-cancel.md)

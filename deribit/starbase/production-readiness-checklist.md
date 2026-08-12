@@ -45,6 +45,10 @@ This checklist is for clients already onboarded to Starbase. Work through the st
     * **Mass quotes** — MMP is always enforced through the `mmpGroupId` referenced on every `MassQuoteRequest`, so mass quoting uses the bypass by default.
     * Configure your MMP limits (quantity, delta, vega, interval, frozen time, and Max Quote Quantity) with [`private/set_mmp_config`](/api-reference/trading/private-set_mmp_config) before go-live. Note the scoping difference: order MMP applies **per subaccount and base/quote pair**, while mass-quote MMP works through an explicit `mmpGroupId`.
 
+    <Warning>
+      The risk bypass requires **Quantity Limit ≤ Max Quote Quantity** in the MMP configuration. If the Quantity Limit is set higher than the Max Quote Quantity, MMP-tagged flow does not bypass the risk engine. Verify your values with [`private/get_mmp_config`](/api-reference/trading/private-get_mmp_config).
+    </Warning>
+
     See [Market Maker Protection](/starbase/mmp) for configuration, reset, and monitoring details.
   </Step>
 
@@ -53,7 +57,7 @@ This checklist is for clients already onboarded to Starbase. Work through the st
 
     * [SBE order entry XML](/specifications/deribit-sbe-xmls/deribit-sbe-order-api.xml)
     * [SBE market data XML](/specifications/deribit-sbe-xmls/deribit-sbe-market-data-api.xml)
-    * [Order entry SDK](/starbase/starbase-deribit-order-sdk-13.0.zip)
+    * [Order entry SDK](/starbase/starbase-deribit-order-sdk-14.0.zip)
     * [Market data SDK](/starbase/starbase-deribit-md-sdk-1.0.zip)
 
     <Info>
@@ -137,4 +141,4 @@ If anything on this list is not working as expected:
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Starbase API Overview](/starbase/overview.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
-- [REST Order Gateway Authentication](/starbase/rest-authentication.md)
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)

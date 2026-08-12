@@ -31,8 +31,6 @@ orders by `OrigClOrdId` is noticeably faster.
 | 55     | `Symbol`       | String | Required if `OrigClOrdId` is absent                  | Instrument symbol, e.g., <b>BTC-1JAN16</b>                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | 15     | `Currency`     | String | No                                                   | To speed up the search of the order by `DeribitLabel` or `ClOrdID`                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-### Response on failure
-
 
 ## Related topics
 

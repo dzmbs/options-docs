@@ -341,8 +341,8 @@ components:
 
 ## Related topics
 
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
 - [public/get_last_trades_by_instrument](/api-reference/market-data/public-get_last_trades_by_instrument.md)
 - [public/get_last_trades_by_currency_and_time](/api-reference/market-data/public-get_last_trades_by_currency_and_time.md)
 - [public/get_last_trades_by_currency](/api-reference/market-data/public-get_last_trades_by_currency.md)
-- [public/get_last_settlements_by_instrument](/api-reference/market-data/public-get_last_settlements_by_instrument.md)
-- [private/get_user_trades_by_instrument_and_time](/api-reference/trading/private-get_user_trades_by_instrument_and_time.md)

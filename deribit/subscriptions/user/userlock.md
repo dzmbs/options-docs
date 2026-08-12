@@ -178,8 +178,8 @@ securitySchemes: []
 
 ## Related topics
 
-- [private/get_user_locks](/api-reference/account-management/private-get_user_locks.md)
 - [Notifications](/articles/notifications.md)
+- [private/get_user_locks](/api-reference/account-management/private-get_user_locks.md)
 - [Order Management](/articles/order-management-best-practices.md)
 - [Lock Portfolio](/api-reference/portfolio-management/lock-portfolio.md)
 - [Voice Broker Trading API](/articles/voice-broker-trading-api.md)

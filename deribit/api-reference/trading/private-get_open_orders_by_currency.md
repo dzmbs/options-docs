@@ -630,8 +630,8 @@ components:
 
 ## Related topics
 
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_open_orders](/api-reference/trading/private-get_open_orders.md)
 - [private/get_open_orders_by_label](/api-reference/trading/private-get_open_orders_by_label.md)
 - [private/get_open_orders_by_instrument](/api-reference/trading/private-get_open_orders_by_instrument.md)
 - [private/get_order_history_by_currency](/api-reference/trading/private-get_order_history_by_currency.md)
-- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)

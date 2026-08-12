@@ -223,6 +223,10 @@ When MMP limits are breached, the Starbase Binary API sends unsolicited events t
 
 MMP configuration is managed through the JSON-RPC API. To configure MMP settings, use the [`private/set_mmp_config`](/api-reference/trading/private-set_mmp_config) method. This method allows you to set MMP parameters including quantity limits, delta limits, vega limits, interval, frozen time, and maximum quote quantity (MQQ).
 
+<Warning>
+  **Quantity Limit must be ≤ Max Quote Quantity**: For the [risk bypass](/starbase/risk-bypass) to work, the configured Quantity Limit must be **smaller than or equal to** the Max Quote Quantity. If the Quantity Limit exceeds the Max Quote Quantity, MMP-tagged orders and quotes do not bypass the risk engine.
+</Warning>
+
 
 ## Related topics
 

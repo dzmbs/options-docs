@@ -10,10 +10,6 @@
   **Multicast & networking support**: For detailed multicast or networking questions, contact <a href="mailto:colo-support@coinbase.com" style={{ whiteSpace: "nowrap" }}>[colo-support@coinbase.com](mailto:colo-support@coinbase.com)</a>.
 </Info>
 
-<Warning>
-  **Test environment**: Only instruments actively running on Starbase in the test environment have live market data. If you subscribe to a test channel for an instrument that is not yet active on Starbase, you will not receive any data.
-</Warning>
-
 <Note>
   Market data will only be sent by the **active** switch and duplicate data will not be received. The secondary connection will begin to receive market data during a failover scenario.
 </Note>
@@ -84,22 +80,40 @@ Clients who are not colocated or cross-connected can still receive multicast mar
 
 Retransmit:
 
-| Product Type                                      | Feed | IP Address     | Port |
-| :------------------------------------------------ | ---- | :------------- | :--- |
-| **BTC Perpetuals, Futures and Future Spreads**    | Test | 195.138.37.139 | 4240 |
-| **BTC Options and Option Combinations**           | Test | 195.138.37.139 | 4241 |
-| **ETH Perpetuals, Futures and Future Spreads**    | Test | 195.138.37.139 | 4242 |
-| **ETH Options and Option Combinations**           | Test | 195.138.37.139 | 4243 |
-| **Tier 2 Futures, Perpetuals and Future Spreads** | Test | 195.138.37.139 | 4244 |
-| **Tier 2 Options and Option Combinations**        | Test | 195.138.37.139 | 4245 |
-| **Tier 3 Futures, Perpetuals and Future Spreads** | Test | 195.138.37.139 | 4246 |
-| **RWA and pre-IPO perpetuals**                    | Test | 195.138.37.139 | 4247 |
+Each channel has its own retransmit port. The `Port` column is the UDP unicast port used by colocation and cross-connect clients; the `AWS Port` column is the **TCP** port used by clients connecting over AWS Private Link. See [Retransmit Gateway](/starbase/retransmit-gateway) for the request protocol.
+
+| Product Type                                      | Feed | IP Address     | Port | AWS Port (TCP)    |
+| :------------------------------------------------ | ---- | :------------- | :--- | :---------------- |
+| **BTC Perpetuals, Futures and Future Spreads**    | A    | 195.138.37.9   | 4240 | 34240             |
+|                                                   | B    | 195.138.37.10  | 4240 | 24240             |
+|                                                   | Test | 195.138.37.139 | 4240 | Not yet available |
+| **BTC Options and Option Combinations**           | A    | 195.138.37.9   | 4241 | 34241             |
+|                                                   | B    | 195.138.37.10  | 4241 | 24241             |
+|                                                   | Test | 195.138.37.139 | 4241 | Not yet available |
+| **ETH Perpetuals, Futures and Future Spreads**    | A    | 195.138.37.9   | 4242 | 34242             |
+|                                                   | B    | 195.138.37.10  | 4242 | 24242             |
+|                                                   | Test | 195.138.37.139 | 4242 | Not yet available |
+| **ETH Options and Option Combinations**           | A    | 195.138.37.9   | 4243 | 34243             |
+|                                                   | B    | 195.138.37.10  | 4243 | 24243             |
+|                                                   | Test | 195.138.37.139 | 4243 | Not yet available |
+| **Tier 2 Futures, Perpetuals and Future Spreads** | A    | 195.138.37.9   | 4244 | 34244             |
+|                                                   | B    | 195.138.37.10  | 4244 | 24244             |
+|                                                   | Test | 195.138.37.139 | 4244 | Not yet available |
+| **Tier 2 Options and Option Combinations**        | A    | 195.138.37.9   | 4245 | 34245             |
+|                                                   | B    | 195.138.37.10  | 4245 | 24245             |
+|                                                   | Test | 195.138.37.139 | 4245 | Not yet available |
+| **Tier 3 Futures, Perpetuals and Future Spreads** | A    | 195.138.37.9   | 4246 | 34246             |
+|                                                   | B    | 195.138.37.10  | 4246 | 24246             |
+|                                                   | Test | 195.138.37.139 | 4246 | Not yet available |
+| **RWA and pre-IPO perpetuals**                    | A    | 195.138.37.9   | 4247 | 34247             |
+|                                                   | B    | 195.138.37.10  | 4247 | 24247             |
+|                                                   | Test | 195.138.37.139 | 4247 | Not yet available |
 
 
 ## Related topics
 
 - [Multicast Retransmit Gateway](/starbase/retransmit-gateway.md)
 - [Multicast Subscription Guide](/starbase/multicast-subscription-guide.md)
-- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Gateway Connectivity](/starbase/gateway-connectivity.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Starbase API Changelog](/changelogs/starbase.md)

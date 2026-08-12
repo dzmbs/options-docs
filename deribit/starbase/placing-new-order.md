@@ -13,7 +13,7 @@
 </Info>
 
 <Tip>
-  **Lowest-latency order entry**: Set the `MMP` flag (field 10, bit 4) so the order uses the [MMP risk bypass](/starbase/risk-bypass) — the lowest-latency method for market access, which skips the pre-trade risk engine. The bypass applies whether the order makes or takes. Most integrating clients should prefer this path for all order entry.
+  **Lowest-latency order entry**: Set the `MMP` flag (field 10, bit 4) so the order uses the [MMP risk bypass](/starbase/risk-bypass) — the lowest-latency method for market access, which skips the pre-trade risk engine. The bypass applies whether the order makes or takes. Most integrating clients should prefer this path for all order entry. The bypass requires the MMP configuration's **Quantity Limit ≤ Max Quote Quantity**.
 </Tip>
 
 ### NewOrderRequest (100)
@@ -111,8 +111,8 @@ Reject generated in case a `NewOrderRequest` is unsuccessful.
 
 ## Related topics
 
-- [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
-- [New Order Single(D) — Production FIX API](/fix-api/production/new-order-single.md)
 - [REST Order Gateway Authentication](/starbase/rest-authentication.md)
 - [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [Amending an Order](/starbase/amending-order.md)
+- [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)

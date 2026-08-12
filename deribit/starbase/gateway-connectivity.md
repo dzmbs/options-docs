@@ -48,6 +48,10 @@
 | REST                       | A    | 195.138.37.5                                           | 4410        | HTTPS                         | 34410               |
 | REST                       | B    | 195.138.37.6                                           | 4410        | HTTPS                         | 44410               |
 
+<Note>
+  Retransmit uses one port per market data channel. For the mapping of each product type to its retransmit port in both environments, see [Multicast Channels](/starbase/multicast-channels).
+</Note>
+
 ## Gateway Architecture
 
 Starbase will have multiple gateways available for order entry. Gateways will always be run in pairs, A and B, for resilience. Both gateways run in a **hot-hot** configuration, meaning they are both fully active at all times and neither should be treated as a backup. For optimal latency you should connect to and use both gateways in a pair simultaneously.

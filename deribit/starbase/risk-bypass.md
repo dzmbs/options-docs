@@ -8,9 +8,13 @@
 
 Starbase allows MMP orders and quotes to bypass the risk engine. Starbase can be assured that any single execution in the matching engine cannot lead to more than twice the Max Quote Quantity to be traded. A hold on initial margin is imposed on each Portfolio based on the Max Quote Quantity of each MMP Group. Together, this means that the total immediate risk exposure of a portfolio is bounded by MMP and sufficient margin is already taken to cover this risk exposure. When processing orders and quotes, Starbase does not need to risk-check these in-flight and as such these orders and quotes go straight from the gateway to the matching engine, bypassing the risk module.
 
+<Warning>
+  **MMP configuration requirement**: For the risk bypass to work, the **Quantity Limit must be smaller than or equal to the Max Quote Quantity** in the MMP configuration. If the Quantity Limit exceeds the Max Quote Quantity, MMP-tagged orders and quotes do not bypass the risk engine. Check your settings with [`private/get_mmp_config`](/api-reference/trading/private-get_mmp_config) and adjust them with [`private/set_mmp_config`](/api-reference/trading/private-set_mmp_config).
+</Warning>
+
 To explain further, please see the following sequence of events:
 
-1. Alice has a Max Quote Quantity of 10 BTC and a Quantity Limit of 10 BTC
+1. Alice has a Max Quote Quantity of 10 BTC and a Quantity Limit of 10 BTC (Quantity Limit ≤ Max Quote Quantity, so the risk bypass applies)
 2. A margin hold is placed in Alice's account based on the Max Quote Quantity
 3. Alice enters double-sided quotes for each BTC\_USD option order book or \~1600 orders
 4. Bob sends an order that fills Alice for 9 BTC
@@ -42,6 +46,6 @@ Most clients integrating with Starbase should prefer this path for all order ent
 
 - [Production Readiness Checklist](/starbase/production-readiness-checklist.md)
 - [Placing a New Order](/starbase/placing-new-order.md)
+- [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
-- [Mass Quotes](/starbase/mass-quotes.md)
