@@ -220,5 +220,5 @@ components:
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_order_margin_by_ids](/api-reference/trading/private-get_order_margin_by_ids.md)
 - [private/change_margin_model](/api-reference/account-management/private-change_margin_model.md)
+- [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)
 - [private/get_position](/api-reference/account-management/private-get_position.md)
-- [private/get_positions](/api-reference/account-management/private-get_positions.md)

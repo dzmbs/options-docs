@@ -253,6 +253,6 @@ securitySchemes: []
 
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
 - [Notifications](/articles/notifications.md)
-- [public/get_volatility_index_data](/api-reference/market-data/public-get_volatility_index_data.md)
 - [deribit_price_index.(index_name) ](/subscriptions/market-data/deribit_price_indexindex_name.md)
 - [deribit_price_statistics.(index_name) ](/subscriptions/market-data/deribit_price_statisticsindex_name.md)
+- [deribit_price_ranking.(index_name) ](/subscriptions/market-data/deribit_price_rankingindex_name.md)

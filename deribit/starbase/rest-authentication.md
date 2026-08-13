@@ -19,6 +19,10 @@
 
 Every request to the REST Order Gateway must carry an `Authorization` header. There is no session or token layer — each request re-authenticates independently.
 
+<Note>
+  The REST Order Gateway does not use TLS. Requests are sent over plain HTTP (`http://`). The gateway is reachable only over private, intra-datacenter connectivity — hosted colocation, cross-connect, or AWS Private Link — never the public internet, and omitting TLS removes handshake and encryption overhead from the request path.
+</Note>
+
 ## Authorization Header Format
 
 ```
@@ -48,7 +52,7 @@ Authorization: Basic YXRVa2x0a3E6eG4tdjRKVktZSnhDNXY4VWd4VnZ3b0JiUS1rX0d2a2daRlV
 <Tabs>
   <Tab title="curl">
     ```bash theme={null}
-    curl -X GET "https://195.138.37.137:4410/api/v2/private/cancel_all" \
+    curl -X GET "http://195.138.37.137:4410/api/v2/private/cancel_all" \
       -H "Authorization: Basic $(echo -n 'atUkltkq:xn-v4JVKYJxC5v8UgxVvwoBbQ-k_GvkgZFUXJgle3Ow' | base64)"
     ```
   </Tab>
@@ -67,7 +71,7 @@ Authorization: Basic YXRVa2x0a3E6eG4tdjRKVktZSnhDNXY4VWd4VnZ3b0JiUS1rX0d2a2daRlV
     }
 
     response = requests.get(
-        "https://195.138.37.137:4410/api/v2/private/cancel_all",
+        "http://195.138.37.137:4410/api/v2/private/cancel_all",
         headers=headers
     )
     print(response.json())
@@ -80,7 +84,7 @@ Authorization: Basic YXRVa2x0a3E6eG4tdjRKVktZSnhDNXY4VWd4VnZ3b0JiUS1rX0d2a2daRlV
     const clientSecret = "xn-v4JVKYJxC5v8UgxVvwoBbQ-k_GvkgZFUXJgle3Ow";
 
     const credentials = btoa(`${clientId}:${clientSecret}`);
-    const response = await fetch("https://195.138.37.137:4410/api/v2/private/cancel_all", {
+    const response = await fetch("http://195.138.37.137:4410/api/v2/private/cancel_all", {
       headers: {
         "Authorization": `Basic ${credentials}`
       }
@@ -106,8 +110,8 @@ Treat every `401` as terminal for that request. Retry only after fixing the head
 ## Practical Checklist
 
 <Steps>
-  <Step title="Use HTTPS">
-    HTTPS is required to protect credentials in transit.
+  <Step title="Use plain HTTP">
+    The gateway does not terminate TLS. Point clients at `http://` and disable any automatic HTTPS upgrade or certificate verification logic in your HTTP library.
   </Step>
 
   <Step title="Send the header on every request">

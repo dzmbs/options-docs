@@ -313,7 +313,7 @@ components:
 ## Related topics
 
 - [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
-- [Quote Cancel(Z) — Production FIX API](/fix-api/production/quote-cancel.md)
 - [Rate Limits](/articles/rate-limits.md)
-- [Order Management](/articles/order-management-best-practices.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Quote Cancel(Z) — Production FIX API](/fix-api/production/quote-cancel.md)
+- [Order Management](/articles/order-management-best-practices.md)

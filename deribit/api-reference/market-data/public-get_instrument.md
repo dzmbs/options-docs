@@ -468,6 +468,6 @@ components:
 
 - [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [public/get_order_book_by_instrument_id](/api-reference/market-data/public-get_order_book_by_instrument_id.md)
-- [public/get_order_book](/api-reference/market-data/public-get_order_book.md)
-- [Quickstart Guide](/articles/deribit-quickstart.md)
+- [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [instrument.creation.(kind).(currency) ](/subscriptions/market-data/instrumentcreationkindcurrency.md)

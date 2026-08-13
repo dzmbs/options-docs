@@ -335,4 +335,4 @@ components:
 - [private/submit_transfer_to_subaccount](/api-reference/wallet/private-submit_transfer_to_subaccount.md)
 - [private/submit_transfer_between_subaccounts](/api-reference/wallet/private-submit_transfer_between_subaccounts.md)
 - [private/create_combo](/api-reference/combo-books/private-create_combo.md)
-- [private/create_deposit_address](/api-reference/wallet/private-create_deposit_address.md)
+- [private/remove_subaccount](/api-reference/account-management/private-remove_subaccount.md)

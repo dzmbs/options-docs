@@ -288,7 +288,7 @@ components:
 ## Related topics
 
 - [Account Model](/starbase/account-model.md)
-- [Production Readiness Checklist](/starbase/production-readiness-checklist.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
+- [Production Readiness Checklist](/starbase/production-readiness-checklist.md)
 - [private/delete_member](/api-reference/account-management/private-delete_member.md)
 - [private/get_members](/api-reference/account-management/private-get_members.md)

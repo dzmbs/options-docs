@@ -583,5 +583,5 @@ components:
 - [private/get_block_trade](/api-reference/block-trade/private-get_block_trade.md)
 - [Block Trading](/articles/block-trading-api.md)
 - [Voice Broker Trading API](/articles/voice-broker-trading-api.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_block_trade_requests](/api-reference/block-trade/private-get_block_trade_requests.md)
-- [private/reject_block_trade](/api-reference/block-trade/private-reject_block_trade.md)

@@ -201,6 +201,6 @@ components:
 
 - [Rate Limits](/articles/rate-limits.md)
 - [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
-- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Order Management](/articles/order-management-best-practices.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/cancel_all](/api-reference/trading/private-cancel_all.md)

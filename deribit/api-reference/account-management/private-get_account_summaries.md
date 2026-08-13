@@ -785,6 +785,6 @@ components:
 
 - [private/get_account_summary](/api-reference/account-management/private-get_account_summary.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [Quickstart Guide](/articles/deribit-quickstart.md)
 - [Managing Subaccounts](/articles/managing-subaccounts-api.md)
-- [private/get_email_language](/api-reference/account-management/private-get_email_language.md)
+- [Rate Limits](/articles/rate-limits.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)

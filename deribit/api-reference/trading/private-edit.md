@@ -1029,8 +1029,8 @@ components:
 
 ## Related topics
 
-- [Rate Limits](/articles/rate-limits.md)
-- [Order Management](/articles/order-management-best-practices.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Order Management](/articles/order-management-best-practices.md)
 - [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
+- [Rate Limits](/articles/rate-limits.md)
 - [private/edit_api_key](/api-reference/account-management/private-edit_api_key.md)

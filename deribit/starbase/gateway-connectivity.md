@@ -22,8 +22,8 @@
 | sbe-marketdata-retransmit  | A    | 195.138.37.139                                         | 4240 – 4247 | UDP Unicast<br />+ UDP Return | Not yet available |
 | sbe-marketdata-incremental | A    | [See Multicast Channels](/starbase/multicast-channels) | 4220        | UDP Multicast                 | Multicast Relay   |
 | sbe-marketdata-snapshot    | A    | [See Multicast Channels](/starbase/multicast-channels) | 4230        | UDP Multicast                 | Multicast Relay   |
-| REST                       | A    | 195.138.37.137                                         | 4410        | HTTPS                         | 14410             |
-| REST                       | B    | 195.138.37.138                                         | 4410        | HTTPS                         | 24410             |
+| REST                       | A    | 195.138.37.137                                         | 4410        | HTTP                          | 14410             |
+| REST                       | B    | 195.138.37.138                                         | 4410        | HTTP                          | 24410             |
 
 ### Production Environment
 
@@ -45,8 +45,8 @@
 | sbe-marketdata-incremental | B    | [See Multicast Channels](/starbase/multicast-channels) | 4220        | UDP Multicast                 | Multicast Relay     |
 | sbe-marketdata-snapshot    | A    | [See Multicast Channels](/starbase/multicast-channels) | 4230        | UDP Multicast                 | Multicast Relay     |
 | sbe-marketdata-snapshot    | B    | [See Multicast Channels](/starbase/multicast-channels) | 4230        | UDP Multicast                 | Multicast Relay     |
-| REST                       | A    | 195.138.37.5                                           | 4410        | HTTPS                         | 34410               |
-| REST                       | B    | 195.138.37.6                                           | 4410        | HTTPS                         | 44410               |
+| REST                       | A    | 195.138.37.5                                           | 4410        | HTTP                          | 34410               |
+| REST                       | B    | 195.138.37.6                                           | 4410        | HTTP                          | 44410               |
 
 <Note>
   Retransmit uses one port per market data channel. For the mapping of each product type to its retransmit port in both environments, see [Multicast Channels](/starbase/multicast-channels).

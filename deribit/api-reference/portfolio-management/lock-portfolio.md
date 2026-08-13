@@ -19,13 +19,13 @@ info:
   version: '2.0'
   description: Portfolio-scoped REST API for the Starbase direct-access trading platform.
 servers:
-  - url: https://195.138.37.5:4410
+  - url: http://195.138.37.5:4410
     description: Production — Gateway A (rest-order)
-  - url: https://195.138.37.6:4410
+  - url: http://195.138.37.6:4410
     description: Production — Gateway B (rest-order)
-  - url: https://195.138.37.137:4410
+  - url: http://195.138.37.137:4410
     description: Test — Gateway A (rest-order)
-  - url: https://195.138.37.138:4410
+  - url: http://195.138.37.138:4410
     description: Test — Gateway B (rest-order)
 security: []
 tags:

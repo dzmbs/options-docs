@@ -278,5 +278,5 @@ See [Error Codes](/articles/errors) for a complete list of error codes.
 - [block_rfq.trades.(currency) ](/subscriptions/block-rfq/block_rfqtradescurrency.md)
 - [block_rfq.taker.(currency) ](/subscriptions/block-rfq/block_rfqtakercurrency.md)
 - [private/cancel_block_rfq](/api-reference/block-rfq/private-cancel_block_rfq.md)
-- [private/create_block_rfq](/api-reference/block-rfq/private-create_block_rfq.md)
 - [block_rfq.maker.quotes.(currency) ](/subscriptions/block-rfq/block_rfqmakerquotescurrency.md)
+- [private/create_block_rfq](/api-reference/block-rfq/private-create_block_rfq.md)

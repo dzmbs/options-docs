@@ -324,8 +324,8 @@ components:
 
 ## Related topics
 
-- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Managing Withdrawals](/articles/managing-withdrawals-api.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/remove_from_address_book](/api-reference/wallet/private-remove_from_address_book.md)
 - [private/update_in_address_book](/api-reference/wallet/private-update_in_address_book.md)
 - [private/add_to_address_book](/api-reference/wallet/private-add_to_address_book.md)

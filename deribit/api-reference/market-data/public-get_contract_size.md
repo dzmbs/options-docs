@@ -133,4 +133,4 @@ components:
 - [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
 - [Starbase Reference Data and Instrument Definitions](/starbase/reference-data.md)
 - [public/get_delivery_prices](/api-reference/market-data/public-get_delivery_prices.md)
-- [public/get_last_trades_by_instrument](/api-reference/market-data/public-get_last_trades_by_instrument.md)
+- [public/get_funding_rate_value](/api-reference/market-data/public-get_funding_rate_value.md)

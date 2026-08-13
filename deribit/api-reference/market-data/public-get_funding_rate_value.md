@@ -165,4 +165,4 @@ components:
 - [public/get_funding_chart_data](/api-reference/market-data/public-get_funding_chart_data.md)
 - [public/get_order_book](/api-reference/market-data/public-get_order_book.md)
 - [public/get_book_summary_by_instrument](/api-reference/market-data/public-get_book_summary_by_instrument.md)
-- [public/get_last_settlements_by_instrument](/api-reference/market-data/public-get_last_settlements_by_instrument.md)
+- [public/get_book_summary_by_currency](/api-reference/market-data/public-get_book_summary_by_currency.md)

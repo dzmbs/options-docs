@@ -80,7 +80,7 @@ Then implement:
 * [UDP multicast reception, packet sequencing, and gap detection](/starbase/multicast-subscription-guide)
 * [Snapshot plus incremental L3 order-book reconstruction](/starbase/order-book-maintenance)
 
-Use **IPv4**. SBE order entry uses TCP, multicast market data uses UDP, and REST utility endpoints use HTTPS. FIX Drop Copy and multicast traffic are not TLS-encrypted because they are available only on private connectivity.
+Use **IPv4**. SBE order entry uses TCP, multicast market data uses UDP, and REST utility endpoints use plain HTTP. No Starbase traffic is TLS-encrypted — REST, FIX Drop Copy, and multicast are available only on private connectivity, and omitting TLS keeps latency lower.
 
 <Note>
   **Index and mark prices are published on the multicast feed.** Index prices are distributed per currency pair via `IndexInfo` (12), mark price and price bands via `InstrumentInfo` (14), and funding rates and open interest via `InstrumentRef` (15). They are also available from the standard API (`deribit_price_index.{index_name}`, [`public/get_index_price`](/api-reference/market-data/public-get_index_price), or `ticker.{instrument}.{interval}`). See [Reference Data](/starbase/reference-data#index-prices-and-derived-statistics). Note also that `quantityExponent` is available via the multicast snapshot only — it is not present in `get_instruments`.
@@ -95,7 +95,7 @@ Use the addresses and ports in [Gateway Connectivity](/starbase/gateway-connecti
 3. Connect to [FIX Drop Copy](/starbase/fix-drop-copy-api) and complete its session logon.
 4. Receive both snapshot and incremental traffic from the required [multicast channels](/starbase/multicast-channels).
 5. Verify that [retransmit requests](/starbase/retransmit-gateway) can recover an intentional market-data gap.
-6. Connect to the [REST portfolio-management endpoints](/starbase/portfolio-management) over HTTPS.
+6. Connect to the [REST portfolio-management endpoints](/starbase/portfolio-management) over HTTP.
 
 Do not treat a successful TCP connection as a complete test. Authentication, heartbeats, sequence handling, multicast group membership, and recovery must all work.
 

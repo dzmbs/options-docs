@@ -152,5 +152,5 @@ components:
 - [private/create_api_key](/api-reference/account-management/private-create_api_key.md)
 - [private/disable_api_key](/api-reference/account-management/private-disable_api_key.md)
 - [private/list_api_keys](/api-reference/account-management/private-list_api_keys.md)
-- [private/enable_api_key](/api-reference/account-management/private-enable_api_key.md)
 - [private/edit_api_key](/api-reference/account-management/private-edit_api_key.md)
+- [private/enable_api_key](/api-reference/account-management/private-enable_api_key.md)

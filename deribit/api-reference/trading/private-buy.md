@@ -1234,8 +1234,8 @@ components:
 
 ## Related topics
 
-- [Quickstart Guide](/articles/deribit-quickstart.md)
 - [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Rate Limits](/articles/rate-limits.md)
 - [Order Management](/articles/order-management-best-practices.md)

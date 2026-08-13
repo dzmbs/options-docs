@@ -1193,8 +1193,8 @@ components:
 
 ## Related topics
 
-- [Mass Quotes](/starbase/mass-quotes.md)
 - [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
-- [private/cancel_quotes](/api-reference/trading/private-cancel_quotes.md)
+- [Mass Quotes](/starbase/mass-quotes.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Account Model](/starbase/account-model.md)
+- [Rate Limits](/articles/rate-limits.md)

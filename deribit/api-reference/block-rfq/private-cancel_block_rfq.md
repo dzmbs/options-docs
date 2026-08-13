@@ -512,8 +512,8 @@ components:
 
 ## Related topics
 
-- [private/accept_block_rfq](/api-reference/block-rfq/private-accept_block_rfq.md)
 - [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [private/accept_block_rfq](/api-reference/block-rfq/private-accept_block_rfq.md)
 - [private/cancel_block_rfq_quote](/api-reference/block-rfq/private-cancel_block_rfq_quote.md)
 - [private/cancel_block_rfq_trigger](/api-reference/block-rfq/private-cancel_block_rfq_trigger.md)
 - [private/cancel_all_block_rfq_quotes](/api-reference/block-rfq/private-cancel_all_block_rfq_quotes.md)

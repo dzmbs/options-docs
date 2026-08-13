@@ -464,5 +464,5 @@ When there is an error related to **Security Key authorization**, the server ret
 - [private/list_api_keys](/api-reference/account-management/private-list_api_keys.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
 - [private/disable_api_key](/api-reference/account-management/private-disable_api_key.md)
-- [private/edit_api_key](/api-reference/account-management/private-edit_api_key.md)
 - [Authentication](/articles/authentication.md)
+- [private/edit_api_key](/api-reference/account-management/private-edit_api_key.md)

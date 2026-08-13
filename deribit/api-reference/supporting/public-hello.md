@@ -147,7 +147,7 @@ components:
 ## Related topics
 
 - [public/subscribe](/api-reference/subscription-management/public-subscribe.md)
+- [public/unsubscribe](/api-reference/subscription-management/public-unsubscribe.md)
 - [public/status](/api-reference/supporting/public-status.md)
 - [public/test](/api-reference/supporting/public-test.md)
-- [public/unsubscribe](/api-reference/subscription-management/public-unsubscribe.md)
-- [public/ticker](/api-reference/market-data/public-ticker.md)
+- [public/auth](/api-reference/authentication/public-auth.md)

@@ -1005,6 +1005,6 @@ securitySchemes: []
 
 - [Notifications](/articles/notifications.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [user.orders.(kind).(currency).(interval) ](/subscriptions/user/userorderskindcurrencyinterval.md)
+- [user.orders.(instrument_name).raw ](/subscriptions/user/userordersinstrument_nameraw.md)
 - [user.changes.(instrument_name).(interval) ](/subscriptions/user/userchangesinstrument_nameinterval.md)
-- [user.trades.(instrument_name).(interval) ](/subscriptions/user/usertradesinstrument_nameinterval.md)
-- [ticker.(instrument_name).(interval) ](/subscriptions/market-data/tickerinstrument_nameinterval.md)

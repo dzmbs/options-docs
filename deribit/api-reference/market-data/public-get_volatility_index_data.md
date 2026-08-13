@@ -214,4 +214,4 @@ components:
 - [public/get_historical_volatility](/api-reference/market-data/public-get_historical_volatility.md)
 - [public/get_index_chart_data](/api-reference/market-data/public-get_index_chart_data.md)
 - [public/get_index_price](/api-reference/market-data/public-get_index_price.md)
-- [public/get_supported_index_names](/api-reference/market-data/public-get_supported_index_names.md)
+- [public/get_funding_chart_data](/api-reference/market-data/public-get_funding_chart_data.md)

@@ -362,8 +362,8 @@ components:
 
 ## Related topics
 
-- [Authentication](/articles/authentication.md)
-- [Access Scope](/articles/access-scope.md)
 - [Managing Transfers](/articles/managing-transfers-api.md)
+- [Authentication](/articles/authentication.md)
 - [Creating new API key](/articles/creating-api-key.md)
+- [Access Scope](/articles/access-scope.md)
 - [Asymmetric API Keys](/articles/asymmetric-api-keys.md)

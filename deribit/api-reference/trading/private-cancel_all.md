@@ -165,8 +165,8 @@ components:
 
 ## Related topics
 
-- [Mass Cancel](/api-reference/portfolio-management/mass-cancel.md)
 - [Rate Limits](/articles/rate-limits.md)
 - [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
-- [Order Management](/articles/order-management-best-practices.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Order Management](/articles/order-management-best-practices.md)
+- [Mass Cancel](/api-reference/portfolio-management/mass-cancel.md)

@@ -593,6 +593,6 @@ components:
 
 - [private/get_block_rfq_quotes](/api-reference/block-rfq/private-get_block_rfq_quotes.md)
 - [private/cancel_block_rfq](/api-reference/block-rfq/private-cancel_block_rfq.md)
-- [private/accept_block_rfq](/api-reference/block-rfq/private-accept_block_rfq.md)
+- [public/get_block_rfq_trades](/api-reference/block-rfq/public-get_block_rfq_trades.md)
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
 - [private/create_block_rfq](/api-reference/block-rfq/private-create_block_rfq.md)
-- [private/add_block_rfq_quote](/api-reference/block-rfq/private-add_block_rfq_quote.md)

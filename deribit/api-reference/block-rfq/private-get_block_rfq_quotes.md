@@ -320,8 +320,8 @@ components:
 
 ## Related topics
 
-- [private/get_block_rfqs](/api-reference/block-rfq/private-get_block_rfqs.md)
 - [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
+- [private/get_block_rfqs](/api-reference/block-rfq/private-get_block_rfqs.md)
 - [private/add_block_rfq_quote](/api-reference/block-rfq/private-add_block_rfq_quote.md)
 - [private/accept_block_rfq](/api-reference/block-rfq/private-accept_block_rfq.md)
 - [private/cancel_all_block_rfq_quotes](/api-reference/block-rfq/private-cancel_all_block_rfq_quotes.md)

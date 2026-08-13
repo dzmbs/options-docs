@@ -142,4 +142,4 @@ components:
 - [public/status](/api-reference/supporting/public-status.md)
 - [public/hello](/api-reference/supporting/public-hello.md)
 - [public/unsubscribe](/api-reference/subscription-management/public-unsubscribe.md)
-- [public/subscribe](/api-reference/subscription-management/public-subscribe.md)
+- [public/ticker](/api-reference/market-data/public-ticker.md)

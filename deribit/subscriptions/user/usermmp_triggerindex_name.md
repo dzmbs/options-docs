@@ -310,8 +310,8 @@ securitySchemes: []
 
 ## Related topics
 
-- [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
 - [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
-- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
 - [Notifications](/articles/notifications.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_mmp_status](/api-reference/trading/private-get_mmp_status.md)

@@ -288,6 +288,6 @@ The restricted block trades feature limits the `block_trade:read` scope of the A
 
 - [Access Scope](/articles/access-scope.md)
 - [block_trade_confirmations ](/subscriptions/block-trade/block_trade_confirmations.md)
+- [block_trade_confirmations.(currency) ](/subscriptions/block-trade/block_trade_confirmationscurrency.md)
 - [Voice Broker Trading API](/articles/voice-broker-trading-api.md)
 - [private/get_block_trade](/api-reference/block-trade/private-get_block_trade.md)
-- [block_trade_confirmations.(currency) ](/subscriptions/block-trade/block_trade_confirmationscurrency.md)

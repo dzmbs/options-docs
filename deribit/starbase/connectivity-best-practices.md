@@ -101,13 +101,13 @@ Keep the execution path small and run order entry, book building, and strategy l
 
 ### Protocol Support
 
-| Protocol | Support                                                                                                                                                                                        |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IPv4     | Supported                                                                                                                                                                                      |
-| IPv6     | Not supported                                                                                                                                                                                  |
-| TLS      | REST only (HTTPS). FIX Drop Copy and SBE Market Data multicast are unencrypted — both are reachable only via hosted colocation, cross-connect, or AWS Private Link, never the public internet. |
-| HTTP/3   | Not implemented                                                                                                                                                                                |
-| QUIC     | Not implemented                                                                                                                                                                                |
+| Protocol | Support                                                                                                                                                                                                                                                 |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| IPv4     | Supported                                                                                                                                                                                                                                               |
+| IPv6     | Not supported                                                                                                                                                                                                                                           |
+| TLS      | Not used. REST, FIX Drop Copy, and SBE Market Data multicast are all unencrypted — every Starbase service is reachable only via hosted colocation, cross-connect, or AWS Private Link, never the public internet, and skipping TLS keeps latency lower. |
+| HTTP/3   | Not implemented                                                                                                                                                                                                                                         |
+| QUIC     | Not implemented                                                                                                                                                                                                                                         |
 
 ***
 

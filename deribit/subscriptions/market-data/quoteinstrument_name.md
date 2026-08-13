@@ -224,7 +224,7 @@ securitySchemes: []
 ## Related topics
 
 - [Notifications](/articles/notifications.md)
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
 - [user.trades.(instrument_name).(interval) ](/subscriptions/user/usertradesinstrument_nameinterval.md)
 - [book.(instrument_name).(interval) ](/subscriptions/orderbook/bookinstrument_nameinterval.md)
 - [book.(instrument_name).(group).(depth).(interval) ](/subscriptions/orderbook/bookinstrument_namegroupdepthinterval.md)
-- [private/cancel_quotes](/api-reference/trading/private-cancel_quotes.md)

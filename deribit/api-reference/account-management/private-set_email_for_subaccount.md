@@ -165,4 +165,4 @@ components:
 - [private/set_email_language](/api-reference/account-management/private-set_email_language.md)
 - [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)
 - [private/toggle_notifications_from_subaccount](/api-reference/account-management/private-toggle_notifications_from_subaccount.md)
-- [private/create_subaccount](/api-reference/account-management/private-create_subaccount.md)
+- [private/get_account_summary](/api-reference/account-management/private-get_account_summary.md)

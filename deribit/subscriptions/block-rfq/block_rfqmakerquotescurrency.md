@@ -475,5 +475,5 @@ securitySchemes: []
 - [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
 - [block_rfq.maker.(currency) ](/subscriptions/block-rfq/block_rfqmakercurrency.md)
 - [private/add_block_rfq_quote](/api-reference/block-rfq/private-add_block_rfq_quote.md)
-- [private/cancel_block_rfq_quote](/api-reference/block-rfq/private-cancel_block_rfq_quote.md)
 - [private/get_block_rfq_quotes](/api-reference/block-rfq/private-get_block_rfq_quotes.md)
+- [private/cancel_block_rfq_quote](/api-reference/block-rfq/private-cancel_block_rfq_quote.md)

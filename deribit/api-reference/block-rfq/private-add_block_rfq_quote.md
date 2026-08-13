@@ -421,8 +421,8 @@ components:
 
 ## Related topics
 
+- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
 - [private/edit_block_rfq_quote](/api-reference/block-rfq/private-edit_block_rfq_quote.md)
 - [private/get_block_rfq_quotes](/api-reference/block-rfq/private-get_block_rfq_quotes.md)
-- [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
-- [Rate Limits](/articles/rate-limits.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Rate Limits](/articles/rate-limits.md)

@@ -380,6 +380,6 @@ securitySchemes: []
 
 - [Notifications](/articles/notifications.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [Starbase Reference Data and Instrument Definitions](/starbase/reference-data.md)
 - [deribit_price_index.(index_name) ](/subscriptions/market-data/deribit_price_indexindex_name.md)
+- [Starbase Reference Data and Instrument Definitions](/starbase/reference-data.md)
 - [deribit_price_ranking.(index_name) ](/subscriptions/market-data/deribit_price_rankingindex_name.md)

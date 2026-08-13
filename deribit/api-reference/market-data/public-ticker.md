@@ -565,7 +565,7 @@ components:
 ## Related topics
 
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [Quickstart Guide](/articles/deribit-quickstart.md)
 - [Starbase Reference Data and Instrument Definitions](/starbase/reference-data.md)
 - [API Usage Policy](/articles/api-usage-policy.md)
-- [incremental_ticker.(instrument_name) ](/subscriptions/market-data/incremental_tickerinstrument_name.md)
+- [Quickstart Guide](/articles/deribit-quickstart.md)
+- [Multicast Channels](/starbase/multicast-channels.md)

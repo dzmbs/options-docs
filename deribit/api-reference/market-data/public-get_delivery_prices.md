@@ -244,5 +244,5 @@ components:
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [public/get_index_price](/api-reference/market-data/public-get_index_price.md)
-- [public/get_mark_price_history](/api-reference/market-data/public-get_mark_price_history.md)
 - [public/get_index_price_names](/api-reference/market-data/public-get_index_price_names.md)
+- [public/get_mark_price_history](/api-reference/market-data/public-get_mark_price_history.md)

@@ -195,8 +195,8 @@ components:
 
 ## Related topics
 
-- [Authentication](/articles/authentication.md)
 - [Managing Transfers](/articles/managing-transfers-api.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Authentication](/articles/authentication.md)
 - [Managing Subaccounts](/articles/managing-subaccounts-api.md)
 - [public/fork_token](/api-reference/authentication/public-fork_token.md)

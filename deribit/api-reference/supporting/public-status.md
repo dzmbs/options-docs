@@ -140,4 +140,4 @@ components:
 - [public/get_tradingview_chart_data](/api-reference/market-data/public-get_tradingview_chart_data.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_mmp_status](/api-reference/trading/private-get_mmp_status.md)
-- [Security Status(f) — Production FIX API](/fix-api/production/security-status.md)
+- [private/list_api_keys](/api-reference/account-management/private-list_api_keys.md)

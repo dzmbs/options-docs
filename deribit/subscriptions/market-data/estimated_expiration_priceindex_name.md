@@ -289,8 +289,8 @@ securitySchemes: []
 
 ## Related topics
 
-- [Notifications](/articles/notifications.md)
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [Notifications](/articles/notifications.md)
 - [deribit_price_index.(index_name) ](/subscriptions/market-data/deribit_price_indexindex_name.md)
-- [public/get_index_price_names](/api-reference/market-data/public-get_index_price_names.md)
 - [deribit_price_ranking.(index_name) ](/subscriptions/market-data/deribit_price_rankingindex_name.md)
+- [deribit_price_statistics.(index_name) ](/subscriptions/market-data/deribit_price_statisticsindex_name.md)

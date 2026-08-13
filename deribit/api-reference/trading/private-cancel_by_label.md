@@ -166,7 +166,7 @@ components:
 ## Related topics
 
 - [Rate Limits](/articles/rate-limits.md)
-- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Order Management](/articles/order-management-best-practices.md)
 - [private/cancel_block_rfq_quote](/api-reference/block-rfq/private-cancel_block_rfq_quote.md)

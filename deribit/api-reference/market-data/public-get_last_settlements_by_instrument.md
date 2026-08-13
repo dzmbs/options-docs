@@ -315,5 +315,5 @@ components:
 - [public/get_last_settlements_by_currency](/api-reference/market-data/public-get_last_settlements_by_currency.md)
 - [public/get_last_trades_by_instrument](/api-reference/market-data/public-get_last_trades_by_instrument.md)
 - [public/get_last_trades_by_instrument_and_time](/api-reference/market-data/public-get_last_trades_by_instrument_and_time.md)
-- [public/get_book_summary_by_instrument](/api-reference/market-data/public-get_book_summary_by_instrument.md)
 - [public/get_order_book_by_instrument_id](/api-reference/market-data/public-get_order_book_by_instrument_id.md)
+- [public/get_order_book](/api-reference/market-data/public-get_order_book.md)

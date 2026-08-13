@@ -331,8 +331,8 @@ securitySchemes: []
 
 ## Related topics
 
-- [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
-- [Notifications](/articles/notifications.md)
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Notifications](/articles/notifications.md)
 - [Market Data Collection](/articles/market-data-collection-best-practices.md)

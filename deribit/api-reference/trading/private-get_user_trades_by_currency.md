@@ -637,5 +637,5 @@ components:
 - [Accessing Historical Trades and Orders Using API](/articles/accessing-historical-trades-orders.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [Production Readiness Checklist](/starbase/production-readiness-checklist.md)
 - [private/get_user_trades_by_currency_and_time](/api-reference/trading/private-get_user_trades_by_currency_and_time.md)
-- [private/get_user_trades_by_order](/api-reference/trading/private-get_user_trades_by_order.md)

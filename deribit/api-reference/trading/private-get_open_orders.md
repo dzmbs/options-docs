@@ -615,8 +615,8 @@ components:
 
 ## Related topics
 
-- [Get Open Orders](/api-reference/trading/get-open-orders.md)
-- [Quickstart Guide](/articles/deribit-quickstart.md)
-- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [Gateway Connectivity](/starbase/gateway-connectivity.md)
 - [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [API Usage Policy](/articles/api-usage-policy.md)
+- [Gateway Connectivity](/starbase/gateway-connectivity.md)
+- [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)

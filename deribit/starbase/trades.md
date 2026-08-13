@@ -76,4 +76,4 @@ This message is sent for each individual trade in a block trade. Multiple `Block
 - [private/get_block_trade](/api-reference/block-trade/private-get_block_trade.md)
 - [private/execute_block_trade](/api-reference/block-trade/private-execute_block_trade.md)
 - [private/get_block_trades](/api-reference/block-trade/private-get_block_trades.md)
-- [private/reject_block_trade](/api-reference/block-trade/private-reject_block_trade.md)
+- [private/simulate_block_trade](/api-reference/block-trade/private-simulate_block_trade.md)
