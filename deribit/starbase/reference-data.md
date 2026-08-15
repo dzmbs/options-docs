@@ -159,8 +159,8 @@ Less frequently updated per-instrument fields. All value fields are optional —
 
 ## Related topics
 
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)
 - [Market Model](/starbase/market-model.md)
 - [Security Definition Request(c) — Production FIX API](/fix-api/production/security-definition-request.md)
 - [Maintaining the order book](/starbase/order-book-maintenance.md)
 - [Binary API Reference](/starbase/binary-api-reference.md)
-- [Starbase Connectivity Quickstart](/starbase/quickstart.md)

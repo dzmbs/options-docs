@@ -37,10 +37,27 @@ Deribit's trading platform distributes market data through a multi-node, paralle
 
   <Tab title="Multicast (LD4)">
     For the lowest possible latency, Deribit offers a multicast market data feed for clients in close network proximity. This is available to co-located clients (and via special AWS arrangements) as a UDP stream using SBE (Simple Binary Encoding). Deribit's multicast feed provides a high-performance broadcast of public market data with minimal overhead and latency. Migrating heavy data consumers to multicast can significantly reduce latency (no JSON parsing, no per-connection delivery delays) and also relieve load on Deribit's API nodes. This is the fastest way to receive Deribit data – but it requires more complex integration (binary message decoding) and network setup (joining multicast groups, typically in LD4 or supported AWS regions).
+
+    <Warning>
+      This is the legacy SBE feed, which is scheduled for deprecation at the end of 2026. New low-latency integrations should target the Starbase multicast feed instead — see the Starbase tab.
+    </Warning>
   </Tab>
 
   <Tab title="AWS Multicast">
     Deribit enables access to its multicast feed for AWS-hosted clients. This solution packages the multicast data into TCP streams and leverages AWS's ability to share multicast across accounts. Clients in AWS (London eu-west-2 or Tokyo ap-northeast-1) can subscribe to Deribit's low-latency feed and receive the same market data simultaneously as colocation users, with very similar latency to a direct LD4 connection. In other words, all subscribers in the AWS relay get the updates in parallel, eliminating any edge a "faster" connection might have, and bringing cloud users nearly on par with physical co-location in terms of tick-to-trade speed.
+  </Tab>
+
+  <Tab title="Starbase (SBE)">
+    Starbase is Deribit's high-performance matching engine, available to selected clients. Its SBE market data feed is the lowest-latency option Deribit offers and the successor to the legacy multicast feed. It differs from the channels described in this article in several ways worth planning around:
+
+    * **Level 3 only.** Every matching engine event that touches the book is published market-by-order, so you reconstruct the book locally. There is no aggregated or price-level feed, and no raw-versus-100ms choice.
+    * **Channels per product group.** Feeds are sharded by product (BTC perps/futures, BTC options, ETH perps/futures, ETH options, Tier 2/3, RWA) rather than subscribed per instrument, so subscription filtering is a network-level decision.
+    * **A/B twins, snapshot and incremental.** Join both sides and both channel types, and use the retransmit gateway to recover gaps instead of a REST resync.
+    * **Private connectivity only.** Hosted colocation or a cross-connect in LD4, or AWS Private Link — never the public internet.
+
+    <Card title="Starbase Multicast Channels" icon="bolt" href="/starbase/multicast-channels">
+      Feed characteristics, channel-to-product mapping, and retransmit endpoints
+    </Card>
   </Tab>
 </Tabs>
 
@@ -167,7 +184,7 @@ Deribit's primary servers are in London (Equinix LD4). If low latency is crucial
 
 By using the guidelines above, you can build a market data collection system that is both fast and robust:
 
-* **Choose the right feed** – Use WebSockets or FIX for real-time data (they have similar performance), and if you need ultra-low latency, explore Deribit's multicast feed or AWS Multicast. Otherwise, the default feeds are sufficient and easier to work with.
+* **Choose the right feed** – Use WebSockets or FIX for real-time data (they have similar performance). If you need ultra-low latency, the Starbase SBE multicast feed is the fastest option and the successor to the legacy multicast and AWS Multicast feeds, though it is limited to selected clients on private connectivity. Otherwise, the default feeds are sufficient and easier to work with.
 
 * **Raw vs Aggregated** – Subscribe to raw book/trade feeds only if you truly need every tick. Otherwise, opt for 100ms or aggregated updates to reduce noise. Deribit's system will thank you for using aggregated channels when possible.
 

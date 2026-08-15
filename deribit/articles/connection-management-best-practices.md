@@ -8,6 +8,14 @@
 
 Each approach has different properties, lifespans, and limitations. Understanding how these scopes work helps ensure reliable connectivity, optimal use of WebSocket features, and compliance with platform limits such as the number of simultaneous connections or sessions per API key.
 
+<Info>
+  This article covers the standard WebSocket, HTTP, and FIX interfaces. **Starbase**, available to selected clients over private connectivity, has a different connection model: a separate API key, one SBE session per API key per gateway (up to 8 across the four gateway pairs), independent rate limits per gateway side, and no access over the public internet. None of the limits or scopes below apply to it.
+</Info>
+
+<Card title="Starbase Connectivity" icon="bolt" href="/starbase/connectivity-best-practices" horizontal>
+  Gateway architecture, session rules, failover, and connection best practices for Starbase
+</Card>
+
 ## Limits
 
 * **Max number of subaccounts**: 20
@@ -126,6 +134,10 @@ Setting the COD scope to `account` extends the feature to the initial connection
 <Tip>
   To improve the reliability of COD triggering, it is recommended to enable heartbeats on your WebSocket connections. Heartbeats allow the platform to detect stale or dropped connections more quickly and activate COD sooner if needed.
 </Tip>
+
+<Note>
+  **Starbase COD works differently.** There is no account scope: coverage is opted into per order (the `cancelOnDisconnect` order flag) or per session at logon, and cancellation is always scoped to the session that submitted the order. Heartbeat monitoring cannot be disabled, and cancelled orders are never restored after reconnecting — clients must resubmit. See [Starbase Cancel on Disconnect](/starbase/cancel-on-disconnect).
+</Note>
 
 ## FIX Implementation
 

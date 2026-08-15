@@ -24,7 +24,7 @@ Complete these steps before opening a FIX session:
 <Warning>
   **IMPORTANT ANNOUNCEMENT**
 
-  Due to recent technical issues with one of our service providers, we have updated the FIX public endpoint. The FIX endpoint will no longer be accessible over the internet via [www.deribit.com](http://www.deribit.com). Going forward, customers should connect using fix.deribit.com for production and fix-test.deribit.com for test environment.
+  Due to recent technical issues with one of our service providers, we have updated the FIX public endpoint. The FIX endpoint will no longer be accessible over the internet via [www.deribit.com](http://www.deribit.com). Going forward, customers should connect using fix.deribit.com for production and fix-test.deribit.com for the test environment.
 </Warning>
 
 ## Connection Endpoints
@@ -148,6 +148,6 @@ The FIX API supports the following message types organized by category:
 
 - [Logon(A) — Production FIX API](/fix-api/production/logon.md)
 - [Logout(5) — Production FIX API](/fix-api/production/logout.md)
-- [Reject(3) — Production FIX API](/fix-api/production/reject.md)
 - [Heartbeat(0) — Production FIX API](/fix-api/production/heartbeat.md)
+- [Reject(3) — Production FIX API](/fix-api/production/reject.md)
 - [Sequence Reset(4) — Production FIX API](/fix-api/production/sequence-reset.md)

@@ -8,7 +8,7 @@
 
 To change/edit the parameters of an existing order
 
-From Release 1.3.10, it is possible to amend order by `ClOrdID` or
+From Release 1.3.10, it is possible to amend an order by `ClOrdID` or
 `DeribitLabel`, and `OrigClOrdId` is not required anymore, however amending
 orders by `OrigClOrdId` is noticeably faster.
 

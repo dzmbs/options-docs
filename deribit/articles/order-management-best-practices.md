@@ -16,6 +16,10 @@ When you send an order to Deribit (whether via REST API, WebSocket, or FIX), it 
   All API interfaces (REST, WebSocket, FIX) ultimately feed into the same matching engine. Using WebSocket or FIX provides a persistent connection to these nodes, whereas REST establishes a new HTTP connection per request. The multiple gateway nodes ensure scalability and load distribution, but they do not alter the fairness of matching – all orders meet at the single matching engine for execution.
 </Info>
 
+<Note>
+  **Starbase does not share this pipeline.** Starbase order entry is a separate stack, available to selected clients, in which SBE messages go from its own hot-hot A/B gateways straight to the Starbase matching engine — it is not layered on top of FIX or WebSocket internals. The queueing, load-balancer, and per-currency lock behaviour described in this article does not carry over; see [Starbase Overview](/starbase/overview) and [Gateway Connectivity](/starbase/gateway-connectivity) for its architecture.
+</Note>
+
 ## Order Processing Queues
 
 Along the path from your system to the matching engine, orders may queue at several stages. Understanding these queues can help in optimizing performance:
@@ -98,6 +102,14 @@ Speed is often critical. Here are some best practices to get your orders to the 
   <Accordion title="Optimize network conditions">
     Ensure your trading server has a fast, reliable network path to Deribit's servers. If you are latency-sensitive, consider hosting in a location close to Deribit's data center (London LD4 for the main exchange). External internet connections pass through load balancers and have longer routes, adding a bit of latency (on the order of microseconds for the LB hop, plus any geographic delay). Some firms opt for colocation to reduce round-trip time. While this is an infrastructure consideration beyond the API itself, it's a significant factor in race scenarios.
   </Accordion>
+
+  <Accordion title="Consider Starbase if protocol overhead is your bottleneck">
+    Once you have removed the obvious overhead — persistent connection, lightweight socket, modest bursts — the remaining latency is largely protocol and network. **Starbase**, Deribit's high-performance matching engine available to selected clients, addresses both: SBE binary order entry talks directly to the matching engine, and access is over hosted colocation or a cross-connect in LD4, or AWS Private Link, never the public internet. It requires a separate API key and a separate integration, and open Starbase orders are not visible through the standard JSON-RPC order methods or the web UI.
+
+    <Card title="Starbase Overview" icon="bolt" href="/starbase/overview">
+      Binary order entry, multicast market data, FIX Drop Copy, and how to get access
+    </Card>
+  </Accordion>
 </AccordionGroup>
 
 By following these practices – using the right protocol, managing your connection load, and optimizing networking – you can minimize the time it takes for your orders to reach the matching engine.
@@ -133,6 +145,10 @@ Mass Quotes are the one exception — they skip most risk checks to support high
   * Keep the number of simultaneous client connections below the maximum of 8 to minimize the chance of hitting error 10047.
   * Be aware that internal actions (trigger orders, liquidation orders, advanced option orders) also consume queue slots, leaving fewer available for client activity.
 </Tip>
+
+<Note>
+  On Starbase, MMP-tagged orders and mass quotes skip the risk module entirely and go straight from the gateway to the matching engine — the equivalent of the Mass Quotes exception above, but extended to single orders. This requires the MMP Quantity Limit to be less than or equal to the Max Quote Quantity; see [Risk Bypass](/starbase/risk-bypass).
+</Note>
 
 ## Order Cancellation Strategies
 
@@ -462,9 +478,13 @@ CoD must be explicitly enabled through the API or in the web interface settings.
 
 For detailed instructions on enabling and managing CoD, refer to the [Connection Management - Best Practices](/articles/connection-management-best-practices) article or the API documentation.
 
+Starbase implements CoD separately, opted into per order or per session and always scoped to the submitting session — see [Starbase Cancel on Disconnect](/starbase/cancel-on-disconnect).
+
 ### Rate limits
 
 While not directly covered in the section above, remember Deribit has API rate limits. Bursty behavior like sending many orders or cancellations rapidly is subject to limits. Hitting a rate limit will cause your session to disconnect and could negate your latency gains. Best practice is to stay within documented limits or contact Deribit if you need higher thresholds for institutional trading.
+
+Starbase uses its own leaky-bucket limits, applied per member, per gateway, and per quoting type, with separate buckets for orders and mass quotes. Notably, cancels are never rejected there even when the bucket is full, so a mass cancel remains available as a risk action under load. See [Starbase API Rate Limits](/starbase/api-rate-limits).
 
 ### Test in the Testnet environment
 

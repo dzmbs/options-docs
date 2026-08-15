@@ -401,5 +401,5 @@ The portfolio each event books to is carried in **Tag 1 `Account`** (the `portfo
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [Welcome to Deribit API](/index.md)
 - [Starbase API Overview](/starbase/overview.md)
-- [Starbase API Changelog](/changelogs/starbase.md)

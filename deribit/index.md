@@ -28,6 +28,14 @@ Deribit provides three different interfaces to access the API:
   </Card>
 </CardGroup>
 
+## Starbase
+
+<Card title="Starbase API" icon="bolt" href="/starbase/overview" horizontal>
+  Deribit's high-performance matching engine for institutional traders and market makers, with a Simple Binary Encoding (SBE) order entry API, multicast market data, and FIX Drop Copy.
+
+  **Available to selected clients only.** Access requires hosted colocation or a cross-connect in LD4, or AWS PrivateLink — internet connectivity is not supported.
+</Card>
+
 ## Get Started
 
 <Card title="Quickstart Guide" icon="rocket" href="/articles/deribit-quickstart" horizontal>
@@ -116,5 +124,5 @@ Deribit provides three different interfaces to access the API:
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
 - [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
 - [deribit_price_index.(index_name) ](/subscriptions/market-data/deribit_price_indexindex_name.md)
-- [deribit_price_ranking.(index_name) ](/subscriptions/market-data/deribit_price_rankingindex_name.md)
 - [deribit_price_statistics.(index_name) ](/subscriptions/market-data/deribit_price_statisticsindex_name.md)
+- [deribit_price_ranking.(index_name) ](/subscriptions/market-data/deribit_price_rankingindex_name.md)

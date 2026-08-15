@@ -73,7 +73,7 @@ This message is sent for each individual trade in a block trade. Multiple `Block
 ## Related topics
 
 - [block_trade_confirmations ](/subscriptions/block-trade/block_trade_confirmations.md)
-- [private/get_block_trade](/api-reference/block-trade/private-get_block_trade.md)
 - [private/execute_block_trade](/api-reference/block-trade/private-execute_block_trade.md)
+- [private/get_block_trade](/api-reference/block-trade/private-get_block_trade.md)
 - [private/get_block_trades](/api-reference/block-trade/private-get_block_trades.md)
-- [private/simulate_block_trade](/api-reference/block-trade/private-simulate_block_trade.md)
+- [private/approve_block_trade](/api-reference/block-trade/private-approve_block_trade.md)

@@ -185,6 +185,45 @@ treat combo IDs as their own instrument namespace — they aren't returned by
   settlement, useful for monitoring expected settlement levels intraday as
   expiry approaches.
 
+## Starbase options feed
+
+Everything above describes the standard JSON-RPC and WebSocket APIs. If you consume
+options data from **Starbase** — Deribit's high-performance matching engine, available
+to selected clients over private connectivity in LD4 or via AWS Private Link — the
+options-specific tradeoffs change:
+
+* **Options have their own multicast channels**, separate from perpetuals and futures
+  (BTC Options and Option Combinations, ETH Options and Option Combinations, Tier 2
+  Options and Option Combinations), each with A/B snapshot and incremental feeds. You
+  take an entire product group rather than subscribing per strike, so chain growth
+  doesn't change your subscription set.
+* **Level 3 only.** There is no grouped or depth-limited book equivalent, so the
+  bandwidth argument for using capped-depth books across a chain doesn't apply —
+  budget for full market-by-order volume on every listed strike in the group.
+* **Combination books are not a separate namespace.** Option combos arrive as ordinary
+  order books on the same feed, identified by their own order book ID.
+* **Instrument metadata comes from `InstrumentDefinition`**, which carries strike,
+  expiry, the put/call flag, tick sizes, and minimum order quantity. Treat it as
+  authoritative for Starbase order entry, and note that quantities use Deribit's native
+  amount rather than contract counts.
+* **Greeks and IV are not on the feed.** Mark price and price bands arrive via
+  `InstrumentInfo`, index prices via `IndexInfo`, and settlement, delivery, and open
+  interest via `InstrumentRef` — but `delta`/`gamma`/`vega`, `mark_iv`/`bid_iv`/`ask_iv`,
+  DVOL, and 24-hour volume have no Starbase equivalent. Keep the standard
+  [`ticker`](/subscriptions/market-data/tickerinstrument_nameinterval),
+  [`markprice.options.{index_name}`](/subscriptions/market-data/markpriceoptionsindex_name),
+  and DVOL channels for valuation and analytics alongside the Starbase book.
+
+<CardGroup cols={2}>
+  <Card title="Multicast Channels" icon="bolt" href="/starbase/multicast-channels">
+    Options channel addresses, feed characteristics, and retransmit endpoints
+  </Card>
+
+  <Card title="Starbase Reference Data" icon="database" href="/starbase/reference-data#index-prices-and-derived-statistics">
+    Instrument definitions and which derived statistics the feed does and doesn't publish
+  </Card>
+</CardGroup>
+
 ## Pagination patterns at a glance
 
 Different endpoints paginate differently — matching the right pattern to the right

@@ -655,4 +655,4 @@ components:
 - [private/invalidate_block_trade_signature](/api-reference/block-trade/private-invalidate_block_trade_signature.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Rate Limits](/articles/rate-limits.md)
-- [private/reject_block_trade](/api-reference/block-trade/private-reject_block_trade.md)
+- [private/approve_block_trade](/api-reference/block-trade/private-approve_block_trade.md)
