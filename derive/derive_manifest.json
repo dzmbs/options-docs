@@ -92,8 +92,8 @@
     },
     "reference/fees-1.md": {
       "source_url": "https://docs.derive.xyz/reference/fees-1",
-      "hash": "cd580e02e0b3f77cde5fee9958773bf9ea4991cfc8b8464df757cd26a997916d",
-      "last_updated": "2026-07-31T13:08:02.927848"
+      "hash": "aa1fb5f438629b018974483cebd66974ecc8d32d2dcdcf70547f01e8c173f659",
+      "last_updated": "2026-08-16T11:30:53.860308"
     },
     "reference/api-broker.md": {
       "source_url": "https://docs.derive.xyz/reference/api-broker",
@@ -1457,13 +1457,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-08-15T11:35:05.724151",
-    "duration_seconds": 194.160562,
+    "completed_at": "2026-08-16T11:34:22.224754",
+    "duration_seconds": 221.885668,
     "pages_total": 291,
     "pages_fetched": 291,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-08-15T11:35:05.724167",
+  "last_updated": "2026-08-16T11:34:22.224770",
   "source": "https://docs.derive.xyz"
 }

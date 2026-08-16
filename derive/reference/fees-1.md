@@ -1,5 +1,5 @@
 ---
-updatedAt: 2026-04-16T22:30:26.000Z
+updatedAt: 2026-08-16T08:51:42.000Z
 ---
 
 Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
@@ -13,18 +13,15 @@ Fees on Derive differ if you are are maker (i.e. you put out a resting limit ord
 | Instrument | Taker                                          | Maker                                   |
 | :--------- | :--------------------------------------------- | :-------------------------------------- |
 | Spot       | No taker fees                                  | No maker fees                           |
-| Perp       | $0.1 + 0.03% x notional                        | 0.01% x notional                        |
+| Perp       | $0.01 + 0.03% x notional                       | 0.01% x notional                        |
 | Option     | $0.5 + min(0.03% x notional, 12.5% \* premium) | min(0.01% x notional, 12.5% \* premium) |
 
 Note, Builder Fees (a.k.a extra\_fees) are charged on top of these fees and passed on directly to builders.
 
 Examples:
 
-1. Alice buys 2 ETH 2,000 puts using an aggressive order, and the oracle spot price is $2200:\
-   `fee = $0.5 + 0.03% * 2 * $2200 = $1.82`
-2. Bob opens a 0.1 BTC perp sell limit order and later gets filled by Charlie, with spot at $43,000:\
-   `feeBob = 0.01% * 0.1 * $43,000 = $0.43`\
-   `feeCharlie = $0.1 + 0.03% * 0.1 * $43,000 = $1.39`
+1. Alice buys 2 ETH 2,000 puts using an aggressive order, and the oracle spot price is $2200:<br />`fee = $0.5 + 0.03% * 2 * $2200 = $1.82`
+2. Bob opens a 0.1 BTC perp sell limit order and later gets filled by Charlie, with spot at $43,000:<br />`feeBob = 0.01% * 0.1 * $43,000 = $0.43`<br />`feeCharlie = $0.01 + 0.03% * 0.1 * $43,000 = $1.30`
 
 <br />
 
