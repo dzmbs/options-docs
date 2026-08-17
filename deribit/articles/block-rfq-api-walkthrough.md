@@ -99,11 +99,21 @@ Makers respond to Block RFQs by adding quotes using [`private/add_block_rfq_quot
   "method": "private/add_block_rfq_quote",
   "params": {
     "block_rfq_id": 123,
-    "price": 50000,
-    "amount": 100
+    "amount": 100,
+    "direction": "sell",
+    "legs": [
+      {
+        "instrument_name": "BTC-15NOV24",
+        "price": 69600,
+        "ratio": 1,
+        "direction": "sell"
+      }
+    ]
   }
 }
 ```
+
+Unlike combo instruments (which are quoted with a single aggregated `price` covering the whole strategy), a Block RFQ quote carries a **price per leg** inside the `legs` array. Each leg is an independently priced instrument, and the leg `direction` must match the direction of the corresponding leg in the Block RFQ. The top-level `price` parameter is only used as the aggregated price for quoting future spreads. For all other structures, populate the per-leg `price` fields instead. To derive per-leg prices from an aggregated strategy price, use [`private/get_leg_prices`](/api-reference/combo-books/private-get_leg_prices).
 
 Makers can:
 

@@ -44,13 +44,15 @@ Request to cancel all active quotes for the specified MMP group.
 
 Acknowledges the successful execution of a `MassCancelRequest` or `MassQuoteCancelRequest`.
 
-| Field | Name            | Type  | Length | Description                                                         |
-| ----- | --------------- | ----- | ------ | ------------------------------------------------------------------- |
-| 1     | transactTime    | int64 | 8      | Nanoseconds since epoch. Time of entry into the order book          |
-| 2     | execId          | int64 | 8      | Exchange-assigned event ID                                          |
-| 3     | correlationId   | int64 | 8      | Client-assigned ID                                                  |
-| 4     | receiveTime     | int64 | 8      | Nanoseconds since epoch. Time of receipt of order on the gateway.   |
-| 5     | totalOrderCount | int32 | 4      | Number of canceled orders included in the following repeating group |
+`MassCancelResponse` is a **flat, fixed-length message**. It acknowledges the request and reports the total number of cancellations, but does not itself carry per-order details. Cancelled orders are reported separately as unsolicited [`OrdersCanceled` (310)](/starbase/unsolicited-events#orderscanceled-310) messages, which contain the `orders` repeating group with one entry per cancelled order.
+
+| Field | Name            | Type  | Length | Description                                                       |
+| ----- | --------------- | ----- | ------ | ----------------------------------------------------------------- |
+| 1     | transactTime    | int64 | 8      | Nanoseconds since epoch. Time of entry into the order book        |
+| 2     | execId          | int64 | 8      | Exchange-assigned event ID                                        |
+| 3     | correlationId   | int64 | 8      | Client-assigned ID                                                |
+| 4     | receiveTime     | int64 | 8      | Nanoseconds since epoch. Time of receipt of order on the gateway. |
+| 5     | totalOrderCount | int32 | 4      | Total number of orders cancelled by this request                  |
 
 ### MassCancelReject (242)
 

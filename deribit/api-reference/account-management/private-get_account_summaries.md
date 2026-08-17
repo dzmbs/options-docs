@@ -633,13 +633,28 @@ components:
                             properties:
                               type:
                                 type: string
-                                description: Fee calculation type (e.g., fixed, relative)
+                                description: >-
+                                  Fee calculation type. `relative` —
+                                  `taker`/`maker` are unitless multipliers
+                                  applied on top of the base instrument fee
+                                  (e.g., `0.625` means the user pays 62.5% of
+                                  the base fee). `fixed` — `taker`/`maker` are
+                                  absolute fee rates expressed as a fraction of
+                                  notional (e.g., `0.00035` means 0.035%, or 3.5
+                                  bps). Negative values indicate a rebate.
                               taker:
                                 type: number
-                                description: Taker fee
+                                description: >-
+                                  Taker fee. Unit depends on `type`: multiplier
+                                  of the base fee when `type` = `relative`;
+                                  fraction of notional when `type` = `fixed`.
                               maker:
                                 type: number
-                                description: Maker fee
+                                description: >-
+                                  Maker fee. Unit depends on `type`: multiplier
+                                  of the base fee when `type` = `relative`;
+                                  fraction of notional when `type` = `fixed`.
+                                  Negative values indicate a maker rebate.
                             required:
                               - type
                               - taker

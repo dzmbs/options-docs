@@ -24,6 +24,6 @@ orders will be cancelled at Logout.
 
 - [Logon(A) — Production FIX API](/fix-api/production/logon.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Heartbeat(0) — Production FIX API](/fix-api/production/heartbeat.md)
 - [Reject(3) — Production FIX API](/fix-api/production/reject.md)
+- [Heartbeat(0) — Production FIX API](/fix-api/production/heartbeat.md)
 - [Sequence Reset(4) — Production FIX API](/fix-api/production/sequence-reset.md)
