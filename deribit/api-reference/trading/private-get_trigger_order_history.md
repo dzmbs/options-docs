@@ -56,6 +56,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /private/get_trigger_order_history:
     get:
@@ -210,7 +215,7 @@ components:
           enum:
             - limit
             - market
-          description: 'Requested order type: `"limit` or `"market"`'
+          description: 'Requested order type: `"limit"` or `"market"`'
         label:
           $ref: '#/components/schemas/label_presentation'
         is_secondary_oto:

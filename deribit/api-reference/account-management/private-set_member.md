@@ -13,7 +13,8 @@ for an explanation of Members, portfolios, and their relationship to Deribit acc
 Omit `member_id` to create a new member; a non-empty `accounts` list is then required, and the
 member cannot be created inactive. Pass an existing `member_id` to edit that member's `name` or
 `accounts` list, or to toggle its `is_active` state — toggling `is_active` and changing
-`name`/`accounts` cannot be done in the same request.
+`name`/`accounts` cannot be done in the same request, so a pure `is_active` toggle must resend
+the member's current `name` and `accounts` values.
 
 Requires Direct Access trading to be enabled for the account.
 
@@ -65,6 +66,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /private/set_member:
     get:
@@ -94,7 +100,10 @@ paths:
         `accounts` list, or to toggle its `is_active` state — toggling
         `is_active` and changing
 
-        `name`/`accounts` cannot be done in the same request.
+        `name`/`accounts` cannot be done in the same request, so a pure
+        `is_active` toggle must resend
+
+        the member's current `name` and `accounts` values.
 
 
         Requires Direct Access trading to be enabled for the account.
@@ -122,7 +131,9 @@ paths:
             type: string
             maxLength: 64
             example: Member1
-          description: Name of the member.
+          description: >-
+            Name of the member. Always required — must be sent in every request,
+            even when only toggling `is_active`.
         - name: is_active
           in: query
           schema:
@@ -145,7 +156,9 @@ paths:
               - 85867
           description: >-
             List of (sub)account user ids to grant the member Direct Access
-            trading rights on.
+            trading rights on. Defaults to `[]`; creating a member requires a
+            non-empty list. On edit the list is replaced wholesale — omitting
+            `accounts` clears the member's accounts.
           style: form
           explode: true
           required: false

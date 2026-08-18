@@ -56,6 +56,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /private/get_margins:
     get:
@@ -221,4 +226,4 @@ components:
 - [private/get_order_margin_by_ids](/api-reference/trading/private-get_order_margin_by_ids.md)
 - [private/change_margin_model](/api-reference/account-management/private-change_margin_model.md)
 - [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)
-- [private/get_position](/api-reference/account-management/private-get_position.md)
+- [private/get_account_summary](/api-reference/account-management/private-get_account_summary.md)

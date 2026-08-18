@@ -10,6 +10,9 @@
 in case of [`Market Data Request`(`V`)](/fix-api/production/market-data-request) for Snapshot +
 Subscribe.
 
+Trade entries (`MDEntryType`(`269`)=`2`) are never present for spot instruments
+matched on Coinbase Exchange. See [Coinbase-routed spot](/fix-api/production/coinbase-routed-spot).
+
 ### Arguments
 
 | Tag      | Name                 | Type         | Required | Comments                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -46,4 +49,4 @@ Subscribe.
 - [Market Data Request(V) — Production FIX API](/fix-api/production/market-data-request.md)
 - [Market Data Request Reject(Y) — Production FIX API](/fix-api/production/market-data-request-reject.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Market Data Collection](/articles/market-data-collection-best-practices.md)
+- [Coinbase-Routed Spot — Production FIX API](/fix-api/production/coinbase-routed-spot.md)

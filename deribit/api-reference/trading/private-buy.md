@@ -8,6 +8,8 @@
 
 You can specify order parameters such as price, quantity, time-in-force, post-only, reduce-only, and trigger conditions. Orders can be labeled for easier management and tracking.
 
+**Note:** For spot orders routed to Coinbase Exchange, fills come back asynchronously. It is recommended to receive fills from the `user.trades` channel.
+
 **📖 Related Article:** [Order Management Best Practices](https://docs.deribit.com/articles/order-management-best-practices)
 
 **Scope:** `trade:read_write`
@@ -58,6 +60,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /private/buy:
     get:
@@ -74,6 +81,11 @@ paths:
         You can specify order parameters such as price, quantity, time-in-force,
         post-only, reduce-only, and trigger conditions. Orders can be labeled
         for easier management and tracking.
+
+
+        **Note:** For spot orders routed to Coinbase Exchange, fills come back
+        asynchronously. It is recommended to receive fills from the
+        `user.trades` channel.
 
 
         **📖 Related Article:** [Order Management Best
@@ -130,7 +142,10 @@ paths:
               - market_limit
               - trailing_stop
           required: false
-          description: 'The order type, default: `"limit"`'
+          description: >-
+            <p>The order type, default: `"limit"`</p> <p>For spot trading routed
+            to Coinbase Exchange, only `"market"`, `"limit"` and `"stop_limit"`
+            orders are supported. Other order types will be rejected.</p>
         - name: label
           in: query
           schema:
@@ -169,7 +184,10 @@ paths:
             transaction immediately and completely or not at all</li>
             <li>`"immediate_or_cancel"` - execute a transaction immediately, and
             any portion of the order that cannot be immediately filled is
-            cancelled</li> </ul>
+            cancelled</li> </ul> <p>For spot trading, only
+            `"good_til_cancelled"`, `"immediate_or_cancel"` and `"fill_or_kill"`
+            are supported. `"good_til_day"` is not supported and will be
+            rejected.</p>
         - name: display_amount
           in: query
           schema:
@@ -190,7 +208,11 @@ paths:
             <p>If true, the order is considered post-only. If the new price
             would cause the order to be filled immediately (as taker), the price
             will be changed to be just below the spread.</p> <p>Only valid in
-            combination with time_in_force=`"good_til_cancelled"`</p>
+            combination with time_in_force=`"good_til_cancelled"`</p> <p>For
+            spot trading routed to Coinbase Exchange, the price is never
+            adjusted: `"post_only"` must be combined with `"reject_post_only"`
+            set to true, and the order is rejected if it would be matched
+            instantly.</p>
         - name: reject_post_only
           in: query
           schema:
@@ -201,7 +223,9 @@ paths:
             <p>If an order is considered post-only and this field is set to true
             then the order is put to the order book unmodified or the request is
             rejected.</p> <p>Only valid in combination with `"post_only"` set to
-            true</p>
+            true</p> <p>For spot trading routed to Coinbase Exchange, this must
+            be set to true whenever `"post_only"` is true; otherwise the request
+            is rejected with `post_only_not_allowed`.</p>
         - name: reduce_only
           in: query
           schema:
@@ -233,8 +257,10 @@ paths:
             $ref: '#/components/schemas/trigger'
           required: false
           description: >-
-            Defines the trigger type. Required for `"Stop-Loss"`,
-            `"Take-Profit"` and `"Trailing"` trigger orders
+            <p>Defines the trigger type. Required for `"Stop-Loss"`,
+            `"Take-Profit"` and `"Trailing"` trigger orders</p> <p>For
+            stop-limit orders routed to Coinbase Exchange, only `"last_price"`
+            is allowed.</p>
         - name: advanced
           in: query
           schema:
@@ -692,7 +718,7 @@ components:
             - limit
             - market
             - liquidation
-          description: 'Order type: `"limit`, `"market"`, or `"liquidation"`'
+          description: 'Order type: `"limit"`, `"market"`, or `"liquidation"`'
         original_order_type:
           $ref: '#/components/schemas/original_order_type'
         advanced:

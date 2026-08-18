@@ -58,7 +58,7 @@ If you want to use the API, please head to [the Creating the API key using the A
 
     ![API Scopes Configuration](https://support.deribit.com/hc/article_attachments/32629429791005)
 
-    Once created you will receive **Client ID** and **Client Secret**
+    Once created you will receive **Client ID** and **Client Secret**.
 
     ![API Key Created](https://support.deribit.com/hc/article_attachments/32629413800093)
 

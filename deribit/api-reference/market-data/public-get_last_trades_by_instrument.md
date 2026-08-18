@@ -8,6 +8,8 @@
 
 Results can be filtered by sequence number range or timestamp range. Use the `count` parameter to limit the number of trades returned, and `sorting` to control the order (ascending or descending by trade ID).
 
+**Note:** For spot instruments routed to Coinbase Exchange, this call is not supported. Use [Get product trades](https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-trades) directly for full trade history.
+
 [Try in API console](https://test.deribit.com/api_console?method=%2Fpublic%2Fget_last_trades_by_instrument)
 
 
@@ -54,6 +56,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /public/get_last_trades_by_instrument:
     get:
@@ -69,6 +76,12 @@ paths:
         Results can be filtered by sequence number range or timestamp range. Use
         the `count` parameter to limit the number of trades returned, and
         `sorting` to control the order (ascending or descending by trade ID).
+
+
+        **Note:** For spot instruments routed to Coinbase Exchange, this call is
+        not supported. Use [Get product
+        trades](https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-trades)
+        directly for full trade history.
 
 
         [Try in API

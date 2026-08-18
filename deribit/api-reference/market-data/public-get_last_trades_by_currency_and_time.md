@@ -8,6 +8,8 @@
 
 Results can be filtered by instrument kind. Use the `count` parameter to limit the number of trades returned, and `sorting` to control the order (ascending or descending by trade ID).
 
+**Note:** For currencies with spot instruments routed to Coinbase Exchange, this call is not supported when `kind` is `spot` or `any` — and `any` is the default when `kind` is omitted. A currency counts as routed when it is the base or the quote of a routed pair. Other kinds are unaffected. Use [Get product trades](https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-trades) directly for full trade history by instrument.
+
 **Scope:** `trade:read`
 
 [Try in API console](https://test.deribit.com/api_console?method=%2Fpublic%2Fget_last_trades_by_currency_and_time)
@@ -56,6 +58,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /public/get_last_trades_by_currency_and_time:
     get:
@@ -71,6 +78,15 @@ paths:
         Results can be filtered by instrument kind. Use the `count` parameter to
         limit the number of trades returned, and `sorting` to control the order
         (ascending or descending by trade ID).
+
+
+        **Note:** For currencies with spot instruments routed to Coinbase
+        Exchange, this call is not supported when `kind` is `spot` or `any` —
+        and `any` is the default when `kind` is omitted. A currency counts as
+        routed when it is the base or the quote of a routed pair. Other kinds
+        are unaffected. Use [Get product
+        trades](https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-trades)
+        directly for full trade history by instrument.
 
 
         **Scope:** `trade:read`

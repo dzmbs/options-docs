@@ -58,6 +58,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /private/create_subaccount:
     get:
@@ -325,7 +330,11 @@ components:
     additional_reserve:
       example: 0.3
       type: number
-      description: The account's balance reserved in other orders
+      description: >-
+        The account's balance reserved for open buy option orders and option
+        combo orders (the premium payable if they fill). Only non-zero on the
+        `cross_sm` margin model; balance reserved by spot orders is reported
+        separately in `spot_reserve`.
 
 ````
 

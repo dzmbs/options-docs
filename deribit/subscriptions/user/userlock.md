@@ -81,23 +81,23 @@ operations:
                     Currency on which account lock has changed, `ALL` if changed
                     for all currencies
                   example: BTC, ALL
-                  x-parser-schema-id: <anonymous-schema-1119>
+                  x-parser-schema-id: <anonymous-schema-1139>
                 locked:
                   type: boolean
                   description: >-
                     Value is set to 'true' when user account is locked in
                     currency
                   example: false
-                  x-parser-schema-id: <anonymous-schema-1120>
+                  x-parser-schema-id: <anonymous-schema-1140>
               required:
                 - currency
                 - locked
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-1118>
+              x-parser-schema-id: <anonymous-schema-1138>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-1117>
+          x-parser-schema-id: <anonymous-schema-1137>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -137,7 +137,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-1116>
+          x-parser-schema-id: <anonymous-schema-1136>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

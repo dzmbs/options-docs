@@ -17,6 +17,12 @@ orders by `OrigClOrdId` is noticeably faster.
 * to change the order using `ClOrdID` or `DeribitLabel`, this must be the only existing order with such `ClOrdID` or `DeribitLabel`. Multiple orders with the same `ClOrdID` or `DeribitLabel` won't be amended that way.
 * when possible it is recommended to use faster `OrigClOrdId`
 
+<Note>
+  On spot instruments matched on Coinbase Exchange, `ExecInst`(`18`) accepts only
+  `6A` and `DisplayQty`(`1138`) is rejected. See
+  [Coinbase-routed spot](/fix-api/production/coinbase-routed-spot).
+</Note>
+
 ### Arguments
 
 | Tag    | Name                  | Type              | Required                                             | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -38,7 +44,7 @@ orders by `OrigClOrdId` is noticeably faster.
 
 ### Response
 
-See `New Order Single`(`D`) response
+See `New Order Single`(`D`) response.
 
 
 ## Related topics

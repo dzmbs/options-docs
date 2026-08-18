@@ -8,7 +8,7 @@
 
 **Important: manual admin action is necessary to activate Market Maker
 Protection (MMP) for an account.** This message is sent by the server in reply
-to [`MMProtection Limits` (`MM`)](/fix-api/production/mmprotection-limits) or [`MMProtectionReset` (`MZ`)](/fix-api/production/mmprotection-reset)
+to [`MMProtection Limits` (`MM`)](/fix-api/production/mmprotection-limits) or [`MMProtectionReset` (`MZ`)](/fix-api/production/mmprotection-reset).
 
 ### Response
 

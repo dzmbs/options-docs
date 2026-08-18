@@ -128,6 +128,7 @@ paths:
                     quote_currency: USDC
                     settlement_currency: USDC
                     tick_size: 0.01
+                    qty_tick_size: 1
                     is_active: true
                     creation_timestamp: 1747500000000
                   - instrument_id: 200001
@@ -138,6 +139,7 @@ paths:
                     quote_currency: USDC
                     settlement_currency: USDC
                     tick_size: 0.5
+                    qty_tick_size: 0.1
                     strike: 70000
                     option_type: call
                     is_active: true
@@ -264,6 +266,16 @@ components:
           type: number
           description: Minimum price increment for the instrument.
           example: 0.01
+        qty_tick_size:
+          type: number
+          description: >-
+            Minimum quantity increment (step size) for order amounts on this
+            instrument, expressed in the instrument's amount units. This is the
+            same value the SBE `InstrumentDefinition` (10) message carries as
+            `minOrderQuantity × 10^quantityExponent` — for example
+            `qty_tick_size = 0.1` corresponds to `minOrderQuantity = 1` with
+            `quantityExponent = -1`.
+          example: 0.1
         strike:
           type: number
           nullable: true

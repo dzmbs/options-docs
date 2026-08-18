@@ -8,6 +8,8 @@
 
 Use this channel to receive executed trades as they happen for the given instrument. The `interval` controls how frequently trade events are aggregated.
 
+**Note:** For spot instruments routed to Coinbase Exchange, this channel is not supported. Use the [`matches` channel](https://docs.cdp.coinbase.com/exchange/websocket-feed/channels) for the full trade tape. For user trades, orders and changes, use the `user` channels.
+
 
 
 
@@ -23,6 +25,13 @@ description: >
   Use this channel to receive executed trades as they happen for the given
   instrument. The `interval` controls how frequently trade events are
   aggregated.
+
+
+  **Note:** For spot instruments routed to Coinbase Exchange, this channel is
+  not supported. Use the [`matches`
+  channel](https://docs.cdp.coinbase.com/exchange/websocket-feed/channels) for
+  the full trade tape. For user trades, orders and changes, use the `user`
+  channels.
 servers:
   - id: production
     protocol: wss
@@ -49,8 +58,9 @@ parameters:
       type: string
       description: >-
         Frequency of notifications. Events will be aggregated over this
-        interval. The value `raw` means no aggregation will be applied **(Please
-        note that `raw` interval is only available to authorized users)**
+        interval. The value `raw` selects the finest granularity - events are
+        aggregated over a 1 millisecond interval **(Please note that `raw`
+        interval is only available to authorized users)**
 
 
         **Allowed values:** `raw`, `100ms`, `agg2`
@@ -60,8 +70,9 @@ parameters:
         - agg2
     description: >-
       Frequency of notifications. Events will be aggregated over this interval.
-      The value `raw` means no aggregation will be applied **(Please note that
-      `raw` interval is only available to authorized users)**
+      The value `raw` selects the finest granularity - events are aggregated
+      over a 1 millisecond interval **(Please note that `raw` interval is only
+      available to authorized users)**
 
 
       **Allowed values:** `raw`, `100ms`, `agg2`

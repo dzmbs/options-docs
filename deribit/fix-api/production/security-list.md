@@ -9,6 +9,11 @@
 The `SecurityList`(`y`) message is used to return a list of securities that
 matches the criteria specified in a [`Security List Request`(`x`)](/fix-api/production/security-list-request).
 
+Some of the returned `FXSPOT` instruments are matched on Coinbase Exchange and
+behave differently for order entry and market data. See
+[Coinbase-routed spot](/fix-api/production/coinbase-routed-spot) for how to
+identify them.
+
 ### Arguments
 
 | Tag      | Name                       | Type         | Required | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |

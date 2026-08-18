@@ -30,7 +30,7 @@ end-points depending on `SecurityRequestType (321)` tag value).
 ### Response
 
 The server sends [`Security Definition (d)`](/fix-api/production/security-definition) message as
-a response, or rejects the request
+a response, or rejects the request.
 
 
 ## Related topics

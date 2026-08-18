@@ -9,6 +9,13 @@
 The `NEW ORDER SINGLE`(`D`) is used by the client to submit new orders to the
 exchange.
 
+<Note>
+  Spot instruments matched on Coinbase Exchange accept a narrower set of values
+  for `OrdType`(`40`), `TimeInForce`(`59`), `ExecInst`(`18`), `DisplayQty`(`1138`)
+  and `DeribitConditionTriggerMethod`(`5127`). See
+  [Coinbase-routed spot](/fix-api/production/coinbase-routed-spot).
+</Note>
+
 ### Arguments
 
 | Tag    | Name                            | Type              | Required | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |

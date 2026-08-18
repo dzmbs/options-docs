@@ -8,6 +8,8 @@
 
 Use the `chart_resolution` parameter to specify the candle interval (e.g., 1m, 5m, 1h, 1d). This method provides the standard format used by TradingView and other charting platforms.
 
+**Note:** For spot instruments routed to Coinbase Exchange, this call is not supported. Use [Get product candles](https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-candles) instead.
+
 [Try in API console](https://test.deribit.com/api_console?method=%2Fpublic%2Fget_tradingview_chart_data)
 
 
@@ -54,6 +56,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /public/get_tradingview_chart_data:
     get:
@@ -69,6 +76,12 @@ paths:
         Use the `chart_resolution` parameter to specify the candle interval
         (e.g., 1m, 5m, 1h, 1d). This method provides the standard format used by
         TradingView and other charting platforms.
+
+
+        **Note:** For spot instruments routed to Coinbase Exchange, this call is
+        not supported. Use [Get product
+        candles](https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-candles)
+        instead.
 
 
         [Try in API

@@ -60,6 +60,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /private/reset_mmp:
     get:
@@ -211,6 +216,6 @@ components:
 
 - [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
 - [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
-- [user.mmp_trigger.(index_name) ](/subscriptions/user/usermmp_triggerindex_name.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [user.mmp_trigger.(index_name) ](/subscriptions/user/usermmp_triggerindex_name.md)
 - [private/set_mmp_config](/api-reference/trading/private-set_mmp_config.md)

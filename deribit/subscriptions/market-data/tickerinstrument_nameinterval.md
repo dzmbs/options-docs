@@ -16,7 +16,7 @@ This subscription delivers key market metrics including:
 - **Perpetual-specific data:** Current funding rate and 8-hour funding rate
 - **Futures-specific data:** Interest value and delivery price
 
-The `interval` parameter controls the frequency of updates: `raw` (no aggregation, authorized users only), `100ms` (aggregated every 100 milliseconds), or `agg2` (aggregated every 2 seconds).
+The `interval` parameter controls the frequency of updates: `raw` (finest granularity - events aggregated over a 1 millisecond interval, authorized users only), `100ms` (aggregated every 100 milliseconds), or `agg2` (aggregated every 2 seconds).
 
 This is the recommended method for real-time market data updates, as it provides efficient push-based notifications instead of requiring polling.
 
@@ -55,9 +55,10 @@ description: >
   - **Futures-specific data:** Interest value and delivery price
 
 
-  The `interval` parameter controls the frequency of updates: `raw` (no
-  aggregation, authorized users only), `100ms` (aggregated every 100
-  milliseconds), or `agg2` (aggregated every 2 seconds).
+  The `interval` parameter controls the frequency of updates: `raw` (finest
+  granularity - events aggregated over a 1 millisecond interval, authorized
+  users only), `100ms` (aggregated every 100 milliseconds), or `agg2`
+  (aggregated every 2 seconds).
 
 
   This is the recommended method for real-time market data updates, as it
@@ -88,8 +89,9 @@ parameters:
       type: string
       description: >-
         Frequency of notifications. Events will be aggregated over this
-        interval. The value `raw` means no aggregation will be applied **(Please
-        note that `raw` interval is only available to authorized users)**
+        interval. The value `raw` selects the finest granularity - events are
+        aggregated over a 1 millisecond interval **(Please note that `raw`
+        interval is only available to authorized users)**
 
 
         **Allowed values:** `raw`, `100ms`, `agg2`
@@ -99,8 +101,9 @@ parameters:
         - agg2
     description: >-
       Frequency of notifications. Events will be aggregated over this interval.
-      The value `raw` means no aggregation will be applied **(Please note that
-      `raw` interval is only available to authorized users)**
+      The value `raw` selects the finest granularity - events are aggregated
+      over a 1 millisecond interval **(Please note that `raw` interval is only
+      available to authorized users)**
 
 
       **Allowed values:** `raw`, `100ms`, `agg2`

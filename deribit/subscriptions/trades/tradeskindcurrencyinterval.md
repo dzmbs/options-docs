@@ -8,6 +8,8 @@
 
 Use this channel when you want a consolidated stream of trades across all instruments of a specific `kind` (e.g., futures, options) and `currency`. The `interval` controls aggregation frequency.
 
+**Note:** For spot instruments routed to Coinbase Exchange, this channel is not supported with `kind` = `spot`: the subscription is rejected for any currency that is the base or the quote of a routed pair, and for `currency` = `any` whenever any pair is routed. Other kinds are unaffected. Use the [`matches` channel](https://docs.cdp.coinbase.com/exchange/websocket-feed/channels) for the full trade tape.
+
 
 
 
@@ -23,6 +25,15 @@ description: >
   Use this channel when you want a consolidated stream of trades across all
   instruments of a specific `kind` (e.g., futures, options) and `currency`. The
   `interval` controls aggregation frequency.
+
+
+  **Note:** For spot instruments routed to Coinbase Exchange, this channel is
+  not supported with `kind` = `spot`: the subscription is rejected for any
+  currency that is the base or the quote of a routed pair, and for `currency` =
+  `any` whenever any pair is routed. Other kinds are unaffected. Use the
+  [`matches`
+  channel](https://docs.cdp.coinbase.com/exchange/websocket-feed/channels) for
+  the full trade tape.
 servers:
   - id: production
     protocol: wss
@@ -86,8 +97,9 @@ parameters:
       type: string
       description: >-
         Frequency of notifications. Events will be aggregated over this
-        interval. The value `raw` means no aggregation will be applied **(Please
-        note that `raw` interval is only available to authorized users)**
+        interval. The value `raw` selects the finest granularity - events are
+        aggregated over a 1 millisecond interval **(Please note that `raw`
+        interval is only available to authorized users)**
 
 
         **Allowed values:** `raw`, `100ms`, `agg2`
@@ -97,8 +109,9 @@ parameters:
         - agg2
     description: >-
       Frequency of notifications. Events will be aggregated over this interval.
-      The value `raw` means no aggregation will be applied **(Please note that
-      `raw` interval is only available to authorized users)**
+      The value `raw` selects the finest granularity - events are aggregated
+      over a 1 millisecond interval **(Please note that `raw` interval is only
+      available to authorized users)**
 
 
       **Allowed values:** `raw`, `100ms`, `agg2`

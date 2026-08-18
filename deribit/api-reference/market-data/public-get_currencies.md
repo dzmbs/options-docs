@@ -54,6 +54,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /public/get_currencies:
     get:
@@ -235,5 +240,5 @@ components:
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [public/get_expirations](/api-reference/market-data/public-get_expirations.md)
 - [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
-- [public/get_combos](/api-reference/combo-books/public-get_combos.md)
 - [public/get_instrument](/api-reference/market-data/public-get_instrument.md)
+- [public/get_combos](/api-reference/combo-books/public-get_combos.md)

@@ -27,5 +27,5 @@ decryption.
 - [Order Cancel Reject(9) — Production FIX API](/fix-api/production/order-cancel-reject.md)
 - [Market Data Request Reject(Y) — Production FIX API](/fix-api/production/market-data-request-reject.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [Coinbase-Routed Spot — Production FIX API](/fix-api/production/coinbase-routed-spot.md)
 - [Mass Quote Acknowledgement(b) — Production FIX API](/fix-api/production/mass-quote-acknowledgement.md)
-- [Security Definition Request(c) — Production FIX API](/fix-api/production/security-definition-request.md)

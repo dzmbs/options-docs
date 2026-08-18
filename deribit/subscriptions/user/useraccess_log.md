@@ -138,24 +138,24 @@ operations:
                   description: Unique identifier
                   type: integer
                   example: 5967413
-                  x-parser-schema-id: <anonymous-schema-1107>
+                  x-parser-schema-id: <anonymous-schema-1127>
                 ip:
                   type: string
                   description: IP address of source that generated action
-                  x-parser-schema-id: <anonymous-schema-1108>
+                  x-parser-schema-id: <anonymous-schema-1128>
                 timestamp:
                   type: integer
                   example: 1536569522277
                   description: The timestamp (milliseconds since the Unix epoch)
-                  x-parser-schema-id: <anonymous-schema-1109>
+                  x-parser-schema-id: <anonymous-schema-1129>
                 country:
                   type: string
                   description: Country where the IP address is registered (estimated)
-                  x-parser-schema-id: <anonymous-schema-1110>
+                  x-parser-schema-id: <anonymous-schema-1130>
                 city:
                   type: string
                   description: City where the IP address is registered (estimated)
-                  x-parser-schema-id: <anonymous-schema-1111>
+                  x-parser-schema-id: <anonymous-schema-1131>
                 log:
                   type: string
                   description: >
@@ -200,17 +200,17 @@ operations:
 
                     - ``reset_api_key`` - API key was reset (in `data` key
                     client id)
-                  x-parser-schema-id: <anonymous-schema-1112>
+                  x-parser-schema-id: <anonymous-schema-1132>
                 data:
                   oneOf:
                     - type: object
-                      x-parser-schema-id: <anonymous-schema-1114>
+                      x-parser-schema-id: <anonymous-schema-1134>
                     - type: string
-                      x-parser-schema-id: <anonymous-schema-1115>
+                      x-parser-schema-id: <anonymous-schema-1135>
                   description: >-
                     Optional, additional information about action, type depends
                     on `log` value
-                  x-parser-schema-id: <anonymous-schema-1113>
+                  x-parser-schema-id: <anonymous-schema-1133>
               required:
                 - id
                 - ip
@@ -219,11 +219,11 @@ operations:
                 - city
                 - log
               additionalProperties: false
-              x-parser-schema-id: <anonymous-schema-1106>
+              x-parser-schema-id: <anonymous-schema-1126>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-1105>
+          x-parser-schema-id: <anonymous-schema-1125>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -267,7 +267,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-1104>
+          x-parser-schema-id: <anonymous-schema-1124>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification

@@ -66,6 +66,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /private/get_transaction_log:
     get:
@@ -281,8 +286,19 @@ components:
           description: >-
             Transaction category/type. The most common are: `trade`, `deposit`,
             `withdrawal`, `settlement`, `delivery`, `transfer`, `swap`,
-            `correction`, `expiry`. New types can be added any time in the
+            `correction`, `expiry`, `LSP transfer`, `LSP commission`, `ADL
+            transfer`, `ADL commission`. New types can be added any time in the
             future
+        role:
+          type: string
+          enum:
+            - source
+            - destination
+          description: >-
+            For `LSP transfer`, `ADL transfer` and `liquidation transfer`
+            entries, indicates which side of the position move this entry
+            represents: `source` (the liquidated account) or `destination` (the
+            account receiving the position, e.g. an LSP participant)
         info:
           type: object
           description: >-
@@ -441,11 +457,15 @@ components:
     rpl:
       example: 0.1
       type: number
-      description: Session realized profit and loss
+      description: >-
+        Realized profit and loss accrued in the current trading session (since
+        the last daily settlement). Resets at each daily settlement.
     upl:
       example: 0.846863
       type: number
-      description: Session unrealized profit and loss
+      description: >-
+        Unrealized profit and loss on open positions in the current trading
+        session (since the last daily settlement).
     contracts:
       type: number
       description: >-
@@ -464,6 +484,30 @@ components:
                 id: 4
                 result:
                   logs:
+                    - username: TestUser
+                      user_seq: 6010
+                      user_id: 7
+                      type: LSP transfer
+                      role: source
+                      side: sell
+                      trade_id: null
+                      timestamp: 1613659900000
+                      price_currency: USD
+                      price: 63481.75
+                      position: 0
+                      order_id: null
+                      session_rpl: -12.4
+                      total_interest_pl: 0.00000512
+                      interest_pl: 0.00000512
+                      instrument_name: BTC-PERPETUAL
+                      id: 61313
+                      equity: 2998.5275869
+                      currency: BTC
+                      commission: 0
+                      change: -2.4
+                      cashflow: -2.4
+                      balance: 2998.82270418
+                      amount: 5000
                     - username: TestUser
                       user_seq: 6009
                       user_id: 7

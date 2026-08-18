@@ -4,7 +4,7 @@
 
 # public/get_contract_size
 
-> Retrieves the contract size (also known as contract multiplier) for a given instrument. The contract size determines how many units of the underlying asset one contract represents.
+> Retrieves the contract size (also known as contract multiplier) for a given instrument. The contract size is the value of one contract, expressed in the same unit as the order amount: USD for inverse (reversed) futures and perpetuals, and the base currency coin for options, spots, and linear futures and perpetuals.
 
 This value is essential for calculating position values, margin requirements, and P&L calculations. Different instruments may have different contract sizes.
 
@@ -54,6 +54,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /public/get_contract_size:
     get:
@@ -62,8 +67,10 @@ paths:
         - Public
       description: >+
         Retrieves the contract size (also known as contract multiplier) for a
-        given instrument. The contract size determines how many units of the
-        underlying asset one contract represents.
+        given instrument. The contract size is the value of one contract,
+        expressed in the same unit as the order amount: USD for inverse
+        (reversed) futures and perpetuals, and the base currency coin for
+        options, spots, and linear futures and perpetuals.
 
 
         This value is essential for calculating position values, margin
@@ -113,10 +120,15 @@ components:
       type: object
     contract_size:
       example: 10
-      type: integer
+      type: number
       description: >-
-        Contract size, for futures in USD, for options in base currency of the
-        instrument (BTC, ETH, ...)
+        Contract size for the instrument, expressed in the same unit as the
+        order amount. For inverse (reversed) futures and perpetuals this is USD
+        — BTC-PERPETUAL has a contract size of 10 USD. For options, spots, and
+        for linear futures and perpetuals it is the base currency coin —
+        BTC_USDC-PERPETUAL has a contract size of 0.0001 BTC. Note that on an
+        inverse instrument `base_currency` identifies the underlying and
+        settlement coin and does not indicate the unit of `contract_size`.
   responses:
     PublicGetContractSizeResponse:
       content:

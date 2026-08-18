@@ -66,6 +66,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /private/create_deposit_address:
     get:
@@ -206,5 +211,5 @@ components:
 - [Managing Deposits](/articles/managing-deposits-api.md)
 - [private/get_current_deposit_address](/api-reference/wallet/private-get_current_deposit_address.md)
 - [private/get_deposits](/api-reference/wallet/private-get_deposits.md)
-- [private/set_clearance_originator](/api-reference/wallet/private-set_clearance_originator.md)
 - [private/list_custody_accounts](/api-reference/account-management/private-list_custody_accounts.md)
+- [private/set_clearance_originator](/api-reference/wallet/private-set_clearance_originator.md)

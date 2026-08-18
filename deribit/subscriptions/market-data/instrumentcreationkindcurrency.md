@@ -132,11 +132,11 @@ operations:
               type: object
               description: The actual notification data
               additionalProperties: true
-              x-parser-schema-id: <anonymous-schema-582>
+              x-parser-schema-id: <anonymous-schema-592>
           required:
             - data
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-581>
+          x-parser-schema-id: <anonymous-schema-591>
         title: Subscription Notification Data
         description: Server sends subscription notification data
         example: |-
@@ -155,6 +155,8 @@ operations:
               "settlement_currency": "BTC",
               "quote_currency": "BTC",
               "price_index": "btc_usd",
+              "index_id": 1000033,
+              "product_group": "BTC",
               "option_type": "put",
               "min_trade_amount": 0.1,
               "maker_commission": 0.0003,
@@ -167,6 +169,7 @@ operations:
               "timestamp": 1671696002000,
               "counter_currency": "USD",
               "contract_size": 1,
+              "lot_size": 1,
               "block_trade_tick_size": 0.0001,
               "block_trade_min_trade_amount": 25,
               "block_trade_commission": 0.00015,
@@ -204,7 +207,7 @@ operations:
         jsonPayloadSchema:
           properties: {}
           additionalProperties: false
-          x-parser-schema-id: <anonymous-schema-580>
+          x-parser-schema-id: <anonymous-schema-590>
         title: Subscription Request
         description: >-
           Client sends subscription request to subscribe to notification
@@ -247,6 +250,6 @@ securitySchemes: []
 
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [instrument.state.(kind).(currency) ](/subscriptions/market-data/instrumentstatekindcurrency.md)
 - [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
-- [public/get_book_summary_by_currency](/api-reference/market-data/public-get_book_summary_by_currency.md)
+- [public/get_instrument](/api-reference/market-data/public-get_instrument.md)
+- [instrument.state.(kind).(currency) ](/subscriptions/market-data/instrumentstatekindcurrency.md)

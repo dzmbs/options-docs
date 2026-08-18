@@ -60,6 +60,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /private/simulate_portfolio:
     get:
@@ -171,19 +176,32 @@ components:
             equity:
               example: 150075253.91354558
               type: number
-              description: The account's current equity
+              description: >-
+                The account's equity in the selected currency: `balance +
+                futures (session UPL + RPL) + options mark value` (plus any
+                external/implied equity). Related: `margin_balance` excludes
+                options mark value under standard margin.
             balance:
               example: 150076473.4995114
               type: number
-              description: The account's balance
+              description: >-
+                The account's cash balance in the selected currency (deposits,
+                withdrawals, transfers, option premiums, settlements/deliveries,
+                corrections, costs, and insurance refills). Does not include
+                open futures PnL or options mark value.
             margin_balance:
               example: 153534213.79481918
               type: number
               description: >-
-                The account's margin balance. When cross collateral is enabled,
-                this aggregated value is calculated by converting the sum of
-                each cross collateral currency's value to the given currency,
-                using each cross collateral currency's index.
+                Collateral available against margin requirements. Under standard
+                margin (SM): `equity - options_value` (cash balance plus futures
+                session UPL and RPL). Under portfolio margin (PM): equal to
+                `equity` on a segregated account, and `equity -
+                outstanding_loan_amount` on a cross account. When cross
+                collateral is enabled, this aggregated value is calculated by
+                converting the sum of each cross collateral currency's value to
+                the given currency, using each cross collateral currency's
+                index.
             initial_margin:
               example: 37662472.03416069
               type: number
@@ -208,14 +226,23 @@ components:
               example: 115871741.76065847
               type: number
               description: >-
-                The account's available funds. When cross collateral is enabled,
-                this aggregated value is calculated by converting the sum of
-                each cross collateral currency's value to the given currency,
-                using each cross collateral currency's index.
+                Funds available to increase margin usage (open or enlarge
+                positions). Equal to `margin_balance - initial_margin`, floored
+                at `0` in the API response. When initial margin usage exceeds
+                100%, this is `0` and only reducing orders can be placed. When
+                cross collateral is enabled, this aggregated value is calculated
+                by converting the sum of each cross collateral currency's value
+                to the given currency, using each cross collateral currency's
+                index.
             available_withdrawal_funds:
               example: 115871741.76065847
               type: number
-              description: The account's available to withdrawal funds
+              description: >-
+                Funds available to withdraw in the selected currency. Typically
+                lower than `available_funds` because withdrawals also exclude
+                positive session profit, locked balance, `spot_reserve`,
+                `additional_reserve`, and non-withdrawable external/implied
+                equity components. Always ≥ `0`.
             available_subaccount_transfer_funds:
               example: 0
               type: number
@@ -223,7 +250,10 @@ components:
             total_pl:
               example: 40419.10179263
               type: number
-              description: Profit and loss
+              description: >-
+                Total profit and loss of all open positions since each position
+                was opened (not limited to the current session). Differs from
+                `session_rpl` + `session_upl`, which reset at daily settlement.
             session_rpl:
               $ref: '#/components/schemas/rpl'
             session_upl:
@@ -255,23 +285,34 @@ components:
             options_value:
               example: -1056.41256672
               type: number
-              description: Options value
+              description: >-
+                Mark value of all open options positions in the selected
+                currency. Under standard margin, `margin_balance = equity -
+                options_value`.
             options_delta:
               example: 2883.38481
               type: number
-              description: Options summary delta
+              description: >-
+                Sum of the deltas of all options positions. For inverse
+                (coin-margined) options this is the Black-Scholes delta; for
+                linear options it is the index-price-adjusted delta. Unlike
+                account-level `delta_total`, the options mark value is not
+                subtracted.
             options_gamma:
               example: -0.03907
               type: number
-              description: Options summary gamma
+              description: Sum of options position gammas (Black-Scholes).
             options_theta:
               example: 142583.29246
               type: number
-              description: Options summary theta
+              description: >-
+                Sum of the thetas of all options positions. Theta is expressed
+                per day; for options with less than one day left to expiry it is
+                scaled down to the fraction of a day remaining.
             options_vega:
               example: -39322.23046
               type: number
-              description: Options summary vega
+              description: Sum of options position vegas (Black-Scholes).
             options_gamma_map:
               type: object
               additionalProperties:
@@ -363,27 +404,37 @@ components:
     projected_initial_margin:
       example: 1
       type: number
-      description: >-
-        Projected initial margin. When cross collateral is enabled, this
-        aggregated value is calculated by converting the sum of each cross
-        collateral currency's value to the given currency, using each cross
-        collateral currency's index.
+      description: >
+        Initial margin calculated as if instruments expiring at the nearest
+        expiration were excluded, so it shows the requirement that will remain
+        once those instruments have expired.
+
+        When cross collateral is enabled, this aggregated value is calculated by
+        converting the sum of each cross collateral currency's value to the
+        given currency, using each cross collateral currency's index.
     projected_maintenance_margin:
       example: 1
       type: number
-      description: >-
-        Projected maintenance margin. When cross collateral is enabled, this
-        aggregated value is calculated by converting the sum of each cross
-        collateral currency's value to the given currency, using each cross
-        collateral currency's index.
+      description: >
+        Maintenance margin calculated as if instruments expiring at the nearest
+        expiration were excluded, so it shows the requirement that will remain
+        once those instruments have expired.
+
+        When cross collateral is enabled, this aggregated value is calculated by
+        converting the sum of each cross collateral currency's value to the
+        given currency, using each cross collateral currency's index.
     rpl:
       example: 0.1
       type: number
-      description: Session realized profit and loss
+      description: >-
+        Realized profit and loss accrued in the current trading session (since
+        the last daily settlement). Resets at each daily settlement.
     upl:
       example: 0.846863
       type: number
-      description: Session unrealized profit and loss
+      description: >-
+        Unrealized profit and loss on open positions in the current trading
+        session (since the last daily settlement).
     delta_total:
       example: 0.1334
       type: number
@@ -415,13 +466,21 @@ components:
     projected_delta_total:
       example: 0.1334
       type: number
-      description: >-
-        The sum of position deltas without positions that will expire during
-        closest expiration
+      description: >
+        The sum of position deltas excluding positions that expire at the
+        nearest expiration, so it shows the delta that will remain once those
+        positions have expired.
+
+        Calculated on the same Net Transaction Delta basis as `delta_total`,
+        including delta decay during the settlement period.
     additional_reserve:
       example: 0.3
       type: number
-      description: The account's balance reserved in other orders
+      description: >-
+        The account's balance reserved for open buy option orders and option
+        combo orders (the premium payable if they fill). Only non-zero on the
+        `cross_sm` margin model; balance reserved by spot orders is reported
+        separately in `spot_reserve`.
     fee_balance:
       type: number
       description: The account's fee balance (it can be used to pay for fees)

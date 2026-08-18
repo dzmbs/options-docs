@@ -8,6 +8,8 @@
 
 The order is identified by its order ID. Only open orders can be edited. Changes take effect immediately and may result in the order being filled if the new price matches the market.
 
+**Note:** For spot orders routed to Coinbase Exchange, fills come back asynchronously. It is recommended to receive fills from the `user.trades` channel.
+
 **📖 Related Article:** [Order Management Best Practices](https://docs.deribit.com/articles/order-management-best-practices)
 
 **Scope:** `trade:read_write`
@@ -58,6 +60,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /private/edit:
     get:
@@ -74,6 +81,11 @@ paths:
         The order is identified by its order ID. Only open orders can be edited.
         Changes take effect immediately and may result in the order being filled
         if the new price matches the market.
+
+
+        **Note:** For spot orders routed to Coinbase Exchange, fills come back
+        asynchronously. It is recommended to receive fills from the
+        `user.trades` channel.
 
 
         **📖 Related Article:** [Order Management Best
@@ -139,7 +151,10 @@ paths:
             would cause the order to be filled immediately (as taker), the price
             will be changed to be just below or above the spread (accordingly to
             the original order type).</p> <p>Only valid in combination with
-            time_in_force=`"good_til_cancelled"`</p>
+            time_in_force=`"good_til_cancelled"`</p> <p>For spot trading routed
+            to Coinbase Exchange, the price is never adjusted: `"post_only"`
+            must be combined with `"reject_post_only"` set to true, and the
+            order is rejected if it would be matched instantly.</p>
         - name: reduce_only
           in: query
           schema:
@@ -159,7 +174,9 @@ paths:
             <p>If an order is considered post-only and this field is set to true
             then the order is put to the order book unmodified or the request is
             rejected.</p> <p>Only valid in combination with `"post_only"` set to
-            true</p>
+            true</p> <p>For spot trading routed to Coinbase Exchange, this must
+            be set to true whenever `"post_only"` is true; otherwise the request
+            is rejected with `post_only_not_allowed`.</p>
         - name: advanced
           in: query
           schema:
@@ -497,7 +514,7 @@ components:
             - limit
             - market
             - liquidation
-          description: 'Order type: `"limit`, `"market"`, or `"liquidation"`'
+          description: 'Order type: `"limit"`, `"market"`, or `"liquidation"`'
         original_order_type:
           $ref: '#/components/schemas/original_order_type'
         advanced:

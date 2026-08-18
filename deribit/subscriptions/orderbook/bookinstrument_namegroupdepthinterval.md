@@ -141,8 +141,9 @@ parameters:
       type: string
       description: >-
         Frequency of notifications. Events will be aggregated over this
-        interval. The value `raw` means no aggregation will be applied **(Please
-        note that `raw` interval is only available to authorized users)**
+        interval. The value `raw` selects the finest granularity - events are
+        aggregated over a 1 millisecond interval **(Please note that `raw`
+        interval is only available to authorized users)**
 
 
         **Allowed values:** `raw`, `100ms`, `agg2`
@@ -152,8 +153,9 @@ parameters:
         - agg2
     description: >-
       Frequency of notifications. Events will be aggregated over this interval.
-      The value `raw` means no aggregation will be applied **(Please note that
-      `raw` interval is only available to authorized users)**
+      The value `raw` selects the finest granularity - events are aggregated
+      over a 1 millisecond interval **(Please note that `raw` interval is only
+      available to authorized users)**
 
 
       **Allowed values:** `raw`, `100ms`, `agg2`

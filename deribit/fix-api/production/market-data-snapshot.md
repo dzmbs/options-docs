@@ -9,6 +9,9 @@
 `Market Data Snapshot/Full Refresh`(`W`) is used as the response to a
 [`Market Data Request`(`V`)](/fix-api/production/market-data-request) message.
 
+Trade entries (`MDEntryType`(`269`)=`2`) are never present for spot instruments
+matched on Coinbase Exchange. See [Coinbase-routed spot](/fix-api/production/coinbase-routed-spot).
+
 ### Arguments
 
 | Tag      | Name                 | Type         | Required    | Comments                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -51,4 +54,4 @@ below.
 - [Market Data Incremental Refresh(X) — Production FIX API](/fix-api/production/market-data-incremental.md)
 - [Market Data Request Reject(Y) — Production FIX API](/fix-api/production/market-data-request-reject.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Security Status Request(e) — Production FIX API](/fix-api/production/security-status-request.md)
+- [Coinbase-Routed Spot — Production FIX API](/fix-api/production/coinbase-routed-spot.md)

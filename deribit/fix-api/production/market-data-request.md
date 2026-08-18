@@ -20,7 +20,7 @@ change notification.
 | 265    | `MDUpdateType`            | int        | when `SubscriptionRequestType=1` | The type of update to subscribe to. <p>Valid values: <ul><li>`0`= full refresh,</li><li>`1`= incremental refresh</li> </ul></p>                                                                                                                                                                                                                                                                |
 | 9011   | `DeribitSkipBlockTrades`  | Boolean    | No                               | To skip block trades. If `9011=Y` then block trades will not be reported. Default is `N`                                                                                                                                                                                                                                                                                                       |
 | 9012   | `DeribitShowBlockTradeId` | Boolean    | No                               | To show block trade id. If `9012=Y` and `9012=N` then block trades will include BlockTrade ID as TrdMatchID (880). Default is `N`                                                                                                                                                                                                                                                              |
-| 100007 | `DeribitTradeAmount`      | int        | No                               | Amount of trades returned in the snapshot response to request for snapshot of recent trades, default 20, maximum  1000                                                                                                                                                                                                                                                                         |
+| 100007 | `DeribitTradeAmount`      | int        | No                               | Amount of trades returned in the snapshot response to request for snapshot of recent trades, default 20, maximum 1000                                                                                                                                                                                                                                                                          |
 | 100008 | `DeribitSinceTimestamp`   | int        | No                               | UTC Timestamp in milliseconds (integer number of milliseconds), if specified, the response returns the trades happened since that timestamp, applicable to the request for recent trades snapshot                                                                                                                                                                                              |
 |        | Group `MDReqGrp`          |            |                                  |                                                                                                                                                                                                                                                                                                                                                                                                |
 | 267    | `NoMdEntryTypes`          | NumInGroup | Yes                              | Number of entry types in the request                                                                                                                                                                                                                                                                                                                                                           |
@@ -37,6 +37,13 @@ combinations are:
 
 If multiple instrument symbols are specified then the system responds with
 multiple market data messages corresponding to those instruments.
+
+<Note>
+  On spot instruments matched on Coinbase Exchange, `MDEntryType`(`269`)=`2`
+  (Trade) is rejected because Deribit does not see the full Coinbase trade tape.
+  `0` (Bid) and `1` (Offer) requested in the same message are still served. See
+  [Coinbase-routed spot](/fix-api/production/coinbase-routed-spot).
+</Note>
 
 ### Response
 

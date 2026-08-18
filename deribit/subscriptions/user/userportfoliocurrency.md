@@ -129,41 +129,68 @@ operations:
                     required: true
                   - name: equity
                     type: number
-                    description: The account's current equity
+                    description: >-
+                      The account's equity in the selected currency: `balance +
+                      futures (session UPL + RPL) + options mark value` (plus
+                      any external/implied equity). Related: `margin_balance`
+                      excludes options mark value under standard margin.
                     required: true
                   - name: maintenance_margin
                     type: number
                     description: >-
-                      The maintenance margin. When cross collateral is enabled,
-                      this aggregated value is calculated by converting the sum
-                      of each cross collateral currency's value to the given
+                      Minimum margin required to keep positions open. If
+                      `margin_balance` falls below maintenance margin, positions
+                      are liquidated. When cross collateral is enabled, this
+                      aggregated value is calculated by converting the sum of
+                      each cross collateral currency's value to the given
                       currency, using each cross collateral currency's index.
                     required: true
                   - name: initial_margin
                     type: number
                     description: >-
-                      The account's initial margin. When cross collateral is
-                      enabled, this aggregated value is calculated by converting
-                      the sum of each cross collateral currency's value to the
-                      given currency, using each cross collateral currency's
-                      index.
+                      Minimum margin required to open or increase positions
+                      (includes margin for open orders). If initial margin usage
+                      exceeds 100%, `available_funds` is `0`. When cross
+                      collateral is enabled, this aggregated value is calculated
+                      by converting the sum of each cross collateral currency's
+                      value to the given currency, using each cross collateral
+                      currency's index.
                     required: true
                   - name: available_funds
                     type: number
                     description: >-
-                      The account's available funds. When cross collateral is
-                      enabled, this aggregated value is calculated by converting
-                      the sum of each cross collateral currency's value to the
-                      given currency, using each cross collateral currency's
-                      index.
+                      Funds available to increase margin usage (open or enlarge
+                      positions). Equal to `margin_balance - initial_margin`,
+                      floored at `0` in the API response. When initial margin
+                      usage exceeds 100%, this is `0` and only reducing orders
+                      can be placed. When cross collateral is enabled, this
+                      aggregated value is calculated by converting the sum of
+                      each cross collateral currency's value to the given
+                      currency, using each cross collateral currency's index.
                     required: true
                   - name: available_withdrawal_funds
                     type: number
-                    description: The account's available to withdrawal funds
+                    description: >-
+                      Funds available to withdraw in the selected currency.
+                      Typically lower than `available_funds` because withdrawals
+                      also exclude positive session profit, locked balance,
+                      `spot_reserve`, `additional_reserve`, and non-withdrawable
+                      external/implied equity components. Always ≥ `0`.
                     required: true
+                  - name: locked_balance
+                    type: number
+                    description: >-
+                      Portion of the account balance that is locked and excluded
+                      from available withdrawal calculations.
+                    required: false
                   - name: balance
                     type: number
-                    description: The account's balance
+                    description: >-
+                      The account's cash balance in the selected currency
+                      (deposits, withdrawals, transfers, option premiums,
+                      settlements/deliveries, corrections, costs, and insurance
+                      refills). Does not include open futures PnL or options
+                      mark value.
                     required: true
                   - name: fee_balance
                     type: number
@@ -172,67 +199,105 @@ operations:
                   - name: margin_balance
                     type: number
                     description: >-
-                      The account's margin balance. When cross collateral is
-                      enabled, this aggregated value is calculated by converting
-                      the sum of each cross collateral currency's value to the
-                      given currency, using each cross collateral currency's
-                      index.
+                      Collateral available against margin requirements. Under
+                      standard margin (SM): `equity - options_value` (cash
+                      balance plus futures session UPL and RPL). Under portfolio
+                      margin (PM): equal to `equity` on a segregated account,
+                      and `equity - outstanding_loan_amount` on a cross account.
+                      When cross collateral is enabled, this aggregated value is
+                      calculated by converting the sum of each cross collateral
+                      currency's value to the given currency, using each cross
+                      collateral currency's index.
                     required: true
                   - name: session_upl
                     type: number
-                    description: Session unrealized profit and loss
+                    description: >-
+                      Unrealized profit and loss on open positions in the
+                      current trading session (since the last daily settlement).
                     required: true
                   - name: session_rpl
                     type: number
-                    description: Session realized profit and loss
+                    description: >-
+                      Realized profit and loss accrued in the current trading
+                      session (since the last daily settlement). Resets at each
+                      daily settlement.
                     required: true
                   - name: total_pl
                     type: number
-                    description: Profit and loss
+                    description: >-
+                      Total profit and loss of all open positions since each
+                      position was opened (not limited to the current session).
+                      Differs from `session_rpl` + `session_upl`, which reset at
+                      daily settlement.
                     required: true
                   - name: options_pl
                     type: number
-                    description: Options profit and Loss
+                    description: >-
+                      Combined profit and loss of all options positions included
+                      in `total_pl`.
                     required: true
                   - name: options_session_rpl
                     type: number
-                    description: Options session realized profit and Loss
+                    description: >-
+                      Session realized profit and loss for options positions
+                      (resets at daily settlement).
                     required: true
                   - name: options_session_upl
                     type: number
-                    description: Options session unrealized profit and Loss
+                    description: >-
+                      Session unrealized profit and loss for open options
+                      positions.
                     required: true
                   - name: options_delta
                     type: number
-                    description: Options summary delta
+                    description: >-
+                      Sum of the deltas of all options positions. For inverse
+                      (coin-margined) options this is the Black-Scholes delta;
+                      for linear options it is the index-price-adjusted delta.
+                      Unlike account-level `delta_total`, the options mark value
+                      is not subtracted.
                     required: true
                   - name: options_gamma
                     type: number
-                    description: Options summary gamma
+                    description: Sum of options position gammas (Black-Scholes).
                     required: true
                   - name: options_theta
                     type: number
-                    description: Options summary theta
+                    description: >-
+                      Sum of the thetas of all options positions. Theta is
+                      expressed per day; for options with less than one day left
+                      to expiry it is scaled down to the fraction of a day
+                      remaining.
                     required: true
                   - name: options_value
                     type: number
-                    description: Options value
+                    description: >-
+                      Mark value of all open options positions in the selected
+                      currency. Under standard margin, `margin_balance = equity
+                      - options_value`.
                     required: true
                   - name: options_vega
                     type: number
-                    description: Options summary vega
+                    description: Sum of options position vegas (Black-Scholes).
                     required: true
                   - name: futures_pl
                     type: number
-                    description: Futures profit and Loss
+                    description: >-
+                      Combined profit and loss of all futures and perpetual
+                      positions included in `total_pl` (`total_pl -
+                      options_pl`).
                     required: true
                   - name: futures_session_rpl
                     type: number
-                    description: Futures session realized profit and Loss
+                    description: >-
+                      Session realized profit and loss for futures and perpetual
+                      positions (resets at daily settlement).
                     required: true
                   - name: futures_session_upl
                     type: number
-                    description: Futures session unrealized profit and Loss
+                    description: >-
+                      Session unrealized profit and loss for open futures and
+                      perpetual positions.
                     required: true
                   - name: delta_total
                     type: number
@@ -265,7 +330,17 @@ operations:
                     required: false
                   - name: delta_total_map
                     type: object
-                    description: Map of position sum's per index
+                    description: >
+                      Map of position delta sums by price index (e.g.
+                      `btc_usd`), covering both futures and options positions.
+
+                      These are raw position deltas: they are not price-adjusted
+                      for linear instruments and the options mark value is not
+                      subtracted.
+
+                      They therefore do not add up to `delta_total`, which is
+                      calculated on the Net Transaction Delta basis described
+                      under `delta_total`.
                     required: true
                   - name: options_gamma_map
                     type: object
@@ -281,9 +356,14 @@ operations:
                     required: true
                   - name: projected_delta_total
                     type: number
-                    description: >-
-                      The sum of position deltas without positions that will
-                      expire during closest expiration
+                    description: >
+                      The sum of position deltas excluding positions that expire
+                      at the nearest expiration, so it shows the delta that will
+                      remain once those positions have expired.
+
+                      Calculated on the same Net Transaction Delta basis as
+                      `delta_total`, including delta decay during the settlement
+                      period.
                     required: true
                   - name: portfolio_margining_enabled
                     type: boolean
@@ -334,42 +414,73 @@ operations:
                     required: false
                   - name: projected_initial_margin
                     type: number
-                    description: >-
-                      Projected initial margin. When cross collateral is
-                      enabled, this aggregated value is calculated by converting
-                      the sum of each cross collateral currency's value to the
-                      given currency, using each cross collateral currency's
-                      index.
+                    description: >
+                      Initial margin calculated as if instruments expiring at
+                      the nearest expiration were excluded, so it shows the
+                      requirement that will remain once those instruments have
+                      expired.
+
+                      When cross collateral is enabled, this aggregated value is
+                      calculated by converting the sum of each cross collateral
+                      currency's value to the given currency, using each cross
+                      collateral currency's index.
                     required: false
                   - name: projected_maintenance_margin
                     type: number
-                    description: >-
-                      Projected maintenance margin. When cross collateral is
-                      enabled, this aggregated value is calculated by converting
-                      the sum of each cross collateral currency's value to the
-                      given currency, using each cross collateral currency's
-                      index.
+                    description: >
+                      Maintenance margin calculated as if instruments expiring
+                      at the nearest expiration were excluded, so it shows the
+                      requirement that will remain once those instruments have
+                      expired.
+
+                      When cross collateral is enabled, this aggregated value is
+                      calculated by converting the sum of each cross collateral
+                      currency's value to the given currency, using each cross
+                      collateral currency's index.
                     required: true
-                  - name: estimated_liquidation_ratio
+                  - name: close_out_margin
                     type: number
-                    description: >-
-                      [DEPRECATED] Estimated Liquidation Ratio is returned only
-                      for users with `segregated_sm` margin model. Multiplying
-                      it by future position's market price returns its estimated
-                      liquidation price. Use estimated_liquidation_ratio_map
-                      instead.
+                    description: >
+                      Close-out margin threshold in the selected currency, equal
+                      to 50% of the positional maintenance margin.
+
+                      Because it sits below `maintenance_margin`, it marks a
+                      later and more severe stage than ordinary liquidation:
+                      when `margin_balance` falls to or below this level,
+                      close-out liquidation takes over.
+
+                      On a cross account with an outstanding loan it is not
+                      exactly half of the reported `maintenance_margin`: the
+                      loan's maintenance margin is included in
+                      `maintenance_margin` but excluded from the close-out
+                      threshold.
+
+                      Returned only when close-out margin is enabled on the
+                      platform.
                     required: false
-                  - name: estimated_liquidation_ratio_map
-                    type: object
-                    description: >-
-                      Map of Estimated Liquidation Ratio per index, it is
-                      returned only for users with `segregated_sm` margin model.
-                      Multiplying it by future position's market price returns
-                      its estimated liquidation price.
+                  - name: projected_close_out_margin
+                    type: number
+                    description: >
+                      Close-out margin calculated as if instruments expiring at
+                      the nearest expiration were excluded, i.e. 50% of the
+                      projected positional maintenance margin.
+
+                      As with `close_out_margin`, the loan maintenance margin
+                      counted in `projected_maintenance_margin` is excluded
+                      here, so on a cross account with an outstanding loan the
+                      two are not exactly proportional.
+
+                      Returned only when close-out margin is enabled on the
+                      platform.
                     required: false
                   - name: additional_reserve
                     type: number
-                    description: The account's balance reserved in other orders
+                    description: >-
+                      The account's balance reserved for open buy option orders
+                      and option combo orders (the premium payable if they
+                      fill). Only non-zero on the `cross_sm` margin model;
+                      balance reserved by spot orders is reported separately in
+                      `spot_reserve`.
                     required: false
         headers: []
         jsonPayloadSchema:
@@ -386,132 +497,197 @@ operations:
                   x-parser-schema-id: <anonymous-schema-318>
                 equity:
                   type: number
-                  description: The account's current equity
+                  description: >-
+                    The account's equity in the selected currency: `balance +
+                    futures (session UPL + RPL) + options mark value` (plus any
+                    external/implied equity). Related: `margin_balance` excludes
+                    options mark value under standard margin.
                   example: 2.6437733
                   x-parser-schema-id: <anonymous-schema-319>
                 maintenance_margin:
                   type: number
                   description: >-
-                    The maintenance margin. When cross collateral is enabled,
-                    this aggregated value is calculated by converting the sum of
-                    each cross collateral currency's value to the given
-                    currency, using each cross collateral currency's index.
+                    Minimum margin required to keep positions open. If
+                    `margin_balance` falls below maintenance margin, positions
+                    are liquidated. When cross collateral is enabled, this
+                    aggregated value is calculated by converting the sum of each
+                    cross collateral currency's value to the given currency,
+                    using each cross collateral currency's index.
                   example: 0.1334519
                   x-parser-schema-id: <anonymous-schema-320>
                 initial_margin:
                   type: number
                   description: >-
-                    The account's initial margin. When cross collateral is
-                    enabled, this aggregated value is calculated by converting
-                    the sum of each cross collateral currency's value to the
-                    given currency, using each cross collateral currency's
-                    index.
+                    Minimum margin required to open or increase positions
+                    (includes margin for open orders). If initial margin usage
+                    exceeds 100%, `available_funds` is `0`. When cross
+                    collateral is enabled, this aggregated value is calculated
+                    by converting the sum of each cross collateral currency's
+                    value to the given currency, using each cross collateral
+                    currency's index.
                   example: 0.379882
                   x-parser-schema-id: <anonymous-schema-321>
                 available_funds:
                   type: number
                   description: >-
-                    The account's available funds. When cross collateral is
-                    enabled, this aggregated value is calculated by converting
-                    the sum of each cross collateral currency's value to the
-                    given currency, using each cross collateral currency's
-                    index.
+                    Funds available to increase margin usage (open or enlarge
+                    positions). Equal to `margin_balance - initial_margin`,
+                    floored at `0` in the API response. When initial margin
+                    usage exceeds 100%, this is `0` and only reducing orders can
+                    be placed. When cross collateral is enabled, this aggregated
+                    value is calculated by converting the sum of each cross
+                    collateral currency's value to the given currency, using
+                    each cross collateral currency's index.
                   example: 2.2638913
                   x-parser-schema-id: <anonymous-schema-322>
                 available_withdrawal_funds:
                   type: number
-                  description: The account's available to withdrawal funds
+                  description: >-
+                    Funds available to withdraw in the selected currency.
+                    Typically lower than `available_funds` because withdrawals
+                    also exclude positive session profit, locked balance,
+                    `spot_reserve`, `additional_reserve`, and non-withdrawable
+                    external/implied equity components. Always ≥ `0`.
                   example: 2.26
                   x-parser-schema-id: <anonymous-schema-323>
+                locked_balance:
+                  description: >-
+                    Portion of the account balance that is locked and excluded
+                    from available withdrawal calculations.
+                  type: number
+                  example: 0
+                  x-parser-schema-id: <anonymous-schema-324>
                 balance:
                   type: number
-                  description: The account's balance
+                  description: >-
+                    The account's cash balance in the selected currency
+                    (deposits, withdrawals, transfers, option premiums,
+                    settlements/deliveries, corrections, costs, and insurance
+                    refills). Does not include open futures PnL or options mark
+                    value.
                   example: 3.4906363
-                  x-parser-schema-id: <anonymous-schema-324>
+                  x-parser-schema-id: <anonymous-schema-325>
                 fee_balance:
                   description: The account's fee balance (it can be used to pay for fees)
                   type: number
-                  x-parser-schema-id: <anonymous-schema-325>
+                  x-parser-schema-id: <anonymous-schema-326>
                 margin_balance:
                   type: number
                   description: >-
-                    The account's margin balance. When cross collateral is
-                    enabled, this aggregated value is calculated by converting
-                    the sum of each cross collateral currency's value to the
-                    given currency, using each cross collateral currency's
-                    index.
+                    Collateral available against margin requirements. Under
+                    standard margin (SM): `equity - options_value` (cash balance
+                    plus futures session UPL and RPL). Under portfolio margin
+                    (PM): equal to `equity` on a segregated account, and `equity
+                    - outstanding_loan_amount` on a cross account. When cross
+                    collateral is enabled, this aggregated value is calculated
+                    by converting the sum of each cross collateral currency's
+                    value to the given currency, using each cross collateral
+                    currency's index.
                   example: 2.25
-                  x-parser-schema-id: <anonymous-schema-326>
+                  x-parser-schema-id: <anonymous-schema-327>
                 session_upl:
-                  description: Session unrealized profit and loss
+                  description: >-
+                    Unrealized profit and loss on open positions in the current
+                    trading session (since the last daily settlement).
                   type: number
                   example: 0.846863
-                  x-parser-schema-id: <anonymous-schema-327>
+                  x-parser-schema-id: <anonymous-schema-328>
                 session_rpl:
-                  description: Session realized profit and loss
+                  description: >-
+                    Realized profit and loss accrued in the current trading
+                    session (since the last daily settlement). Resets at each
+                    daily settlement.
                   type: number
                   example: 0.1
-                  x-parser-schema-id: <anonymous-schema-328>
+                  x-parser-schema-id: <anonymous-schema-329>
                 total_pl:
                   type: number
-                  description: Profit and loss
+                  description: >-
+                    Total profit and loss of all open positions since each
+                    position was opened (not limited to the current session).
+                    Differs from `session_rpl` + `session_upl`, which reset at
+                    daily settlement.
                   example: 0.02032221
-                  x-parser-schema-id: <anonymous-schema-329>
+                  x-parser-schema-id: <anonymous-schema-330>
                 options_pl:
                   type: number
-                  description: Options profit and Loss
-                  example: 0
-                  x-parser-schema-id: <anonymous-schema-330>
-                options_session_rpl:
-                  type: number
-                  description: Options session realized profit and Loss
+                  description: >-
+                    Combined profit and loss of all options positions included
+                    in `total_pl`.
                   example: 0
                   x-parser-schema-id: <anonymous-schema-331>
-                options_session_upl:
+                options_session_rpl:
                   type: number
-                  description: Options session unrealized profit and Loss
+                  description: >-
+                    Session realized profit and loss for options positions
+                    (resets at daily settlement).
                   example: 0
                   x-parser-schema-id: <anonymous-schema-332>
-                options_delta:
+                options_session_upl:
                   type: number
-                  description: Options summary delta
+                  description: >-
+                    Session unrealized profit and loss for open options
+                    positions.
                   example: 0
                   x-parser-schema-id: <anonymous-schema-333>
-                options_gamma:
+                options_delta:
                   type: number
-                  description: Options summary gamma
+                  description: >-
+                    Sum of the deltas of all options positions. For inverse
+                    (coin-margined) options this is the Black-Scholes delta; for
+                    linear options it is the index-price-adjusted delta. Unlike
+                    account-level `delta_total`, the options mark value is not
+                    subtracted.
                   example: 0
                   x-parser-schema-id: <anonymous-schema-334>
-                options_theta:
+                options_gamma:
                   type: number
-                  description: Options summary theta
+                  description: Sum of options position gammas (Black-Scholes).
                   example: 0
                   x-parser-schema-id: <anonymous-schema-335>
-                options_value:
+                options_theta:
                   type: number
-                  description: Options value
+                  description: >-
+                    Sum of the thetas of all options positions. Theta is
+                    expressed per day; for options with less than one day left
+                    to expiry it is scaled down to the fraction of a day
+                    remaining.
                   example: 0
                   x-parser-schema-id: <anonymous-schema-336>
-                options_vega:
+                options_value:
                   type: number
-                  description: Options summary vega
+                  description: >-
+                    Mark value of all open options positions in the selected
+                    currency. Under standard margin, `margin_balance = equity -
+                    options_value`.
                   example: 0
                   x-parser-schema-id: <anonymous-schema-337>
-                futures_pl:
+                options_vega:
                   type: number
-                  description: Futures profit and Loss
+                  description: Sum of options position vegas (Black-Scholes).
                   example: 0
                   x-parser-schema-id: <anonymous-schema-338>
-                futures_session_rpl:
+                futures_pl:
                   type: number
-                  description: Futures session realized profit and Loss
+                  description: >-
+                    Combined profit and loss of all futures and perpetual
+                    positions included in `total_pl` (`total_pl - options_pl`).
                   example: 0
                   x-parser-schema-id: <anonymous-schema-339>
-                futures_session_upl:
+                futures_session_rpl:
                   type: number
-                  description: Futures session unrealized profit and Loss
+                  description: >-
+                    Session realized profit and loss for futures and perpetual
+                    positions (resets at daily settlement).
                   example: 0
                   x-parser-schema-id: <anonymous-schema-340>
+                futures_session_upl:
+                  type: number
+                  description: >-
+                    Session unrealized profit and loss for open futures and
+                    perpetual positions.
+                  example: 0
+                  x-parser-schema-id: <anonymous-schema-341>
                 delta_total:
                   description: >
                     The sum of position deltas. 
@@ -540,45 +716,63 @@ operations:
                     for more details.
                   example: 0.1334
                   type: number
-                  x-parser-schema-id: <anonymous-schema-341>
-                delta_total_map:
-                  type: object
-                  description: Map of position sum's per index
                   x-parser-schema-id: <anonymous-schema-342>
+                delta_total_map:
+                  description: >
+                    Map of position delta sums by price index (e.g. `btc_usd`),
+                    covering both futures and options positions.
+
+                    These are raw position deltas: they are not price-adjusted
+                    for linear instruments and the options mark value is not
+                    subtracted.
+
+                    They therefore do not add up to `delta_total`, which is
+                    calculated on the Net Transaction Delta basis described
+                    under `delta_total`.
+                  type: object
+                  additionalProperties:
+                    type: number
+                    x-parser-schema-id: <anonymous-schema-344>
+                  x-parser-schema-id: <anonymous-schema-343>
                 options_gamma_map:
                   type: object
                   description: Map of options' gammas per index
-                  x-parser-schema-id: <anonymous-schema-343>
+                  x-parser-schema-id: <anonymous-schema-345>
                 options_theta_map:
                   type: object
                   description: Map of options' thetas per index
-                  x-parser-schema-id: <anonymous-schema-344>
+                  x-parser-schema-id: <anonymous-schema-346>
                 options_vega_map:
                   type: object
                   description: Map of options' vegas per index
-                  x-parser-schema-id: <anonymous-schema-345>
+                  x-parser-schema-id: <anonymous-schema-347>
                 projected_delta_total:
-                  description: >-
-                    The sum of position deltas without positions that will
-                    expire during closest expiration
+                  description: >
+                    The sum of position deltas excluding positions that expire
+                    at the nearest expiration, so it shows the delta that will
+                    remain once those positions have expired.
+
+                    Calculated on the same Net Transaction Delta basis as
+                    `delta_total`, including delta decay during the settlement
+                    period.
                   example: 0.1334
                   type: number
-                  x-parser-schema-id: <anonymous-schema-346>
+                  x-parser-schema-id: <anonymous-schema-348>
                 portfolio_margining_enabled:
                   type: boolean
                   description: When `true` portfolio margining is enabled for user
                   example: true
-                  x-parser-schema-id: <anonymous-schema-347>
+                  x-parser-schema-id: <anonymous-schema-349>
                 cross_collateral_enabled:
                   type: boolean
                   description: When `true` cross collateral is enabled for user
                   example: true
-                  x-parser-schema-id: <anonymous-schema-348>
+                  x-parser-schema-id: <anonymous-schema-350>
                 margin_model:
                   type: string
                   description: Name of user's currently enabled margin model
                   example: segregated_sm
-                  x-parser-schema-id: <anonymous-schema-349>
+                  x-parser-schema-id: <anonymous-schema-351>
                 total_equity_usd:
                   type: number
                   description: >-
@@ -586,7 +780,7 @@ operations:
                     total equity in all cross collateral currencies, expressed
                     in USD
                   example: 2.6437733
-                  x-parser-schema-id: <anonymous-schema-350>
+                  x-parser-schema-id: <anonymous-schema-352>
                 total_initial_margin_usd:
                   type: number
                   description: >-
@@ -594,7 +788,7 @@ operations:
                     total initial margin in all cross collateral currencies,
                     expressed in USD
                   example: 0.379882
-                  x-parser-schema-id: <anonymous-schema-351>
+                  x-parser-schema-id: <anonymous-schema-353>
                 total_maintenance_margin_usd:
                   type: number
                   description: >-
@@ -602,7 +796,7 @@ operations:
                     total maintenance margin in all cross collateral currencies,
                     expressed in USD
                   example: 0.1334519
-                  x-parser-schema-id: <anonymous-schema-352>
+                  x-parser-schema-id: <anonymous-schema-354>
                 total_margin_balance_usd:
                   type: number
                   description: >-
@@ -610,7 +804,7 @@ operations:
                     total margin balance in all cross collateral currencies,
                     expressed in USD
                   example: 2.25
-                  x-parser-schema-id: <anonymous-schema-353>
+                  x-parser-schema-id: <anonymous-schema-355>
                 total_delta_total_usd:
                   type: number
                   description: >-
@@ -618,49 +812,82 @@ operations:
                     total delta total in all cross collateral currencies,
                     expressed in USD
                   example: 1.8
-                  x-parser-schema-id: <anonymous-schema-354>
-                projected_initial_margin:
-                  description: >-
-                    Projected initial margin. When cross collateral is enabled,
-                    this aggregated value is calculated by converting the sum of
-                    each cross collateral currency's value to the given
-                    currency, using each cross collateral currency's index.
-                  example: 1
-                  type: number
-                  x-parser-schema-id: <anonymous-schema-355>
-                projected_maintenance_margin:
-                  description: >-
-                    Projected maintenance margin. When cross collateral is
-                    enabled, this aggregated value is calculated by converting
-                    the sum of each cross collateral currency's value to the
-                    given currency, using each cross collateral currency's
-                    index.
-                  example: 1
-                  type: number
                   x-parser-schema-id: <anonymous-schema-356>
-                estimated_liquidation_ratio:
+                projected_initial_margin:
+                  description: >
+                    Initial margin calculated as if instruments expiring at the
+                    nearest expiration were excluded, so it shows the
+                    requirement that will remain once those instruments have
+                    expired.
+
+                    When cross collateral is enabled, this aggregated value is
+                    calculated by converting the sum of each cross collateral
+                    currency's value to the given currency, using each cross
+                    collateral currency's index.
+                  example: 1
                   type: number
-                  description: >-
-                    [DEPRECATED] Estimated Liquidation Ratio is returned only
-                    for users with `segregated_sm` margin model. Multiplying it
-                    by future position's market price returns its estimated
-                    liquidation price. Use estimated_liquidation_ratio_map
-                    instead.
-                  example: 0.0000234
                   x-parser-schema-id: <anonymous-schema-357>
-                estimated_liquidation_ratio_map:
-                  type: object
-                  description: >-
-                    Map of Estimated Liquidation Ratio per index, it is returned
-                    only for users with `segregated_sm` margin model.
-                    Multiplying it by future position's market price returns its
-                    estimated liquidation price.
+                projected_maintenance_margin:
+                  description: >
+                    Maintenance margin calculated as if instruments expiring at
+                    the nearest expiration were excluded, so it shows the
+                    requirement that will remain once those instruments have
+                    expired.
+
+                    When cross collateral is enabled, this aggregated value is
+                    calculated by converting the sum of each cross collateral
+                    currency's value to the given currency, using each cross
+                    collateral currency's index.
+                  example: 1
+                  type: number
                   x-parser-schema-id: <anonymous-schema-358>
+                close_out_margin:
+                  description: >
+                    Close-out margin threshold in the selected currency, equal
+                    to 50% of the positional maintenance margin.
+
+                    Because it sits below `maintenance_margin`, it marks a later
+                    and more severe stage than ordinary liquidation: when
+                    `margin_balance` falls to or below this level, close-out
+                    liquidation takes over.
+
+                    On a cross account with an outstanding loan it is not
+                    exactly half of the reported `maintenance_margin`: the
+                    loan's maintenance margin is included in
+                    `maintenance_margin` but excluded from the close-out
+                    threshold.
+
+                    Returned only when close-out margin is enabled on the
+                    platform.
+                  type: number
+                  example: 0
+                  x-parser-schema-id: <anonymous-schema-359>
+                projected_close_out_margin:
+                  description: >
+                    Close-out margin calculated as if instruments expiring at
+                    the nearest expiration were excluded, i.e. 50% of the
+                    projected positional maintenance margin.
+
+                    As with `close_out_margin`, the loan maintenance margin
+                    counted in `projected_maintenance_margin` is excluded here,
+                    so on a cross account with an outstanding loan the two are
+                    not exactly proportional.
+
+                    Returned only when close-out margin is enabled on the
+                    platform.
+                  type: number
+                  example: 0
+                  x-parser-schema-id: <anonymous-schema-360>
                 additional_reserve:
-                  description: The account's balance reserved in other orders
+                  description: >-
+                    The account's balance reserved for open buy option orders
+                    and option combo orders (the premium payable if they fill).
+                    Only non-zero on the `cross_sm` margin model; balance
+                    reserved by spot orders is reported separately in
+                    `spot_reserve`.
                   example: 0.3
                   type: number
-                  x-parser-schema-id: <anonymous-schema-359>
+                  x-parser-schema-id: <anonymous-schema-361>
               required:
                 - currency
                 - equity
@@ -710,11 +937,7 @@ operations:
               "margin_balance": 302.62675921,
               "futures_session_rpl": -0.03311399,
               "options_session_rpl": 0,
-              "estimated_liquidation_ratio_map": {
-                "btc_usd": 0.10098729140701267
-              },
               "session_upl": 0.05341555,
-              "estimated_liquidation_ratio": 0.10098729,
               "options_gamma_map": {
                 "btc_usd": 0.00001
               },

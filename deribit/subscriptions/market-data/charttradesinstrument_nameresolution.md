@@ -10,6 +10,8 @@ During a single resolution period, many events can be sent, each with updated va
 
 **Notice:** When there is no trade during the requested resolution period (e.g. 1 minute), a filling sample is generated which uses data from the last available trade candle (open and close values).
 
+**Note:** For spot instruments routed to Coinbase Exchange, this channel is not supported. Use [Get product candles](https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-candles) instead.
+
 
 
 
@@ -30,6 +32,12 @@ description: >
   **Notice:** When there is no trade during the requested resolution period
   (e.g. 1 minute), a filling sample is generated which uses data from the last
   available trade candle (open and close values).
+
+
+  **Note:** For spot instruments routed to Coinbase Exchange, this channel is
+  not supported. Use [Get product
+  candles](https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-candles)
+  instead.
 servers:
   - id: production
     protocol: wss

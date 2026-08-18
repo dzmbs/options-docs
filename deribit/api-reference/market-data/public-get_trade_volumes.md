@@ -10,6 +10,8 @@
 
 Use the `extended` parameter to include additional volume statistics and breakdowns.
 
+**Note:** For currencies with spot instruments routed to Coinbase Exchange, `spot_volume` is omitted, as are `spot_volume_7d` and `spot_volume_30d` when `extended` is used. Use [Get all product volume](https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-all-product-volume) for venue spot volume.
+
 [Try in API console](https://test.deribit.com/api_console?method=%2Fpublic%2Fget_trade_volumes)
 
 
@@ -56,6 +58,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /public/get_trade_volumes:
     get:
@@ -74,6 +81,13 @@ paths:
 
         Use the `extended` parameter to include additional volume statistics and
         breakdowns.
+
+
+        **Note:** For currencies with spot instruments routed to Coinbase
+        Exchange, `spot_volume` is omitted, as are `spot_volume_7d` and
+        `spot_volume_30d` when `extended` is used. Use [Get all product
+        volume](https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-all-product-volume)
+        for venue spot volume.
 
 
         [Try in API
@@ -209,6 +223,6 @@ components:
 
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [public/get_block_rfq_trades](/api-reference/block-rfq/public-get_block_rfq_trades.md)
-- [public/get_last_trades_by_currency](/api-reference/market-data/public-get_last_trades_by_currency.md)
 - [public/get_last_trades_by_instrument](/api-reference/market-data/public-get_last_trades_by_instrument.md)
-- [public/get_last_trades_by_currency_and_time](/api-reference/market-data/public-get_last_trades_by_currency_and_time.md)
+- [public/get_last_trades_by_currency](/api-reference/market-data/public-get_last_trades_by_currency.md)
+- [public/get_last_trades_by_instrument_and_time](/api-reference/market-data/public-get_last_trades_by_instrument_and_time.md)

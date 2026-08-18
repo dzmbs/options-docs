@@ -124,10 +124,6 @@ MMP **continuously reserves initial margin** based on your MQQ setting, regardle
   Reserved margin is held as long as MMP is configured. To release it, set `interval` to `0` via `private/set_mmp_config` — this removes the MMP configuration and frees all held margin. You can verify your current MMP margin requirement in the **Portfolio Margin** section of the Deribit platform.
 </Note>
 
-**Latency:**
-
-MQQ provides no latency advantage if you already use mass quote functionality; it purely adds exposure control.
-
 **Speed Bump Interaction:**
 
 When an MMP order or quote is submitted and subject to a speed bump, its full quantity is immediately counted toward the Max Quote Quantity (MQQ) open size. Once the speed bump period elapses and the order or quote is released into the order book, any filled quantity is deducted from the MQQ open size.

@@ -54,6 +54,11 @@ tags:
   - name: Market Data
   - name: Wallet
   - name: Chat
+  - name: lsp
+    description: >-
+      Methods and notifications for the Liquidity Support Program (LSP), the
+      mechanism that assigns risk from liquidated positions to designated LSP
+      participant subaccounts before falling back to auto-deleveraging (ADL).
 paths:
   /public/get_instrument:
     get:
@@ -209,15 +214,21 @@ components:
           type: string
           description: Type of the instrument. `linear` or `reversed`
         contract_size:
-          type: integer
+          type: number
           example: 1
-          description: Contract size for instrument.
+          description: >-
+            Contract size for the instrument, expressed in the same unit as the
+            order amount. For inverse (reversed) futures and perpetuals this is
+            USD — BTC-PERPETUAL has a contract size of 10 USD. For options,
+            spots, and for linear futures and perpetuals it is the base currency
+            coin — BTC_USDC-PERPETUAL has a contract size of 0.0001 BTC. Note
+            that on an inverse instrument `base_currency` identifies the
+            underlying and settlement coin and does not indicate the unit of
+            `contract_size`.
         lot_size:
           type: number
-          example: 10
-          description: >-
-            Lot size for instrument, used as the unit for fee lot counting.
-            Defaults to `contract_size` when not configured.
+          example: 1
+          description: Lot size for instrument, used as the unit for fee lot counting.
         maker_commission:
           type: number
           example: 0.0001
@@ -309,15 +320,21 @@ components:
         is_csr:
           type: boolean
           description: >-
-            Optional (only for spot). When `true`, orders on this instrument are
-            routed to Coinbase Exchange (CBE) for matching instead of the native
-            Deribit matching engine.
+            Optional (only for spot routed to Coinbase Exchange). When present
+            it is always `true`, meaning orders on this instrument are routed to
+            Coinbase Exchange (CBE) for matching instead of the native Deribit
+            matching engine. The field is omitted for every other instrument, so
+            test for its presence rather than for a `false` value.
         is_cbe_routed:
           type: boolean
           description: >-
-            Optional (only for spot). Equivalent to `is_csr`. When `true`,
-            orders on this instrument are routed to Coinbase Exchange (CBE) for
-            matching instead of the native Deribit matching engine.
+            Optional (only for spot routed to Coinbase Exchange). Alias of
+            `is_csr` added by `public/get_instrument` and
+            `public/get_instruments`; other surfaces that return instrument
+            metadata, such as the `instrument.creation.{kind}.{currency}`
+            notification, carry `is_csr` only. When present it is always `true`
+            and is omitted for every other instrument, so test for its presence
+            rather than for a `false` value.
       required:
         - kind
         - base_currency
@@ -468,6 +485,6 @@ components:
 
 - [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Coinbase-Routed Spot — Production FIX API](/fix-api/production/coinbase-routed-spot.md)
 - [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
-- [instrument.creation.(kind).(currency) ](/subscriptions/market-data/instrumentcreationkindcurrency.md)
