@@ -641,4 +641,4 @@ Deribit tradeable assets or instruments use the following system of naming:
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Welcome to Deribit API](/index.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
-- [Coinbase-Routed Spot — Production FIX API](/fix-api/production/coinbase-routed-spot.md)
+- [Starbase API Overview](/starbase/overview.md)

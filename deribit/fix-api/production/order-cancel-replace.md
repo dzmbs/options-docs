@@ -20,7 +20,7 @@ orders by `OrigClOrdId` is noticeably faster.
 <Note>
   On spot instruments matched on Coinbase Exchange, `ExecInst`(`18`) accepts only
   `6A` and `DisplayQty`(`1138`) is rejected. See
-  [Coinbase-routed spot](/fix-api/production/coinbase-routed-spot).
+  [Spot trading venues](/articles/spot-trading-venues).
 </Note>
 
 ### Arguments

@@ -1267,4 +1267,4 @@ components:
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Rate Limits](/articles/rate-limits.md)
 - [Order Management](/articles/order-management-best-practices.md)
-- [private/get_margins](/api-reference/trading/private-get_margins.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)

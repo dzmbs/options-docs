@@ -4,7 +4,7 @@
 
 # Self Match Prevention (SMP)
 
-> Prevent orders on the same Starbase account from matching each other — configure Self Match Prevention groups and choose the cancel behavior policy.
+> Prevent orders on the same member from matching each other — configure Self Match Prevention groups and choose the cancel behavior policy.
 
 ## Overview
 
@@ -75,11 +75,11 @@ SMP uses three components to control order matching:
 
 Orders originating from the WebSocket API, User Interface or other non-Starbase origin will have the SMP Token set based on the table below. To avoid matching with these orders when utilizing Starbase APIs, the same SMP Tokens should be used.
 
-| Setting                                              | SMP Token Value                                |
-| ---------------------------------------------------- | ---------------------------------------------- |
-| Self-match prevention restricted to subaccount       | `sub-account id` (equal to Deribit's User ID)  |
-| Self-match prevention enabled across all subaccounts | `main-account id` (equal to Deribit's User ID) |
-| Self-matching allowed                                | `null` (empty)                                 |
+| Setting                                          | SMP Token Value                                  |
+| ------------------------------------------------ | ------------------------------------------------ |
+| Self-match prevention restricted to portfolio    | `portfolio id` (equal to Deribit's User ID)      |
+| Self-match prevention enabled across all members | `main portfolio id` (equal to Deribit's User ID) |
+| Self-matching allowed                            | `null` (empty)                                   |
 
 ## API Usage
 

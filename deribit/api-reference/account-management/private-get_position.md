@@ -321,4 +321,4 @@ components:
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Moving Positions](/articles/moving-positions-api.md)
 - [Managing Subaccounts](/articles/managing-subaccounts-api.md)
-- [private/move_positions](/api-reference/trading/private-move_positions.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)

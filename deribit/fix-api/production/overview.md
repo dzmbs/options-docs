@@ -43,7 +43,7 @@ The FIX server can be reached at:
 Selected spot instruments are matched on Coinbase Exchange rather than on the
 Deribit matching engine. They trade over the same session, but order entry
 accepts a narrower set of tag values and the public trade tape is not served for
-them. See [Coinbase-routed spot](/fix-api/production/coinbase-routed-spot).
+them. See [Spot trading venues](/articles/spot-trading-venues).
 
 ## Message Structure
 
@@ -153,8 +153,8 @@ The FIX API supports the following message types organized by category:
 
 ## Related topics
 
-- [Coinbase-Routed Spot — Production FIX API](/fix-api/production/coinbase-routed-spot.md)
 - [Logon(A) — Production FIX API](/fix-api/production/logon.md)
 - [Logout(5) — Production FIX API](/fix-api/production/logout.md)
 - [Reject(3) — Production FIX API](/fix-api/production/reject.md)
 - [Heartbeat(0) — Production FIX API](/fix-api/production/heartbeat.md)
+- [Sequence Reset(4) — Production FIX API](/fix-api/production/sequence-reset.md)

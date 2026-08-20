@@ -42,7 +42,7 @@ multiple market data messages corresponding to those instruments.
   On spot instruments matched on Coinbase Exchange, `MDEntryType`(`269`)=`2`
   (Trade) is rejected because Deribit does not see the full Coinbase trade tape.
   `0` (Bid) and `1` (Offer) requested in the same message are still served. See
-  [Coinbase-routed spot](/fix-api/production/coinbase-routed-spot).
+  [Spot trading venues](/articles/spot-trading-venues).
 </Note>
 
 ### Response

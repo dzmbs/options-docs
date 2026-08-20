@@ -584,7 +584,7 @@ components:
 ## Related topics
 
 - [Rate Limits](/articles/rate-limits.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Order Management](/articles/order-management-best-practices.md)
 - [private/cancel_all](/api-reference/trading/private-cancel_all.md)
-- [private/cancel_quotes](/api-reference/trading/private-cancel_quotes.md)

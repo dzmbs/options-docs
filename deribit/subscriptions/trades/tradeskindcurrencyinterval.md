@@ -492,5 +492,5 @@ securitySchemes: []
 - [user.trades.(kind).(currency).(interval) ](/subscriptions/user/usertradeskindcurrencyinterval.md)
 - [user.combo_trades.(kind).(currency).(interval) ](/subscriptions/user/usercombo_tradeskindcurrencyinterval.md)
 - [Notifications](/articles/notifications.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
-- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)

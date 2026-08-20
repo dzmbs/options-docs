@@ -249,7 +249,7 @@ securitySchemes: []
 ## Related topics
 
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
 - [public/get_instrument](/api-reference/market-data/public-get_instrument.md)
-- [instrument.state.(kind).(currency) ](/subscriptions/market-data/instrumentstatekindcurrency.md)

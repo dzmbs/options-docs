@@ -11,7 +11,7 @@ matches the criteria specified in a [`Security List Request`(`x`)](/fix-api/prod
 
 Some of the returned `FXSPOT` instruments are matched on Coinbase Exchange and
 behave differently for order entry and market data. See
-[Coinbase-routed spot](/fix-api/production/coinbase-routed-spot) for how to
+[Spot trading venues](/articles/spot-trading-venues) for how to
 identify them.
 
 ### Arguments

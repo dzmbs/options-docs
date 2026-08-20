@@ -231,7 +231,7 @@ Sample JSON-RPC request using values calculated before:
 
 ### Parameters
 
-When connecting through WebSocket, user can request for authorization using `client_signature` method, which requires providing following parameters (as a part of JSON request):
+When connecting through WebSocket, the user can request authorization using the `client_signature` method, which requires providing the following parameters (as part of the JSON request):
 
 | JSON parameter | Description                                                                                                                                                                          |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

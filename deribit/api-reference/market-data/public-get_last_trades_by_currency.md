@@ -402,8 +402,8 @@ components:
 
 ## Related topics
 
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [public/get_last_trades_by_currency_and_time](/api-reference/market-data/public-get_last_trades_by_currency_and_time.md)
 - [public/get_last_trades_by_instrument](/api-reference/market-data/public-get_last_trades_by_instrument.md)
 - [public/get_last_trades_by_instrument_and_time](/api-reference/market-data/public-get_last_trades_by_instrument_and_time.md)
-- [public/get_last_settlements_by_currency](/api-reference/market-data/public-get_last_settlements_by_currency.md)

@@ -196,7 +196,7 @@ components:
 ## Related topics
 
 - [Market Data Collection](/articles/market-data-collection-best-practices.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)
 - [Notifications](/articles/notifications.md)
 - [Quickstart Guide](/articles/deribit-quickstart.md)
 - [Rate Limits](/articles/rate-limits.md)
-- [private/subscribe](/api-reference/subscription-management/private-subscribe.md)

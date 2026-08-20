@@ -275,7 +275,7 @@ securitySchemes: []
 ## Related topics
 
 - [Notifications](/articles/notifications.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
 - [trades.(instrument_name).(interval) ](/subscriptions/trades/tradesinstrument_nameinterval.md)
 - [user.trades.(instrument_name).(interval) ](/subscriptions/user/usertradesinstrument_nameinterval.md)
-- [user.combo_trades.(instrument_name).(interval) ](/subscriptions/user/usercombo_tradesinstrument_nameinterval.md)

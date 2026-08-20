@@ -123,7 +123,7 @@ On test, verify the complete lifecycle before requesting production access:
 * Confirm responses on the originating SBE session.
 * Confirm lifecycle events and fills on [FIX Drop Copy](/starbase/fix-drop-copy-api).
 * Confirm trades through the standard private WebSocket API.
-* Confirm that open Starbase orders do **not** appear in the web UI or private WebSocket order feed.
+* Confirm that open Starbase orders appear in the web UI (open orders and pre-trade risk refresh every 10 seconds) and do **not** appear in the private WebSocket order feed.
 * Reconcile orders across feeds: `starbase_order_id` on the standard APIs maps to `OrderID` (Tag 37) on Drop Copy, and fills deduplicate on the `(starbase_match_id, starbase_order_id)` tuple. See [Reconciliation Across APIs](/starbase/fix-drop-copy-api#reconciliation-across-apis).
 * Simulate a Drop Copy gap and recover it: detect the gap via `MsgSeqNum` (34), then replay fills with `EventResendRequest` (F3) and block trades with `TradeCaptureReportRequest` (AD).
 * Disconnect a session and verify [Cancel on Disconnect](/starbase/cancel-on-disconnect) behavior.

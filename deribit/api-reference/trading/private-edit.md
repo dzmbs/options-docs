@@ -1050,4 +1050,4 @@ components:
 - [Order Management](/articles/order-management-best-practices.md)
 - [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
 - [Rate Limits](/articles/rate-limits.md)
-- [private/edit_api_key](/api-reference/account-management/private-edit_api_key.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)

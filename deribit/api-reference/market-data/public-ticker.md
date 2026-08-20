@@ -570,7 +570,7 @@ components:
 ## Related topics
 
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)
 - [Starbase Reference Data and Instrument Definitions](/starbase/reference-data.md)
 - [API Usage Policy](/articles/api-usage-policy.md)
 - [Quickstart Guide](/articles/deribit-quickstart.md)
-- [Multicast Channels](/starbase/multicast-channels.md)

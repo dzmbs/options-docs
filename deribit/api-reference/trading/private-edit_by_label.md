@@ -1030,5 +1030,5 @@ components:
 - [Order Management](/articles/order-management-best-practices.md)
 - [Rate Limits](/articles/rate-limits.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)
 - [private/edit](/api-reference/trading/private-edit.md)
-- [private/edit_block_rfq_quote](/api-reference/block-rfq/private-edit_block_rfq_quote.md)

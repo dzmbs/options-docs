@@ -22,9 +22,9 @@ Starbase and the standard Deribit APIs are separate order-entry protocols with d
   Starbase is accessible exclusively through **hosted colocation** or a **cross-connect** in LD4, or through **AWS Private Link** for clients connecting from AWS infrastructure. Internet connectivity is not supported. Contact <a href="mailto:colo-support@coinbase.com" style={{ whiteSpace: "nowrap" }}>[colo-support@coinbase.com](mailto:colo-support@coinbase.com)</a> to arrange access.
 </Info>
 
-<Warning>
-  **Open orders placed via Starbase are not visible in the Deribit web UI.** Due to Starbase's performance characteristics, the feed that powers the UI cannot keep up with the matching engine. Trades and positions will appear in the UI as expected — only open orders are affected.
-</Warning>
+<Info>
+  **Open orders placed via Starbase are visible in the Deribit web UI.** Due to Starbase's performance characteristics, the feed that powers the UI cannot keep up with the matching engine in real time. Open orders and pre-trade risk refresh every 10 seconds and may not reflect the latest state immediately. Trades and positions appear in the UI as expected. For live order state, use an SBE order-entry session, the Starbase REST order snapshot, or [FIX Drop Copy](/starbase/fix-drop-copy-api).
+</Info>
 
 **The main components of the Starbase API:**
 

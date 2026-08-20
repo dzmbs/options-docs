@@ -2,7 +2,7 @@
 updatedAt: 2025-10-17T18:44:15.000Z
 ---
 
-Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further.
+Fetch the complete documentation index at: https://docs.derive.xyz/llms.txt. Use this file to discover all available pages before exploring further. Append .md to any documentation page URL to get its markdown version.
 
 # Create Account With Secret
 

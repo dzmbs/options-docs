@@ -206,6 +206,6 @@ components:
 
 - [Rate Limits](/articles/rate-limits.md)
 - [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)
 - [Order Management](/articles/order-management-best-practices.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [private/cancel_all](/api-reference/trading/private-cancel_all.md)

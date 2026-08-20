@@ -917,4 +917,4 @@ securitySchemes: []
 - [Notifications](/articles/notifications.md)
 - [Deribit Block RFQ API Walkthrough](/articles/block-rfq-api-walkthrough.md)
 - [block_rfq.maker.(currency) ](/subscriptions/block-rfq/block_rfqmakercurrency.md)
-- [trades.(instrument_name).(interval) ](/subscriptions/trades/tradesinstrument_nameinterval.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)

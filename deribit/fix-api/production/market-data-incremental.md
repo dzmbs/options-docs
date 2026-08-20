@@ -11,7 +11,7 @@ in case of [`Market Data Request`(`V`)](/fix-api/production/market-data-request)
 Subscribe.
 
 Trade entries (`MDEntryType`(`269`)=`2`) are never present for spot instruments
-matched on Coinbase Exchange. See [Coinbase-routed spot](/fix-api/production/coinbase-routed-spot).
+matched on Coinbase Exchange. See [Spot trading venues](/articles/spot-trading-venues).
 
 ### Arguments
 
@@ -49,4 +49,4 @@ matched on Coinbase Exchange. See [Coinbase-routed spot](/fix-api/production/coi
 - [Market Data Request(V) — Production FIX API](/fix-api/production/market-data-request.md)
 - [Market Data Request Reject(Y) — Production FIX API](/fix-api/production/market-data-request-reject.md)
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Coinbase-Routed Spot — Production FIX API](/fix-api/production/coinbase-routed-spot.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)

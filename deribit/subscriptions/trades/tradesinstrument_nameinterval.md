@@ -466,4 +466,4 @@ securitySchemes: []
 - [user.combo_trades.(instrument_name).(interval) ](/subscriptions/user/usercombo_tradesinstrument_nameinterval.md)
 - [user.trades.(kind).(currency).(interval) ](/subscriptions/user/usertradeskindcurrencyinterval.md)
 - [Notifications](/articles/notifications.md)
-- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)

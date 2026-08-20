@@ -485,6 +485,6 @@ components:
 
 - [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [Coinbase-Routed Spot — Production FIX API](/fix-api/production/coinbase-routed-spot.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)
 - [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)

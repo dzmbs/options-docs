@@ -2,1458 +2,1458 @@
   "files": {
     "reference/overview.md": {
       "source_url": "https://docs.derive.xyz/reference/overview",
-      "hash": "2737b931dbe8de321c35e6c87be58ef6223eb63332304510114201ae0da80a06",
-      "last_updated": "2026-07-31T13:07:50.513353"
+      "hash": "4fe1d2ff8db40cc961254a251e166000e6455c00add75d107cc4679c58e2bd60",
+      "last_updated": "2026-08-20T11:37:49.274911"
     },
     "reference/onboard-via-interface.md": {
       "source_url": "https://docs.derive.xyz/reference/onboard-via-interface",
-      "hash": "582c0141e41d75fd9d6456ee2c82fdcdbdc745c00312dd64b40866bd9829034a",
-      "last_updated": "2026-07-31T13:07:51.226979"
+      "hash": "f2dd34561a27946ee07793708aeaf2afbd87d2d479682e2fbddddcb6cc66bf66",
+      "last_updated": "2026-08-20T11:37:49.993349"
     },
     "reference/ux-create-or-deposit-to-subaccount.md": {
       "source_url": "https://docs.derive.xyz/reference/ux-create-or-deposit-to-subaccount",
-      "hash": "5849aac3079d5144ddcb3a8ea1cfe9990f4ab119893df7748275a9e52b1f2e33",
-      "last_updated": "2026-07-31T13:07:52.041190"
+      "hash": "3e8f19d942a39ecf10b8103ee8c30dbe9e62f1dc282963baa04cea086f6d1e4f",
+      "last_updated": "2026-08-20T11:37:50.671463"
     },
     "reference/create-session-keys.md": {
       "source_url": "https://docs.derive.xyz/reference/create-session-keys",
-      "hash": "0c5a4c98261fc0605d9d02cc57bfef32c78067bcee770b32d0bff6911d449493",
-      "last_updated": "2026-07-31T13:07:52.744926"
+      "hash": "81e05b9715ccf07d467008f08c120c52af551317230f143ad7fb9b9e165797cd",
+      "last_updated": "2026-08-20T11:37:51.376115"
     },
     "reference/multiple-subaccounts.md": {
       "source_url": "https://docs.derive.xyz/reference/multiple-subaccounts",
-      "hash": "e9ab9ae3d41055c1c57fca11be525287e2f113d1332c6761921cf56463aa1e3e",
-      "last_updated": "2026-07-31T13:07:53.389693"
+      "hash": "182670e77d1b00d51f8ce33e72d91ad9eb126eb73fa485279031146f42444d5f",
+      "last_updated": "2026-08-20T11:37:52.080930"
     },
     "reference/transfer.md": {
       "source_url": "https://docs.derive.xyz/reference/transfer",
-      "hash": "056695f84c1b8666b29342b44d4e150224acca2ae6b375b39dfa5f31eb20cccd",
-      "last_updated": "2026-07-31T13:07:54.053812"
+      "hash": "abf9c189ccd506acba56809221fd322760eaa8fb47969d35e2246085165c89dc",
+      "last_updated": "2026-08-20T11:37:52.799133"
     },
     "reference/ux-withdraw.md": {
       "source_url": "https://docs.derive.xyz/reference/ux-withdraw",
-      "hash": "c3e7251777c71095bddee752f696421142ff61159da38940baf198afedd1d75f",
-      "last_updated": "2026-07-31T13:07:54.695790"
+      "hash": "523a773cecbf96cf52709000314a247a4713c1ff8193b569905bdfb7284cd1a1",
+      "last_updated": "2026-08-20T11:37:53.487184"
     },
     "reference/onboard-manually.md": {
       "source_url": "https://docs.derive.xyz/reference/onboard-manually",
-      "hash": "e3c4e2b102d2d7f8af1a2799fcf190dd69908ea92586e1f31dad288b2c64a2cd",
-      "last_updated": "2026-07-31T13:07:55.370371"
+      "hash": "f4031b61a5c78930c8721a7fe2ea721237b5b61bd59e517ee0dd24db3abdc30c",
+      "last_updated": "2026-08-20T11:37:54.196258"
     },
     "reference/deposit-to-lyra-chain.md": {
       "source_url": "https://docs.derive.xyz/reference/deposit-to-lyra-chain",
-      "hash": "281bb7c9af9116e2971774c6b28601a87b2ecdecb8d2d1b33fb4ce278ad27083",
-      "last_updated": "2026-07-31T13:07:56.089993"
+      "hash": "903a4e64bb39f50335687c1a4856773ca5d7fd95a7f06b38ae94660c5c7c696c",
+      "last_updated": "2026-08-20T11:37:54.897308"
     },
     "reference/create-or-deposit-to-subaccount.md": {
       "source_url": "https://docs.derive.xyz/reference/create-or-deposit-to-subaccount",
-      "hash": "caaf438ffc7a6a97e7cb6093225f8b487dd8869e7431bcc7d4e5fb97e9a6ed94",
-      "last_updated": "2026-07-31T13:07:56.772520"
+      "hash": "95aa2bc869e036e5d39f3a62cd504b4034d95a1a2271a6f57fc8c5a37349e0a1",
+      "last_updated": "2026-08-20T11:37:55.627006"
     },
     "reference/on-chain-manage-session-keys.md": {
       "source_url": "https://docs.derive.xyz/reference/on-chain-manage-session-keys",
-      "hash": "f8e7e8e34f9a678c64689603319976f9fe59cf5913a62423710810b35c635661",
-      "last_updated": "2026-07-31T13:07:57.456052"
+      "hash": "bce764a416045c908ab606c5c9b124c43150bd5258712e82ebfaa99c5306bb7d",
+      "last_updated": "2026-08-20T11:37:56.317550"
     },
     "reference/on-chain-withdraw.md": {
       "source_url": "https://docs.derive.xyz/reference/on-chain-withdraw",
-      "hash": "b562708d941c682cb488d3629ae690ebe8f7724726310cce3c92b24e70d59608",
-      "last_updated": "2026-07-31T13:07:58.113423"
+      "hash": "ae43f4f685d955e5f1cacd534bb6b6c21f53a5afca858d87bd5209795d88a18b",
+      "last_updated": "2026-08-20T11:37:56.989472"
     },
     "reference/json-rpc.md": {
       "source_url": "https://docs.derive.xyz/reference/json-rpc",
-      "hash": "82d84b1a04ef2159034cc679524421c816342dedef45cffd8d9571d5e5ab0e01",
-      "last_updated": "2026-07-31T13:07:58.786835"
+      "hash": "5899689a76ff2e2895eda32b139bcf7333f00439b0a5321057e8aa5cdadc2d1d",
+      "last_updated": "2026-08-20T11:37:57.744964"
     },
     "reference/naming.md": {
       "source_url": "https://docs.derive.xyz/reference/naming",
-      "hash": "b38e935db0643b472af6741e3f4357f0b77aef3da4f50bc1c74d2faa83b80b87",
-      "last_updated": "2026-07-31T13:07:59.434332"
+      "hash": "824c55c90e0597efa768ae966d7a6e9523b75e21ec1e9f51f3856facab5a1459",
+      "last_updated": "2026-08-20T11:37:58.407744"
     },
     "reference/authentication.md": {
       "source_url": "https://docs.derive.xyz/reference/authentication",
-      "hash": "5a7da1d66341ef9d2356450ae4e942388086d22cc0c487d9f9c87e5766680195",
-      "last_updated": "2026-07-31T13:08:00.105456"
+      "hash": "925be5b5224dec9813d17b2b3bc8ec2f599daec50925b0d4e515f4c1f5cff881",
+      "last_updated": "2026-08-20T11:37:59.112248"
     },
     "reference/session-keys.md": {
       "source_url": "https://docs.derive.xyz/reference/session-keys",
-      "hash": "94cf9f7976ca99e105c6a3abdc0229013add5cc560d53add363bb6e338eebf97",
-      "last_updated": "2026-07-31T13:08:00.767294"
+      "hash": "50e9aa4308a1da86b8f735b12f0022c3205f97162f4a9dad491377ebac423da8",
+      "last_updated": "2026-08-20T11:37:59.810168"
     },
     "reference/rate-limits.md": {
       "source_url": "https://docs.derive.xyz/reference/rate-limits",
-      "hash": "0a4beb0749a9a76ad31d78655cd3a96c2b3d89e571e6772796670edd9b797150",
-      "last_updated": "2026-07-31T13:08:01.550313"
+      "hash": "a0350f0f959b5299a4e2ead53eea061f496f631495b8aebc7a942860d3024c8b",
+      "last_updated": "2026-08-20T11:38:00.521254"
     },
     "reference/protocol-constants.md": {
       "source_url": "https://docs.derive.xyz/reference/protocol-constants",
-      "hash": "f50821e6bb78a21c1238fd45602014f6816b9c604cfd7352857cbd7dd5235b95",
-      "last_updated": "2026-07-31T13:08:02.237699"
+      "hash": "15cae3771260b0d17cf5184b345963c4592109c95397b013ccca208c13cd7216",
+      "last_updated": "2026-08-20T11:38:01.203669"
     },
     "reference/fees-1.md": {
       "source_url": "https://docs.derive.xyz/reference/fees-1",
-      "hash": "aa1fb5f438629b018974483cebd66974ecc8d32d2dcdcf70547f01e8c173f659",
-      "last_updated": "2026-08-16T11:30:53.860308"
+      "hash": "f71ef148dabe4c57015cd20cd51a6a85301ba77e6afd74a83e570333ff5fe642",
+      "last_updated": "2026-08-20T11:38:01.903145"
     },
     "reference/api-broker.md": {
       "source_url": "https://docs.derive.xyz/reference/api-broker",
-      "hash": "fc24376fbc8c873fe99da5a96f6d3cb4f7543af469b78d4a4a05b30d67fcbbf7",
-      "last_updated": "2026-07-31T13:08:03.626416"
+      "hash": "0ebf1dce1825c85338c4179d062fd21cf5e0c65771022da74664eb0080bb2f43",
+      "last_updated": "2026-08-20T11:38:02.571683"
     },
     "reference/builder-fee.md": {
       "source_url": "https://docs.derive.xyz/reference/builder-fee",
-      "hash": "9f251f170ab418c15b6782301cb0bf0e5533416c852fc9ddf97df1089fc0a5f3",
-      "last_updated": "2026-07-31T13:08:04.289201"
+      "hash": "b4984be7a1d8a06c73d0b8a8145daed7617d5bfce96965f65e7f492b5e02f081",
+      "last_updated": "2026-08-20T11:38:03.248895"
     },
     "reference/matching-algorithms.md": {
       "source_url": "https://docs.derive.xyz/reference/matching-algorithms",
-      "hash": "3335e821688d9983b32614eebfb125a9e6534ef887f2e48186d6a59b7cb31949",
-      "last_updated": "2026-07-31T13:08:05.767423"
+      "hash": "1cbbfa2bb05511baa72723950590322a1c5c8927e777590b1f84b8558c8ec756",
+      "last_updated": "2026-08-20T11:38:04.253119"
     },
     "reference/post_public-build-register-session-key-tx.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-build-register-session-key-tx",
-      "hash": "55d145d32341c5e987c3acb9c732b23f93f2881095c4c100fbadc3baee77ceeb",
-      "last_updated": "2026-07-31T13:08:06.660572"
+      "hash": "cce0a96882b84ac80082a27b1a3308c9ebe7afd88396c3c4ffef369d3061031a",
+      "last_updated": "2026-08-20T11:38:05.048736"
     },
     "reference/post_public-register-session-key.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-register-session-key",
-      "hash": "8b2d7528d60073aff08a14ba1bc02d99e979643e66ade4a63550d055af170301",
-      "last_updated": "2026-07-31T13:08:07.412696"
+      "hash": "23ce9651eadef3f8995e90c764a047594e5101cb7b5919700b5aa4bf61508cb3",
+      "last_updated": "2026-08-20T11:38:05.788738"
     },
     "reference/post_public-deregister-session-key.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-deregister-session-key",
-      "hash": "1633991e89a041f97e650e820f7f6186993335c8a887fffc48723a5557a12c67",
-      "last_updated": "2026-07-31T13:08:08.147595"
+      "hash": "6b91416b6e05e4d073ded0a60fb8afd9bae0ca370578d2438cc3624ce47b4fda",
+      "last_updated": "2026-08-20T11:38:06.500175"
     },
     "reference/post_public-login.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-login",
-      "hash": "1592a5d3b20ee8063013898d6b5d858f4e9a7dd939d16ec62e3ec09dbdf0145e",
-      "last_updated": "2026-07-31T13:08:08.906000"
+      "hash": "7905acf8c8d32937e3f50866ac949329265c40a2683218c7501ed0dcab58523f",
+      "last_updated": "2026-08-20T11:38:07.266693"
     },
     "reference/post_public-statistics.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-statistics",
-      "hash": "6b1fae443b28b9646b0163ed83cf4812986cc6befe559ea489c4545ca3a061c4",
-      "last_updated": "2026-07-31T13:08:09.629802"
+      "hash": "043b2dec893f6c9c9d2cf13c4408bc299e32a59544653f9ae2c547d04bb52fac",
+      "last_updated": "2026-08-20T11:38:07.992430"
     },
     "reference/post_public-get-all-currencies.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-all-currencies",
-      "hash": "6374ad1eefde268251bf7d1228b98bbb0be71e666191c626c04ea9a136a47e09",
-      "last_updated": "2026-07-31T13:08:10.374160"
+      "hash": "0c303175db6cd025673fc02b5c7944fdb9d46926ff08e24f0a8518c4aed2037b",
+      "last_updated": "2026-08-20T11:38:08.926304"
     },
     "reference/post_public-get-currency.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-currency",
-      "hash": "e3bed91198c91c5529517ec53163e98ba5bdb887b765e7adf4203404bc2f0cc2",
-      "last_updated": "2026-07-31T13:08:11.167284"
+      "hash": "efb3f68f1de901466fc289ffbba9a8bb6f07253772ec5bef41cf2e73205b6055",
+      "last_updated": "2026-08-20T11:38:09.698769"
     },
     "reference/post_public-get-instrument.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-instrument",
-      "hash": "ae90ee4223f3017f6db174f5cc1da25bd9540af1c64e71d9a8b78314fb50de6a",
-      "last_updated": "2026-07-31T13:08:11.891918"
+      "hash": "a1eb367edc4b9162697176f4c2cf345b61f9caf66467593c72fcacd3d92f729c",
+      "last_updated": "2026-08-20T11:38:10.454640"
     },
     "reference/post_public-get-all-instruments.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-all-instruments",
-      "hash": "f9be4e4878d18549e61ed2c1b2f17566b37bb8b677dab77eaff72792485ea6c3",
-      "last_updated": "2026-07-31T13:08:12.687049"
+      "hash": "bdb7c361f8a26d088160fd5a289a9656de220055537621e0e1fd8858b785926e",
+      "last_updated": "2026-08-20T11:38:11.216644"
     },
     "reference/post_public-get-instruments.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-instruments",
-      "hash": "4f316ac57b3d5464ca39fecb27f40badf15ee286137d6e9540630aa286642476",
-      "last_updated": "2026-07-31T13:08:13.434063"
+      "hash": "7f6544ec3bdd3d790764db5efcd7e667471ddc345bb8744c1a7655d361df8323",
+      "last_updated": "2026-08-20T11:38:11.964081"
     },
     "reference/post_public-get-ticker.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-ticker",
-      "hash": "5dd8de3629465ad1e5b4585ce74b03cf12d5b0098e69dc5b91aa835a4a9c7e10",
-      "last_updated": "2026-07-31T13:08:14.215911"
+      "hash": "2397f1eb09f4d4642c2175ce58b2f4b2cfb1f98a0540b065f8cf752337bd6c73",
+      "last_updated": "2026-08-20T11:38:12.790698"
     },
     "reference/post_public-get-latest-signed-feeds.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-latest-signed-feeds",
-      "hash": "435a51683635b638655886b83d2e44f37be4a320b95343f9fc6110eeac44bafe",
-      "last_updated": "2026-07-31T13:08:14.964740"
+      "hash": "b2fbbd944c26667adcaffea9b0969a4183566eac4aa15a2bec659c83609243dd",
+      "last_updated": "2026-08-20T11:38:13.545966"
     },
     "reference/post_public-get-option-settlement-prices.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-option-settlement-prices",
-      "hash": "49d1c73cd76c4344656e2642ae9a60471d13f74549330b71aa60360fed99f9c8",
-      "last_updated": "2026-07-31T13:08:15.678537"
+      "hash": "41f24ca985524b17decd435fbbc1825dc57907231d6aad46fd3d07173051de56",
+      "last_updated": "2026-08-20T11:38:14.294318"
     },
     "reference/post_public-get-spot-feed-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-spot-feed-history",
-      "hash": "ce51849446859065f2d98aa315e17a650456c1ffb42f62ae2a4040603cf2ddcf",
-      "last_updated": "2026-07-31T13:08:16.426629"
+      "hash": "361a1bf893fb069509f4dcea0b1309ef8bbe801929ccef92172661d15b5d6615",
+      "last_updated": "2026-08-20T11:38:15.010878"
     },
     "reference/post_public-get-spot-feed-history-candles.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-spot-feed-history-candles",
-      "hash": "be8a6d7ee7521a801b0244a5fe71088447d11681891bdbfdcae4ba70681a0158",
-      "last_updated": "2026-07-31T13:08:17.146982"
+      "hash": "340bd6d881a6d5da62e8f541d6c22641bbe86647082305e965f244e17a598879",
+      "last_updated": "2026-08-20T11:38:15.761048"
     },
     "reference/post_public-get-funding-rate-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-funding-rate-history",
-      "hash": "4c94d360791adb4055967be5d1f84e15f9d72d836e19d24578dade911152b4ef",
-      "last_updated": "2026-07-31T13:08:17.882052"
+      "hash": "43871b79b31ec4d8c411c447e334e69540f81d0eb71134896e84324fec598053",
+      "last_updated": "2026-08-20T11:38:16.574420"
     },
     "reference/post_public-get-trade-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-trade-history",
-      "hash": "bc6badda7d9eff4ee7a6c74800f6cdf6c08c60ab75417d0a08b58e2e1e1e20a7",
-      "last_updated": "2026-07-31T13:08:18.661046"
+      "hash": "7397c526a02525f7e774b3254dfd912dd7097c8eecb186f98ea279a6234dae8d",
+      "last_updated": "2026-08-20T11:38:17.343068"
     },
     "reference/post_public-get-option-settlement-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-option-settlement-history",
-      "hash": "5034d181522e292a2dbd6729cb646764af5eb3b46a246538118d665b9610fc16",
-      "last_updated": "2026-07-31T13:08:19.444218"
+      "hash": "848224e1031fbe15c93b09fdce0237f4f68a2de0620f8e99232431d28b135691",
+      "last_updated": "2026-08-20T11:38:18.097213"
     },
     "reference/post_public-get-liquidation-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-liquidation-history",
-      "hash": "f22abc5f034d2dbad6e0ec3202e27372a15039cf76bd847ed035476728619087",
-      "last_updated": "2026-07-31T13:08:20.197513"
+      "hash": "f77fc9eacd1137187fa7b54bad2226a6d06120f1919dab733bc4627149a20d7d",
+      "last_updated": "2026-08-20T11:38:18.841137"
     },
     "reference/post_public-get-interest-rate-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-interest-rate-history",
-      "hash": "a699438b3a721d75b014f964ac82a2f93ef550db7ff89b4fcffcd19d485213ed",
-      "last_updated": "2026-07-31T13:08:20.951101"
+      "hash": "356bd5cb28d53cc99180bb182501bca8fb11c87b3007690ed4e4652e5b459722",
+      "last_updated": "2026-08-20T11:38:19.648750"
     },
     "reference/post_public-get-transaction.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-transaction",
-      "hash": "9e7042cddec8d2cd9d6ba4bdd614eb175344f3cdbffe2e9ceaa127b162a64b0b",
-      "last_updated": "2026-07-31T13:08:21.663702"
+      "hash": "25c30215a064e179fbbbe2482a519a8f295f65461ea7d5f9e07d71e4b4cd4a17",
+      "last_updated": "2026-08-20T11:38:20.446066"
     },
     "reference/post_public-get-margin.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-margin",
-      "hash": "aee56c875f099a29bd24387efac60034de0a06fbab14d36264a3310e5cdfafd5",
-      "last_updated": "2026-07-31T13:08:22.402801"
+      "hash": "11d32314e5724f24adfa01a01266335c1f5ce0d8a84735a0ffad2bd6b8b86138",
+      "last_updated": "2026-08-20T11:38:21.189016"
     },
     "reference/post_public-margin-watch.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-margin-watch",
-      "hash": "6ef122f80b70d00e321f1ead6e014f3f2ae4dda3a89b5236cdbd8a3a0d7a02bb",
-      "last_updated": "2026-07-31T13:08:23.154165"
+      "hash": "94368db82b719ca7435e54cfd8b8c2aec4f764e7685dc5ba1e475c060fba2319",
+      "last_updated": "2026-08-20T11:38:21.948197"
     },
     "reference/post_public-get-vault-share.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-vault-share",
-      "hash": "1a1d56a7de2b5bb5138e8524e67d0c5ea2a38af6e13febca3d7eb0ccc83aa078",
-      "last_updated": "2026-07-31T13:08:23.977714"
+      "hash": "3e6b23f9b28f411747491ccfd9936fe6c1e876f4cf838dc3601ed032338c39e9",
+      "last_updated": "2026-08-20T11:38:22.689450"
     },
     "reference/post_public-get-vault-statistics.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-vault-statistics",
-      "hash": "04e52f4a97ec6b0752bd354f192a15c062b2fd0d815fcf4a39ce8c58017a5975",
-      "last_updated": "2026-07-31T13:08:24.737446"
+      "hash": "dce718f882b107ac3c7e9d8a0b433307e95b38c65a57981a2509ee81cde67a8b",
+      "last_updated": "2026-08-20T11:38:23.448239"
     },
     "reference/post_public-get-vault-balances.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-vault-balances",
-      "hash": "083b24a3efda0b5e592f228db05a953a336803f85a2dc2e5f5c5ad346864aa8f",
-      "last_updated": "2026-07-31T13:08:25.466317"
+      "hash": "32bdca757a37d53da61b1c04a3ab773aad8d447cd41e7c2146a367c943f0ddf7",
+      "last_updated": "2026-08-20T11:38:24.194954"
     },
     "reference/post_public-create-subaccount-debug.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-create-subaccount-debug",
-      "hash": "2e004e8ba33a1efd09c96af86c5e455954c870e125fc8893f1fca3023b820d6b",
-      "last_updated": "2026-07-31T13:08:26.241628"
+      "hash": "94598349507346fa08eeb546ef98445b9b3cbbaa241e4d3a76c8aad7bb657a0e",
+      "last_updated": "2026-08-20T11:38:24.913496"
     },
     "reference/post_public-deposit-debug.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-deposit-debug",
-      "hash": "86a04ab1df2f0b3779f574c8e331f621b6dbf454b83544546fb8ff3e31e28b21",
-      "last_updated": "2026-07-31T13:08:26.963192"
+      "hash": "5a1f7cf420b6f01a7a56a8d8057286acf2b05b73a1905c9f4c40e45749545a41",
+      "last_updated": "2026-08-20T11:38:25.667463"
     },
     "reference/post_public-withdraw-debug.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-withdraw-debug",
-      "hash": "6e3f7c05905063d7ff0109b80b17a4b4c5475d0a40b35f70621ab1808b623952",
-      "last_updated": "2026-07-31T13:08:27.661785"
+      "hash": "29e4934b4049e66a17a57256c53fd7712e30a20912d6886e1764e08a472baa51",
+      "last_updated": "2026-08-20T11:38:26.411943"
     },
     "reference/post_public-send-quote-debug.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-send-quote-debug",
-      "hash": "bc034df48a65757df638f5b5ba893b74e415932b631daf8447a8d892f15923a8",
-      "last_updated": "2026-07-31T13:08:28.445426"
+      "hash": "481a958c1141b212c682bf8f87a2d81ad02d8369fb0ada59d77094685a80d0a1",
+      "last_updated": "2026-08-20T11:38:27.153921"
     },
     "reference/post_public-execute-quote-debug.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-execute-quote-debug",
-      "hash": "22cde4f59e6db960bfed19c446401401f15b257531fa335e188d3ce404088a22",
-      "last_updated": "2026-07-31T13:08:29.239553"
+      "hash": "500c97e859665e7e2f4e2d1858f05fbd8b91f1fffefccb44aaf217c59c309400",
+      "last_updated": "2026-08-20T11:38:27.913877"
     },
     "reference/post_public-get-time.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-time",
-      "hash": "b19779d5f55283416e3dc9fd036481193c7fde6ca8544a8b98e329ed3f3af29e",
-      "last_updated": "2026-07-31T13:08:29.980172"
+      "hash": "8c2295a0392158fc9318d6abea004f9d3e4d00b87e01501999b61e3063854b8f",
+      "last_updated": "2026-08-20T11:38:28.644640"
     },
     "reference/post_public-get-live-incidents.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-live-incidents",
-      "hash": "5d93983972d0183f392d243010400a38fa0f653570bfc548accdcb6ab568aa2a",
-      "last_updated": "2026-07-31T13:08:30.820206"
+      "hash": "d9df7e34d61fbec9df816b07f01b0b5b03791c8fcc2ff0bc7b009cf67df9eb3f",
+      "last_updated": "2026-08-20T11:38:29.383769"
     },
     "reference/post_public-get-maker-programs.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-maker-programs",
-      "hash": "3598f07abeaa2d63606337b45356c27611cd300ef8208a2c92c59b7af09d93a1",
-      "last_updated": "2026-07-31T13:08:31.568608"
+      "hash": "6e6a50d2275902d07bd571a44e10e97790d6096edffaa8a8cb56e8daa1c2736c",
+      "last_updated": "2026-08-20T11:38:30.168932"
     },
     "reference/post_public-get-maker-program-scores.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-maker-program-scores",
-      "hash": "1b7d550936d51f686d2eba523276e8a303e4fb917e6c73288cd37dadbed659b0",
-      "last_updated": "2026-07-31T13:08:32.498386"
+      "hash": "2308bc02ca19289eb760e349b2bb1b8b7cddf197a4d65f066e6a996c0d6d2e90",
+      "last_updated": "2026-08-20T11:38:30.919546"
     },
     "reference/post_public-get-referral-performance.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-referral-performance",
-      "hash": "bc7c6cca89865accdc7cd5d87517c8a1fb10bb0276593bea1042acbde526a932",
-      "last_updated": "2026-07-31T13:08:33.246401"
+      "hash": "b655db418828dd0bc8698c269e90f0e1b88985f5abb3ead0b846a76e9b877aba",
+      "last_updated": "2026-08-20T11:38:31.677149"
     },
     "reference/post_public-get-tickers.md": {
       "source_url": "https://docs.derive.xyz/reference/post_public-get-tickers",
-      "hash": "69ffe988abb627667678d0caa344bb9b8f4f648565b01d9ca858221f5d0693a4",
-      "last_updated": "2026-07-31T13:08:34.033063"
+      "hash": "a641940f05880f11ea56d40a07758169740c9441b37d644cee173496e61c5733",
+      "last_updated": "2026-08-20T11:38:32.418725"
     },
     "reference/post_private-get-account.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-account",
-      "hash": "cd69119eb3568d6c9dd5835b83766753ca602be8a8a2808ce306fc7ce252137f",
-      "last_updated": "2026-07-31T13:08:34.734330"
+      "hash": "9d6f1cde290577dd8d9d34868e0ae5d2709935d32126a00f76e770a7b4181cac",
+      "last_updated": "2026-08-20T11:38:33.344148"
     },
     "reference/post_private-create-subaccount.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-create-subaccount",
-      "hash": "86cbb7b510ff5ac097e591b2ecbf447c7cab509323723418d8514ee682a400de",
-      "last_updated": "2026-07-31T13:08:35.595478"
+      "hash": "50cc3e79d050d504ac82402359b2706776c5ce3ae5860ca55bd0ddda51b486ed",
+      "last_updated": "2026-08-20T11:38:34.136739"
     },
     "reference/post_private-get-subaccount.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-subaccount",
-      "hash": "b147af533758f7cc312ab4b6561f8a9435adcf24f4ad36cf57f8453135a471a8",
-      "last_updated": "2026-07-31T13:08:36.408993"
+      "hash": "944823658eef1ea1876410f867e88bc32ade623e93eb18333c5ef5ee1b0c4a6f",
+      "last_updated": "2026-08-20T11:38:34.885260"
     },
     "reference/post_private-get-subaccounts.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-subaccounts",
-      "hash": "a5c3c6b9a8072bf9388ebce0b70b4409e43f617b4cba1df0080a1764ab8eafc3",
-      "last_updated": "2026-07-31T13:08:37.099014"
+      "hash": "b6197e4f42bc8682e53cdb952b8950f643dab66350f691e3395f6ece813c4c27",
+      "last_updated": "2026-08-20T11:38:35.614139"
     },
     "reference/post_private-get-all-portfolios.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-all-portfolios",
-      "hash": "108c7cc4bbcfa0e042eff267185d94c097851f2d18d389fc0d13d93d1d7ebd8f",
-      "last_updated": "2026-07-31T13:08:37.833234"
+      "hash": "077967edc531cace701dfd13a341ab3cff5d4107f3bbf93be88c5e31b066b09a",
+      "last_updated": "2026-08-20T11:38:36.428893"
     },
     "reference/post_private-change-subaccount-label.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-change-subaccount-label",
-      "hash": "dabaf5ef56827f02ae8f5c93d7736ec2fdc7ea0a85ed4def09a76cfafa1d941d",
-      "last_updated": "2026-07-31T13:08:38.548098"
+      "hash": "7ef8d18a51a30e628d93e71792b008d4b6517626869123b77fa40bdcfdd35948",
+      "last_updated": "2026-08-20T11:38:37.172573"
     },
     "reference/post_private-get-notifications.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-notifications",
-      "hash": "89607778ad10d655adaff7b53dc1e9b93be5f3a58bb130eb40c7cce86e01350b",
-      "last_updated": "2026-07-31T13:08:40.104913"
+      "hash": "4c4be179dedb660fc1fc63c1d1353acbaf5c99aeb7041fbebd6e5a11c9627ba5",
+      "last_updated": "2026-08-20T11:38:37.950028"
     },
     "reference/post_private-update-notifications.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-update-notifications",
-      "hash": "471cfea8ab7699cfb30e883eab8af8b5eeda672778ef54efa7d1b150fcff2172",
-      "last_updated": "2026-07-31T13:08:40.823042"
+      "hash": "5b1099c9b915d98e380869b70fa7258219371c8ba94936a1243df67a6c20015a",
+      "last_updated": "2026-08-20T11:38:38.682218"
     },
     "reference/post_private-deposit.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-deposit",
-      "hash": "515c20c49343df8d62f9a084bc93367b0e4dac94897fcfe89146adb6ba698478",
-      "last_updated": "2026-07-31T13:08:41.562549"
+      "hash": "22775b2c225b297a8d4d7f452d9c216faccf31e3e56057833b6e46ea625aba75",
+      "last_updated": "2026-08-20T11:38:39.508620"
     },
     "reference/post_private-withdraw.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-withdraw",
-      "hash": "86076d02618d029102a6a8af4ee74b19bcece958e787d71d938249f0d20f6601",
-      "last_updated": "2026-07-31T13:08:42.294577"
+      "hash": "b50cc56c2bab4421113f1b82ddca16eb2e64828492932bf1c4e0f84cd9e2ec38",
+      "last_updated": "2026-08-20T11:38:40.355060"
     },
     "reference/post_private-transfer-erc20.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-transfer-erc20",
-      "hash": "971fc4ddd98e13b64b57d9207d5567e0a92eb8bddd30ab7519d44c077c3c9f4e",
-      "last_updated": "2026-07-31T13:08:43.025954"
+      "hash": "a178777a62662974179277cda24b4cc96d976eaae5b27e99f8e1afc96f169603",
+      "last_updated": "2026-08-20T11:38:41.121170"
     },
     "reference/post_private-transfer-position.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-transfer-position",
-      "hash": "23d64f2b7c7d7ce9778162fcd373349709961baf0e7794d9361a9348e70ac633",
-      "last_updated": "2026-07-31T13:08:43.752704"
+      "hash": "e197deef102db7efbcd9f72422e34ac990856f3cf999294d7cc0b636f9883c9e",
+      "last_updated": "2026-08-20T11:38:41.871956"
     },
     "reference/post_private-transfer-positions.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-transfer-positions",
-      "hash": "e810877695d4c6e7c08a01a074990f5987d9d1577616646d8c39b618c633c68a",
-      "last_updated": "2026-07-31T13:08:44.487409"
+      "hash": "ed2f8c6267b18b122928a04a9700c9a2ab4efc6de74b202b804f07c686a8b0d9",
+      "last_updated": "2026-08-20T11:38:42.600375"
     },
     "reference/post_private-order.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-order",
-      "hash": "e8442ec667228b36dd4d505ec17b6b87506d9b50833889f270007d0aaf83027a",
-      "last_updated": "2026-07-31T13:08:45.250542"
+      "hash": "53330ee2763a9e08ccc4b7510df2b2794487be1ceb7bda178cb9ee70e4f542c5",
+      "last_updated": "2026-08-20T11:38:43.358300"
     },
     "reference/post_private-replace.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-replace",
-      "hash": "97aa48f0a86e704205b9c8a7a9f4fb86986a637a3e49619b8ded0fcdd79c804c",
-      "last_updated": "2026-07-31T13:08:45.992620"
+      "hash": "5e1fcd921062fd0b5b4bb8c73d79a71711c9f768ffac67e1417ecfd614dc3844",
+      "last_updated": "2026-08-20T11:38:44.179186"
     },
     "reference/post_private-order-debug.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-order-debug",
-      "hash": "99a25ef7b00c0d29a1f8ab7da3ab821d6aaef4b10befca74d2a6bd445325e07e",
-      "last_updated": "2026-07-31T13:08:46.740747"
+      "hash": "5ca4f1307b78bf6be86109933cc395ec0a393788012484c1e62500774e1f0e82",
+      "last_updated": "2026-08-20T11:38:44.927081"
     },
     "reference/post_private-get-order.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-order",
-      "hash": "21971a9af6f49968fe8d80f25d367869199f2db865767d6f6ae1438ad0f2876b",
-      "last_updated": "2026-07-31T13:08:47.545183"
+      "hash": "a52d3715ce839da1ef4011cf286fb9a412261f58ab224e045d74feee5b1455c1",
+      "last_updated": "2026-08-20T11:38:45.653360"
     },
     "reference/post_private-get-orders.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-orders",
-      "hash": "e4f27e4f6fff3d03efc1f49a1aaeb1a09f47f3ddb3f624b5e53944badcddbcac",
-      "last_updated": "2026-07-31T13:08:48.339141"
+      "hash": "34119a6ee6dc4256350c81612d73db8c41fdc2b2fe031a53c1ba8941b6150a90",
+      "last_updated": "2026-08-20T11:38:46.419664"
     },
     "reference/post_private-get-open-orders.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-open-orders",
-      "hash": "87d8339b8aa88f99d66d9a4880750a696ae377fbf671693c1e6761319ed8de94",
-      "last_updated": "2026-07-31T13:08:49.085834"
+      "hash": "8c769eef981f4aec4aecf037ff526e30168417331d66f2f4af42d65450df1229",
+      "last_updated": "2026-08-20T11:38:47.213220"
     },
     "reference/post_private-cancel.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-cancel",
-      "hash": "df87e7913b0398cc273808031f77ca3abe928cc9eb8ca6fb36f193c480f58270",
-      "last_updated": "2026-07-31T13:08:49.869026"
+      "hash": "add2009eec8d3898e7cc350ffcf24f4339b8151602c4778eea86c4220501ed83",
+      "last_updated": "2026-08-20T11:38:47.976522"
     },
     "reference/post_private-cancel-by-label.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-cancel-by-label",
-      "hash": "455ef2dd585d325f9d1f63c899c626f27fc952da7f301bb329c16d9e487a91bc",
-      "last_updated": "2026-07-31T13:08:50.629917"
+      "hash": "78c5f9dfd684c7fabf958f09573a6d74576eae4046dcccb1c18a3167465aa38a",
+      "last_updated": "2026-08-20T11:38:48.710688"
     },
     "reference/post_private-cancel-by-nonce.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-cancel-by-nonce",
-      "hash": "1852e7086f393b704b5e6db1637d9db40e5584e03f27736f136e6b874e8620eb",
-      "last_updated": "2026-07-31T13:08:51.424502"
+      "hash": "a6848236535dcaf686311a76977af18ae17be1597cb936a45ad6e58248e8c8d0",
+      "last_updated": "2026-08-20T11:38:49.550438"
     },
     "reference/post_private-cancel-by-instrument.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-cancel-by-instrument",
-      "hash": "f41e88fdecffe6930064fc7e8d1ab7980ddea4005e3166432700a1fc54c498b9",
-      "last_updated": "2026-07-31T13:08:52.161882"
+      "hash": "d96880791ed31cb7869623c687794f1104e65d8b1752fc5f624c9c90ad26b2d4",
+      "last_updated": "2026-08-20T11:38:50.291881"
     },
     "reference/post_private-cancel-all.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-cancel-all",
-      "hash": "3f6caff4d81a70804c7ce37333dd811ad1a61f92a13d5d206dfd08e863b5859e",
-      "last_updated": "2026-07-31T13:08:52.937981"
+      "hash": "fd5cc7d56bd130cb16adcdd6f9b1233b1c545d93508194f012d62ff3f0d5991e",
+      "last_updated": "2026-08-20T11:38:51.048970"
     },
     "reference/post_private-cancel-trigger-order.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-cancel-trigger-order",
-      "hash": "6098e6b90055a8663997d40f6151611e03afd8feb6084cbab12eb2e52e29ef7e",
-      "last_updated": "2026-07-31T13:08:53.656741"
+      "hash": "e1b569302e3284ae5ad9da9e79d95e6eab2384cf48b52bd6c0b03b95aaac870a",
+      "last_updated": "2026-08-20T11:38:51.846125"
     },
     "reference/post_private-get-order-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-order-history",
-      "hash": "4b5d0ec9af9f4b8468103514dccb5c34a623ca2f90b719e80e869274145fa143",
-      "last_updated": "2026-07-31T13:08:54.373949"
+      "hash": "17c1d8a2a2890e816644119be738e1a6fec5c1fa5dd6799a693367e60ca03fed",
+      "last_updated": "2026-08-20T11:38:52.587442"
     },
     "reference/post_private-get-trade-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-trade-history",
-      "hash": "1ecbd692095e01a708c056bca235698ebe3f32f446ca14a95dba9075b8308070",
-      "last_updated": "2026-07-31T13:08:55.110014"
+      "hash": "52f2383452955d8975f019ff3f5fee769f75aaa91b9d805ccb5b02684859ae6a",
+      "last_updated": "2026-08-20T11:38:53.344890"
     },
     "reference/post_private-get-deposit-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-deposit-history",
-      "hash": "b195d270fcd8270f2f024c42ce51bef193f982c996348fc17179ef9f6f978884",
-      "last_updated": "2026-07-31T13:08:55.882905"
+      "hash": "ed76d3e0701fa220024938d4e4591922be86a84f33c5efe8efe80d890a66e0c2",
+      "last_updated": "2026-08-20T11:38:54.151536"
     },
     "reference/post_private-get-withdrawal-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-withdrawal-history",
-      "hash": "6fb9987b59d391792cb8d404496ac6118e7f07ad20e263bc75d4c6dce222f6c2",
-      "last_updated": "2026-07-31T13:08:56.652556"
+      "hash": "49122a565b0ad7e217778e68e51477f61f7e0c2c81513a1535341396e54e13c5",
+      "last_updated": "2026-08-20T11:38:54.877843"
     },
     "reference/post_private-send-rfq.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-send-rfq",
-      "hash": "b32bed3119d39267f14e1404bcc5e4b67f05d6d2ebd72d9c854e2b4bf6ff0158",
-      "last_updated": "2026-07-31T13:08:57.378523"
+      "hash": "5f4043b7f514dd8089579bae598f800bef0e727a16e2d4284f680ec92119ef6c",
+      "last_updated": "2026-08-20T11:38:55.610731"
     },
     "reference/post_private-cancel-rfq.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-cancel-rfq",
-      "hash": "d1df638fd9ed99799d56bb61073887fb507eff5c97cdaceb7fb2147e83a21f79",
-      "last_updated": "2026-07-31T13:08:58.164338"
+      "hash": "441dece91a528019bd3d069a290087c465c3950d40e0114af4d7dd354cd32c5c",
+      "last_updated": "2026-08-20T11:38:56.416382"
     },
     "reference/post_private-cancel-batch-rfqs.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-cancel-batch-rfqs",
-      "hash": "80c92438fb2133dc0e1e1cbaa9e81e53d207d9ee98601fb8a97f751484261016",
-      "last_updated": "2026-07-31T13:08:58.929500"
+      "hash": "57680e5bc28bc3d8ea274c2aed08bac95d220717ffd252e30d6375805709aa88",
+      "last_updated": "2026-08-20T11:38:57.166765"
     },
     "reference/post_private-get-rfqs.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-rfqs",
-      "hash": "811f9e71c98d3ace6a65fff612ffd2acbf8420fafb78c8d0a1be29e9afba3897",
-      "last_updated": "2026-07-31T13:08:59.655969"
+      "hash": "2757c0424de1d11c922c4286063066a625afd14d56550e849e206b9873cbb450",
+      "last_updated": "2026-08-20T11:38:57.910414"
     },
     "reference/post_private-poll-rfqs.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-poll-rfqs",
-      "hash": "f27b290d458506f609983c598fa908ec225f1b4c01236b251c49f87c101ff6d5",
-      "last_updated": "2026-07-31T13:09:00.408490"
+      "hash": "5acb00687f57bd28ede047d8cd0e632097d672bb36c3ebcb48c0f5b0430f79ca",
+      "last_updated": "2026-08-20T11:38:58.857995"
     },
     "reference/post_private-send-quote.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-send-quote",
-      "hash": "7b21aba4149d608c59984c93bc8ebc286a32909490961d3d16e45a52b01d3d3f",
-      "last_updated": "2026-07-31T13:09:01.163875"
+      "hash": "c52afc5ef176d71f86c63ac85fbc34a765a31a0c0130ad092c7bf0580ea2efce",
+      "last_updated": "2026-08-20T11:38:59.593897"
     },
     "reference/post_private-cancel-quote.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-cancel-quote",
-      "hash": "fc4d2b93f79603678602ff2e40fe0951604e8a678af953ea9fa52d1ae807ba62",
-      "last_updated": "2026-07-31T13:09:01.906218"
+      "hash": "69f102389fc5f4564f1842ac324efa1256a81a5cbf07d4d36067b386768881ce",
+      "last_updated": "2026-08-20T11:39:00.329249"
     },
     "reference/post_private-cancel-batch-quotes.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-cancel-batch-quotes",
-      "hash": "a2c6ac240a07ac402383dc25978a7bf11ea8cb44112f987ae5ed148a85418148",
-      "last_updated": "2026-07-31T13:09:02.680398"
+      "hash": "64381d4fb324137bae1d6b47fa48cea79510a858cfb510c5ad6473afe9c10c81",
+      "last_updated": "2026-08-20T11:39:01.086868"
     },
     "reference/post_private-get-quotes.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-quotes",
-      "hash": "93c0a444d2568a398d2e6068bb61ecd1fc468a7625cc98e098ddf13c5bb0590f",
-      "last_updated": "2026-07-31T13:09:03.444644"
+      "hash": "29b817d3292b740e055951bc3df4cc9adffc7dde4715e981c3f4966b36e2efd9",
+      "last_updated": "2026-08-20T11:39:01.833022"
     },
     "reference/post_private-poll-quotes.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-poll-quotes",
-      "hash": "1a66c64f8f1d65e0cd7cefa525fbcfb7447724524f02df54372a60174965cfda",
-      "last_updated": "2026-07-31T13:09:04.163778"
+      "hash": "4035e6f982db0ed472bed51a8fb93ae233bc88d9d0bf478b24b27d60fd1734da",
+      "last_updated": "2026-08-20T11:39:02.581034"
     },
     "reference/post_private-execute-quote.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-execute-quote",
-      "hash": "a2c014d3b58d3bf2ba31ed4ddecfac59544da077a266c8188db1747225f7334d",
-      "last_updated": "2026-07-31T13:09:05.027570"
+      "hash": "daf1ffdd36d4eaddede12a1f1b21ee64dd5fc4dc4a72959ee7710bfa98526368",
+      "last_updated": "2026-08-20T11:39:03.335111"
     },
     "reference/post_private-rfq-get-best-quote.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-rfq-get-best-quote",
-      "hash": "110f897014837e52a323e8f87b8c15f709dd8d26400c9352c1010df3389e374a",
-      "last_updated": "2026-07-31T13:09:05.808796"
+      "hash": "75187208b1c2cc80ad0e67c07de43618779eee00af2f2c55f267b4a4017f574d",
+      "last_updated": "2026-08-20T11:39:04.125157"
     },
     "reference/post_private-get-margin.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-margin",
-      "hash": "7b1db2136754a646784a2f3656bd787c6a12a6dd076517fa51c5a5e3d7123736",
-      "last_updated": "2026-07-31T13:09:06.567439"
+      "hash": "1763b18b4dcc77c633d241ee4b3f8cd038da98db9c28832081f4e2cda163d07e",
+      "last_updated": "2026-08-20T11:39:04.936241"
     },
     "reference/post_private-get-collaterals.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-collaterals",
-      "hash": "a6674b6c731a8f9a63afee7c29f177a19dc5918f885ae6efafa6ad48a86e3358",
-      "last_updated": "2026-07-31T13:09:07.364423"
+      "hash": "e05c571eee28bdea4f86fd756acb1d52cf8d9392ca1ba4e15de1701830f40f89",
+      "last_updated": "2026-08-20T11:39:05.758185"
     },
     "reference/post_private-get-positions.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-positions",
-      "hash": "7785dbec609cc5be036c368814704334c098ccefdacb45108881553adfc83a06",
-      "last_updated": "2026-07-31T13:09:08.162987"
+      "hash": "6ef366c3cb4dabeb604975244e895e920f7959f7da4cb7b33def6d061dc6a3df",
+      "last_updated": "2026-08-20T11:39:06.509639"
     },
     "reference/post_private-get-option-settlement-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-option-settlement-history",
-      "hash": "641271d04c38e7f5f33e024995b28176c8985d5d36d295f81f9bfd1fd2966e6d",
-      "last_updated": "2026-07-31T13:09:08.919287"
+      "hash": "c02adddc2b0d2964d5ade7db4ec979c9cf0fa5e0fb9ff587473f19a5fd8329d4",
+      "last_updated": "2026-08-20T11:39:07.297345"
     },
     "reference/post_private-get-subaccount-value-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-subaccount-value-history",
-      "hash": "39a7ded2d2b401eed6475969336d6107cda485b0ceec0efeddaaaabf1c1224fa",
-      "last_updated": "2026-07-31T13:09:10.005872"
+      "hash": "467f2ef94f03ae192b5dd565bb79739d2f9bdfaeaa12cf958cb7f183cf370ce1",
+      "last_updated": "2026-08-20T11:39:08.090772"
     },
     "reference/post_private-expired-and-cancelled-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-expired-and-cancelled-history",
-      "hash": "446c77b2109c42661200e048067d56a083ab20cc07e4131c80f290473510aae1",
-      "last_updated": "2026-07-31T13:09:10.737603"
+      "hash": "e9e28aca7edb5b6c605687b30ddd72e9c29338beba7cf477459b37b1ddc5e2ee",
+      "last_updated": "2026-08-20T11:39:08.829793"
     },
     "reference/post_private-get-funding-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-funding-history",
-      "hash": "3b9a03f8ae31a5e7b1645ae6dbd48b8eb81d33953804164afa07729510455829",
-      "last_updated": "2026-07-31T13:09:11.706993"
+      "hash": "db5c8191296096f14cfa0115ec80760c7a636418a4027b26112bcd9ce90d091d",
+      "last_updated": "2026-08-20T11:39:09.589489"
     },
     "reference/post_private-get-interest-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-interest-history",
-      "hash": "fdcfa12ec45ecc0ed29f44c8d486fe1e461634b0ca702e8cb9832fe90ccc51be",
-      "last_updated": "2026-07-31T13:09:12.450871"
+      "hash": "2d49ff8eff76c2e0d2ce89d9f9573921869fde3e64ba27abe854f58d245c7d3f",
+      "last_updated": "2026-08-20T11:39:10.327655"
     },
     "reference/post_private-get-erc20-transfer-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-erc20-transfer-history",
-      "hash": "1b6ca15ce4485a47f6a85354e230fa4b4888b25347bda08a1830c90dbc9d040d",
-      "last_updated": "2026-07-31T13:09:13.192304"
+      "hash": "949f9c1892ceb56b8b520fbbf0784c4991968ff61f1b7bdcfab226952deb3c7c",
+      "last_updated": "2026-08-20T11:39:11.095765"
     },
     "reference/post_private-get-liquidation-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-liquidation-history",
-      "hash": "887f6b3b0d4a69db36ec9255182c5283e815a4b82f1c0881474ac2f2290bee13",
-      "last_updated": "2026-07-31T13:09:13.963364"
+      "hash": "90e6e25767a7990bc5e0ca593bf6d1a91bfeb8a251b9749a6a104b5911af81fc",
+      "last_updated": "2026-08-20T11:39:11.851078"
     },
     "reference/post_private-liquidate.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-liquidate",
-      "hash": "4761c55687b981c1a9b9781b2faacfcc6b2d19dfab86805fa4c2525631835ed7",
-      "last_updated": "2026-07-31T13:09:14.776555"
+      "hash": "b61f795da5d351c577a7a35527690d63e26cd760772bc49593fd8c08e529f60d",
+      "last_updated": "2026-08-20T11:39:12.597502"
     },
     "reference/post_private-get-liquidator-history.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-liquidator-history",
-      "hash": "fdb7276bb0c266efa57c8f0d5d9c82ce6d33dbf62f3d04bbf5e48c86b3630db1",
-      "last_updated": "2026-07-31T13:09:15.507504"
+      "hash": "78272fa32d00d528ccad0767ee535761efb30468431488f3e69d3287c60c784a",
+      "last_updated": "2026-08-20T11:39:13.359781"
     },
     "reference/post_private-session-keys.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-session-keys",
-      "hash": "5cf736a6da1770a8fd9903a958a14483ef8010d5917457834135aa0296d011d3",
-      "last_updated": "2026-07-31T13:09:16.223591"
+      "hash": "bb647a1644e7e35981684f9bf4723f8efe73e200bb7d6a5006a8c40019d384db",
+      "last_updated": "2026-08-20T11:39:14.098829"
     },
     "reference/post_private-edit-session-key.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-edit-session-key",
-      "hash": "6cbd7bc463cc1221ef34813ff652084a3872bd6a1f2af612047e0f9d61004f79",
-      "last_updated": "2026-07-31T13:09:16.967030"
+      "hash": "97875429c2690f832f41458c781074d71dcf6e6ab3ad067d637d3da3519ffc54",
+      "last_updated": "2026-08-20T11:39:14.854819"
     },
     "reference/post_private-register-scoped-session-key.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-register-scoped-session-key",
-      "hash": "addcb3689357a3f25d7027338cf9b8d9ce87c00df04319514263252c2612380c",
-      "last_updated": "2026-07-31T13:09:17.775169"
+      "hash": "f56dc48539e5cc6f29a4d64de03d4f014bae3327e9bf492f5fba2c617a68281b",
+      "last_updated": "2026-08-20T11:39:15.614264"
     },
     "reference/post_private-get-mmp-config.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-get-mmp-config",
-      "hash": "c2e5ca4c3d0fc7e0efc16edb756155e5325b3169dd8bd32fe07d16d22b6718bd",
-      "last_updated": "2026-07-31T13:09:18.559062"
+      "hash": "4c5e60a9d128762333dead6365a880be5a309d8094065fbd36fd9682fdef5ea5",
+      "last_updated": "2026-08-20T11:39:16.397024"
     },
     "reference/post_private-set-mmp-config.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-set-mmp-config",
-      "hash": "dab7ccdd4ace1103fdaa5fc75a99eaef16de1dd0a3d09b03630d9bc99f929ded",
-      "last_updated": "2026-07-31T13:09:19.273898"
+      "hash": "3d6b925169d9a01ae9b2f7cf1f68639b7edaff059d18c432ed66aa8c41169422",
+      "last_updated": "2026-08-20T11:39:17.135175"
     },
     "reference/post_private-reset-mmp.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-reset-mmp",
-      "hash": "dede05d125a06049e9ce161923042f01f1e11ccbba2887f000a83f9c2036cf11",
-      "last_updated": "2026-07-31T13:09:20.015481"
+      "hash": "55aefcd0c13d8e5b8de82e1a3a6b9ecfb447c716206e9b880b97790bc46503e9",
+      "last_updated": "2026-08-20T11:39:17.866788"
     },
     "reference/post_private-set-cancel-on-disconnect.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-set-cancel-on-disconnect",
-      "hash": "dcc7bc336f9e011a093f47965d2f98faa78b024628c20381fbfbb11439ffb47e",
-      "last_updated": "2026-07-31T13:09:20.788139"
+      "hash": "069daaf7ccd70fa5a35fe7ce68bfc8469f7d8eee97d86fea08a4ef0ff1c77a11",
+      "last_updated": "2026-08-20T11:39:18.638116"
     },
     "reference/post_private-cancel-all-trigger-orders.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-cancel-all-trigger-orders",
-      "hash": "5810e3511179a7dd981d31f60fa1125a74595bc8accb79f706dba713c3e3fb4a",
-      "last_updated": "2026-07-31T13:09:21.551177"
+      "hash": "31eeb5a7ad5d6616fc5da66c2442c18799e80d28f77c799a1e13fc6a073adc95",
+      "last_updated": "2026-08-20T11:39:19.386555"
     },
     "reference/post_private-replace-quote.md": {
       "source_url": "https://docs.derive.xyz/reference/post_private-replace-quote",
-      "hash": "1297258134344a13e68d7989ad20cd5c9d13b7517d0218f94fb56128e8391df8",
-      "last_updated": "2026-07-31T13:09:22.910489"
+      "hash": "cea6cc9441ce7e8e397bf6d798af67a0da44948c369247c0a078b1fa8004d30b",
+      "last_updated": "2026-08-20T11:39:20.116462"
     },
     "reference/submit-order-javascript-copy.md": {
       "source_url": "https://docs.derive.xyz/reference/submit-order-javascript-copy",
-      "hash": "73cc39263589848019cde5116a5fc36fd2799eb2ec222012d40c66f49f53b007",
-      "last_updated": "2026-07-31T13:09:23.587877"
+      "hash": "640397309b9809ca6fabf5324eb0276c6c5f0a5b3985bc824ab484fb127ddfde",
+      "last_updated": "2026-08-20T11:39:20.800202"
     },
     "reference/submit-order.md": {
       "source_url": "https://docs.derive.xyz/reference/submit-order",
-      "hash": "f991915b8e16acaa5561d6ce39e1bb570e19e11f220cc315718875cdfe3e6cb5",
-      "last_updated": "2026-07-31T13:09:24.348889"
+      "hash": "20bf8e91ada8bf55d684d358ae76867520bdba5a4fac567d90b00c34360e127a",
+      "last_updated": "2026-08-20T11:39:21.511777"
     },
     "reference/transfer-collateral.md": {
       "source_url": "https://docs.derive.xyz/reference/transfer-collateral",
-      "hash": "9d7045444f98eae535f0ec3ceba63c00e0b22c68a011ae338d3f20f1880e4c3a",
-      "last_updated": "2026-07-31T13:09:25.015872"
+      "hash": "10690e9056f67872d455b4a36774bf5bc96db3b670bf0ddab372a1a8139c937f",
+      "last_updated": "2026-08-20T11:39:22.173561"
     },
     "reference/rfq-quoting-and-execution-javascript-copy.md": {
       "source_url": "https://docs.derive.xyz/reference/rfq-quoting-and-execution-javascript-copy",
-      "hash": "eb62b481229aa9d21315c083077210a8d157aed4532e4945021d953d372513d2",
-      "last_updated": "2026-07-31T13:09:25.677112"
+      "hash": "ea582031ca94691336698f1e4a64aff238a4a0c30e979c049cff33396d6a299d",
+      "last_updated": "2026-08-20T11:39:22.901315"
     },
     "reference/rfq-quoting-and-execution.md": {
       "source_url": "https://docs.derive.xyz/reference/rfq-quoting-and-execution",
-      "hash": "feac5617e55626575a98cabaa3d77fe51f3d42488b7d45a3e0c51c6f17163f10",
-      "last_updated": "2026-07-31T13:09:26.387942"
+      "hash": "527a4d6bfd2516c4cdf80056341ab6e551a87fb2e828985ec2120071c7b441a9",
+      "last_updated": "2026-08-20T11:39:23.618499"
     },
     "reference/open-orders-margin.md": {
       "source_url": "https://docs.derive.xyz/reference/open-orders-margin",
-      "hash": "c92954ef56de60a5775ee198b042b5733617e917ca8a00774610a56e06fe77a5",
-      "last_updated": "2026-07-31T13:09:27.098420"
+      "hash": "c1046f45c4ce6e5039442e022a677f20e0cbe7b958048252e7cbf35cf7f98a8f",
+      "last_updated": "2026-08-20T11:39:24.343359"
     },
     "reference/liquidation-api.md": {
       "source_url": "https://docs.derive.xyz/reference/liquidation-api",
-      "hash": "bfa2591b3bc858f5d0ae831c7b39bc5a6e3d2976a506492d080b998df0bb99b0",
-      "last_updated": "2026-07-31T13:09:27.922468"
+      "hash": "3b6ee979ebba280aa36f50572bdb0317c5faaecce8ee64ec5e22140b5444216f",
+      "last_updated": "2026-08-20T11:39:25.078702"
     },
     "reference/public-build_register_session_key_tx.md": {
       "source_url": "https://docs.derive.xyz/reference/public-build_register_session_key_tx",
-      "hash": "1d8b7dff116beb60fcf8f29b0eaca5e7f78537cc9ab2b828954b95aa114ac984",
-      "last_updated": "2026-07-31T13:09:28.566647"
+      "hash": "430d8bd8703832fd83ebf43ed5e1816e671b493c39b87e573b05b00e7f6efd60",
+      "last_updated": "2026-08-20T11:39:25.791964"
     },
     "reference/public-register_session_key.md": {
       "source_url": "https://docs.derive.xyz/reference/public-register_session_key",
-      "hash": "466db54d139e5b2e26b09930d265e36ab5bba93dcaa30aca5459cc2d0ec53825",
-      "last_updated": "2026-07-31T13:09:29.256393"
+      "hash": "f22ac755f97f52624b43c1fdcf4a605458a855e4e33484be64649f7817926c20",
+      "last_updated": "2026-08-20T11:39:26.495229"
     },
     "reference/public-deregister_session_key.md": {
       "source_url": "https://docs.derive.xyz/reference/public-deregister_session_key",
-      "hash": "771a8341bec343440fdbd4ab1da0f1a8f66a72cf8fed77ea7200abc5f55fb032",
-      "last_updated": "2026-07-31T13:09:29.922673"
+      "hash": "a8209b5c558760b7dbf8fba8f0260ecd3e4aea7ce2db52d9a6e5263cf568c2df",
+      "last_updated": "2026-08-20T11:39:27.148866"
     },
     "reference/public-login.md": {
       "source_url": "https://docs.derive.xyz/reference/public-login",
-      "hash": "26ff07b1cef15b8b0ddda08a8ee66968195ced00ed2daf9ae67abd6f7e0d5c77",
-      "last_updated": "2026-07-31T13:09:30.582862"
+      "hash": "20e0537f6e83a1498c18d919abc491b943446e35af93ca59f828c37e88df2256",
+      "last_updated": "2026-08-20T11:39:27.928769"
     },
     "reference/public-statistics.md": {
       "source_url": "https://docs.derive.xyz/reference/public-statistics",
-      "hash": "49cd03c00bbe66908895a8ab83ae362332ed8cfd8582dfc047098be95672a53f",
-      "last_updated": "2026-07-31T13:09:31.243464"
+      "hash": "8f2bfa97c429cae38b5b664fd2cb066fb4c36afd707da77de07e79c7f4666c52",
+      "last_updated": "2026-08-20T11:39:28.620361"
     },
     "reference/public-get_all_currencies.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_all_currencies",
-      "hash": "a9e594c8849c585ab2c7a7849f515c7e4f5050675656cae36957840f5f887e74",
-      "last_updated": "2026-07-31T13:09:31.907808"
+      "hash": "851e8a648c1832a5d616e3409ad0b62d2a1ff3ebf5ff74f175a70445d314fdeb",
+      "last_updated": "2026-08-20T11:39:29.315653"
     },
     "reference/public-get_currency.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_currency",
-      "hash": "07ac8b3627b118c3a460df202efdaca3f5055cb7637afa3e41e9544653eecfed",
-      "last_updated": "2026-07-31T13:09:32.594810"
+      "hash": "386b92cae6ae8256f7187c656daa9fe8618c7835657267fbc79c4a94011e8709",
+      "last_updated": "2026-08-20T11:39:30.009669"
     },
     "reference/public-get_instrument.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_instrument",
-      "hash": "7c7daa4ee2768c9268b69e6b65ec5922b23a5c6be76525e38ec97e485449f7cc",
-      "last_updated": "2026-07-31T13:09:33.270771"
+      "hash": "157b7b8c12cd174062e1ecd9265058ed372f8ae715488d7e5bd500d7d4b2aff2",
+      "last_updated": "2026-08-20T11:39:30.690719"
     },
     "reference/public-get_all_instruments.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_all_instruments",
-      "hash": "ab831f1fb30b51a37dcadfc8d81d87a4c3e0cc5bb27dad873673f9965108de4a",
-      "last_updated": "2026-07-31T13:09:34.045498"
+      "hash": "55bf5c0e5a2e50942df3da462e08d1aadfccff3b1a1234fa20c3ee0438b2b002",
+      "last_updated": "2026-08-20T11:39:31.381201"
     },
     "reference/public-get_instruments.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_instruments",
-      "hash": "9afa6e3696d7d6a376fd878e357c68b94105d173737b6ffda0a3968f07b049b6",
-      "last_updated": "2026-07-31T13:09:34.737330"
+      "hash": "a1a6d200c1735fa909a3762a24ed14606d0a83dd8718a51e6e0fc099ed39ba19",
+      "last_updated": "2026-08-20T11:39:32.166044"
     },
     "reference/public-validate_invite_code.md": {
       "source_url": "https://docs.derive.xyz/reference/public-validate_invite_code",
-      "hash": "64163013f342680d20abddae7df813e3154a3a31607260eafd8a4d12030c48bd",
-      "last_updated": "2026-07-31T13:09:35.409734"
+      "hash": "a1fddda4c7c4db7f897cc38cf6ba7ed948ec868fbc576718acc0b192750405ab",
+      "last_updated": "2026-08-20T11:39:32.854625"
     },
     "reference/public-get_points.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_points",
-      "hash": "59db069a7c648fea5da8f52e4863db0a8878777af4727c056d4b25e8dc8fa57a",
-      "last_updated": "2026-07-31T13:09:36.060537"
+      "hash": "e7541cd7b114d916fb75b6b9446829c62870d3cec1ec168a42c9c66340c00f62",
+      "last_updated": "2026-08-20T11:39:33.534519"
     },
     "reference/public-get_ticker.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_ticker",
-      "hash": "663e81a3d96de24f2c0130494238319b76fab1568d243757da8a2b34bbe9e36a",
-      "last_updated": "2026-07-31T13:09:36.745729"
+      "hash": "490565339479b1f86ab66438d08aa4e6ae01818ee7dd37b6a59b77c28ded1a4c",
+      "last_updated": "2026-08-20T11:39:34.239847"
     },
     "reference/public-get_tickers.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_tickers",
-      "hash": "377be76bfc3a75bd42d29b6a740fff9c56f1790cf2c0839e5515076aca07fc52",
-      "last_updated": "2026-07-31T13:09:37.428751"
+      "hash": "2d8b62c6ce6828577a53fb00a10994f4015eb08914c43bb2b2881e56e753c72d",
+      "last_updated": "2026-08-20T11:39:34.936669"
     },
     "reference/public-get_latest_signed_feeds.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_latest_signed_feeds",
-      "hash": "7e7cad92d0101079a390658f0f1871b86e3d088106c95ff5f2a1de542d753830",
-      "last_updated": "2026-07-31T13:09:38.094365"
+      "hash": "6a63e88ac91f42d08543b4bfd89a264b3b11ef2b881a625e42fbb4dd661af214",
+      "last_updated": "2026-08-20T11:39:35.621467"
     },
     "reference/public-get_option_settlement_prices.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_option_settlement_prices",
-      "hash": "70a4384935e3d4d1b504c9a07365cf85674c3cb8ca6bfe8703fcbcd5c68badc1",
-      "last_updated": "2026-07-31T13:09:38.756957"
+      "hash": "8509dd7e28685222e77097a55f043136e50359993fc148d9d69308ec5916020d",
+      "last_updated": "2026-08-20T11:39:36.285640"
     },
     "reference/public-get_spot_feed_history.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_spot_feed_history",
-      "hash": "758dad65ae1b0da82f7f2a9a66a899f6da808c30c060db7da958d44264579db6",
-      "last_updated": "2026-07-31T13:09:39.426685"
+      "hash": "b5ee8c44d5b4370b5b13a0cd7816221a3bb90c8a035afaea31a6579d6f5e9873",
+      "last_updated": "2026-08-20T11:39:36.949723"
     },
     "reference/public-get_spot_feed_history_candles.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_spot_feed_history_candles",
-      "hash": "8c9d258f28bc14c0e2eeaf2e54b29118da6c658a98a48a3be1ba918c4d2aaa13",
-      "last_updated": "2026-07-31T13:09:40.113560"
+      "hash": "9db8d69e2b1f13da636ef85c9ae112d112009e44f57ca73d2218b886537eb3eb",
+      "last_updated": "2026-08-20T11:39:37.637254"
     },
     "reference/public-get_funding_rate_history.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_funding_rate_history",
-      "hash": "f0c753840173a091cf3bcfd933fc193be539c312ed95a170432d2b149dde8824",
-      "last_updated": "2026-07-31T13:09:40.774131"
+      "hash": "2ac8ee5ab71f92e988c9969ea2f294964340ffd8756dd044bf96c4fc820f15dd",
+      "last_updated": "2026-08-20T11:39:38.331339"
     },
     "reference/public-get_trade_history.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_trade_history",
-      "hash": "33c35ce20e7df5748517fae52a897048ce493a35160e59d0deab38b6bdb9d0ba",
-      "last_updated": "2026-07-31T13:09:41.441485"
+      "hash": "40d473c2471e69acb42ed1d3d2248d40120ff9b05fb0e32c0db07060c17da20c",
+      "last_updated": "2026-08-20T11:39:39.011810"
     },
     "reference/public-get_option_settlement_history.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_option_settlement_history",
-      "hash": "177dfc32a9fc5e284c96fe34c42459e29ba0561290e4ad50b3a02394849cb0b2",
-      "last_updated": "2026-07-31T13:09:42.142156"
+      "hash": "fe73aa1689f8e8d2ef77f10ad4885080984653d403bcc5bd72261e048901fd41",
+      "last_updated": "2026-08-20T11:39:39.711836"
     },
     "reference/public-get_liquidation_history.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_liquidation_history",
-      "hash": "c2801da5f0b2fa477f778dad1fa146fa865d5f3bae24fd7e09e135d825c20d0b",
-      "last_updated": "2026-07-31T13:09:42.815061"
+      "hash": "764df49b4a42f5de4b257a09eff612e6fb2a537de2da869bafc36c07c0498b97",
+      "last_updated": "2026-08-20T11:39:40.433771"
     },
     "reference/public-get_interest_rate_history.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_interest_rate_history",
-      "hash": "78ad3059c7c73fdff28025612ecf9e1f769cacd019dc5a63f6ef122bf3981811",
-      "last_updated": "2026-07-31T13:09:43.540988"
+      "hash": "d8f573ff78e938de4c515a90af913e18be01f31f7dae815949f14909a55da243",
+      "last_updated": "2026-08-20T11:39:41.104259"
     },
     "reference/public-get_transaction.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_transaction",
-      "hash": "b5a9e4e5c25f009ac93e2d8c9788611136c55c169b24eb271db730bbca37bf3c",
-      "last_updated": "2026-07-31T13:09:44.280841"
+      "hash": "0432e6f1fa40c1c98e8261995bdb63d653032217df5469f906b6dbfccfc8f964",
+      "last_updated": "2026-08-20T11:39:41.766730"
     },
     "reference/public-get_margin.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_margin",
-      "hash": "42496986b3bac60017b50c62503d794a06ac4f92e4099f45af9200261d1fb2ad",
-      "last_updated": "2026-07-31T13:09:44.965786"
+      "hash": "ad81ec086ce100028805782c265a860a8db02397f1e4a01f29ea0dba7505de1b",
+      "last_updated": "2026-08-20T11:39:42.443682"
     },
     "reference/public-margin_watch.md": {
       "source_url": "https://docs.derive.xyz/reference/public-margin_watch",
-      "hash": "9fb23ea07d96260fb12eb6713273818b18261565f2fddf6180dce631ed7e0acf",
-      "last_updated": "2026-07-31T13:09:45.641952"
+      "hash": "94980e501bf7fbb2e4724970c0dcfc219314efef85e7bfa924403cac4c5681a6",
+      "last_updated": "2026-08-20T11:39:43.151761"
     },
     "reference/public-get_vault_share.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_vault_share",
-      "hash": "68c2e0195190c80ece363e9d25961028bc3163a69109d6a55a467e95b1bfa93a",
-      "last_updated": "2026-07-31T13:09:46.305144"
+      "hash": "d0939e2d55abd893175e5ad6b3d323d8418a270500a6d542f041a9bbd913528a",
+      "last_updated": "2026-08-20T11:39:43.911385"
     },
     "reference/public-get_vault_statistics.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_vault_statistics",
-      "hash": "65171aae350be1f52f9103bc3b8f5ccfd614ef7187465567e26c38a7c324924f",
-      "last_updated": "2026-07-31T13:09:47.056350"
+      "hash": "811fe99d263201a39cd9298f50cc2d68a13b7d627865d215163e1db4ef3cc756",
+      "last_updated": "2026-08-20T11:39:44.562235"
     },
     "reference/public-get_vault_balances.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_vault_balances",
-      "hash": "a3625f207bdd778338216b9217a239817b13a703e604512a8650f43fd3f827a6",
-      "last_updated": "2026-07-31T13:09:47.733209"
+      "hash": "0f4422dfe6029b397f934aa5c799c548eed85313152c990a98c1ca48b734d690",
+      "last_updated": "2026-08-20T11:39:45.223540"
     },
     "reference/public-get_all_points.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_all_points",
-      "hash": "695f0f08bb1790680bfc9e4a4375c35e4ee92b9c0c710b3f980fb7a094444cc7",
-      "last_updated": "2026-07-31T13:09:48.419107"
+      "hash": "dbd105ee754d66b17bc83d434a6a9c782dc7e175016ca8dc30b54f2531597a91",
+      "last_updated": "2026-08-20T11:39:45.916483"
     },
     "reference/public-get_points_leaderboard.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_points_leaderboard",
-      "hash": "bfe1aaf193335c43af4cb9218552aceec46571354a6f9cf5ca9f3fa074eec782",
-      "last_updated": "2026-07-31T13:09:49.119447"
+      "hash": "1a079cb1b78c0551ab548d331ee7190d9a541b90402ff9f0b5d72c2f34d6a25f",
+      "last_updated": "2026-08-20T11:39:46.592369"
     },
     "reference/public-create_subaccount_debug.md": {
       "source_url": "https://docs.derive.xyz/reference/public-create_subaccount_debug",
-      "hash": "151028b98ca6d8dcff98c3068e473baef886c963120f75950a19b7f908db6a1e",
-      "last_updated": "2026-07-31T13:09:49.796723"
+      "hash": "cc85b1adae757e7777e7f9a9d331136dab22df210eb7b5d3e0806bd8a1ae550f",
+      "last_updated": "2026-08-20T11:39:47.295093"
     },
     "reference/public-get_descendant_tree.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_descendant_tree",
-      "hash": "771403920a0befd2d330c25a8b02baf283f5fc204cd5d2e645bc8a8a544f472d",
-      "last_updated": "2026-07-31T13:09:50.477562"
+      "hash": "e069a0672ba7e3df14762dd1cb40020b502f525fd6f883e6fa734ff459362a08",
+      "last_updated": "2026-08-20T11:39:48.022563"
     },
     "reference/public-get_tree_roots.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_tree_roots",
-      "hash": "64573738a87884a41d7b3d1ae4183aed5b08079e636dcd97ea2a38250e0a2f70",
-      "last_updated": "2026-07-31T13:09:51.150392"
+      "hash": "d1313bed6faab9c0616864828395dd8a76507397017c78a2955771e75e4ab280",
+      "last_updated": "2026-08-20T11:39:48.725944"
     },
     "reference/public-get_invite_code.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_invite_code",
-      "hash": "a0bb83f251fd73fe70c490c138efdbc93e7e061cf0436856520ce98913446034",
-      "last_updated": "2026-07-31T13:09:51.852434"
+      "hash": "8a993442a0ad3978146bc02feec9c57dc0ff2c125e8015976c0c3c03e3475e02",
+      "last_updated": "2026-08-20T11:39:49.479670"
     },
     "reference/public-deposit_debug.md": {
       "source_url": "https://docs.derive.xyz/reference/public-deposit_debug",
-      "hash": "c69ac9c0791d7b649e81c5b234aabd9af68241f91408da4a096676fd28d3c032",
-      "last_updated": "2026-07-31T13:09:52.514446"
+      "hash": "bb3438befe2079f5b98106043e1f23ab8ac93aae15f15e75e4091806557e9f1f",
+      "last_updated": "2026-08-20T11:39:50.159760"
     },
     "reference/public-withdraw_debug.md": {
       "source_url": "https://docs.derive.xyz/reference/public-withdraw_debug",
-      "hash": "81b720229e7fe05875a8e45e23673d7d1cbd0bdc43568b8b9a0af7b2ad7d7e94",
-      "last_updated": "2026-07-31T13:09:53.307740"
+      "hash": "36834f195848092c800388adc1d104328bc15b7eec45064e37ccbc38d24918b7",
+      "last_updated": "2026-08-20T11:39:50.855922"
     },
     "reference/public-get_referral_code.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_referral_code",
-      "hash": "14ebc23d8440ebf77c6474b8702f11e0342117891418ee2a0f6515966b80f0d8",
-      "last_updated": "2026-07-31T13:09:54.133326"
+      "hash": "29c1fa0436e7b98c8ea4616bd2d49eac67a9660a5f2556047b5795e93422ec16",
+      "last_updated": "2026-08-20T11:39:51.556173"
     },
     "reference/public-create_account_with_secret-1.md": {
       "source_url": "https://docs.derive.xyz/reference/public-create_account_with_secret-1",
-      "hash": "e28b38565c5521ae9b964754098ce791f42e12bbd293161c4389459b947e5332",
-      "last_updated": "2026-07-31T13:09:54.796964"
+      "hash": "dc861aee1953865cd9586f4c2ec50d075a644bc9ca722ffbb684b03544e22e92",
+      "last_updated": "2026-08-20T11:39:52.276363"
     },
     "reference/public-execute_quote_debug.md": {
       "source_url": "https://docs.derive.xyz/reference/public-execute_quote_debug",
-      "hash": "b392266c3988f7ce52dcfc4ab0cc57be98748289ec9389999004edbd417e300c",
-      "last_updated": "2026-07-31T13:09:55.572474"
+      "hash": "06b787e3fd87ce64f4ddd4610cf9912bd555212ad4157d31269d6badb9ca513e",
+      "last_updated": "2026-08-20T11:39:52.948710"
     },
     "reference/public-all_statistics.md": {
       "source_url": "https://docs.derive.xyz/reference/public-all_statistics",
-      "hash": "a27eb90dffe860e15308274639e5e6c774cab9a89a25854a11f6906e6cd57446",
-      "last_updated": "2026-07-31T13:09:56.222023"
+      "hash": "fec7bafcf9445397afa8053c5298b5ddee9a5680e28b35515309a9e9bd8ab309",
+      "last_updated": "2026-08-20T11:39:53.620887"
     },
     "reference/public-all_user_statistics.md": {
       "source_url": "https://docs.derive.xyz/reference/public-all_user_statistics",
-      "hash": "d05a470bc90455b3ccabc82f0244ab6d491b07832b034fd8511e975facbf3d97",
-      "last_updated": "2026-07-31T13:09:56.895330"
+      "hash": "ea428737b3675bcf65a7b4ff568af93674386a5321000bceb3953ace97555ba9",
+      "last_updated": "2026-08-20T11:39:54.297687"
     },
     "reference/public-change_compliance_status.md": {
       "source_url": "https://docs.derive.xyz/reference/public-change_compliance_status",
-      "hash": "c13be4a281c303e6fd6ace4aa35b2662581b2ed9f6c06b44aae8208ac276775b",
-      "last_updated": "2026-07-31T13:09:57.582349"
+      "hash": "cab183efdd11d4bdf00138cccedaf247ed674428e9dfc5c4e93244edd78d4501",
+      "last_updated": "2026-08-20T11:39:54.969862"
     },
     "reference/public-check_subaccount_drift.md": {
       "source_url": "https://docs.derive.xyz/reference/public-check_subaccount_drift",
-      "hash": "01b251130770e45145cb2878325fad49d84d6fa11b1a79bf117d7830dec75bc6",
-      "last_updated": "2026-07-31T13:09:58.244966"
+      "hash": "1b32e12df4ec5447137d6343c1712ff8a6c566627772fd77ad1990cdf612fefb",
+      "last_updated": "2026-08-20T11:39:55.660923"
     },
     "reference/public-compare_ffi_margin.md": {
       "source_url": "https://docs.derive.xyz/reference/public-compare_ffi_margin",
-      "hash": "542ddc29737aae6bcf8b29a76ae022bc5e139cc06f7d9e523afd00ccba000073",
-      "last_updated": "2026-07-31T13:09:58.901158"
+      "hash": "c769f5c7290c8082f656cb98f121530891dd7e18c9851719b4dce9c01b50886a",
+      "last_updated": "2026-08-20T11:39:56.363691"
     },
     "reference/public-create_account_with_secret.md": {
       "source_url": "https://docs.derive.xyz/reference/public-create_account_with_secret",
-      "hash": "a24e1e9fda82b9249f56c2b06d5a7103e6e8aec3d79631242a32d94110d8349e",
-      "last_updated": "2026-07-31T13:09:59.556391"
+      "hash": "0d209e44f258b980f0cc0498f245e94f7bae7f7784e472cf145a3f75b14917c3",
+      "last_updated": "2026-08-20T11:39:57.039990"
     },
     "reference/public-get_all_referral_codes.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_all_referral_codes",
-      "hash": "a0f958967ad006fe8ccb262276b5ee0c6d39930fc1ac8c8d6c05ef0de54f0e07",
-      "last_updated": "2026-07-31T13:10:00.221806"
+      "hash": "9321bd1f8504dae6854bf6e5184fc6983f95d50a2340f98dd33c785f64fc770f",
+      "last_updated": "2026-08-20T11:39:57.708540"
     },
     "reference/public-get_asset.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_asset",
-      "hash": "772864559b3ea551794a9e9b1f3140419a27aae056f5aa87d95ade3f235b2930",
-      "last_updated": "2026-07-31T13:10:00.890404"
+      "hash": "2e7cbc86c0816ba8fce63be006a30bb6f0bd9042dd408aaa8f639bcaa76734ff",
+      "last_updated": "2026-08-20T11:39:58.389651"
     },
     "reference/public-get_assets.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_assets",
-      "hash": "a9afbeef32fb4035fdffbc3a856d026880f5d60eb7f7fe51e0e3c2ca297dfa1d",
-      "last_updated": "2026-07-31T13:10:01.585103"
+      "hash": "2979a943154a4e2104fc92ca8cb53d4a4d3433708c173f640060d550b6255114",
+      "last_updated": "2026-08-20T11:39:59.067727"
     },
     "reference/public-get_bridge_balances.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_bridge_balances",
-      "hash": "da1dd0c91a882934f9fe3231c0b6ec5c56797b8fbf5658ee68e00214bdb1d8ca",
-      "last_updated": "2026-07-31T13:10:02.248644"
+      "hash": "aaea317f58c4d44d308cf03a4af4b72d9e80054c749ee1400613edff22e15fba",
+      "last_updated": "2026-08-20T11:39:59.796960"
     },
     "reference/public-get_detailed_maker_snapshot_history.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_detailed_maker_snapshot_history",
-      "hash": "ba7fbd9dd56ff9abbca097e0e80665da151c4472a5653c68075c81f86e7d7566",
-      "last_updated": "2026-07-31T13:10:02.973929"
+      "hash": "6b92135c97ee7423b048b663016b4089c681831d463d60ef793349686e5bde1c",
+      "last_updated": "2026-08-20T11:40:00.500267"
     },
     "reference/public-get_live_incidents.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_live_incidents",
-      "hash": "21348f2abc65a40d2f97cf81026c75c474d0219996116eacc76e3efc63e6d636",
-      "last_updated": "2026-07-31T13:10:03.875930"
+      "hash": "34b329a80bb4eea179c7cd72091b7ed52be57759fb2f156f93ad2eefeb1db57f",
+      "last_updated": "2026-08-20T11:40:01.156220"
     },
     "reference/public-get_maker_program_scores.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_maker_program_scores",
-      "hash": "da057586bdca35df87f9a1d4faa147b623ca779151790affb569492079577274",
-      "last_updated": "2026-07-31T13:10:04.546623"
+      "hash": "4d03c8f395a15b26cf507aedecf414f25c450c843ae2b4ae18dfba05dd9e1e8f",
+      "last_updated": "2026-08-20T11:40:01.883817"
     },
     "reference/public-get_maker_programs.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_maker_programs",
-      "hash": "91319cb4a2f3ac2af0c0fa5fcefc20bcc077047e1d5b5bc890d7fa5f65a4bf2e",
-      "last_updated": "2026-07-31T13:10:05.229138"
+      "hash": "0cc12acc59f66779c2bfba46a6f74e7a0f85781c0ba12bf1283ed58803161b7f",
+      "last_updated": "2026-08-20T11:40:02.930941"
     },
     "reference/public-get_matching_engine_monitor.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_matching_engine_monitor",
-      "hash": "32dc709b7f7a0e58c70f5d9aefb0653e282b34b8922fc94debfbdbfb043bec13",
-      "last_updated": "2026-07-31T13:10:05.914069"
+      "hash": "d7aa7c9fb54f2ccecd5d9e509afd3a52694bdcd93fdfe882a0e674ae8813a3de",
+      "last_updated": "2026-08-20T11:40:03.612998"
     },
     "reference/public-get_perp_impact_twap.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_perp_impact_twap",
-      "hash": "d0026913a8177bdcb53bddf19ba6fd25c4fd185cf63f4f5c3da9658fefd8b1c4",
-      "last_updated": "2026-07-31T13:10:06.606583"
+      "hash": "c051ba24a09244f1baf867886f1a27cc83f523e4f13690a16017ef7abb1e0c18",
+      "last_updated": "2026-08-20T11:40:04.423965"
     },
     "reference/public-send_quote_debug.md": {
       "source_url": "https://docs.derive.xyz/reference/public-send_quote_debug",
-      "hash": "483e1d6c50024197815e4ab107b94a85da9bd877137c9f192a40393da0d82904",
-      "last_updated": "2026-07-31T13:10:07.276141"
+      "hash": "6ca9e1282a45ca242f077663062309fa35ab956e3944a2a297219486f1f5bc09",
+      "last_updated": "2026-08-20T11:40:05.129166"
     },
     "reference/public-get_referral_performance.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_referral_performance",
-      "hash": "a3a4b881a90ca41f2de6006a840cc2fbb18334664b6367b0062964d3ac4d6539",
-      "last_updated": "2026-07-31T13:10:07.934681"
+      "hash": "ed22699554fdff2d6bf100fcb9476098cc1982451c4625501db2eb7a4467a07f",
+      "last_updated": "2026-08-20T11:40:05.811327"
     },
     "reference/public-get_stdrv_snapshots.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_stdrv_snapshots",
-      "hash": "8014fb7e42c4734a0dbec6aa8fb287cdc5c4047f6603e426b948a14c95a2fa38",
-      "last_updated": "2026-07-31T13:10:08.592997"
+      "hash": "5f3a50aaf1659d3d1c6e2a3b7513c460f60bc362a241c0e9e3af4fb5d2b41a7e",
+      "last_updated": "2026-08-20T11:40:06.492245"
     },
     "reference/public-get_time.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_time",
-      "hash": "3bfd42d56a83f78ddfaf5e2498fa1e484de3d5da29374a2f0d3e4e688858aa3d",
-      "last_updated": "2026-07-31T13:10:09.241854"
+      "hash": "507370ca6010578699f783076ff1aa4f48c13fd40a376ba2896eba23a618a335",
+      "last_updated": "2026-08-20T11:40:07.164321"
     },
     "reference/public-get_vault_assets.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_vault_assets",
-      "hash": "f885f5d6c9a67b45fadc54a41cc92c43914943d45d431285cf722cb922cbb737",
-      "last_updated": "2026-07-31T13:10:09.915512"
+      "hash": "d8f26b194a182c19d834b7d7a9106908b22db204f8b8ba83462ad24c915a3518",
+      "last_updated": "2026-08-20T11:40:07.869066"
     },
     "reference/public-get_vault_pools.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_vault_pools",
-      "hash": "8a02132963d19d28480334cb171d3914fd29367df3af8515112fffc0d72705d4",
-      "last_updated": "2026-07-31T13:10:10.590068"
+      "hash": "0a89d9d6449fc85e83d8817d66bd5a5528bb25fc17dc9cc381b19551ba3af28c",
+      "last_updated": "2026-08-20T11:40:08.531473"
     },
     "reference/public-get_vault_rates.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_vault_rates",
-      "hash": "bea4e7bae0a8b67b5b789d5fc65dd9914eaa421e4803f2155c10e6b3c493953d",
-      "last_updated": "2026-07-31T13:10:11.238733"
+      "hash": "08201a5fefbd0f87569036676975f2021ea40357522bbb5cc8fbbb03adcdbdab",
+      "last_updated": "2026-08-20T11:40:09.221040"
     },
     "reference/public-get_wallets_from_session_key.md": {
       "source_url": "https://docs.derive.xyz/reference/public-get_wallets_from_session_key",
-      "hash": "28a9c48169bc72b8603304a5e97e6e9fb9c0b7a693d2b7c6e0e51e5ba44da635",
-      "last_updated": "2026-07-31T13:10:11.908189"
+      "hash": "a03c754794f833c707565abbc2fb3483475ddabb78a998903943805dfdcd834b",
+      "last_updated": "2026-08-20T11:40:09.882014"
     },
     "reference/public-ob_internal_view.md": {
       "source_url": "https://docs.derive.xyz/reference/public-ob_internal_view",
-      "hash": "5d2d2d25f0d74a8c7367ee11c18a6bedb1ad3c00d9d27f66dd60e44dc9afad05",
-      "last_updated": "2026-07-31T13:10:12.571637"
+      "hash": "4654b693c4c64526f8037dc1e9da4b3bbfc3c7d036d2f47137785711a227907f",
+      "last_updated": "2026-08-20T11:40:10.583633"
     },
     "reference/public-order_quote.md": {
       "source_url": "https://docs.derive.xyz/reference/public-order_quote",
-      "hash": "be1fc46161fddc9f0682d6bc2c7f7f091d1495957fa6064aacd040c2049f4840",
-      "last_updated": "2026-07-31T13:10:13.343509"
+      "hash": "872af5214cee3369b7eee8057eed7934501059a31fb33bca5a8676d4b4c22edd",
+      "last_updated": "2026-08-20T11:40:11.321874"
     },
     "reference/public-register_session_key_via_secret.md": {
       "source_url": "https://docs.derive.xyz/reference/public-register_session_key_via_secret",
-      "hash": "095e30466166ea8c85df4238ebcdc0095b6dd5a2830d0a3e21c200e1cd467e35",
-      "last_updated": "2026-07-31T13:10:14.000458"
+      "hash": "37586937496c3ca873a1a052296584f9224b842f42a9975f030624a49ae30f33",
+      "last_updated": "2026-08-20T11:40:12.019161"
     },
     "reference/public-set_feed_data.md": {
       "source_url": "https://docs.derive.xyz/reference/public-set_feed_data",
-      "hash": "2eae4b8d74033a458822ed5b4406b3baa943f92ac1c5b3ec4d4cbbfa38bbac0a",
-      "last_updated": "2026-07-31T13:10:14.658186"
+      "hash": "2369ed6e88c39f2bbd04e3ddf7b4f50a365c28b847b25aee2fa1d742fb46e944",
+      "last_updated": "2026-08-20T11:40:12.690259"
     },
     "reference/public-user_statistics.md": {
       "source_url": "https://docs.derive.xyz/reference/public-user_statistics",
-      "hash": "379b597b9d157f50bbd3224c6d367112e3969aa3ee1b5dabbbbeafbc216542f8",
-      "last_updated": "2026-07-31T13:10:15.320483"
+      "hash": "1760c727fb09d7c29df62b95d0806bdf33e5b47a76abb6329d3b29b682cd23ac",
+      "last_updated": "2026-08-20T11:40:13.382306"
     },
     "reference/private-change_session_key_label.md": {
       "source_url": "https://docs.derive.xyz/reference/private-change_session_key_label",
-      "hash": "2340fa71daab53a6aee5438c5206c402a77deba0b2a1debe8e2a7f5f210268cb",
-      "last_updated": "2026-07-31T13:10:15.975633"
+      "hash": "09e49ab497668cb7841ec5e996653709d569f7d52d4cbffaca415312f58f781c",
+      "last_updated": "2026-08-20T11:40:14.079588"
     },
     "reference/private-create_subaccount.md": {
       "source_url": "https://docs.derive.xyz/reference/private-create_subaccount",
-      "hash": "b2443ffa9d5002519e0f7cb9c577198bc7b42d6f7e9217787bac484c06728c58",
-      "last_updated": "2026-07-31T13:10:16.644503"
+      "hash": "07387ebae62627aabc6085d4512f228b65850f5edb4a5dfd53301ff3065ab82f",
+      "last_updated": "2026-08-20T11:40:14.749706"
     },
     "reference/private-get_account.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_account",
-      "hash": "79b60a0dafd3a46ce20d86abc13d0c4bc8e74be0eb876cb26ea96a1221b90acf",
-      "last_updated": "2026-07-31T13:10:17.337870"
+      "hash": "bf1a01f0be81b62f7fb7b87950cd8b0612ebd2538a0c7f4267e39edc178103cf",
+      "last_updated": "2026-08-20T11:40:15.499709"
     },
     "reference/private-change_subaccount_label.md": {
       "source_url": "https://docs.derive.xyz/reference/private-change_subaccount_label",
-      "hash": "da713c42f251960c7cba73e4b45de7aa2891d5ded997571db867f79afd9c3ce1",
-      "last_updated": "2026-07-31T13:10:18.040865"
+      "hash": "8edd79b2b6dc52eb772e3f9b423c9b46438a25788eca0d8f5a4aa7bb98c1ff71",
+      "last_updated": "2026-08-20T11:40:16.182262"
     },
     "reference/private-get_all_portfolios.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_all_portfolios",
-      "hash": "c09fb01b7f979a1f722f1ae527499918dd5b32930d2501e61d9a2106176b4bc5",
-      "last_updated": "2026-07-31T13:10:18.749755"
+      "hash": "f40862189e5b290ef6369d0460b2df5b3c34b91531c76e29a2ae799946cee62c",
+      "last_updated": "2026-08-20T11:40:16.965200"
     },
     "reference/private-deposit.md": {
       "source_url": "https://docs.derive.xyz/reference/private-deposit",
-      "hash": "ea9193d9607398954f95c4e91575f5b40a35f83881099867e2902c17fc4fa8b9",
-      "last_updated": "2026-07-31T13:10:19.396617"
+      "hash": "727bfeab5665ee81b5ea94234a8c8eb8520161a12efa6f560ef72719c1d2969a",
+      "last_updated": "2026-08-20T11:40:17.657253"
     },
     "reference/private-cancel-all.md": {
       "source_url": "https://docs.derive.xyz/reference/private-cancel-all",
-      "hash": "9a2c8e7988ea0648b3f73940858103543309066264b9ed71eb0a11b0b53e0041",
-      "last_updated": "2026-07-31T13:10:20.659501"
+      "hash": "899353d87b3c1a10a3fec6fb04a40dc8c1581f1ad98eaf5a910c3ebf9c3b1b01",
+      "last_updated": "2026-08-20T11:40:18.313730"
     },
     "reference/private-cancel.md": {
       "source_url": "https://docs.derive.xyz/reference/private-cancel",
-      "hash": "61b83c93084bbb5944533fb1e54537ac52ebd14a7b004865867d44dec009e002",
-      "last_updated": "2026-07-31T13:10:21.350727"
+      "hash": "03cf3c97ea699872f9ff24b702ab0685962ec4a2659c112c02c49c88c5ce4615",
+      "last_updated": "2026-08-20T11:40:19.006947"
     },
     "reference/private-get_notifications.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_notifications",
-      "hash": "4d71d76129ff62b51080a6a80c80591a8e76cb8db9b54eb030dfa13197eb7b41",
-      "last_updated": "2026-07-31T13:10:22.033486"
+      "hash": "999155fb4be8bb75c4f3906f0456675e5786f214550995f1db1ab47e533fb5d6",
+      "last_updated": "2026-08-20T11:40:19.700178"
     },
     "reference/private-cancel_by_label.md": {
       "source_url": "https://docs.derive.xyz/reference/private-cancel_by_label",
-      "hash": "9a0f91aec90a35f535a0906670908e2a70cadfc5b4d9e36d2ddcd49a025d9abe",
-      "last_updated": "2026-07-31T13:10:22.704509"
+      "hash": "45b4810be8249c43b28aed9c413d3fbab2acf49f75e1da12abb8fc22e1aee64d",
+      "last_updated": "2026-08-20T11:40:20.348728"
     },
     "reference/private-get_subaccount.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_subaccount",
-      "hash": "98d99d4852179ea5d4ef84ddbe678740db1de46e6865a7861e3750f63a8d03d3",
-      "last_updated": "2026-07-31T13:10:23.415152"
+      "hash": "f1e16aca8d898fe607893a1dc5360e99598179caea911e91d4c495afb7eeba6b",
+      "last_updated": "2026-08-20T11:40:21.049195"
     },
     "reference/private-cancel-all_trigger_orders.md": {
       "source_url": "https://docs.derive.xyz/reference/private-cancel-all_trigger_orders",
-      "hash": "bede9c601973af8e5f82a62adf32d3e4ebf3c8497fbe2bf192859afe5f780187",
-      "last_updated": "2026-07-31T13:10:24.082311"
+      "hash": "95a8e841f574d70c432342c5edfabe15a94fb31cd59c559c20cca5b6198aae34",
+      "last_updated": "2026-08-20T11:40:21.778675"
     },
     "reference/private-get_subaccounts.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_subaccounts",
-      "hash": "83da250e06fa4e760682836d1625c26bb47a7c66f05ed8ee4863e176c532d384",
-      "last_updated": "2026-07-31T13:10:24.812519"
+      "hash": "54ec717c52ea111a657e425e7622ff4652649034c77f253956ca87499ebaeca1",
+      "last_updated": "2026-08-20T11:40:22.461742"
     },
     "reference/private-cancel_by_nonce.md": {
       "source_url": "https://docs.derive.xyz/reference/private-cancel_by_nonce",
-      "hash": "4adaf34b17efd1021bfc83d33cd629745d3eca5baaa36a3bddd7697a8deb25a1",
-      "last_updated": "2026-07-31T13:10:25.485899"
+      "hash": "d587921e01928543b1624286782031eb81034d2d2fa38a8a3a05a92bd8b027b1",
+      "last_updated": "2026-08-20T11:40:23.137277"
     },
     "reference/private-cancel_by_instrument.md": {
       "source_url": "https://docs.derive.xyz/reference/private-cancel_by_instrument",
-      "hash": "32eda2a4a2cb7925e346cabf9816aaa9c1bc36de6da95ff852fac213aae0f1c5",
-      "last_updated": "2026-07-31T13:10:26.168699"
+      "hash": "72188194015bc05b9e8b0dbae04ec184254dbd9cc3f9ff28a5d7ffce3519355a",
+      "last_updated": "2026-08-20T11:40:23.830925"
     },
     "reference/private-cancel_trigger_order.md": {
       "source_url": "https://docs.derive.xyz/reference/private-cancel_trigger_order",
-      "hash": "5d7ea0746d3a365cba49d6fd15e384f23c992ab67d731cc0a3ea59912c3aab67",
-      "last_updated": "2026-07-31T13:10:26.841520"
+      "hash": "aa45b1122544d525d77711a5df3cc56f19f2e5b4c8eb2b94785c2669fa0c6675",
+      "last_updated": "2026-08-20T11:40:24.528858"
     },
     "reference/private-cancel_batch_rfqs.md": {
       "source_url": "https://docs.derive.xyz/reference/private-cancel_batch_rfqs",
-      "hash": "246b822e671dd955b8a7edfdc8d49f1ce0110900492a398abad91687d4e3e846",
-      "last_updated": "2026-07-31T13:10:27.480433"
+      "hash": "08a7d207ad9034e50b6f5e8775b540a27adbcb9465759ae26879155d142048fd",
+      "last_updated": "2026-08-20T11:40:25.208111"
     },
     "reference/private-cancel_rfq.md": {
       "source_url": "https://docs.derive.xyz/reference/private-cancel_rfq",
-      "hash": "9eb26c167eccbd88047b846edfee385037714cfd47e0b00ccbc9516153822175",
-      "last_updated": "2026-07-31T13:10:28.159363"
+      "hash": "f14453a5d9e944183495371d1782b113a0c9306d09de3684691072880b6e3ea7",
+      "last_updated": "2026-08-20T11:40:25.873612"
     },
     "reference/private-get_order.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_order",
-      "hash": "a4ec916d2762e5b25a1d0f9ac99ecc5aa23cd440df528b6ed43020b7a92758b0",
-      "last_updated": "2026-07-31T13:10:28.872896"
+      "hash": "5e49a60053c84abc8310370166b4cc57d61cdc1c3161dc42e8ba9976692d4e15",
+      "last_updated": "2026-08-20T11:40:26.547764"
     },
     "reference/private-get_open_orders.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_open_orders",
-      "hash": "add9180112e930ed057ae1e2633afb2e910bb8d441ebf6aa4ed594ae1b719983",
-      "last_updated": "2026-07-31T13:10:29.531593"
+      "hash": "ff1423094a553f141b83a10b5bc4c6a8abdf47ac1b417bb024868e42bdad7344",
+      "last_updated": "2026-08-20T11:40:27.222965"
     },
     "reference/private-get_orders.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_orders",
-      "hash": "385af43c1e72b20e96ac124d2a3ebcfce91242db4efeed2367a02caf6d0ee0ba",
-      "last_updated": "2026-07-31T13:10:30.220812"
+      "hash": "4e5047be85249609833df18e2784d7b203ce7447581559ec245c8286a53516df",
+      "last_updated": "2026-08-20T11:40:27.940116"
     },
     "reference/private-get_deposit_history.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_deposit_history",
-      "hash": "0d75a5b7f25142824fd4c8726d2ed70b0b9f0febc79a231899bd6bfffdc6a250",
-      "last_updated": "2026-07-31T13:10:30.862102"
+      "hash": "b9bec727c8f32331eae83630c835bfc8176226d262ad037dbb1dff216e519323",
+      "last_updated": "2026-08-20T11:40:28.645377"
     },
     "reference/private-cancel_quote.md": {
       "source_url": "https://docs.derive.xyz/reference/private-cancel_quote",
-      "hash": "952c371b2907c19995f80ca766958ed079ce004cd92c2bbf5aee7caf18792bae",
-      "last_updated": "2026-07-31T13:10:31.560547"
+      "hash": "04f1939b9cb716b8203fdd5926b97f653a48efecfe6d8e0f4312b68096ca28f0",
+      "last_updated": "2026-08-20T11:40:29.336703"
     },
     "reference/private-order.md": {
       "source_url": "https://docs.derive.xyz/reference/private-order",
-      "hash": "f3a6ab39460a469feca0376bf62efca81ac59080ae635bb3fb0f300559fa2aa9",
-      "last_updated": "2026-07-31T13:10:32.241101"
+      "hash": "f09c1f8580fc30498b39c1167a3d5dc3232b3a352692b1536e9366a15cc2091c",
+      "last_updated": "2026-08-20T11:40:30.040433"
     },
     "reference/private-cancel_batch_quotes.md": {
       "source_url": "https://docs.derive.xyz/reference/private-cancel_batch_quotes",
-      "hash": "1f48e00c148e1e978a1fc3331b8f1ee2c01d638d62882bb67c92c24258610739",
-      "last_updated": "2026-07-31T13:10:32.940415"
+      "hash": "4f9687463c9c94a177c51cced8301b3faea8875007a27b24888f739010b8c274",
+      "last_updated": "2026-08-20T11:40:30.713621"
     },
     "reference/private-order_debug.md": {
       "source_url": "https://docs.derive.xyz/reference/private-order_debug",
-      "hash": "e90760fe26cb3a624225e7669fc9c0b54d0d3f82484f71f72b421faabbc96739",
-      "last_updated": "2026-07-31T13:10:33.625932"
+      "hash": "0ba38d903e47bcc33690507d351163c37fde4977bbeb933740b51d705edf3815",
+      "last_updated": "2026-08-20T11:40:31.387741"
     },
     "reference/private-get_order_history.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_order_history",
-      "hash": "43deca23660419a788cb1c0793332300c96b2f0cc21a8bd33d15c4e016a123d4",
-      "last_updated": "2026-07-31T13:10:34.322851"
+      "hash": "d7e0481a0fa12a3a62c53090266058b79f3f83cb70ef72bd900dc3781e3b1bba",
+      "last_updated": "2026-08-20T11:40:32.073734"
     },
     "reference/private-update_notifications.md": {
       "source_url": "https://docs.derive.xyz/reference/private-update_notifications",
-      "hash": "cc0790295bbc58c683f93138884534a580964680dcb906b8f2a42043ea79c338",
-      "last_updated": "2026-07-31T13:10:34.976628"
+      "hash": "c87e778eb524f61a6e34bfa4a188b15a79582286653ec67ab25ccb319860952a",
+      "last_updated": "2026-08-20T11:40:32.735713"
     },
     "reference/private-replace.md": {
       "source_url": "https://docs.derive.xyz/reference/private-replace",
-      "hash": "c0e24fb0a4100c7bf2d8420fb25529e7f0751ba3dbd4f4185a05be2aaa122628",
-      "last_updated": "2026-07-31T13:10:35.690446"
+      "hash": "d698b19722c0b41af38693fe4384ee8cc1c6da3045e133d01494fdb4dca331f3",
+      "last_updated": "2026-08-20T11:40:33.444473"
     },
     "reference/private-execute_quote.md": {
       "source_url": "https://docs.derive.xyz/reference/private-execute_quote",
-      "hash": "d35ca77da094698a8ed7c98d46e3276e3d2f8ef74e5a4f00a757e5abc7dc1ad0",
-      "last_updated": "2026-07-31T13:10:36.369902"
+      "hash": "1994932a11cc98853afb0bc002437f63c2dfaabf0a79f8683bdc7f00889359ef",
+      "last_updated": "2026-08-20T11:40:34.146014"
     },
     "reference/private-transfer_erc20.md": {
       "source_url": "https://docs.derive.xyz/reference/private-transfer_erc20",
-      "hash": "7393a5f351b1aaffe7ed945fcfe7e86fdd411e06472bc10e370033a4d604acb2",
-      "last_updated": "2026-07-31T13:10:37.026943"
+      "hash": "9acb436cd599de3e07b83ad2e5c53808f3d755ce1687b5df275fef0cf2aaaf2e",
+      "last_updated": "2026-08-20T11:40:34.895564"
     },
     "reference/private-withdraw.md": {
       "source_url": "https://docs.derive.xyz/reference/private-withdraw",
-      "hash": "d753d1e8bac5fc7839f6b98786554e09a255ee2ba291b0a4f60dc628a5a25b65",
-      "last_updated": "2026-07-31T13:10:37.690665"
+      "hash": "210dd7ac3a46362a253bb6173847d9d4b0d57acd4d0a2fa5202dce67344ad305",
+      "last_updated": "2026-08-20T11:40:35.562806"
     },
     "reference/private-transfer_position.md": {
       "source_url": "https://docs.derive.xyz/reference/private-transfer_position",
-      "hash": "0d4e476e23d58bce7f30a63eaa6da54149a822b0be497999747817f26405c4c1",
-      "last_updated": "2026-07-31T13:10:38.392031"
+      "hash": "1e8106efd1fb22d59331c653b2d290db0b773bcd2b7639036866991b7ce53798",
+      "last_updated": "2026-08-20T11:40:36.302236"
     },
     "reference/private-get_trade_history.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_trade_history",
-      "hash": "2434c0befca26e7bf2373e26dfa06d61e839571978e105b18469b0b9689bb7db",
-      "last_updated": "2026-07-31T13:10:39.058508"
+      "hash": "336e6bf7d78d94073db6e698ac324f61a317dea8981ac1d540397c682c2cc7a0",
+      "last_updated": "2026-08-20T11:40:37.024026"
     },
     "reference/private-transfer_positions.md": {
       "source_url": "https://docs.derive.xyz/reference/private-transfer_positions",
-      "hash": "419256f4698b64d71bd2b55cc430ff4602aa626283e9d142bc8422aef41c26f2",
-      "last_updated": "2026-07-31T13:10:39.736724"
+      "hash": "a3ad1fbb695128d74d7a6b22cf8811ce2c702bdd86903a27072f8f8a76a645b9",
+      "last_updated": "2026-08-20T11:40:37.725066"
     },
     "reference/private-create_contact_info.md": {
       "source_url": "https://docs.derive.xyz/reference/private-create_contact_info",
-      "hash": "92a475d4dc154f482771e179037e745ef159743c99e0568d2043e4fb44a8420d",
-      "last_updated": "2026-07-31T13:10:40.497823"
+      "hash": "f355c4d37667de70dd87601db674566e7619e324722736439cd64ab3585847cc",
+      "last_updated": "2026-08-20T11:40:38.422232"
     },
     "reference/private-get_withdrawal_history.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_withdrawal_history",
-      "hash": "2b35e7b12969483f043c0ceaa3d1c88c0838eee5712a0cfc33326ed54c21e31d",
-      "last_updated": "2026-07-31T13:10:41.146218"
+      "hash": "4994473ea4ea33a21fe1294696cb22c0f0cfe1a72c05661cd07c11830695e005",
+      "last_updated": "2026-08-20T11:40:39.088651"
     },
     "reference/private-delete_contact_info.md": {
       "source_url": "https://docs.derive.xyz/reference/private-delete_contact_info",
-      "hash": "93520ff55a832ec78fcb5d5b8d60603cb04dff3903d4b1db4b57184a9d37db7a",
-      "last_updated": "2026-07-31T13:10:41.800528"
+      "hash": "26854b3a19e91877571982feaad2e02844bcecadfae5889825bb2c4f23126900",
+      "last_updated": "2026-08-20T11:40:39.765831"
     },
     "reference/private-get_rfqs.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_rfqs",
-      "hash": "14c6c81165d1b67d50b1ec4c0945ea3329d124f4c70fcf21228c76eaef570038",
-      "last_updated": "2026-07-31T13:10:42.472076"
+      "hash": "8b403deb089ba18dcb8cfec00180108d5846795e2471dfc8072b382df871269d",
+      "last_updated": "2026-08-20T11:40:40.438074"
     },
     "reference/private-edit_session_key.md": {
       "source_url": "https://docs.derive.xyz/reference/private-edit_session_key",
-      "hash": "28571aabcd56df407b8c237088636262721e1d67075ba714a5c0545874dc91cc",
-      "last_updated": "2026-07-31T13:10:43.152923"
+      "hash": "ca685a7228daa448f20811b8ed9b35db8d4392e700504692c26378ed1f75e7fd",
+      "last_updated": "2026-08-20T11:40:41.128294"
     },
     "reference/private-get_collaterals.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_collaterals",
-      "hash": "f6b306abed2fa7b9b8524057acb899104ec162fced1e50c5170ac46d57a93f52",
-      "last_updated": "2026-07-31T13:10:43.810868"
+      "hash": "af557f0af56da544449e5988dba792b11d56d8be0e912c445c2c68e5ec6a188e",
+      "last_updated": "2026-08-20T11:40:41.821088"
     },
     "reference/private-expired_and_cancelled_history.md": {
       "source_url": "https://docs.derive.xyz/reference/private-expired_and_cancelled_history",
-      "hash": "b791fb98e885195f912b84ab4077bf84bdb8dfebf901f6b452c56b969174d2dd",
-      "last_updated": "2026-07-31T13:10:44.520379"
+      "hash": "ebcc8186546df91801672ade5800595958ed9dd17f1f9e1ca8396e2ab90d9999",
+      "last_updated": "2026-08-20T11:40:42.498320"
     },
     "reference/private-get_contact_info.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_contact_info",
-      "hash": "703335bcb7f897fe59138600e525a79a6de674797313c854b957eb0e64dc6216",
-      "last_updated": "2026-07-31T13:10:45.206082"
+      "hash": "34e64b41dc471db2f3fe76a0e22959739157d41f7d0b0cbb32fd74460b6a7306",
+      "last_updated": "2026-08-20T11:40:43.172008"
     },
     "reference/private-get_erc20_transfer_history.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_erc20_transfer_history",
-      "hash": "0e1865f7969272d5d0e2bb742b387342a31ff190baafc1474e9c685e34594988",
-      "last_updated": "2026-07-31T13:10:45.869487"
+      "hash": "9899cc52e15554992e27a3340f25de1611a8b8dec67eda12dbfe0305c2d19837",
+      "last_updated": "2026-08-20T11:40:43.868895"
     },
     "reference/private-get_quotes.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_quotes",
-      "hash": "deb3b7c7908e25800fbc1ce3df909eca5adad64f7cf22e64939233e3fcf20afb",
-      "last_updated": "2026-07-31T13:10:46.565068"
+      "hash": "a58d5a626bddd3c0d9f7b9bbb0dd6987e1c742a47cdd8deaa3e904971cc2b702",
+      "last_updated": "2026-08-20T11:40:44.568639"
     },
     "reference/private-poll_rfqs.md": {
       "source_url": "https://docs.derive.xyz/reference/private-poll_rfqs",
-      "hash": "3ac352d9fb00464151e00df5352e447e9ff81809305b1ae14092094c0abdd889",
-      "last_updated": "2026-07-31T13:10:47.227451"
+      "hash": "5e683c4934758e485c81d3caa2cf8cead6cfd990129402c6528b2f597fef1d7f",
+      "last_updated": "2026-08-20T11:40:45.269353"
     },
     "reference/private-get_funding_history.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_funding_history",
-      "hash": "621643cf3c92684980f0a71450d155400c2ff7a04be061a050f84c992b9ab20b",
-      "last_updated": "2026-07-31T13:10:47.932701"
+      "hash": "602b9dc721b8c2611a1dbe0274216bd08c7bc77d1f9274b6deb6750d696199b8",
+      "last_updated": "2026-08-20T11:40:45.964811"
     },
     "reference/private-send_rfq.md": {
       "source_url": "https://docs.derive.xyz/reference/private-send_rfq",
-      "hash": "7437a33edaa32dfb9804e324cfcd9236b43905ad7aea0e94154cca3fc1dc3c19",
-      "last_updated": "2026-07-31T13:10:48.591493"
+      "hash": "f017649be2d72b9bb76584b3903db291ad68847311fb25adfeac19dc6350d7ea",
+      "last_updated": "2026-08-20T11:40:46.649292"
     },
     "reference/private-get_interest_history.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_interest_history",
-      "hash": "0336b3554edb64e3503b94d78a71d0b2ad51912d2e98b76dd2e9e544d03aecd2",
-      "last_updated": "2026-07-31T13:10:49.256052"
+      "hash": "1f6afc52a3744000ae588a1d0c29d0fa13a04aaebe4592b13329e9f15b144590",
+      "last_updated": "2026-08-20T11:40:47.310586"
     },
     "reference/private-get_margin.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_margin",
-      "hash": "d3d78ada576721fffa1f11e466b5e8a44910d77ef9f925eba7901659d4b0d509",
-      "last_updated": "2026-07-31T13:10:49.924072"
+      "hash": "9d0cbd27478e8edd475ecf3fd6870852b359ee019dc3d4044137db98d8a1a228",
+      "last_updated": "2026-08-20T11:40:47.997185"
     },
     "reference/private-replace_quote.md": {
       "source_url": "https://docs.derive.xyz/reference/private-replace_quote",
-      "hash": "a45a023cefd476d981ad36981671972aa79a44864301ace3ac5b30ecb0983bff",
-      "last_updated": "2026-07-31T13:10:50.640912"
+      "hash": "058bf12432308cdd7f57acc7314a2457c2865624d2c8961cd273796d76f7248a",
+      "last_updated": "2026-08-20T11:40:48.689796"
     },
     "reference/private-get_liquidation_history.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_liquidation_history",
-      "hash": "b38c30f0155b3b7617d896f81ced6bec35086f4afad326edab08e5294120df8e",
-      "last_updated": "2026-07-31T13:10:51.312446"
+      "hash": "a1a9790ebc7bff168cc8a770e442037fdb4e0424d47e0d8cb61827acdb0d2e8f",
+      "last_updated": "2026-08-20T11:40:49.336512"
     },
     "reference/private-send_quote.md": {
       "source_url": "https://docs.derive.xyz/reference/private-send_quote",
-      "hash": "ad6d20974659173c02b4aaae58a58ca7a5539def839fb01c4a47628ac4a5bf11",
-      "last_updated": "2026-07-31T13:10:51.992775"
+      "hash": "f1bb3251ba2abdfcd5fc82efa35f68392b69b1369c4f743d82bc6f7fcbe1991d",
+      "last_updated": "2026-08-20T11:40:50.017817"
     },
     "reference/private-get_liquidator_history.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_liquidator_history",
-      "hash": "799d158c271c86c2eb5077a603fffb144b8a4065c33ca4ad4748bfa787cde46c",
-      "last_updated": "2026-07-31T13:10:52.686288"
+      "hash": "fc50bd6a46c624de56ecdc92c75eb3480fa39d9477fd115ecd99ec4ccdd901ec",
+      "last_updated": "2026-08-20T11:40:50.700994"
     },
     "reference/private-poll_quotes.md": {
       "source_url": "https://docs.derive.xyz/reference/private-poll_quotes",
-      "hash": "350d21c522efd14655a4dac66c720294f26f6fd4a877d15aeac524497b37008b",
-      "last_updated": "2026-07-31T13:10:53.348972"
+      "hash": "7dad68242ad6a0642fc4c8631338ecfe31859ceacb5d88b6fdaa31e1757592ce",
+      "last_updated": "2026-08-20T11:40:51.383679"
     },
     "reference/private-get_mmp_config.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_mmp_config",
-      "hash": "ef7721705f7ceda92107d272c39691be98118c836054be572fadec8577acd750",
-      "last_updated": "2026-07-31T13:10:54.028370"
+      "hash": "77ace815909379d7c5f58703bc0ba6edbb0da7d528a8cc80f60b1b630278fc6f",
+      "last_updated": "2026-08-20T11:40:52.041182"
     },
     "reference/private-get_option_settlement_history.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_option_settlement_history",
-      "hash": "290d9a2600a2d67708c79fa74889f9450a7ee5edd418e9c51cd3f20b34d2bb8b",
-      "last_updated": "2026-07-31T13:10:54.719231"
+      "hash": "438b0a6a5d73c0eff7548cb2fd4b0b163b15c7e4dac28577c2107e0c2f13ab38",
+      "last_updated": "2026-08-20T11:40:52.731065"
     },
     "reference/private-get_positions.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_positions",
-      "hash": "dccbfce6c55c5d06e201419178d29d8fadba20882d7896592deb9ccbd0465e38",
-      "last_updated": "2026-07-31T13:10:55.382701"
+      "hash": "657d89875d283953ea548bb0ad1da20e2c4d8b40a2dd11eca438145d827a982b",
+      "last_updated": "2026-08-20T11:40:53.441027"
     },
     "reference/private-get_subaccount_value_history.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_subaccount_value_history",
-      "hash": "34901f86d67b7203d482bd6448005d3a39bfa9a9af5c10c100dba8eaebb20d4e",
-      "last_updated": "2026-07-31T13:10:56.049713"
+      "hash": "dac61e7269b24c01dd224e35f8e9e85b28c51cd78758072efec098d89a95c9be",
+      "last_updated": "2026-08-20T11:40:54.115382"
     },
     "reference/private-rfq_get_best_quote.md": {
       "source_url": "https://docs.derive.xyz/reference/private-rfq_get_best_quote",
-      "hash": "7a81398b975a80747f43d221753286b0f7965d81354d00236b27f113fa8d836d",
-      "last_updated": "2026-07-31T13:10:56.716026"
+      "hash": "634709f37461d5d647f78c03c9483e8f83566404113b2974626cc407addbb1ae",
+      "last_updated": "2026-08-20T11:40:54.822770"
     },
     "reference/private-get_trigger_orders.md": {
       "source_url": "https://docs.derive.xyz/reference/private-get_trigger_orders",
-      "hash": "0622edd0515d63c4bed4beed6da2e7c8ff62036f603a3227ae3eeb80b0c76d9e",
-      "last_updated": "2026-07-31T13:10:57.422825"
+      "hash": "f86e340e8e470b32ba9acc45478b00ae57979763775d9c527d7c2bf06488e452",
+      "last_updated": "2026-08-20T11:40:55.499446"
     },
     "reference/private-liquidate.md": {
       "source_url": "https://docs.derive.xyz/reference/private-liquidate",
-      "hash": "c1dac0f20b8a4d5961ea50cbb74f94bd6332f708e672da0ef27f237cf8bbe3b4",
-      "last_updated": "2026-07-31T13:10:58.132632"
+      "hash": "78e17e77c7a43c5ca806627413a5f56f76d496661d0b83e4fdf3928eb6db0a66",
+      "last_updated": "2026-08-20T11:40:56.200021"
     },
     "reference/private-order_quote.md": {
       "source_url": "https://docs.derive.xyz/reference/private-order_quote",
-      "hash": "0957e70a7e7aff7a864026a31c7c016ac3ee20aff408e7d5fa4485abf0f6a590",
-      "last_updated": "2026-07-31T13:10:58.999378"
+      "hash": "2caf97fdda4b942028a6366d9bcd456a6b2df62cb81abefebe82c5e7b052e40f",
+      "last_updated": "2026-08-20T11:40:56.911686"
     },
     "reference/private-register_scoped_session_key.md": {
       "source_url": "https://docs.derive.xyz/reference/private-register_scoped_session_key",
-      "hash": "50352c21932649ae599ea085199bc8a5b3f9f48ac1c3fada17de44e337015d4d",
-      "last_updated": "2026-07-31T13:10:59.687356"
+      "hash": "1a7b8285739e4abf3c05f1f3b39d8dd3defc4b6c6f41c211161bcca1e262cd37",
+      "last_updated": "2026-08-20T11:40:57.609324"
     },
     "reference/private-reset_mmp.md": {
       "source_url": "https://docs.derive.xyz/reference/private-reset_mmp",
-      "hash": "3162d7dc7698486912e544dabab959218f922b8b2133ad31148289a859ec39ce",
-      "last_updated": "2026-07-31T13:11:00.358213"
+      "hash": "632734b7246d1b442b1d04f7a8d899f8546a41740dd29b7148c4767d5833fd8b",
+      "last_updated": "2026-08-20T11:40:58.263867"
     },
     "reference/private-session_keys.md": {
       "source_url": "https://docs.derive.xyz/reference/private-session_keys",
-      "hash": "a677141b37a8f652a21995a6c34c30d94015636cb6cd581e3dd97bfac299495f",
-      "last_updated": "2026-07-31T13:11:01.015756"
+      "hash": "c85cb501ab3c5b2d18672e04244cffa69ec6130b1f40864d56a5d86a40160592",
+      "last_updated": "2026-08-20T11:40:58.954724"
     },
     "reference/private-set_cancel_on_disconnect.md": {
       "source_url": "https://docs.derive.xyz/reference/private-set_cancel_on_disconnect",
-      "hash": "6d320683b9ce9fd376085dc98f1be2b5d26409457359f3f85279f19895b5ccf6",
-      "last_updated": "2026-07-31T13:11:01.683262"
+      "hash": "e5a920d7d7657180af1d76411f7162f6e1a877c427f17e47c46b2f11b8fef6f1",
+      "last_updated": "2026-08-20T11:40:59.621997"
     },
     "reference/private-set_mmp_config.md": {
       "source_url": "https://docs.derive.xyz/reference/private-set_mmp_config",
-      "hash": "4a3e442147368a6a595ef63d1de6649b106b4b08481fea3d2018ce8780316555",
-      "last_updated": "2026-07-31T13:11:02.339352"
+      "hash": "7b9160596a4b98ef21d48505e30a42bdb736cecde8d2e208df0d06940d83f458",
+      "last_updated": "2026-08-20T11:41:00.291920"
     },
     "reference/private-transfer_position_debug.md": {
       "source_url": "https://docs.derive.xyz/reference/private-transfer_position_debug",
-      "hash": "58422fe8a3e3bf26ca68758403bbb1b3b75256e1c62f10e600c01bb20c5d32e0",
-      "last_updated": "2026-07-31T13:11:03.020540"
+      "hash": "62d875562e333711202b5e6e62873851c1ba9651539a4dbb062d67ac8663ae24",
+      "last_updated": "2026-08-20T11:41:00.973347"
     },
     "reference/private-trigger_order.md": {
       "source_url": "https://docs.derive.xyz/reference/private-trigger_order",
-      "hash": "43fc398b5a478e3d4f0bf445361d97e730c5d31344877dacae9c0350b74c660a",
-      "last_updated": "2026-07-31T13:11:03.731765"
+      "hash": "d2494295d25913e8b0f00c8b5531879c1b130be33dc6640fc149dedfdeca27bd",
+      "last_updated": "2026-08-20T11:41:01.697345"
     },
     "reference/private-update_contact_info.md": {
       "source_url": "https://docs.derive.xyz/reference/private-update_contact_info",
-      "hash": "432879c2ec44007eb2cd0b9271958bb86c7b775b5fe80badba13b366cf4a2f11",
-      "last_updated": "2026-07-31T13:11:04.400550"
+      "hash": "79ddac0ca62362ce76f3b027015cf99b15d5c730cd942af3c89a37cb83b9c81d",
+      "last_updated": "2026-08-20T11:41:02.358160"
     },
     "reference/subscribe.md": {
       "source_url": "https://docs.derive.xyz/reference/subscribe",
-      "hash": "52f7e979bd84b967234921a6373921a7fb8d9e80cfd5071a13e2273039002269",
-      "last_updated": "2026-07-31T13:11:05.046476"
+      "hash": "b81f1a3f1f6e2aa33a95ec74b1bf50ccf3e36c75afd133e4d771be8ae00b95f1",
+      "last_updated": "2026-08-20T11:41:03.066098"
     },
     "reference/unsubscribe.md": {
       "source_url": "https://docs.derive.xyz/reference/unsubscribe",
-      "hash": "6184db6a429176080c3dd47702d276d30a7099b1686ae1b7b54fc37d42a57872",
-      "last_updated": "2026-07-31T13:11:05.782689"
+      "hash": "72bc26caea40e65086a497ac1d6764930e6d56a1effa9cb1172cfd8d5d2e2c5c",
+      "last_updated": "2026-08-20T11:41:03.773102"
     },
     "reference/orderbook-instrument_name-group-depth.md": {
       "source_url": "https://docs.derive.xyz/reference/orderbook-instrument_name-group-depth",
-      "hash": "774f423e4c22de8f0d5ce5958f4abcf83f21269526a6cf3aaba1b83f2b53c567",
-      "last_updated": "2026-07-31T13:11:06.429233"
+      "hash": "f69e90ac13d3b6e712471d0815a3f1e925ec805fa157d45c93a09dfe835b193c",
+      "last_updated": "2026-08-20T11:41:04.436836"
     },
     "reference/ticker-instrument_name-interval.md": {
       "source_url": "https://docs.derive.xyz/reference/ticker-instrument_name-interval",
-      "hash": "c0445604e74d7a2e1af189a3506ee3ca425a5e5b7d17efcd5b858598ec0a66aa",
-      "last_updated": "2026-07-31T13:11:07.117204"
+      "hash": "831eefa9730de0ab8da888b2af3e2be17149e4aaa062ee15d722331d4a700e91",
+      "last_updated": "2026-08-20T11:41:05.147070"
     },
     "reference/ticker_slim-instrument_name-interval.md": {
       "source_url": "https://docs.derive.xyz/reference/ticker_slim-instrument_name-interval",
-      "hash": "ca1c2f697b91dd682719f65b5af1842f910d14b67ab8b00ea35794cd57ee0460",
-      "last_updated": "2026-07-31T13:11:07.836346"
+      "hash": "7e3c18edb7c1804458b8c91234457374b95133b977b2a1b98cb4dbfc40da5dbd",
+      "last_updated": "2026-08-20T11:41:05.859229"
     },
     "reference/spot_feed-currency.md": {
       "source_url": "https://docs.derive.xyz/reference/spot_feed-currency",
-      "hash": "7b195858446ab07356e5510bc861f490e75f49577df1422fa8f34ca1258b327e",
-      "last_updated": "2026-07-31T13:11:08.524672"
+      "hash": "76c75c02e8c65c75e7ecec9be5d6b14e4fab5d0107e95793b52d592f155dfaf2",
+      "last_updated": "2026-08-20T11:41:06.541770"
     },
     "reference/trades-instrument_name.md": {
       "source_url": "https://docs.derive.xyz/reference/trades-instrument_name",
-      "hash": "af634a0f24dfc3103de8ce6ca0f6cc86290ad26f7549732b7be6c99cecf3e540",
-      "last_updated": "2026-07-31T13:11:09.186318"
+      "hash": "57757a817965cdcb2079b4c85fcfd5c410b443aefa51a87c38fce22b615281ae",
+      "last_updated": "2026-08-20T11:41:07.227874"
     },
     "reference/trades-instrument_type-currency.md": {
       "source_url": "https://docs.derive.xyz/reference/trades-instrument_type-currency",
-      "hash": "388f6d65e1d00bc48e181b744190595a7880aec8edf47623a724d0d90022e329",
-      "last_updated": "2026-07-31T13:11:09.841940"
+      "hash": "f13d5e2989c55ec0b1caa1f25efd5829dc69de93b7d28d4859be607f88a840b2",
+      "last_updated": "2026-08-20T11:41:07.885308"
     },
     "reference/trades-instrument_type-currency-tx_status.md": {
       "source_url": "https://docs.derive.xyz/reference/trades-instrument_type-currency-tx_status",
-      "hash": "6407fd730911198cb30bdedd5a47d0b73e0675ed9187020a2526aba6d8c1211a",
-      "last_updated": "2026-07-31T13:11:10.510427"
+      "hash": "c8423e6ecee9874a5f4664b7465d006f2b9f9b9be9c131d6f1f9b43b855cdeef",
+      "last_updated": "2026-08-20T11:41:08.584925"
     },
     "reference/margin-watch.md": {
       "source_url": "https://docs.derive.xyz/reference/margin-watch",
-      "hash": "f318040b411d0490a3e401e8808eb682c47874fc068511545303f54918c2257b",
-      "last_updated": "2026-07-31T13:11:11.190700"
+      "hash": "1588635faeb072564628ff5864de0fefb87afc5f5f04f43d8c26312b9398a7dc",
+      "last_updated": "2026-08-20T11:41:09.264951"
     },
     "reference/auctions-watch.md": {
       "source_url": "https://docs.derive.xyz/reference/auctions-watch",
-      "hash": "4c1ebd458721987d51dbd71a22d7757828d98ea8d74d92ad7d0c627f5b60732a",
-      "last_updated": "2026-07-31T13:11:12.272488"
+      "hash": "9121ce5fe0b9a0ab67da7267f933f146de01dbd1e435b4fa5530ba1770f47226",
+      "last_updated": "2026-08-20T11:41:09.926327"
     },
     "reference/trades-instrument_type-currency-1.md": {
       "source_url": "https://docs.derive.xyz/reference/trades-instrument_type-currency-1",
-      "hash": "b380b64357bf38cff6e0410d989d4321d2957b17a1c6b62448ed70b06652c91a",
-      "last_updated": "2026-07-31T13:11:12.958705"
+      "hash": "94a864f06382f6b6ad55d3707dc9275bd0a08a86a14c8acbfb3f60015480ec48",
+      "last_updated": "2026-08-20T11:41:10.611212"
     },
     "reference/subaccount_id-quotes-1.md": {
       "source_url": "https://docs.derive.xyz/reference/subaccount_id-quotes-1",
-      "hash": "1daed7229930e9da136e7ebc2e08119884b7e168adb8677698377321192b3211",
-      "last_updated": "2026-07-31T13:11:13.636750"
+      "hash": "491ae1dde0a1b60b59c793ba9fc46bba499d01a4e7031eba2dcb37942a2059ae",
+      "last_updated": "2026-08-20T11:41:11.307519"
     },
     "reference/subaccount_id-quotes-2.md": {
       "source_url": "https://docs.derive.xyz/reference/subaccount_id-quotes-2",
-      "hash": "1daed7229930e9da136e7ebc2e08119884b7e168adb8677698377321192b3211",
-      "last_updated": "2026-07-31T13:11:14.332980"
+      "hash": "491ae1dde0a1b60b59c793ba9fc46bba499d01a4e7031eba2dcb37942a2059ae",
+      "last_updated": "2026-08-20T11:41:12.040017"
     },
     "reference/subaccount_id-balances.md": {
       "source_url": "https://docs.derive.xyz/reference/subaccount_id-balances",
-      "hash": "529b1cb912cee75f636219329af8eef2566cade6377e9cd2e42a6db34b1f0ebb",
-      "last_updated": "2026-07-31T13:11:14.989492"
+      "hash": "705f4e5b93aee6a76f2cc2720a2525450b4eea62f21629c6176be48a0194fa0c",
+      "last_updated": "2026-08-20T11:41:12.707361"
     },
     "reference/subaccount_id-best-quotes.md": {
       "source_url": "https://docs.derive.xyz/reference/subaccount_id-best-quotes",
-      "hash": "6bea5c6ee594def46a85442b223442d922b4794104cdf61876e765a7ab8c129a",
-      "last_updated": "2026-07-31T13:11:15.660895"
+      "hash": "8dcae8b1c55b5433b7b143031159a38ed25ac4af1ec203f20c9ea7f7c45b4af9",
+      "last_updated": "2026-08-20T11:41:13.429721"
     },
     "reference/subaccount_id-orders.md": {
       "source_url": "https://docs.derive.xyz/reference/subaccount_id-orders",
-      "hash": "21c3d695e5a99eef59f694165079d0ff1d2849d1f27c05814a321da7c1289152",
-      "last_updated": "2026-07-31T13:11:16.309011"
+      "hash": "c3ec5f15822e5a6796d5fdea9d67981c751d2c1e11944d294272cd4c168fac9b",
+      "last_updated": "2026-08-20T11:41:14.118244"
     },
     "reference/subaccount_id-quotes.md": {
       "source_url": "https://docs.derive.xyz/reference/subaccount_id-quotes",
-      "hash": "a8d136b6996cd0f38e9335a3c7e4b05108c3f21d9fb0e87a05c9e121414d085a",
-      "last_updated": "2026-07-31T13:11:16.984172"
+      "hash": "e305a93fc4cc1ba4b03e78ce99165df230bb6be780ce45cad1daca6380f72e16",
+      "last_updated": "2026-08-20T11:41:14.831003"
     },
     "reference/subaccount_id-trades-tx_status.md": {
       "source_url": "https://docs.derive.xyz/reference/subaccount_id-trades-tx_status",
-      "hash": "a45494a5d3afd9550ff04ae7e5db9c336a23ad3be5256dfafabe7342d939774d",
-      "last_updated": "2026-07-31T13:11:17.677543"
+      "hash": "f31bea3bcdfb33d57f977c16c9c4305af2207211cf8b41c7dde22fe1d73cba05",
+      "last_updated": "2026-08-20T11:41:15.519816"
     },
     "reference/subaccount_id-trades.md": {
       "source_url": "https://docs.derive.xyz/reference/subaccount_id-trades",
-      "hash": "9de5ac054a190c8bd8519bbff58e95ff7ddf6971f57e58af1b945a9d83e3d6a4",
-      "last_updated": "2026-07-31T13:11:18.366622"
+      "hash": "9edd63102ac5b24cd126e1207e33198cff45d01dfa54abac0e2de8bd9ec8b21e",
+      "last_updated": "2026-08-20T11:41:16.357130"
     },
     "reference/wallet-rfqs.md": {
       "source_url": "https://docs.derive.xyz/reference/wallet-rfqs",
-      "hash": "ad5b5996838c568f615b06e2cf5f2b398042514e911203b9c90d2f6d40257af2",
-      "last_updated": "2026-07-31T13:11:19.089344"
+      "hash": "53e3fcdbfefa5a7ad952747d36f561ef1f733e48068140ba49fd14adfad81823",
+      "last_updated": "2026-08-20T11:41:17.019976"
     },
     "reference/error-codes.md": {
       "source_url": "https://docs.derive.xyz/reference/error-codes",
-      "hash": "423f9bb8c6bf27b9baa256fe5f60446d8fe2b0ed63947b66c7860efef7b341de",
-      "last_updated": "2026-07-31T13:11:19.881907"
+      "hash": "b7a1f075af331cef8936060e05d74283c0b75fdc813cade8c77aa4484ef4e5a8",
+      "last_updated": "2026-08-20T11:41:18.039547"
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-08-19T11:37:56.355189",
-    "duration_seconds": 197.749629,
+    "completed_at": "2026-08-20T11:41:18.040319",
+    "duration_seconds": 209.104866,
     "pages_total": 291,
     "pages_fetched": 290,
     "pages_failed": 1,
@@ -1461,6 +1461,6 @@
       "https://docs.derive.xyz/reference/institutional-trading-rewards-program"
     ]
   },
-  "last_updated": "2026-08-19T11:37:56.355205",
+  "last_updated": "2026-08-20T11:41:18.040344",
   "source": "https://docs.derive.xyz"
 }

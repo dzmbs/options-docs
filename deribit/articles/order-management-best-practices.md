@@ -104,7 +104,7 @@ Speed is often critical. Here are some best practices to get your orders to the 
   </Accordion>
 
   <Accordion title="Consider Starbase if protocol overhead is your bottleneck">
-    Once you have removed the obvious overhead — persistent connection, lightweight socket, modest bursts — the remaining latency is largely protocol and network. **Starbase**, Deribit's high-performance matching engine available to selected clients, addresses both: SBE binary order entry talks directly to the matching engine, and access is over hosted colocation or a cross-connect in LD4, or AWS Private Link, never the public internet. It requires a separate API key and a separate integration, and open Starbase orders are not visible through the standard JSON-RPC order methods or the web UI.
+    Once you have removed the obvious overhead — persistent connection, lightweight socket, modest bursts — the remaining latency is largely protocol and network. **Starbase**, Deribit's high-performance matching engine available to selected clients, addresses both: SBE binary order entry talks directly to the matching engine, and access is over hosted colocation or a cross-connect in LD4, or AWS Private Link, never the public internet. It requires a separate API key and a separate integration. Open Starbase orders are not visible through the standard JSON-RPC order methods. They appear in the web UI, but open orders and pre-trade risk refresh every 10 seconds and may not reflect the latest state immediately.
 
     <Card title="Starbase Overview" icon="bolt" href="/starbase/overview">
       Binary order entry, multicast market data, FIX Drop Copy, and how to get access

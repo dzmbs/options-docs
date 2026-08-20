@@ -333,6 +333,6 @@ securitySchemes: []
 
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
 - [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
+- [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Notifications](/articles/notifications.md)
-- [Market Data Collection](/articles/market-data-collection-best-practices.md)

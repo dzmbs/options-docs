@@ -919,6 +919,6 @@ securitySchemes: []
 
 - [block_rfq.maker.(currency) ](/subscriptions/block-rfq/block_rfqmakercurrency.md)
 - [user.combo_trades.(kind).(currency).(interval) ](/subscriptions/user/usercombo_tradeskindcurrencyinterval.md)
-- [user.trades.(instrument_name).(interval) ](/subscriptions/user/usertradesinstrument_nameinterval.md)
 - [user.changes.(kind).(currency).(interval) ](/subscriptions/user/userchangeskindcurrencyinterval.md)
+- [user.trades.(instrument_name).(interval) ](/subscriptions/user/usertradesinstrument_nameinterval.md)
 - [trades.(kind).(currency).(interval) ](/subscriptions/trades/tradeskindcurrencyinterval.md)
