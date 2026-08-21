@@ -1637,13 +1637,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-08-20T11:37:48.826216",
-    "duration_seconds": 322.126399,
+    "completed_at": "2026-08-21T11:39:23.686006",
+    "duration_seconds": 414.3452,
     "pages_total": 327,
     "pages_fetched": 327,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-08-20T11:37:48.826241",
+  "last_updated": "2026-08-21T11:39:23.686031",
   "source": "https://docs.deribit.com"
 }

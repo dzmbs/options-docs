@@ -5277,12 +5277,12 @@ Retrieve the current day and month-to-date (MTD) GLP performance snapshot for th
 
 #### HTTP Request
 
-`GET /api/v5/users/glp/today-performance`
+`GET /api/v5/users/glp/todayperformance`
 
 Request Example
 
 ```
-GET /api/v5/users/glp/today-performance
+GET /api/v5/users/glp/todayperformance
 ```
 
 #### Request Parameters
@@ -5396,13 +5396,13 @@ Retrieve daily GLP performance history for a single program. Results are sorted 
 
 #### HTTP Request
 
-`GET /api/v5/users/glp/historical-performance`
+`GET /api/v5/users/glp/historicalperformance`
 
 **Request Example
 
 ```
-GET /api/v5/users/glp/historical-performance?program=SPOT
-GET /api/v5/users/glp/historical-performance?program=SPOT&begin=1751299200000&end=1753804800000&limit=31
+GET /api/v5/users/glp/historicalperformance?program=SPOT
+GET /api/v5/users/glp/historicalperformance?program=SPOT&begin=1751299200000&end=1753804800000&limit=31
 ```
 
 #### Request Parameters
