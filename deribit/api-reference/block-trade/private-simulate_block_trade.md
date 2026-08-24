@@ -203,6 +203,6 @@ components:
 
 - [Block Trading](/articles/block-trading-api.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [private/reject_block_trade](/api-reference/block-trade/private-reject_block_trade.md)
 - [private/approve_block_trade](/api-reference/block-trade/private-approve_block_trade.md)
+- [private/reject_block_trade](/api-reference/block-trade/private-reject_block_trade.md)
 - [private/execute_block_trade](/api-reference/block-trade/private-execute_block_trade.md)

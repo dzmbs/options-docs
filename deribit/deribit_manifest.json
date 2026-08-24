@@ -292,8 +292,8 @@
     },
     "api-reference/block-trade/private-execute_block_trade.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-execute_block_trade.md",
-      "hash": "7ec499779c7786dc105b413ae5511c50eb66446152318abdd1f1a915753d8f5c",
-      "last_updated": "2026-08-20T11:33:12.332743"
+      "hash": "b31aa3c124d9c0fd52855a901d5c6448aad1592e4ec63b29d8a388f8fb8785b4",
+      "last_updated": "2026-08-24T11:35:51.527061"
     },
     "api-reference/block-trade/private-get_block_trade.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-get_block_trade.md",
@@ -302,8 +302,8 @@
     },
     "api-reference/block-trade/private-get_block_trade_requests.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-get_block_trade_requests.md",
-      "hash": "a831b10531e6b208de2469e5cac86e79779d56d32e96d6509f384e2020787700",
-      "last_updated": "2026-08-20T11:33:13.840787"
+      "hash": "d282b3f58a9c4feba036ba6eb3c9f05ff2fd6058f3b5f4fdbd7ac660eb04fe06",
+      "last_updated": "2026-08-24T11:35:53.930689"
     },
     "api-reference/block-trade/private-get_block_trades.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-get_block_trades.md",
@@ -327,8 +327,8 @@
     },
     "api-reference/block-trade/private-invalidate_block_trade_signature.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-invalidate_block_trade_signature.md",
-      "hash": "f19c8e4deb745675949a4646fe05fe6986fe9d033de60aa0c57972ded9877077",
-      "last_updated": "2026-08-20T11:33:17.828947"
+      "hash": "626bdbdfdd64599084b78ab86cfaadd612524c7bac5d37f9c6ff895ab45f4b2e",
+      "last_updated": "2026-08-24T11:36:00.154923"
     },
     "api-reference/block-trade/private-reject_block_trade.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-reject_block_trade.md",
@@ -337,8 +337,8 @@
     },
     "api-reference/block-trade/private-simulate_block_trade.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-simulate_block_trade.md",
-      "hash": "b265416e0e3db33b996a66e79428fc22dc58951314b13b9c1866be8e6031916e",
-      "last_updated": "2026-08-20T11:33:19.346813"
+      "hash": "ac81db85f958e7ffecab5f6bfd6172610e126fc760bfcc1912951aa8d756e3ae",
+      "last_updated": "2026-08-24T11:36:02.292219"
     },
     "api-reference/block-trade/private-verify_block_trade.md": {
       "source_url": "https://docs.deribit.com/api-reference/block-trade/private-verify_block_trade.md",
@@ -412,13 +412,13 @@
     },
     "api-reference/market-data/public-get_funding_chart_data.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_funding_chart_data.md",
-      "hash": "3623e160f9c06ed7f7b57c0ad1e95fffce08f2405ed49f725e7ff2701fb87702",
-      "last_updated": "2026-08-18T11:31:47.483628"
+      "hash": "e2bdba3c18236eb2494ced87b9869c1e9eaa291e64ac5e6a026ed2592c7be1aa",
+      "last_updated": "2026-08-24T11:36:20.516721"
     },
     "api-reference/market-data/public-get_funding_rate_history.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_funding_rate_history.md",
-      "hash": "a001884fd073d4975ec6e0f3c821508b7ed0369680cbb7a01ab0ef04c56f750c",
-      "last_updated": "2026-08-18T11:31:48.218945"
+      "hash": "6a905274b33c40f50e193b75bb94499391effef6f973c99dcf6736d43916092b",
+      "last_updated": "2026-08-24T11:36:21.520654"
     },
     "api-reference/market-data/public-get_funding_rate_value.md": {
       "source_url": "https://docs.deribit.com/api-reference/market-data/public-get_funding_rate_value.md",
@@ -1182,8 +1182,8 @@
     },
     "fix-api/production/request-for-positions.md": {
       "source_url": "https://docs.deribit.com/fix-api/production/request-for-positions.md",
-      "hash": "fc92537e2a5f3b3d6c69c3c8ea16a061462f228b494a65ff8fe680bf15d67c3b",
-      "last_updated": "2026-08-17T11:35:25.499576"
+      "hash": "b4a1b4da252734929e381c3a4c247c69a64f079ac27af5c84e42d96f1e400e13",
+      "last_updated": "2026-08-24T11:39:55.068186"
     },
     "fix-api/production/resend-request.md": {
       "source_url": "https://docs.deribit.com/fix-api/production/resend-request.md",
@@ -1362,8 +1362,8 @@
     },
     "starbase/production-readiness-checklist.md": {
       "source_url": "https://docs.deribit.com/starbase/production-readiness-checklist.md",
-      "hash": "1ff201481807a8b64e36414b24543b26d3eeb1ab02db2f0b17b5d27d86736512",
-      "last_updated": "2026-08-20T11:36:16.982265"
+      "hash": "1fece3e4e2fe213db188efac9cccef161586771ef46fab5713362481d8151471",
+      "last_updated": "2026-08-24T11:40:45.150565"
     },
     "starbase/quickstart.md": {
       "source_url": "https://docs.deribit.com/starbase/quickstart.md",
@@ -1407,8 +1407,8 @@
     },
     "starbase/trades.md": {
       "source_url": "https://docs.deribit.com/starbase/trades.md",
-      "hash": "9064f726c533ebbd9666ddcd0d01ba86511d03cb1dbacd2081b56c361f1810d3",
-      "last_updated": "2026-08-20T11:36:26.793289"
+      "hash": "a659d4fc9da60a372d7e7532cd10fe2d03519a4f64951cbb00d647dfa072ecb3",
+      "last_updated": "2026-08-24T11:40:54.435724"
     },
     "starbase/underlying-tiers.md": {
       "source_url": "https://docs.deribit.com/starbase/underlying-tiers.md",
@@ -1637,13 +1637,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-08-23T11:31:15.566998",
-    "duration_seconds": 295.673335,
+    "completed_at": "2026-08-24T11:42:25.648184",
+    "duration_seconds": 463.166265,
     "pages_total": 327,
     "pages_fetched": 327,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-08-23T11:31:15.567011",
+  "last_updated": "2026-08-24T11:42:25.648196",
   "source": "https://docs.deribit.com"
 }
