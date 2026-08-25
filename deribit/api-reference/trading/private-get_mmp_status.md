@@ -312,4 +312,4 @@ components:
 - [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_mmp_config](/api-reference/trading/private-get_mmp_config.md)
-- [private/get_order_state](/api-reference/trading/private-get_order_state.md)
+- [Security Status(f) — Production FIX API](/fix-api/production/security-status.md)

@@ -12,7 +12,7 @@
   <Card title="SBE Order API XML" icon="file-code">
     Schema definition for SBE order entry.
 
-    * [Production](/specifications/deribit-sbe-xmls/deribit-sbe-order-api.xml) — latest version: 14 (semantic version 1.5)
+    * [Production](/specifications/deribit-sbe-xmls/deribit-sbe-order-api.xml) — latest version: 15 (semantic version 1.5)
     * [Testnet](/specifications/deribit-sbe-xmls/deribit-sbe-order-api-testnet.xml) — latest version: 14 (semantic version 1.5)
   </Card>
 
@@ -206,6 +206,7 @@ Reject messages in the Starbase Binary API include a `reason` field that indicat
 | `27`  | `POSITION_LIMIT_EXCEEDED`          | Future or options position size limit exceeded                                                                                                                                             |
 | `28`  | `ORDER_SIZE_LIMIT_EXCEEDED`        | Open order aggregate size limit exceeded                                                                                                                                                   |
 | `29`  | `MEMBER_SPEED_BUMP_LIMIT_EXCEEDED` | Member has too many live speed-bumped orders                                                                                                                                               |
+| `30`  | `MMP_MIN_FREEZE_TIME_NOT_ELAPSED`  | MMP minimum freeze duration not yet elapsed                                                                                                                                                |
 
 These rejection reason codes are used in the following reject messages:
 

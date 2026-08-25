@@ -39,7 +39,7 @@ Response to `LogonRequest` on successful logon.
   * **Session ceiling** — the `schemaVersion` sent at logon: the highest schema version the client can accept. One number per session, echoed back in `LogonResponse.schemaVersion`. This is the authoritative negotiated version for the session.
   * **Per-message stamp** — the `version` field in the header of each message the gateway sends: the newest schema version at which that particular message last changed, never above the session ceiling. If a message did not change between schema versions, its stamp is not bumped.
 
-  For example, after negotiating version `14`, `LogonResponse` arrives with header `version = 12` because `LogonResponse` has not changed since version `12`. This is expected — always read the negotiated version from the `schemaVersion` field, never from per-message header stamps.
+  For example, after negotiating version `15`, `LogonResponse` arrives with header `version = 12` because `LogonResponse` has not changed since version `12`. This is expected — always read the negotiated version from the `schemaVersion` field, never from per-message header stamps.
 </Note>
 
 ### LogoutRequest (4)

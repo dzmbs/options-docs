@@ -182,4 +182,4 @@ securitySchemes: []
 - [private/get_user_locks](/api-reference/account-management/private-get_user_locks.md)
 - [Order Management](/articles/order-management-best-practices.md)
 - [Lock Portfolio](/api-reference/portfolio-management/lock-portfolio.md)
-- [Voice Broker Trading API](/articles/voice-broker-trading-api.md)
+- [private/get_lsp_participant_config](/api-reference/lsp/private-get_lsp_participant_config.md)

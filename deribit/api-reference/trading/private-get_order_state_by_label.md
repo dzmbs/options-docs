@@ -8,6 +8,10 @@
 
 Results are filtered by currency and label. The response includes order details such as status, filled amount, remaining amount, and other order properties for all orders with the specified label.
 
+**Note:** This method does not support the `historical` flag and only returns orders that closed within the last 30 minutes (same recency window as `historical=false`). This also applies to a trigger order and the order it creates upon triggering — once either has been closed for more than 30 minutes, it will no longer appear here, even though the same `label` was carried over between them. For orders older than that, use [`private/get_order_history_by_currency`](#private-get_order_history_by_currency) or [`private/get_order_history_by_instrument`](#private-get_order_history_by_instrument) with `historical=true`.
+
+**📖 Related Article:** [Accessing Historical Trades and Orders Using API](https://docs.deribit.com/articles/accessing-historical-trades-orders)
+
 **Scope:** `trade:read`
 
 [Try in API console](https://test.deribit.com/api_console?method=%2Fprivate%2Fget_order_state_by_label)
@@ -76,6 +80,23 @@ paths:
         Results are filtered by currency and label. The response includes order
         details such as status, filled amount, remaining amount, and other order
         properties for all orders with the specified label.
+
+
+        **Note:** This method does not support the `historical` flag and only
+        returns orders that closed within the last 30 minutes (same recency
+        window as `historical=false`). This also applies to a trigger order and
+        the order it creates upon triggering — once either has been closed for
+        more than 30 minutes, it will no longer appear here, even though the
+        same `label` was carried over between them. For orders older than that,
+        use
+        [`private/get_order_history_by_currency`](#private-get_order_history_by_currency)
+        or
+        [`private/get_order_history_by_instrument`](#private-get_order_history_by_instrument)
+        with `historical=true`.
+
+
+        **📖 Related Article:** [Accessing Historical Trades and Orders Using
+        API](https://docs.deribit.com/articles/accessing-historical-trades-orders)
 
 
         **Scope:** `trade:read`

@@ -167,7 +167,7 @@ For the full public trade tape, candles and venue volume of a routed instrument,
 ## Related topics
 
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [trades.(kind).(currency).(interval) ](/subscriptions/trades/tradeskindcurrencyinterval.md)
 - [public/get_tradingview_chart_data](/api-reference/market-data/public-get_tradingview_chart_data.md)
 - [public/get_last_trades_by_currency](/api-reference/market-data/public-get_last_trades_by_currency.md)
-- [chart.trades.(instrument_name).(resolution) ](/subscriptions/market-data/charttradesinstrument_nameresolution.md)

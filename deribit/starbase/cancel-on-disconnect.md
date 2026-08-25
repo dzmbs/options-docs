@@ -50,7 +50,7 @@ The gateway detects connection loss through:
 If a connection is lost and then re-established:
 
 * **Orders are not automatically restored.** Clients must resubmit orders if they wish to maintain their order book.
-* **CoD is per order**: reapply the `cancelOnDisconnect` flag on any resubmitted orders you want covered
+* **CoD is per order**: reapply the `cancelOnDisconnect` flag on any resubmitted orders you want covered.
 
 ### Multiple Gateway Connections
 

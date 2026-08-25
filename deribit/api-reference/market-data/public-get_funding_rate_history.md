@@ -6,11 +6,7 @@
 
 > Retrieves hourly historical funding rate (interest rate) data for a PERPETUAL instrument over a specified time period. Funding rates are periodic payments exchanged between long and short positions in perpetual contracts.
 
-The response contains one record per hour in the requested range. Each record reports two funding-rate figures (`interest_1h` and `interest_8h`) at the same `timestamp`; the two figures are not scalar multiples of each other, so pick the field that matches the window you need. This method is applicable only for PERPETUAL instruments.
-
-**No aggregate endpoint.** Deribit does not expose a pre-computed average or cumulative funding rate. To compute cumulative funding over a range, sum `interest_1h` across the returned records client-side. Average funding is `sum(interest_1h) / count`.
-
-**Related endpoints.** Use [`public/get_funding_rate_value`](/api-reference/market-data/public-get_funding_rate_value) for the current funding rate and [`public/get_funding_chart_data`](/api-reference/market-data/public-get_funding_chart_data) for chart-oriented 8h / 24h / 1-month data.
+The response includes hourly funding rate values, which can be used to analyze funding rate trends and calculate historical funding costs. This method is applicable only for PERPETUAL instruments.
 
 [Try in API console](https://test.deribit.com/api_console?method=%2Fpublic%2Fget_funding_rate_history)
 
@@ -76,24 +72,9 @@ paths:
         perpetual contracts.
 
 
-        The response contains one record per hour in the requested range. Each
-        record reports two funding-rate figures (`interest_1h` and
-        `interest_8h`) at the same `timestamp`; the two figures are not scalar
-        multiples of each other, so pick the field that matches the window you
-        need. This method is applicable only for PERPETUAL instruments.
-
-
-        **No aggregate endpoint.** Deribit does not expose a pre-computed
-        average or cumulative funding rate. To compute cumulative funding over a
-        range, sum `interest_1h` across the returned records client-side.
-        Average funding is `sum(interest_1h) / count`.
-
-
-        **Related endpoints.** Use
-        [`public/get_funding_rate_value`](/api-reference/market-data/public-get_funding_rate_value)
-        for the current funding rate and
-        [`public/get_funding_chart_data`](/api-reference/market-data/public-get_funding_chart_data)
-        for chart-oriented 8h / 24h / 1-month data.
+        The response includes hourly funding rate values, which can be used to
+        analyze funding rate trends and calculate historical funding costs. This
+        method is applicable only for PERPETUAL instruments.
 
 
         [Try in API
@@ -173,16 +154,10 @@ components:
                 $ref: '#/components/schemas/price'
               interest_1h:
                 type: number
-                description: >-
-                  1-hour funding rate reported at `timestamp`. Sum values across
-                  the returned records to compute cumulative funding over a
-                  range.
+                description: 1hour interest rate
               interest_8h:
                 type: number
-                description: >-
-                  8-hour funding rate reported at `timestamp`. This field is not
-                  simply `interest_1h × 8`; both figures are reported
-                  independently.
+                description: 8hour interest rate
       required:
         - result
         - jsonrpc
@@ -233,4 +208,4 @@ components:
 - [public/get_funding_chart_data](/api-reference/market-data/public-get_funding_chart_data.md)
 - [public/get_apr_history](/api-reference/market-data/public-get_apr_history.md)
 - [public/get_mark_price_history](/api-reference/market-data/public-get_mark_price_history.md)
-- [private/get_settlement_history_by_instrument](/api-reference/trading/private-get_settlement_history_by_instrument.md)
+- [public/get_last_settlements_by_instrument](/api-reference/market-data/public-get_last_settlements_by_instrument.md)

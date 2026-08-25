@@ -176,5 +176,5 @@ components:
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/enable_affiliate_program](/api-reference/account-management/private-enable_affiliate_program.md)
 - [private/get_block_rfq_user_info](/api-reference/block-rfq/private-get_block_rfq_user_info.md)
+- [Liquidity Support Program (LSP) API Guide](/articles/lsp-api-guide.md)
 - [private/get_account_summaries](/api-reference/account-management/private-get_account_summaries.md)
-- [private/get_account_summary](/api-reference/account-management/private-get_account_summary.md)

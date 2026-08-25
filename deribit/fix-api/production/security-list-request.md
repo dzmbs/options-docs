@@ -7,7 +7,7 @@
 > SecurityListRequest(x) requests the full list of tradable instruments from the Deribit production FIX API, filterable by underlying and product kind.
 
 The `SecurityListRequest`(`x`) message is used to return a list of securities
-(instruments) from the Deribit.
+(instruments) from Deribit.
 
 ### Arguments
 

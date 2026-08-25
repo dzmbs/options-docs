@@ -6,7 +6,18 @@
 
 > Release notes for the Deribit FIX API covering new tags, message changes, session behavior updates, and backward-compatibility announcements.
 
-<Update label="Release 27.06.2026">
+<Update label="Release 18.08.2026">
+  For spot instruments routed to Coinbase Exchange (CBE), several order-entry fields are restricted:
+
+  * `OrdType` (`40`): only `1` = Market, `2` = Limit and `4` = Stop Limit are accepted.
+  * `TimeInForce` (`59`): `0` = Good Til Day is rejected for all spot.
+  * `ExecInst` (`18`): only `6A` (post-only with reject) is accepted. A bare `6` is rejected with `post_only_not_allowed`, and `E` (reduce only) with `reduce_only_not_allowed`.
+  * `DisplayQty` (`1138`): rejected with `iceberg_not_allowed`.
+  * `DeribitConditionTriggerMethod`: required on routed stop-limits and must be `2` = trade.
+  * `MDEntryType` (`269`): `2` = Trade is rejected in market data requests; `0` = Bid and `1` = Offer in the same request are still served.
+</Update>
+
+<Update label="Release 30.06.2026">
   `Security List` (`y`): `UnderlyingSecurityType` (`310`) is now included in the response for all instruments. Possible values: `CRYPTO`, `COMMODITY`, `EQUITY`.
 </Update>
 

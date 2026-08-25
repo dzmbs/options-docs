@@ -6,6 +6,8 @@
 
 > Returns all currently-open orders belonging to the authenticated portfolio. Orders are returned regardless of instrument or order type; filtering by instrument kind and order type is not currently supported.
 
+Each order includes `post_only`, `reject_post_only`, and `reduce_only` flags. `post_only` and `reject_post_only` correspond to the SBE `postOnly` and `postOnlyReject` bits and are mutually exclusive. `reduce_only` reflects per-order reduce-only from JSON-RPC or FIX (it cannot be set per order in SBE).
+
 The portfolio is resolved from the authenticated session — there is no parameter to query another portfolio's orders. MMP-flagged orders are visible via this endpoint. Orders placed via Mass Quote (MassQuoteRequest) are not currently returned.
 
 This endpoint is rate-limited per portfolio. Exceeding the limit returns HTTP 429.
@@ -52,6 +54,13 @@ paths:
         filtering by instrument kind and order type is not currently supported.
 
 
+        Each order includes `post_only`, `reject_post_only`, and `reduce_only`
+        flags. `post_only` and `reject_post_only` correspond to the SBE
+        `postOnly` and `postOnlyReject` bits and are mutually exclusive.
+        `reduce_only` reflects per-order reduce-only from JSON-RPC or FIX (it
+        cannot be set per order in SBE).
+
+
         The portfolio is resolved from the authenticated session — there is no
         parameter to query another portfolio's orders. MMP-flagged orders are
         visible via this endpoint. Orders placed via Mass Quote
@@ -81,6 +90,9 @@ paths:
                     average_price: 0
                     order_state: open
                     order_type: limit
+                    post_only: true
+                    reject_post_only: false
+                    reduce_only: false
                     creation_timestamp: 1778270370643
                     last_update_timestamp: 1778270370643
         '401':
@@ -226,12 +238,24 @@ components:
           description: Time-in-force policy.
         post_only:
           type: boolean
-          nullable: true
-          description: Whether the order was submitted as post-only.
+          description: >-
+            Whether the order was submitted as post-only: if it would take
+            liquidity, the price is amended to the best bid/ask instead of
+            rejecting. Corresponds to SBE `postOnly`. Mutually exclusive with
+            `reject_post_only`.
+        reject_post_only:
+          type: boolean
+          description: >-
+            Whether the order was submitted as post-only reject: if it would
+            take liquidity, the order is rejected rather than price-amended.
+            Corresponds to SBE `postOnlyReject`. Mutually exclusive with
+            `post_only`.
         reduce_only:
           type: boolean
-          nullable: true
-          description: Whether the order was submitted as reduce-only.
+          description: >-
+            Whether the order is reduce-only (intended only to reduce an
+            existing position). Per-order reduce-only originates from JSON-RPC
+            or FIX; it cannot be set per order in SBE.
         creation_timestamp:
           type: integer
           format: int64

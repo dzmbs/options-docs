@@ -112,7 +112,7 @@ Reject generated in case a `NewOrderRequest` is unsuccessful.
 ## Related topics
 
 - [REST Order Gateway Authentication](/starbase/rest-authentication.md)
-- [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Amending an Order](/starbase/amending-order.md)
 - [Market Maker Protection (MMP) API Configuration](/articles/market-maker-protection.md)

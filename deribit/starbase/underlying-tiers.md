@@ -82,4 +82,4 @@ Tier assignments determine which multicast channel an instrument belongs to, so 
 - [Starbase API Rate Limits](/starbase/api-rate-limits.md)
 - [public/get_instrument](/api-reference/market-data/public-get_instrument.md)
 - [public/get_instruments](/api-reference/market-data/public-get_instruments.md)
-- [Gateway Connectivity](/starbase/gateway-connectivity.md)
+- [Liquidity Support Program (LSP) API Guide](/articles/lsp-api-guide.md)

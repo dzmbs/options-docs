@@ -61,9 +61,9 @@ This checklist is for clients already onboarded to Starbase. Work through the st
     * [Market data SDK](/starbase/starbase-deribit-md-sdk-1.0.zip)
 
     <Info>
-      As of **[11 August 2026](/changelogs/starbase#starbase-release-11-08-2026)**, the latest schema versions are:
+      As of **[25 August 2026](/changelogs/starbase#starbase-update-25-08-2026)**, the latest schema versions are:
 
-      * **Order entry** — schema `version` **14** (`semanticVersion` **1.5**)
+      * **Order entry** — schema `version` **15** (`semanticVersion` **1.5**)
       * **Market data** — schema `version` **1** (`semanticVersion` **1.0**)
 
       The `version` and `semanticVersion` attributes are at the top of each XML file — check them against your local copies.
@@ -141,4 +141,4 @@ If anything on this list is not working as expected:
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Starbase API Overview](/starbase/overview.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
-- [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [REST Order Gateway Authentication](/starbase/rest-authentication.md)

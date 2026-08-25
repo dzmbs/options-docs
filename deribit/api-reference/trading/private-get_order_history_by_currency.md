@@ -689,8 +689,8 @@ components:
 
 ## Related topics
 
+- [private/get_order_state](/api-reference/trading/private-get_order_state.md)
 - [Accessing Historical Trades and Orders Using API](/articles/accessing-historical-trades-orders.md)
+- [private/get_order_state_by_label](/api-reference/trading/private-get_order_state_by_label.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_trigger_order_history](/api-reference/trading/private-get_trigger_order_history.md)
-- [private/get_settlement_history_by_currency](/api-reference/trading/private-get_settlement_history_by_currency.md)
-- [private/get_order_history_by_instrument](/api-reference/trading/private-get_order_history_by_instrument.md)

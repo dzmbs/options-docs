@@ -30,7 +30,7 @@ The following API endpoints support historical data retrieval:
 
 ## API Usage
 
-To retrieve historical trades and orders, use `historical` parameter in your API request to any of the endpoints listed above.
+To retrieve historical trades and orders, use the `historical` parameter in your API request to any of the endpoints listed above.
 
 * `historical: false` → Retrieves recent records (available immediately after execution).
 * `historical: true` → Retrieves historical records (available after a short delay for indexing).

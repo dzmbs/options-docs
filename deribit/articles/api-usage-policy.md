@@ -78,5 +78,5 @@ If you have any questions or need assistance optimizing your API usage, please r
 - [Rate Limits](/articles/rate-limits.md)
 - [Accessing Historical Trades and Orders Using API](/articles/accessing-historical-trades-orders.md)
 - [Security Keys](/articles/security-keys.md)
-- [Underlying Tiers](/starbase/underlying-tiers.md)
-- [Self Match Prevention (SMP)](/starbase/smp.md)
+- [private/get_lsp_usage](/api-reference/lsp/private-get_lsp_usage.md)
+- [private/get_lsp_participants_usage](/api-reference/lsp/private-get_lsp_participants_usage.md)

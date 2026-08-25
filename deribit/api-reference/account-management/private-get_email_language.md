@@ -136,4 +136,4 @@ components:
 - [private/set_email_for_subaccount](/api-reference/account-management/private-set_email_for_subaccount.md)
 - [private/get_subaccounts](/api-reference/account-management/private-get_subaccounts.md)
 - [private/get_account_summaries](/api-reference/account-management/private-get_account_summaries.md)
-- [private/get_account_summary](/api-reference/account-management/private-get_account_summary.md)
+- [private/toggle_notifications_from_subaccount](/api-reference/account-management/private-toggle_notifications_from_subaccount.md)

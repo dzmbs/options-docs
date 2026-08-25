@@ -118,7 +118,7 @@ Reject generated in case an `AmendOrderRequest` is unsuccessful.
 ## Related topics
 
 - [Order Cancel/Replace Request(G) — Production FIX API](/fix-api/production/order-cancel-replace.md)
-- [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Starbase API Rate Limits](/starbase/api-rate-limits.md)
+- [Starbase Market Maker Protection (MMP)](/starbase/mmp.md)
 - [Binary API Reference](/starbase/binary-api-reference.md)
 - [Cancel on Disconnect](/starbase/cancel-on-disconnect.md)

@@ -152,7 +152,7 @@ Each sub-account has an hourly updated rate limit, applicable across all books. 
 
 ## Checking current rate limits
 
-Users can access the current rate limits by calling the [`private/get_account_summary`](https://docs.deribit.com/api-reference/account-management/private-get_account_summary) method and receiving `limits` field in response. The configuration of rate limits can be either on a per-currency basis or a default set applied globally across all currencies. Per-currency limits are not the default setting and are enabled only for specific clients upon request.
+Users can access the current rate limits by calling the [`private/get_account_summary`](https://docs.deribit.com/api-reference/account-management/private-get_account_summary) method and receiving the `limits` field in response. The configuration of rate limits can be either on a per-currency basis or a default set applied globally across all currencies. Per-currency limits are not the default setting and are enabled only for specific clients upon request.
 
 <Note>
   Per-currency rate limits currently are used **exclusively to decrease** access limits for specific currencies when needed. They are not applied to increase rate limits.

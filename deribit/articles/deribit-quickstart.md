@@ -222,4 +222,4 @@ Deribit provides three different interfaces to access the API:
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Starbase API Overview](/starbase/overview.md)
 - [Multicast Subscription Guide](/starbase/multicast-subscription-guide.md)
-- [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [Liquidity Support Program (LSP) API Guide](/articles/lsp-api-guide.md)

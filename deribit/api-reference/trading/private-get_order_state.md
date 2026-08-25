@@ -8,6 +8,10 @@
 
 **Important Note for Mass Quotes:** Quote orders are order-like structures that don't fully translate to normal orders. When checking order state for quotes, the `amount` field represents the remaining amount, not the original order amount.
 
+**Note:** This method does not support the `historical` flag and only returns an order that closed within the last 30 minutes (same recency window as `historical=false`). For orders older than that, use [`private/get_order_history_by_currency`](#private-get_order_history_by_currency) or [`private/get_order_history_by_instrument`](#private-get_order_history_by_instrument) with `historical=true`.
+
+**📖 Related Article:** [Accessing Historical Trades and Orders Using API](https://docs.deribit.com/articles/accessing-historical-trades-orders)
+
 **Scope:** `trade:read`
 
 [Try in API console](https://test.deribit.com/api_console?method=%2Fprivate%2Fget_order_state)
@@ -78,6 +82,19 @@ paths:
         structures that don't fully translate to normal orders. When checking
         order state for quotes, the `amount` field represents the remaining
         amount, not the original order amount.
+
+
+        **Note:** This method does not support the `historical` flag and only
+        returns an order that closed within the last 30 minutes (same recency
+        window as `historical=false`). For orders older than that, use
+        [`private/get_order_history_by_currency`](#private-get_order_history_by_currency)
+        or
+        [`private/get_order_history_by_instrument`](#private-get_order_history_by_instrument)
+        with `historical=true`.
+
+
+        **📖 Related Article:** [Accessing Historical Trades and Orders Using
+        API](https://docs.deribit.com/articles/accessing-historical-trades-orders)
 
 
         **Scope:** `trade:read`

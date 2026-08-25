@@ -215,7 +215,7 @@ If instead you cancelled the remaining 100 and placed a new order for 300, the n
 
 ### Conclusion
 
-Whenever possible, prefer editing an order over canceling and recreating it, as long as your change falls within what's allowed (e.g., you cannot change a limit order into a stop order via edit; it's meant for price/amount adjustments). Deribit's `private/edit` (by `order_id`) or `private/edit_by_label` (if you use label) can be used for this purpose. Below is an example of editing an order by its label:
+Whenever possible, prefer editing an order over canceling and recreating it, as long as your change falls within what's allowed (e.g., you cannot change a limit order into a stop order via edit; it's meant for price/amount adjustments). Deribit's `private/edit` (by `order_id`) or `private/edit_by_label` (if you use a label) can be used for this purpose. Below is an example of editing an order by its label:
 
 ```json theme={null}
 {

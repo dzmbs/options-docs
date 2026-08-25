@@ -664,7 +664,7 @@ components:
 ## Related topics
 
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Liquidity Support Program (LSP) API Guide](/articles/lsp-api-guide.md)
 - [Rate Limits](/articles/rate-limits.md)
 - [private/get_access_log](/api-reference/account-management/private-get_access_log.md)
 - [private/get_deposits](/api-reference/wallet/private-get_deposits.md)
-- [private/get_withdrawals](/api-reference/wallet/private-get_withdrawals.md)

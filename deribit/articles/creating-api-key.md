@@ -169,7 +169,7 @@ You can authenticate using your API credentials in two ways:
 
 Make sure that the scopes requested in the auth call match the permissions assigned to the key.
 
-For step-by-step guidance on authentication, visit [Authentication](/articles/authentication)
+For step-by-step guidance on authentication, visit [Authentication](/articles/authentication).
 
 ## Testing out your new API key
 

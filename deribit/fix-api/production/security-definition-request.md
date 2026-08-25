@@ -6,10 +6,10 @@
 
 > SecurityDefinitionRequest(c) requests detailed contract definitions for one instrument on the Deribit production FIX API before market data subscription.
 
-Request a specific Security to be traded with the second party. The request
+Request a specific Security to be traded with the second party. The requested
 security is defined as a multileg security made up of two or more instrument
 legs. Also it can be used to query a list of combo-instrument securities offered
-by trading parties. (This method is FIX equivalent of `private/create_combo`,
+by trading parties. (This method is the FIX equivalent of `private/create_combo`,
 `public/get_combo_ids` and `private/get_combo_details` request for WS/HTTPS
 end-points depending on `SecurityRequestType (321)` tag value).
 

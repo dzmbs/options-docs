@@ -172,4 +172,4 @@ components:
 - [public/get_apr_history](/api-reference/market-data/public-get_apr_history.md)
 - [public/get_currencies](/api-reference/market-data/public-get_currencies.md)
 - [Risk Bypass](/starbase/risk-bypass.md)
-- [private/get_transfers](/api-reference/wallet/private-get_transfers.md)
+- [Liquidity Support Program (LSP) API Guide](/articles/lsp-api-guide.md)

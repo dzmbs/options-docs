@@ -90,7 +90,7 @@ This means you can connect to different gateway instances using the same API cre
 
 * Orders submitted on Gateway A with API Key X will only generate events on the Gateway A connection using API Key X
 * Orders submitted on Gateway B with API Key X will only generate events on the Gateway B connection using API Key X
-* Orders submitted with API Key A will not generate events on connections established with API Key B.
+* Orders submitted with API Key A will not generate events on connections established with API Key B
 
 This is done to ensure many API Keys can be given out to a single Portfolio without Portfolio-level bottlenecks becoming an issue.
 

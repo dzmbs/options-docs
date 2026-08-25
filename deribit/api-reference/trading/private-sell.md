@@ -143,10 +143,18 @@ paths:
               - market_limit
               - trailing_stop
           required: false
-          description: >-
-            <p>The order type, default: `"limit"`</p> <p>For spot trading routed
-            to Coinbase Exchange, only `"market"`, `"limit"` and `"stop_limit"`
-            orders are supported. Other order types will be rejected.</p>
+          description: >
+            The order type, default: `"limit"`
+
+
+            `stop_limit`, `stop_market`, `take_limit`, `take_market`, and
+            `trailing_stop` (trigger/algo order types) are not supported for
+            `option` and `option_combo` instruments.
+
+
+            For spot trading routed to Coinbase Exchange, only `"market"`,
+            `"limit"` and `"stop_limit"` orders are supported. Other order types
+            will be rejected.
         - name: label
           in: query
           schema:

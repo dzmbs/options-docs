@@ -406,7 +406,7 @@ securitySchemes: []
 ## Related topics
 
 - [user.liquidation ](/subscriptions/user/userliquidation.md)
-- [user.isolated.liquidation ](/subscriptions/user/userisolatedliquidation.md)
-- [private/get_transaction_log](/api-reference/account-management/private-get_transaction_log.md)
-- [user.lock ](/subscriptions/user/userlock.md)
-- [user.access_log ](/subscriptions/user/useraccess_log.md)
+- [Liquidity Support Program (LSP) API Guide](/articles/lsp-api-guide.md)
+- [private/get_lsp_participants](/api-reference/lsp/private-get_lsp_participants.md)
+- [private/get_lsp_participants_usage](/api-reference/lsp/private-get_lsp_participants_usage.md)
+- [private/get_lsp_usage](/api-reference/lsp/private-get_lsp_usage.md)

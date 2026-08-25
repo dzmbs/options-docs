@@ -121,7 +121,7 @@ You can manually reset MMP using any of the following methods:
    * [**MassQuoteRequest**](/starbase/mass-quotes#massquoterequest) (Fields 14/15, flag 3: `resetMMP`) - If an MMP freeze is active, this flag will remove the freeze before processing the rest of the message. Keep in mind there is a mandatory `1` second freeze that can't be overruled
 
 <Warning>
-  **Mandatory Minimum Freeze Period**: There is a mandatory minimum `1` second freeze period that cannot be overruled by any reset method (including reset flags). This minimum freeze period allows Deribit to properly risk manage. When using reset flags in order messages, the MMP freeze is removed before processing the order/quote, but you must wait at least 1 second after the MMP trigger before quoting can resume.
+  **Mandatory Minimum Freeze Period**: There is a mandatory minimum `1` second freeze period that cannot be overruled by any reset method (including reset flags). This minimum freeze period allows Deribit to properly risk manage. When using reset flags in order messages, the MMP freeze is removed before processing the order/quote, but you must wait at least 1 second after the MMP trigger before quoting can resume. Orders, amends, and mass quotes submitted before that window elapses are rejected with `MMP_MIN_FREEZE_TIME_NOT_ELAPSED` (`OrderRejectReason` `30`; `MassQuoteRejectReason` `9`).
 </Warning>
 
 ### Reset Behavior

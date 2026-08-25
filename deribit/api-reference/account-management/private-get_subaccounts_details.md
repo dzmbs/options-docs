@@ -189,6 +189,8 @@ components:
           $ref: '#/components/schemas/instrument_name'
         kind:
           $ref: '#/components/schemas/kind'
+        user_id:
+          $ref: '#/components/schemas/user_id'
         average_price:
           type: number
           description: Average price of trades that built this position
@@ -260,6 +262,7 @@ components:
       required:
         - instrument_name
         - kind
+        - user_id
         - average_price
         - direction
         - mark_price
@@ -475,6 +478,10 @@ components:
       description: >-
         Instrument kind: `"future"`, `"option"`, `"spot"`, `"future_combo"`,
         `"option_combo"`
+    user_id:
+      example: 57874
+      type: integer
+      description: Unique user identifier
     position_direction:
       enum:
         - buy

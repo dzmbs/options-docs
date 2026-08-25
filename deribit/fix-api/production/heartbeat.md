@@ -27,7 +27,7 @@ request as confirmation.
 ## Related topics
 
 - [Deribit Production FIX API Overview](/fix-api/production/overview.md)
-- [Logon(A) — Production FIX API](/fix-api/production/logon.md)
 - [Test Request(1) — Production FIX API](/fix-api/production/test-request.md)
+- [Logon(A) — Production FIX API](/fix-api/production/logon.md)
 - [Logout(5) — Production FIX API](/fix-api/production/logout.md)
 - [Reject(3) — Production FIX API](/fix-api/production/reject.md)

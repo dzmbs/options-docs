@@ -6,6 +6,43 @@
 
 > Release notes for the Deribit JSON-RPC API covering new endpoints, parameter changes, subscription updates, and backward-compatibility announcements.
 
+<Update label="Release 18.08.2026">
+  **Breaking Change — Estimated Liquidation Ratio fields removed**
+
+  The `estimated_liquidation_ratio` and `estimated_liquidation_ratio_map` fields have been removed from all portfolio and account summary objects. Affected methods: [private/get\_account\_summary](https://docs.deribit.com/api-reference/account-management/private-get_account_summary), [private/get\_account\_summaries](https://docs.deribit.com/api-reference/account-management/private-get_account_summaries) and [private/simulate\_portfolio](https://docs.deribit.com/api-reference/account-management/private-simulate_portfolio). Affected channel: `user.portfolio.{currency}`. These fields were only ever returned for accounts using the `segregated_sm` margin model; accounts on any other margin model are unaffected. The related `estimated_liquidation_price` field on positions is unaffected and continues to be returned as `null`.
+
+  **Spot trading routed to Coinbase Exchange**
+
+  Selected spot instruments are now matched on Coinbase Exchange (CBE) rather than the Deribit matching engine. Trading works through the usual Deribit API, but several features behave differently or are unavailable. Derivatives are unaffected.
+
+  * Identifying routed instruments: [public/get\_instrument](https://docs.deribit.com/api-reference/market-data/public-get_instrument) and [public/get\_instruments](https://docs.deribit.com/api-reference/market-data/public-get_instruments) return `is_cbe_routed: true` (and its alias `is_csr: true`) for routed spot instruments. Both fields are omitted for every other instrument, so test for presence rather than for a `false` value. Routed spot instruments also omit `block_trade_commission`, `block_trade_tick_size` and `block_trade_min_trade_amount`.
+  * Order placement (`private/buy`, `private/sell`, `private/edit`, `private/edit_by_label`): only `limit`, `market` and `stop_limit` order types; time in force limited to `good_til_cancelled`, `immediate_or_cancel` and `fill_or_kill`; `post_only` is allowed only together with `reject_post_only: true`; `reduce_only`, `display_amount` (iceberg) and linked orders (OTO / OCO / OTOCO) are not supported; the stop-limit trigger is `last_price` only. `good_til_day` is rejected for all spot instruments.
+  * Errors: `post_only_not_allowed` (11055), `iceberg_not_allowed` (11059), `not_supported_for_coinbase_routed_spot` (11060) and `linked_order_type_not_supported_for_csr_spot` (13922). Rejections originating at Coinbase are returned as code 11030 with the message `other_reject <reason>`.
+  * Fills are asynchronous: order placement is acknowledged once Coinbase accepts the order, and fills are not guaranteed to be present in the `trades` array of the response. Subscribe to `user.trades.{...}` and `user.orders.{...}` to track execution.
+  * Market data: `public/get_last_trades_by_instrument`, `public/get_last_trades_by_instrument_and_time`, `public/get_last_trades_by_currency`, `public/get_last_trades_by_currency_and_time` (when `kind` is `spot` or `any`) and `public/get_tradingview_chart_data` return `not_supported_for_coinbase_routed_spot` (11060); the `trades.*` and `chart.trades.*` subscriptions are rejected. `public/get_trade_volumes` omits `spot_volume` (and `spot_volume_7d` / `spot_volume_30d` under `extended`) for any currency with a routed pair, and `public/ticker` / the `ticker.*` channel omit `volume_notional` and `volume_usd` for routed spot. Order book data is unaffected.
+</Update>
+
+<Update label="Release 11.08.2026">
+  **Estimated Liquidation Price (ELP) deprecation**
+
+  `estimated_liquidation_price` is being deprecated and will no longer be returned for Segregated Standard Margin (`segregated_sm`) accounts (it is currently only added for futures). ELP remains available via Position Builder and the Position Builder API. Affected methods: [private/get\_position](https://docs.deribit.com/api-reference/trading/private-get_position) and [private/get\_positions](https://docs.deribit.com/api-reference/trading/private-get_positions).
+
+  **Unaggregated (`.raw`) market data**
+
+  All unaggregated market data subscriptions, identified by the `.raw` postfix, are now aggregated on a 1 millisecond basis due to the integration between the multicast, WebSocket and FIX market data APIs and Starbase. 1 millisecond is below the median latency of any non-Starbase market data feed, so no major degradation in performance is expected.
+
+  **Starbase identifiers on orders and trades**
+
+  * Order objects: new `starbase_client_order_id` field (client order id for orders submitted directly to Starbase via direct access; not returned for orders placed through the Deribit API). Combo legs inherit the parent combo order's client order id.
+  * User trade objects: new `starbase_order_id` and `starbase_client_order_id` fields, present only for trades matched in Starbase. `starbase_client_order_id` reflects your own order (maker or taker side); for self-trades it is the taker order's client order id.
+  * Combo trade legs carry the full set of Starbase fields (`starbase_match_id`, `starbase_order_id`, `starbase_client_order_id`, `starbase_timestamp`) when matched in Starbase, and `starbase_last_update_timestamp` is available on combo leg order updates.
+  * [private/get\_transaction\_log](https://docs.deribit.com/api-reference/account-management/private-get_transaction_log): trade entries executed in Starbase include `starbase_match_id`, `starbase_order_id` and `starbase_timestamp`.
+
+  **New instrument fields**
+
+  [public/get\_instrument](https://docs.deribit.com/api-reference/market-data/public-get_instrument) and [public/get\_instruments](https://docs.deribit.com/api-reference/market-data/public-get_instruments) now include `product_group` (product group classification of the instrument's base currency: BTC, ETH, TIER\_2, TIER\_3) and `index_id` (numeric identifier of the price index used by the instrument, shared by instruments with the same `price_index`).
+</Update>
+
 <Update label="Release 21.07.2026">
   A new method [private/get\_currencies](https://docs.deribit.com/api-reference/account-management/private-get_currencies) has been added. It returns a list of cryptocurrencies available for the authenticated user's account.
 
@@ -13,26 +50,16 @@
 
   **Trade object**
 
-  | Field                | Description                                                                                                    |
-  | -------------------- | -------------------------------------------------------------------------------------------------------------- |
-  | `starbase_match_id`  | The unique identifier for a match (trade) in Starbase.<br />Note: This is separate from the standard trade ID. |
-  | `starbase_timestamp` | The timestamp of the match (trade) in Starbase, provided in nanosecond precision.                              |
+  * `starbase_match_id`: The unique identifier for a match (trade) in Starbase. Note: This is separate from the standard trade ID.
+  * `starbase_timestamp`: The timestamp of the match (trade) in Starbase, provided in nanosecond precision.
 
   **Order object**
 
-  | Field                            | Description                                                                                             |
-  | -------------------------------- | ------------------------------------------------------------------------------------------------------- |
-  | `starbase_order_id`              | The unique identifier for an order in Starbase.<br />Note: This is separate from the standard order ID. |
-  | `starbase_last_update_timestamp` | The last-update timestamp of the order in Starbase, provided in nanosecond precision.                   |
+  * `starbase_order_id`: The unique identifier for an order in Starbase. Note: This is separate from the standard order ID.
+  * `starbase_last_update_timestamp`: The last-update timestamp of the order in Starbase, provided in nanosecond precision.
 </Update>
 
 <Update label="Release 30.06.2026">
-  The response of [private/get\_margins](https://docs.deribit.com/api-reference/trading/private-get_margins) now includes fee fields.
-
-  The `underlying_type` field is now returned in [public/get\_instrument](https://docs.deribit.com/api-reference/market-data/public-get_instrument) and [public/get\_instruments](https://docs.deribit.com/api-reference/market-data/public-get_instruments).
-</Update>
-
-<Update label="Release 27.06.2026">
   The response of [private/get\_margins](https://docs.deribit.com/api-reference/trading/private-get_margins) now includes fee fields.
 
   The `underlying_type` field is now returned in [public/get\_instrument](https://docs.deribit.com/api-reference/market-data/public-get_instrument) and [public/get\_instruments](https://docs.deribit.com/api-reference/market-data/public-get_instruments).
@@ -690,7 +717,7 @@
 
 ## Related topics
 
-- [FIX API Changelog](/changelogs/fix.md)
 - [Starbase API Changelog](/changelogs/starbase.md)
+- [FIX API Changelog](/changelogs/fix.md)
 - [Starbase API Rate Limits](/starbase/api-rate-limits.md)
 - [JSON-RPC 2.0 Protocol](/articles/json-rpc-overview.md)

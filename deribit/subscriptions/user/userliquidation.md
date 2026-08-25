@@ -447,6 +447,6 @@ securitySchemes: []
 
 - [user.isolated.liquidation ](/subscriptions/user/userisolatedliquidation.md)
 - [user.lsp ](/subscriptions/user/userlsp.md)
+- [Liquidity Support Program (LSP) API Guide](/articles/lsp-api-guide.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [private/get_user_trades_by_order](/api-reference/trading/private-get_user_trades_by_order.md)
-- [private/get_user_trades_by_instrument](/api-reference/trading/private-get_user_trades_by_instrument.md)

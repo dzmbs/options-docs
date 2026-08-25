@@ -6,6 +6,44 @@
 
 > Release notes for the Deribit Starbase binary and REST APIs covering new messages, protocol changes, performance updates, and compatibility notes.
 
+<Update label="Starbase Update 25.08.2026">
+  ## API Changes
+
+  ### Order Entry
+
+  The production order entry SBE schema has been updated to version `15` (`semanticVersion` remains `1.5`):
+
+  * `OrderRejectReason` — new reason code `MMP_MIN_FREEZE_TIME_NOT_ELAPSED` (30): the MMP minimum freeze duration has not yet elapsed
+  * `MassQuoteRejectReason` — new reason code `MMP_MIN_FREEZE_TIME_NOT_ELAPSED` (9): the MMP minimum freeze duration has not yet elapsed
+
+  Orders, amends, and mass quotes submitted during the mandatory 1-second MMP freeze — including those that set the `resetMmp` flag — are rejected with this reason.
+
+  See [Rejection Reason Codes](/starbase/binary-api-reference#rejection-reason-codes) and [MassQuoteReject](/starbase/mass-quotes#massquotereject-232).
+</Update>
+
+<Update label="Starbase Update 24.08.2026">
+  ## API Changes
+
+  ### FIX Drop Copy
+
+  The Drop Copy application schema is now versioned. The current version is `1`:
+
+  * The [FIX Specification XML](/specifications/FIX50.xml) root carries `custApplVerId='1'`
+  * The gateway echoes the same value on the **server** Logon as `DefaultCstmApplVerID` (Tag `1408`). There is no version negotiation — the client does not send this tag, and the session remains fully backwards compatible. A higher value than you last integrated against means new fields may have been added; download the latest spec
+
+  See [FIX Version](/starbase/fix-drop-copy-api#fix-version) for full details.
+
+  ### REST gateway
+
+  `GET /api/v2/private/get_open_orders` now returns order flags:
+
+  * `post_only` — post-only (price is amended to the best bid/ask if the order would take). Corresponds to SBE `postOnly`
+  * `reject_post_only` — post-only reject (the order is rejected if it would take). Corresponds to SBE `postOnlyReject`. Mutually exclusive with `post_only`
+  * `reduce_only` — reduce-only. Per-order reduce-only originates from JSON-RPC or FIX; it cannot be set per order in SBE
+
+  See [Get Open Orders](/api-reference/trading/get-open-orders).
+</Update>
+
 <Update label="Starbase Release 11.08.2026">
   ## API Changes
 

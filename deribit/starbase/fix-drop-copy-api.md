@@ -35,23 +35,31 @@ The FIX Drop Copy API provides a complete record of orders and trades. It uses t
 
 The gateway uses **FIX 5.0 SP2 (FIXT.1.1)**. The `BeginString` field in the logon message must be set to `FIXT.1.1`. Connections using an older version (e.g. `FIX.4.4`) are rejected before parsing can identify the sender, so no reject message is returned.
 
+The Drop Copy application schema has its own version, independent of the FIX protocol version. It is declared as `custApplVerId` on the [FIX Specification XML](#downloads) root (currently `1`) and echoed by the gateway on a successful Logon as **`DefaultCstmApplVerID` (Tag 1408)**. There is **no version negotiation**: the client does not send this tag (if sent, it is ignored), and the session is fully backwards compatible regardless of the value. When Tag 1408 is higher than the `custApplVerId` you last integrated against, new fields may have been added; download the latest spec.
+
 ```text theme={null}
-Example FIX logon message
+Example FIX logon message (client)
 8=FIXT.1.1|9=280|35=A|49=<client_id>|56=CBDRBDC|34=1|52=<timestamp_in_ms>|98=0|108=30|141=Y|1137=9|553=<client_id>|554=<secret>|96=<raw_data>|95=78|58=<signature>|10=135|
+```
+
+```text theme={null}
+Example successful Logon from the server (note 1408=1)
+8=FIXT.1.1|9=...|35=A|49=CBDRBDC|56=<client_id>|34=1|52=<timestamp_in_ms>|98=0|108=30|141=Y|1137=9|1408=1|10=135|
 ```
 
 ### Logon Fields
 
-| Tag   | Name               | Value                                                                                                                                                                                                                                                                                                    |
-| ----- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 49    | SenderCompID       | Client-defined. Must remain consistent for the duration of the session.                                                                                                                                                                                                                                  |
-| 56    | TargetCompID       | `CBDRBDC`                                                                                                                                                                                                                                                                                                |
-| 553   | Username           | Client ID (API key)                                                                                                                                                                                                                                                                                      |
-| 554   | Password           | Client Secret (API Secret)                                                                                                                                                                                                                                                                               |
-| 96    | RawData            | `raw_data` as generated below                                                                                                                                                                                                                                                                            |
-| 58    | Text               | `signature` as generated below                                                                                                                                                                                                                                                                           |
-| 25001 | Messages           | `TRADES_ONLY`<br />`ORDERS_AND_TRADES`<br />`ALL_EVENTS` - Enabled by default                                                                                                                                                                                                                            |
-| 25002 | PortfolioScopeOnly | BOOLEAN. `Y` = scope this session to the single portfolio (subaccount) the credentials belong to; events for the Member's other subaccounts are **not** delivered. `N` or omitted = full per-Member feed (default). See [Scoping a Session to One Portfolio](#scoping-a-session-to-one-portfolio-25002). |
+| Tag   | Name                 | Value                                                                                                                                                                                                                                                                                                    |
+| ----- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 49    | SenderCompID         | Client-defined. Must remain consistent for the duration of the session.                                                                                                                                                                                                                                  |
+| 56    | TargetCompID         | `CBDRBDC`                                                                                                                                                                                                                                                                                                |
+| 553   | Username             | Client ID (API key)                                                                                                                                                                                                                                                                                      |
+| 554   | Password             | Client Secret (API Secret)                                                                                                                                                                                                                                                                               |
+| 96    | RawData              | `raw_data` as generated below                                                                                                                                                                                                                                                                            |
+| 58    | Text                 | `signature` as generated below                                                                                                                                                                                                                                                                           |
+| 1408  | DefaultCstmApplVerID | STRING. **Server-sent** on the Logon response. Matches `custApplVerId` on the [FIX Specification XML](#downloads) (currently `1`). Informational only — no negotiation, fully backwards compatible. See [FIX Version](#fix-version).                                                                     |
+| 25001 | Messages             | `TRADES_ONLY`<br />`ORDERS_AND_TRADES`<br />`ALL_EVENTS` - Enabled by default                                                                                                                                                                                                                            |
+| 25002 | PortfolioScopeOnly   | BOOLEAN. `Y` = scope this session to the single portfolio (subaccount) the credentials belong to; events for the Member's other subaccounts are **not** delivered. `N` or omitted = full per-Member feed (default). See [Scoping a Session to One Portfolio](#scoping-a-session-to-one-portfolio-25002). |
 
 ```python theme={null}
 import base64
@@ -401,5 +409,5 @@ The portfolio each event books to is carried in **Tag 1 `Account`** (the `portfo
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Creating a Starbase API Key](/starbase/creating-api-key.md)
+- [Starbase API Changelog](/changelogs/starbase.md)
 - [Starbase API Overview](/starbase/overview.md)
-- [Welcome to Deribit API](/index.md)

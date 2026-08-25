@@ -271,6 +271,6 @@ components:
 
 - [Spot Trading: Deribit and Coinbase-Routed Instruments](/articles/spot-trading-venues.md)
 - [Options Data Collection](/articles/options-data-collection-best-practices.md)
+- [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [public/get_index_chart_data](/api-reference/market-data/public-get_index_chart_data.md)
 - [public/get_funding_chart_data](/api-reference/market-data/public-get_funding_chart_data.md)
-- [public/get_volatility_index_data](/api-reference/market-data/public-get_volatility_index_data.md)

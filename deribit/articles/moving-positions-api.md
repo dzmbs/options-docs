@@ -228,5 +228,5 @@ Here's an example of moving multiple positions across different instruments in t
 - [private/move_positions](/api-reference/trading/private-move_positions.md)
 - [Managing Subaccounts](/articles/managing-subaccounts-api.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
+- [Liquidity Support Program (LSP) API Guide](/articles/lsp-api-guide.md)
 - [Order Management](/articles/order-management-best-practices.md)
-- [private/get_position](/api-reference/account-management/private-get_position.md)

@@ -445,8 +445,8 @@ securitySchemes: []
 
 ## Related topics
 
+- [Liquidity Support Program (LSP) API Guide](/articles/lsp-api-guide.md)
 - [user.liquidation ](/subscriptions/user/userliquidation.md)
 - [Mass Quotes Specifications](/articles/mass-quotes-specifications.md)
 - [user.lsp ](/subscriptions/user/userlsp.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
-- [private/get_user_trades_by_order](/api-reference/trading/private-get_user_trades_by_order.md)

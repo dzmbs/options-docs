@@ -853,5 +853,5 @@ components:
 - [private/get_account_summaries](/api-reference/account-management/private-get_account_summaries.md)
 - [JSON-RPC API Changelog](/changelogs/jsonrpc.md)
 - [Managing Subaccounts](/articles/managing-subaccounts-api.md)
+- [private/get_lsp_usage](/api-reference/lsp/private-get_lsp_usage.md)
 - [Rate Limits](/articles/rate-limits.md)
-- [Quickstart Guide](/articles/deribit-quickstart.md)
