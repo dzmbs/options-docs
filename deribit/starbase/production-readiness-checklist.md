@@ -141,4 +141,4 @@ If anything on this list is not working as expected:
 - [Starbase Connectivity Quickstart](/starbase/quickstart.md)
 - [Starbase API Overview](/starbase/overview.md)
 - [Infrastructure, Connectivity & Best Practices](/starbase/connectivity-best-practices.md)
-- [REST Order Gateway Authentication](/starbase/rest-authentication.md)
+- [Options Data Collection](/articles/options-data-collection-best-practices.md)

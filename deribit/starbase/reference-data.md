@@ -57,7 +57,7 @@ Starbase does not use contract counts or contract size for matching. All SBE ord
 | `USD`                                                  | Dollar value         |
 | The instrument's base currency, such as `BTC` or `ETH` | Number of coins      |
 
-Encode amounts directly as [`Decimal72`](/starbase/binary-api-reference#composite-types), determine whether the amount represents dollar value or coins from `quantityAsset`, and validate the value against `minOrderQuantity`.
+Encode amounts directly as [`Decimal72`](/starbase/binary-api-reference#data-types), determine whether the amount represents dollar value or coins from `quantityAsset`, and validate the value against `minOrderQuantity`.
 
 <Warning>
   Do not derive a contract count before sending an SBE `quantity`, and do not copy a FIX `OrderQty` expressed in contracts into an SBE message. `contract_size` and FIX `ContractMultiplier` remain available for standard JSON-RPC and FIX workflows, but Starbase does not consume either value.

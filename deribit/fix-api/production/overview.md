@@ -148,13 +148,13 @@ The FIX API supports the following message types organized by category:
 
 ### Changes Log
 
-* [Changes Log](/fix-api/production/changes-log) - Release history and changes
+* [Changes Log](/changelogs/fix) - Release history and changes
 
 
 ## Related topics
 
 - [Logon(A) — Production FIX API](/fix-api/production/logon.md)
 - [Logout(5) — Production FIX API](/fix-api/production/logout.md)
-- [Reject(3) — Production FIX API](/fix-api/production/reject.md)
 - [Heartbeat(0) — Production FIX API](/fix-api/production/heartbeat.md)
+- [Reject(3) — Production FIX API](/fix-api/production/reject.md)
 - [Sequence Reset(4) — Production FIX API](/fix-api/production/sequence-reset.md)

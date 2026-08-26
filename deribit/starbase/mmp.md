@@ -103,7 +103,7 @@ In this example:
 If your MMP protection has been triggered and quoting is frozen for a given index, you can resume quoting either automatically after the configured freeze time or manually via the Starbase Binary API.
 
 <Info>
-  If the configured `frozen_time` has expired, the system will automatically reset MMP and quoting resumes for that index
+  If the configured `frozen_time` has expired, the system will automatically reset MMP and quoting resumes for that index.
 </Info>
 
 <Note>
@@ -116,9 +116,9 @@ You can manually reset MMP using any of the following methods:
 
 1. **JSON-RPC API**: Call [`private/reset_mmp`](/api-reference/trading/private-reset_mmp) to reset MMP for a specific index or MMP group
 2. **Reset Flags in Order Messages**: Use reset flags in order entry messages to unfreeze MMP while placing or amending orders:
-   * [**NewOrderRequest**](/starbase/placing-new-order#neworderrequest) (Field 10, flag 5: `resetMmp`) - Unfreeze orders MMP group when placing a new order
-   * [**AmendOrderRequest**](/starbase/amending-order#amendorderrequest) (Field 7, flag 5: `resetMmp`) - Unfreeze orders MMP group when amending an existing order
-   * [**MassQuoteRequest**](/starbase/mass-quotes#massquoterequest) (Fields 14/15, flag 3: `resetMMP`) - If an MMP freeze is active, this flag will remove the freeze before processing the rest of the message. Keep in mind there is a mandatory `1` second freeze that can't be overruled
+   * [**NewOrderRequest**](/starbase/placing-new-order#neworderrequest-100) (Field 10, flag 5: `resetMmp`) - Unfreeze orders MMP group when placing a new order
+   * [**AmendOrderRequest**](/starbase/amending-order#amendorderrequest-110) (Field 7, flag 5: `resetMmp`) - Unfreeze orders MMP group when amending an existing order
+   * [**MassQuoteRequest**](/starbase/mass-quotes#massquoterequest-130) (Fields 14/15, flag 3: `resetMMP`) - If an MMP freeze is active, this flag will remove the freeze before processing the rest of the message. Keep in mind there is a mandatory `1` second freeze that can't be overruled
 
 <Warning>
   **Mandatory Minimum Freeze Period**: There is a mandatory minimum `1` second freeze period that cannot be overruled by any reset method (including reset flags). This minimum freeze period allows Deribit to properly risk manage. When using reset flags in order messages, the MMP freeze is removed before processing the order/quote, but you must wait at least 1 second after the MMP trigger before quoting can resume. Orders, amends, and mass quotes submitted before that window elapses are rejected with `MMP_MIN_FREEZE_TIME_NOT_ELAPSED` (`OrderRejectReason` `30`; `MassQuoteRejectReason` `9`).

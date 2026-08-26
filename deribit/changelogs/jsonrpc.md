@@ -25,7 +25,7 @@
 <Update label="Release 11.08.2026">
   **Estimated Liquidation Price (ELP) deprecation**
 
-  `estimated_liquidation_price` is being deprecated and will no longer be returned for Segregated Standard Margin (`segregated_sm`) accounts (it is currently only added for futures). ELP remains available via Position Builder and the Position Builder API. Affected methods: [private/get\_position](https://docs.deribit.com/api-reference/trading/private-get_position) and [private/get\_positions](https://docs.deribit.com/api-reference/trading/private-get_positions).
+  `estimated_liquidation_price` is being deprecated and will no longer be returned for Segregated Standard Margin (`segregated_sm`) accounts (it is currently only added for futures). ELP remains available via Position Builder and the Position Builder API. Affected methods: [private/get\_position](https://docs.deribit.com/api-reference/account-management/private-get_position) and [private/get\_positions](https://docs.deribit.com/api-reference/account-management/private-get_positions).
 
   **Unaggregated (`.raw`) market data**
 

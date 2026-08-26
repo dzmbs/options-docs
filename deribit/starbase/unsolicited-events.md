@@ -113,7 +113,7 @@ Unsolicited event sent when a speed-bumped order completes the speed bump period
 
 ### MassQuoteOrdersPlaced (314)
 
-Unsolicited event sent when one or more speed-bumped quote sides complete the speed bump period and are entered into the book. Sent to the session that originally submitted the `MassQuoteRequest`. Each placed side is reported as an entry in the `orders` repeating group (with `status` and `cancelReason`). When a side was converted to IOC during the bump, infer that from `status` / `cancelReason` — there is no separate `timeInForce` field. See [Speed Bumps — Mass quotes](/starbase/speed-bumps#mass-quotes--message-flow).
+Unsolicited event sent when one or more speed-bumped quote sides complete the speed bump period and are entered into the book. Sent to the session that originally submitted the `MassQuoteRequest`. Each placed side is reported as an entry in the `orders` repeating group (with `status` and `cancelReason`). When a side was converted to IOC during the bump, infer that from `status` / `cancelReason` — there is no separate `timeInForce` field. See [Speed Bumps — Mass quotes](/starbase/speed-bumps#mass-quotes-—-message-flow).
 
 | Field | Name                | Type      | Length | Description                                                                   |
 | ----- | ------------------- | --------- | ------ | ----------------------------------------------------------------------------- |
