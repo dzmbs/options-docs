@@ -2,337 +2,337 @@
   "files": {
     "market/iv.mdx": {
       "hash": "7fb3c0696e91d2675df99d740ad54c48f305864f90bfd9b4792954b6ba9ca659",
-      "last_updated": "2026-08-26T11:35:13.599037"
+      "last_updated": "2026-08-27T20:57:55.983867"
     },
     "account/coin-greeks.mdx": {
       "hash": "001e9244259abeb5c03e9010123213d3320af1ead87f0fb59282fa8d4f7b2945",
-      "last_updated": "2026-08-26T11:35:13.599171"
+      "last_updated": "2026-08-27T20:57:55.983992"
     },
     "account/set-mmp.mdx": {
       "hash": "fd85663619c5ecff2bfeff8e511402ff980ab5639c07f0d01db9035dacf7fff9",
-      "last_updated": "2026-08-26T11:35:13.599286"
+      "last_updated": "2026-08-27T20:57:55.984099"
     },
     "account/reset-mmp.mdx": {
       "hash": "868d9314aa72c2271d5175070a9a07139bfc2b73e2b01a7af5b42ae4393ae870",
-      "last_updated": "2026-08-26T11:35:13.599378"
+      "last_updated": "2026-08-27T20:57:55.984240"
     },
     "account/get-mmp-state.mdx": {
       "hash": "adbbc990d1a4fa3c2d76d79db708d9ffb17f5f493b3eb4066159076a712383fd",
-      "last_updated": "2026-08-26T11:35:13.599464"
+      "last_updated": "2026-08-27T20:57:55.984334"
     },
     "websocket/private/greek.mdx": {
       "hash": "7d0d0269bafd9c61e08c98f9dbce6528746f4b370c23e5dff96c40ecc756216a",
-      "last_updated": "2026-08-26T11:35:13.599575"
+      "last_updated": "2026-08-27T20:57:55.984440"
     },
     "intro.mdx": {
       "hash": "efd04d27d71a35ac60f1014b7d936b1be160bade904c2f036955150a919c6700",
-      "last_updated": "2026-08-26T11:35:13.599680"
+      "last_updated": "2026-08-27T20:57:55.984564"
     },
     "enum.mdx": {
       "hash": "42016649d515ebdd0ddb2a380451b4c97c91b43f0b05d124c082bb16ad1bc7aa",
-      "last_updated": "2026-08-26T11:35:13.599940"
+      "last_updated": "2026-08-27T20:57:55.984864"
     },
     "error.mdx": {
       "hash": "59816150cb6525fec9bb8eb35aefe708898af266bfdfc8183050cdef1ac08dd5",
-      "last_updated": "2026-08-26T11:35:13.600231"
+      "last_updated": "2026-08-27T20:57:55.985231"
     },
     "guide.mdx": {
       "hash": "ef81874d61a0e3b704e3564293aee146e66d4ed66e1c336b8f0e518d22bf6be5",
-      "last_updated": "2026-08-26T11:35:13.600482"
+      "last_updated": "2026-08-27T20:57:55.985384"
     },
     "smp.mdx": {
       "hash": "e8f33db0665b492767fbcefbf48708cde5562cb9d0d5dc3f56f23b0bc096f7e9",
-      "last_updated": "2026-08-26T11:35:13.600585"
+      "last_updated": "2026-08-27T20:57:55.985494"
     },
     "acct-mode.mdx": {
       "hash": "2d199862dd932f6f41bb80ddbb64c502699fca5ecf493c02500f8993b966e91f",
-      "last_updated": "2026-08-26T11:35:13.600690"
+      "last_updated": "2026-08-27T20:57:55.985606"
     },
     "market/instrument.mdx": {
-      "hash": "eebc437b632bd07b4531623466b5f5bc7c80f0451e367ea04772eccd5741dd71",
-      "last_updated": "2026-08-26T11:35:13.600948"
+      "hash": "83d86206fd76b3124f53a5b280bb9160b763734ec1c9212ce7b2d08b9fa6144c",
+      "last_updated": "2026-08-27T20:57:55.986065"
     },
     "market/orderbook.mdx": {
       "hash": "7b03269910d5db28da7770f0a89e5241f56d7d5d8d35750ee5a53922b609addb",
-      "last_updated": "2026-08-26T11:35:13.601049"
+      "last_updated": "2026-08-27T20:57:55.986205"
     },
     "market/tickers.mdx": {
       "hash": "e5deb74bcf9b2cc4281261be509322f3a358c4ac9d19c8817fe1431fa0eab21b",
-      "last_updated": "2026-08-26T11:35:13.601160"
+      "last_updated": "2026-08-27T20:57:55.986408"
     },
     "market/recent-trade.mdx": {
       "hash": "e754dc9ba6dfcd8f12cd73c6210e239580ccbeb7b332dc4891d667e170b6030d",
-      "last_updated": "2026-08-26T11:35:13.601249"
+      "last_updated": "2026-08-27T20:57:55.986515"
     },
     "market/delivery-price.mdx": {
       "hash": "3c54dbe56ae5fd76f86b65b186592d1473c99091a35f6e8e7526d6cad7671486",
-      "last_updated": "2026-08-26T11:35:13.601335"
+      "last_updated": "2026-08-27T20:57:55.986626"
     },
     "market/new-delivery-price.mdx": {
       "hash": "1d9b790117eead709d9357799ca9e933a53627b3cef23033791cad6517a41946",
-      "last_updated": "2026-08-26T11:35:13.601426"
+      "last_updated": "2026-08-27T20:57:55.986749"
     },
     "order/create-order.mdx": {
       "hash": "7b2e3fe52f321f575809f307740f90aa032ea1c52a8ae6ccd05343279c667ceb",
-      "last_updated": "2026-08-26T11:35:13.601528"
+      "last_updated": "2026-08-27T20:57:55.986881"
     },
     "order/amend-order.mdx": {
       "hash": "87774ce1c9ab5c36deafc34a37aee9f6f960ccc90c171848486f6446de554c91",
-      "last_updated": "2026-08-26T11:35:13.601613"
+      "last_updated": "2026-08-27T20:57:55.986996"
     },
     "order/cancel-order.mdx": {
       "hash": "823bfce2df5a91da0ae875e3f8ce76cd7752546a6168e465deace03f5e6c6498",
-      "last_updated": "2026-08-26T11:35:13.601693"
+      "last_updated": "2026-08-27T20:57:55.987101"
     },
     "order/open-order.mdx": {
       "hash": "77eee9504e632fcdf40fd8edadaefd82e70676715be2efaa10fae7e397626ab6",
-      "last_updated": "2026-08-26T11:35:13.601792"
+      "last_updated": "2026-08-27T20:57:55.987233"
     },
     "order/cancel-all.mdx": {
       "hash": "c82242b6d35235f23faacd4edc541b498b8c2d82aa3882406a1bd2842b7af2ad",
-      "last_updated": "2026-08-26T11:35:13.601873"
+      "last_updated": "2026-08-27T20:57:55.987340"
     },
     "order/order-list.mdx": {
       "hash": "b38633725f5b692c615f0b37daca7e3a8d8ea86566eebbd927d9e535b470a743",
-      "last_updated": "2026-08-26T11:35:13.601959"
+      "last_updated": "2026-08-27T20:57:55.987456"
     },
     "order/execution.mdx": {
       "hash": "8928bed4139564d7f9a90e9ab2138520966c40dd306e5d373851faa6670f76bb",
-      "last_updated": "2026-08-26T11:35:13.602053"
+      "last_updated": "2026-08-27T20:57:55.987562"
     },
     "order/batch-place.mdx": {
       "hash": "ba93ac92630b0a29357b14ecdc35849190d23cc5cdba9a93a75182a5c1dcd371",
-      "last_updated": "2026-08-26T11:35:13.602217"
+      "last_updated": "2026-08-27T20:57:55.987681"
     },
     "order/batch-amend.mdx": {
       "hash": "7fb3c558d98cfff07d9fa140af5f0aab1207999e26c83ed37959f43091199fcc",
-      "last_updated": "2026-08-26T11:35:13.602354"
+      "last_updated": "2026-08-27T20:57:55.987788"
     },
     "order/batch-cancel.mdx": {
       "hash": "b3ec017e35fe7695e57321141d83e6b17de79ca5362c8e40ae4e5bb02de75c9e",
-      "last_updated": "2026-08-26T11:35:13.602484"
+      "last_updated": "2026-08-27T20:57:55.987889"
     },
     "order/dcp.mdx": {
       "hash": "aa040fdb06b073f39c9404a88004c3b209d5644afd0e224f86fc4ead55e1b70e",
-      "last_updated": "2026-08-26T11:35:13.602546"
+      "last_updated": "2026-08-27T20:57:55.987990"
     },
     "order/pre-check-order.mdx": {
       "hash": "3e6b77bed6a375c217a68d4beae6da06b56834351611912aac9c0841a25cff63",
-      "last_updated": "2026-08-26T11:35:13.602603"
+      "last_updated": "2026-08-27T20:57:55.988092"
     },
     "position/position.mdx": {
       "hash": "a799aadae003f8f6c449ca73c9f3e7482d8524f7d8a0364fb5f654cb2332703b",
-      "last_updated": "2026-08-26T11:35:13.602670"
+      "last_updated": "2026-08-27T20:57:55.988233"
     },
     "position/close-position.mdx": {
       "hash": "89337b80229d0623a5fe8640a05054c0f45acb71438320c4645207d2c2371079",
-      "last_updated": "2026-08-26T11:35:13.602727"
+      "last_updated": "2026-08-27T20:57:55.988339"
     },
     "position/move-position.mdx": {
       "hash": "fa840b5ea7f234d8e1c243eb3fb48f9485285c67f20303c91aa28be2b390e224",
-      "last_updated": "2026-08-26T11:35:13.602799"
+      "last_updated": "2026-08-27T20:57:55.988443"
     },
     "position/move-position-history.mdx": {
       "hash": "9680c441869537e8871f5db0f16eecf34edaa8ae75d0963ebdd02b1a393581cf",
-      "last_updated": "2026-08-26T11:35:13.602854"
+      "last_updated": "2026-08-27T20:57:55.988545"
     },
     "account/wallet-balance.mdx": {
       "hash": "002a351976872856bcceee76c11a268c35ffa61573f022a1b9fce04532df51f2",
-      "last_updated": "2026-08-26T11:35:13.602929"
+      "last_updated": "2026-08-27T20:57:55.988679"
     },
     "account/fee-rate.mdx": {
       "hash": "8966137d53620f85799a70938cedde4bf9da02d2f43f5ee38b516132df33449d",
-      "last_updated": "2026-08-26T11:35:13.602983"
+      "last_updated": "2026-08-27T20:57:55.988779"
     },
     "account/account-info.mdx": {
       "hash": "cc9d691b8b8164b46d63bbb22fbc0e8b37b26ce5a7611ac9b0909a62ed320249",
-      "last_updated": "2026-08-26T11:35:13.603034"
+      "last_updated": "2026-08-27T20:57:55.988879"
     },
     "account/transaction-log.mdx": {
       "hash": "dcc5b77a68fa07097b5e857b73f8c54212cfec08c6494dfdf61e02573f6e63da",
-      "last_updated": "2026-08-26T11:35:13.603092"
+      "last_updated": "2026-08-27T20:57:55.988989"
     },
     "account/set-margin-mode.mdx": {
       "hash": "0dd54a5f8b8bdb2b4e47b85e1919f09e46fc954b61489dd4b6c2031f360456bc",
-      "last_updated": "2026-08-26T11:35:13.603144"
+      "last_updated": "2026-08-27T20:57:55.989092"
     },
     "account/dcp-info.mdx": {
       "hash": "77448d44aba446fd3a6f4bc4d62195ffbdd8580c5fe817bcad6cc5c6577ad1f7",
-      "last_updated": "2026-08-26T11:35:13.603195"
+      "last_updated": "2026-08-27T20:57:55.989197"
     },
     "account/unified-trans-amnt.mdx": {
       "hash": "7be4f215149ea6390895f342deae5a183f94317d5c0b94905058ad5d875f5e0d",
-      "last_updated": "2026-08-26T11:35:13.603247"
+      "last_updated": "2026-08-27T20:57:55.989300"
     },
     "websocket/public/orderbook.mdx": {
       "hash": "8f1e84531837badc26e15dfec82fbf1fe16a964abcf94c7d322d25c0d8930874",
-      "last_updated": "2026-08-26T11:35:13.603307"
+      "last_updated": "2026-08-27T20:57:55.989407"
     },
     "websocket/public/trade.mdx": {
       "hash": "1b1bc5a51a975311808c87f1f413090e95a2b3a64407e56b5369217a0d585ee1",
-      "last_updated": "2026-08-26T11:35:13.603359"
+      "last_updated": "2026-08-27T20:57:55.989501"
     },
     "websocket/public/ticker.mdx": {
       "hash": "0854e2aff0976d2ca23784e5cf1114e0d456ed3b8c710fb3db682c30cf36436c",
-      "last_updated": "2026-08-26T11:35:13.603425"
+      "last_updated": "2026-08-27T20:57:55.989630"
     },
     "websocket/public/kline.mdx": {
       "hash": "012ff03d58e65a4cd6d24781c5808d8c0b0c9d22f536936a951b27fb04bd2128",
-      "last_updated": "2026-08-26T11:35:13.603475"
+      "last_updated": "2026-08-27T20:57:55.989723"
     },
     "websocket/public/all-liquidation.mdx": {
       "hash": "0a5e2c48fe3c7c04eac3c651a9966141164f02816b239d72f3c5442da311f15d",
-      "last_updated": "2026-08-26T11:35:13.603526"
+      "last_updated": "2026-08-27T20:57:55.989815"
     },
     "websocket/private/order.mdx": {
       "hash": "34ce7c7c2fa458339e931e00a0488bed51330305739a412098b9e1bbe72a3a6b",
-      "last_updated": "2026-08-26T11:35:13.603584"
+      "last_updated": "2026-08-27T20:57:55.989924"
     },
     "websocket/private/execution.mdx": {
       "hash": "b732b0d217f3eb5823cf5ca6280736e4dd60404c9a89cf07a6397172b3a0fa7a",
-      "last_updated": "2026-08-26T11:35:13.603638"
+      "last_updated": "2026-08-27T20:57:55.990018"
     },
     "websocket/private/fast-execution.mdx": {
       "hash": "b5a4fe9e7b0cf4f44ff7763217960864b2ae103ac702062b995efb48d99627fe",
-      "last_updated": "2026-08-26T11:35:13.603689"
+      "last_updated": "2026-08-27T20:57:55.990097"
     },
     "websocket/private/position.mdx": {
       "hash": "fa392abae69fdc440670364cfe6493b930028d419a17eae271412b83744fca9f",
-      "last_updated": "2026-08-26T11:35:13.603796"
+      "last_updated": "2026-08-27T20:57:55.990229"
     },
     "websocket/private/wallet.mdx": {
       "hash": "84f036aeadf7d6332023136cc9e6deefad5ca6b6381e21474e5ea2a431d49bff",
-      "last_updated": "2026-08-26T11:35:13.603897"
+      "last_updated": "2026-08-27T20:57:55.990386"
     },
     "websocket/private/dcp.mdx": {
       "hash": "3bcd8b03bc94972c11714ad807ba71ca56481dca31ab247af7aebb151270bf00",
-      "last_updated": "2026-08-26T11:35:13.603950"
+      "last_updated": "2026-08-27T20:57:55.990492"
     },
     "websocket/wss-authentication.mdx": {
       "hash": "372bc4516d75b020763b038382e5793abf22daa2d6a1664035e664c23686d37a",
-      "last_updated": "2026-08-26T11:35:13.604073"
+      "last_updated": "2026-08-27T20:57:55.990619"
     },
     "websocket/trade/guideline.mdx": {
       "hash": "84e3803a7d7ebe11f060796790a4565f2e12b656bb5f9a322a85e4b14e399bc6",
-      "last_updated": "2026-08-26T11:35:13.604145"
+      "last_updated": "2026-08-27T20:57:55.990757"
     },
     "rate-limit/rate-limit.mdx": {
       "hash": "6e41e5f39f905812006f7dea9342c640e594ced7df1edec532af97a25c61ad32",
-      "last_updated": "2026-08-26T11:35:13.604272"
+      "last_updated": "2026-08-27T20:57:55.991009"
     },
     "pre-upgrade/order-list.mdx": {
       "hash": "437ac5e0c615f02cc05687a98431678946f9e5625c4795aa96f9ba21e9bfd5ef",
-      "last_updated": "2026-08-26T11:35:13.604336"
+      "last_updated": "2026-08-27T20:57:55.991135"
     },
     "pre-upgrade/execution.mdx": {
       "hash": "6a583de8052c740e31ecd1f993c59e650dfbad308753d0f4e4aade1b1dfd9b0c",
-      "last_updated": "2026-08-26T11:35:13.604390"
+      "last_updated": "2026-08-27T20:57:55.991279"
     },
     "pre-upgrade/delivery.mdx": {
       "hash": "4c4cb3c7127fe3c0739ed6abcee66def0c479fb0368374e50cc1c895b6138a79",
-      "last_updated": "2026-08-26T11:35:13.604442"
+      "last_updated": "2026-08-27T20:57:55.991393"
     },
     "pre-upgrade/settlement.mdx": {
       "hash": "958c36c83cc07c6a135ed679db0c7a0081445d6dc1ad331ce538770ab02bd91f",
-      "last_updated": "2026-08-26T11:35:13.604493"
+      "last_updated": "2026-08-27T20:57:55.991504"
     },
     "pre-upgrade/transaction-log.mdx": {
       "hash": "e916717e45f096fe1d71d173c18ab2f6a62db076e20f3907822d9b78842c7dcf",
-      "last_updated": "2026-08-26T11:35:13.604550"
+      "last_updated": "2026-08-27T20:57:55.991633"
     },
     "asset/delivery.mdx": {
       "hash": "dc6a774c356e57ddbabaefad7849b996cec6cdf471e4a0800d7c20285136616d",
-      "last_updated": "2026-08-26T11:35:13.604605"
+      "last_updated": "2026-08-27T20:57:55.991806"
     },
     "rfq/basic-workflow.mdx": {
       "hash": "73e46d24c18832936887240bd0dd7170e10fb6120b3a12e99b3e6b2fd1bc9259",
-      "last_updated": "2026-08-26T11:35:13.604664"
+      "last_updated": "2026-08-27T20:57:55.991937"
     },
     "rfq/trade/create-rfq.mdx": {
       "hash": "a91a58eb658bd3830ba7d7c7c6a5d2d74f3b882c660a724e1704f3b0bfbaffa7",
-      "last_updated": "2026-08-26T11:35:13.604729"
+      "last_updated": "2026-08-27T20:57:55.992060"
     },
     "rfq/trade/cancel-rfq.mdx": {
       "hash": "a27bde8cd3272a7be739ddeaeef5fcc3bbfbef3c5ee3e3324723666b5ab66a71",
-      "last_updated": "2026-08-26T11:35:13.604816"
+      "last_updated": "2026-08-27T20:57:55.992162"
     },
     "rfq/trade/cancel-all-rfq.mdx": {
       "hash": "a04768fe556481eb727935cd6bedf0e03b71f9f518332fd8e697d797da22d6b4",
-      "last_updated": "2026-08-26T11:35:13.604882"
+      "last_updated": "2026-08-27T20:57:55.992280"
     },
     "rfq/trade/rfq-realtime.mdx": {
       "hash": "d1f8178f190412b53c83abf52d67dfd8ac38a4d48be70da6220aeed39b580711",
-      "last_updated": "2026-08-26T11:35:13.604961"
+      "last_updated": "2026-08-27T20:57:55.992383"
     },
     "rfq/trade/rfq-list.mdx": {
       "hash": "820ac45de513d6709d85d8f0fc0dc2ba988fc903b684edb665207d3d706ec901",
-      "last_updated": "2026-08-26T11:35:13.605056"
+      "last_updated": "2026-08-27T20:57:55.992490"
     },
     "rfq/trade/rfq-config.mdx": {
       "hash": "206a3d152eac680c1cdcc02a0e620fc2372d9c4aa656b8cb995f57f10e1cb39f",
-      "last_updated": "2026-08-26T11:35:13.605148"
+      "last_updated": "2026-08-27T20:57:55.992587"
     },
     "rfq/trade/create-quote.mdx": {
       "hash": "2b004a4d94303ff4bedbed1f3390383eba685e763acf42bd64e765212d879ba6",
-      "last_updated": "2026-08-26T11:35:13.605235"
+      "last_updated": "2026-08-27T20:57:55.992701"
     },
     "rfq/trade/cancel-quote.mdx": {
       "hash": "010a67c6078ef850d2f5cbd63a91ebd3c8cbd25d9458ea4cf00622d43c297a3b",
-      "last_updated": "2026-08-26T11:35:13.605314"
+      "last_updated": "2026-08-27T20:57:55.992799"
     },
     "rfq/trade/cancel-all-quotes.mdx": {
       "hash": "2f2a61c5782139d34d75aea4b6350c0a7a9b7fb1ff0fa3a2864c2f39ac9c24b4",
-      "last_updated": "2026-08-26T11:35:13.605389"
+      "last_updated": "2026-08-27T20:57:55.992895"
     },
     "rfq/trade/quote-realtime.mdx": {
       "hash": "5661c245d32d63826673ec3ed5a4ee34dc33581d4d41378fff8a51a48d533370",
-      "last_updated": "2026-08-26T11:35:13.605461"
+      "last_updated": "2026-08-27T20:57:55.992997"
     },
     "rfq/trade/quote-list.mdx": {
       "hash": "101c8d3070b00126a059e93e04e58ec358394ca1658597c57651bdf0b7805525",
-      "last_updated": "2026-08-26T11:35:13.605530"
+      "last_updated": "2026-08-27T20:57:55.993099"
     },
     "rfq/trade/execute-quote.mdx": {
       "hash": "c80065ac119cac68f1d34b61b2d46f36196e5166bc3cb3ab18040f382e017fd5",
-      "last_updated": "2026-08-26T11:35:13.605600"
+      "last_updated": "2026-08-27T20:57:55.993222"
     },
     "rfq/trade/accept-other-quote.mdx": {
       "hash": "20960d0814679154b9cb636cc1e8b07b775e3d8a97a59353068431f971daf068",
-      "last_updated": "2026-08-26T11:35:13.605662"
+      "last_updated": "2026-08-27T20:57:55.993321"
     },
     "rfq/trade/trade-list.mdx": {
       "hash": "49a8e61ad4242da116ac9101bb6be0ff4517dc97898bad0155ec93473f5c3dfc",
-      "last_updated": "2026-08-26T11:35:13.605717"
+      "last_updated": "2026-08-27T20:57:55.993424"
     },
     "rfq/trade/public-trades.mdx": {
       "hash": "ced9fac920f21657d5cc2f18d39f018142b79312815209e11d29fdf3c73217b9",
-      "last_updated": "2026-08-26T11:35:13.605792"
+      "last_updated": "2026-08-27T20:57:55.993526"
     },
     "rfq/websocket/private/inquiry.mdx": {
       "hash": "97c882392270e14a17651d57c4ec9391f50b634d64eff4ee436d1a7b6296c271",
-      "last_updated": "2026-08-26T11:35:13.605850"
+      "last_updated": "2026-08-27T20:57:55.993630"
     },
     "rfq/websocket/private/quote.mdx": {
       "hash": "eabd132e46f01082216b7a924b942b20abe4a1d46a7718f81e74580eecbc2ea7",
-      "last_updated": "2026-08-26T11:35:13.605905"
+      "last_updated": "2026-08-27T20:57:55.993735"
     },
     "rfq/websocket/private/transaction.mdx": {
       "hash": "7dcbc7be16415e54e36a5d75e9ddf31ee6db2284c0139c979a9c7c0f180e8697",
-      "last_updated": "2026-08-26T11:35:13.605962"
+      "last_updated": "2026-08-27T20:57:55.993838"
     },
     "rfq/websocket/public/public-transaction.mdx": {
       "hash": "8b349e36133bde333c877c81aeb364cce52f44414a56245b027cf83a9e9ba6c7",
-      "last_updated": "2026-08-26T11:35:13.606015"
+      "last_updated": "2026-08-27T20:57:55.993946"
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-08-26T11:35:13.607028",
-    "duration_seconds": 1.76794,
+    "completed_at": "2026-08-27T20:57:55.995133",
+    "duration_seconds": 1.925682,
     "source_repo": "https://github.com/bybit-exchange/docs.git",
     "files_total": 81,
     "files_fetched": 81,
     "files_failed": 0,
     "failed_files": []
   },
-  "last_updated": "2026-08-26T11:35:13.607035"
+  "last_updated": "2026-08-27T20:57:55.995142"
 }
