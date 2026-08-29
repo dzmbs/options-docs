@@ -1452,8 +1452,8 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-08-28T21:34:38.856966",
-    "duration_seconds": 217.878476,
+    "completed_at": "2026-08-29T15:43:03.710807",
+    "duration_seconds": 213.080551,
     "pages_total": 291,
     "pages_fetched": 290,
     "pages_failed": 1,
@@ -1461,6 +1461,6 @@
       "https://docs.derive.xyz/reference/institutional-trading-rewards-program"
     ]
   },
-  "last_updated": "2026-08-28T21:34:38.856983",
+  "last_updated": "2026-08-29T15:43:03.710819",
   "source": "https://docs.derive.xyz"
 }
