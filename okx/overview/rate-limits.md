@@ -28,6 +28,8 @@ For Trading-related APIs (place order, cancel order, and amend order) the follow
 
 - Rate limits for a multiple order endpoint and a single order endpoint are also independent, with the exception being when there is only one order sent to a multiple order endpoint, the order will be counted as a single order and adopt the single order rate limit.
 
+- An order can have at most 3 amend requests in progress at the same time. A further amend request submitted while 3 are still in progress is rejected with error code 51513.
+
 ### Sub-account rate limit
 
 At the sub-account level, we allow a maximum of 1000 order requests per 2 seconds. Only new order requests and amendment order requests will be counted towards this limit. The limit encompasses all requests from the endpoints below. For batch order requests consisting of multiple orders, each order will be counted individually. Error code 50061 is returned when the sub-account rate limit is exceeded. The existing rate limit rule per instrument ID remains unchanged and the existing rate limit and sub-account rate limit will operate in parallel. If clients require a higher rate limit, clients can trade via multiple sub-accounts.
