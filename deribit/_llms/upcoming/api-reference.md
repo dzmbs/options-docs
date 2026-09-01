@@ -2,7 +2,7 @@
 
 ## API Reference
 
-- [Upcoming / API Reference / JSON-RPC API (184 pages)](https://docs.deribit.com/_llms/upcoming/api-reference/json-rpc-api.md): Documentation for Upcoming / API Reference / JSON-RPC API.
+- [Upcoming / API Reference / JSON-RPC API (187 pages)](https://docs.deribit.com/_llms/upcoming/api-reference/json-rpc-api.md): Documentation for Upcoming / API Reference / JSON-RPC API.
 
 ### Subscription Channels
 

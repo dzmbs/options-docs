@@ -2,7 +2,7 @@
 
 ## API Reference
 
-- [Production / API Reference / JSON-RPC API (183 pages)](https://docs.deribit.com/_llms/production/api-reference/json-rpc-api.md): Documentation for Production / API Reference / JSON-RPC API.
+- [Production / API Reference / JSON-RPC API (187 pages)](https://docs.deribit.com/_llms/production/api-reference/json-rpc-api.md): Documentation for Production / API Reference / JSON-RPC API.
 
 ### Subscription Channels
 

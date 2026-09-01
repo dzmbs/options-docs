@@ -2,7 +2,7 @@
 
 ## Production
 
-- [Production / API Reference (303 pages)](https://docs.deribit.com/_llms/production/api-reference.md): Documentation for Production / API Reference.
+- [Production / API Reference (307 pages)](https://docs.deribit.com/_llms/production/api-reference.md): Documentation for Production / API Reference.
 
 ### Overview
 
@@ -36,6 +36,7 @@
 - [Managing Transfers](https://docs.deribit.com/articles/managing-transfers-api.md): Transfer funds between the main account and subaccounts or to other Deribit users using the API, including two-step confirmation flows for security.
 - [Managing Subaccounts](https://docs.deribit.com/articles/managing-subaccounts-api.md): Create, rename, configure permissions, and manage Deribit subaccounts programmatically via API for team access control and portfolio segregation.
 - [Managing Withdrawals](https://docs.deribit.com/articles/managing-withdrawals-api.md): Whitelist withdrawal addresses, create withdrawal requests, and handle Travel Rule compliance through Deribit API endpoints for crypto asset payouts.
+- [Coinbase Wallet API](https://docs.deribit.com/articles/coinbase-wallet-api.md): Wallet API behavior for Coinbase-custodied Deribit accounts: network selection, deposit addresses, address book and CTN counterparties, and withdrawals.
 - [Moving Positions](https://docs.deribit.com/articles/moving-positions-api.md): Transfer open positions between Deribit subaccounts using the API, including required permissions, valuation, and settlement of moved contracts.
 - [Block Trading](https://docs.deribit.com/articles/block-trading-api.md): Negotiate and execute block trades between two counterparties on Deribit via API, including quote verification, approval, and settlement workflows.
 - [Voice Broker Trading API](https://docs.deribit.com/articles/voice-broker-trading-api.md): How voice brokers submit block trades for clients on Deribit and how clients approve, reject, and monitor those trades via API endpoints and events.
