@@ -68,7 +68,7 @@ print(result)
 | --- | --- | --- | --- |
 | instId | String | Yes | Instrument ID, e.g. `BTC-USDT` |
 | tdMode | String | Yes | Trade modeMargin mode `cross` `isolated` (`isolated` is only applicable to spot margin isolated)Non-Margin mode `cash``spot_isolated` (only applicable to SPOT lead trading, `tdMode` should be `spot_isolated` for `SPOT` lead trading.)Note: `isolated` (spot margin isolated) is not available in multi-currency margin mode and portfolio margin mode. Event contracts symbols only support `isolated` |
-| ccy | String | No | Margin currency Applicable to all `isolated` `MARGIN` orders and `cross` `MARGIN` orders in `Futures mode`. |
+| ccy | String | Conditional | Margin currencyOptional in general. Required for `isolated` `MARGIN` orders and `cross` `MARGIN` orders in `Futures mode`. |
 | clOrdId | String | No | Client Order ID as assigned by the client A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters.Only applicable to general order. It will not be posted to algoId when placing TP/SL order after the general order is filled completely. |
 | tag | String | No | Order tag A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 16 characters. |
 | side | String | Yes | Order side, `buy` `sell` |
@@ -334,7 +334,7 @@ print(result)
 | --- | --- | --- | --- |
 | instId | String | Yes | Instrument ID, e.g. `BTC-USDT` |
 | tdMode | String | Yes | Trade modeMargin mode `cross` `isolated`Non-Margin mode `cash``spot_isolated` (only applicable to SPOT lead trading, `tdMode` should be `spot_isolated` for `SPOT` lead trading.)Note: `isolated` is not available in multi-currency margin mode and portfolio margin mode. Event contracts symbols only support `isolated` |
-| ccy | String | No | Margin currency Applicable to all `isolated` `MARGIN` orders and `cross` `MARGIN` orders in `Futures mode`. |
+| ccy | String | Conditional | Margin currencyOptional in general. Required for `isolated` `MARGIN` orders and `cross` `MARGIN` orders in `Futures mode`. |
 | clOrdId | String | No | Client Order ID as assigned by the client A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters. |
 | tag | String | No | Order tag A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 16 characters. |
 | side | String | Yes | Order side `buy` `sell` |
@@ -3780,7 +3780,7 @@ Request Example
 | args | Array of objects | Yes | Request parameters |
 | > instIdCode | Integer | 是 | Instrument ID code. |
 | > tdMode | String | Yes | Trade mode Margin mode `isolated` `cross` Non-Margin mode `cash``spot_isolated` (only applicable to SPOT lead trading, `tdMode` should be `spot_isolated` for `SPOT` lead trading.) Event contracts symbols only support `isolated` |
-| > ccy | String | No | Margin currency Applicable to all `isolated` `MARGIN` orders and `cross` `MARGIN` orders in `Futures mode`. |
+| > ccy | String | Conditional | Margin currencyOptional in general. Required for `isolated` `MARGIN` orders and `cross` `MARGIN` orders in `Futures mode`. |
 | > clOrdId | String | No | Client Order ID as assigned by the client A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters. |
 | > tag | String | No | Order tag A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 16 characters. |
 | > side | String | Yes | Order side, `buy` `sell` |
@@ -4065,7 +4065,7 @@ Request Example
 | args | Array of objects | Yes | Request Parameters |
 | > instIdCode | Integer | Yes | Instrument ID code. |
 | > tdMode | String | Yes | Trade mode Margin mode `isolated` `cross` Non-Margin mode `cash``spot_isolated` (only applicable to SPOT lead trading, `tdMode` should be `spot_isolated` for `SPOT` lead trading.)Note: `isolated` is not available in multi-currency margin mode and portfolio margin mode. Event contracts symbols only support `isolated` |
-| > ccy | String | No | Margin currency Applicable to all `isolated` `MARGIN` orders and `cross` `MARGIN` orders in `Futures mode`. |
+| > ccy | String | Conditional | Margin currencyOptional in general. Required for `isolated` `MARGIN` orders and `cross` `MARGIN` orders in `Futures mode`. |
 | > clOrdId | String | No | Client Order ID as assigned by the client A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 32 characters. |
 | > tag | String | No | Order tag A combination of case-sensitive alphanumerics, all numbers, or all letters of up to 16 characters. |
 | > side | String | Yes | Order side, `buy` `sell` |
