@@ -2,7 +2,7 @@
 
 ## API Reference
 
-- [Upcoming / API Reference / JSON-RPC API (187 pages)](https://docs.deribit.com/_llms/upcoming/api-reference/json-rpc-api.md): Documentation for Upcoming / API Reference / JSON-RPC API.
+- [Upcoming / API Reference / JSON-RPC API (188 pages)](https://docs.deribit.com/_llms/upcoming/api-reference/json-rpc-api.md): Documentation for Upcoming / API Reference / JSON-RPC API.
 
 ### Subscription Channels
 
@@ -166,7 +166,7 @@
 
 ##### Session Messages
 
-- [Starbase Session Messages](https://docs.deribit.com/starbase/session-messages.md): Session-level messages in the Starbase Binary API covering logon with schemaVersion negotiation, heartbeat, logout, and gateway connection lifecycle rejects.
+- [Starbase Session Messages](https://docs.deribit.com/starbase/session-messages.md): Session-level messages in the Starbase Binary API: logon and sequence-number handling, weekly sequence reset, heartbeat, logout, and session rejects.
 
 ##### Order Entry Messages
 

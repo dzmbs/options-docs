@@ -2,43 +2,43 @@
   "files": {
     "_llms/production.md": {
       "source_url": "https://docs.deribit.com/_llms/production.md",
-      "hash": "7e36c82b63378330c5e4d77b637685a2244120882d12ab3da7422ea2029663ed",
-      "last_updated": "2026-09-01T15:26:57.510998"
+      "hash": "b289d452507a658e79997b487e400af7b6be8b9fbf6c68a709c172908058e901",
+      "last_updated": "2026-09-07T16:21:21.268834"
     },
     "_llms/production/api-reference.md": {
       "source_url": "https://docs.deribit.com/_llms/production/api-reference.md",
-      "hash": "566c0642272073adeacdc6c38dfe6ed99c7de8f5de7f5cac449eb7b7f457c086",
-      "last_updated": "2026-09-01T15:26:58.513926"
+      "hash": "56c2de48d8ccd9547bf8f87cdde8f5366fcb40c0c8966ceb4a8aad44f6518a9d",
+      "last_updated": "2026-09-07T16:21:22.302807"
     },
     "_llms/production/api-reference/json-rpc-api.md": {
       "source_url": "https://docs.deribit.com/_llms/production/api-reference/json-rpc-api.md",
-      "hash": "9fb05953444feaad658da1f3648b4939b5ad92208f7d333377b8b40bea545c5d",
-      "last_updated": "2026-09-01T15:26:59.084743"
+      "hash": "93a012d2c44f45b479d8d3684f58200e7a6423b7c90463c0fb6db3da4e59698d",
+      "last_updated": "2026-09-07T16:21:22.991162"
     },
     "_llms/upcoming.md": {
       "source_url": "https://docs.deribit.com/_llms/upcoming.md",
-      "hash": "35bb6c59a4bb19450a404a2064aeec224da5bbfed684e8ac383a629f2d9e8e5a",
-      "last_updated": "2026-09-01T15:26:59.959443"
+      "hash": "600753b93328e7e889d5058bbde3ac9b21e91718726def7a5175148e8f1e341f",
+      "last_updated": "2026-09-07T16:21:23.663224"
     },
     "_llms/upcoming/api-reference.md": {
       "source_url": "https://docs.deribit.com/_llms/upcoming/api-reference.md",
-      "hash": "8758867dcc88cc52837f5a4366d4ebfbe4e79bcf20fd038ab1b69e38e5b61f04",
-      "last_updated": "2026-09-01T15:27:00.792351"
+      "hash": "31ecdc3e970cf803267a099efffff028f130696e47fb051d86df7584a4314a68",
+      "last_updated": "2026-09-07T16:21:24.346301"
     },
     "_llms/upcoming/api-reference/json-rpc-api.md": {
       "source_url": "https://docs.deribit.com/_llms/upcoming/api-reference/json-rpc-api.md",
-      "hash": "5634e2a73981e88199d09335c358b1c05a44a09005723ed7b01e3b1e13f649fd",
-      "last_updated": "2026-09-01T15:27:01.883800"
+      "hash": "e03f7efda70805cdcf3aaa27349e41cfc836a42ebfd018738c62a9c4ab0e48b4",
+      "last_updated": "2026-09-07T16:21:25.055211"
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-09-06T14:04:10.650036",
-    "duration_seconds": 5.016285,
+    "completed_at": "2026-09-07T16:21:25.056037",
+    "duration_seconds": 4.315998,
     "pages_total": 6,
     "pages_fetched": 6,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-09-06T14:04:10.650052",
+  "last_updated": "2026-09-07T16:21:25.056054",
   "source": "https://docs.deribit.com"
 }

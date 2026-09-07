@@ -2,7 +2,7 @@
 
 ## Upcoming
 
-- [Upcoming / API Reference (307 pages)](https://docs.deribit.com/_llms/upcoming/api-reference.md): Documentation for Upcoming / API Reference.
+- [Upcoming / API Reference (308 pages)](https://docs.deribit.com/_llms/upcoming/api-reference.md): Documentation for Upcoming / API Reference.
 
 ### Overview
 
@@ -29,6 +29,7 @@
 - [Market Data Collection](https://docs.deribit.com/articles/market-data-collection-best-practices.md): Strategies for efficient Deribit market data ingestion — snapshots, incremental updates, throttling, and choosing the right channels per instrument.
 - [Options Data Collection](https://docs.deribit.com/articles/options-data-collection-best-practices.md): Collect Deribit options market data efficiently — order books, ticker greeks, mark prices, implied volatility, combos, trades, and settlement data.
 - [Order Management](https://docs.deribit.com/articles/order-management-best-practices.md): High-performance order management on Deribit — batching, cancel and replace flows, label usage, and avoiding rate limit throttling under load.
+- [Using the currency Parameter](https://docs.deribit.com/articles/currency-parameter.md): Discover supported currencies with get_currencies, learn what currency selects on each Deribit method, and avoid invalid currency and spot routing errors.
 
 #### Guides
 

@@ -6,6 +6,7 @@
 
 - [JSON-RPC 2.0 Protocol](https://docs.deribit.com/articles/json-rpc-overview.md): Deribit API uses JSON-RPC 2.0 for all API communications. This standardized protocol provides a simple and consistent way to make remote procedure calls.
 - [Error Codes](https://docs.deribit.com/articles/errors.md): Complete reference of Deribit API error codes, HTTP status meanings, and guidance on handling common failure scenarios in production client code.
+- [Using the currency Parameter](https://docs.deribit.com/articles/currency-parameter.md): Discover supported currencies with get_currencies, learn what currency selects on each Deribit method, and avoid invalid currency and spot routing errors.
 
 ### Methods
 
