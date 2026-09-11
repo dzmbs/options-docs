@@ -2,7 +2,7 @@
 
 ## Upcoming
 
-- [Upcoming / API Reference (308 pages)](https://docs.deribit.com/_llms/upcoming/api-reference.md): Documentation for Upcoming / API Reference.
+- [Upcoming / API Reference (309 pages)](https://docs.deribit.com/_llms/upcoming/api-reference.md): Documentation for Upcoming / API Reference.
 
 ### Overview
 
