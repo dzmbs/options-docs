@@ -917,7 +917,7 @@ Returned results
 
 Applies to master accounts only.
 
-Only API keys with `Trade` privilege can call this endpoint.
+Only API keys with `Transfer` privilege can call this endpoint.
 
 #### Rate limit：1 request per second
 

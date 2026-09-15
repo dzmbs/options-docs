@@ -2,14 +2,14 @@
 
 ## Upcoming
 
-- [Upcoming / API Reference (309 pages)](https://docs.deribit.com/_llms/upcoming/api-reference.md): Documentation for Upcoming / API Reference.
+- [Upcoming / API Reference (310 pages)](https://docs.deribit.com/_llms/upcoming/api-reference.md): Documentation for Upcoming / API Reference.
 
 ### Overview
 
 #### Introduction
 
-- [Welcome to Deribit API](https://docs.deribit.com/index.md): Deribit is a crypto derivatives exchange offering futures, options, and perpetuals — this documentation is your integration entry point for the API.
-- [Quickstart Guide](https://docs.deribit.com/articles/deribit-quickstart.md): Get started with the Deribit API — environment setup, first authenticated request, and key endpoints for placing your first order in minutes.
+- [Welcome to Deribit API](https://docs.deribit.com/index.md): Deribit is a crypto derivatives exchange offering futures, options, and perpetuals. This documentation is your integration entry point for the API.
+- [Quickstart Guide](https://docs.deribit.com/articles/deribit-quickstart.md): Set up the Deribit API environment, send your first authenticated JSON-RPC request, and use the key endpoints to place an order in minutes.
 
 #### Authentication
 
@@ -21,14 +21,14 @@
 #### Technical Information
 
 - [API Usage Policy](https://docs.deribit.com/articles/api-usage-policy.md): Deribit fair-use API policy outlines acceptable traffic patterns, throttling rules, and consequences of abuse to keep exchange infrastructure healthy.
-- [Rate Limits](https://docs.deribit.com/articles/rate-limits.md): Credit-based rate limiting on the Deribit API — burst versus sustained caps, matching engine limits, and per-tier request allocations by account.
+- [Rate Limits](https://docs.deribit.com/articles/rate-limits.md): How credit-based rate limiting works on the Deribit API, including burst and sustained caps, matching engine limits, and per-tier request quotas.
 
 #### Best Practices
 
 - [Connection Management](https://docs.deribit.com/articles/connection-management-best-practices.md): Best practices for Deribit WebSocket connection lifecycle including heartbeats, session versus connection tokens, and reliable reconnect strategies.
-- [Market Data Collection](https://docs.deribit.com/articles/market-data-collection-best-practices.md): Strategies for efficient Deribit market data ingestion — snapshots, incremental updates, throttling, and choosing the right channels per instrument.
-- [Options Data Collection](https://docs.deribit.com/articles/options-data-collection-best-practices.md): Collect Deribit options market data efficiently — order books, ticker greeks, mark prices, implied volatility, combos, trades, and settlement data.
-- [Order Management](https://docs.deribit.com/articles/order-management-best-practices.md): High-performance order management on Deribit — batching, cancel and replace flows, label usage, and avoiding rate limit throttling under load.
+- [Market Data Collection](https://docs.deribit.com/articles/market-data-collection-best-practices.md): Efficient Deribit market data ingestion patterns covering snapshots, incremental updates, throttling, and channel selection per instrument.
+- [Options Data Collection](https://docs.deribit.com/articles/options-data-collection-best-practices.md): Collect Deribit options market data efficiently, covering order books, ticker greeks, mark prices, implied volatility, combos, trades, and settlement data.
+- [Order Management](https://docs.deribit.com/articles/order-management-best-practices.md): High-performance order management on Deribit, covering batching, cancel and replace flows, label usage, and how to avoid rate-limit throttling under load.
 - [Using the currency Parameter](https://docs.deribit.com/articles/currency-parameter.md): Discover supported currencies with get_currencies, learn what currency selects on each Deribit method, and avoid invalid currency and spot routing errors.
 
 #### Guides
