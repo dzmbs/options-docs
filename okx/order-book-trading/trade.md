@@ -3393,6 +3393,7 @@ Push Data Example
  "lastPx": "38892.2",
  "uTime": "1654084353264",
  "isTpLimit": "false",
+ "riskBypassResult": "",
  "linkedAlgoOrd": {
  "algoId": ""
  }
@@ -3500,6 +3501,7 @@ Push Data Example
 | > msg | String | Error Message, The default is "" |
 | > tradeQuoteCcy | String | The quote currency used for trading. |
 | > outcome | String | The market outcome the user traded on.`yes``no`Only applicable to `EVENTS` |
+| > riskBypassResult | String | Only applicable to specific users. For details, please contact your relationship manager (RM). Returns `""` when not applicable. |
 
 
  For market orders, it's likely the orders channel will show order state as "filled" while showing the "last filled quantity (fillSz)" as 0.
