@@ -68,7 +68,7 @@
 - [user.changes.(kind).(currency).(interval) ](https://docs.deribit.com/subscriptions/user/userchangeskindcurrencyinterval.md): User change stream (orders, trades, and related updates) across all instruments for a given kind and currency.
 - [user.access_log ](https://docs.deribit.com/subscriptions/user/useraccess_log.md): Security event notifications for the account.
 - [user.lock ](https://docs.deribit.com/subscriptions/user/userlock.md): Notifications when the account is locked or unlocked.
-- [user.liquidation ](https://docs.deribit.com/subscriptions/user/userliquidation.md): Notifications about the authenticated account's own liquidation, auto-deleveraging (ADL), and LSP (Liquidity Support Program) activity, both as the account being liquidated/deleveraged and, for ADL, as a counterparty receiving a deleveraged position.
+- [user.liquidation ](https://docs.deribit.com/subscriptions/user/userliquidation.md): Notifications about the authenticated account's own liquidation, auto-deleveraging (ADL), and LSP (Liquidity Support Program) activity — both as the account being liquidated/deleveraged and, for ADL, as a counterparty receiving a deleveraged position.
 - [user.isolated.liquidation ](https://docs.deribit.com/subscriptions/user/userisolatedliquidation.md): Lets a **main** account observe the liquidation, ADL, and LSP activity of all of its **isolated-margin subaccounts**, without subscribing to each subaccount's own `user.liquidation` channel individually.
 - [user.lsp ](https://docs.deribit.com/subscriptions/user/userlsp.md): Notifications for an LSP (Liquidity Support Program) participant subaccount: assignment attempts (successful or failed), enable/disable state changes, and effective configuration changes.
 
@@ -194,7 +194,7 @@
 - [Mass Cancel](https://docs.deribit.com/api-reference/portfolio-management/mass-cancel.md): Cancels all open orders and quotes belonging to the authenticated portfolio. No filter parameters are accepted. The cancel applies to every instrument and every side.
 - [Lock Portfolio](https://docs.deribit.com/api-reference/portfolio-management/lock-portfolio.md): Locks the authenticated portfolio. All currently open `DIRECT_ACCESS` orders and quotes for this portfolio are cancelled immediately. New `DIRECT_ACCESS` orders and quotes are rejected until the portfolio is unlocked.
 - [Unlock Portfolio](https://docs.deribit.com/api-reference/portfolio-management/unlock-portfolio.md): Unlocks the authenticated portfolio, resuming normal acceptance of `DIRECT_ACCESS` orders and quotes.
-- [List Instruments](https://docs.deribit.com/api-reference/market-data/list-instruments.md): Returns the list of tradeable instruments, including `index_id` and `product_group`, optionally filtered by base currency, instrument kind, and expiration status.
+- [List Instruments](https://docs.deribit.com/api-reference/market-data/list-instruments.md): Returns the list of tradeable instruments, including `index_id` and `product_group`, optionally filtered by base currency, instrument kind, expiration status, instrument id, product group, and lifecycle state.
 
 ##### FIX Drop Copy
 
