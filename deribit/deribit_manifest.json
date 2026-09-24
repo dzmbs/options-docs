@@ -2,13 +2,13 @@
   "files": {
     "_llms/production.md": {
       "source_url": "https://docs.deribit.com/_llms/production.md",
-      "hash": "26e8bebbb9c3f7292e0e1e91f2a3ef93fa70e23c9503269de7fc885b2b35e6fe",
-      "last_updated": "2026-09-15T15:30:47.960444"
+      "hash": "5c951e0fd168891f434ec4a51049001fe71c35bafa89caca7402ecde57644af6",
+      "last_updated": "2026-09-24T15:47:01.891722"
     },
     "_llms/production/api-reference.md": {
       "source_url": "https://docs.deribit.com/_llms/production/api-reference.md",
-      "hash": "1b60127a221cfef1249ac7ba317c2147f2e7d4366b2f220b2b83f5f2c2372105",
-      "last_updated": "2026-09-23T15:23:43.772179"
+      "hash": "a326715bbd6666befbd22ee2f332cc9935b7c1fa53a49b0a74dec0a79f85d7ec",
+      "last_updated": "2026-09-24T15:47:02.636941"
     },
     "_llms/production/api-reference/json-rpc-api.md": {
       "source_url": "https://docs.deribit.com/_llms/production/api-reference/json-rpc-api.md",
@@ -17,13 +17,13 @@
     },
     "_llms/upcoming.md": {
       "source_url": "https://docs.deribit.com/_llms/upcoming.md",
-      "hash": "2a7b14fdca6c55982760805b3c424f534fda2cba09cedad4de07f1ab82d9d4d3",
-      "last_updated": "2026-09-15T15:30:49.664814"
+      "hash": "8888fc08990d70a1344197bbef6c93d98cb98df6d8a33396aa8636cd7d74bffa",
+      "last_updated": "2026-09-24T15:47:04.058822"
     },
     "_llms/upcoming/api-reference.md": {
       "source_url": "https://docs.deribit.com/_llms/upcoming/api-reference.md",
-      "hash": "5634596897dfc43dd8ffe8fa39211d492edbe12f39d72cf8c56d024d44912f96",
-      "last_updated": "2026-09-23T15:23:46.408891"
+      "hash": "d8798755eb8ef8eb8fdba99eef70e8f19cfbb3633fe7acfa658f5b8bb703094d",
+      "last_updated": "2026-09-24T15:47:04.918075"
     },
     "_llms/upcoming/api-reference/json-rpc-api.md": {
       "source_url": "https://docs.deribit.com/_llms/upcoming/api-reference/json-rpc-api.md",
@@ -32,13 +32,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-09-23T15:23:47.336946",
-    "duration_seconds": 4.364978,
+    "completed_at": "2026-09-24T15:47:05.785152",
+    "duration_seconds": 4.148774,
     "pages_total": 6,
     "pages_fetched": 6,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-09-23T15:23:47.336964",
+  "last_updated": "2026-09-24T15:47:05.785167",
   "source": "https://docs.deribit.com"
 }

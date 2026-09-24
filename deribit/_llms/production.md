@@ -2,7 +2,7 @@
 
 ## Production
 
-- [Production / API Reference (309 pages)](https://docs.deribit.com/_llms/production/api-reference.md): Documentation for Production / API Reference.
+- [Production / API Reference (310 pages)](https://docs.deribit.com/_llms/production/api-reference.md): Documentation for Production / API Reference.
 
 ### Overview
 
@@ -48,6 +48,7 @@
 - [Deribit Block RFQ API Walkthrough](https://docs.deribit.com/articles/block-rfq-api-walkthrough.md): Step-by-step Block RFQ API walkthrough for requesting quotes on large block trades from Deribit market makers and executing multi-leg strategies.
 - [Mass Quotes Specifications](https://docs.deribit.com/articles/mass-quotes-specifications.md): Use the Deribit mass quote API to submit many bid and ask pairs in a single request for lower latency during option and future market making.
 - [Spot Trading: Deribit and Coinbase-Routed Instruments](https://docs.deribit.com/articles/spot-trading-venues.md): Which Deribit spot instruments are matched on Deribit and which are routed to Coinbase Exchange, and how order entry and market data differ between them.
+- [Coinbase International Exchange API Migration](https://docs.deribit.com/articles/intx-api-migration.md): Migration guide for International Exchange API and FIX integrations moving to Deribit: endpoints, keys, instruments, orders, and cutover checks.
 
 ### Changelogs
 

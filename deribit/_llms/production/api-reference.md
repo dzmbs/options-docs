@@ -191,6 +191,7 @@
 
 - [REST Order Gateway Authentication](https://docs.deribit.com/starbase/rest-authentication.md): Authenticate requests to the Starbase REST Order Gateway using HTTP Basic credentials, including API key handling and gateway session security.
 - [Get Open Orders](https://docs.deribit.com/api-reference/trading/get-open-orders.md): Returns all currently-open orders belonging to the authenticated portfolio. Orders are returned regardless of instrument or order type; filtering by instrument kind and order type is not currently supported.
+- [Get Starbase Risk Limits](https://docs.deribit.com/api-reference/portfolio-management/get-starbase-risk-limits.md): Returns the effective position ("risk") limits for the authenticated portfolio, one entry per underlying (currency pair).
 - [Mass Cancel](https://docs.deribit.com/api-reference/portfolio-management/mass-cancel.md): Cancels all open orders and quotes belonging to the authenticated portfolio. No filter parameters are accepted. The cancel applies to every instrument and every side.
 - [Lock Portfolio](https://docs.deribit.com/api-reference/portfolio-management/lock-portfolio.md): Locks the authenticated portfolio. All currently open `DIRECT_ACCESS` orders and quotes for this portfolio are cancelled immediately. New `DIRECT_ACCESS` orders and quotes are rejected until the portfolio is unlocked.
 - [Unlock Portfolio](https://docs.deribit.com/api-reference/portfolio-management/unlock-portfolio.md): Unlocks the authenticated portfolio, resuming normal acceptance of `DIRECT_ACCESS` orders and quotes.
