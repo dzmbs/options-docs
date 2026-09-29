@@ -3953,6 +3953,47 @@ Response Example
 | --- | --- | --- |
 | ts | String | Activation time |
 
+### Activate feature
+
+#### Rate limit: 5 requests per 2 seconds
+
+#### Rate limit rule: User ID
+
+#### HTTP Request
+
+`POST /api/v5/account/activate-feature`
+
+Request example
+
+```
+POST /api/v5/account/activate-feature
+body
+{
+ "feature": "1"
+}
+```
+
+#### Request parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| feature | String | Yes | Feature to activate`1`: USDC order book trading.Call this endpoint only when order placement returns error code `54109`; otherwise, you do not need to call it.Error code `51773` only indicates that this activation feature is not supported. Whether you can trade `Crypto-USDC` instruments depends on whether an order can be placed successfully.Activation is shared between master accounts and sub-accounts. The master account or any of its sub-accounts only needs to call this endpoint once. |
+
+Response example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": []
+}
+
+```
+
+#### Response parameters
+
+None
+
 ### Set auto loan
 
 Only applicable to `Multi-currency margin` and `Portfolio margin`
