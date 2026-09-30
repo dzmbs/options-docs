@@ -3955,6 +3955,8 @@ Response Example
 
 ### Activate feature
 
+If order placement returns error code `54109`, call the following endpoint to activate USDC trading for the account; otherwise, you do not need to call this endpoint.
+
 #### Rate limit: 5 requests per 2 seconds
 
 #### Rate limit rule: User ID
