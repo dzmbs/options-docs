@@ -2,8 +2,8 @@
   "files": {
     "_llms/production.md": {
       "source_url": "https://docs.deribit.com/_llms/production.md",
-      "hash": "5c951e0fd168891f434ec4a51049001fe71c35bafa89caca7402ecde57644af6",
-      "last_updated": "2026-09-24T15:47:01.891722"
+      "hash": "2484b8000ab8519fe73f1ad1e1a801b18ed71dc3a74172d07198c18516b0795e",
+      "last_updated": "2026-10-02T16:35:10.680313"
     },
     "_llms/production/api-reference.md": {
       "source_url": "https://docs.deribit.com/_llms/production/api-reference.md",
@@ -17,8 +17,8 @@
     },
     "_llms/upcoming.md": {
       "source_url": "https://docs.deribit.com/_llms/upcoming.md",
-      "hash": "8888fc08990d70a1344197bbef6c93d98cb98df6d8a33396aa8636cd7d74bffa",
-      "last_updated": "2026-09-24T15:47:04.058822"
+      "hash": "2ec465b039c475f19a396a98bd421fbac5dafb9a642f280b68b8121780cde216",
+      "last_updated": "2026-10-02T16:35:13.184506"
     },
     "_llms/upcoming/api-reference.md": {
       "source_url": "https://docs.deribit.com/_llms/upcoming/api-reference.md",
@@ -32,13 +32,13 @@
     }
   },
   "fetch_metadata": {
-    "completed_at": "2026-10-01T17:20:21.454331",
-    "duration_seconds": 4.302389,
+    "completed_at": "2026-10-02T16:35:14.351309",
+    "duration_seconds": 4.377099,
     "pages_total": 6,
     "pages_fetched": 6,
     "pages_failed": 0,
     "failed_pages": []
   },
-  "last_updated": "2026-10-01T17:20:21.454350",
+  "last_updated": "2026-10-02T16:35:14.351328",
   "source": "https://docs.deribit.com"
 }
