@@ -30,7 +30,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/business")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/business")
  await ws.start()
  args = [
  {
@@ -190,7 +190,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/business")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/business")
  await ws.start()
  args = [
  {
@@ -343,7 +343,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/business")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/business")
  await ws.start()
  args = [{
  "channel": "block-tickers",

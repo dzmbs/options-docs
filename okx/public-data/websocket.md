@@ -37,7 +37,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/public")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/public")
  await ws.start()
  args = [
  {
@@ -387,7 +387,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/public")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/public")
  await ws.start()
  args = [
  {
@@ -524,7 +524,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/public")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/public")
  await ws.start()
  args = [
  {
@@ -683,7 +683,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/public")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/public")
  await ws.start()
  args = [
  {
@@ -817,7 +817,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/public")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/public")
  await ws.start()
  args = [
  {
@@ -983,7 +983,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/public")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/public")
  await ws.start()
  args = [
  {
@@ -1125,7 +1125,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/public")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/public")
  await ws.start()
  args = [{
  "channel": "mark-price",
@@ -1258,7 +1258,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/public")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/public")
  await ws.start()
  args = [
  {
@@ -1399,7 +1399,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/business")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/business")
  await ws.start()
  args = [
  {
@@ -1530,7 +1530,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/business")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/business")
  await ws.start()
  args = [
  {
@@ -1660,7 +1660,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/public")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/public")
  await ws.start()
  args = [
  {
@@ -1777,7 +1777,7 @@ def callbackFunc(message):
  print(message)
 
 async def main():
- ws = WsPublicAsync(url="wss://wspap.okx.com:8443/ws/v5/public")
+ ws = WsPublicAsync(url="wss://wspap.okx.com/ws/v5/public")
  await ws.start()
  args = [{
  "channel": "adl-warning",
@@ -1939,7 +1939,7 @@ async def main():
  apiKey = "YOUR_API_KEY",
  passphrase = "YOUR_PASSPHRASE",
  secretKey = "YOUR_SECRET_KEY",
- url = "wss://ws.okx.com:8443/ws/v5/business",
+ url = "wss://ws.okx.com/ws/v5/business",
  useServerTime=False
  )
  await ws.start()

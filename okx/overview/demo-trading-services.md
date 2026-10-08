@@ -6,11 +6,11 @@ The Demo Trading URL:
 
 - REST: `https://openapi.okx.com`
 
-- Public WebSocket: `wss://wspap.okx.com:8443/ws/v5/public`
+- Public WebSocket: `wss://wspap.okx.com/ws/v5/public`
 
-- Private WebSocket: `wss://wspap.okx.com:8443/ws/v5/private`
+- Private WebSocket: `wss://wspap.okx.com/ws/v5/private`
 
-- Business WebSocket: `wss://wspap.okx.com:8443/ws/v5/business`
+- Business WebSocket: `wss://wspap.okx.com/ws/v5/business`
 
 OKX account can be used for login on Demo Trading. If you already have an OKX account, you can log in directly.
 

@@ -19,8 +19,8 @@ The SBE XML schema is now available for download:
 - The `bbo-tbt` channel is **available to users of any trading fee tier** but requires login. The `trades` and `books-l2-tbt` channels are restricted to users with a trading fee tier of **VIP4** or above in the live trading environment. Other users will receive error code 64003. In the demo trading environment, these channels require **VIP1** or above.
 
 - SBE channels will use a new WebSocket URL.
-Live trading: `wss://ws.okx.com:8443/ws/v5/public-sbe`
-Demo trading: `wss://wspap.okx.com:8443/ws/v5/public-sbe`
+Live trading: `wss://ws.okx.com/ws/v5/public-sbe`
+Demo trading: `wss://wspap.okx.com/ws/v5/public-sbe`
 
 - Both JSON and SBE format data will be available on the same connection, distinguishable by WebSocket frame type. opcode `1` indicates JSON, while opcode `2` indicates SBE.
 
