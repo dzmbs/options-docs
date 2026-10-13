@@ -35,13 +35,3 @@ OK-ACCESS-TIMESTAMP: 2020-03-28T12:21:41.274Z
 
 x-simulated-trading: 1
 ```
-
-### Demo Trading Explorer
-
-You need to sign in to your OKX account before accessing the explorer. The interface only allow access to the demo trading environment.
-
-- Clicking `Try it out` button in Parameters Panel and editing request parameters.
-
-- Clicking `Execute` button to send your request. You can check response in Responses panel.
-
-Try [demo trading explorer](/demo-trading-explorer/v5/en)
