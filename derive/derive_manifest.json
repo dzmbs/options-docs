@@ -1,8 +1,8 @@
 {
   "files": {},
   "fetch_metadata": {
-    "completed_at": "2026-10-17T14:09:45.965559",
-    "duration_seconds": 94.752621,
+    "completed_at": "2026-10-18T14:26:22.967679",
+    "duration_seconds": 89.208057,
     "pages_total": 291,
     "pages_fetched": 0,
     "pages_failed": 291,
@@ -300,6 +300,6 @@
       "https://docs.derive.xyz/reference/error-codes"
     ]
   },
-  "last_updated": "2026-10-17T14:09:45.965584",
+  "last_updated": "2026-10-18T14:26:22.967709",
   "source": "https://docs.derive.xyz"
 }
