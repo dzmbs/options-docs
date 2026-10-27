@@ -327,4 +327,21 @@ Response Example
 
 ```
 
-The feature is supported by WebSocket Public (/ws/v5/public) and Private (/ws/v5/private) for now.
+- WebSocket port 8443 retirement
+
+When a connection is established on port 8443, the notification message will be sent once after the handshake succeeds, indicating that port 8443 will soon be retired. The connection stays open.
+Users are encouraged to migrate to port 443.
+
+Response Example
+
+```
+{
+ "event": "notice",
+ "code": "64010",
+ "msg": "WebSocket port 8443 will be retired soon. Please migrate to port 443.",
+ "connId": "d7d6f1f5"
+}
+
+```
+
+The `notice` message type is supported by all WebSocket endpoints (/ws/v5/public, /ws/v5/private, /ws/v5/business, and /ws/v5/public-sbe).

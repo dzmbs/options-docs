@@ -1173,7 +1173,7 @@ Funding Fee expense (subType = 173)****You may refer to "pnl" for the fee paymen
 
 Apply for bill data since 1 February, 2021 except for the current quarter.
 
-#### Rate Limit: 1 request per 10 seconds
+#### Rate Limit: 12 requests per day
 
 #### Rate limit rule: User ID
 
