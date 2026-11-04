@@ -366,7 +366,7 @@ Returned results
  "subAcct": "yongxu",
  "label": "v5",
  "apiKey": "******",
- "perm": "read,trade",
+ "perm": "read_only,trade",
  "ip": "1.1.1.1",
  "ts": "1597026383085"
  }]
