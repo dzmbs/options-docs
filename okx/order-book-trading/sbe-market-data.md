@@ -144,7 +144,6 @@ When prices and quantities decimals change, a exponent update (template ID: 1002
 | --- | --- |
 | bbo-tbt | 1000: BboTbtChannelEvent |
 | books-l2-tbt | 1001: BooksL2TbtChannelEvent1002: BooksL2TbtExponentUpdateEvent |
-| books-l2-tbt-elp (It is not enabled) | 1003: BooksL2TbtElpChannelEvent1004: BooksL2TbtElpExponentUpdateEvent |
 | trades | 1005: TradesChannelEvent |
 
 - How to manage a local order book correctly
