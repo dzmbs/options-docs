@@ -1828,8 +1828,8 @@ Response Example
 | --- | --- | --- |
 | instId | String | Instrument ID |
 | ccy | String | Currency used for margin |
-| maxBuy | String | `SPOT`/`MARGIN`: The maximum quantity in base currency that you can buyThe cross-margin order under `Futures mode` mode, quantity of coins is based on base currency.`FUTURES`/`SWAP`/`OPTIONS`: The maximum quantity of contracts that you can buy |
-| maxSell | String | `SPOT`/`MARGIN`: The maximum quantity in quote currency that you can sellThe cross-margin order under `Futures mode` mode, quantity of coins is based on base currency.`FUTURES`/`SWAP`/`OPTIONS`: The maximum quantity of contracts that you can sell |
+| maxBuy | String | `SPOT`/`MARGIN`: The maximum quantity in base currency that you can buyThe cross-margin order under `Futures mode` mode, quantity of coins is based on base currency.`FUTURES`/`SWAP`/`OPTIONS`: The maximum quantity of contracts that you can buyIn long/short position mode, the position tier limit uses the long-side remaining for `FUTURES`/`SWAP` |
+| maxSell | String | `SPOT`/`MARGIN`: The maximum quantity in quote currency that you can sellThe cross-margin order under `Futures mode` mode, quantity of coins is based on base currency.`FUTURES`/`SWAP`/`OPTIONS`: The maximum quantity of contracts that you can sellIn long/short position mode, the position tier limit uses the short-side remaining for `FUTURES`/`SWAP` |
 
 ### Get maximum available balance/equity
 
@@ -1906,8 +1906,8 @@ Response Example
 | Parameter | Type | Description |
 | --- | --- | --- |
 | instId | String | Instrument ID |
-| availBuy | String | Maximum available balance/equity to buy |
-| availSell | String | Maximum available balance/equity to sell |
+| availBuy | String | Maximum available balance/equity to buy.In long/short position mode, the position tier limit uses the long-side remaining for `FUTURES`/`SWAP` |
+| availSell | String | Maximum available balance/equity to sell.In long/short position mode, the position tier limit uses the short-side remaining for `FUTURES`/`SWAP` |
 
 In the case of SPOT/MARGIN, availBuy is in the quote currency, and availSell is in the base currency.
 In the case of MARGIN with cross tdMode, both availBuy and availSell are in the currency passed in ccy**.
@@ -2105,7 +2105,7 @@ GET /api/v5/account/adjust-leverage-info?instType=MARGIN&mgnMode=isolated&lever=
 | lever | String | Yes | Leverage |
 | instId | String | Conditional | Instrument ID, e.g. BTC-USDTIt is required for these scenarioes: `SWAP` and `FUTURES`, Margin isolation, Margin cross in `Futures mode`. |
 | ccy | String | Conditional | Currency used for margin, e.g. BTCIt is required for isolated margin and cross margin in `Futures mode`, `Multi-currency margin` and `Portfolio margin` |
-| posSide | String | No | posSide`net`: The default value`long``short` |
+| posSide | String | No | Position side`net`: The default value`long``short`In long/short position mode, it is recommended to specify `long` or `short` for accurate direction-specific results |
 
 Response Example
 
@@ -2140,7 +2140,7 @@ Response Example
 | estLiqPx | String | The estimated liquidation price under the corresponding leverage. Only return when there is a position. |
 | estMgn | String | The estimated margin needed by position under the corresponding leverage.For the `MARGIN` position, it is margin in base currency |
 | estQuoteMgn | String | The estimated margin (in quote currency) needed by position under the corresponding leverage |
-| estMaxAmt | String | For `MARGIN`, it is the estimated maximum loan in base currency under the corresponding leverageFor `SWAP` and `FUTURES`, it is the estimated maximum quantity of contracts that can be opened under the corresponding leverage |
+| estMaxAmt | String | For `MARGIN`, it is the estimated maximum loan in base currency under the corresponding leverageFor `SWAP` and `FUTURES`, it is the estimated maximum quantity of contracts that can be opened under the corresponding leverage.In long/short position mode, the position tier limit is calculated based on the direction specified by `posSide` |
 | estQuoteMaxAmt | String | The `MARGIN` estimated maximum loan in quote currency under the corresponding leverage. |
 | existOrd | Boolean | Whether there is pending orders `true``false` |
 | maxLever | String | Maximum leverage |

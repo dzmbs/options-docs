@@ -2707,7 +2707,7 @@ Response Example
 | --- | --- | --- |
 | instId | String | Instrument ID, e.g. `BTC-USDT-SWAP` |
 | instType | String | Instrument type.`SPOT``SWAP` |
-| pairType | String | MM Program classification type.`A`: High liquidity tier`B-Crypto`: Medium/low liquidity crypto assets`B-TradFi`: Traditional finance instruments (SWAP only) |
+| pairType | String | MM Program classification type.`A`: High liquidity tier`B-Crypto`: Medium/low liquidity crypto assets`B-TradFi`: Traditional finance instruments (SWAP only)`Type Special`: GLP Special Pair |
 
 ### Get Delta hedge currencies
 

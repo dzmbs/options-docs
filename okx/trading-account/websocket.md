@@ -1090,7 +1090,7 @@ Push Data Example
 | > uid | String | User Identifier |
 | data | Array of objects | Subscribed data |
 | > pTime | String | Push time of both balance and position information, millisecond format of Unix timestamp, e.g. `1597026383085` |
-| > eventType | String | Event Type`snapshot``delivered``exercised``transferred``filled``liquidation``claw_back``adl``funding_fee``adjust_margin``set_leverage``interest_deduction``settlement` |
+| > eventType | String | Event Type`snapshot``delivered``exercised``transferred``filled``liquidation``claw_back``adl``funding_fee``adjust_margin``set_leverage``interest_deduction``settlement``ca_rebase``coin_ca_rebase` |
 | > balData | Array of objects | Balance data |
 | >> ccy | String | Currency |
 | >> cashBal | String | Cash Balance |
