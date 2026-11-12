@@ -298,6 +298,101 @@ Response Example
 | expTime | String | The specific strike time this event is based on, Unix timestamp format in milliseconds, e.g. `1597026383085` |
 | state | String | Event state.`preopen``live``settling``expired` |
 
+### Get corporate actions
+
+Retrieve corporate action events of underlying stocks, including planned execution time, processing status, and the trading status of related OKX instruments.
+
+#### Rate Limit: 1 request per 2 seconds
+
+#### Rate limit rule: IP
+
+#### HTTP Request
+
+`GET /api/v5/public/corporate-actions`
+
+Request Example
+
+```
+GET /api/v5/public/corporate-actions?ticker=AAPL&limit=20
+```
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| ticker | String | No | Underlying stock ticker, e.g. `AAPL`. Mutually exclusive with `instId`. |
+| instId | String | No | Instrument ID, e.g. `AAPL-USDT-SWAP`. The system resolves the underlying stock of the instrument and returns its CA events, so `instruments` may include other related instruments. Mutually exclusive with `ticker`. |
+| limit | String | No | Number of results per request. Maximum is `100`. Default is `20`. |
+| after | String | No | Pagination of data to return records with `caEventId` earlier than the requested value, exclusive of the value. |
+| before | String | No | Pagination of data to return records with `caEventId` newer than the requested value, exclusive of the value. |
+
+Response Example
+
+```
+{
+ "code": "0",
+ "msg": "",
+ "data": [
+ {
+ "caEventId": "CA20261112AAPL001",
+ "eventVersion": "1",
+ "ticker": "AAPL",
+ "bbGlobalId": "BBG000B9XRY4",
+ "exchange": "XNAS",
+ "actionType": "CASH_DIVIDEND",
+ "caClass": "PREDICTABLE",
+ "dividendSize": "MEDIUM",
+ "cashDividend": {
+ "gross": "0.25",
+ "net": "0.2125",
+ "ccy": "USD",
+ "exDate": "1763164800000",
+ "recordDate": "1763251200000",
+ "paymentDate": "1763596800000"
+ },
+ "ratioFrom": "",
+ "ratioTo": "",
+ "status": "upcoming",
+ "cutoverTime": "1762992000000",
+ "instruments": [
+ {
+ "instId": "AAPL-USDT-SWAP",
+ "state": "live"
+ }
+ ]
+ }
+ ]
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| caEventId | String | Corporate action event ID |
+| eventVersion | String | Event version number, e.g. `"1"`. Incremented when event details are updated. |
+| ticker | String | Underlying stock ticker, e.g. `AAPL` |
+| bbGlobalId | String | Bloomberg Global Identifier |
+| exchange | String | Exchange MIC code where the stock is listed, e.g. `XNAS` |
+| actionType | String | Corporate action type.`CASH_DIVIDEND`: Cash dividend`STOCK_SPLIT`: Stock split`REVERSE_STOCK_SPLIT`: Reverse stock split`STOCK_DIVIDEND`: Stock dividend`SPINOFF`: Spinoff |
+| caClass | String | Corporate action classification.`PREDICTABLE``UNPREDICTABLE` |
+| dividendSize | String | Dividend size classification. Only applicable when `actionType` is `CASH_DIVIDEND`.`PENDING``SMALL``MEDIUM``LARGE` |
+| cashDividend | Object | Cash dividend details. Only present when `actionType` is `CASH_DIVIDEND`. |
+| > gross | String | Gross dividend amount per share |
+| > net | String | Net dividend amount per share |
+| > ccy | String | Dividend currency, e.g. `USD` |
+| > exDate | String | Ex-dividend date. Unix timestamp in milliseconds |
+| > recordDate | String | Record date. Unix timestamp in milliseconds |
+| > paymentDate | String | Payment date. Unix timestamp in milliseconds |
+| ratioFrom | String | Source ratio for stock splits. Only applicable when `actionType` involves splits. Empty string `""` otherwise. |
+| ratioTo | String | Target ratio for stock splits. Only applicable when `actionType` involves splits. Empty string `""` otherwise. |
+| status | String | Event processing status.`upcoming``scheduled``preparing``pre_pause``progressing``completed` |
+| cutoverTime | String | Planned cutover time. Unix timestamp in milliseconds |
+| instruments | Array of objects | Affected OKX instruments and their trading states |
+| > instId | String | Instrument ID, e.g. `AAPL-USDT-SWAP` |
+| > state | String | Instrument trading state.`live``rebase``post_only``suspend` |
+
 ### Get markets
 
 Get markets for events in OKX prediction markets. Return data in expTime and floorStrike descending order.
