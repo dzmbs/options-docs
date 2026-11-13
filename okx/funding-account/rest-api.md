@@ -937,6 +937,9 @@ Response Example
 | depId | String | Deposit ID |
 | fromWdId | String | Internal transfer initiator's withdrawal IDIf the deposit comes from internal transfer, this field displays the withdrawal ID of the internal transfer initiator, and will return "" in other cases |
 | actualDepBlkConfirm | String | The actual amount of blockchain confirmed in a single deposit |
+| xstockMultiplier | String | Conversion multiplier for this deposit |
+| xstockShareAmount | String | Converted on-platform share amount |
+| xstockShareName | String | Name of the corresponding on-platform asset |
 
 About deposit state
 Waiting for confirmation** is that the required number of blockchain confirmations has not been reached. **Deposit credited** is that there is sufficient number of blockchain confirmations for the currency to be credited to the account, but it cannot be withdrawn yet. **Deposit successful** means the crypto has been credited to the account and it can be withdrawn.
