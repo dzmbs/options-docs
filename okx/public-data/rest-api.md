@@ -335,12 +335,12 @@ Response Example
  "data": [
  {
  "caEventId": "CA20261112AAPL001",
- "eventVersion": "1",
- "ticker": "AAPL",
+ "eventVersion": 1,
+ "underlying": "AAPL",
  "bbGlobalId": "BBG000B9XRY4",
  "exchange": "XNAS",
  "actionType": "CASH_DIVIDEND",
- "caClass": "PREDICTABLE",
+ "caClass": "DIVIDEND",
  "dividendSize": "MEDIUM",
  "cashDividend": {
  "gross": "0.25",
@@ -352,7 +352,7 @@ Response Example
  },
  "ratioFrom": "",
  "ratioTo": "",
- "status": "upcoming",
+ "status": "UPCOMING",
  "cutoverTime": "1762992000000",
  "instruments": [
  {
@@ -371,12 +371,12 @@ Response Example
 | Parameter | Type | Description |
 | --- | --- | --- |
 | caEventId | String | Corporate action event ID |
-| eventVersion | String | Event version number, e.g. `"1"`. Incremented when event details are updated. |
-| ticker | String | Underlying stock ticker, e.g. `AAPL` |
+| eventVersion | Integer | Event version number, e.g. `1`. Incremented when event details are updated. |
+| underlying | String | Underlying stock ticker, e.g. `AAPL` |
 | bbGlobalId | String | Bloomberg Global Identifier |
 | exchange | String | Exchange MIC code where the stock is listed, e.g. `XNAS` |
 | actionType | String | Corporate action type.`CASH_DIVIDEND`: Cash dividend`STOCK_SPLIT`: Stock split`REVERSE_STOCK_SPLIT`: Reverse stock split`STOCK_DIVIDEND`: Stock dividend`SPINOFF`: Spinoff |
-| caClass | String | Corporate action classification.`PREDICTABLE``UNPREDICTABLE` |
+| caClass | String | Corporate action classification.`DIVIDEND``SPLIT``RENAME` |
 | dividendSize | String | Dividend size classification. Only applicable when `actionType` is `CASH_DIVIDEND`.`PENDING``SMALL``MEDIUM``LARGE` |
 | cashDividend | Object | Cash dividend details. Only present when `actionType` is `CASH_DIVIDEND`. |
 | > gross | String | Gross dividend amount per share |
@@ -387,7 +387,7 @@ Response Example
 | > paymentDate | String | Payment date. Unix timestamp in milliseconds |
 | ratioFrom | String | Source ratio for stock splits. Only applicable when `actionType` involves splits. Empty string `""` otherwise. |
 | ratioTo | String | Target ratio for stock splits. Only applicable when `actionType` involves splits. Empty string `""` otherwise. |
-| status | String | Event processing status.`upcoming``scheduled``preparing``pre_pause``progressing``completed` |
+| status | String | Event processing status.`UPCOMING``SCHEDULED``PREPARING``PRE_PAUSE``PROGRESSING``COMPLETED` |
 | cutoverTime | String | Planned cutover time. Unix timestamp in milliseconds |
 | instruments | Array of objects | Affected OKX instruments and their trading states |
 | > instId | String | Instrument ID, e.g. `AAPL-USDT-SWAP` |

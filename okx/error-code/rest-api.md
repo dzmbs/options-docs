@@ -608,9 +608,10 @@ There is a sub-code format used to further distinguish different scenarios withi
 | 54074 | 200 | Your settings failed as you have positions, bot or open orders for USD contracts. |
 | 54075 | 200 | Cross-crypto contracts are currently not supported in this account mode. |
 | 54078 | 200 | If the main order is a buy order, the TP ratio must be greater than 0, while the SL ratio must be between -1 and 0. If the main order is a sell order, the TP ratio must be between -1 and 0, and the SL ratio must be greater than 0. Additionally, the ratio must be multiples of 0.0001. |
-| 54079 | 200 | Dynamic change is available only for futures trading in futures mode or multi-currency mode. Note that when selecting dynamic change, the trigger price can only be calculated using the last price. |
+| 54079 | 200 | Dynamic TP/SL (`tpTriggerRatio` / `slTriggerRatio`) is only supported when all of the following are met: (1) futures/swap trading in futures mode or multi-currency margin mode; (2) the TP/SL is a trigger-mode order (`tpOrdKind=condition` with `tpOrdPx=-1`, `slOrdPx=-1`); (3) the trigger price type is `last`. A limit-type TP (`tpOrdKind=limit`) does not support dynamic ratios; use a fixed `tpTriggerPx` instead. |
 | 54092 | 200 | Action Required: Please accept the TradFi Perps disclaimer on Web or App by attempting to place a TradFi Perp trade via the frontend. Each account, including sub-accounts, must separately accept the disclaimer before API trading is enabled |
 | 54094 | 200 | Order rejected. The cool-off period is active for the current instId. |
+| 54101 | 200 | You haven't completed the questionnaire required for the trading pairs. Please complete it in the OKX App or website, then try again. |
 | 54109 | 200 | You haven’t activated trading for this pair. Log in to the OKX App or website and click "Trade" on this pair’s trading page to activate it, or activate it via the designated API endpoint, then try again. |
 
 #### Data class

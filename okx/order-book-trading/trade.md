@@ -507,7 +507,7 @@ Response Example
 | data | Array of objects | Array of objects contains the response results |
 | > ordId | String | Order ID |
 | > clOrdId | String | Client Order ID as assigned by the client |
-| > ts | String | Order creation time. Unix timestamp format in milliseconds, e.g. `1597026383085`. Equivalent to `cTime` in the order channel. |
+| > ts | String | Cancellation time. Unix timestamp format in milliseconds, e.g. `1597026383085`. |
 | > sCode | String | The code of the event execution result, `0` means success. |
 | > sMsg | String | Rejection message if the request is unsuccessful. |
 | inTime | String | Timestamp at REST gateway when the request is received, Unix timestamp format in microseconds, e.g. `1597026383085123` The time is recorded after authentication. |
@@ -615,7 +615,7 @@ Response Example
 | data | Array of objects | Array of objects contains the response results |
 | > ordId | String | Order ID |
 | > clOrdId | String | Client Order ID as assigned by the client |
-| > ts | String | Order creation time. Unix timestamp format in milliseconds, e.g. `1597026383085`. Equivalent to `cTime` in the order channel. |
+| > ts | String | Cancellation time. Unix timestamp format in milliseconds, e.g. `1597026383085`. |
 | > sCode | String | The code of the event execution result, `0` means success. |
 | > sMsg | String | Rejection message if the request is unsuccessful. |
 | inTime | String | Timestamp at REST gateway when the request is received, Unix timestamp format in microseconds, e.g. `1597026383085123` The time is recorded after authentication. |
@@ -739,7 +739,7 @@ Response Example
 | data | Array of objects | Array of objects contains the response results |
 | > ordId | String | Order ID |
 | > clOrdId | String | Client Order ID as assigned by the client |
-| > ts | String | Order creation time. Unix timestamp format in milliseconds, e.g. `1597026383085`. Equivalent to `cTime` in the order channel. |
+| > ts | String | Amendment time. Unix timestamp format in milliseconds, e.g. `1597026383085`. |
 | > reqId | String | Client Request ID as assigned by the client for order amendment. |
 | > sCode | String | The code of the event execution result, `0` means success. |
 | > sMsg | String | Rejection message if the request is unsuccessful. |
@@ -889,7 +889,7 @@ Response Example
 | data | Array of objects | Array of objects contains the response results |
 | > ordId | String | Order ID |
 | > clOrdId | String | Client Order ID as assigned by the client |
-| > ts | String | Order creation time. Unix timestamp format in milliseconds, e.g. `1597026383085`. Equivalent to `cTime` in the order channel. |
+| > ts | String | Amendment time. Unix timestamp format in milliseconds, e.g. `1597026383085`. |
 | > reqId | String | Client Request ID as assigned by the client for order amendment. |
 | > sCode | String | The code of the event execution result, `0` means success. |
 | > sMsg | String | Rejection message if the request is unsuccessful. |
@@ -4349,7 +4349,7 @@ Response Example When Format Error
 | data | Array of objects | Data |
 | > ordId | String | Order ID |
 | > clOrdId | String | Client Order ID as assigned by the client |
-| > ts | String | Order creation time. Unix timestamp format in milliseconds, e.g. `1597026383085`. Equivalent to `cTime` in the order channel. |
+| > ts | String | Cancellation time. Unix timestamp format in milliseconds, e.g. `1597026383085`. |
 | > sCode | String | Order status code, `0` means success |
 | > sMsg | String | Order status message |
 | inTime | String | Timestamp at Websocket gateway when the request is received, Unix timestamp format in microseconds, e.g. `1597026383085123` |
@@ -4521,7 +4521,7 @@ Response Example When Format Error
 | data | Array of objects | Data |
 | > ordId | String | Order ID |
 | > clOrdId | String | Client Order ID as assigned by the client |
-| > ts | String | Order creation time. Unix timestamp format in milliseconds, e.g. `1597026383085`. Equivalent to `cTime` in the order channel. |
+| > ts | String | Cancellation time. Unix timestamp format in milliseconds, e.g. `1597026383085`. |
 | > sCode | String | Order status code, `0` means success |
 | > sMsg | String | Order status message |
 | inTime | String | Timestamp at Websocket gateway when the request is received, Unix timestamp format in microseconds, e.g. `1597026383085123` |
@@ -4661,7 +4661,7 @@ Response Example When Format Error
 | data | Array of objects | Data |
 | > ordId | String | Order ID |
 | > clOrdId | String | Client Order ID as assigned by the client |
-| > ts | String | Order creation time. Unix timestamp format in milliseconds, e.g. `1597026383085`. Equivalent to `cTime` in the order channel. |
+| > ts | String | Amendment time. Unix timestamp format in milliseconds, e.g. `1597026383085`. |
 | > reqId | String | Client Request ID as assigned by the client for order amendment |
 | > sCode | String | Order status code, `0` means success |
 | > sMsg | String | Order status message |
@@ -4866,7 +4866,7 @@ Response Example When Format Error
 | data | Array of objects | Data |
 | > ordId | String | Order ID |
 | > clOrdId | String | Client Order ID as assigned by the client |
-| > ts | String | Order creation time. Unix timestamp format in milliseconds, e.g. `1597026383085`. Equivalent to `cTime` in the order channel. |
+| > ts | String | Amendment time. Unix timestamp format in milliseconds, e.g. `1597026383085`. |
 | > reqId | String | Client Request ID as assigned by the client for order amendment If the user provides reqId in the request, the corresponding reqId will be returned |
 | > sCode | String | Order status code, `0` means success |
 | > sMsg | String | Order status message |
