@@ -944,6 +944,153 @@ Response Example
 About deposit state
 Waiting for confirmation** is that the required number of blockchain confirmations has not been reached. **Deposit credited** is that there is sufficient number of blockchain confirmations for the currency to be credited to the account, but it cannot be withdrawn yet. **Deposit successful** means the crypto has been credited to the account and it can be withdrawn.
 
+### Get locked Travel Rule deposits
+
+Retrieve the list of deposits currently locked under the Travel Rule. Returns an empty array if the user has no locked deposits. The maximum number of locked deposits is limited to 50.
+
+#### Rate Limit: 3 requests per second
+
+#### Rate limit rule: User ID + IP
+
+#### HTTP Request
+
+`GET /api/v5/asset/travel-rule/get-locked`
+
+Request Example
+
+```
+GET /api/v5/asset/travel-rule/get-locked
+```
+
+```
+import okx.Funding as Funding
+
+apikey = "YOUR_API_KEY"
+secretkey = "YOUR_SECRET_KEY"
+passphrase = "YOUR_PASSPHRASE"
+
+flag = "0" # Production trading: 0, Demo trading: 1
+
+fundingAPI = Funding.FundingAPI(apikey, secretkey, passphrase, False, flag)
+
+result = fundingAPI.get_travel_rule_locked_deposits()
+print(result)
+```
+
+#### Request Parameters
+
+None. User identity is resolved from API key authentication.
+
+Response Example
+
+```
+{
+ "code": "0",
+ "data": [
+ {
+ "depId": "98765",
+ "txId": "0xabc123def456789...",
+ "addr": "0xdef456abc789012...",
+ "ccy": "USDT",
+ "chain": "ERC20",
+ "amt": "100.00000000",
+ "ts": "1714564800000"
+ }
+ ],
+ "msg": ""
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| depId | String | Deposit ID |
+| txId | String | On-chain transaction hash |
+| addr | String | Receiving deposit address |
+| ccy | String | Currency, e.g. `USDT`. Empty string if currency lookup fails. |
+| chain | String | Network/chain name, e.g. `ERC20`. Empty string if chain lookup fails. |
+| amt | String | Deposit amount |
+| ts | String | Data generation time. Unix timestamp in milliseconds, e.g. `1714564800000` |
+
+### Unlock Travel Rule deposit
+
+Submit originator information to unlock a deposit locked under the Travel Rule. If the deposit has already been unlocked, the request returns success without re-processing.
+
+#### Rate Limit: 3 requests per second
+
+#### Rate limit rule: User ID + IP
+
+#### Permission: Withdraw
+
+#### HTTP Request
+
+`POST /api/v5/asset/travel-rule/unlock`
+
+#### Request Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| depId | String | Yes | Locked deposit ID |
+| questionnaire | Object | Yes | Originator information. Required keys depend on the user's entity. |
+| > personType | String | Yes | Originator type. `1`: self (the depositor is the account holder); `2`: third party. |
+| > walletType | String | Yes | Source wallet type. `exchange`: exchange wallet; `private`: private wallet. |
+| > exchId | String | Conditional | Source exchange ID from Get exchange list (public). Use `0` if the exchange is not listed. Required when `walletType` = `exchange`. |
+| > exchName | String | Conditional | Source exchange name, e.g. `Example Exchange`. Required when `exchId` = `0`. |
+| > origFirstName | String | Conditional | Originator first name. Required for a natural person if `origCompanyName` is not provided. |
+| > origLastName | String | Conditional | Originator last name. Required for a natural person if `origCompanyName` is not provided. |
+| > origCompanyName | String | Conditional | Originator company name. Required for a legal entity if `origFirstName` and `origLastName` are not provided. |
+| > origCountry | String | Conditional | Originator country of residence, or country of registration for a legal entity. ISO 3166-1 alpha-2 code, e.g. `SG`. |
+| > origGeoAddress | String | Conditional | Full address on one line: street, town/city, state/province, postal code. |
+| > origDob | String | Conditional | Originator date of birth, or date of incorporation / registration for a legal entity, `YYYY-MM-DD`. |
+| > origPob | String | Conditional | Originator place of birth, or country of registration for a legal entity. ISO 3166-1 alpha-2 code, e.g. `SG`. |
+| > origNationality | String | Conditional | Originator nationality. ISO 3166-1 alpha-2 code, e.g. `SG`. Required for a natural person. |
+| > brazilClassificationCode | String | Conditional | Transfer purpose code. For deposits below USD 50,000, use an Annex I code. For deposits of USD 50,000 or more, use an Annex II code. Optional for OKX Brazil users for now; will become required. |
+
+Request Example
+
+```
+POST /api/v5/asset/travel-rule/unlock
+body
+```
+
+```
+{
+ "depId": "1234567890",
+ "questionnaire": {
+ "personType": "2",
+ "walletType": "exchange",
+ "exchId": "0",
+ "exchName": "Example Exchange",
+ "origFirstName": "Alex",
+ "origLastName": "Chen",
+ "origCountry": "SG",
+ "origGeoAddress": "123 Main St, Singapore 018956",
+ "origDob": "1990-01-01",
+ "origPob": "SG"
+ }
+}
+
+```
+
+Response Example
+
+```
+{
+ "code": "0",
+ "data": [{"result": true}],
+ "msg": ""
+}
+
+```
+
+#### Response Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| result | Boolean | `true`: unlock accepted — deposit released or was already unlocked.Empty `data` array: unlock failed — deposit remains locked. |
+
 ### Withdrawal
 
 Only supported withdrawal of assets from funding account. Common sub-account does not support withdrawal.

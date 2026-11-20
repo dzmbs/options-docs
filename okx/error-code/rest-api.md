@@ -730,7 +730,7 @@ No
 
 No
 
-### Funding
+### Funding [error-code-rest-api-funding]
 
 Error Code from 58000 to 58999
 
@@ -855,6 +855,11 @@ Error Code from 58000 to 58999
 | 58382 | 200 | Unable to process unlock request. Please retry via the user interface. |
 | 58383 | 200 | Deposit record not found. Unable to process unlock request. |
 | 58384 | 200 | Per local regulations, please provide accurate sender information. For exchange addresses, please also provide the exchange information and sender identity details. |
+| 58385 | 200 | Travel Rule questionnaire response format is invalid |
+| 58386 | 200 | Missing required field in the Travel Rule questionnaire response |
+| 58387 | 200 | Invalid enum value, country, or date in the Travel Rule questionnaire response |
+| 58388 | 200 | Control test required, please complete it in App/Web |
+| 58389 | 200 | Unlocking unsuccessful, reach out to CS for further details |
 | 58400 | 200 | Request Failed |
 | 58401 | 200 | Payment method is not supported |
 | 58402 | 200 | Invalid payment account |
