@@ -831,6 +831,7 @@ Error Code from 58000 to 58999
 | 58256 | 200 | You can withdraw stablecoins valued at up to {dailyLimit} {symbol} every 24 hours. You can still withdraw {quotaRemaining} {symbol}. |
 | 58257 | 200 | You can withdraw stablecoins valued at up to {monthlyLimit} {symbol} every month. You can still withdraw {quotaRemaining} {symbol}. |
 | 58258 | 200 | You can withdraw crypto valued at up to {dailyLimit} {symbol} every 24 hours. You can still withdraw {quotaRemaining} {symbol}. |
+| 58260 | 200 | Withdrawals are suspended due to delta risk control. Please adjust your positions to reduce your delta exposure and try again. |
 | 58300 | 200 | Deposit-address count exceeds the limit. |
 | 58301 | 200 | Deposit-address not exist. |
 | 58302 | 200 | Deposit-address needs tag. |
